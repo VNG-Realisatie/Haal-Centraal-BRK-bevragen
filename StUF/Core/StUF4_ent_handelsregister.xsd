@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:GEO="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie" xmlns:AG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen" xmlns:HR="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" elementFormDefault="qualified">
+	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
+	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie" schemaLocation="StUF4_ent_extern_geometrie.xsd"/>
+	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen" schemaLocation="StUF4_ent_adressengebouwen.xsd"/>
+	<simpleType name="ActiviteitCode">
+		<restriction base="string">
+			<pattern value="[0-9]{15}"/>
+		</restriction>
+	</simpleType>
+	<complexType name="Activiteit">
+		<sequence>
+			<element name="activiteitcode" type="HR:ActiviteitCode"/>
+			<element name="activiteit" type="CMN:Omschrijving"/>
+			<element name="indicatieHoofdactiviteit" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="EigenaarRelatie">
+		<complexContent>
+			<extension base="CMN:Relatie">
+				<sequence>
+					<element name="eigenaar" type="HR:eigenaar"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="eigenaar">
+		<sequence>
+			<element ref="CMN:abstractRechtspersoon"/>
+		</sequence>
+	</complexType>
+	<simpleType name="HandelsnaamVerkort">
+		<restriction base="string">
+			<maxLength value="45"/>
+		</restriction>
+	</simpleType>
+	<complexType name="Handelsnaam">
+		<sequence>
+			<element name="handelsnaam">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="200"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="verkorteNaam" type="HR:HandelsnaamVerkort" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<simpleType name="Identificatie">
+		<restriction base="int">
+			<pattern value="[0-9]{16}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="KvKNummer">
+		<restriction base="string">
+			<length value="8"/>
+		</restriction>
+	</simpleType>
+	<complexType name="MaatschappelijkeActiviteitBeperkt">
+		<sequence>
+			<element name="kvkNummer" type="HR:KvKNummer"/>
+			<element name="handelsnamen">
+				<complexType>
+					<sequence>
+						<element name="handelsnaam" type="HR:Handelsnaam" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="activiteiten">
+				<complexType>
+					<sequence>
+						<element name="activiteit" type="HR:Activiteit" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="eigenaar" type="HR:EigenaarRelatie"/>
+		</sequence>
+	</complexType>
+	<complexType name="MaatschappelijkeActiviteit">
+		<complexContent>
+			<extension base="HR:MaatschappelijkeActiviteitBeperkt">
+				<sequence>
+					<element name="datumAanvang" type="dateTime"/>
+					<element name="datumVoortzetting" type="dateTime" nillable="true"/>
+					<element name="datumEinde" type="dateTime" nillable="true"/>
+					<element name="inOnderzoek" type="HR:MaatschappelijkeActiviteitInOnderzoekMetagegeven" nillable="true"/>
+					<element name="oefentActiviteitUitIn" type="HR:VestigingBeperkt" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MaatschappelijkeActiviteitInOnderzoekMetagegeven">
+		<sequence>
+			<element name="kvkNummerInOnderzoek" type="boolean"/>
+			<element name="datumAanvangInOnderzoek" type="boolean"/>
+			<element name="datumVoortzettingInOnderzoek" type="boolean"/>
+			<element name="datumEindeInOnderzoek" type="boolean"/>
+			<element name="handelsnamenInOnderzoek" type="boolean"/>
+			<element name="activiteitenInOnderzoek" type="boolean"/>
+			<element name="eigenaarInOnderzoek" type="boolean"/>
+			<element name="oefentActiviteitUitInInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="MaatschappelijkeActiviteitRelatie">
+		<complexContent>
+			<extension base="CMN:Relatie">
+				<sequence>
+					<element name="maatschappelijkeActiviteit" type="HR:MaatschappelijkeActiviteitBeperkt"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="TyperingVestiging">
+		<restriction base="string">
+			<enumeration value="Hoofdvestiging"/>
+			<enumeration value="Nevenvestiging"/>
+		</restriction>
+	</simpleType>
+	<complexType name="VestigingBeperkt">
+		<sequence>
+			<element name="vestigingsNummer" type="HR:Vestigingsnummer"/>
+			<element name="handelsnamen">
+				<complexType>
+					<sequence>
+						<element name="handelsnaam" type="HR:Handelsnaam" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="typeringVestiging" type="HR:TyperingVestiging"/>
+			<element name="vestigingsAdres" type="CMN:NummeraanduidingBeperkt"/>
+		</sequence>
+	</complexType>
+	<complexType name="Vestiging">
+		<complexContent>
+			<extension base="HR:VestigingBeperkt">
+				<sequence>
+					<element name="datumAanvang" type="dateTime"/>
+					<element name="datumEinde" type="dateTime" nillable="true"/>
+					<element name="activiteiten">
+						<complexType>
+							<sequence>
+								<element name="activiteit" type="HR:Activiteit" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element ref="CMN:correspondentieAdres" minOccurs="0">
+						<annotation>
+							<documentation>Een provider kan een afgeleide van de AbstractCorrespondentieAdres complexType opgeven als correspondentie adres</documentation>
+						</annotation>
+					</element>
+					<!-- element name="correspondentieAdres" type="CMN:AbstractCorrespondentieAdres" minOccurs="0">
+						<annotation>
+							<documentation>Een provider kan een afgeleide van de AbstractCorrespondentieAdres complexType opgeven als correspondentie adres</documentation>
+						</annotation>
+					</element -->
+					<element name="telefoonnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
+					<element name="faxnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
+					<element name="emailadres" type="CMN:Emailadres" minOccurs="0"/>
+					<element name="url" type="CMN:Url" minOccurs="0"/>
+					<element name="bankrekening" type="CMN:Bankrekening" minOccurs="0"/>
+					<element name="inOnderzoek" type="HR:VestigingInOnderzoekMetagegeven"/>
+					<element name="oefentActiviteitenUitVoor" type="HR:MaatschappelijkeActiviteitRelatie"/>
+					<element name="hoofdLocatie" type="HR:AdresseerbaarObjectRelatie" minOccurs="0"/>
+					<element name="nevenLocaties">
+						<complexType>
+							<sequence>
+								<element name="adresseerbaarObject" type="HR:AdresseerbaarObjectRelatie" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VestigingInOnderzoekMetagegeven">
+		<sequence>
+			<element name="vestigingsNummerInOnderzoek" type="boolean"/>
+			<element name="handelsnamenInOnderzoek" type="boolean"/>
+			<element name="datumAanvangInOnderzoek" type="boolean"/>
+			<element name="datumEindeInOnderzoek" type="boolean"/>
+			<element name="vestigingsAdresInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<simpleType name="Vestigingsnummer">
+		<restriction base="string">
+			<length value="12"/>
+		</restriction>
+	</simpleType>
+	<complexType name="AdresseerbaarObjectRelatie">
+		<complexContent>
+			<extension base="CMN:Relatie">
+				<sequence>
+					<element name="adresseerbaarObject" type="CMN:AdresseerbaarObject"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+</schema>

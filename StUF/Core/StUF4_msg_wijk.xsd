@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:W="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk"
+		xmlns:BW="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4"
+		elementFormDefault="qualified"
+    version="v4.0"
+>
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_wijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk" />
+
+	<element name="ZoekWijkOpWijknaam">
+		<complexType>
+			<sequence>
+				<element name="wijknaam" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekWijkOpWijknaamResponse">
+		<complexType>
+			<sequence>
+				<element name="wijken" type="BW:Wijken" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekWijkOpGemeentenaam">
+		<complexType>
+			<sequence>
+				<element name="gemeentenaam" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekWijkOpGemeentenaamResponse">
+		<complexType>
+			<sequence>
+				<element name="wijken" type="BW:Wijken" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegWijkOpWijkcodeGemeenteCodeFilter">
+		<sequence>
+			<element name="wijkcode" type="int" />
+			<element name="gemeentecode" type="BCMN:GeenWildcardStringFilter" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegWijkOpWijkcodeGemeenteCode">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BW:RaadpleegWijkOpWijkcodeGemeenteCodeFilter" nillable="true"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegWijkOpWijkcodeGemeenteCodeResponse">
+		<complexType>
+			<sequence>
+				<element name="wijk" type="W:Wijk" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Wijken">
+		<sequence>
+			<element name="wijk" type="W:Wijk" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+</schema>

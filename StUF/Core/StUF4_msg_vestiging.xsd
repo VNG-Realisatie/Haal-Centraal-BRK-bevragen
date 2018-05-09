@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon"
+		xmlns:AG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen"
+		xmlns:HR="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister"
+		xmlns:VES="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging"
+		elementFormDefault="qualified"
+>
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_natuurlijkpersoon.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon"/>
+
+	<import
+		schemaLocation="StUF4_ent_adressengebouwen.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen"/>
+
+	<import
+		schemaLocation="StUF4_ent_handelsregister.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister"/>
+
+	<complexType name="VestigingenBeperkt">
+		<sequence>
+			<element name="vestigingBeperkt" type="HR:VestigingBeperkt" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+  <complexType name="ZoekVestigingOpHandelsnaamFilter">
+    <sequence>
+      <element name="handelsnaam" type="BCMN:StringFilter" />
+      <element name="inclusiefBeeindigdeVestigingen" type="boolean" />
+    </sequence>
+  </complexType>
+
+  <element name="ZoekVestigingOpHandelsnaam">
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:ZoekVestigingOpHandelsnaamFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekVestigingOpHandelsnaamResponse">
+		<complexType>
+			<sequence>
+				<element name="vestigingen" type="VES:VestigingenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+  <complexType name="ZoekVestigingOpKvKnummerFilter">
+    <sequence>
+      <element name="kvkNummer" type="HR:KvKNummer" />
+      <element name="inclusiefBeeindigdeVestigingen" type="boolean" />
+    </sequence>
+  </complexType>
+
+  <element name="ZoekVestigingOpKvKnummer">
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:ZoekVestigingOpKvKnummerFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekVestigingOpKvKnummerResponse">
+		<complexType>
+			<sequence>
+				<element name="vestigingen" type="VES:VestigingenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+  <complexType name="ZoekVestigingOpNummeraanduidingFilter">
+    <sequence>
+      <element name="identificatieNummeraanduiding" type="CMN:IdentificatieNummeraanduiding" />
+      <element name="inclusiefBeeindigdeVestigingen" type="boolean" />
+    </sequence>
+  </complexType>
+
+  <element name="ZoekVestigingOpNummeraanduiding">
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:ZoekVestigingOpNummeraanduidingFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekVestigingOpNummeraanduidingResponse">
+		<complexType>
+			<sequence>
+				<element name="vestigingen" type="VES:VestigingenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="ZoekVestigingOpBinnenlandsVestigingsadresFilter">
+		<sequence>
+			<element name="woonplaatsnaam" type="CMN:PlaatsNaam" />
+			<element name="naamOpenbareRuimte" type="BCMN:StringFilter" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0" />
+      <element name="inclusiefBeeindigdeVestigingen" type="boolean" />
+    </sequence>
+	</complexType>
+
+	<element name="ZoekVestigingOpBinnenlandsVestigingsadres">
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:ZoekVestigingOpBinnenlandsVestigingsadresFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekVestigingOpBinnenlandsVestigingsadresResponse">
+		<complexType>
+			<sequence>
+				<element name="vestigingen" type="VES:VestigingenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="ZoekVestigingOpPostcodeHuisnummerFilter">
+		<sequence>
+			<element name="postcode" type="CMN:Postcode" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0"/>
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0"/>
+			<element name="locatiebeschrijving" type="BCMN:GeenWildcardStringFilter" minOccurs="0"/>
+      <element name="inclusiefBeeindigdeVestigingen" type="boolean" />
+    </sequence>
+	</complexType>
+
+	<element name="ZoekVestigingOpPostcodeHuisnummer">
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:ZoekVestigingOpPostcodeHuisnummerFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekVestigingOpPostcodeHuisnummerResponse">
+		<complexType>
+			<sequence>
+				<element name="vestigingen" type="VES:VestigingenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+  <complexType name="RaadpleegVestigingFilter">
+    <sequence>
+      <element name="vestigingsnummer" type="HR:Vestigingsnummer" />
+    </sequence>
+  </complexType>
+
+  <element name="RaadpleegVestiging">
+		<annotation>
+			<documentation>Vraagbericht op basis van vestigingsnummer</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<element name="filter" type="VES:RaadpleegVestigingFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegVestigingResponse">
+		<complexType>
+			<sequence>
+				<element name="vestiging" type="HR:Vestiging" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

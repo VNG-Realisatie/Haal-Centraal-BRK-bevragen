@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:B="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt"
+		xmlns:W="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk"
+		xmlns:GEO="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie"
+		xmlns:AG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_adressengebouwen.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen" />
+
+	<import
+		schemaLocation="StUF4_ent_extern_geometrie.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie" />
+
+	<import
+		 schemaLocation="StUF4_ent_wijk.xsd"
+		 namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk" />
+		 
+	<complexType name="Buurt">
+		<sequence>
+			<element name="buurtcode" type="int" />
+			<element name="buurtnaam" type="string" />
+			<element name="buurtGeometrie" type="GEO:WellKnownText" minOccurs="0" />
+			<element name="periodeGeldigheid" type="CMN:Periode" />
+			<element name="wijk" type="W:Wijk" />
+		</sequence>
+	</complexType>
+
+</schema>

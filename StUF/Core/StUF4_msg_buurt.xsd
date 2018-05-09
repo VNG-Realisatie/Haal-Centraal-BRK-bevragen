@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:B="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt"
+		xmlns:BB="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Buurt"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Buurt"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_buurt.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt" />
+
+	<element name="ZoekBuurtOpBuurtnaam">
+		<complexType>
+			<sequence>
+				<element name="buurtnaam" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekBuurtOpBuurtnaamResponse">
+		<complexType>
+			<sequence>
+				<element name="buurten" type="BB:Buurten" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekBuurtOpWijknaam">
+		<complexType>
+			<sequence>
+				<element name="wijknaam" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekBuurtOpWijknaamResponse">
+		<complexType>
+			<sequence>
+				<element name="buurten" type="BB:Buurten" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekBuurtOpGemeentenaam">
+		<complexType>
+			<sequence>
+				<element name="gemeentenaam" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekBuurtOpGemeentenaamResponse">
+		<complexType>
+			<sequence>
+				<element name="buurten" type="BB:Buurten" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter">
+		<sequence>
+			<element name="buurtcode" type="int" />
+			<element name="wijkcode" type="int" />
+			<element name="gemeentecode" type="BCMN:GeenWildcardStringFilter" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCode">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BB:RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeResponse">
+		<complexType>
+			<sequence>
+				<element name="buurt" type="B:Buurt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Buurten">
+		<sequence>
+			<element name="buurt" type="B:Buurt" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+</schema>

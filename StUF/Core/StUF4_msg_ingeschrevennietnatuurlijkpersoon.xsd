@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:HR="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister"
+		xmlns:NNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon"
+		xmlns:MINNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurlijkPersoon"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurlijkPersoon"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_handelsregister.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" />
+
+	<import
+		schemaLocation="StUF4_ent_nietnatuurlijkpersoon.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" />
+
+	<complexType name="IngeschrevenNietNatuurlijkPersonenBeperkt">
+		<sequence>
+			<element name="ingeschrevenNietNatuurlijkPersoonBeperkt" type="NNP:IngeschrevenNietNatuurlijkPersoonBeperkt" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="IngeschrevenNietNatuurlijkPersonen">
+		<sequence>
+			<element name="ingeschrevenNietNatuurlijkPersoon" type="NNP:IngeschrevenNietNatuurlijkPersoon" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter">
+		<sequence>
+			<element name="statutaireNaam" type="BCMN:StringFilter" />
+		</sequence>
+	</complexType>
+	
+	<element name="ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam">
+		<complexType>
+			<sequence>
+				<element name="filter" type="MINNP:ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse">
+		<complexType>
+			<sequence>
+				<element name="ingeschrevenNietNatuurlijkPersonen" type="MINNP:IngeschrevenNietNatuurlijkPersonenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter">
+		<sequence>
+			<element name="postcode" type="CMN:Postcode" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer">
+		<complexType>
+			<sequence>
+				<element name="filter" type="MINNP:ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse">
+		<complexType>
+			<sequence>
+				<element name="ingeschrevenNietNatuurlijkPersonen" type="MINNP:IngeschrevenNietNatuurlijkPersonenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter">
+		<sequence>
+			<element name="woonplaatsnaam" type="CMN:PlaatsNaam" />
+			<element name="naamOpenbareRuimte" type="BCMN:StringFilter" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres">
+		<complexType>
+			<sequence>
+				<element name="filter" type="MINNP:ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse">
+		<complexType>
+			<sequence>
+				<element name="ingeschrevenNietNatuurlijkPersonen" type="MINNP:IngeschrevenNietNatuurlijkPersonenBeperkt" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin">
+		<complexType>
+			<sequence>
+				<element name="rsin" type="NNP:RechtspersonenEnSamenwerkingsverbandenInformatieNummer" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse">
+		<complexType>
+			<sequence>
+				<element name="ingeschrevenNietNatuurlijkPersoon" type="NNP:IngeschrevenNietNatuurlijkPersoon" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer">
+		<complexType>
+			<sequence>
+				<element name="kvkNummer" type="HR:KvKNummer" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse">
+		<complexType>
+			<sequence>
+				<element name="ingeschrevenNietNatuurlijkPersoon" type="NNP:IngeschrevenNietNatuurlijkPersoon" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:BAG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen"
+	targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen"
+	>
+	<types>
+		<xs:schema>
+			<xs:import schemaLocation="StUF4_msg_adressengebouwen.xsd"
+								 namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen"
+								 />
+		</xs:schema>
+	</types>
+	<message name="ZoekNummeraanduidingOpPostcodeEnHuisnummerIn">
+		<part name="parameters" element="BAG:ZoekNummeraanduidingOpPostcodeEnHuisnummer"/>
+	</message>
+	<message name="ZoekNummeraanduidingOpPostcodeEnHuisnummerOut">
+		<part name="parameters" element="BAG:ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse"/>
+	</message>
+	<message name="ZoekNummeraanduidingOpNaamOpenbareRuimteIn">
+		<part name="parameters" element="BAG:ZoekNummeraanduidingOpNaamOpenbareRuimte"/>
+	</message>
+	<message name="ZoekNummeraanduidingOpNaamOpenbareRuimteOut">
+		<part name="parameters" element="BAG:ZoekNummeraanduidingOpNaamOpenbareRuimteResponse"/>
+	</message>
+	<message name="ZoekOpenbareruimteOpNaamIn">
+		<part name="parameters" element="BAG:ZoekOpenbareruimteOpNaam"/>
+	</message>
+	<message name="ZoekOpenbareruimteOpNaamOut">
+		<part name="parameters" element="BAG:ZoekOpenbareruimteOpNaamResponse"/>
+	</message>
+	<message name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingIn">
+		<part name="parameters" element="BAG:RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding"/>
+	</message>
+	<message name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingOut">
+		<part name="parameters" element="BAG:RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse" />
+	</message>
+	<message name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieIn">
+		<part name="parameters" element="BAG:RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie"/>
+	</message>
+	<message name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieOut">
+		<part name="parameters" element="BAG:RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse" />
+	</message>
+	<message name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieIn">
+		<part name="parameters" element="BAG:RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie"/>
+	</message>
+	<message name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieOut">
+		<part name="parameters" element="BAG:RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse" />
+	</message>
+	<message name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieIn">
+		<part name="parameters" element="BAG:RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie"/>
+	</message>
+	<message name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieOut">
+		<part name="parameters" element="BAG:RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse" />
+	</message>
+  <message name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieIn">
+    <part name="parameters" element="BAG:RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie" />
+  </message>
+  <message name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieOut">
+    <part name="parameters" element="BAG:RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse" />
+  </message>
+	<portType name="BevraagAdressenGebouwen">
+		<operation name="ZoekNummeraanduidingOpPostcodeEnHuisnummer">
+			<input message="BAG:ZoekNummeraanduidingOpPostcodeEnHuisnummerIn"/>
+			<output message="BAG:ZoekNummeraanduidingOpPostcodeEnHuisnummerOut"/>
+		</operation>
+		<operation name="ZoekNummeraanduidingOpNaamOpenbareRuimte">
+			<input message="BAG:ZoekNummeraanduidingOpNaamOpenbareRuimteIn"/>
+			<output message="BAG:ZoekNummeraanduidingOpNaamOpenbareRuimteOut"/>
+		</operation>
+		<operation name="ZoekOpenbareruimteOpNaam">
+			<input message="BAG:ZoekOpenbareruimteOpNaamIn"/>
+			<output message="BAG:ZoekOpenbareruimteOpNaamOut"/>
+		</operation>
+		<operation name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding">
+			<input message="BAG:RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingIn"/>
+			<output message="BAG:RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingOut"/>
+		</operation>
+		<operation name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie">
+			<input message="BAG:RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieIn"/>
+			<output message="BAG:RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieOut"/>
+		</operation>
+		<operation name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie">
+			<input message="BAG:RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieIn"/>
+			<output message="BAG:RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieOut"/>
+		</operation>
+		<operation name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie">
+			<input message="BAG:RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieIn"/>
+			<output message="BAG:RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieOut"/>
+		</operation>
+    <operation name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie">
+      <input message="BAG:RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieIn"/>
+      <output message="BAG:RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieOut"/>
+    </operation>
+	</portType>
+	<binding name="SOAPBevraagAdressenGebouwen" type="BAG:BevraagAdressenGebouwen">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+		<operation name="ZoekNummeraanduidingOpPostcodeEnHuisnummer">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekNummeraanduidingOpPostcodeEnHuisnummer"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekNummeraanduidingOpNaamOpenbareRuimte">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekNummeraanduidingOpNaamOpenbareRuimte"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekOpenbareruimteOpNaam">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekOpenbareruimteOpNaam"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+    <operation name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie">
+      <soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+	</binding>
+	<service name="BevraagAdressenGebouwenService">
+		<port name="BevraagAdressenGebouwen" binding="BAG:SOAPBevraagAdressenGebouwen" />
+	</service>
+</definitions>

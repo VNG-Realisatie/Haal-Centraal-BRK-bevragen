@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" elementFormDefault="qualified" id="StUF4_ent_natuurlijkpersoon">
+	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
+	<element name="anderNatuurlijkPersoonBeperkt" type="NP:AnderNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+	<complexType name="AnderNatuurlijkPersoonBeperkt">
+		<complexContent>
+			<extension base="NP:NatuurlijkPersoonBeperkt">
+				<sequence>
+					<element name="nummerAnderNatuurlijkPersoon" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="BurgerServiceNummer">
+		<restriction base="string">
+			<maxLength value="9"/>
+			<pattern value="[0-9]{9}"/>
+		</restriction>
+	</simpleType>
+	<complexType name="Geboortedatum">
+		<sequence>
+			<element name="jaar">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1900"/>
+						<maxInclusive value="9999"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="maand" nillable="true">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1"/>
+						<maxInclusive value="12"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="dag" nillable="true">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1"/>
+						<maxInclusive value="31"/>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	<simpleType name="Geslachtsaanduiding">
+		<restriction base="string">
+			<enumeration value="Man"/>
+			<enumeration value="Vrouw"/>
+			<enumeration value="Onbekend"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="Geslachtsnaam">
+		<restriction base="string">
+			<maxLength value="200"/>
+		</restriction>
+	</simpleType>
+	<element name="natuurlijkPersoonBeperkt" type="NP:NatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+	<complexType name="NatuurlijkPersoonBeperkt">
+		<complexContent>
+			<extension base="CMN:AbstractRechtspersoonBase">
+				<sequence>
+					<element name="voorlettersAanschrijving" type="NP:Voorletters" minOccurs="0"/>
+					<element name="voornamen" type="NP:Voornamen" minOccurs="0"/>
+					<element name="voorvoegselGeslachtsnaam" type="NP:VoorvoegselGeslachtsnaam" minOccurs="0"/>
+					<element name="geslachtsnaam" type="NP:Geslachtsnaam"/>
+					<element name="geslachtsaanduiding" type="NP:Geslachtsaanduiding"/>
+					<element name="aanschrijfwijze" type="string" minOccurs="0"/>
+					<element name="geboorteDatum" type="NP:Geboortedatum" minOccurs="0"/>
+					<element name="verblijfsadres" type="CMN:VerblijfsAdresRelatie" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="NatuurlijkPersoonRelatie">
+		<complexContent>
+			<extension base="CMN:Relatie">
+				<sequence>
+					<element name="persoon" type="NP:NatuurlijkPersoonBeperkt"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="Voorletters">
+		<restriction base="string">
+			<maxLength value="20"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="Voornamen">
+		<restriction base="string">
+			<maxLength value="200"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="VoorvoegselGeslachtsnaam">
+		<restriction base="string">
+			<pattern value="[a-zA-Z]{0,10}"/>
+		</restriction>
+	</simpleType>
+</schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" elementFormDefault="qualified">
+	<complexType name="Fout">
+		<sequence>
+			<element name="code" type="string"/>
+			<element name="omschrijving" type="string"/>
+			<element name="detail" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<element name="Fout" type="BCMN:Fout"/>
+	<simpleType name="StringFilter">
+		<restriction base="string">
+			<pattern value="[%]{0,1}[a-zA-Z-\p{P}]{2,200}[%]{0,1}">
+				<annotation>
+					<documentation>
+            a-zA-Z-: match letters en de - teken
+            \p{P}: match diakrieten
+          </documentation>
+				</annotation>
+			</pattern>
+		</restriction>
+	</simpleType>
+	<simpleType name="DiakrietloosStringFilter">
+		<restriction base="string">
+			<pattern value="[%]{0,1}[a-zA-Z]{2,200}[%]{0,1}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="GeenWildcardStringFilter">
+		<restriction base="string">
+			<pattern value="[a-zA-Z]{2,200}"/>
+		</restriction>
+	</simpleType>
+</schema>

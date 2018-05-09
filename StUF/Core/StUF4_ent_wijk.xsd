@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema id="StUF4_ent_wijk"
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:W="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk"
+		xmlns:GEO="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie"
+		xmlns:AG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_adressengebouwen.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen" />
+
+	<import
+		schemaLocation="StUF4_ent_extern_geometrie.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie" />
+
+	<complexType name="Wijk">
+		<sequence>
+			<element name="wijkcode" type="int" />
+			<element name="wijknaam" type="string" />
+			<element name="wijkGeometrie" type="GEO:WellKnownText" minOccurs="0" />
+			<element name="periodeGeldigheid" type="CMN:Periode" />
+			<element name="gemeentenaam" type="CMN:PlaatsNaam" />
+			<element name="gemeentecode" type="CMN:Gemeentecodering" />
+		</sequence>
+	</complexType>
+</schema>

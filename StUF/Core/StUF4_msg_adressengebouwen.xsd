@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:AG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen"
+		xmlns:BAG="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_adressengebouwen.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen" />
+
+	<complexType name="ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter">
+		<sequence>
+			<element name="postcode" type="CMN:Postcode" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<element name="ZoekNummeraanduidingOpPostcodeEnHuisnummer">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter" nillable="true"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse">
+		<complexType>
+			<sequence>
+				<element name="nummeraanduidingen" type="BAG:Nummeraanduidingen" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="ZoekNummeraanduidingOpNaamOpenbareRuimteFilter">
+		<sequence>
+			<element name="naamOpenbareRuimte" type="BCMN:StringFilter" />
+      <element name="huisnummer" type="CMN:Huisnummer" />
+      <element name="woonplaatsNaam" type="CMN:PlaatsNaam" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="ZoekNummeraanduidingOpNaamOpenbareRuimte">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:ZoekNummeraanduidingOpNaamOpenbareRuimteFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekNummeraanduidingOpNaamOpenbareRuimteResponse">
+		<complexType>
+			<sequence>
+				<element name="nummeraanduidingen" type="BAG:Nummeraanduidingen" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekOpenbareruimteOpNaam">
+		<complexType>
+			<sequence>
+				<element name="naamOpenbareRuimte" type="BCMN:StringFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ZoekOpenbareruimteOpNaamResponse">
+		<complexType>
+			<sequence>
+				<element name="openbareruimtes" type="BAG:Openbareruimtes" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter">
+		<sequence>
+			<element name="identificatieNummeraanduiding" type="CMN:IdentificatieNummeraanduiding" />
+			<element name="inclusiefIngetrokkenLigplaatsen" type="boolean" />
+			<element name="inclusiefIngetrokkenStandplaatsen" type="boolean" />
+			<element name="inclusiefIngetrokkenVerblijfsobjecten" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse">
+		<complexType>
+			<sequence>
+				<element name="verblijfsobject" type="AG:Verblijfsobject" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter">
+		<sequence>
+			<element name="pandIdentificatie" type="BCMN:GeenWildcardStringFilter" />
+			<element name="inclusiefIngetrokkenVerblijfsobjecten" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse">
+		<complexType>
+			<sequence>
+				<element name="pand" type="AG:Pand" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter">
+		<sequence>
+			<element name="ligplaatsIdentificatie" type="BCMN:GeenWildcardStringFilter" />
+			<element name="inclusiefIngetrokkenLigplaatsen" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse">
+		<complexType>
+			<sequence>
+				<element name="ligplaats" type="AG:Ligplaats" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter">
+		<sequence>
+			<element name="standplaatsIdentificatie" type="BCMN:GeenWildcardStringFilter" />
+			<element name="inclusiefIngetrokkenStandplaatsen" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<element name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie">
+		<complexType>
+			<sequence>
+				<element name="filter" type="BAG:RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse">
+		<complexType>
+			<sequence>
+				<element name="standplaats" type="AG:Standplaats" nillable="true" />
+			</sequence>
+		</complexType>
+	</element>
+
+  <element name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie">
+    <complexType>
+      <sequence>
+        <element name="verblijfsobjectIdentificatie" type="BCMN:GeenWildcardStringFilter" nillable="true" />
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse">
+    <complexType>
+      <sequence>
+        <element name="verblijfsobject" type="AG:Verblijfsobject" nillable="true" />
+      </sequence>
+    </complexType>
+  </element>
+
+    <complexType name="Nummeraanduidingen">
+		<sequence>
+			<element name="nummeraanduiding" type="CMN:Nummeraanduiding" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Openbareruimtes">
+		<sequence>
+			<element name="openbareruimte" type="AG:Openbareruimte" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+</schema>

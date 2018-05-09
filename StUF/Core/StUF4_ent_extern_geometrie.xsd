@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema id="StUF4_ent_extern_geometrie"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie"
+		xmlns:GEO="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie"
+    elementFormDefault="qualified"
+>
+
+  <complexType name="WellKnownText">
+    <sequence>
+      <element name="representatie" type="string" />
+    </sequence>
+  </complexType>
+
+</schema>

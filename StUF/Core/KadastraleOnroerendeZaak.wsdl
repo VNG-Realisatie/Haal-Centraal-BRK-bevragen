@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:MKOZ="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak">
+	<types>
+		<xs:schema>
+			<xs:import schemaLocation="StUF4_msg_kadastraleonroerendezaak.xsd" namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak"/>
+		</xs:schema>
+	</types>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpNummeraanduidingIn">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpNummeraanduiding"/>
+	</message>
+	<message name="ZoekKadastraleOnroerendeZaakOpNummeraanduidingOut">
+		<part name="parameters" element="MKOZ:ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse"/>
+	</message>
+	<message name="RaadpleegKadastraleOnroerendeZaakIn">
+		<part name="parameters" element="MKOZ:RaadpleegKadastraleOnroerendeZaak"/>
+	</message>
+	<message name="RaadpleegKadastraleOnroerendeZaakOut">
+		<part name="parameters" element="MKOZ:RaadpleegKadastraleOnroerendeZaakResponse"/>
+	</message>
+	<message name="RaadpleegKadastraleOnroerendeZaakOpAanduidingIn">
+		<part name="parameters" element="MKOZ:RaadpleegKadastraleOnroerendeZaakOpAanduiding"/>
+	</message>
+	<message name="RaadpleegKadastraleOnroerendeZaakOpAanduidingOut">
+		<part name="parameters" element="MKOZ:RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse"/>
+	</message>
+	<portType name="BevraagKadastraleOnroerendeZaak">
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonOut"/>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonOut"/>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinOut"/>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerOut"/>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonOut"/>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpNummeraanduiding">
+			<input message="MKOZ:ZoekKadastraleOnroerendeZaakOpNummeraanduidingIn"/>
+			<output message="MKOZ:ZoekKadastraleOnroerendeZaakOpNummeraanduidingOut"/>
+		</operation>
+		<operation name="RaadpleegKadastraleOnroerendeZaak">
+			<input message="MKOZ:RaadpleegKadastraleOnroerendeZaakIn"/>
+			<output message="MKOZ:RaadpleegKadastraleOnroerendeZaakOut"/>
+		</operation>
+		<operation name="RaadpleegKadastraleOnroerendeZaakOpAanduiding">
+			<input message="MKOZ:RaadpleegKadastraleOnroerendeZaakOpAanduidingIn"/>
+			<output message="MKOZ:RaadpleegKadastraleOnroerendeZaakOpAanduidingOut"/>
+		</operation>
+	</portType>
+	<binding name="SOAPBevraagKadastraleOnroerendeZaak" type="MKOZ:BevraagKadastraleOnroerendeZaak">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"/>
+		<operation name="RaadpleegKadastraleOnroerendeZaakOpAanduiding">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaakOpAanduiding"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>-->
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ZoekKadastraleOnroerendeZaakOpNummeraanduiding">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpNummeraanduiding"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RaadpleegKadastraleOnroerendeZaak">
+			<soap:operation soapAction="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaak"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="BevraagKadastraleOnroerendeZaakService">
+		<port name="BevraagKadastraleOnroerendeZaak" binding="MKOZ:SOAPBevraagKadastraleOnroerendeZaak"/>
+	</service>-->
+</definitions>
