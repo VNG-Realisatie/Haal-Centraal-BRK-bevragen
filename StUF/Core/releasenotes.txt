@@ -1,3 +1,8 @@
+2018.05.14
+- StUF_ent_natuurlijkpersoon.xsd
+  Aangezien het doen van een extension op een extension op de abstractRechtspersoon, verspreid over 2 bestanden, problemen opleverde bij berichtvalidatie is de inhoud van het bestand StUF_ent_ingeschrevenpersoon in zijn geheel opgenomen in het bestand StUF_natuurlijkpersoon. Door deze aanpassing genereren de testberichten nu en kunnen alle subtypes van de abstractRechtspersoon met de toevoeging de attribute xsi_type: worden gebruikt. 
+- Voorbeeldberichten toegevoegd en werkend gemaakt. 
+
 2018.05.02
 - StUF4_msg_kadastraleonroerendezaak.xsd
   Appartementsindex omgenoemd naar Appartmentsvolgnummer
