@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" elementFormDefault="qualified" id="StUF4_ent_natuurlijkpersoon">
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
-	<element name="anderNatuurlijkPersoonBeperkt" type="NP:AnderNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
 	<complexType name="AnderNatuurlijkPersoonBeperkt">
 		<complexContent>
 			<extension base="NP:NatuurlijkPersoonBeperkt">
@@ -58,10 +56,9 @@
 			<maxLength value="200"/>
 		</restriction>
 	</simpleType>
-	<element name="natuurlijkPersoonBeperkt" type="NP:NatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
 	<complexType name="NatuurlijkPersoonBeperkt">
 		<complexContent>
-			<extension base="CMN:AbstractRechtspersoonBase">
+			<extension base="CMN:AbstractRechtspersoon">
 				<sequence>
 					<element name="voorlettersAanschrijving" type="NP:Voorletters" minOccurs="0"/>
 					<element name="voornamen" type="NP:Voornamen" minOccurs="0"/>
@@ -71,6 +68,15 @@
 					<element name="aanschrijfwijze" type="string" minOccurs="0"/>
 					<element name="geboorteDatum" type="NP:Geboortedatum" minOccurs="0"/>
 					<element name="verblijfsadres" type="CMN:VerblijfsAdresRelatie" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="IngeschrevenPersoonBeperkt">
+		<complexContent>
+			<extension base="NP:NatuurlijkPersoonBeperkt">
+				<sequence>
+					<element name="burgerservicenummer" type="NP:BurgerServiceNummer"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -99,4 +105,319 @@
 			<pattern value="[a-zA-Z]{0,10}"/>
 		</restriction>
 	</simpleType>
+		<simpleType name="AanduidingNaamgebruik">
+		<restriction base="string">
+			<enumeration value="E"/>
+			<enumeration value="N"/>
+			<enumeration value="P"/>
+			<enumeration value="V"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="Aanhef">
+		<restriction base="string">
+			<minLength value="1"/>
+			<maxLength value="50"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="AdellijkeTitelPredikaat">
+		<restriction base="string">
+			<enumeration value="Baron"/>
+			<enumeration value="Barones"/>
+			<enumeration value="Graaf"/>
+			<enumeration value="Gravin"/>
+			<enumeration value="Hertog"/>
+			<enumeration value="Hertogin"/>
+			<enumeration value="Jonkheer"/>
+			<enumeration value="Jonkvrouw"/>
+			<enumeration value="Markies"/>
+			<enumeration value="Markiezin"/>
+			<enumeration value="Prins"/>
+			<enumeration value="Prinses"/>
+			<enumeration value="Ridder"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="IndicatieGezag">
+		<restriction base="string">
+			<enumeration value="x_1">
+				<annotation>
+					<documentation>ouder1 heeft het gezag</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="x_2">
+				<annotation>
+					<documentation>ouder2 heeft het gezag</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="x_D">
+				<annotation>
+					<documentation>een of meer derden hebben het gezag</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="x_1D">
+				<annotation>
+					<documentation>ouder1 + een derde hebben het gezag</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="x_2D">
+				<annotation>
+					<documentation>ouder2 + een derde hebben het gezag</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="x_12">
+				<annotation>
+					<documentation>ouder1 + ouder2 hebben het gezag</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+	<complexType name="IngeschrevenPersoon">
+		<complexContent>
+			<extension base="NP:IngeschrevenPersoonBeperkt">
+				<sequence>
+					<element name="aanduidingNaamgebruik" type="NP:AanduidingNaamgebruik" nillable="true"/>
+					<element name="aanhefAanschrijving" type="NP:Aanhef" minOccurs="0"/>
+					<element name="voornamenAanschrijving" type="string" minOccurs="0"/>
+					<element name="geslachtsnaamAanschrijving" type="string"/>
+					<element name="adellijkeTitelOfPredikaat" type="NP:AdellijkeTitelPredikaat" nillable="true"/>
+					<element name="geboorteplaats" type="CMN:PlaatsNaam"/>
+					<element name="geboorteland" type="CMN:LandNaam"/>
+					<element name="kinderen">
+						<complexType>
+							<sequence>
+								<element name="kind" type="NP:NatuurlijkPersoonRelatie" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="ouders">
+						<complexType>
+							<sequence>
+								<element name="ouder" type="NP:NatuurlijkPersoonRelatie" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="partners">
+						<complexType>
+							<sequence>
+								<element name="partner" type="NP:NatuurlijkPersoonRelatie" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="overlijden" minOccurs="0">
+						<complexType>
+							<sequence>
+								<element name="overlijdensdatum" type="NP:Overlijdensdatum"/>
+								<element name="overlijdenPlaats" type="CMN:PlaatsNaam"/>
+								<element name="overlijdenLand" type="CMN:LandNaam"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="telefoonnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
+					<element name="faxnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
+					<element name="emailadres" type="CMN:Emailadres" minOccurs="0"/>
+					<element name="correspondentieadres" type="CMN:AbstractCorrespondentieAdres" minOccurs="0"/>
+					<element name="nationaliteiten">
+						<complexType>
+							<sequence>
+								<element name="nationaliteit" type="NP:Nationaliteit" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="bankrekening" type="CMN:Bankrekening" minOccurs="0"/>
+					<element name="verblijfstitels">
+						<complexType>
+							<sequence>
+								<element name="verblijftitel" type="NP:Verblijfstitel" minOccurs="0" maxOccurs="unbounded"/>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="inOnderzoek" type="NP:IngeschrevenPersoonInOnderzoekMetagegeven" minOccurs="0"/>
+					<element name="indicatieGezagMinderjarige" type="NP:IndicatieGezag" nillable="true"/>
+					<element name="redenOpschortingBijhouding" type="string" minOccurs="0"/>
+					<element name="indicatieGeheim" type="boolean"/>
+					<element name="datumOpschortingBijhouding" type="CMN:OnvolledigeDatum" nillable="true"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="IngeschrevenPersoonInOnderzoekMetagegeven">
+		<sequence>
+			<element name="burgerservicenummerInOnderzoek" type="boolean"/>
+			<element name="voornamenInOnderzoek" type="boolean"/>
+			<element name="adellijkeTitelPredikaatInOnderzoek" type="boolean"/>
+			<element name="voorvoegselGeslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geboortedatumInOnderzoek" type="boolean"/>
+			<element name="geboorteplaatsInOnderzoek" type="boolean"/>
+			<element name="geboortelandInOnderzoek" type="boolean"/>
+			<element name="kinderenInOnderzoek">
+				<complexType>
+					<sequence>
+						<element name="kindInOnderzoek" type="NP:KindInOnderzoekMetagegeven" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="oudersInOnderzoek">
+				<complexType>
+					<sequence>
+						<element name="ouderInOnderzoek" type="NP:OuderInOnderzoekMetagegeven" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="partnerInOnderzoek" type="NP:PartnerInOnderzoekMetagegeven" minOccurs="0"/>
+			<element name="verblijfsadresInOnderzoek" type="NP:VerblijfsadresInOnderzoekMetagegeven" minOccurs="0"/>
+			<element name="nationaliteitenInOnderzoek">
+				<complexType>
+					<sequence>
+						<element name="nationaliteitInOnderzoek" type="NP:NationaliteitInOnderzoekMetagegeven" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="overlijdenInOnderzoek" type="NP:OverlijdenInOnderzoekMetagegeven" minOccurs="0"/>
+			<element name="verblijfstitelInOnderzoek" type="NP:VerblijfstitelInOnderzoekMetagegeven" minOccurs="0"/>
+			<element name="indicatieGezagMinderjarigeInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="KindInOnderzoekMetagegeven">
+		<sequence>
+			<!--bij de kind is er geen geslachtsaanduiding en geen 'aanduiding naamgebruik' kenmerk dat in onderzoek kan staan. Daarom kan er niet van IngeschrevenPersoonInOnderzoek worden afgeleid-->
+			<element name="burgerservicenummerKind" type="NP:BurgerServiceNummer">
+				<annotation>
+					<documentation>Een ingeschreven persoon kan meerdere kinderen hebben. Om aan te geven welk kind in onderzoek staat wordt de bsn van het kind meegegeven</documentation>
+				</annotation>
+			</element>
+			<element name="burgerservicenummerInOnderzoek" type="boolean"/>
+			<element name="voornamenInOnderzoek" type="boolean"/>
+			<element name="voorvoegselGeslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geboortedatumInOnderzoek" type="boolean"/>
+			<element name="ingangsdatumGeldigheidInOnderzoek" type="boolean"/>
+			<element name="datumVanOpnemingInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="NationaliteitInOnderzoekMetagegeven">
+		<sequence>
+			<element name="periodeGeldigheidInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="Nationaliteit">
+		<sequence>
+			<element name="nationaliteitCode" type="string"/>
+			<element name="nationaliteitOmschrijving" type="NP:NationaliteitOmschrijving"/>
+			<element name="periodeGeldigheid" type="CMN:Periode"/>
+		</sequence>
+	</complexType>
+	<simpleType name="NationaliteitOmschrijving">
+		<restriction base="string">
+			<maxLength value="42"/>
+		</restriction>
+	</simpleType>
+	<complexType name="OuderInOnderzoekMetagegeven">
+		<complexContent>
+			<extension base="NP:IngeschrevenPersoonInOnderzoekMetagegeven">
+				<sequence>
+					<element name="burgerservicenummerOuder" type="NP:BurgerServiceNummer">
+						<annotation>
+							<documentation>
+								Een ingeschreven persoon kan maximaal 4 ouders hebben. Met dit bsn wordt aangegeven welke ouder wordt bedoeld
+							</documentation>
+						</annotation>
+					</element>
+					<element name="datumIngangFamilierechtelijkeBetrekkingInOnderzoek" type="boolean"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OverlijdenInOnderzoekMetagegeven">
+		<sequence>
+			<element name="datumOverlijdenInOnderzoek" type="boolean"/>
+			<element name="plaatsOverlijdenInOnderzoek" type="boolean"/>
+			<element name="landOverlijdenInOnderzoek" type="boolean"/>
+			<element name="datumVanOpnemingInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="Overlijdensdatum">
+		<annotation>
+			<documentation>Een overlijdensdatum instantie met jaar, maand en dag gelijk aan null geeft aan dat een persoon is overleden, maar dat het niet bekend is wanneer de persoon is overleden</documentation>
+		</annotation>
+		<sequence>
+			<element name="jaar" nillable="true">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1900"/>
+						<maxInclusive value="9999"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="maand" nillable="true">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1"/>
+						<maxInclusive value="12"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="dag" nillable="true">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1"/>
+						<maxInclusive value="31"/>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="PartnerInOnderzoekMetagegeven">
+		<sequence>
+			<!-- de burgerservicenummer van de partner hoeft niet worden meegegeven omdat een ingeschreven persoon maar 1 actuele partner kan hebben -->
+			<!-- bij de partner is er geen aanduiding naamgebruik kenmerk dat in onderzoek kan staan. Daarom kan er niet van IngeschrevenPersoonInOnderzoek worden afgeleid -->
+			<element name="burgerservicenummerInOnderzoek" type="boolean"/>
+			<element name="voornamenInOnderzoek" type="boolean"/>
+			<element name="voorvoegselGeslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geslachtsnaamInOnderzoek" type="boolean"/>
+			<element name="geboortedatumInOnderzoek" type="boolean"/>
+			<element name="ingangsdatumGeldigheidInOnderzoek" type="boolean"/>
+			<element name="datumVanOpnemingInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="VerblijfsadresInOnderzoekMetagegeven">
+		<sequence>
+			<element name="indificatieNummeraanduidingInOnderzoek" type="boolean"/>
+			<element name="postcodeInOnderzoek" type="boolean"/>
+			<element name="huisnummerInOnderzoek" type="boolean"/>
+			<element name="huisletterInOnderzoek" type="boolean"/>
+			<element name="huisnummerToevoegingInOnderzoek" type="boolean"/>
+			<element name="locatiebeschrijvingInOnderzoek" type="boolean"/>
+			<element name="naamOpenbareRuimteInOnderzoek" type="boolean"/>
+			<element name="woonplaatsNaamInOnderzoek" type="boolean"/>
+			<element name="woonplaatsIndificatieCodeInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="VerblijfplaatsRelatie">
+		<complexContent>
+			<extension base="CMN:Relatie">
+				<sequence>
+					<element name="woonadres" type="CMN:AbstractVerblijfsAdres"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Verblijfstitel">
+		<sequence>
+			<element name="aanduiding">
+				<simpleType>
+					<restriction base="int">
+						<pattern value="[0-9]{2}"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="omschrijving" type="string"/>
+			<element name="periodeGeldigheid" type="CMN:Periode"/>
+		</sequence>
+	</complexType>
+	<complexType name="VerblijfstitelInOnderzoekMetagegeven">
+		<sequence>
+			<element name="aanduidingInOnderzoek" type="boolean"/>
+			<element name="periodeGeldigheidInOnderzoek" type="boolean"/>
+		</sequence>
+	</complexType>
 </schema>

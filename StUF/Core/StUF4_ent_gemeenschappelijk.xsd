@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" elementFormDefault="qualified" version="1.0" id="StUF4_ent_gemeenschappelijk">
-	<element name="abstractAdres" type="CMN:AbstractAdresBase" abstract="true"/>
-	<complexType name="AbstractAdresBase">
+	<complexType name="AbstractAdres">
 		<sequence/>
 	</complexType>
-	<element name="correspondentieAdres" type="CMN:NummeraanduidingBeperkt" substitutionGroup="CMN:abstractCorrespondentieAdres"/>
-	<element name="abstractCorrespondentieAdres" type="CMN:AbstractCorrespondentieAdres" substitutionGroup="CMN:abstractAdres"/>
 	<complexType name="AbstractCorrespondentieAdres">
 		<complexContent>
-			<extension base="CMN:AbstractAdresBase"/>
+			<extension base="CMN:AbstractAdres"/>
 		</complexContent>
 	</complexType>
-	<element name="adres" type="CMN:NummeraanduidingBeperkt" substitutionGroup="CMN:abstractVerblijfsAdres"/>
-	<element name="abstractVerblijfsAdres" type="CMN:AbstractVerblijfsAdres" substitutionGroup="CMN:abstractCorrespondentieAdres"/>
 	<complexType name="AbstractVerblijfsAdres">
 		<complexContent>
 			<extension base="CMN:AbstractCorrespondentieAdres"/>
@@ -21,7 +16,7 @@
 	</complexType>
 	<complexType name="AdresseerbaarObject">
 		<sequence>
-			<element ref="CMN:adres"/>
+			<element name="adres" type="CMN:NummeraanduidingBeperkt"/>
 		</sequence>
 	</complexType>
 	<simpleType name="IdentificatieNummeraanduiding">
@@ -82,7 +77,7 @@
 		<complexContent>
 			<extension base="CMN:Relatie">
 				<sequence>
-					<element ref="CMN:adres"/>
+					<element name="adres" type="CMN:NummeraanduidingBeperkt"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -126,7 +121,7 @@
 		<complexContent>
 			<extension base="CMN:Relatie">
 				<sequence>
-					<element ref="CMN:adres"/>
+					<element name="adres" type="CMN:AbstractVerblijfsAdres"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -219,8 +214,7 @@
 			<pattern value="[1-9][0-9]{3}[A-Z]{2}"/>
 		</restriction>
 	</simpleType>
-	<element name="abstractRechtspersoon" type="CMN:AbstractRechtspersoonBase" abstract="true"/>
-	<complexType name="AbstractRechtspersoonBase">
+	<complexType name="AbstractRechtspersoon" abstract="false">
 		<sequence/>
 	</complexType>
 	<complexType name="Relatie">

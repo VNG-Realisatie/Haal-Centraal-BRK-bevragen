@@ -170,13 +170,7 @@
 			<element name="aandeelInRechtNoemer" type="int" minOccurs="0"/>
 			<element name="tenaamstellingExploitantcode" type="int" minOccurs="0"/>
 			<element name="tenaamstellingVerkregenNamensSamenwerkingsverband" type="int" minOccurs="0"/>
-			<element name="gerechtigde" minOccurs="0">
-				<complexType>
-					<sequence>
-						<element ref="CMN:abstractRechtspersoon"/>
-					</sequence>
-				</complexType>
-			</element>
+			<element name="gerechtigde" type="CMN:AbstractRechtspersoon" minOccurs="0"/>
 			<element name="wordtBezwaardDoor" minOccurs="0">
 				<complexType>
 					<sequence>
@@ -243,13 +237,7 @@
 			<element name="einddatumRecht" type="date" minOccurs="0"/>
 			<element name="datumBeginGeldigheid" type="CMN:OnvolledigeDatum" minOccurs="0"/>
 			<element name="datumEindeGeldigheid" type="CMN:OnvolledigeDatum" minOccurs="0"/>
-			<element name="heeftZekerheidsrecht" minOccurs="0">
-				<complexType>
-					<sequence>
-						<element ref="CMN:abstractRechtspersoon"/>
-					</sequence>
-				</complexType>
-			</element>
+			<element name="heeftZekerheidsrecht" type="CMN:AbstractRechtspersoon" minOccurs="0"/>
 			<element name="tenaamstelling" type="KOZ:Tenaamstelling" minOccurs="0"/>
 			<element name="codeAardBeslag" type="string" minOccurs="0"/>
 		</sequence>

@@ -1,20 +1,3 @@
-2018.05.09
-- StUF4_msg_ingeschrevenPersoon
-  Cosmetische aanpassing (loze spaties en regels verwijderd)
-- StUF4_ent_kadastraleonroerendezaak.xsd
-  Bij "gerechtigde" en bij "heeftzekerheidsrecht" de referentie naar de abstractRechtspersoon aangepast. De oude constructie maakte het onmogelijk valide berichten te maken. Door gebruik te maken van het attribute "SubstitutionGroup" is deze constructie praktisch toepasbaar gemaakt. 
-- StUF4_ent_ingeschrevenpersoon.xsd
-  Bij alle complextypes die een extension (of gedelegeerde extension) van een abstract waren is er een element toegevoegd met het attribute substitutionGroup met de waarde van het abstract en als type het eerdergenoemde complextype of een ref naar een element in CMN waarin dit geregeld is. 
-- StUF4-msg-kadastraleOnroerendeZaak
-De elementen "sectie" en "perceelnummer" het type string gegeven omdat de gewenste formaten niet passen in het pattern van het type "GeenWildcardStringFilter"
-Bij bericht RaadpleegKadastraleOnroerendeZaakResponse de elementnaam laten beginnen met een kleine letter. 
-- StUF4_ent_nietnatuurlijkpersoon.xsd
-Bij alle complextypes die een extension (of gedelegeerde extension) van een abstract waren is er een element toegevoegd met het attribute substitutionGroup met de waarde van het abstract en als type het eerdergenoemde complextype of een ref naar een element in CMN waarin dit geregeld is. 
-- StUF4_ent_gemeenschappelijk.xsd
-Bij alle complextypes die een extension (of gedelegeerde extension) van een abstract waren is er een element toegevoegd met het attribute substitutionGroup met de waarde van het abstract en als type het eerdergenoemde complextype of een ref naar een element in CMN waarin dit geregeld is. 
-- StUF4_ent_natuurlijkpersoon.xsd
-Bij alle complextypes die een extension (of gedelegeerde extension) van een abstract waren is er een element toegevoegd met het attribute substitutionGroup met de waarde van het abstract en als type het eerdergenoemde complextype of een ref naar een element in CMN waarin dit geregeld is. 
- 
 2018.05.02
 - StUF4_msg_kadastraleonroerendezaak.xsd
   Appartementsindex omgenoemd naar Appartmentsvolgnummer

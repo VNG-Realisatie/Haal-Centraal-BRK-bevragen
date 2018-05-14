@@ -1,61 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:NNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" elementFormDefault="qualified">
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
-	<element name="anderBuitenlandsNietNatuurlijkPersoonBeperkt" type="NNP:AnderBuitenlandsNietNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:NNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
 	<complexType name="AnderBuitenlandsNietNatuurlijkPersoonBeperkt">
 		<complexContent>
 			<extension base="NNP:NietNatuurlijkPersoonBeperkt">
-				<sequence/>
+				<sequence>
+				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
-	<element name="ingechrevenNietNatuurlijkPersoonBeperkt" type="NNP:IngeschrevenNietNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+
 	<complexType name="IngeschrevenNietNatuurlijkPersoonBeperkt">
 		<complexContent>
 			<extension base="NNP:NietNatuurlijkPersoonBeperkt">
 				<sequence>
-					<element name="rsin" type="NNP:RechtspersonenEnSamenwerkingsverbandenInformatieNummer"/>
-					<element name="rechtsvorm" type="string"/>
-					<element name="datumVoortzetting" type="CMN:OnvolledigeDatum" minOccurs="0"/>
-					<element name="bezoekAdres" type="CMN:NummeraanduidingRelatie" minOccurs="0"/>
+					<element name="rsin" type="NNP:RechtspersonenEnSamenwerkingsverbandenInformatieNummer" />
+					<element name="rechtsvorm" type="string" />
+					<element name="datumVoortzetting" type="CMN:OnvolledigeDatum" minOccurs="0" />
+					<element name="bezoekAdres" type="CMN:NummeraanduidingRelatie" minOccurs="0" />
 				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
-	<element name="ingeschrevenNietNatuurlijkPersoonBeperkt" type="NNP:IngeschrevenNietNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+
 	<complexType name="IngeschrevenNietNatuurlijkPersoon">
 		<complexContent>
 			<extension base="NNP:IngeschrevenNietNatuurlijkPersoonBeperkt">
 				<sequence>
-					<element name="postAdres" minOccurs="0">
-						<complexType>
-							<complexContent>
-								<extension base="CMN:AbstractCorrespondentieAdres">
-									<sequence/>
-								</extension>
-							</complexContent>
-						</complexType>
-					</element>
-					<element name="telefoonnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
-					<element name="faxnummer" type="CMN:Telefoonnummer" minOccurs="0"/>
-					<element name="emailadres" type="CMN:Emailadres" minOccurs="0"/>
+					<element name="postAdres" type="CMN:AbstractCorrespondentieAdres" minOccurs="0" />
+					<element name="telefoonnummer" type="CMN:Telefoonnummer" minOccurs="0" />
+					<element name="faxnummer" type="CMN:Telefoonnummer" minOccurs="0" />
+					<element name="emailadres" type="CMN:Emailadres" minOccurs="0" />
 				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
-	<element name="nietnatuurlijkPersoonBeperkt" type="NNP:NietNatuurlijkPersoonBeperkt" substitutionGroup="CMN:abstractRechtspersoon"/>
+
 	<complexType name="NietNatuurlijkPersoonBeperkt">
 		<complexContent>
-			<extension base="CMN:AbstractRechtspersoonBase">
+			<extension base="CMN:AbstractRechtspersoon">
 				<sequence>
-					<element name="statutaireNaam" type="string"/>
-					<element name="datumAanvang" type="dateTime"/>
-					<element name="datumBeeindiging" type="dateTime" nillable="true"/>
+					<element name="statutaireNaam" type="string" />
+					<element name="datumAanvang" type="dateTime" />
+					<element name="datumBeeindiging" type="dateTime" nillable="true" />
 				</sequence>
 			</extension>
 		</complexContent>
 	</complexType>
+
 	<simpleType name="RechtspersonenEnSamenwerkingsverbandenInformatieNummer">
-		<restriction base="string"/>
+		<restriction base="string" />
 	</simpleType>
+
 </schema>

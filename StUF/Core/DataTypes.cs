@@ -9,9093 +9,29 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", ClrNamespace="StUF4.Koppelvlak.Services.AdressenEnGebouwen")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", ClrNamespace="StUF4.Entiteiten.Gemeenschappelijk")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen", ClrNamespace="StUF4.Entiteiten.AdressenEnGebouwen")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie", ClrNamespace="StUF4.Extern.Entiteiten.Geometrie")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Buurt", ClrNamespace="StUF4.Koppelvlak.Services.Buurt")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt", ClrNamespace="StUF4.Entiteiten.Buurt")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie", ClrNamespace="StUF4.Extern.Entiteiten.Geometrie")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", ClrNamespace="StUF4.Entiteiten.Gemeenschappelijk")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk", ClrNamespace="StUF4.Entiteiten.Wijk")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
     "jkPersoon", ClrNamespace="StUF4.Koppelvlak.Services.NietNatuurlijkPersoon")]
-[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", ClrNamespace="StUF4.Koppelvlak.Services.NatuurlijkPersoon")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon", ClrNamespace="StUF4.Entiteiten.NietNatuurlijkPersoon")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon", ClrNamespace="StUF4.Entiteiten.NatuurlijkPersoon")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ClrNamespace="StUF4.Entiteiten.IngeschrevenPersoon")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+    "k", ClrNamespace="StUF4.Entiteiten.KadastraleOnroerendeZaak")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ClrNamespace="StUF4.Entiteiten.Handelsregister")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk", ClrNamespace="StUF4.Koppelvlak.Services.Gemeenschappelijk")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", ClrNamespace="StUF4.Koppelvlak.Services.NatuurlijkPersoon")]
+[assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
+    "", ClrNamespace="StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
     "it", ClrNamespace="StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", ClrNamespace="StUF4.Koppelvlak.Services.Vestiging")]
 [assembly: System.Runtime.Serialization.ContractNamespaceAttribute("http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4", ClrNamespace="StUF4.Koppelvlak.Services.Wijk")]
 
-
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter
-{
-    
-    private string postcodeField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Hoofdzaak
-{
-    
-    private object aandeelInMandeligheidTellerField;
-    
-    private object aandeelInMandeligheidNoemerField;
-    
-    private KadastraleOnroerendeZaakBeperkt kadastraleOnroerendeZaakField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public object aandeelInMandeligheidTeller
-    {
-        get
-        {
-            return this.aandeelInMandeligheidTellerField;
-        }
-        set
-        {
-            this.aandeelInMandeligheidTellerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public object aandeelInMandeligheidNoemer
-    {
-        get
-        {
-            return this.aandeelInMandeligheidNoemerField;
-        }
-        set
-        {
-            this.aandeelInMandeligheidNoemerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public KadastraleOnroerendeZaakBeperkt kadastraleOnroerendeZaak
-    {
-        get
-        {
-            return this.kadastraleOnroerendeZaakField;
-        }
-        set
-        {
-            this.kadastraleOnroerendeZaakField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(KadastraleOnroerendeZaak))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class KadastraleOnroerendeZaakBeperkt
-{
-    
-    private string kadastraleIdentificatieField;
-    
-    private OnvolledigeDatum datumBeginGeldigheidField;
-    
-    private OnvolledigeDatum datumEindeGeldigheidField;
-    
-    private string kadastraleGemeentecodeField;
-    
-    private string sectieField;
-    
-    private string perceelnummerField;
-    
-    private string appartementsrechtVolgnummerField;
-    
-    private NummeraanduidingBeperkt[] adressenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string kadastraleIdentificatie
-    {
-        get
-        {
-            return this.kadastraleIdentificatieField;
-        }
-        set
-        {
-            this.kadastraleIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public OnvolledigeDatum datumBeginGeldigheid
-    {
-        get
-        {
-            return this.datumBeginGeldigheidField;
-        }
-        set
-        {
-            this.datumBeginGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public OnvolledigeDatum datumEindeGeldigheid
-    {
-        get
-        {
-            return this.datumEindeGeldigheidField;
-        }
-        set
-        {
-            this.datumEindeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string kadastraleGemeentecode
-    {
-        get
-        {
-            return this.kadastraleGemeentecodeField;
-        }
-        set
-        {
-            this.kadastraleGemeentecodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string sectie
-    {
-        get
-        {
-            return this.sectieField;
-        }
-        set
-        {
-            this.sectieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string perceelnummer
-    {
-        get
-        {
-            return this.perceelnummerField;
-        }
-        set
-        {
-            this.perceelnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public string appartementsrechtVolgnummer
-    {
-        get
-        {
-            return this.appartementsrechtVolgnummerField;
-        }
-        set
-        {
-            this.appartementsrechtVolgnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("adres", IsNullable=false)]
-    public NummeraanduidingBeperkt[] adressen
-    {
-        get
-        {
-            return this.adressenField;
-        }
-        set
-        {
-            this.adressenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class OnvolledigeDatum
-{
-    
-    private int jaarField;
-    
-    private System.Nullable<int> maandField;
-    
-    private System.Nullable<int> dagField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int jaar
-    {
-        get
-        {
-            return this.jaarField;
-        }
-        set
-        {
-            this.jaarField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<int> maand
-    {
-        get
-        {
-            return this.maandField;
-        }
-        set
-        {
-            this.maandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-    public System.Nullable<int> dag
-    {
-        get
-        {
-            return this.dagField;
-        }
-        set
-        {
-            this.dagField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Nummeraanduiding))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class NummeraanduidingBeperkt : AbstractVerblijfsAdresType
-{
-    
-    private string identificatieNummeraanduidingField;
-    
-    private string postcodeField;
-    
-    private int huisnummerField;
-    
-    private bool huisnummerFieldSpecified;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string naamOpenbareRuimteField;
-    
-    private string woonplaatsNaamField;
-    
-    private string woonplaatsIdentificatieField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatieNummeraanduiding
-    {
-        get
-        {
-            return this.identificatieNummeraanduidingField;
-        }
-        set
-        {
-            this.identificatieNummeraanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool huisnummerSpecified
-    {
-        get
-        {
-            return this.huisnummerFieldSpecified;
-        }
-        set
-        {
-            this.huisnummerFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public string woonplaatsNaam
-    {
-        get
-        {
-            return this.woonplaatsNaamField;
-        }
-        set
-        {
-            this.woonplaatsNaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public string woonplaatsIdentificatie
-    {
-        get
-        {
-            return this.woonplaatsIdentificatieField;
-        }
-        set
-        {
-            this.woonplaatsIdentificatieField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AdresBuitenland))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NummeraanduidingBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Nummeraanduiding))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AbstractVerblijfsAdresType : AbstractCorrespondentieAdresType
-{
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Antwoordnummer))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Postbusnummer))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractVerblijfsAdresType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AdresBuitenland))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NummeraanduidingBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Nummeraanduiding))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AbstractCorrespondentieAdresType : AbstractAdresBase
-{
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractCorrespondentieAdresType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Antwoordnummer))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Postbusnummer))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AbstractVerblijfsAdresType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AdresBuitenland))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NummeraanduidingBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Nummeraanduiding))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AbstractAdresBase
-{
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Antwoordnummer : AbstractCorrespondentieAdresType
-{
-    
-    private int nummerField;
-    
-    private string postcodeField;
-    
-    private string gemeenteField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int nummer
-    {
-        get
-        {
-            return this.nummerField;
-        }
-        set
-        {
-            this.nummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string Postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string Gemeente
-    {
-        get
-        {
-            return this.gemeenteField;
-        }
-        set
-        {
-            this.gemeenteField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Postbusnummer : AbstractCorrespondentieAdresType
-{
-    
-    private int nummerField;
-    
-    private string postcodeField;
-    
-    private string gemeenteField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int nummer
-    {
-        get
-        {
-            return this.nummerField;
-        }
-        set
-        {
-            this.nummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string Postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string Gemeente
-    {
-        get
-        {
-            return this.gemeenteField;
-        }
-        set
-        {
-            this.gemeenteField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AdresBuitenland : AbstractVerblijfsAdresType
-{
-    
-    private string landcodeField;
-    
-    private string landnaamField;
-    
-    private string adresBuitenland1Field;
-    
-    private string adresBuitenland2Field;
-    
-    private string adresBuitenland3Field;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string landcode
-    {
-        get
-        {
-            return this.landcodeField;
-        }
-        set
-        {
-            this.landcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string landnaam
-    {
-        get
-        {
-            return this.landnaamField;
-        }
-        set
-        {
-            this.landnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string adresBuitenland1
-    {
-        get
-        {
-            return this.adresBuitenland1Field;
-        }
-        set
-        {
-            this.adresBuitenland1Field = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string adresBuitenland2
-    {
-        get
-        {
-            return this.adresBuitenland2Field;
-        }
-        set
-        {
-            this.adresBuitenland2Field = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string adresBuitenland3
-    {
-        get
-        {
-            return this.adresBuitenland3Field;
-        }
-        set
-        {
-            this.adresBuitenland3Field = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Nummeraanduiding : NummeraanduidingBeperkt
-{
-    
-    private int nummeraanduidingStatusField;
-    
-    private bool indicatieHoofdadresField;
-    
-    private string indicatieGeconstateerdeNummeraanduidingField;
-    
-    private AdresseerbaarObject hoofdadresVanField;
-    
-    private AdresseerbaarObject[] nevenadresVanField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int nummeraanduidingStatus
-    {
-        get
-        {
-            return this.nummeraanduidingStatusField;
-        }
-        set
-        {
-            this.nummeraanduidingStatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool indicatieHoofdadres
-    {
-        get
-        {
-            return this.indicatieHoofdadresField;
-        }
-        set
-        {
-            this.indicatieHoofdadresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string indicatieGeconstateerdeNummeraanduiding
-    {
-        get
-        {
-            return this.indicatieGeconstateerdeNummeraanduidingField;
-        }
-        set
-        {
-            this.indicatieGeconstateerdeNummeraanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public AdresseerbaarObject hoofdadresVan
-    {
-        get
-        {
-            return this.hoofdadresVanField;
-        }
-        set
-        {
-            this.hoofdadresVanField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("adresseerbaarObject", IsNullable=false)]
-    public AdresseerbaarObject[] nevenadresVan
-    {
-        get
-        {
-            return this.nevenadresVanField;
-        }
-        set
-        {
-            this.nevenadresVanField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Verblijfsobject))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Standplaats))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Ligplaats))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AdresseerbaarObject
-{
-    
-    private NummeraanduidingBeperkt adresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public NummeraanduidingBeperkt adres
-    {
-        get
-        {
-            return this.adresField;
-        }
-        set
-        {
-            this.adresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Verblijfsobject : AdresseerbaarObject
-{
-    
-    private System.Nullable<int> aantalKamersField;
-    
-    private System.Nullable<int> hoogsteBouwlaagVerblijfsobjectField;
-    
-    private string indicatieGeconstateerdVerblijfsobjectField;
-    
-    private System.Nullable<int> laagsteBouwlaagVerblijfsobjectField;
-    
-    private string ontsluitingVerdiepingField;
-    
-    private string soortWoonobjectField;
-    
-    private int toegangBouwlaagVerblijfsobjectField;
-    
-    private string verblijfsobjectidentificatieField;
-    
-    private int verblijfsobjectStatusField;
-    
-    private WellKnownText puntGeometrieField;
-    
-    private PandBeperkt[] maaktDeelUitVanField;
-    
-    private BouwkundigeBestemming[] bouwkundigeBestemmingenActueelField;
-    
-    private System.Nullable<int> brutoInhoudField;
-    
-    private Periode periodeGeldigheidField;
-    
-    private string[] gebruiksdoelenGebouwdObjectField;
-    
-    private string inwinningswijzeOppervlakteField;
-    
-    private System.Nullable<int> oppervlakteVerblijfsobjectField;
-    
-    private string statusVoortgangBouwField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-    public System.Nullable<int> aantalKamers
-    {
-        get
-        {
-            return this.aantalKamersField;
-        }
-        set
-        {
-            this.aantalKamersField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<int> hoogsteBouwlaagVerblijfsobject
-    {
-        get
-        {
-            return this.hoogsteBouwlaagVerblijfsobjectField;
-        }
-        set
-        {
-            this.hoogsteBouwlaagVerblijfsobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string indicatieGeconstateerdVerblijfsobject
-    {
-        get
-        {
-            return this.indicatieGeconstateerdVerblijfsobjectField;
-        }
-        set
-        {
-            this.indicatieGeconstateerdVerblijfsobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
-    public System.Nullable<int> laagsteBouwlaagVerblijfsobject
-    {
-        get
-        {
-            return this.laagsteBouwlaagVerblijfsobjectField;
-        }
-        set
-        {
-            this.laagsteBouwlaagVerblijfsobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string ontsluitingVerdieping
-    {
-        get
-        {
-            return this.ontsluitingVerdiepingField;
-        }
-        set
-        {
-            this.ontsluitingVerdiepingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string soortWoonobject
-    {
-        get
-        {
-            return this.soortWoonobjectField;
-        }
-        set
-        {
-            this.soortWoonobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public int toegangBouwlaagVerblijfsobject
-    {
-        get
-        {
-            return this.toegangBouwlaagVerblijfsobjectField;
-        }
-        set
-        {
-            this.toegangBouwlaagVerblijfsobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public string verblijfsobjectidentificatie
-    {
-        get
-        {
-            return this.verblijfsobjectidentificatieField;
-        }
-        set
-        {
-            this.verblijfsobjectidentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public int verblijfsobjectStatus
-    {
-        get
-        {
-            return this.verblijfsobjectStatusField;
-        }
-        set
-        {
-            this.verblijfsobjectStatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-    public WellKnownText puntGeometrie
-    {
-        get
-        {
-            return this.puntGeometrieField;
-        }
-        set
-        {
-            this.puntGeometrieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=10)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("pand", IsNullable=false)]
-    public PandBeperkt[] maaktDeelUitVan
-    {
-        get
-        {
-            return this.maaktDeelUitVanField;
-        }
-        set
-        {
-            this.maaktDeelUitVanField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=11)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("bouwkundigeBestemmingActueel", IsNullable=false)]
-    public BouwkundigeBestemming[] bouwkundigeBestemmingenActueel
-    {
-        get
-        {
-            return this.bouwkundigeBestemmingenActueelField;
-        }
-        set
-        {
-            this.bouwkundigeBestemmingenActueelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
-    public System.Nullable<int> brutoInhoud
-    {
-        get
-        {
-            return this.brutoInhoudField;
-        }
-        set
-        {
-            this.brutoInhoudField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=14)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("gebruiksdoelGebouwdObject", IsNullable=false)]
-    public string[] gebruiksdoelenGebouwdObject
-    {
-        get
-        {
-            return this.gebruiksdoelenGebouwdObjectField;
-        }
-        set
-        {
-            this.gebruiksdoelenGebouwdObjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-    public string inwinningswijzeOppervlakte
-    {
-        get
-        {
-            return this.inwinningswijzeOppervlakteField;
-        }
-        set
-        {
-            this.inwinningswijzeOppervlakteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=16)]
-    public System.Nullable<int> oppervlakteVerblijfsobject
-    {
-        get
-        {
-            return this.oppervlakteVerblijfsobjectField;
-        }
-        set
-        {
-            this.oppervlakteVerblijfsobjectField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=17)]
-    public string statusVoortgangBouw
-    {
-        get
-        {
-            return this.statusVoortgangBouwField;
-        }
-        set
-        {
-            this.statusVoortgangBouwField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie")]
-public partial class WellKnownText
-{
-    
-    private string representatieField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string representatie
-    {
-        get
-        {
-            return this.representatieField;
-        }
-        set
-        {
-            this.representatieField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Pand))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class PandBeperkt
-{
-    
-    private string pandIdentificatieField;
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string pandIdentificatie
-    {
-        get
-        {
-            return this.pandIdentificatieField;
-        }
-        set
-        {
-            this.pandIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Periode
-{
-    
-    private System.DateTime vanField;
-    
-    private System.Nullable<System.DateTime> totEnMetField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public System.DateTime van
-    {
-        get
-        {
-            return this.vanField;
-        }
-        set
-        {
-            this.vanField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<System.DateTime> totEnMet
-    {
-        get
-        {
-            return this.totEnMetField;
-        }
-        set
-        {
-            this.totEnMetField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Pand : PandBeperkt
-{
-    
-    private System.Nullable<int> brutoInhoudField;
-    
-    private int hoogsteBouwlaagPandField;
-    
-    private string indicatieGeconstateerdPandField;
-    
-    private string inwinningswijzeGeometrieBovenaanzichtField;
-    
-    private string inwinningswijzeGeometrieMaaiveldField;
-    
-    private int laagsteBouwlaagPandField;
-    
-    private System.Nullable<int> oorspronkelijkBouwjaarPandField;
-    
-    private System.Nullable<int> oppervlaktePandField;
-    
-    private WellKnownText pandGeometrieBovenaanzichtField;
-    
-    private WellKnownText pandGeometrieMaaiveldField;
-    
-    private string pandstatusField;
-    
-    private int relatieveHoogteliggingPandField;
-    
-    private string statusVoortgangBouwField;
-    
-    private Verblijfsobject[] verblijfsobjectenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-    public System.Nullable<int> brutoInhoud
-    {
-        get
-        {
-            return this.brutoInhoudField;
-        }
-        set
-        {
-            this.brutoInhoudField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int hoogsteBouwlaagPand
-    {
-        get
-        {
-            return this.hoogsteBouwlaagPandField;
-        }
-        set
-        {
-            this.hoogsteBouwlaagPandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string indicatieGeconstateerdPand
-    {
-        get
-        {
-            return this.indicatieGeconstateerdPandField;
-        }
-        set
-        {
-            this.indicatieGeconstateerdPandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string inwinningswijzeGeometrieBovenaanzicht
-    {
-        get
-        {
-            return this.inwinningswijzeGeometrieBovenaanzichtField;
-        }
-        set
-        {
-            this.inwinningswijzeGeometrieBovenaanzichtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string inwinningswijzeGeometrieMaaiveld
-    {
-        get
-        {
-            return this.inwinningswijzeGeometrieMaaiveldField;
-        }
-        set
-        {
-            this.inwinningswijzeGeometrieMaaiveldField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public int laagsteBouwlaagPand
-    {
-        get
-        {
-            return this.laagsteBouwlaagPandField;
-        }
-        set
-        {
-            this.laagsteBouwlaagPandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
-    public System.Nullable<int> oorspronkelijkBouwjaarPand
-    {
-        get
-        {
-            return this.oorspronkelijkBouwjaarPandField;
-        }
-        set
-        {
-            this.oorspronkelijkBouwjaarPandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
-    public System.Nullable<int> oppervlaktePand
-    {
-        get
-        {
-            return this.oppervlaktePandField;
-        }
-        set
-        {
-            this.oppervlaktePandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public WellKnownText pandGeometrieBovenaanzicht
-    {
-        get
-        {
-            return this.pandGeometrieBovenaanzichtField;
-        }
-        set
-        {
-            this.pandGeometrieBovenaanzichtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-    public WellKnownText pandGeometrieMaaiveld
-    {
-        get
-        {
-            return this.pandGeometrieMaaiveldField;
-        }
-        set
-        {
-            this.pandGeometrieMaaiveldField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-    public string pandstatus
-    {
-        get
-        {
-            return this.pandstatusField;
-        }
-        set
-        {
-            this.pandstatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-    public int relatieveHoogteliggingPand
-    {
-        get
-        {
-            return this.relatieveHoogteliggingPandField;
-        }
-        set
-        {
-            this.relatieveHoogteliggingPandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-    public string statusVoortgangBouw
-    {
-        get
-        {
-            return this.statusVoortgangBouwField;
-        }
-        set
-        {
-            this.statusVoortgangBouwField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=13)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("verblijfsobject", IsNullable=false)]
-    public Verblijfsobject[] verblijfsobjecten
-    {
-        get
-        {
-            return this.verblijfsobjectenField;
-        }
-        set
-        {
-            this.verblijfsobjectenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public enum BouwkundigeBestemming
-{
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor wonen")]
-    doeleindenvoorwonen,
-    
-    /// <remarks/>
-    eensgezinswoning,
-    
-    /// <remarks/>
-    bejaardenwoning,
-    
-    /// <remarks/>
-    recreatiewoning,
-    
-    /// <remarks/>
-    meergezinswoning,
-    
-    /// <remarks/>
-    dienstwoning,
-    
-    /// <remarks/>
-    zorgwoonverblijf,
-    
-    /// <remarks/>
-    aanleunwoonverblijf,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("bejaardenwoonverblijf (in bejaardenoord, centrale keuken)")]
-    bejaardenwoonverblijfinbejaardenoordcentralekeuken,
-    
-    /// <remarks/>
-    jongerenwooneenheid,
-    
-    /// <remarks/>
-    gehandicaptenwooneenheid,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor niet-wonen")]
-    doeleindenvoornietwonen,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor handel, horeca en bedrijf")]
-    doeleindenvoorhandelhorecaenbedrijf,
-    
-    /// <remarks/>
-    detailhandel,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("cafe/bar/restaurant")]
-    cafebarrestaurant,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("hotel/logies")]
-    hotellogies,
-    
-    /// <remarks/>
-    kantoor,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("opslag en distributie")]
-    opslagendistributie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("fabricage en productie")]
-    fabricageenproductie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("onderhoud en reparatie")]
-    onderhoudenreparatie,
-    
-    /// <remarks/>
-    laboratoria,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor handel, horeca en bedrijf")]
-    overigedoeleindenvoorhandelhorecaenbedrijf,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor cultuur")]
-    doeleindenvoorcultuur,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("wijk-/buurt-/verenigingsactiviteiten")]
-    wijkbuurtverenigingsactiviteiten,
-    
-    /// <remarks/>
-    congres,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("theater en concert")]
-    theaterenconcert,
-    
-    /// <remarks/>
-    musea,
-    
-    /// <remarks/>
-    expositie,
-    
-    /// <remarks/>
-    bioscoop,
-    
-    /// <remarks/>
-    bibliotheek,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor cultuur")]
-    overigedoeleindenvoorcultuur,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor recreatie")]
-    doeleindenvoorrecreatie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("sport buiten")]
-    sportbuiten,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("sport binnen")]
-    sportbinnen,
-    
-    /// <remarks/>
-    recreatie,
-    
-    /// <remarks/>
-    zwembad,
-    
-    /// <remarks/>
-    dierenverzorging,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("natuur en landschap")]
-    natuurenlandschap,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor recreatie")]
-    overigedoeleindenvoorrecreatie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor agrarisch bedrijf")]
-    doeleindenvooragrarischbedrijf,
-    
-    /// <remarks/>
-    akkerbouw,
-    
-    /// <remarks/>
-    veeteelt,
-    
-    /// <remarks/>
-    tuinbouw,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("gemengd bedrijf")]
-    gemengdbedrijf,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor agrarisch bedrijf")]
-    overigedoeleindenvooragrarischbedrijf,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor onderwijs")]
-    doeleindenvooronderwijs,
-    
-    /// <remarks/>
-    kinderopvang,
-    
-    /// <remarks/>
-    basisschool,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("algemeen voortgezet onderwijs")]
-    algemeenvoortgezetonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("hoger beroepsonderwijs")]
-    hogerberoepsonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("academisch onderwijs")]
-    academischonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("bijzonder onderwijs")]
-    bijzonderonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("vrijetijds onderwijs")]
-    vrijetijdsonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige onderwijs")]
-    overigeonderwijs,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor gezondheidszorg")]
-    doeleindenvoorgezondheidszorg,
-    
-    /// <remarks/>
-    ziekenhuis,
-    
-    /// <remarks/>
-    polikliniek,
-    
-    /// <remarks/>
-    praktijkruimte,
-    
-    /// <remarks/>
-    verpleegtehuis,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("verzorgingstehuis en bejaardentehuis")]
-    verzorgingstehuisenbejaardentehuis,
-    
-    /// <remarks/>
-    dagverblijf,
-    
-    /// <remarks/>
-    wijkverzorging,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("psychiatrische inrichting")]
-    psychiatrischeinrichting,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor gezondheidszorg")]
-    overigedoeleindenvoorgezondheidszorg,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor verkeer")]
-    doeleindenvoorverkeer,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("stalling (fietsen/auto\'s)")]
-    stallingfietsenautos,
-    
-    /// <remarks/>
-    wegverkeer,
-    
-    /// <remarks/>
-    spoorwegverkeer,
-    
-    /// <remarks/>
-    luchtvaart,
-    
-    /// <remarks/>
-    scheepvaart,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor verkeer")]
-    overigedoeleindenvoorverkeer,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("doeleinden voor nutsvoorzieningen")]
-    doeleindenvoornutsvoorzieningen,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("waternuts doeleinden")]
-    waternutsdoeleinden,
-    
-    /// <remarks/>
-    gas,
-    
-    /// <remarks/>
-    elektriciteit,
-    
-    /// <remarks/>
-    CAI,
-    
-    /// <remarks/>
-    telecommunicatie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("waterschaps en waterverdediging")]
-    waterschapsenwaterverdediging,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden voor nutsvoorzieningen")]
-    overigedoeleindenvoornutsvoorzieningen,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("andere doeleinden van openbaar nut")]
-    anderedoeleindenvanopenbaarnut,
-    
-    /// <remarks/>
-    gemeentehuis,
-    
-    /// <remarks/>
-    politie,
-    
-    /// <remarks/>
-    brandweer,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("gevangenis/gesticht")]
-    gevangenisgesticht,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("begraafplaats/crematorium")]
-    begraafplaatscrematorium,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("godsdienst (kerk, klooster e.d.)")]
-    godsdienstkerkkloostered,
-    
-    /// <remarks/>
-    defensie,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("overige doeleinden van openbaar nut")]
-    overigedoeleindenvanopenbaarnut,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Standplaats : AdresseerbaarObject
-{
-    
-    private string indicatieGeconstateerdeStandplaatsField;
-    
-    private string standplaatsIdentificatieField;
-    
-    private string standplaatsStatusField;
-    
-    private WellKnownText vlakGeometrieField;
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string indicatieGeconstateerdeStandplaats
-    {
-        get
-        {
-            return this.indicatieGeconstateerdeStandplaatsField;
-        }
-        set
-        {
-            this.indicatieGeconstateerdeStandplaatsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string standplaatsIdentificatie
-    {
-        get
-        {
-            return this.standplaatsIdentificatieField;
-        }
-        set
-        {
-            this.standplaatsIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string standplaatsStatus
-    {
-        get
-        {
-            return this.standplaatsStatusField;
-        }
-        set
-        {
-            this.standplaatsStatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public WellKnownText vlakGeometrie
-    {
-        get
-        {
-            return this.vlakGeometrieField;
-        }
-        set
-        {
-            this.vlakGeometrieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Ligplaats : AdresseerbaarObject
-{
-    
-    private string indicatieGeconstateerdeLigplaatsField;
-    
-    private string ligplaatsIdentificatieField;
-    
-    private string ligplaatsStatusField;
-    
-    private WellKnownText vlakGeometrieField;
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string indicatieGeconstateerdeLigplaats
-    {
-        get
-        {
-            return this.indicatieGeconstateerdeLigplaatsField;
-        }
-        set
-        {
-            this.indicatieGeconstateerdeLigplaatsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string ligplaatsIdentificatie
-    {
-        get
-        {
-            return this.ligplaatsIdentificatieField;
-        }
-        set
-        {
-            this.ligplaatsIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string ligplaatsStatus
-    {
-        get
-        {
-            return this.ligplaatsStatusField;
-        }
-        set
-        {
-            this.ligplaatsStatusField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public WellKnownText vlakGeometrie
-    {
-        get
-        {
-            return this.vlakGeometrieField;
-        }
-        set
-        {
-            this.vlakGeometrieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class KadastraleOnroerendeZaak : KadastraleOnroerendeZaakBeperkt
-{
-    
-    private KadastraleOnroerendeZaakIdentificatie[] isOntstaanUitField;
-    
-    private Koopsom koopsomField;
-    
-    private Landinrichtingsrente landinrichtingsrenteField;
-    
-    private CultuurOnbebouwd cultuurOnbebouwdField;
-    
-    private CultuurBebouwd cultuurBebouwdField;
-    
-    private string locatieomschrijvingField;
-    
-    private KadastraalPerceel kadastraalPerceelField;
-    
-    private ZakelijkRechtRelatie[] zakelijkRechtenField;
-    
-    private Zekerheidsstelling[] zekerheidsstellingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaak", IsNullable=false)]
-    public KadastraleOnroerendeZaakIdentificatie[] isOntstaanUit
-    {
-        get
-        {
-            return this.isOntstaanUitField;
-        }
-        set
-        {
-            this.isOntstaanUitField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Koopsom koopsom
-    {
-        get
-        {
-            return this.koopsomField;
-        }
-        set
-        {
-            this.koopsomField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public Landinrichtingsrente landinrichtingsrente
-    {
-        get
-        {
-            return this.landinrichtingsrenteField;
-        }
-        set
-        {
-            this.landinrichtingsrenteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public CultuurOnbebouwd cultuurOnbebouwd
-    {
-        get
-        {
-            return this.cultuurOnbebouwdField;
-        }
-        set
-        {
-            this.cultuurOnbebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public CultuurBebouwd cultuurBebouwd
-    {
-        get
-        {
-            return this.cultuurBebouwdField;
-        }
-        set
-        {
-            this.cultuurBebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string locatieomschrijving
-    {
-        get
-        {
-            return this.locatieomschrijvingField;
-        }
-        set
-        {
-            this.locatieomschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public KadastraalPerceel kadastraalPerceel
-    {
-        get
-        {
-            return this.kadastraalPerceelField;
-        }
-        set
-        {
-            this.kadastraalPerceelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("zakelijkRecht", IsNullable=false)]
-    public ZakelijkRechtRelatie[] zakelijkRechten
-    {
-        get
-        {
-            return this.zakelijkRechtenField;
-        }
-        set
-        {
-            this.zakelijkRechtenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("zekerheidsstelling", IsNullable=false)]
-    public Zekerheidsstelling[] zekerheidsstellingen
-    {
-        get
-        {
-            return this.zekerheidsstellingenField;
-        }
-        set
-        {
-            this.zekerheidsstellingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class KadastraleOnroerendeZaakIdentificatie
-{
-    
-    private string kadastraleIdentificatieField;
-    
-    private OnvolledigeDatum datumBeginGeldigheidField;
-    
-    private OnvolledigeDatum datumEindeGeldigheidField;
-    
-    private string kadastraleGemeentecodeField;
-    
-    private string sectieField;
-    
-    private string perceelnummerField;
-    
-    private string appartementsrechtvolgnummerField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string kadastraleIdentificatie
-    {
-        get
-        {
-            return this.kadastraleIdentificatieField;
-        }
-        set
-        {
-            this.kadastraleIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public OnvolledigeDatum datumBeginGeldigheid
-    {
-        get
-        {
-            return this.datumBeginGeldigheidField;
-        }
-        set
-        {
-            this.datumBeginGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public OnvolledigeDatum datumEindeGeldigheid
-    {
-        get
-        {
-            return this.datumEindeGeldigheidField;
-        }
-        set
-        {
-            this.datumEindeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string kadastraleGemeentecode
-    {
-        get
-        {
-            return this.kadastraleGemeentecodeField;
-        }
-        set
-        {
-            this.kadastraleGemeentecodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string sectie
-    {
-        get
-        {
-            return this.sectieField;
-        }
-        set
-        {
-            this.sectieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string perceelnummer
-    {
-        get
-        {
-            return this.perceelnummerField;
-        }
-        set
-        {
-            this.perceelnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public string appartementsrechtvolgnummer
-    {
-        get
-        {
-            return this.appartementsrechtvolgnummerField;
-        }
-        set
-        {
-            this.appartementsrechtvolgnummerField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Koopsom
-{
-    
-    private decimal bedragField;
-    
-    private bool bedragFieldSpecified;
-    
-    private int koopjaarField;
-    
-    private bool koopjaarFieldSpecified;
-    
-    private bool meerOnroerendgoedField;
-    
-    private bool meerOnroerendgoedFieldSpecified;
-    
-    private System.DateTime transactiedatumField;
-    
-    private bool transactiedatumFieldSpecified;
-    
-    private string valutasoortField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public decimal bedrag
-    {
-        get
-        {
-            return this.bedragField;
-        }
-        set
-        {
-            this.bedragField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool bedragSpecified
-    {
-        get
-        {
-            return this.bedragFieldSpecified;
-        }
-        set
-        {
-            this.bedragFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int koopjaar
-    {
-        get
-        {
-            return this.koopjaarField;
-        }
-        set
-        {
-            this.koopjaarField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool koopjaarSpecified
-    {
-        get
-        {
-            return this.koopjaarFieldSpecified;
-        }
-        set
-        {
-            this.koopjaarFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool meerOnroerendgoed
-    {
-        get
-        {
-            return this.meerOnroerendgoedField;
-        }
-        set
-        {
-            this.meerOnroerendgoedField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool meerOnroerendgoedSpecified
-    {
-        get
-        {
-            return this.meerOnroerendgoedFieldSpecified;
-        }
-        set
-        {
-            this.meerOnroerendgoedFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
-    public System.DateTime transactiedatum
-    {
-        get
-        {
-            return this.transactiedatumField;
-        }
-        set
-        {
-            this.transactiedatumField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool transactiedatumSpecified
-    {
-        get
-        {
-            return this.transactiedatumFieldSpecified;
-        }
-        set
-        {
-            this.transactiedatumFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string valutasoort
-    {
-        get
-        {
-            return this.valutasoortField;
-        }
-        set
-        {
-            this.valutasoortField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Landinrichtingsrente
-{
-    
-    private decimal bedragField;
-    
-    private bool bedragFieldSpecified;
-    
-    private int eindjaarField;
-    
-    private bool eindjaarFieldSpecified;
-    
-    private string valutasoortField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public decimal bedrag
-    {
-        get
-        {
-            return this.bedragField;
-        }
-        set
-        {
-            this.bedragField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool bedragSpecified
-    {
-        get
-        {
-            return this.bedragFieldSpecified;
-        }
-        set
-        {
-            this.bedragFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int eindjaar
-    {
-        get
-        {
-            return this.eindjaarField;
-        }
-        set
-        {
-            this.eindjaarField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool eindjaarSpecified
-    {
-        get
-        {
-            return this.eindjaarFieldSpecified;
-        }
-        set
-        {
-            this.eindjaarFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string valutasoort
-    {
-        get
-        {
-            return this.valutasoortField;
-        }
-        set
-        {
-            this.valutasoortField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class CultuurOnbebouwd
-{
-    
-    private int cultuurCodeOnbebouwdField;
-    
-    private bool cultuurCodeOnbebouwdFieldSpecified;
-    
-    private int naamCultuurCodeOnbebouwdField;
-    
-    private bool naamCultuurCodeOnbebouwdFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int cultuurCodeOnbebouwd
-    {
-        get
-        {
-            return this.cultuurCodeOnbebouwdField;
-        }
-        set
-        {
-            this.cultuurCodeOnbebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool cultuurCodeOnbebouwdSpecified
-    {
-        get
-        {
-            return this.cultuurCodeOnbebouwdFieldSpecified;
-        }
-        set
-        {
-            this.cultuurCodeOnbebouwdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int naamCultuurCodeOnbebouwd
-    {
-        get
-        {
-            return this.naamCultuurCodeOnbebouwdField;
-        }
-        set
-        {
-            this.naamCultuurCodeOnbebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool naamCultuurCodeOnbebouwdSpecified
-    {
-        get
-        {
-            return this.naamCultuurCodeOnbebouwdFieldSpecified;
-        }
-        set
-        {
-            this.naamCultuurCodeOnbebouwdFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class CultuurBebouwd
-{
-    
-    private int cultuurCodeBebouwdField;
-    
-    private bool cultuurCodeBebouwdFieldSpecified;
-    
-    private int naamCultuurCodeBebouwdField;
-    
-    private bool naamCultuurCodeBebouwdFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int cultuurCodeBebouwd
-    {
-        get
-        {
-            return this.cultuurCodeBebouwdField;
-        }
-        set
-        {
-            this.cultuurCodeBebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool cultuurCodeBebouwdSpecified
-    {
-        get
-        {
-            return this.cultuurCodeBebouwdFieldSpecified;
-        }
-        set
-        {
-            this.cultuurCodeBebouwdFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int naamCultuurCodeBebouwd
-    {
-        get
-        {
-            return this.naamCultuurCodeBebouwdField;
-        }
-        set
-        {
-            this.naamCultuurCodeBebouwdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool naamCultuurCodeBebouwdSpecified
-    {
-        get
-        {
-            return this.naamCultuurCodeBebouwdFieldSpecified;
-        }
-        set
-        {
-            this.naamCultuurCodeBebouwdFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class KadastraalPerceel
-{
-    
-    private string aanduidingSoortGrootteField;
-    
-    private WellKnownText begrenzingPerceelField;
-    
-    private decimal groottePerceelField;
-    
-    private bool groottePerceelFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string aanduidingSoortGrootte
-    {
-        get
-        {
-            return this.aanduidingSoortGrootteField;
-        }
-        set
-        {
-            this.aanduidingSoortGrootteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public WellKnownText begrenzingPerceel
-    {
-        get
-        {
-            return this.begrenzingPerceelField;
-        }
-        set
-        {
-            this.begrenzingPerceelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public decimal groottePerceel
-    {
-        get
-        {
-            return this.groottePerceelField;
-        }
-        set
-        {
-            this.groottePerceelField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool groottePerceelSpecified
-    {
-        get
-        {
-            return this.groottePerceelFieldSpecified;
-        }
-        set
-        {
-            this.groottePerceelFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class ZakelijkRechtRelatie : Relatie
-{
-    
-    private int identificatieZakelijkRechtField;
-    
-    private bool identificatieZakelijkRechtFieldSpecified;
-    
-    private int codeAardZakelijkRechtField;
-    
-    private bool codeAardZakelijkRechtFieldSpecified;
-    
-    private string naamZakelijkRechtField;
-    
-    private System.DateTime ingangsdatumRechtField;
-    
-    private bool ingangsdatumRechtFieldSpecified;
-    
-    private System.DateTime einddatumRechtField;
-    
-    private bool einddatumRechtFieldSpecified;
-    
-    private Tenaamstelling[] isBeperktTotField;
-    
-    private ZakelijkRechtRelatie[] isBelastMetField;
-    
-    private ZakelijkRechtRelatieIsBetrokkenBij isBetrokkenBijField;
-    
-    private ZakelijkRechtRelatieIsOntstaanUit isOntstaanUitField;
-    
-    private ZakelijkRechtRelatieIsBestemdTot isBestemdTotField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int identificatieZakelijkRecht
-    {
-        get
-        {
-            return this.identificatieZakelijkRechtField;
-        }
-        set
-        {
-            this.identificatieZakelijkRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool identificatieZakelijkRechtSpecified
-    {
-        get
-        {
-            return this.identificatieZakelijkRechtFieldSpecified;
-        }
-        set
-        {
-            this.identificatieZakelijkRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int codeAardZakelijkRecht
-    {
-        get
-        {
-            return this.codeAardZakelijkRechtField;
-        }
-        set
-        {
-            this.codeAardZakelijkRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool codeAardZakelijkRechtSpecified
-    {
-        get
-        {
-            return this.codeAardZakelijkRechtFieldSpecified;
-        }
-        set
-        {
-            this.codeAardZakelijkRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string naamZakelijkRecht
-    {
-        get
-        {
-            return this.naamZakelijkRechtField;
-        }
-        set
-        {
-            this.naamZakelijkRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
-    public System.DateTime ingangsdatumRecht
-    {
-        get
-        {
-            return this.ingangsdatumRechtField;
-        }
-        set
-        {
-            this.ingangsdatumRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool ingangsdatumRechtSpecified
-    {
-        get
-        {
-            return this.ingangsdatumRechtFieldSpecified;
-        }
-        set
-        {
-            this.ingangsdatumRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
-    public System.DateTime einddatumRecht
-    {
-        get
-        {
-            return this.einddatumRechtField;
-        }
-        set
-        {
-            this.einddatumRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool einddatumRechtSpecified
-    {
-        get
-        {
-            return this.einddatumRechtFieldSpecified;
-        }
-        set
-        {
-            this.einddatumRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=5)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("tenaamstelling", IsNullable=false)]
-    public Tenaamstelling[] isBeperktTot
-    {
-        get
-        {
-            return this.isBeperktTotField;
-        }
-        set
-        {
-            this.isBeperktTotField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("zakelijkRecht", IsNullable=false)]
-    public ZakelijkRechtRelatie[] isBelastMet
-    {
-        get
-        {
-            return this.isBelastMetField;
-        }
-        set
-        {
-            this.isBelastMetField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public ZakelijkRechtRelatieIsBetrokkenBij isBetrokkenBij
-    {
-        get
-        {
-            return this.isBetrokkenBijField;
-        }
-        set
-        {
-            this.isBetrokkenBijField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public ZakelijkRechtRelatieIsOntstaanUit isOntstaanUit
-    {
-        get
-        {
-            return this.isOntstaanUitField;
-        }
-        set
-        {
-            this.isOntstaanUitField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-    public ZakelijkRechtRelatieIsBestemdTot isBestemdTot
-    {
-        get
-        {
-            return this.isBestemdTotField;
-        }
-        set
-        {
-            this.isBestemdTotField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Tenaamstelling
-{
-    
-    private int tenaamstellingIdentificatieField;
-    
-    private bool tenaamstellingIdentificatieFieldSpecified;
-    
-    private int aandeelInRechtTellerField;
-    
-    private bool aandeelInRechtTellerFieldSpecified;
-    
-    private int aandeelInRechtNoemerField;
-    
-    private bool aandeelInRechtNoemerFieldSpecified;
-    
-    private int tenaamstellingExploitantcodeField;
-    
-    private bool tenaamstellingExploitantcodeFieldSpecified;
-    
-    private int tenaamstellingVerkregenNamensSamenwerkingsverbandField;
-    
-    private bool tenaamstellingVerkregenNamensSamenwerkingsverbandFieldSpecified;
-    
-    private TenaamstellingGerechtigde gerechtigdeField;
-    
-    private Zekerheidsstelling[] wordtBezwaardDoorField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int tenaamstellingIdentificatie
-    {
-        get
-        {
-            return this.tenaamstellingIdentificatieField;
-        }
-        set
-        {
-            this.tenaamstellingIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool tenaamstellingIdentificatieSpecified
-    {
-        get
-        {
-            return this.tenaamstellingIdentificatieFieldSpecified;
-        }
-        set
-        {
-            this.tenaamstellingIdentificatieFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int aandeelInRechtTeller
-    {
-        get
-        {
-            return this.aandeelInRechtTellerField;
-        }
-        set
-        {
-            this.aandeelInRechtTellerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool aandeelInRechtTellerSpecified
-    {
-        get
-        {
-            return this.aandeelInRechtTellerFieldSpecified;
-        }
-        set
-        {
-            this.aandeelInRechtTellerFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int aandeelInRechtNoemer
-    {
-        get
-        {
-            return this.aandeelInRechtNoemerField;
-        }
-        set
-        {
-            this.aandeelInRechtNoemerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool aandeelInRechtNoemerSpecified
-    {
-        get
-        {
-            return this.aandeelInRechtNoemerFieldSpecified;
-        }
-        set
-        {
-            this.aandeelInRechtNoemerFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public int tenaamstellingExploitantcode
-    {
-        get
-        {
-            return this.tenaamstellingExploitantcodeField;
-        }
-        set
-        {
-            this.tenaamstellingExploitantcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool tenaamstellingExploitantcodeSpecified
-    {
-        get
-        {
-            return this.tenaamstellingExploitantcodeFieldSpecified;
-        }
-        set
-        {
-            this.tenaamstellingExploitantcodeFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public int tenaamstellingVerkregenNamensSamenwerkingsverband
-    {
-        get
-        {
-            return this.tenaamstellingVerkregenNamensSamenwerkingsverbandField;
-        }
-        set
-        {
-            this.tenaamstellingVerkregenNamensSamenwerkingsverbandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool tenaamstellingVerkregenNamensSamenwerkingsverbandSpecified
-    {
-        get
-        {
-            return this.tenaamstellingVerkregenNamensSamenwerkingsverbandFieldSpecified;
-        }
-        set
-        {
-            this.tenaamstellingVerkregenNamensSamenwerkingsverbandFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public TenaamstellingGerechtigde gerechtigde
-    {
-        get
-        {
-            return this.gerechtigdeField;
-        }
-        set
-        {
-            this.gerechtigdeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=6)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("zekerheidsstelling", IsNullable=false)]
-    public Zekerheidsstelling[] wordtBezwaardDoor
-    {
-        get
-        {
-            return this.wordtBezwaardDoorField;
-        }
-        set
-        {
-            this.wordtBezwaardDoorField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class TenaamstellingGerechtigde
-{
-    
-    private AbstractRechtspersoonBase abstractRechtspersoonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", Order=0)]
-    public AbstractRechtspersoonBase abstractRechtspersoon
-    {
-        get
-        {
-            return this.abstractRechtspersoonField;
-        }
-        set
-        {
-            this.abstractRechtspersoonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NietNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenNietNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenNietNatuurlijkPersoon))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NatuurlijkPersoonBeperktType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AnderNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenPersoonBeperktType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenPersoonType))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class AbstractRechtspersoonBase
-{
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenNietNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenNietNatuurlijkPersoon))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
-public partial class NietNatuurlijkPersoonBeperkt : AbstractRechtspersoonBase
-{
-    
-    private string statutaireNaamField;
-    
-    private System.DateTime datumAanvangField;
-    
-    private System.Nullable<System.DateTime> datumBeeindigingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string statutaireNaam
-    {
-        get
-        {
-            return this.statutaireNaamField;
-        }
-        set
-        {
-            this.statutaireNaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public System.DateTime datumAanvang
-    {
-        get
-        {
-            return this.datumAanvangField;
-        }
-        set
-        {
-            this.datumAanvangField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-    public System.Nullable<System.DateTime> datumBeeindiging
-    {
-        get
-        {
-            return this.datumBeeindigingField;
-        }
-        set
-        {
-            this.datumBeeindigingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenNietNatuurlijkPersoon))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
-public partial class IngeschrevenNietNatuurlijkPersoonBeperkt : NietNatuurlijkPersoonBeperkt
-{
-    
-    private string rsinField;
-    
-    private string rechtsvormField;
-    
-    private OnvolledigeDatum datumVoortzettingField;
-    
-    private NummeraanduidingRelatie bezoekAdresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string rsin
-    {
-        get
-        {
-            return this.rsinField;
-        }
-        set
-        {
-            this.rsinField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string rechtsvorm
-    {
-        get
-        {
-            return this.rechtsvormField;
-        }
-        set
-        {
-            this.rechtsvormField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public OnvolledigeDatum datumVoortzetting
-    {
-        get
-        {
-            return this.datumVoortzettingField;
-        }
-        set
-        {
-            this.datumVoortzettingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public NummeraanduidingRelatie bezoekAdres
-    {
-        get
-        {
-            return this.bezoekAdresField;
-        }
-        set
-        {
-            this.bezoekAdresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class NummeraanduidingRelatie : Relatie
-{
-    
-    private NummeraanduidingBeperkt adresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public NummeraanduidingBeperkt adres
-    {
-        get
-        {
-            return this.adresField;
-        }
-        set
-        {
-            this.adresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AdresseerbaarObjectRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(MaatschappelijkeActiviteitRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(EigenaarRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ZakelijkRechtRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(VerblijfsAdresRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NummeraanduidingRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(VerblijfplaatsRelatie))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(NatuurlijkPersoonRelatie))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Relatie
-{
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class AdresseerbaarObjectRelatie : Relatie
-{
-    
-    private AdresseerbaarObject adresseerbaarObjectField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public AdresseerbaarObject adresseerbaarObject
-    {
-        get
-        {
-            return this.adresseerbaarObjectField;
-        }
-        set
-        {
-            this.adresseerbaarObjectField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class MaatschappelijkeActiviteitRelatie : Relatie
-{
-    
-    private MaatschappelijkeActiviteitBeperkt maatschappelijkeActiviteitField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public MaatschappelijkeActiviteitBeperkt maatschappelijkeActiviteit
-    {
-        get
-        {
-            return this.maatschappelijkeActiviteitField;
-        }
-        set
-        {
-            this.maatschappelijkeActiviteitField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(MaatschappelijkeActiviteit))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class MaatschappelijkeActiviteitBeperkt
-{
-    
-    private string kvkNummerField;
-    
-    private Handelsnaam[] handelsnamenField;
-    
-    private Activiteit[] activiteitenField;
-    
-    private EigenaarRelatie eigenaarField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string kvkNummer
-    {
-        get
-        {
-            return this.kvkNummerField;
-        }
-        set
-        {
-            this.kvkNummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("handelsnaam", IsNullable=false)]
-    public Handelsnaam[] handelsnamen
-    {
-        get
-        {
-            return this.handelsnamenField;
-        }
-        set
-        {
-            this.handelsnamenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("activiteit", IsNullable=false)]
-    public Activiteit[] activiteiten
-    {
-        get
-        {
-            return this.activiteitenField;
-        }
-        set
-        {
-            this.activiteitenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public EigenaarRelatie eigenaar
-    {
-        get
-        {
-            return this.eigenaarField;
-        }
-        set
-        {
-            this.eigenaarField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class Handelsnaam
-{
-    
-    private string handelsnaamField;
-    
-    private string verkorteNaamField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string handelsnaam
-    {
-        get
-        {
-            return this.handelsnaamField;
-        }
-        set
-        {
-            this.handelsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string verkorteNaam
-    {
-        get
-        {
-            return this.verkorteNaamField;
-        }
-        set
-        {
-            this.verkorteNaamField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class Activiteit
-{
-    
-    private string activiteitcodeField;
-    
-    private string activiteitField;
-    
-    private bool indicatieHoofdactiviteitField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string activiteitcode
-    {
-        get
-        {
-            return this.activiteitcodeField;
-        }
-        set
-        {
-            this.activiteitcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string activiteit
-    {
-        get
-        {
-            return this.activiteitField;
-        }
-        set
-        {
-            this.activiteitField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool indicatieHoofdactiviteit
-    {
-        get
-        {
-            return this.indicatieHoofdactiviteitField;
-        }
-        set
-        {
-            this.indicatieHoofdactiviteitField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class EigenaarRelatie : Relatie
-{
-    
-    private eigenaarType eigenaarField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public eigenaarType eigenaar
-    {
-        get
-        {
-            return this.eigenaarField;
-        }
-        set
-        {
-            this.eigenaarField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class eigenaarType
-{
-    
-    private AbstractRechtspersoonBase abstractRechtspersoonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", Order=0)]
-    public AbstractRechtspersoonBase abstractRechtspersoon
-    {
-        get
-        {
-            return this.abstractRechtspersoonField;
-        }
-        set
-        {
-            this.abstractRechtspersoonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class MaatschappelijkeActiviteit : MaatschappelijkeActiviteitBeperkt
-{
-    
-    private System.DateTime datumAanvangField;
-    
-    private System.Nullable<System.DateTime> datumVoortzettingField;
-    
-    private System.Nullable<System.DateTime> datumEindeField;
-    
-    private MaatschappelijkeActiviteitInOnderzoekMetagegeven inOnderzoekField;
-    
-    private VestigingBeperkt oefentActiviteitUitInField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public System.DateTime datumAanvang
-    {
-        get
-        {
-            return this.datumAanvangField;
-        }
-        set
-        {
-            this.datumAanvangField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<System.DateTime> datumVoortzetting
-    {
-        get
-        {
-            return this.datumVoortzettingField;
-        }
-        set
-        {
-            this.datumVoortzettingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-    public System.Nullable<System.DateTime> datumEinde
-    {
-        get
-        {
-            return this.datumEindeField;
-        }
-        set
-        {
-            this.datumEindeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
-    public MaatschappelijkeActiviteitInOnderzoekMetagegeven inOnderzoek
-    {
-        get
-        {
-            return this.inOnderzoekField;
-        }
-        set
-        {
-            this.inOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public VestigingBeperkt oefentActiviteitUitIn
-    {
-        get
-        {
-            return this.oefentActiviteitUitInField;
-        }
-        set
-        {
-            this.oefentActiviteitUitInField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class MaatschappelijkeActiviteitInOnderzoekMetagegeven
-{
-    
-    private bool kvkNummerInOnderzoekField;
-    
-    private bool datumAanvangInOnderzoekField;
-    
-    private bool datumVoortzettingInOnderzoekField;
-    
-    private bool datumEindeInOnderzoekField;
-    
-    private bool handelsnamenInOnderzoekField;
-    
-    private bool activiteitenInOnderzoekField;
-    
-    private bool eigenaarInOnderzoekField;
-    
-    private bool oefentActiviteitUitInInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool kvkNummerInOnderzoek
-    {
-        get
-        {
-            return this.kvkNummerInOnderzoekField;
-        }
-        set
-        {
-            this.kvkNummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool datumAanvangInOnderzoek
-    {
-        get
-        {
-            return this.datumAanvangInOnderzoekField;
-        }
-        set
-        {
-            this.datumAanvangInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool datumVoortzettingInOnderzoek
-    {
-        get
-        {
-            return this.datumVoortzettingInOnderzoekField;
-        }
-        set
-        {
-            this.datumVoortzettingInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool datumEindeInOnderzoek
-    {
-        get
-        {
-            return this.datumEindeInOnderzoekField;
-        }
-        set
-        {
-            this.datumEindeInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool handelsnamenInOnderzoek
-    {
-        get
-        {
-            return this.handelsnamenInOnderzoekField;
-        }
-        set
-        {
-            this.handelsnamenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool activiteitenInOnderzoek
-    {
-        get
-        {
-            return this.activiteitenInOnderzoekField;
-        }
-        set
-        {
-            this.activiteitenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool eigenaarInOnderzoek
-    {
-        get
-        {
-            return this.eigenaarInOnderzoekField;
-        }
-        set
-        {
-            this.eigenaarInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public bool oefentActiviteitUitInInOnderzoek
-    {
-        get
-        {
-            return this.oefentActiviteitUitInInOnderzoekField;
-        }
-        set
-        {
-            this.oefentActiviteitUitInInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(Vestiging))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class VestigingBeperkt
-{
-    
-    private string vestigingsNummerField;
-    
-    private Handelsnaam[] handelsnamenField;
-    
-    private TyperingVestiging typeringVestigingField;
-    
-    private NummeraanduidingBeperkt vestigingsAdresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string vestigingsNummer
-    {
-        get
-        {
-            return this.vestigingsNummerField;
-        }
-        set
-        {
-            this.vestigingsNummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("handelsnaam", IsNullable=false)]
-    public Handelsnaam[] handelsnamen
-    {
-        get
-        {
-            return this.handelsnamenField;
-        }
-        set
-        {
-            this.handelsnamenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public TyperingVestiging typeringVestiging
-    {
-        get
-        {
-            return this.typeringVestigingField;
-        }
-        set
-        {
-            this.typeringVestigingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public NummeraanduidingBeperkt vestigingsAdres
-    {
-        get
-        {
-            return this.vestigingsAdresField;
-        }
-        set
-        {
-            this.vestigingsAdresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public enum TyperingVestiging
-{
-    
-    /// <remarks/>
-    Hoofdvestiging,
-    
-    /// <remarks/>
-    Nevenvestiging,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class Vestiging : VestigingBeperkt
-{
-    
-    private System.DateTime datumAanvangField;
-    
-    private System.Nullable<System.DateTime> datumEindeField;
-    
-    private Activiteit[] activiteitenField;
-    
-    private NummeraanduidingBeperkt correspondentieAdresField;
-    
-    private string telefoonnummerField;
-    
-    private string faxnummerField;
-    
-    private string emailadresField;
-    
-    private string urlField;
-    
-    private Bankrekening bankrekeningField;
-    
-    private VestigingInOnderzoekMetagegeven inOnderzoekField;
-    
-    private MaatschappelijkeActiviteitRelatie oefentActiviteitenUitVoorField;
-    
-    private AdresseerbaarObjectRelatie hoofdLocatieField;
-    
-    private AdresseerbaarObjectRelatie[] nevenLocatiesField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public System.DateTime datumAanvang
-    {
-        get
-        {
-            return this.datumAanvangField;
-        }
-        set
-        {
-            this.datumAanvangField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<System.DateTime> datumEinde
-    {
-        get
-        {
-            return this.datumEindeField;
-        }
-        set
-        {
-            this.datumEindeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("activiteit", IsNullable=false)]
-    public Activiteit[] activiteiten
-    {
-        get
-        {
-            return this.activiteitenField;
-        }
-        set
-        {
-            this.activiteitenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", Order=3)]
-    public NummeraanduidingBeperkt correspondentieAdres
-    {
-        get
-        {
-            return this.correspondentieAdresField;
-        }
-        set
-        {
-            this.correspondentieAdresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string telefoonnummer
-    {
-        get
-        {
-            return this.telefoonnummerField;
-        }
-        set
-        {
-            this.telefoonnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string faxnummer
-    {
-        get
-        {
-            return this.faxnummerField;
-        }
-        set
-        {
-            this.faxnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public string emailadres
-    {
-        get
-        {
-            return this.emailadresField;
-        }
-        set
-        {
-            this.emailadresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public string url
-    {
-        get
-        {
-            return this.urlField;
-        }
-        set
-        {
-            this.urlField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public Bankrekening bankrekening
-    {
-        get
-        {
-            return this.bankrekeningField;
-        }
-        set
-        {
-            this.bankrekeningField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-    public VestigingInOnderzoekMetagegeven inOnderzoek
-    {
-        get
-        {
-            return this.inOnderzoekField;
-        }
-        set
-        {
-            this.inOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-    public MaatschappelijkeActiviteitRelatie oefentActiviteitenUitVoor
-    {
-        get
-        {
-            return this.oefentActiviteitenUitVoorField;
-        }
-        set
-        {
-            this.oefentActiviteitenUitVoorField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-    public AdresseerbaarObjectRelatie hoofdLocatie
-    {
-        get
-        {
-            return this.hoofdLocatieField;
-        }
-        set
-        {
-            this.hoofdLocatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=12)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("adresseerbaarObject", IsNullable=false)]
-    public AdresseerbaarObjectRelatie[] nevenLocaties
-    {
-        get
-        {
-            return this.nevenLocatiesField;
-        }
-        set
-        {
-            this.nevenLocatiesField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class Bankrekening
-{
-    
-    private string ibanField;
-    
-    private string bicField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string iban
-    {
-        get
-        {
-            return this.ibanField;
-        }
-        set
-        {
-            this.ibanField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string bic
-    {
-        get
-        {
-            return this.bicField;
-        }
-        set
-        {
-            this.bicField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
-public partial class VestigingInOnderzoekMetagegeven
-{
-    
-    private bool vestigingsNummerInOnderzoekField;
-    
-    private bool handelsnamenInOnderzoekField;
-    
-    private bool datumAanvangInOnderzoekField;
-    
-    private bool datumEindeInOnderzoekField;
-    
-    private bool vestigingsAdresInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool vestigingsNummerInOnderzoek
-    {
-        get
-        {
-            return this.vestigingsNummerInOnderzoekField;
-        }
-        set
-        {
-            this.vestigingsNummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool handelsnamenInOnderzoek
-    {
-        get
-        {
-            return this.handelsnamenInOnderzoekField;
-        }
-        set
-        {
-            this.handelsnamenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool datumAanvangInOnderzoek
-    {
-        get
-        {
-            return this.datumAanvangInOnderzoekField;
-        }
-        set
-        {
-            this.datumAanvangInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool datumEindeInOnderzoek
-    {
-        get
-        {
-            return this.datumEindeInOnderzoekField;
-        }
-        set
-        {
-            this.datumEindeInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool vestigingsAdresInOnderzoek
-    {
-        get
-        {
-            return this.vestigingsAdresInOnderzoekField;
-        }
-        set
-        {
-            this.vestigingsAdresInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-public partial class VerblijfsAdresRelatie : Relatie
-{
-    
-    private NummeraanduidingBeperkt adresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public NummeraanduidingBeperkt adres
-    {
-        get
-        {
-            return this.adresField;
-        }
-        set
-        {
-            this.adresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class VerblijfplaatsRelatie : Relatie
-{
-    
-    private NummeraanduidingBeperkt woonadresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public NummeraanduidingBeperkt woonadres
-    {
-        get
-        {
-            return this.woonadresField;
-        }
-        set
-        {
-            this.woonadresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-public partial class NatuurlijkPersoonRelatie : Relatie
-{
-    
-    private NatuurlijkPersoonBeperktType persoonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public NatuurlijkPersoonBeperktType persoon
-    {
-        get
-        {
-            return this.persoonField;
-        }
-        set
-        {
-            this.persoonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(AnderNatuurlijkPersoonBeperkt))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenPersoonBeperktType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenPersoonType))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-public partial class NatuurlijkPersoonBeperktType : AbstractRechtspersoonBase
-{
-    
-    private string voorlettersAanschrijvingField;
-    
-    private string voornamenField;
-    
-    private string voorvoegselGeslachtsnaamField;
-    
-    private string geslachtsnaamField;
-    
-    private Geslachtsaanduiding geslachtsaanduidingField;
-    
-    private string aanschrijfwijzeField;
-    
-    private Geboortedatum geboorteDatumField;
-    
-    private VerblijfsAdresRelatie verblijfsadresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string voorlettersAanschrijving
-    {
-        get
-        {
-            return this.voorlettersAanschrijvingField;
-        }
-        set
-        {
-            this.voorlettersAanschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string voornamen
-    {
-        get
-        {
-            return this.voornamenField;
-        }
-        set
-        {
-            this.voornamenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string voorvoegselGeslachtsnaam
-    {
-        get
-        {
-            return this.voorvoegselGeslachtsnaamField;
-        }
-        set
-        {
-            this.voorvoegselGeslachtsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string geslachtsnaam
-    {
-        get
-        {
-            return this.geslachtsnaamField;
-        }
-        set
-        {
-            this.geslachtsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public Geslachtsaanduiding geslachtsaanduiding
-    {
-        get
-        {
-            return this.geslachtsaanduidingField;
-        }
-        set
-        {
-            this.geslachtsaanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string aanschrijfwijze
-    {
-        get
-        {
-            return this.aanschrijfwijzeField;
-        }
-        set
-        {
-            this.aanschrijfwijzeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public Geboortedatum geboorteDatum
-    {
-        get
-        {
-            return this.geboorteDatumField;
-        }
-        set
-        {
-            this.geboorteDatumField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public VerblijfsAdresRelatie verblijfsadres
-    {
-        get
-        {
-            return this.verblijfsadresField;
-        }
-        set
-        {
-            this.verblijfsadresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-public enum Geslachtsaanduiding
-{
-    
-    /// <remarks/>
-    Man,
-    
-    /// <remarks/>
-    Vrouw,
-    
-    /// <remarks/>
-    Onbekend,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-public partial class Geboortedatum
-{
-    
-    private int jaarField;
-    
-    private System.Nullable<int> maandField;
-    
-    private System.Nullable<int> dagField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int jaar
-    {
-        get
-        {
-            return this.jaarField;
-        }
-        set
-        {
-            this.jaarField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<int> maand
-    {
-        get
-        {
-            return this.maandField;
-        }
-        set
-        {
-            this.maandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-    public System.Nullable<int> dag
-    {
-        get
-        {
-            return this.dagField;
-        }
-        set
-        {
-            this.dagField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-public partial class AnderNatuurlijkPersoonBeperkt : NatuurlijkPersoonBeperktType
-{
-    
-    private string nummerAnderNatuurlijkPersoonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string nummerAnderNatuurlijkPersoon
-    {
-        get
-        {
-            return this.nummerAnderNatuurlijkPersoonField;
-        }
-        set
-        {
-            this.nummerAnderNatuurlijkPersoonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(IngeschrevenPersoonType))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class IngeschrevenPersoonBeperktType : NatuurlijkPersoonBeperktType
-{
-    
-    private string burgerservicenummerField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string burgerservicenummer
-    {
-        get
-        {
-            return this.burgerservicenummerField;
-        }
-        set
-        {
-            this.burgerservicenummerField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class IngeschrevenPersoonType : IngeschrevenPersoonBeperktType
-{
-    
-    private System.Nullable<AanduidingNaamgebruik> aanduidingNaamgebruikField;
-    
-    private string aanhefAanschrijvingField;
-    
-    private string voornamenAanschrijvingField;
-    
-    private string geslachtsnaamAanschrijvingField;
-    
-    private System.Nullable<AdellijkeTitelPredikaat> adellijkeTitelOfPredikaatField;
-    
-    private string geboorteplaatsField;
-    
-    private string geboortelandField;
-    
-    private NatuurlijkPersoonRelatie[] kinderenField;
-    
-    private NatuurlijkPersoonRelatie[] oudersField;
-    
-    private NatuurlijkPersoonRelatie[] partnersField;
-    
-    private IngeschrevenPersoonTypeOverlijden overlijdenField;
-    
-    private string telefoonnummerField;
-    
-    private string faxnummerField;
-    
-    private string emailadresField;
-    
-    private NummeraanduidingBeperkt correspondentieAdresField;
-    
-    private Nationaliteit[] nationaliteitenField;
-    
-    private Bankrekening bankrekeningField;
-    
-    private Verblijfstitel[] verblijfstitelsField;
-    
-    private IngeschrevenPersoonInOnderzoekMetagegeven inOnderzoekField;
-    
-    private System.Nullable<IndicatieGezag> indicatieGezagMinderjarigeField;
-    
-    private string redenOpschortingBijhoudingField;
-    
-    private bool indicatieGeheimField;
-    
-    private OnvolledigeDatum datumOpschortingBijhoudingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-    public System.Nullable<AanduidingNaamgebruik> aanduidingNaamgebruik
-    {
-        get
-        {
-            return this.aanduidingNaamgebruikField;
-        }
-        set
-        {
-            this.aanduidingNaamgebruikField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string aanhefAanschrijving
-    {
-        get
-        {
-            return this.aanhefAanschrijvingField;
-        }
-        set
-        {
-            this.aanhefAanschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string voornamenAanschrijving
-    {
-        get
-        {
-            return this.voornamenAanschrijvingField;
-        }
-        set
-        {
-            this.voornamenAanschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string geslachtsnaamAanschrijving
-    {
-        get
-        {
-            return this.geslachtsnaamAanschrijvingField;
-        }
-        set
-        {
-            this.geslachtsnaamAanschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
-    public System.Nullable<AdellijkeTitelPredikaat> adellijkeTitelOfPredikaat
-    {
-        get
-        {
-            return this.adellijkeTitelOfPredikaatField;
-        }
-        set
-        {
-            this.adellijkeTitelOfPredikaatField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string geboorteplaats
-    {
-        get
-        {
-            return this.geboorteplaatsField;
-        }
-        set
-        {
-            this.geboorteplaatsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public string geboorteland
-    {
-        get
-        {
-            return this.geboortelandField;
-        }
-        set
-        {
-            this.geboortelandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=7)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("kind", IsNullable=false)]
-    public NatuurlijkPersoonRelatie[] kinderen
-    {
-        get
-        {
-            return this.kinderenField;
-        }
-        set
-        {
-            this.kinderenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("ouder", IsNullable=false)]
-    public NatuurlijkPersoonRelatie[] ouders
-    {
-        get
-        {
-            return this.oudersField;
-        }
-        set
-        {
-            this.oudersField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("partner", IsNullable=false)]
-    public NatuurlijkPersoonRelatie[] partners
-    {
-        get
-        {
-            return this.partnersField;
-        }
-        set
-        {
-            this.partnersField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-    public IngeschrevenPersoonTypeOverlijden overlijden
-    {
-        get
-        {
-            return this.overlijdenField;
-        }
-        set
-        {
-            this.overlijdenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-    public string telefoonnummer
-    {
-        get
-        {
-            return this.telefoonnummerField;
-        }
-        set
-        {
-            this.telefoonnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-    public string faxnummer
-    {
-        get
-        {
-            return this.faxnummerField;
-        }
-        set
-        {
-            this.faxnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-    public string emailadres
-    {
-        get
-        {
-            return this.emailadresField;
-        }
-        set
-        {
-            this.emailadresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", Order=14)]
-    public NummeraanduidingBeperkt correspondentieAdres
-    {
-        get
-        {
-            return this.correspondentieAdresField;
-        }
-        set
-        {
-            this.correspondentieAdresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=15)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("nationaliteit", IsNullable=false)]
-    public Nationaliteit[] nationaliteiten
-    {
-        get
-        {
-            return this.nationaliteitenField;
-        }
-        set
-        {
-            this.nationaliteitenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-    public Bankrekening bankrekening
-    {
-        get
-        {
-            return this.bankrekeningField;
-        }
-        set
-        {
-            this.bankrekeningField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=17)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("verblijftitel", IsNullable=false)]
-    public Verblijfstitel[] verblijfstitels
-    {
-        get
-        {
-            return this.verblijfstitelsField;
-        }
-        set
-        {
-            this.verblijfstitelsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=18)]
-    public IngeschrevenPersoonInOnderzoekMetagegeven inOnderzoek
-    {
-        get
-        {
-            return this.inOnderzoekField;
-        }
-        set
-        {
-            this.inOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=19)]
-    public System.Nullable<IndicatieGezag> indicatieGezagMinderjarige
-    {
-        get
-        {
-            return this.indicatieGezagMinderjarigeField;
-        }
-        set
-        {
-            this.indicatieGezagMinderjarigeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=20)]
-    public string redenOpschortingBijhouding
-    {
-        get
-        {
-            return this.redenOpschortingBijhoudingField;
-        }
-        set
-        {
-            this.redenOpschortingBijhoudingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=21)]
-    public bool indicatieGeheim
-    {
-        get
-        {
-            return this.indicatieGeheimField;
-        }
-        set
-        {
-            this.indicatieGeheimField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=22)]
-    public OnvolledigeDatum datumOpschortingBijhouding
-    {
-        get
-        {
-            return this.datumOpschortingBijhoudingField;
-        }
-        set
-        {
-            this.datumOpschortingBijhoudingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public enum AanduidingNaamgebruik
-{
-    
-    /// <remarks/>
-    E,
-    
-    /// <remarks/>
-    N,
-    
-    /// <remarks/>
-    P,
-    
-    /// <remarks/>
-    V,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public enum AdellijkeTitelPredikaat
-{
-    
-    /// <remarks/>
-    Baron,
-    
-    /// <remarks/>
-    Barones,
-    
-    /// <remarks/>
-    Graaf,
-    
-    /// <remarks/>
-    Gravin,
-    
-    /// <remarks/>
-    Hertog,
-    
-    /// <remarks/>
-    Hertogin,
-    
-    /// <remarks/>
-    Jonkheer,
-    
-    /// <remarks/>
-    Jonkvrouw,
-    
-    /// <remarks/>
-    Markies,
-    
-    /// <remarks/>
-    Markiezin,
-    
-    /// <remarks/>
-    Prins,
-    
-    /// <remarks/>
-    Prinses,
-    
-    /// <remarks/>
-    Ridder,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class IngeschrevenPersoonTypeOverlijden
-{
-    
-    private Overlijdensdatum overlijdensdatumField;
-    
-    private string overlijdenPlaatsField;
-    
-    private string overlijdenLandField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public Overlijdensdatum overlijdensdatum
-    {
-        get
-        {
-            return this.overlijdensdatumField;
-        }
-        set
-        {
-            this.overlijdensdatumField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string overlijdenPlaats
-    {
-        get
-        {
-            return this.overlijdenPlaatsField;
-        }
-        set
-        {
-            this.overlijdenPlaatsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string overlijdenLand
-    {
-        get
-        {
-            return this.overlijdenLandField;
-        }
-        set
-        {
-            this.overlijdenLandField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class Overlijdensdatum
-{
-    
-    private System.Nullable<int> jaarField;
-    
-    private System.Nullable<int> maandField;
-    
-    private System.Nullable<int> dagField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-    public System.Nullable<int> jaar
-    {
-        get
-        {
-            return this.jaarField;
-        }
-        set
-        {
-            this.jaarField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<int> maand
-    {
-        get
-        {
-            return this.maandField;
-        }
-        set
-        {
-            this.maandField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-    public System.Nullable<int> dag
-    {
-        get
-        {
-            return this.dagField;
-        }
-        set
-        {
-            this.dagField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class Nationaliteit
-{
-    
-    private string nationaliteitCodeField;
-    
-    private string nationaliteitOmschrijvingField;
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string nationaliteitCode
-    {
-        get
-        {
-            return this.nationaliteitCodeField;
-        }
-        set
-        {
-            this.nationaliteitCodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string nationaliteitOmschrijving
-    {
-        get
-        {
-            return this.nationaliteitOmschrijvingField;
-        }
-        set
-        {
-            this.nationaliteitOmschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class Verblijfstitel
-{
-    
-    private int aanduidingField;
-    
-    private string omschrijvingField;
-    
-    private Periode periodeGeldigheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int aanduiding
-    {
-        get
-        {
-            return this.aanduidingField;
-        }
-        set
-        {
-            this.aanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string omschrijving
-    {
-        get
-        {
-            return this.omschrijvingField;
-        }
-        set
-        {
-            this.omschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(OuderInOnderzoekMetagegeven))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class IngeschrevenPersoonInOnderzoekMetagegeven
-{
-    
-    private bool burgerservicenummerInOnderzoekField;
-    
-    private bool voornamenInOnderzoekField;
-    
-    private bool adellijkeTitelPredikaatInOnderzoekField;
-    
-    private bool voorvoegselGeslachtsnaamInOnderzoekField;
-    
-    private bool geslachtsnaamInOnderzoekField;
-    
-    private bool geboortedatumInOnderzoekField;
-    
-    private bool geboorteplaatsInOnderzoekField;
-    
-    private bool geboortelandInOnderzoekField;
-    
-    private KindInOnderzoekMetagegeven[] kinderenInOnderzoekField;
-    
-    private OuderInOnderzoekMetagegeven[] oudersInOnderzoekField;
-    
-    private PartnerInOnderzoekMetagegeven partnerInOnderzoekField;
-    
-    private VerblijfsadresInOnderzoekMetagegeven verblijfsadresInOnderzoekField;
-    
-    private NationaliteitInOnderzoekMetagegeven[] nationaliteitenInOnderzoekField;
-    
-    private OverlijdenInOnderzoekMetagegeven overlijdenInOnderzoekField;
-    
-    private VerblijfstitelInOnderzoekMetagegeven verblijfstitelInOnderzoekField;
-    
-    private bool indicatieGezagMinderjarigeInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool burgerservicenummerInOnderzoek
-    {
-        get
-        {
-            return this.burgerservicenummerInOnderzoekField;
-        }
-        set
-        {
-            this.burgerservicenummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool voornamenInOnderzoek
-    {
-        get
-        {
-            return this.voornamenInOnderzoekField;
-        }
-        set
-        {
-            this.voornamenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool adellijkeTitelPredikaatInOnderzoek
-    {
-        get
-        {
-            return this.adellijkeTitelPredikaatInOnderzoekField;
-        }
-        set
-        {
-            this.adellijkeTitelPredikaatInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool voorvoegselGeslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.voorvoegselGeslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.voorvoegselGeslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool geslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.geslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.geslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool geboortedatumInOnderzoek
-    {
-        get
-        {
-            return this.geboortedatumInOnderzoekField;
-        }
-        set
-        {
-            this.geboortedatumInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool geboorteplaatsInOnderzoek
-    {
-        get
-        {
-            return this.geboorteplaatsInOnderzoekField;
-        }
-        set
-        {
-            this.geboorteplaatsInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public bool geboortelandInOnderzoek
-    {
-        get
-        {
-            return this.geboortelandInOnderzoekField;
-        }
-        set
-        {
-            this.geboortelandInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=8)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("kindInOnderzoek", IsNullable=false)]
-    public KindInOnderzoekMetagegeven[] kinderenInOnderzoek
-    {
-        get
-        {
-            return this.kinderenInOnderzoekField;
-        }
-        set
-        {
-            this.kinderenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("ouderInOnderzoek", IsNullable=false)]
-    public OuderInOnderzoekMetagegeven[] oudersInOnderzoek
-    {
-        get
-        {
-            return this.oudersInOnderzoekField;
-        }
-        set
-        {
-            this.oudersInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-    public PartnerInOnderzoekMetagegeven partnerInOnderzoek
-    {
-        get
-        {
-            return this.partnerInOnderzoekField;
-        }
-        set
-        {
-            this.partnerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-    public VerblijfsadresInOnderzoekMetagegeven verblijfsadresInOnderzoek
-    {
-        get
-        {
-            return this.verblijfsadresInOnderzoekField;
-        }
-        set
-        {
-            this.verblijfsadresInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=12)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("nationaliteitInOnderzoek", IsNullable=false)]
-    public NationaliteitInOnderzoekMetagegeven[] nationaliteitenInOnderzoek
-    {
-        get
-        {
-            return this.nationaliteitenInOnderzoekField;
-        }
-        set
-        {
-            this.nationaliteitenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-    public OverlijdenInOnderzoekMetagegeven overlijdenInOnderzoek
-    {
-        get
-        {
-            return this.overlijdenInOnderzoekField;
-        }
-        set
-        {
-            this.overlijdenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-    public VerblijfstitelInOnderzoekMetagegeven verblijfstitelInOnderzoek
-    {
-        get
-        {
-            return this.verblijfstitelInOnderzoekField;
-        }
-        set
-        {
-            this.verblijfstitelInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-    public bool indicatieGezagMinderjarigeInOnderzoek
-    {
-        get
-        {
-            return this.indicatieGezagMinderjarigeInOnderzoekField;
-        }
-        set
-        {
-            this.indicatieGezagMinderjarigeInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class KindInOnderzoekMetagegeven
-{
-    
-    private string burgerservicenummerKindField;
-    
-    private bool burgerservicenummerInOnderzoekField;
-    
-    private bool voornamenInOnderzoekField;
-    
-    private bool voorvoegselGeslachtsnaamInOnderzoekField;
-    
-    private bool geslachtsnaamInOnderzoekField;
-    
-    private bool geboortedatumInOnderzoekField;
-    
-    private bool ingangsdatumGeldigheidInOnderzoekField;
-    
-    private bool datumVanOpnemingInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string burgerservicenummerKind
-    {
-        get
-        {
-            return this.burgerservicenummerKindField;
-        }
-        set
-        {
-            this.burgerservicenummerKindField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool burgerservicenummerInOnderzoek
-    {
-        get
-        {
-            return this.burgerservicenummerInOnderzoekField;
-        }
-        set
-        {
-            this.burgerservicenummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool voornamenInOnderzoek
-    {
-        get
-        {
-            return this.voornamenInOnderzoekField;
-        }
-        set
-        {
-            this.voornamenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool voorvoegselGeslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.voorvoegselGeslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.voorvoegselGeslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool geslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.geslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.geslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool geboortedatumInOnderzoek
-    {
-        get
-        {
-            return this.geboortedatumInOnderzoekField;
-        }
-        set
-        {
-            this.geboortedatumInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool ingangsdatumGeldigheidInOnderzoek
-    {
-        get
-        {
-            return this.ingangsdatumGeldigheidInOnderzoekField;
-        }
-        set
-        {
-            this.ingangsdatumGeldigheidInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public bool datumVanOpnemingInOnderzoek
-    {
-        get
-        {
-            return this.datumVanOpnemingInOnderzoekField;
-        }
-        set
-        {
-            this.datumVanOpnemingInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class OuderInOnderzoekMetagegeven : IngeschrevenPersoonInOnderzoekMetagegeven
-{
-    
-    private string burgerservicenummerOuderField;
-    
-    private bool datumIngangFamilierechtelijkeBetrekkingInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string burgerservicenummerOuder
-    {
-        get
-        {
-            return this.burgerservicenummerOuderField;
-        }
-        set
-        {
-            this.burgerservicenummerOuderField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool datumIngangFamilierechtelijkeBetrekkingInOnderzoek
-    {
-        get
-        {
-            return this.datumIngangFamilierechtelijkeBetrekkingInOnderzoekField;
-        }
-        set
-        {
-            this.datumIngangFamilierechtelijkeBetrekkingInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class PartnerInOnderzoekMetagegeven
-{
-    
-    private bool burgerservicenummerInOnderzoekField;
-    
-    private bool voornamenInOnderzoekField;
-    
-    private bool voorvoegselGeslachtsnaamInOnderzoekField;
-    
-    private bool geslachtsnaamInOnderzoekField;
-    
-    private bool geboortedatumInOnderzoekField;
-    
-    private bool ingangsdatumGeldigheidInOnderzoekField;
-    
-    private bool datumVanOpnemingInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool burgerservicenummerInOnderzoek
-    {
-        get
-        {
-            return this.burgerservicenummerInOnderzoekField;
-        }
-        set
-        {
-            this.burgerservicenummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool voornamenInOnderzoek
-    {
-        get
-        {
-            return this.voornamenInOnderzoekField;
-        }
-        set
-        {
-            this.voornamenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool voorvoegselGeslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.voorvoegselGeslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.voorvoegselGeslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool geslachtsnaamInOnderzoek
-    {
-        get
-        {
-            return this.geslachtsnaamInOnderzoekField;
-        }
-        set
-        {
-            this.geslachtsnaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool geboortedatumInOnderzoek
-    {
-        get
-        {
-            return this.geboortedatumInOnderzoekField;
-        }
-        set
-        {
-            this.geboortedatumInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool ingangsdatumGeldigheidInOnderzoek
-    {
-        get
-        {
-            return this.ingangsdatumGeldigheidInOnderzoekField;
-        }
-        set
-        {
-            this.ingangsdatumGeldigheidInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool datumVanOpnemingInOnderzoek
-    {
-        get
-        {
-            return this.datumVanOpnemingInOnderzoekField;
-        }
-        set
-        {
-            this.datumVanOpnemingInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class VerblijfsadresInOnderzoekMetagegeven
-{
-    
-    private bool indificatieNummeraanduidingInOnderzoekField;
-    
-    private bool postcodeInOnderzoekField;
-    
-    private bool huisnummerInOnderzoekField;
-    
-    private bool huisletterInOnderzoekField;
-    
-    private bool huisnummerToevoegingInOnderzoekField;
-    
-    private bool locatiebeschrijvingInOnderzoekField;
-    
-    private bool naamOpenbareRuimteInOnderzoekField;
-    
-    private bool woonplaatsNaamInOnderzoekField;
-    
-    private bool woonplaatsIndificatieCodeInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool indificatieNummeraanduidingInOnderzoek
-    {
-        get
-        {
-            return this.indificatieNummeraanduidingInOnderzoekField;
-        }
-        set
-        {
-            this.indificatieNummeraanduidingInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool postcodeInOnderzoek
-    {
-        get
-        {
-            return this.postcodeInOnderzoekField;
-        }
-        set
-        {
-            this.postcodeInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool huisnummerInOnderzoek
-    {
-        get
-        {
-            return this.huisnummerInOnderzoekField;
-        }
-        set
-        {
-            this.huisnummerInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool huisletterInOnderzoek
-    {
-        get
-        {
-            return this.huisletterInOnderzoekField;
-        }
-        set
-        {
-            this.huisletterInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool huisnummerToevoegingInOnderzoek
-    {
-        get
-        {
-            return this.huisnummerToevoegingInOnderzoekField;
-        }
-        set
-        {
-            this.huisnummerToevoegingInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool locatiebeschrijvingInOnderzoek
-    {
-        get
-        {
-            return this.locatiebeschrijvingInOnderzoekField;
-        }
-        set
-        {
-            this.locatiebeschrijvingInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool naamOpenbareRuimteInOnderzoek
-    {
-        get
-        {
-            return this.naamOpenbareRuimteInOnderzoekField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public bool woonplaatsNaamInOnderzoek
-    {
-        get
-        {
-            return this.woonplaatsNaamInOnderzoekField;
-        }
-        set
-        {
-            this.woonplaatsNaamInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public bool woonplaatsIndificatieCodeInOnderzoek
-    {
-        get
-        {
-            return this.woonplaatsIndificatieCodeInOnderzoekField;
-        }
-        set
-        {
-            this.woonplaatsIndificatieCodeInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class NationaliteitInOnderzoekMetagegeven
-{
-    
-    private bool periodeGeldigheidInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool periodeGeldigheidInOnderzoek
-    {
-        get
-        {
-            return this.periodeGeldigheidInOnderzoekField;
-        }
-        set
-        {
-            this.periodeGeldigheidInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class OverlijdenInOnderzoekMetagegeven
-{
-    
-    private bool datumOverlijdenInOnderzoekField;
-    
-    private bool plaatsOverlijdenInOnderzoekField;
-    
-    private bool landOverlijdenInOnderzoekField;
-    
-    private bool datumVanOpnemingInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool datumOverlijdenInOnderzoek
-    {
-        get
-        {
-            return this.datumOverlijdenInOnderzoekField;
-        }
-        set
-        {
-            this.datumOverlijdenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool plaatsOverlijdenInOnderzoek
-    {
-        get
-        {
-            return this.plaatsOverlijdenInOnderzoekField;
-        }
-        set
-        {
-            this.plaatsOverlijdenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool landOverlijdenInOnderzoek
-    {
-        get
-        {
-            return this.landOverlijdenInOnderzoekField;
-        }
-        set
-        {
-            this.landOverlijdenInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool datumVanOpnemingInOnderzoek
-    {
-        get
-        {
-            return this.datumVanOpnemingInOnderzoekField;
-        }
-        set
-        {
-            this.datumVanOpnemingInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public partial class VerblijfstitelInOnderzoekMetagegeven
-{
-    
-    private bool aanduidingInOnderzoekField;
-    
-    private bool periodeGeldigheidInOnderzoekField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public bool aanduidingInOnderzoek
-    {
-        get
-        {
-            return this.aanduidingInOnderzoekField;
-        }
-        set
-        {
-            this.aanduidingInOnderzoekField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool periodeGeldigheidInOnderzoek
-    {
-        get
-        {
-            return this.periodeGeldigheidInOnderzoekField;
-        }
-        set
-        {
-            this.periodeGeldigheidInOnderzoekField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
-public enum IndicatieGezag
-{
-    
-    /// <remarks/>
-    x_1,
-    
-    /// <remarks/>
-    x_2,
-    
-    /// <remarks/>
-    x_D,
-    
-    /// <remarks/>
-    x_1D,
-    
-    /// <remarks/>
-    x_2D,
-    
-    /// <remarks/>
-    x_12,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
-public partial class IngeschrevenNietNatuurlijkPersoon : IngeschrevenNietNatuurlijkPersoonBeperkt
-{
-    
-    private IngeschrevenNietNatuurlijkPersoonPostAdres postAdresField;
-    
-    private string telefoonnummerField;
-    
-    private string faxnummerField;
-    
-    private string emailadresField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public IngeschrevenNietNatuurlijkPersoonPostAdres postAdres
-    {
-        get
-        {
-            return this.postAdresField;
-        }
-        set
-        {
-            this.postAdresField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string telefoonnummer
-    {
-        get
-        {
-            return this.telefoonnummerField;
-        }
-        set
-        {
-            this.telefoonnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string faxnummer
-    {
-        get
-        {
-            return this.faxnummerField;
-        }
-        set
-        {
-            this.faxnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string emailadres
-    {
-        get
-        {
-            return this.emailadresField;
-        }
-        set
-        {
-            this.emailadresField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
-public partial class IngeschrevenNietNatuurlijkPersoonPostAdres : AbstractCorrespondentieAdresType
-{
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
-public partial class AnderBuitenlandsNietNatuurlijkPersoonBeperkt : NietNatuurlijkPersoonBeperkt
-{
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Zekerheidsstelling
-{
-    
-    private int zekerheidsrechtIdentificatieField;
-    
-    private bool zekerheidsrechtIdentificatieFieldSpecified;
-    
-    private int aandeelInBetrokkenRechtTellerField;
-    
-    private bool aandeelInBetrokkenRechtTellerFieldSpecified;
-    
-    private int aandeelInBetrokkenRechtNoemerField;
-    
-    private bool aandeelInBetrokkenRechtNoemerFieldSpecified;
-    
-    private System.DateTime ingangsdatumRechtField;
-    
-    private bool ingangsdatumRechtFieldSpecified;
-    
-    private System.DateTime einddatumRechtField;
-    
-    private bool einddatumRechtFieldSpecified;
-    
-    private OnvolledigeDatum datumBeginGeldigheidField;
-    
-    private OnvolledigeDatum datumEindeGeldigheidField;
-    
-    private ZekerheidsstellingHeeftZekerheidsrecht heeftZekerheidsrechtField;
-    
-    private Tenaamstelling tenaamstellingField;
-    
-    private string codeAardBeslagField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int zekerheidsrechtIdentificatie
-    {
-        get
-        {
-            return this.zekerheidsrechtIdentificatieField;
-        }
-        set
-        {
-            this.zekerheidsrechtIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool zekerheidsrechtIdentificatieSpecified
-    {
-        get
-        {
-            return this.zekerheidsrechtIdentificatieFieldSpecified;
-        }
-        set
-        {
-            this.zekerheidsrechtIdentificatieFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int aandeelInBetrokkenRechtTeller
-    {
-        get
-        {
-            return this.aandeelInBetrokkenRechtTellerField;
-        }
-        set
-        {
-            this.aandeelInBetrokkenRechtTellerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool aandeelInBetrokkenRechtTellerSpecified
-    {
-        get
-        {
-            return this.aandeelInBetrokkenRechtTellerFieldSpecified;
-        }
-        set
-        {
-            this.aandeelInBetrokkenRechtTellerFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int aandeelInBetrokkenRechtNoemer
-    {
-        get
-        {
-            return this.aandeelInBetrokkenRechtNoemerField;
-        }
-        set
-        {
-            this.aandeelInBetrokkenRechtNoemerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool aandeelInBetrokkenRechtNoemerSpecified
-    {
-        get
-        {
-            return this.aandeelInBetrokkenRechtNoemerFieldSpecified;
-        }
-        set
-        {
-            this.aandeelInBetrokkenRechtNoemerFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=3)]
-    public System.DateTime ingangsdatumRecht
-    {
-        get
-        {
-            return this.ingangsdatumRechtField;
-        }
-        set
-        {
-            this.ingangsdatumRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool ingangsdatumRechtSpecified
-    {
-        get
-        {
-            return this.ingangsdatumRechtFieldSpecified;
-        }
-        set
-        {
-            this.ingangsdatumRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
-    public System.DateTime einddatumRecht
-    {
-        get
-        {
-            return this.einddatumRechtField;
-        }
-        set
-        {
-            this.einddatumRechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool einddatumRechtSpecified
-    {
-        get
-        {
-            return this.einddatumRechtFieldSpecified;
-        }
-        set
-        {
-            this.einddatumRechtFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public OnvolledigeDatum datumBeginGeldigheid
-    {
-        get
-        {
-            return this.datumBeginGeldigheidField;
-        }
-        set
-        {
-            this.datumBeginGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public OnvolledigeDatum datumEindeGeldigheid
-    {
-        get
-        {
-            return this.datumEindeGeldigheidField;
-        }
-        set
-        {
-            this.datumEindeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public ZekerheidsstellingHeeftZekerheidsrecht heeftZekerheidsrecht
-    {
-        get
-        {
-            return this.heeftZekerheidsrechtField;
-        }
-        set
-        {
-            this.heeftZekerheidsrechtField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-    public Tenaamstelling tenaamstelling
-    {
-        get
-        {
-            return this.tenaamstellingField;
-        }
-        set
-        {
-            this.tenaamstellingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-    public string codeAardBeslag
-    {
-        get
-        {
-            return this.codeAardBeslagField;
-        }
-        set
-        {
-            this.codeAardBeslagField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class ZekerheidsstellingHeeftZekerheidsrecht
-{
-    
-    private AbstractRechtspersoonBase abstractRechtspersoonField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", Order=0)]
-    public AbstractRechtspersoonBase abstractRechtspersoon
-    {
-        get
-        {
-            return this.abstractRechtspersoonField;
-        }
-        set
-        {
-            this.abstractRechtspersoonField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class ZakelijkRechtRelatieIsBetrokkenBij
-{
-    
-    private AppartementsrechtSplitsing appartementsrechtSplitsingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public AppartementsrechtSplitsing appartementsrechtSplitsing
-    {
-        get
-        {
-            return this.appartementsrechtSplitsingField;
-        }
-        set
-        {
-            this.appartementsrechtSplitsingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class AppartementsrechtSplitsing
-{
-    
-    private int appartementsrechtSplitsingIdentificatieField;
-    
-    private TypeSplitsing typeSplitsingField;
-    
-    private IngeschrevenNietNatuurlijkPersoonBeperktr verenigingVanEigenarenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int appartementsrechtSplitsingIdentificatie
-    {
-        get
-        {
-            return this.appartementsrechtSplitsingIdentificatieField;
-        }
-        set
-        {
-            this.appartementsrechtSplitsingIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public TypeSplitsing typeSplitsing
-    {
-        get
-        {
-            return this.typeSplitsingField;
-        }
-        set
-        {
-            this.typeSplitsingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public IngeschrevenNietNatuurlijkPersoonBeperktr verenigingVanEigenaren
-    {
-        get
-        {
-            return this.verenigingVanEigenarenField;
-        }
-        set
-        {
-            this.verenigingVanEigenarenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public enum TypeSplitsing
-{
-    
-    /// <remarks/>
-    Hoofdsplitsing,
-    
-    /// <remarks/>
-    Ondersplitsing,
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlEnumAttribute("Splitsing afkoop erfpacht")]
-    Splitsingafkooperfpacht,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(TypeName="IngeschrevenNietNatuurlijkPersoonBeperkt-r", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class IngeschrevenNietNatuurlijkPersoonBeperktr
-{
-    
-    private string rsinField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string rsin
-    {
-        get
-        {
-            return this.rsinField;
-        }
-        set
-        {
-            this.rsinField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class ZakelijkRechtRelatieIsOntstaanUit
-{
-    
-    private AppartementsrechtSplitsing appartementsrechtSplitsingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public AppartementsrechtSplitsing appartementsrechtSplitsing
-    {
-        get
-        {
-            return this.appartementsrechtSplitsingField;
-        }
-        set
-        {
-            this.appartementsrechtSplitsingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class ZakelijkRechtRelatieIsBestemdTot
-{
-    
-    private Mandeligheid mandeligheidField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public Mandeligheid mandeligheid
-    {
-        get
-        {
-            return this.mandeligheidField;
-        }
-        set
-        {
-            this.mandeligheidField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
-    "k")]
-public partial class Mandeligheid
-{
-    
-    private object mandeligheidIdentificatieField;
-    
-    private Hoofdzaak[] omvatField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public object mandeligheidIdentificatie
-    {
-        get
-        {
-            return this.mandeligheidIdentificatieField;
-        }
-        set
-        {
-            this.mandeligheidIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("hoofdzaak", IsNullable=false)]
-    public Hoofdzaak[] omvat
-    {
-        get
-        {
-            return this.omvatField;
-        }
-        set
-        {
-            this.omvatField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-public partial class Fout
-{
-    
-    private string codeField;
-    
-    private string omschrijvingField;
-    
-    private string detailField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string code
-    {
-        get
-        {
-            return this.codeField;
-        }
-        set
-        {
-            this.codeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string omschrijving
-    {
-        get
-        {
-            return this.omschrijvingField;
-        }
-        set
-        {
-            this.omschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string detail
-    {
-        get
-        {
-            return this.detailField;
-        }
-        set
-        {
-            this.detailField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Brondocument
-{
-    
-    private string identificatieField;
-    
-    private System.Nullable<System.DateTime> datumField;
-    
-    private string omschrijvingField;
-    
-    private string gemeenteField;
-    
-    private string gemeenteAkteField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatie
-    {
-        get
-        {
-            return this.identificatieField;
-        }
-        set
-        {
-            this.identificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-    public System.Nullable<System.DateTime> datum
-    {
-        get
-        {
-            return this.datumField;
-        }
-        set
-        {
-            this.datumField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string omschrijving
-    {
-        get
-        {
-            return this.omschrijvingField;
-        }
-        set
-        {
-            this.omschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
-    public string gemeente
-    {
-        get
-        {
-            return this.gemeenteField;
-        }
-        set
-        {
-            this.gemeenteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
-    public string gemeenteAkte
-    {
-        get
-        {
-            return this.gemeenteAkteField;
-        }
-        set
-        {
-            this.gemeenteAkteField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4")]
-public partial class RaadpleegWijkOpWijkcodeGemeenteCodeFilter
-{
-    
-    private int wijkcodeField;
-    
-    private string gemeentecodeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int wijkcode
-    {
-        get
-        {
-            return this.wijkcodeField;
-        }
-        set
-        {
-            this.wijkcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string gemeentecode
-    {
-        get
-        {
-            return this.gemeentecodeField;
-        }
-        set
-        {
-            this.gemeentecodeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class RaadpleegVestigingFilter
-{
-    
-    private string vestigingsnummerField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string vestigingsnummer
-    {
-        get
-        {
-            return this.vestigingsnummerField;
-        }
-        set
-        {
-            this.vestigingsnummerField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class ZoekVestigingOpPostcodeHuisnummerFilter
-{
-    
-    private string postcodeField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    private bool inclusiefBeeindigdeVestigingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public bool inclusiefBeeindigdeVestigingen
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeVestigingenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeVestigingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class ZoekVestigingOpBinnenlandsVestigingsadresFilter
-{
-    
-    private string woonplaatsnaamField;
-    
-    private string naamOpenbareRuimteField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    private bool inclusiefBeeindigdeVestigingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string woonplaatsnaam
-    {
-        get
-        {
-            return this.woonplaatsnaamField;
-        }
-        set
-        {
-            this.woonplaatsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool inclusiefBeeindigdeVestigingen
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeVestigingenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeVestigingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class ZoekVestigingOpNummeraanduidingFilter
-{
-    
-    private string identificatieNummeraanduidingField;
-    
-    private bool inclusiefBeeindigdeVestigingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatieNummeraanduiding
-    {
-        get
-        {
-            return this.identificatieNummeraanduidingField;
-        }
-        set
-        {
-            this.identificatieNummeraanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeVestigingen
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeVestigingenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeVestigingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class ZoekVestigingOpKvKnummerFilter
-{
-    
-    private string kvkNummerField;
-    
-    private bool inclusiefBeeindigdeVestigingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string kvkNummer
-    {
-        get
-        {
-            return this.kvkNummerField;
-        }
-        set
-        {
-            this.kvkNummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeVestigingen
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeVestigingenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeVestigingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
-public partial class ZoekVestigingOpHandelsnaamFilter
-{
-    
-    private string handelsnaamField;
-    
-    private bool inclusiefBeeindigdeVestigingenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string handelsnaam
-    {
-        get
-        {
-            return this.handelsnaamField;
-        }
-        set
-        {
-            this.handelsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeVestigingen
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeVestigingenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeVestigingenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-    "it")]
-public partial class ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter
-{
-    
-    private string rsinField;
-    
-    private bool inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string rsin
-    {
-        get
-        {
-            return this.rsinField;
-        }
-        set
-        {
-            this.rsinField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeMaatschappelijkeActiviteiten
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-    "it")]
-public partial class ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter
-{
-    
-    private string burgerservicenummerField;
-    
-    private bool inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string burgerservicenummer
-    {
-        get
-        {
-            return this.burgerservicenummerField;
-        }
-        set
-        {
-            this.burgerservicenummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeMaatschappelijkeActiviteiten
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-    "it")]
-public partial class ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter
-{
-    
-    private string handelsnaamField;
-    
-    private bool inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string handelsnaam
-    {
-        get
-        {
-            return this.handelsnaamField;
-        }
-        set
-        {
-            this.handelsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefBeeindigdeMaatschappelijkeActiviteiten
-    {
-        get
-        {
-            return this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
-        }
-        set
-        {
-            this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-    "")]
-public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter
-{
-    
-    private string geslachtsnaamField;
-    
-    private Geboortedatum geboortedatumField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string geslachtsnaam
-    {
-        get
-        {
-            return this.geslachtsnaamField;
-        }
-        set
-        {
-            this.geslachtsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Geboortedatum geboortedatum
-    {
-        get
-        {
-            return this.geboortedatumField;
-        }
-        set
-        {
-            this.geboortedatumField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-    "")]
-public partial class RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter
-{
-    
-    private string kadastraleGemeentecodeField;
-    
-    private string sectieField;
-    
-    private string perceelnummerField;
-    
-    private string appartementsrechtVolgnummerField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string kadastraleGemeentecode
-    {
-        get
-        {
-            return this.kadastraleGemeentecodeField;
-        }
-        set
-        {
-            this.kadastraleGemeentecodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string sectie
-    {
-        get
-        {
-            return this.sectieField;
-        }
-        set
-        {
-            this.sectieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string perceelnummer
-    {
-        get
-        {
-            return this.perceelnummerField;
-        }
-        set
-        {
-            this.perceelnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string appartementsrechtVolgnummer
-    {
-        get
-        {
-            return this.appartementsrechtVolgnummerField;
-        }
-        set
-        {
-            this.appartementsrechtVolgnummerField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
-public partial class RaadpleegIngeschrevenPersoonFilter
-{
-    
-    private string burgerservicenummerField;
-    
-    private Periode periodeField;
-    
-    private bool inclusiefVerblijfplaatsHistorieField;
-    
-    private bool inclusiefPartnerHistorieField;
-    
-    private bool inclusiefVerblijfstitelHistorieField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string burgerservicenummer
-    {
-        get
-        {
-            return this.burgerservicenummerField;
-        }
-        set
-        {
-            this.burgerservicenummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Periode periode
-    {
-        get
-        {
-            return this.periodeField;
-        }
-        set
-        {
-            this.periodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool inclusiefVerblijfplaatsHistorie
-    {
-        get
-        {
-            return this.inclusiefVerblijfplaatsHistorieField;
-        }
-        set
-        {
-            this.inclusiefVerblijfplaatsHistorieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool inclusiefPartnerHistorie
-    {
-        get
-        {
-            return this.inclusiefPartnerHistorieField;
-        }
-        set
-        {
-            this.inclusiefPartnerHistorieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public bool inclusiefVerblijfstitelHistorie
-    {
-        get
-        {
-            return this.inclusiefVerblijfstitelHistorieField;
-        }
-        set
-        {
-            this.inclusiefVerblijfstitelHistorieField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
-public partial class RaadpleegBewoningFilter
-{
-    
-    private string identificatieNummeraanduidingField;
-    
-    private Periode periodeField;
-    
-    private bool inclusiefOverledenPersonenField;
-    
-    private bool inclusiefOverledenPersonenFieldSpecified;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatieNummeraanduiding
-    {
-        get
-        {
-            return this.identificatieNummeraanduidingField;
-        }
-        set
-        {
-            this.identificatieNummeraanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Periode periode
-    {
-        get
-        {
-            return this.periodeField;
-        }
-        set
-        {
-            this.periodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool inclusiefOverledenPersonen
-    {
-        get
-        {
-            return this.inclusiefOverledenPersonenField;
-        }
-        set
-        {
-            this.inclusiefOverledenPersonenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool inclusiefOverledenPersonenSpecified
-    {
-        get
-        {
-            return this.inclusiefOverledenPersonenFieldSpecified;
-        }
-        set
-        {
-            this.inclusiefOverledenPersonenFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
-public partial class ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter
-{
-    
-    private string woonplaatsnaamField;
-    
-    private string naamOpenbareRuimteField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    private bool inclusiefOverledenPersonenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string woonplaatsnaam
-    {
-        get
-        {
-            return this.woonplaatsnaamField;
-        }
-        set
-        {
-            this.woonplaatsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool inclusiefOverledenPersonen
-    {
-        get
-        {
-            return this.inclusiefOverledenPersonenField;
-        }
-        set
-        {
-            this.inclusiefOverledenPersonenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
-public partial class ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter
-{
-    
-    private string postcodeField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    private Periode periodeField;
-    
-    private bool inclusiefOverledenPersonenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public Periode periode
-    {
-        get
-        {
-            return this.periodeField;
-        }
-        set
-        {
-            this.periodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool inclusiefOverledenPersonen
-    {
-        get
-        {
-            return this.inclusiefOverledenPersonenField;
-        }
-        set
-        {
-            this.inclusiefOverledenPersonenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
-public partial class ZoekIngeschrevenPersonenOpGeslachtsnaamFilter
-{
-    
-    private string geslachtsnaamField;
-    
-    private Geboortedatum geboortedatumField;
-    
-    private string voornamenField;
-    
-    private string voorvoegselGeslachtsnaamField;
-    
-    private System.Nullable<Geslachtsaanduiding> geslachtsaanduidingField;
-    
-    private string geboorteplaatsField;
-    
-    private bool inclusiefNietIngezetenenField;
-    
-    private bool inclusiefOverledenPersonenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string geslachtsnaam
-    {
-        get
-        {
-            return this.geslachtsnaamField;
-        }
-        set
-        {
-            this.geslachtsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public Geboortedatum geboortedatum
-    {
-        get
-        {
-            return this.geboortedatumField;
-        }
-        set
-        {
-            this.geboortedatumField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string voornamen
-    {
-        get
-        {
-            return this.voornamenField;
-        }
-        set
-        {
-            this.voornamenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string voorvoegselGeslachtsnaam
-    {
-        get
-        {
-            return this.voorvoegselGeslachtsnaamField;
-        }
-        set
-        {
-            this.voorvoegselGeslachtsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
-    public System.Nullable<Geslachtsaanduiding> geslachtsaanduiding
-    {
-        get
-        {
-            return this.geslachtsaanduidingField;
-        }
-        set
-        {
-            this.geslachtsaanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string geboorteplaats
-    {
-        get
-        {
-            return this.geboorteplaatsField;
-        }
-        set
-        {
-            this.geboorteplaatsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-    public bool inclusiefNietIngezetenen
-    {
-        get
-        {
-            return this.inclusiefNietIngezetenenField;
-        }
-        set
-        {
-            this.inclusiefNietIngezetenenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-    public bool inclusiefOverledenPersonen
-    {
-        get
-        {
-            return this.inclusiefOverledenPersonenField;
-        }
-        set
-        {
-            this.inclusiefOverledenPersonenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-    "jkPersoon")]
-public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter
-{
-    
-    private string woonplaatsnaamField;
-    
-    private string naamOpenbareRuimteField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string woonplaatsnaam
-    {
-        get
-        {
-            return this.woonplaatsnaamField;
-        }
-        set
-        {
-            this.woonplaatsnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-    "jkPersoon")]
-public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter
-{
-    
-    private string postcodeField;
-    
-    private int huisnummerField;
-    
-    private string huisletterField;
-    
-    private string huisnummertoevoegingField;
-    
-    private string locatiebeschrijvingField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string postcode
-    {
-        get
-        {
-            return this.postcodeField;
-        }
-        set
-        {
-            this.postcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string huisletter
-    {
-        get
-        {
-            return this.huisletterField;
-        }
-        set
-        {
-            this.huisletterField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public string huisnummertoevoeging
-    {
-        get
-        {
-            return this.huisnummertoevoegingField;
-        }
-        set
-        {
-            this.huisnummertoevoegingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string locatiebeschrijving
-    {
-        get
-        {
-            return this.locatiebeschrijvingField;
-        }
-        set
-        {
-            this.locatiebeschrijvingField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Wijk")]
-public partial class Wijk
-{
-    
-    private int wijkcodeField;
-    
-    private string wijknaamField;
-    
-    private WellKnownText wijkGeometrieField;
-    
-    private Periode periodeGeldigheidField;
-    
-    private string gemeentenaamField;
-    
-    private string gemeentecodeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int wijkcode
-    {
-        get
-        {
-            return this.wijkcodeField;
-        }
-        set
-        {
-            this.wijkcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string wijknaam
-    {
-        get
-        {
-            return this.wijknaamField;
-        }
-        set
-        {
-            this.wijknaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public WellKnownText wijkGeometrie
-    {
-        get
-        {
-            return this.wijkGeometrieField;
-        }
-        set
-        {
-            this.wijkGeometrieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public string gemeentenaam
-    {
-        get
-        {
-            return this.gemeentenaamField;
-        }
-        set
-        {
-            this.gemeentenaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-    public string gemeentecode
-    {
-        get
-        {
-            return this.gemeentecodeField;
-        }
-        set
-        {
-            this.gemeentecodeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Buurt")]
-public partial class Buurt
-{
-    
-    private int buurtcodeField;
-    
-    private string buurtnaamField;
-    
-    private WellKnownText buurtGeometrieField;
-    
-    private Periode periodeGeldigheidField;
-    
-    private Wijk wijkField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int buurtcode
-    {
-        get
-        {
-            return this.buurtcodeField;
-        }
-        set
-        {
-            this.buurtcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string buurtnaam
-    {
-        get
-        {
-            return this.buurtnaamField;
-        }
-        set
-        {
-            this.buurtnaamField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public WellKnownText buurtGeometrie
-    {
-        get
-        {
-            return this.buurtGeometrieField;
-        }
-        set
-        {
-            this.buurtGeometrieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public Periode periodeGeldigheid
-    {
-        get
-        {
-            return this.periodeGeldigheidField;
-        }
-        set
-        {
-            this.periodeGeldigheidField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-    public Wijk wijk
-    {
-        get
-        {
-            return this.wijkField;
-        }
-        set
-        {
-            this.wijkField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Buurt")]
-public partial class RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter
-{
-    
-    private int buurtcodeField;
-    
-    private int wijkcodeField;
-    
-    private string gemeentecodeField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public int buurtcode
-    {
-        get
-        {
-            return this.buurtcodeField;
-        }
-        set
-        {
-            this.buurtcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int wijkcode
-    {
-        get
-        {
-            return this.wijkcodeField;
-        }
-        set
-        {
-            this.wijkcodeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string gemeentecode
-    {
-        get
-        {
-            return this.gemeentecodeField;
-        }
-        set
-        {
-            this.gemeentecodeField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-    "jkPersoon")]
-public partial class ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter
-{
-    
-    private string statutaireNaamField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string statutaireNaam
-    {
-        get
-        {
-            return this.statutaireNaamField;
-        }
-        set
-        {
-            this.statutaireNaamField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter
-{
-    
-    private string standplaatsIdentificatieField;
-    
-    private bool inclusiefIngetrokkenStandplaatsenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string standplaatsIdentificatie
-    {
-        get
-        {
-            return this.standplaatsIdentificatieField;
-        }
-        set
-        {
-            this.standplaatsIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefIngetrokkenStandplaatsen
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenStandplaatsenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenStandplaatsenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter
-{
-    
-    private string ligplaatsIdentificatieField;
-    
-    private bool inclusiefIngetrokkenLigplaatsenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string ligplaatsIdentificatie
-    {
-        get
-        {
-            return this.ligplaatsIdentificatieField;
-        }
-        set
-        {
-            this.ligplaatsIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefIngetrokkenLigplaatsen
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenLigplaatsenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenLigplaatsenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter
-{
-    
-    private string pandIdentificatieField;
-    
-    private bool inclusiefIngetrokkenVerblijfsobjectenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string pandIdentificatie
-    {
-        get
-        {
-            return this.pandIdentificatieField;
-        }
-        set
-        {
-            this.pandIdentificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefIngetrokkenVerblijfsobjecten
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenVerblijfsobjectenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenVerblijfsobjectenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter
-{
-    
-    private string identificatieNummeraanduidingField;
-    
-    private bool inclusiefIngetrokkenLigplaatsenField;
-    
-    private bool inclusiefIngetrokkenStandplaatsenField;
-    
-    private bool inclusiefIngetrokkenVerblijfsobjectenField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatieNummeraanduiding
-    {
-        get
-        {
-            return this.identificatieNummeraanduidingField;
-        }
-        set
-        {
-            this.identificatieNummeraanduidingField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public bool inclusiefIngetrokkenLigplaatsen
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenLigplaatsenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenLigplaatsenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public bool inclusiefIngetrokkenStandplaatsen
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenStandplaatsenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenStandplaatsenField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-    public bool inclusiefIngetrokkenVerblijfsobjecten
-    {
-        get
-        {
-            return this.inclusiefIngetrokkenVerblijfsobjectenField;
-        }
-        set
-        {
-            this.inclusiefIngetrokkenVerblijfsobjectenField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
-public partial class Openbareruimte
-{
-    
-    private string identificatieField;
-    
-    private string naamOpenbareRuimteField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string identificatie
-    {
-        get
-        {
-            return this.identificatieField;
-        }
-        set
-        {
-            this.identificatieField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("svcutil", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
-public partial class ZoekNummeraanduidingOpNaamOpenbareRuimteFilter
-{
-    
-    private string naamOpenbareRuimteField;
-    
-    private int huisnummerField;
-    
-    private string woonplaatsNaamField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-    public string naamOpenbareRuimte
-    {
-        get
-        {
-            return this.naamOpenbareRuimteField;
-        }
-        set
-        {
-            this.naamOpenbareRuimteField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-    public int huisnummer
-    {
-        get
-        {
-            return this.huisnummerField;
-        }
-        set
-        {
-            this.huisnummerField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-    public string woonplaatsNaam
-    {
-        get
-        {
-            return this.woonplaatsNaamField;
-        }
-        set
-        {
-            this.woonplaatsNaamField = value;
-        }
-    }
-}
 namespace StUF4.Koppelvlak.Services.AdressenEnGebouwen
 {
     using System.Runtime.Serialization;
@@ -9203,452 +139,376 @@ namespace StUF4.Koppelvlak.Services.AdressenEnGebouwen
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Nummeraanduidingen", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", ItemName="nummeraanduiding")]
+    [System.SerializableAttribute()]
+    public class Nummeraanduidingen : System.Collections.Generic.List<StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekNummeraanduidingOpNaamOpenbareRuimteFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class ZoekNummeraanduidingOpNaamOpenbareRuimteFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string naamOpenbareRuimteField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string woonplaatsNaamField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string woonplaatsNaam
+        {
+            get
+            {
+                return this.woonplaatsNaamField;
+            }
+            set
+            {
+                this.woonplaatsNaamField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Openbareruimtes", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", ItemName="openbareruimte")]
+    [System.SerializableAttribute()]
+    public class Openbareruimtes : System.Collections.Generic.List<StUF4.Entiteiten.AdressenEnGebouwen.Openbareruimte>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string identificatieNummeraanduidingField;
+        
+        private bool inclusiefIngetrokkenLigplaatsenField;
+        
+        private bool inclusiefIngetrokkenStandplaatsenField;
+        
+        private bool inclusiefIngetrokkenVerblijfsobjectenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string identificatieNummeraanduiding
+        {
+            get
+            {
+                return this.identificatieNummeraanduidingField;
+            }
+            set
+            {
+                this.identificatieNummeraanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool inclusiefIngetrokkenLigplaatsen
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenLigplaatsenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenLigplaatsenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool inclusiefIngetrokkenStandplaatsen
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenStandplaatsenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenStandplaatsenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool inclusiefIngetrokkenVerblijfsobjecten
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenVerblijfsobjectenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenVerblijfsobjectenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string pandIdentificatieField;
+        
+        private bool inclusiefIngetrokkenVerblijfsobjectenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string pandIdentificatie
+        {
+            get
+            {
+                return this.pandIdentificatieField;
+            }
+            set
+            {
+                this.pandIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool inclusiefIngetrokkenVerblijfsobjecten
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenVerblijfsobjectenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenVerblijfsobjectenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string ligplaatsIdentificatieField;
+        
+        private bool inclusiefIngetrokkenLigplaatsenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string ligplaatsIdentificatie
+        {
+            get
+            {
+                return this.ligplaatsIdentificatieField;
+            }
+            set
+            {
+                this.ligplaatsIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool inclusiefIngetrokkenLigplaatsen
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenLigplaatsenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenLigplaatsenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string standplaatsIdentificatieField;
+        
+        private bool inclusiefIngetrokkenStandplaatsenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string standplaatsIdentificatie
+        {
+            get
+            {
+                return this.standplaatsIdentificatieField;
+            }
+            set
+            {
+                this.standplaatsIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool inclusiefIngetrokkenStandplaatsen
+        {
+            get
+            {
+                return this.inclusiefIngetrokkenStandplaatsenField;
+            }
+            set
+            {
+                this.inclusiefIngetrokkenStandplaatsenField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", ConfigurationName="StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen")]
     public interface BevraagAdressenGebouwen
     {
         
-        // CODEGEN: Parameter nummeraanduidingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekNummeraanduidingOpPostcodeEnHu" +
             "isnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="nummeraanduidingen")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse ZoekNummeraanduidingOpPostcodeEnHuisnummer(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest request);
+        StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen ZoekNummeraanduidingOpPostcodeEnHuisnummer(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter filter);
         
-        // CODEGEN: Parameter nummeraanduidingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekNummeraanduidingOpNaamOpenbare" +
             "Ruimte", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="nummeraanduidingen")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteResponse ZoekNummeraanduidingOpNaamOpenbareRuimte(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteRequest request);
+        StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen ZoekNummeraanduidingOpNaamOpenbareRuimte(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteFilter filter);
         
-        // CODEGEN: Parameter openbareruimtes vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekOpenbareruimteOpNaam", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="openbareruimtes")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamResponse ZoekOpenbareruimteOpNaam(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamRequest request);
+        StUF4.Koppelvlak.Services.AdressenEnGebouwen.Openbareruimtes ZoekOpenbareruimteOpNaam(string naamOpenbareRuimte);
         
-        // CODEGEN: Parameter verblijfsobject vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegVerblijfsobjectLigplaatsS" +
             "tandplaatsOpNummeraanduiding", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="verblijfsobject")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest request);
+        StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter filter);
         
-        // CODEGEN: Parameter pand vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegPandVerblijfsobjectNummer" +
             "aanduidingOpPandIdentificatie", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="pand")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest request);
+        StUF4.Entiteiten.AdressenEnGebouwen.Pand RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter filter);
         
-        // CODEGEN: Parameter ligplaats vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegLigplaatsNummeraanduiding" +
             "OpLigplaatsIdentificatie", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ligplaats")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest request);
+        StUF4.Entiteiten.AdressenEnGebouwen.Ligplaats RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter filter);
         
-        // CODEGEN: Parameter standplaats vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegStandplaatsNummeraanduidi" +
             "ngOpStandplaatsIdentificatie", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="standplaats")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest request);
+        StUF4.Entiteiten.AdressenEnGebouwen.Standplaats RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter filter);
         
-        // CODEGEN: Parameter verblijfsobject vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegVerblijfsobjectOpVerblijf" +
             "sobjectIdentificatie", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="verblijfsobject")]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekNummeraanduidingOpPostcodeEnHuisnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter filter;
-        
-        public ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest()
-        {
-        }
-        
-        public ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest(ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("nummeraanduiding", IsNullable=false)]
-        public Nummeraanduiding[] nummeraanduidingen;
-        
-        public ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse()
-        {
-        }
-        
-        public ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse(Nummeraanduiding[] nummeraanduidingen)
-        {
-            this.nummeraanduidingen = nummeraanduidingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekNummeraanduidingOpNaamOpenbareRuimte", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekNummeraanduidingOpNaamOpenbareRuimteRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekNummeraanduidingOpNaamOpenbareRuimteFilter filter;
-        
-        public ZoekNummeraanduidingOpNaamOpenbareRuimteRequest()
-        {
-        }
-        
-        public ZoekNummeraanduidingOpNaamOpenbareRuimteRequest(ZoekNummeraanduidingOpNaamOpenbareRuimteFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekNummeraanduidingOpNaamOpenbareRuimteResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekNummeraanduidingOpNaamOpenbareRuimteResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("nummeraanduiding", IsNullable=false)]
-        public Nummeraanduiding[] nummeraanduidingen;
-        
-        public ZoekNummeraanduidingOpNaamOpenbareRuimteResponse()
-        {
-        }
-        
-        public ZoekNummeraanduidingOpNaamOpenbareRuimteResponse(Nummeraanduiding[] nummeraanduidingen)
-        {
-            this.nummeraanduidingen = nummeraanduidingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekOpenbareruimteOpNaam", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekOpenbareruimteOpNaamRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string naamOpenbareRuimte;
-        
-        public ZoekOpenbareruimteOpNaamRequest()
-        {
-        }
-        
-        public ZoekOpenbareruimteOpNaamRequest(string naamOpenbareRuimte)
-        {
-            this.naamOpenbareRuimte = naamOpenbareRuimte;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekOpenbareruimteOpNaamResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class ZoekOpenbareruimteOpNaamResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("openbareruimte", IsNullable=false)]
-        public Openbareruimte[] openbareruimtes;
-        
-        public ZoekOpenbareruimteOpNaamResponse()
-        {
-        }
-        
-        public ZoekOpenbareruimteOpNaamResponse(Openbareruimte[] openbareruimtes)
-        {
-            this.openbareruimtes = openbareruimtes;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter filter;
-        
-        public RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest()
-        {
-        }
-        
-        public RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest(RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Verblijfsobject verblijfsobject;
-        
-        public RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse()
-        {
-        }
-        
-        public RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse(Verblijfsobject verblijfsobject)
-        {
-            this.verblijfsobject = verblijfsobject;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter filter;
-        
-        public RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest()
-        {
-        }
-        
-        public RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest(RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Pand pand;
-        
-        public RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse()
-        {
-        }
-        
-        public RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse(Pand pand)
-        {
-            this.pand = pand;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter filter;
-        
-        public RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest()
-        {
-        }
-        
-        public RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest(RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Ligplaats ligplaats;
-        
-        public RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse()
-        {
-        }
-        
-        public RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse(Ligplaats ligplaats)
-        {
-            this.ligplaats = ligplaats;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter filter;
-        
-        public RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest()
-        {
-        }
-        
-        public RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest(RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Standplaats standplaats;
-        
-        public RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse()
-        {
-        }
-        
-        public RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse(Standplaats standplaats)
-        {
-            this.standplaats = standplaats;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string verblijfsobjectIdentificatie;
-        
-        public RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest()
-        {
-        }
-        
-        public RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest(string verblijfsobjectIdentificatie)
-        {
-            this.verblijfsobjectIdentificatie = verblijfsobjectIdentificatie;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", IsWrapped=true)]
-    public partial class RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/AdressenEnGebouwen", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Verblijfsobject verblijfsobject;
-        
-        public RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse()
-        {
-        }
-        
-        public RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse(Verblijfsobject verblijfsobject)
-        {
-            this.verblijfsobject = verblijfsobject;
-        }
+        StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(string verblijfsobjectIdentificatie);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -9685,119 +545,2095 @@ namespace StUF4.Koppelvlak.Services.AdressenEnGebouwen
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummer(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest request)
+        public StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen ZoekNummeraanduidingOpPostcodeEnHuisnummer(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter filter)
         {
-            return base.Channel.ZoekNummeraanduidingOpPostcodeEnHuisnummer(request);
+            return base.Channel.ZoekNummeraanduidingOpPostcodeEnHuisnummer(filter);
         }
         
-        public Nummeraanduiding[] ZoekNummeraanduidingOpPostcodeEnHuisnummer(ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter filter)
+        public StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen ZoekNummeraanduidingOpNaamOpenbareRuimte(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteFilter filter)
         {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).ZoekNummeraanduidingOpPostcodeEnHuisnummer(inValue);
-            return retVal.nummeraanduidingen;
+            return base.Channel.ZoekNummeraanduidingOpNaamOpenbareRuimte(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimte(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteRequest request)
+        public StUF4.Koppelvlak.Services.AdressenEnGebouwen.Openbareruimtes ZoekOpenbareruimteOpNaam(string naamOpenbareRuimte)
         {
-            return base.Channel.ZoekNummeraanduidingOpNaamOpenbareRuimte(request);
+            return base.Channel.ZoekOpenbareruimteOpNaam(naamOpenbareRuimte);
         }
         
-        public Nummeraanduiding[] ZoekNummeraanduidingOpNaamOpenbareRuimte(ZoekNummeraanduidingOpNaamOpenbareRuimteFilter filter)
+        public StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter filter)
         {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).ZoekNummeraanduidingOpNaamOpenbareRuimte(inValue);
-            return retVal.nummeraanduidingen;
+            return base.Channel.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.ZoekOpenbareruimteOpNaam(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamRequest request)
+        public StUF4.Entiteiten.AdressenEnGebouwen.Pand RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter filter)
         {
-            return base.Channel.ZoekOpenbareruimteOpNaam(request);
+            return base.Channel.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(filter);
         }
         
-        public Openbareruimte[] ZoekOpenbareruimteOpNaam(string naamOpenbareRuimte)
+        public StUF4.Entiteiten.AdressenEnGebouwen.Ligplaats RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter filter)
         {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamRequest();
-            inValue.naamOpenbareRuimte = naamOpenbareRuimte;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekOpenbareruimteOpNaamResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).ZoekOpenbareruimteOpNaam(inValue);
-            return retVal.openbareruimtes;
+            return base.Channel.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest request)
+        public StUF4.Entiteiten.AdressenEnGebouwen.Standplaats RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter filter)
         {
-            return base.Channel.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(request);
+            return base.Channel.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(filter);
         }
         
-        public Verblijfsobject RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter filter)
+        public StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(string verblijfsobjectIdentificatie)
         {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduiding(inValue);
-            return retVal.verblijfsobject;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest request)
-        {
-            return base.Channel.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(request);
-        }
-        
-        public Pand RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter filter)
-        {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatie(inValue);
-            return retVal.pand;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest request)
-        {
-            return base.Channel.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(request);
-        }
-        
-        public Ligplaats RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter filter)
-        {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatie(inValue);
-            return retVal.ligplaats;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest request)
-        {
-            return base.Channel.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(request);
-        }
-        
-        public Standplaats RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter filter)
-        {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatie(inValue);
-            return retVal.standplaats;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest request)
-        {
-            return base.Channel.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(request);
-        }
-        
-        public Verblijfsobject RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(string verblijfsobjectIdentificatie)
-        {
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest inValue = new StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieRequest();
-            inValue.verblijfsobjectIdentificatie = verblijfsobjectIdentificatie;
-            StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatieResponse retVal = ((StUF4.Koppelvlak.Services.AdressenEnGebouwen.BevraagAdressenGebouwen)(this)).RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(inValue);
-            return retVal.verblijfsobject;
+            return base.Channel.RaadpleegVerblijfsobjectOpVerblijfsobjectIdentificatie(verblijfsobjectIdentificatie);
         }
     }
 }
+namespace StUF4.Entiteiten.Gemeenschappelijk
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Nummeraanduiding", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Nummeraanduiding : StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt
+    {
+        
+        private int nummeraanduidingStatusField;
+        
+        private bool indicatieHoofdadresField;
+        
+        private string indicatieGeconstateerdeNummeraanduidingField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject hoofdadresVanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding.nevenadresVanType nevenadresVanField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int nummeraanduidingStatus
+        {
+            get
+            {
+                return this.nummeraanduidingStatusField;
+            }
+            set
+            {
+                this.nummeraanduidingStatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool indicatieHoofdadres
+        {
+            get
+            {
+                return this.indicatieHoofdadresField;
+            }
+            set
+            {
+                this.indicatieHoofdadresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string indicatieGeconstateerdeNummeraanduiding
+        {
+            get
+            {
+                return this.indicatieGeconstateerdeNummeraanduidingField;
+            }
+            set
+            {
+                this.indicatieGeconstateerdeNummeraanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject hoofdadresVan
+        {
+            get
+            {
+                return this.hoofdadresVanField;
+            }
+            set
+            {
+                this.hoofdadresVanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding.nevenadresVanType nevenadresVan
+        {
+            get
+            {
+                return this.nevenadresVanField;
+            }
+            set
+            {
+                this.nevenadresVanField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Nummeraanduiding.nevenadresVanType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk", ItemName="adresseerbaarObject")]
+        [System.SerializableAttribute()]
+        public class nevenadresVanType : System.Collections.Generic.List<StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractAdres", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Postbusnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Antwoordnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresBuitenland))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    public partial class AbstractAdres : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractCorrespondentieAdres", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Postbusnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Antwoordnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresBuitenland))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    public partial class AbstractCorrespondentieAdres : StUF4.Entiteiten.Gemeenschappelijk.AbstractAdres
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Postbusnummer", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Postbusnummer : StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres
+    {
+        
+        private int nummerField;
+        
+        private string PostcodeField;
+        
+        private string GemeenteField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int nummer
+        {
+            get
+            {
+                return this.nummerField;
+            }
+            set
+            {
+                this.nummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string Gemeente
+        {
+            get
+            {
+                return this.GemeenteField;
+            }
+            set
+            {
+                this.GemeenteField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Antwoordnummer", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Antwoordnummer : StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres
+    {
+        
+        private int nummerField;
+        
+        private string PostcodeField;
+        
+        private string GemeenteField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int nummer
+        {
+            get
+            {
+                return this.nummerField;
+            }
+            set
+            {
+                this.nummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string Postcode
+        {
+            get
+            {
+                return this.PostcodeField;
+            }
+            set
+            {
+                this.PostcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string Gemeente
+        {
+            get
+            {
+                return this.GemeenteField;
+            }
+            set
+            {
+                this.GemeenteField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractVerblijfsAdres", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresBuitenland))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    public partial class AbstractVerblijfsAdres : StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdresBuitenland", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class AdresBuitenland : StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string landcodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string landnaamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string adresBuitenland1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string adresBuitenland2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string adresBuitenland3Field;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string landcode
+        {
+            get
+            {
+                return this.landcodeField;
+            }
+            set
+            {
+                this.landcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string landnaam
+        {
+            get
+            {
+                return this.landnaamField;
+            }
+            set
+            {
+                this.landnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string adresBuitenland1
+        {
+            get
+            {
+                return this.adresBuitenland1Field;
+            }
+            set
+            {
+                this.adresBuitenland1Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string adresBuitenland2
+        {
+            get
+            {
+                return this.adresBuitenland2Field;
+            }
+            set
+            {
+                this.adresBuitenland2Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string adresBuitenland3
+        {
+            get
+            {
+                return this.adresBuitenland3Field;
+            }
+            set
+            {
+                this.adresBuitenland3Field = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NummeraanduidingBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    public partial class NummeraanduidingBeperkt : StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string identificatieNummeraanduidingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string postcodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string naamOpenbareRuimteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string woonplaatsNaamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string woonplaatsIdentificatieField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string identificatieNummeraanduiding
+        {
+            get
+            {
+                return this.identificatieNummeraanduidingField;
+            }
+            set
+            {
+                this.identificatieNummeraanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string postcode
+        {
+            get
+            {
+                return this.postcodeField;
+            }
+            set
+            {
+                this.postcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string woonplaatsNaam
+        {
+            get
+            {
+                return this.woonplaatsNaamField;
+            }
+            set
+            {
+                this.woonplaatsNaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string woonplaatsIdentificatie
+        {
+            get
+            {
+                return this.woonplaatsIdentificatieField;
+            }
+            set
+            {
+                this.woonplaatsIdentificatieField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdresseerbaarObject", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Ligplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Standplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject))]
+    public partial class AdresseerbaarObject : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt adresField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt adres
+        {
+            get
+            {
+                return this.adresField;
+            }
+            set
+            {
+                this.adresField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Periode", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Periode : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.DateTime vanField;
+        
+        private System.Nullable<System.DateTime> totEnMetField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.DateTime van
+        {
+            get
+            {
+                return this.vanField;
+            }
+            set
+            {
+                this.vanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public System.Nullable<System.DateTime> totEnMet
+        {
+            get
+            {
+                return this.totEnMetField;
+            }
+            set
+            {
+                this.totEnMetField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbstractRechtspersoon", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.AnderNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.NietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon))]
+    public partial class AbstractRechtspersoon : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OnvolledigeDatum", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class OnvolledigeDatum : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int jaarField;
+        
+        private System.Nullable<int> maandField;
+        
+        private System.Nullable<int> dagField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int jaar
+        {
+            get
+            {
+                return this.jaarField;
+            }
+            set
+            {
+                this.jaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> maand
+        {
+            get
+            {
+                return this.maandField;
+            }
+            set
+            {
+                this.maandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<int> dag
+        {
+            get
+            {
+                return this.dagField;
+            }
+            set
+            {
+                this.dagField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NummeraanduidingRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class NummeraanduidingRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt adresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt adres
+        {
+            get
+            {
+                return this.adresField;
+            }
+            set
+            {
+                this.adresField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VerblijfsAdresRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class VerblijfsAdresRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres adresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres adres
+        {
+            get
+            {
+                return this.adresField;
+            }
+            set
+            {
+                this.adresField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Relatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfplaatsRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.EigenaarRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.VerblijfsAdresRelatie))]
+    public partial class Relatie : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bankrekening", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Bankrekening : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string ibanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string bicField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string iban
+        {
+            get
+            {
+                return this.ibanField;
+            }
+            set
+            {
+                this.ibanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string bic
+        {
+            get
+            {
+                return this.bicField;
+            }
+            set
+            {
+                this.bicField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Entiteiten.AdressenEnGebouwen
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ligplaats", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Ligplaats : StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject
+    {
+        
+        private string indicatieGeconstateerdeLigplaatsField;
+        
+        private string ligplaatsIdentificatieField;
+        
+        private string ligplaatsStatusField;
+        
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText vlakGeometrieField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string indicatieGeconstateerdeLigplaats
+        {
+            get
+            {
+                return this.indicatieGeconstateerdeLigplaatsField;
+            }
+            set
+            {
+                this.indicatieGeconstateerdeLigplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string ligplaatsIdentificatie
+        {
+            get
+            {
+                return this.ligplaatsIdentificatieField;
+            }
+            set
+            {
+                this.ligplaatsIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string ligplaatsStatus
+        {
+            get
+            {
+                return this.ligplaatsStatusField;
+            }
+            set
+            {
+                this.ligplaatsStatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText vlakGeometrie
+        {
+            get
+            {
+                return this.vlakGeometrieField;
+            }
+            set
+            {
+                this.vlakGeometrieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Standplaats", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Standplaats : StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject
+    {
+        
+        private string indicatieGeconstateerdeStandplaatsField;
+        
+        private string standplaatsIdentificatieField;
+        
+        private string standplaatsStatusField;
+        
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText vlakGeometrieField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string indicatieGeconstateerdeStandplaats
+        {
+            get
+            {
+                return this.indicatieGeconstateerdeStandplaatsField;
+            }
+            set
+            {
+                this.indicatieGeconstateerdeStandplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string standplaatsIdentificatie
+        {
+            get
+            {
+                return this.standplaatsIdentificatieField;
+            }
+            set
+            {
+                this.standplaatsIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string standplaatsStatus
+        {
+            get
+            {
+                return this.standplaatsStatusField;
+            }
+            set
+            {
+                this.standplaatsStatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText vlakGeometrie
+        {
+            get
+            {
+                return this.vlakGeometrieField;
+            }
+            set
+            {
+                this.vlakGeometrieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Verblijfsobject", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Verblijfsobject : StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject
+    {
+        
+        private System.Nullable<int> aantalKamersField;
+        
+        private System.Nullable<int> hoogsteBouwlaagVerblijfsobjectField;
+        
+        private string indicatieGeconstateerdVerblijfsobjectField;
+        
+        private System.Nullable<int> laagsteBouwlaagVerblijfsobjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ontsluitingVerdiepingField;
+        
+        private string soortWoonobjectField;
+        
+        private int toegangBouwlaagVerblijfsobjectField;
+        
+        private string verblijfsobjectidentificatieField;
+        
+        private int verblijfsobjectStatusField;
+        
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText puntGeometrieField;
+        
+        private StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.maaktDeelUitVanType maaktDeelUitVanField;
+        
+        private StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.bouwkundigeBestemmingenActueelType bouwkundigeBestemmingenActueelField;
+        
+        private System.Nullable<int> brutoInhoudField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        private StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.gebruiksdoelenGebouwdObjectType gebruiksdoelenGebouwdObjectField;
+        
+        private string inwinningswijzeOppervlakteField;
+        
+        private System.Nullable<int> oppervlakteVerblijfsobjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string statusVoortgangBouwField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> aantalKamers
+        {
+            get
+            {
+                return this.aantalKamersField;
+            }
+            set
+            {
+                this.aantalKamersField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> hoogsteBouwlaagVerblijfsobject
+        {
+            get
+            {
+                return this.hoogsteBouwlaagVerblijfsobjectField;
+            }
+            set
+            {
+                this.hoogsteBouwlaagVerblijfsobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string indicatieGeconstateerdVerblijfsobject
+        {
+            get
+            {
+                return this.indicatieGeconstateerdVerblijfsobjectField;
+            }
+            set
+            {
+                this.indicatieGeconstateerdVerblijfsobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> laagsteBouwlaagVerblijfsobject
+        {
+            get
+            {
+                return this.laagsteBouwlaagVerblijfsobjectField;
+            }
+            set
+            {
+                this.laagsteBouwlaagVerblijfsobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ontsluitingVerdieping
+        {
+            get
+            {
+                return this.ontsluitingVerdiepingField;
+            }
+            set
+            {
+                this.ontsluitingVerdiepingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string soortWoonobject
+        {
+            get
+            {
+                return this.soortWoonobjectField;
+            }
+            set
+            {
+                this.soortWoonobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int toegangBouwlaagVerblijfsobject
+        {
+            get
+            {
+                return this.toegangBouwlaagVerblijfsobjectField;
+            }
+            set
+            {
+                this.toegangBouwlaagVerblijfsobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string verblijfsobjectidentificatie
+        {
+            get
+            {
+                return this.verblijfsobjectidentificatieField;
+            }
+            set
+            {
+                this.verblijfsobjectidentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public int verblijfsobjectStatus
+        {
+            get
+            {
+                return this.verblijfsobjectStatusField;
+            }
+            set
+            {
+                this.verblijfsobjectStatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText puntGeometrie
+        {
+            get
+            {
+                return this.puntGeometrieField;
+            }
+            set
+            {
+                this.puntGeometrieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
+        public StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.maaktDeelUitVanType maaktDeelUitVan
+        {
+            get
+            {
+                return this.maaktDeelUitVanField;
+            }
+            set
+            {
+                this.maaktDeelUitVanField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=11)]
+        public StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.bouwkundigeBestemmingenActueelType bouwkundigeBestemmingenActueel
+        {
+            get
+            {
+                return this.bouwkundigeBestemmingenActueelField;
+            }
+            set
+            {
+                this.bouwkundigeBestemmingenActueelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public System.Nullable<int> brutoInhoud
+        {
+            get
+            {
+                return this.brutoInhoudField;
+            }
+            set
+            {
+                this.brutoInhoudField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=13)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=14)]
+        public StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject.gebruiksdoelenGebouwdObjectType gebruiksdoelenGebouwdObject
+        {
+            get
+            {
+                return this.gebruiksdoelenGebouwdObjectField;
+            }
+            set
+            {
+                this.gebruiksdoelenGebouwdObjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=15)]
+        public string inwinningswijzeOppervlakte
+        {
+            get
+            {
+                return this.inwinningswijzeOppervlakteField;
+            }
+            set
+            {
+                this.inwinningswijzeOppervlakteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        public System.Nullable<int> oppervlakteVerblijfsobject
+        {
+            get
+            {
+                return this.oppervlakteVerblijfsobjectField;
+            }
+            set
+            {
+                this.oppervlakteVerblijfsobjectField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        public string statusVoortgangBouw
+        {
+            get
+            {
+                return this.statusVoortgangBouwField;
+            }
+            set
+            {
+                this.statusVoortgangBouwField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Verblijfsobject.maaktDeelUitVanType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen", ItemName="pand")]
+        [System.SerializableAttribute()]
+        public class maaktDeelUitVanType : System.Collections.Generic.List<StUF4.Entiteiten.AdressenEnGebouwen.PandBeperkt>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Verblijfsobject.bouwkundigeBestemmingenActueelType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen", ItemName="bouwkundigeBestemmingActueel")]
+        [System.SerializableAttribute()]
+        public class bouwkundigeBestemmingenActueelType : System.Collections.Generic.List<StUF4.Entiteiten.AdressenEnGebouwen.BouwkundigeBestemming>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Verblijfsobject.gebruiksdoelenGebouwdObjectType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen", ItemName="gebruiksdoelGebouwdObject")]
+        [System.SerializableAttribute()]
+        public class gebruiksdoelenGebouwdObjectType : System.Collections.Generic.List<string>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PandBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Pand))]
+    public partial class PandBeperkt : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string pandIdentificatieField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string pandIdentificatie
+        {
+            get
+            {
+                return this.pandIdentificatieField;
+            }
+            set
+            {
+                this.pandIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pand", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Pand : StUF4.Entiteiten.AdressenEnGebouwen.PandBeperkt
+    {
+        
+        private System.Nullable<int> brutoInhoudField;
+        
+        private int hoogsteBouwlaagPandField;
+        
+        private string indicatieGeconstateerdPandField;
+        
+        private string inwinningswijzeGeometrieBovenaanzichtField;
+        
+        private string inwinningswijzeGeometrieMaaiveldField;
+        
+        private int laagsteBouwlaagPandField;
+        
+        private System.Nullable<int> oorspronkelijkBouwjaarPandField;
+        
+        private System.Nullable<int> oppervlaktePandField;
+        
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText pandGeometrieBovenaanzichtField;
+        
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText pandGeometrieMaaiveldField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pandstatusField;
+        
+        private int relatieveHoogteliggingPandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string statusVoortgangBouwField;
+        
+        private StUF4.Entiteiten.AdressenEnGebouwen.Pand.verblijfsobjectenType verblijfsobjectenField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> brutoInhoud
+        {
+            get
+            {
+                return this.brutoInhoudField;
+            }
+            set
+            {
+                this.brutoInhoudField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int hoogsteBouwlaagPand
+        {
+            get
+            {
+                return this.hoogsteBouwlaagPandField;
+            }
+            set
+            {
+                this.hoogsteBouwlaagPandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string indicatieGeconstateerdPand
+        {
+            get
+            {
+                return this.indicatieGeconstateerdPandField;
+            }
+            set
+            {
+                this.indicatieGeconstateerdPandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string inwinningswijzeGeometrieBovenaanzicht
+        {
+            get
+            {
+                return this.inwinningswijzeGeometrieBovenaanzichtField;
+            }
+            set
+            {
+                this.inwinningswijzeGeometrieBovenaanzichtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string inwinningswijzeGeometrieMaaiveld
+        {
+            get
+            {
+                return this.inwinningswijzeGeometrieMaaiveldField;
+            }
+            set
+            {
+                this.inwinningswijzeGeometrieMaaiveldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int laagsteBouwlaagPand
+        {
+            get
+            {
+                return this.laagsteBouwlaagPandField;
+            }
+            set
+            {
+                this.laagsteBouwlaagPandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> oorspronkelijkBouwjaarPand
+        {
+            get
+            {
+                return this.oorspronkelijkBouwjaarPandField;
+            }
+            set
+            {
+                this.oorspronkelijkBouwjaarPandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> oppervlaktePand
+        {
+            get
+            {
+                return this.oppervlaktePandField;
+            }
+            set
+            {
+                this.oppervlaktePandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText pandGeometrieBovenaanzicht
+        {
+            get
+            {
+                return this.pandGeometrieBovenaanzichtField;
+            }
+            set
+            {
+                this.pandGeometrieBovenaanzichtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText pandGeometrieMaaiveld
+        {
+            get
+            {
+                return this.pandGeometrieMaaiveldField;
+            }
+            set
+            {
+                this.pandGeometrieMaaiveldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string pandstatus
+        {
+            get
+            {
+                return this.pandstatusField;
+            }
+            set
+            {
+                this.pandstatusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int relatieveHoogteliggingPand
+        {
+            get
+            {
+                return this.relatieveHoogteliggingPandField;
+            }
+            set
+            {
+                this.relatieveHoogteliggingPandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string statusVoortgangBouw
+        {
+            get
+            {
+                return this.statusVoortgangBouwField;
+            }
+            set
+            {
+                this.statusVoortgangBouwField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.AdressenEnGebouwen.Pand.verblijfsobjectenType verblijfsobjecten
+        {
+            get
+            {
+                return this.verblijfsobjectenField;
+            }
+            set
+            {
+                this.verblijfsobjectenField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Pand.verblijfsobjectenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen", ItemName="verblijfsobject")]
+        [System.SerializableAttribute()]
+        public class verblijfsobjectenType : System.Collections.Generic.List<StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject>
+        {
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BouwkundigeBestemming", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    public enum BouwkundigeBestemming : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor wonen")]
+        doeleindenvoorwonen = 1000,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        eensgezinswoning = 1001,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        bejaardenwoning = 1002,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        recreatiewoning = 1004,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        meergezinswoning = 1005,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        dienstwoning = 1006,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        zorgwoonverblijf = 1007,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        aanleunwoonverblijf = 1008,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="bejaardenwoonverblijf (in bejaardenoord, centrale keuken)")]
+        bejaardenwoonverblijfinbejaardenoordcentralekeuken = 1009,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        jongerenwooneenheid = 1010,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        gehandicaptenwooneenheid = 1011,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor niet-wonen")]
+        doeleindenvoornietwonen = 2000,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor handel, horeca en bedrijf")]
+        doeleindenvoorhandelhorecaenbedrijf = 2100,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        detailhandel = 2110,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="cafe/bar/restaurant")]
+        cafebarrestaurant = 2120,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="hotel/logies")]
+        hotellogies = 2130,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        kantoor = 2150,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="opslag en distributie")]
+        opslagendistributie = 2160,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="fabricage en productie")]
+        fabricageenproductie = 2170,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="onderhoud en reparatie")]
+        onderhoudenreparatie = 2180,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        laboratoria = 2190,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor handel, horeca en bedrijf")]
+        overigedoeleindenvoorhandelhorecaenbedrijf = 2199,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor cultuur")]
+        doeleindenvoorcultuur = 2200,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="wijk-/buurt-/verenigingsactiviteiten")]
+        wijkbuurtverenigingsactiviteiten = 2210,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        congres = 2220,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="theater en concert")]
+        theaterenconcert = 2230,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        musea = 2240,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        expositie = 2250,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        bioscoop = 2260,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        bibliotheek = 2270,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor cultuur")]
+        overigedoeleindenvoorcultuur = 2299,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor recreatie")]
+        doeleindenvoorrecreatie = 2300,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="sport buiten")]
+        sportbuiten = 2310,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="sport binnen")]
+        sportbinnen = 2320,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        recreatie = 2330,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        zwembad = 2340,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        dierenverzorging = 2350,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="natuur en landschap")]
+        natuurenlandschap = 2360,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor recreatie")]
+        overigedoeleindenvoorrecreatie = 2399,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor agrarisch bedrijf")]
+        doeleindenvooragrarischbedrijf = 2400,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        akkerbouw = 2410,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        veeteelt = 2420,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        tuinbouw = 2430,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="gemengd bedrijf")]
+        gemengdbedrijf = 2440,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor agrarisch bedrijf")]
+        overigedoeleindenvooragrarischbedrijf = 2499,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor onderwijs")]
+        doeleindenvooronderwijs = 2500,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        kinderopvang = 2510,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        basisschool = 2520,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="algemeen voortgezet onderwijs")]
+        algemeenvoortgezetonderwijs = 2530,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="hoger beroepsonderwijs")]
+        hogerberoepsonderwijs = 2540,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="academisch onderwijs")]
+        academischonderwijs = 2550,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="bijzonder onderwijs")]
+        bijzonderonderwijs = 2560,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="vrijetijds onderwijs")]
+        vrijetijdsonderwijs = 2570,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige onderwijs")]
+        overigeonderwijs = 2599,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor gezondheidszorg")]
+        doeleindenvoorgezondheidszorg = 2600,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ziekenhuis = 2610,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        polikliniek = 2620,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        praktijkruimte = 2630,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        verpleegtehuis = 2640,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="verzorgingstehuis en bejaardentehuis")]
+        verzorgingstehuisenbejaardentehuis = 2650,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        dagverblijf = 2660,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        wijkverzorging = 2670,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="psychiatrische inrichting")]
+        psychiatrischeinrichting = 2680,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor gezondheidszorg")]
+        overigedoeleindenvoorgezondheidszorg = 2699,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor verkeer")]
+        doeleindenvoorverkeer = 2700,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="stalling (fietsen/auto\'s)")]
+        stallingfietsenautos = 2710,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        wegverkeer = 2720,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        spoorwegverkeer = 2730,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        luchtvaart = 2740,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        scheepvaart = 2750,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor verkeer")]
+        overigedoeleindenvoorverkeer = 2799,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="doeleinden voor nutsvoorzieningen")]
+        doeleindenvoornutsvoorzieningen = 2800,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="waternuts doeleinden")]
+        waternutsdoeleinden = 2810,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        gas = 2820,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        elektriciteit = 2830,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CAI = 2840,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        telecommunicatie = 2850,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="waterschaps en waterverdediging")]
+        waterschapsenwaterverdediging = 2860,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden voor nutsvoorzieningen")]
+        overigedoeleindenvoornutsvoorzieningen = 2899,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="andere doeleinden van openbaar nut")]
+        anderedoeleindenvanopenbaarnut = 2900,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        gemeentehuis = 2910,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        politie = 2920,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        brandweer = 2930,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="gevangenis/gesticht")]
+        gevangenisgesticht = 2940,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="begraafplaats/crematorium")]
+        begraafplaatscrematorium = 2950,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="godsdienst (kerk, klooster e.d.)")]
+        godsdienstkerkkloostered = 2960,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        defensie = 2970,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="overige doeleinden van openbaar nut")]
+        overigedoeleindenvanopenbaarnut = 2970,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Openbareruimte", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Openbareruimte : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string identificatieField;
+        
+        private string naamOpenbareRuimteField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string identificatie
+        {
+            get
+            {
+                return this.identificatieField;
+            }
+            set
+            {
+                this.identificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Brondocument", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/AdressenEnGebouwen")]
+    [System.SerializableAttribute()]
+    public partial class Brondocument : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string identificatieField;
+        
+        private System.Nullable<System.DateTime> datumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string omschrijvingField;
+        
+        private string gemeenteField;
+        
+        private string gemeenteAkteField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string identificatie
+        {
+            get
+            {
+                return this.identificatieField;
+            }
+            set
+            {
+                this.identificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public System.Nullable<System.DateTime> datum
+        {
+            get
+            {
+                return this.datumField;
+            }
+            set
+            {
+                this.datumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string omschrijving
+        {
+            get
+            {
+                return this.omschrijvingField;
+            }
+            set
+            {
+                this.omschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public string gemeente
+        {
+            get
+            {
+                return this.gemeenteField;
+            }
+            set
+            {
+                this.gemeenteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public string gemeenteAkte
+        {
+            get
+            {
+                return this.gemeenteAkteField;
+            }
+            set
+            {
+                this.gemeenteAkteField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Extern.Entiteiten.Geometrie
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WellKnownText", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie")]
+    [System.SerializableAttribute()]
+    public partial class WellKnownText : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string representatieField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string representatie
+        {
+            get
+            {
+                return this.representatieField;
+            }
+            set
+            {
+                this.representatieField = value;
+            }
+        }
+    }
+}
+
 namespace StUF4.Koppelvlak.Services.Buurt
 {
     using System.Runtime.Serialization;
@@ -10063,109 +2899,6 @@ namespace StUF4.Entiteiten.Buurt
         }
     }
 }
-namespace StUF4.Extern.Entiteiten.Geometrie
-{
-    using System.Runtime.Serialization;
-    using System;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WellKnownText", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Extern/Entiteiten/Geometrie")]
-    [System.SerializableAttribute()]
-    public partial class WellKnownText : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string representatieField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string representatie
-        {
-            get
-            {
-                return this.representatieField;
-            }
-            set
-            {
-                this.representatieField = value;
-            }
-        }
-    }
-}
-namespace StUF4.Entiteiten.Gemeenschappelijk
-{
-    using System.Runtime.Serialization;
-    using System;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Periode", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk")]
-    [System.SerializableAttribute()]
-    public partial class Periode : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private System.DateTime vanField;
-        
-        private System.Nullable<System.DateTime> totEnMetField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.DateTime van
-        {
-            get
-            {
-                return this.vanField;
-            }
-            set
-            {
-                this.vanField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public System.Nullable<System.DateTime> totEnMet
-        {
-            get
-            {
-                return this.totEnMetField;
-            }
-            set
-            {
-                this.totEnMetField = value;
-            }
-        }
-    }
-}
 namespace StUF4.Entiteiten.Wijk
 {
     using System.Runtime.Serialization;
@@ -10331,6 +3064,243 @@ namespace StUF4.Koppelvlak.Services.NietNatuurlijkPersoon
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenNietNatuurlijkPersonenBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
+        "jkPersoon", ItemName="ingeschrevenNietNatuurlijkPersoonBeperkt")]
+    [System.SerializableAttribute()]
+    public class IngeschrevenNietNatuurlijkPersonenBeperkt : System.Collections.Generic.List<StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenNietNatuurlijkPersonen", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
+        "jkPersoon", ItemName="ingeschrevenNietNatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public class IngeschrevenNietNatuurlijkPersonen : System.Collections.Generic.List<StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
+        "jkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string postcodeField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string postcode
+        {
+            get
+            {
+                return this.postcodeField;
+            }
+            set
+            {
+                this.postcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
+        "jkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string woonplaatsnaamField;
+        
+        private string naamOpenbareRuimteField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string woonplaatsnaam
+        {
+            get
+            {
+                return this.woonplaatsnaamField;
+            }
+            set
+            {
+                this.woonplaatsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
         "jkPersoon", ConfigurationName="StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijk" +
@@ -10338,303 +3308,30 @@ namespace StUF4.Koppelvlak.Services.NietNatuurlijkPersoon
     public interface BevraagIngeschrevenNietNatuurlijkPersoon
     {
         
-        // CODEGEN: Parameter ingeschrevenNietNatuurlijkPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenNietNatuurlijkPers" +
             "oonOpStatutaireNaam", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenNietNatuurlijkPersonen")]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest request);
+        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenNietNatuurlijkPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenNietNatuurlijkPers" +
             "onenOpPostcodeHuisnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenNietNatuurlijkPersonen")]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest request);
+        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenNietNatuurlijkPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenNietNatuurlijkPers" +
             "onenOpBinnenlandsBezoekadres", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenNietNatuurlijkPersonen")]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest request);
+        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenNietNatuurlijkPersoon vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegIngeschrevenNietNatuurlij" +
             "kPersoonOpRsin", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenNietNatuurlijkPersoon")]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest request);
+        StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(string rsin);
         
-        // CODEGEN: Parameter ingeschrevenNietNatuurlijkPersoon vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegIngeschrevenNietNatuurlij" +
             "kPersoonOpKvKnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenNietNatuurlijkPersoon")]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter filter;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest(ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenNietNatuurlijkPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse(IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen)
-        {
-            this.ingeschrevenNietNatuurlijkPersonen = ingeschrevenNietNatuurlijkPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter filter;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest(ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenNietNatuurlijkPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse(IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen)
-        {
-            this.ingeschrevenNietNatuurlijkPersonen = ingeschrevenNietNatuurlijkPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter filter;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest(ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenNietNatuurlijkPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen;
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse(IngeschrevenNietNatuurlijkPersoonBeperkt[] ingeschrevenNietNatuurlijkPersonen)
-        {
-            this.ingeschrevenNietNatuurlijkPersonen = ingeschrevenNietNatuurlijkPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rsin;
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest()
-        {
-        }
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest(string rsin)
-        {
-            this.rsin = rsin;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public IngeschrevenNietNatuurlijkPersoon ingeschrevenNietNatuurlijkPersoon;
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse()
-        {
-        }
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse(IngeschrevenNietNatuurlijkPersoon ingeschrevenNietNatuurlijkPersoon)
-        {
-            this.ingeschrevenNietNatuurlijkPersoon = ingeschrevenNietNatuurlijkPersoon;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string kvkNummer;
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest()
-        {
-        }
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest(string kvkNummer)
-        {
-            this.kvkNummer = kvkNummer;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-        "jkPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenNietNatuurli" +
-            "jkPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public IngeschrevenNietNatuurlijkPersoon ingeschrevenNietNatuurlijkPersoon;
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse()
-        {
-        }
-        
-        public RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse(IngeschrevenNietNatuurlijkPersoon ingeschrevenNietNatuurlijkPersoon)
-        {
-            this.ingeschrevenNietNatuurlijkPersoon = ingeschrevenNietNatuurlijkPersoon;
-        }
+        StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(string kvkNummer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -10671,74 +3368,5252 @@ namespace StUF4.Koppelvlak.Services.NietNatuurlijkPersoon
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest request)
+        public StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter filter)
         {
-            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(request);
+            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(filter);
         }
         
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter filter)
+        public StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter filter)
         {
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest inValue = new StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamResponse retVal = ((StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon)(this)).ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaam(inValue);
-            return retVal.ingeschrevenNietNatuurlijkPersonen;
+            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest request)
+        public StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter filter)
         {
-            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(request);
+            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(filter);
         }
         
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter filter)
+        public StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(string rsin)
         {
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest inValue = new StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerResponse retVal = ((StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon)(this)).ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummer(inValue);
-            return retVal.ingeschrevenNietNatuurlijkPersonen;
+            return base.Channel.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(rsin);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest request)
+        public StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(string kvkNummer)
         {
-            return base.Channel.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(request);
+            return base.Channel.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(kvkNummer);
+        }
+    }
+}
+namespace StUF4.Entiteiten.NietNatuurlijkPersoon
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenNietNatuurlijkPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon))]
+    public partial class IngeschrevenNietNatuurlijkPersoonBeperkt : StUF4.Entiteiten.NietNatuurlijkPersoon.NietNatuurlijkPersoonBeperkt
+    {
+        
+        private string rsinField;
+        
+        private string rechtsvormField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumVoortzettingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingRelatie bezoekAdresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string rsin
+        {
+            get
+            {
+                return this.rsinField;
+            }
+            set
+            {
+                this.rsinField = value;
+            }
         }
         
-        public IngeschrevenNietNatuurlijkPersoonBeperkt[] ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter filter)
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string rechtsvorm
         {
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest inValue = new StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresResponse retVal = ((StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon)(this)).ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadres(inValue);
-            return retVal.ingeschrevenNietNatuurlijkPersonen;
+            get
+            {
+                return this.rechtsvormField;
+            }
+            set
+            {
+                this.rechtsvormField = value;
+            }
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest request)
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumVoortzetting
         {
-            return base.Channel.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(request);
+            get
+            {
+                return this.datumVoortzettingField;
+            }
+            set
+            {
+                this.datumVoortzettingField = value;
+            }
         }
         
-        public IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(string rsin)
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingRelatie bezoekAdres
         {
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest inValue = new StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinRequest();
-            inValue.rsin = rsin;
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsinResponse retVal = ((StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon)(this)).RaadpleegIngeschrevenNietNatuurlijkPersoonOpRsin(inValue);
-            return retVal.ingeschrevenNietNatuurlijkPersoon;
+            get
+            {
+                return this.bezoekAdresField;
+            }
+            set
+            {
+                this.bezoekAdresField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NietNatuurlijkPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon))]
+    public partial class NietNatuurlijkPersoonBeperkt : StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon
+    {
+        
+        private string statutaireNaamField;
+        
+        private System.DateTime datumAanvangField;
+        
+        private System.Nullable<System.DateTime> datumBeeindigingField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string statutaireNaam
+        {
+            get
+            {
+                return this.statutaireNaamField;
+            }
+            set
+            {
+                this.statutaireNaamField = value;
+            }
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest request)
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public System.DateTime datumAanvang
         {
-            return base.Channel.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(request);
+            get
+            {
+                return this.datumAanvangField;
+            }
+            set
+            {
+                this.datumAanvangField = value;
+            }
         }
         
-        public IngeschrevenNietNatuurlijkPersoon RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(string kvkNummer)
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<System.DateTime> datumBeeindiging
         {
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest inValue = new StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerRequest();
-            inValue.kvkNummer = kvkNummer;
-            StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummerResponse retVal = ((StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.BevraagIngeschrevenNietNatuurlijkPersoon)(this)).RaadpleegIngeschrevenNietNatuurlijkPersoonOpKvKnummer(inValue);
-            return retVal.ingeschrevenNietNatuurlijkPersoon;
+            get
+            {
+                return this.datumBeeindigingField;
+            }
+            set
+            {
+                this.datumBeeindigingField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnderBuitenlandsNietNatuurlijkPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class AnderBuitenlandsNietNatuurlijkPersoonBeperkt : StUF4.Entiteiten.NietNatuurlijkPersoon.NietNatuurlijkPersoonBeperkt
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenNietNatuurlijkPersoon", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class IngeschrevenNietNatuurlijkPersoon : StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres postAdresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string telefoonnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string faxnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailadresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres postAdres
+        {
+            get
+            {
+                return this.postAdresField;
+            }
+            set
+            {
+                this.postAdresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string telefoonnummer
+        {
+            get
+            {
+                return this.telefoonnummerField;
+            }
+            set
+            {
+                this.telefoonnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string faxnummer
+        {
+            get
+            {
+                return this.faxnummerField;
+            }
+            set
+            {
+                this.faxnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string emailadres
+        {
+            get
+            {
+                return this.emailadresField;
+            }
+            set
+            {
+                this.emailadresField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Entiteiten.NatuurlijkPersoon
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NatuurlijkPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.AnderNatuurlijkPersoonBeperkt))]
+    public partial class NatuurlijkPersoonBeperkt : StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string voorlettersAanschrijvingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string voornamenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string voorvoegselGeslachtsnaamField;
+        
+        private string geslachtsnaamField;
+        
+        private StUF4.Entiteiten.NatuurlijkPersoon.Geslachtsaanduiding geslachtsaanduidingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string aanschrijfwijzeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum geboorteDatumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.VerblijfsAdresRelatie verblijfsadresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string voorlettersAanschrijving
+        {
+            get
+            {
+                return this.voorlettersAanschrijvingField;
+            }
+            set
+            {
+                this.voorlettersAanschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string voornamen
+        {
+            get
+            {
+                return this.voornamenField;
+            }
+            set
+            {
+                this.voornamenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string voorvoegselGeslachtsnaam
+        {
+            get
+            {
+                return this.voorvoegselGeslachtsnaamField;
+            }
+            set
+            {
+                this.voorvoegselGeslachtsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string geslachtsnaam
+        {
+            get
+            {
+                return this.geslachtsnaamField;
+            }
+            set
+            {
+                this.geslachtsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public StUF4.Entiteiten.NatuurlijkPersoon.Geslachtsaanduiding geslachtsaanduiding
+        {
+            get
+            {
+                return this.geslachtsaanduidingField;
+            }
+            set
+            {
+                this.geslachtsaanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string aanschrijfwijze
+        {
+            get
+            {
+                return this.aanschrijfwijzeField;
+            }
+            set
+            {
+                this.aanschrijfwijzeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum geboorteDatum
+        {
+            get
+            {
+                return this.geboorteDatumField;
+            }
+            set
+            {
+                this.geboorteDatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.Gemeenschappelijk.VerblijfsAdresRelatie verblijfsadres
+        {
+            get
+            {
+                return this.verblijfsadresField;
+            }
+            set
+            {
+                this.verblijfsadresField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnderNatuurlijkPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class AnderNatuurlijkPersoonBeperkt : StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt
+    {
+        
+        private string nummerAnderNatuurlijkPersoonField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string nummerAnderNatuurlijkPersoon
+        {
+            get
+            {
+                return this.nummerAnderNatuurlijkPersoonField;
+            }
+            set
+            {
+                this.nummerAnderNatuurlijkPersoonField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Geboortedatum", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class Geboortedatum : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int jaarField;
+        
+        private System.Nullable<int> maandField;
+        
+        private System.Nullable<int> dagField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int jaar
+        {
+            get
+            {
+                return this.jaarField;
+            }
+            set
+            {
+                this.jaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> maand
+        {
+            get
+            {
+                return this.maandField;
+            }
+            set
+            {
+                this.maandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<int> dag
+        {
+            get
+            {
+                return this.dagField;
+            }
+            set
+            {
+                this.dagField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Geslachtsaanduiding", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    public enum Geslachtsaanduiding : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Man = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vrouw = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Onbekend = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NatuurlijkPersoonRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    [System.SerializableAttribute()]
+    public partial class NatuurlijkPersoonRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt persoonField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt persoon
+        {
+            get
+            {
+                return this.persoonField;
+            }
+            set
+            {
+                this.persoonField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Entiteiten.IngeschrevenPersoon
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenPersoonBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon))]
+    public partial class IngeschrevenPersoonBeperkt : StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt
+    {
+        
+        private string burgerservicenummerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string burgerservicenummer
+        {
+            get
+            {
+                return this.burgerservicenummerField;
+            }
+            set
+            {
+                this.burgerservicenummerField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenPersoon", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class IngeschrevenPersoon : StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt
+    {
+        
+        private System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.AanduidingNaamgebruik> aanduidingNaamgebruikField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string aanhefAanschrijvingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string voornamenAanschrijvingField;
+        
+        private string geslachtsnaamAanschrijvingField;
+        
+        private System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.AdellijkeTitelPredikaat> adellijkeTitelOfPredikaatField;
+        
+        private string geboorteplaatsField;
+        
+        private string geboortelandField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.kinderenType kinderenField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.oudersType oudersField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.partnersType partnersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.overlijdenType overlijdenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string telefoonnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string faxnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailadresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres correspondentieadresField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.nationaliteitenType nationaliteitenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Bankrekening bankrekeningField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.verblijfstitelsType verblijfstitelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven inOnderzoekField;
+        
+        private System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.IndicatieGezag> indicatieGezagMinderjarigeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string redenOpschortingBijhoudingField;
+        
+        private bool indicatieGeheimField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumOpschortingBijhoudingField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.AanduidingNaamgebruik> aanduidingNaamgebruik
+        {
+            get
+            {
+                return this.aanduidingNaamgebruikField;
+            }
+            set
+            {
+                this.aanduidingNaamgebruikField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string aanhefAanschrijving
+        {
+            get
+            {
+                return this.aanhefAanschrijvingField;
+            }
+            set
+            {
+                this.aanhefAanschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string voornamenAanschrijving
+        {
+            get
+            {
+                return this.voornamenAanschrijvingField;
+            }
+            set
+            {
+                this.voornamenAanschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string geslachtsnaamAanschrijving
+        {
+            get
+            {
+                return this.geslachtsnaamAanschrijvingField;
+            }
+            set
+            {
+                this.geslachtsnaamAanschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.AdellijkeTitelPredikaat> adellijkeTitelOfPredikaat
+        {
+            get
+            {
+                return this.adellijkeTitelOfPredikaatField;
+            }
+            set
+            {
+                this.adellijkeTitelOfPredikaatField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        public string geboorteplaats
+        {
+            get
+            {
+                return this.geboorteplaatsField;
+            }
+            set
+            {
+                this.geboorteplaatsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=6)]
+        public string geboorteland
+        {
+            get
+            {
+                return this.geboortelandField;
+            }
+            set
+            {
+                this.geboortelandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.kinderenType kinderen
+        {
+            get
+            {
+                return this.kinderenField;
+            }
+            set
+            {
+                this.kinderenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.oudersType ouders
+        {
+            get
+            {
+                return this.oudersField;
+            }
+            set
+            {
+                this.oudersField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.partnersType partners
+        {
+            get
+            {
+                return this.partnersField;
+            }
+            set
+            {
+                this.partnersField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.overlijdenType overlijden
+        {
+            get
+            {
+                return this.overlijdenField;
+            }
+            set
+            {
+                this.overlijdenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public string telefoonnummer
+        {
+            get
+            {
+                return this.telefoonnummerField;
+            }
+            set
+            {
+                this.telefoonnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        public string faxnummer
+        {
+            get
+            {
+                return this.faxnummerField;
+            }
+            set
+            {
+                this.faxnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string emailadres
+        {
+            get
+            {
+                return this.emailadresField;
+            }
+            set
+            {
+                this.emailadresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres correspondentieadres
+        {
+            get
+            {
+                return this.correspondentieadresField;
+            }
+            set
+            {
+                this.correspondentieadresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=15)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.nationaliteitenType nationaliteiten
+        {
+            get
+            {
+                return this.nationaliteitenField;
+            }
+            set
+            {
+                this.nationaliteitenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=16)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Bankrekening bankrekening
+        {
+            get
+            {
+                return this.bankrekeningField;
+            }
+            set
+            {
+                this.bankrekeningField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=17)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon.verblijfstitelsType verblijfstitels
+        {
+            get
+            {
+                return this.verblijfstitelsField;
+            }
+            set
+            {
+                this.verblijfstitelsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven inOnderzoek
+        {
+            get
+            {
+                return this.inOnderzoekField;
+            }
+            set
+            {
+                this.inOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
+        public System.Nullable<StUF4.Entiteiten.IngeschrevenPersoon.IndicatieGezag> indicatieGezagMinderjarige
+        {
+            get
+            {
+                return this.indicatieGezagMinderjarigeField;
+            }
+            set
+            {
+                this.indicatieGezagMinderjarigeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
+        public string redenOpschortingBijhouding
+        {
+            get
+            {
+                return this.redenOpschortingBijhoudingField;
+            }
+            set
+            {
+                this.redenOpschortingBijhoudingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=21)]
+        public bool indicatieGeheim
+        {
+            get
+            {
+                return this.indicatieGeheimField;
+            }
+            set
+            {
+                this.indicatieGeheimField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=22)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumOpschortingBijhouding
+        {
+            get
+            {
+                return this.datumOpschortingBijhoudingField;
+            }
+            set
+            {
+                this.datumOpschortingBijhoudingField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenPersoon.overlijdenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+        [System.SerializableAttribute()]
+        public partial class overlijdenType : object, System.Runtime.Serialization.IExtensibleDataObject
+        {
+            
+            [System.NonSerializedAttribute()]
+            private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+            
+            private StUF4.Entiteiten.IngeschrevenPersoon.Overlijdensdatum overlijdensdatumField;
+            
+            private string overlijdenPlaatsField;
+            
+            private string overlijdenLandField;
+            
+            public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+            {
+                get
+                {
+                    return this.extensionDataField;
+                }
+                set
+                {
+                    this.extensionDataField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+            public StUF4.Entiteiten.IngeschrevenPersoon.Overlijdensdatum overlijdensdatum
+            {
+                get
+                {
+                    return this.overlijdensdatumField;
+                }
+                set
+                {
+                    this.overlijdensdatumField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+            public string overlijdenPlaats
+            {
+                get
+                {
+                    return this.overlijdenPlaatsField;
+                }
+                set
+                {
+                    this.overlijdenPlaatsField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+            public string overlijdenLand
+            {
+                get
+                {
+                    return this.overlijdenLandField;
+                }
+                set
+                {
+                    this.overlijdenLandField = value;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoon.kinderenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="kind")]
+        [System.SerializableAttribute()]
+        public class kinderenType : System.Collections.Generic.List<StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoon.oudersType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="ouder")]
+        [System.SerializableAttribute()]
+        public class oudersType : System.Collections.Generic.List<StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoon.partnersType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="partner")]
+        [System.SerializableAttribute()]
+        public class partnersType : System.Collections.Generic.List<StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoon.nationaliteitenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="nationaliteit")]
+        [System.SerializableAttribute()]
+        public class nationaliteitenType : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.Nationaliteit>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoon.verblijfstitelsType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="verblijftitel")]
+        [System.SerializableAttribute()]
+        public class verblijfstitelsType : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.Verblijfstitel>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VerblijfplaatsRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class VerblijfplaatsRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres woonadresField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres woonadres
+        {
+            get
+            {
+                return this.woonadresField;
+            }
+            set
+            {
+                this.woonadresField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AanduidingNaamgebruik", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    public enum AanduidingNaamgebruik : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        E = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        N = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        P = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        V = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdellijkeTitelPredikaat", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    public enum AdellijkeTitelPredikaat : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Baron = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Barones = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Graaf = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Gravin = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hertog = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hertogin = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jonkheer = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jonkvrouw = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Markies = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Markiezin = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Prins = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Prinses = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ridder = 12,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IndicatieGezag", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    public enum IndicatieGezag : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_1 = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_2 = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_D = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_1D = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_2D = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        x_12 = 5,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenPersoonInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.OuderInOnderzoekMetagegeven))]
+    public partial class IngeschrevenPersoonInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool burgerservicenummerInOnderzoekField;
+        
+        private bool voornamenInOnderzoekField;
+        
+        private bool adellijkeTitelPredikaatInOnderzoekField;
+        
+        private bool voorvoegselGeslachtsnaamInOnderzoekField;
+        
+        private bool geslachtsnaamInOnderzoekField;
+        
+        private bool geboortedatumInOnderzoekField;
+        
+        private bool geboorteplaatsInOnderzoekField;
+        
+        private bool geboortelandInOnderzoekField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.kinderenInOnderzoekType kinderenInOnderzoekField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.oudersInOnderzoekType oudersInOnderzoekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.PartnerInOnderzoekMetagegeven partnerInOnderzoekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.VerblijfsadresInOnderzoekMetagegeven verblijfsadresInOnderzoekField;
+        
+        private StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.nationaliteitenInOnderzoekType nationaliteitenInOnderzoekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.OverlijdenInOnderzoekMetagegeven overlijdenInOnderzoekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.IngeschrevenPersoon.VerblijfstitelInOnderzoekMetagegeven verblijfstitelInOnderzoekField;
+        
+        private bool indicatieGezagMinderjarigeInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool burgerservicenummerInOnderzoek
+        {
+            get
+            {
+                return this.burgerservicenummerInOnderzoekField;
+            }
+            set
+            {
+                this.burgerservicenummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool voornamenInOnderzoek
+        {
+            get
+            {
+                return this.voornamenInOnderzoekField;
+            }
+            set
+            {
+                this.voornamenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool adellijkeTitelPredikaatInOnderzoek
+        {
+            get
+            {
+                return this.adellijkeTitelPredikaatInOnderzoekField;
+            }
+            set
+            {
+                this.adellijkeTitelPredikaatInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool voorvoegselGeslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.voorvoegselGeslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.voorvoegselGeslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool geslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.geslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.geslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool geboortedatumInOnderzoek
+        {
+            get
+            {
+                return this.geboortedatumInOnderzoekField;
+            }
+            set
+            {
+                this.geboortedatumInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool geboorteplaatsInOnderzoek
+        {
+            get
+            {
+                return this.geboorteplaatsInOnderzoekField;
+            }
+            set
+            {
+                this.geboorteplaatsInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public bool geboortelandInOnderzoek
+        {
+            get
+            {
+                return this.geboortelandInOnderzoekField;
+            }
+            set
+            {
+                this.geboortelandInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.kinderenInOnderzoekType kinderenInOnderzoek
+        {
+            get
+            {
+                return this.kinderenInOnderzoekField;
+            }
+            set
+            {
+                this.kinderenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.oudersInOnderzoekType oudersInOnderzoek
+        {
+            get
+            {
+                return this.oudersInOnderzoekField;
+            }
+            set
+            {
+                this.oudersInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.PartnerInOnderzoekMetagegeven partnerInOnderzoek
+        {
+            get
+            {
+                return this.partnerInOnderzoekField;
+            }
+            set
+            {
+                this.partnerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.VerblijfsadresInOnderzoekMetagegeven verblijfsadresInOnderzoek
+        {
+            get
+            {
+                return this.verblijfsadresInOnderzoekField;
+            }
+            set
+            {
+                this.verblijfsadresInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven.nationaliteitenInOnderzoekType nationaliteitenInOnderzoek
+        {
+            get
+            {
+                return this.nationaliteitenInOnderzoekField;
+            }
+            set
+            {
+                this.nationaliteitenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.OverlijdenInOnderzoekMetagegeven overlijdenInOnderzoek
+        {
+            get
+            {
+                return this.overlijdenInOnderzoekField;
+            }
+            set
+            {
+                this.overlijdenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public StUF4.Entiteiten.IngeschrevenPersoon.VerblijfstitelInOnderzoekMetagegeven verblijfstitelInOnderzoek
+        {
+            get
+            {
+                return this.verblijfstitelInOnderzoekField;
+            }
+            set
+            {
+                this.verblijfstitelInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=15)]
+        public bool indicatieGezagMinderjarigeInOnderzoek
+        {
+            get
+            {
+                return this.indicatieGezagMinderjarigeInOnderzoekField;
+            }
+            set
+            {
+                this.indicatieGezagMinderjarigeInOnderzoekField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoonInOnderzoekMetagegeven.kinderenInOnderzoekType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="kindInOnderzoek")]
+        [System.SerializableAttribute()]
+        public class kinderenInOnderzoekType : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.KindInOnderzoekMetagegeven>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoonInOnderzoekMetagegeven.oudersInOnderzoekType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="ouderInOnderzoek")]
+        [System.SerializableAttribute()]
+        public class oudersInOnderzoekType : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.OuderInOnderzoekMetagegeven>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersoonInOnderzoekMetagegeven.nationaliteitenInOnderzoekType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon", ItemName="nationaliteitInOnderzoek")]
+        [System.SerializableAttribute()]
+        public class nationaliteitenInOnderzoekType : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.NationaliteitInOnderzoekMetagegeven>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KindInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class KindInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string burgerservicenummerKindField;
+        
+        private bool burgerservicenummerInOnderzoekField;
+        
+        private bool voornamenInOnderzoekField;
+        
+        private bool voorvoegselGeslachtsnaamInOnderzoekField;
+        
+        private bool geslachtsnaamInOnderzoekField;
+        
+        private bool geboortedatumInOnderzoekField;
+        
+        private bool ingangsdatumGeldigheidInOnderzoekField;
+        
+        private bool datumVanOpnemingInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string burgerservicenummerKind
+        {
+            get
+            {
+                return this.burgerservicenummerKindField;
+            }
+            set
+            {
+                this.burgerservicenummerKindField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool burgerservicenummerInOnderzoek
+        {
+            get
+            {
+                return this.burgerservicenummerInOnderzoekField;
+            }
+            set
+            {
+                this.burgerservicenummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool voornamenInOnderzoek
+        {
+            get
+            {
+                return this.voornamenInOnderzoekField;
+            }
+            set
+            {
+                this.voornamenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool voorvoegselGeslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.voorvoegselGeslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.voorvoegselGeslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool geslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.geslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.geslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool geboortedatumInOnderzoek
+        {
+            get
+            {
+                return this.geboortedatumInOnderzoekField;
+            }
+            set
+            {
+                this.geboortedatumInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool ingangsdatumGeldigheidInOnderzoek
+        {
+            get
+            {
+                return this.ingangsdatumGeldigheidInOnderzoekField;
+            }
+            set
+            {
+                this.ingangsdatumGeldigheidInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public bool datumVanOpnemingInOnderzoek
+        {
+            get
+            {
+                return this.datumVanOpnemingInOnderzoekField;
+            }
+            set
+            {
+                this.datumVanOpnemingInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NationaliteitInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class NationaliteitInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool periodeGeldigheidInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool periodeGeldigheidInOnderzoek
+        {
+            get
+            {
+                return this.periodeGeldigheidInOnderzoekField;
+            }
+            set
+            {
+                this.periodeGeldigheidInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Nationaliteit", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class Nationaliteit : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string nationaliteitCodeField;
+        
+        private string nationaliteitOmschrijvingField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string nationaliteitCode
+        {
+            get
+            {
+                return this.nationaliteitCodeField;
+            }
+            set
+            {
+                this.nationaliteitCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string nationaliteitOmschrijving
+        {
+            get
+            {
+                return this.nationaliteitOmschrijvingField;
+            }
+            set
+            {
+                this.nationaliteitOmschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OuderInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class OuderInOnderzoekMetagegeven : StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven
+    {
+        
+        private string burgerservicenummerOuderField;
+        
+        private bool datumIngangFamilierechtelijkeBetrekkingInOnderzoekField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string burgerservicenummerOuder
+        {
+            get
+            {
+                return this.burgerservicenummerOuderField;
+            }
+            set
+            {
+                this.burgerservicenummerOuderField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool datumIngangFamilierechtelijkeBetrekkingInOnderzoek
+        {
+            get
+            {
+                return this.datumIngangFamilierechtelijkeBetrekkingInOnderzoekField;
+            }
+            set
+            {
+                this.datumIngangFamilierechtelijkeBetrekkingInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OverlijdenInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class OverlijdenInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool datumOverlijdenInOnderzoekField;
+        
+        private bool plaatsOverlijdenInOnderzoekField;
+        
+        private bool landOverlijdenInOnderzoekField;
+        
+        private bool datumVanOpnemingInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool datumOverlijdenInOnderzoek
+        {
+            get
+            {
+                return this.datumOverlijdenInOnderzoekField;
+            }
+            set
+            {
+                this.datumOverlijdenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool plaatsOverlijdenInOnderzoek
+        {
+            get
+            {
+                return this.plaatsOverlijdenInOnderzoekField;
+            }
+            set
+            {
+                this.plaatsOverlijdenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool landOverlijdenInOnderzoek
+        {
+            get
+            {
+                return this.landOverlijdenInOnderzoekField;
+            }
+            set
+            {
+                this.landOverlijdenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool datumVanOpnemingInOnderzoek
+        {
+            get
+            {
+                return this.datumVanOpnemingInOnderzoekField;
+            }
+            set
+            {
+                this.datumVanOpnemingInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Overlijdensdatum", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class Overlijdensdatum : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<int> jaarField;
+        
+        private System.Nullable<int> maandField;
+        
+        private System.Nullable<int> dagField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> jaar
+        {
+            get
+            {
+                return this.jaarField;
+            }
+            set
+            {
+                this.jaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<int> maand
+        {
+            get
+            {
+                return this.maandField;
+            }
+            set
+            {
+                this.maandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<int> dag
+        {
+            get
+            {
+                return this.dagField;
+            }
+            set
+            {
+                this.dagField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PartnerInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class PartnerInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool burgerservicenummerInOnderzoekField;
+        
+        private bool voornamenInOnderzoekField;
+        
+        private bool voorvoegselGeslachtsnaamInOnderzoekField;
+        
+        private bool geslachtsnaamInOnderzoekField;
+        
+        private bool geboortedatumInOnderzoekField;
+        
+        private bool ingangsdatumGeldigheidInOnderzoekField;
+        
+        private bool datumVanOpnemingInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool burgerservicenummerInOnderzoek
+        {
+            get
+            {
+                return this.burgerservicenummerInOnderzoekField;
+            }
+            set
+            {
+                this.burgerservicenummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool voornamenInOnderzoek
+        {
+            get
+            {
+                return this.voornamenInOnderzoekField;
+            }
+            set
+            {
+                this.voornamenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool voorvoegselGeslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.voorvoegselGeslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.voorvoegselGeslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool geslachtsnaamInOnderzoek
+        {
+            get
+            {
+                return this.geslachtsnaamInOnderzoekField;
+            }
+            set
+            {
+                this.geslachtsnaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool geboortedatumInOnderzoek
+        {
+            get
+            {
+                return this.geboortedatumInOnderzoekField;
+            }
+            set
+            {
+                this.geboortedatumInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool ingangsdatumGeldigheidInOnderzoek
+        {
+            get
+            {
+                return this.ingangsdatumGeldigheidInOnderzoekField;
+            }
+            set
+            {
+                this.ingangsdatumGeldigheidInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool datumVanOpnemingInOnderzoek
+        {
+            get
+            {
+                return this.datumVanOpnemingInOnderzoekField;
+            }
+            set
+            {
+                this.datumVanOpnemingInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VerblijfsadresInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class VerblijfsadresInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool indificatieNummeraanduidingInOnderzoekField;
+        
+        private bool postcodeInOnderzoekField;
+        
+        private bool huisnummerInOnderzoekField;
+        
+        private bool huisletterInOnderzoekField;
+        
+        private bool huisnummerToevoegingInOnderzoekField;
+        
+        private bool locatiebeschrijvingInOnderzoekField;
+        
+        private bool naamOpenbareRuimteInOnderzoekField;
+        
+        private bool woonplaatsNaamInOnderzoekField;
+        
+        private bool woonplaatsIndificatieCodeInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool indificatieNummeraanduidingInOnderzoek
+        {
+            get
+            {
+                return this.indificatieNummeraanduidingInOnderzoekField;
+            }
+            set
+            {
+                this.indificatieNummeraanduidingInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool postcodeInOnderzoek
+        {
+            get
+            {
+                return this.postcodeInOnderzoekField;
+            }
+            set
+            {
+                this.postcodeInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool huisnummerInOnderzoek
+        {
+            get
+            {
+                return this.huisnummerInOnderzoekField;
+            }
+            set
+            {
+                this.huisnummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool huisletterInOnderzoek
+        {
+            get
+            {
+                return this.huisletterInOnderzoekField;
+            }
+            set
+            {
+                this.huisletterInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool huisnummerToevoegingInOnderzoek
+        {
+            get
+            {
+                return this.huisnummerToevoegingInOnderzoekField;
+            }
+            set
+            {
+                this.huisnummerToevoegingInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool locatiebeschrijvingInOnderzoek
+        {
+            get
+            {
+                return this.locatiebeschrijvingInOnderzoekField;
+            }
+            set
+            {
+                this.locatiebeschrijvingInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool naamOpenbareRuimteInOnderzoek
+        {
+            get
+            {
+                return this.naamOpenbareRuimteInOnderzoekField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public bool woonplaatsNaamInOnderzoek
+        {
+            get
+            {
+                return this.woonplaatsNaamInOnderzoekField;
+            }
+            set
+            {
+                this.woonplaatsNaamInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public bool woonplaatsIndificatieCodeInOnderzoek
+        {
+            get
+            {
+                return this.woonplaatsIndificatieCodeInOnderzoekField;
+            }
+            set
+            {
+                this.woonplaatsIndificatieCodeInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Verblijfstitel", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class Verblijfstitel : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int aanduidingField;
+        
+        private string omschrijvingField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int aanduiding
+        {
+            get
+            {
+                return this.aanduidingField;
+            }
+            set
+            {
+                this.aanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string omschrijving
+        {
+            get
+            {
+                return this.omschrijvingField;
+            }
+            set
+            {
+                this.omschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periodeGeldigheid
+        {
+            get
+            {
+                return this.periodeGeldigheidField;
+            }
+            set
+            {
+                this.periodeGeldigheidField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VerblijfstitelInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class VerblijfstitelInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool aanduidingInOnderzoekField;
+        
+        private bool periodeGeldigheidInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool aanduidingInOnderzoek
+        {
+            get
+            {
+                return this.aanduidingInOnderzoekField;
+            }
+            set
+            {
+                this.aanduidingInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool periodeGeldigheidInOnderzoek
+        {
+            get
+            {
+                return this.periodeGeldigheidInOnderzoekField;
+            }
+            set
+            {
+                this.periodeGeldigheidInOnderzoekField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Entiteiten.KadastraleOnroerendeZaak
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZakelijkRechtRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class ZakelijkRechtRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int identificatieZakelijkRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int codeAardZakelijkRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string naamZakelijkRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ingangsdatumRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string einddatumRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBeperktTotType isBeperktTotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBelastMetType isBelastMetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBetrokkenBijType isBetrokkenBijField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isOntstaanUitType isOntstaanUitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBestemdTotType isBestemdTotField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int identificatieZakelijkRecht
+        {
+            get
+            {
+                return this.identificatieZakelijkRechtField;
+            }
+            set
+            {
+                this.identificatieZakelijkRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int codeAardZakelijkRecht
+        {
+            get
+            {
+                return this.codeAardZakelijkRechtField;
+            }
+            set
+            {
+                this.codeAardZakelijkRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string naamZakelijkRecht
+        {
+            get
+            {
+                return this.naamZakelijkRechtField;
+            }
+            set
+            {
+                this.naamZakelijkRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string ingangsdatumRecht
+        {
+            get
+            {
+                return this.ingangsdatumRechtField;
+            }
+            set
+            {
+                this.ingangsdatumRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string einddatumRecht
+        {
+            get
+            {
+                return this.einddatumRechtField;
+            }
+            set
+            {
+                this.einddatumRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBeperktTotType isBeperktTot
+        {
+            get
+            {
+                return this.isBeperktTotField;
+            }
+            set
+            {
+                this.isBeperktTotField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBelastMetType isBelastMet
+        {
+            get
+            {
+                return this.isBelastMetField;
+            }
+            set
+            {
+                this.isBelastMetField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBetrokkenBijType isBetrokkenBij
+        {
+            get
+            {
+                return this.isBetrokkenBijField;
+            }
+            set
+            {
+                this.isBetrokkenBijField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isOntstaanUitType isOntstaanUit
+        {
+            get
+            {
+                return this.isOntstaanUitField;
+            }
+            set
+            {
+                this.isOntstaanUitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie.isBestemdTotType isBestemdTot
+        {
+            get
+            {
+                return this.isBestemdTotField;
+            }
+            set
+            {
+                this.isBestemdTotField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="ZakelijkRechtRelatie.isBetrokkenBijType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k")]
+        [System.SerializableAttribute()]
+        public partial class isBetrokkenBijType : object, System.Runtime.Serialization.IExtensibleDataObject
+        {
+            
+            [System.NonSerializedAttribute()]
+            private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+            
+            [System.Runtime.Serialization.OptionalFieldAttribute()]
+            private StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing appartementsrechtSplitsingField;
+            
+            public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+            {
+                get
+                {
+                    return this.extensionDataField;
+                }
+                set
+                {
+                    this.extensionDataField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+            public StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing appartementsrechtSplitsing
+            {
+                get
+                {
+                    return this.appartementsrechtSplitsingField;
+                }
+                set
+                {
+                    this.appartementsrechtSplitsingField = value;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="ZakelijkRechtRelatie.isOntstaanUitType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k")]
+        [System.SerializableAttribute()]
+        public partial class isOntstaanUitType : object, System.Runtime.Serialization.IExtensibleDataObject
+        {
+            
+            [System.NonSerializedAttribute()]
+            private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+            
+            [System.Runtime.Serialization.OptionalFieldAttribute()]
+            private StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing appartementsrechtSplitsingField;
+            
+            public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+            {
+                get
+                {
+                    return this.extensionDataField;
+                }
+                set
+                {
+                    this.extensionDataField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+            public StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing appartementsrechtSplitsing
+            {
+                get
+                {
+                    return this.appartementsrechtSplitsingField;
+                }
+                set
+                {
+                    this.appartementsrechtSplitsingField = value;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="ZakelijkRechtRelatie.isBestemdTotType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k")]
+        [System.SerializableAttribute()]
+        public partial class isBestemdTotType : object, System.Runtime.Serialization.IExtensibleDataObject
+        {
+            
+            [System.NonSerializedAttribute()]
+            private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+            
+            private StUF4.Entiteiten.KadastraleOnroerendeZaak.Mandeligheid mandeligheidField;
+            
+            public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+            {
+                get
+                {
+                    return this.extensionDataField;
+                }
+                set
+                {
+                    this.extensionDataField = value;
+                }
+            }
+            
+            [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+            public StUF4.Entiteiten.KadastraleOnroerendeZaak.Mandeligheid mandeligheid
+            {
+                get
+                {
+                    return this.mandeligheidField;
+                }
+                set
+                {
+                    this.mandeligheidField = value;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ZakelijkRechtRelatie.isBeperktTotType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="tenaamstelling")]
+        [System.SerializableAttribute()]
+        public class isBeperktTotType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ZakelijkRechtRelatie.isBelastMetType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="zakelijkRecht")]
+        [System.SerializableAttribute()]
+        public class isBelastMetType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tenaamstelling", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class Tenaamstelling : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int tenaamstellingIdentificatieField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int aandeelInRechtTellerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int aandeelInRechtNoemerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int tenaamstellingExploitantcodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int tenaamstellingVerkregenNamensSamenwerkingsverbandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon gerechtigdeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling.wordtBezwaardDoorType wordtBezwaardDoorField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int tenaamstellingIdentificatie
+        {
+            get
+            {
+                return this.tenaamstellingIdentificatieField;
+            }
+            set
+            {
+                this.tenaamstellingIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int aandeelInRechtTeller
+        {
+            get
+            {
+                return this.aandeelInRechtTellerField;
+            }
+            set
+            {
+                this.aandeelInRechtTellerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int aandeelInRechtNoemer
+        {
+            get
+            {
+                return this.aandeelInRechtNoemerField;
+            }
+            set
+            {
+                this.aandeelInRechtNoemerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int tenaamstellingExploitantcode
+        {
+            get
+            {
+                return this.tenaamstellingExploitantcodeField;
+            }
+            set
+            {
+                this.tenaamstellingExploitantcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int tenaamstellingVerkregenNamensSamenwerkingsverband
+        {
+            get
+            {
+                return this.tenaamstellingVerkregenNamensSamenwerkingsverbandField;
+            }
+            set
+            {
+                this.tenaamstellingVerkregenNamensSamenwerkingsverbandField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon gerechtigde
+        {
+            get
+            {
+                return this.gerechtigdeField;
+            }
+            set
+            {
+                this.gerechtigdeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling.wordtBezwaardDoorType wordtBezwaardDoor
+        {
+            get
+            {
+                return this.wordtBezwaardDoorField;
+            }
+            set
+            {
+                this.wordtBezwaardDoorField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Tenaamstelling.wordtBezwaardDoorType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="zekerheidsstelling")]
+        [System.SerializableAttribute()]
+        public class wordtBezwaardDoorType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.Zekerheidsstelling>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Zekerheidsstelling", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class Zekerheidsstelling : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int zekerheidsrechtIdentificatieField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int aandeelInBetrokkenRechtTellerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int aandeelInBetrokkenRechtNoemerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ingangsdatumRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string einddatumRechtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon heeftZekerheidsrechtField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling tenaamstellingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string codeAardBeslagField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int zekerheidsrechtIdentificatie
+        {
+            get
+            {
+                return this.zekerheidsrechtIdentificatieField;
+            }
+            set
+            {
+                this.zekerheidsrechtIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int aandeelInBetrokkenRechtTeller
+        {
+            get
+            {
+                return this.aandeelInBetrokkenRechtTellerField;
+            }
+            set
+            {
+                this.aandeelInBetrokkenRechtTellerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int aandeelInBetrokkenRechtNoemer
+        {
+            get
+            {
+                return this.aandeelInBetrokkenRechtNoemerField;
+            }
+            set
+            {
+                this.aandeelInBetrokkenRechtNoemerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string ingangsdatumRecht
+        {
+            get
+            {
+                return this.ingangsdatumRechtField;
+            }
+            set
+            {
+                this.ingangsdatumRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string einddatumRecht
+        {
+            get
+            {
+                return this.einddatumRechtField;
+            }
+            set
+            {
+                this.einddatumRechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheid
+        {
+            get
+            {
+                return this.datumBeginGeldigheidField;
+            }
+            set
+            {
+                this.datumBeginGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheid
+        {
+            get
+            {
+                return this.datumEindeGeldigheidField;
+            }
+            set
+            {
+                this.datumEindeGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon heeftZekerheidsrecht
+        {
+            get
+            {
+                return this.heeftZekerheidsrechtField;
+            }
+            set
+            {
+                this.heeftZekerheidsrechtField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling tenaamstelling
+        {
+            get
+            {
+                return this.tenaamstellingField;
+            }
+            set
+            {
+                this.tenaamstellingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string codeAardBeslag
+        {
+            get
+            {
+                return this.codeAardBeslagField;
+            }
+            set
+            {
+                this.codeAardBeslagField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppartementsrechtSplitsing", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class AppartementsrechtSplitsing : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int appartementsrechtSplitsingIdentificatieField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.TypeSplitsing typeSplitsingField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.IngeschrevenNietNatuurlijkPersoonBeperktr verenigingVanEigenarenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int appartementsrechtSplitsingIdentificatie
+        {
+            get
+            {
+                return this.appartementsrechtSplitsingIdentificatieField;
+            }
+            set
+            {
+                this.appartementsrechtSplitsingIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.TypeSplitsing typeSplitsing
+        {
+            get
+            {
+                return this.typeSplitsingField;
+            }
+            set
+            {
+                this.typeSplitsingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.IngeschrevenNietNatuurlijkPersoonBeperktr verenigingVanEigenaren
+        {
+            get
+            {
+                return this.verenigingVanEigenarenField;
+            }
+            set
+            {
+                this.verenigingVanEigenarenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngeschrevenNietNatuurlijkPersoonBeperkt-r", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class IngeschrevenNietNatuurlijkPersoonBeperktr : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string rsinField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string rsin
+        {
+            get
+            {
+                return this.rsinField;
+            }
+            set
+            {
+                this.rsinField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TypeSplitsing", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    public enum TypeSplitsing : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hoofdsplitsing = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ondersplitsing = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute(Value="Splitsing afkoop erfpacht")]
+        Splitsingafkooperfpacht = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Mandeligheid", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Brondocument))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Ligplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Openbareruimte))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.PandBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Pand))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Standplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.BouwkundigeBestemming))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.Openbareruimtes))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresBuitenland))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Postbusnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Antwoordnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.VerblijfsAdresRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Bankrekening))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Periode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Relatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Buurt.RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Buurt.Buurten))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Buurt.Buurt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.NietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.AanduidingNaamgebruik))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.AdellijkeTitelPredikaat))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IndicatieGezag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.KindInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.NationaliteitInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Nationaliteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.OuderInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.OverlijdenInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Overlijdensdatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.PartnerInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfsadresInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfplaatsRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Verblijfstitel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfstitelInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.AnderNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.Geslachtsaanduiding))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.TypeSplitsing))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurBebouwd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurOnbebouwd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Hoofdzaak))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.IngeschrevenNietNatuurlijkPersoonBeperktr))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraalPerceel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakIdentificatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Koopsom))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Landinrichtingsrente))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Zekerheidsstelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Activiteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.EigenaarRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Handelsnaam))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.TyperingVestiging))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.VestigingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Vestiging))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.VestigingInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Wijk.Wijk))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Wijk.RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Wijk.Wijken))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Extern.Entiteiten.Geometrie.WellKnownText))]
+    public partial class Mandeligheid : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private object mandeligheidIdentificatieField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.Mandeligheid.omvatType omvatField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public object mandeligheidIdentificatie
+        {
+            get
+            {
+                return this.mandeligheidIdentificatieField;
+            }
+            set
+            {
+                this.mandeligheidIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.Mandeligheid.omvatType omvat
+        {
+            get
+            {
+                return this.omvatField;
+            }
+            set
+            {
+                this.omvatField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Mandeligheid.omvatType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="hoofdzaak")]
+        [System.SerializableAttribute()]
+        public class omvatType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.Hoofdzaak>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CultuurBebouwd", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class CultuurBebouwd : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cultuurCodeBebouwdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int naamCultuurCodeBebouwdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cultuurCodeBebouwd
+        {
+            get
+            {
+                return this.cultuurCodeBebouwdField;
+            }
+            set
+            {
+                this.cultuurCodeBebouwdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int naamCultuurCodeBebouwd
+        {
+            get
+            {
+                return this.naamCultuurCodeBebouwdField;
+            }
+            set
+            {
+                this.naamCultuurCodeBebouwdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CultuurOnbebouwd", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class CultuurOnbebouwd : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cultuurCodeOnbebouwdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int naamCultuurCodeOnbebouwdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cultuurCodeOnbebouwd
+        {
+            get
+            {
+                return this.cultuurCodeOnbebouwdField;
+            }
+            set
+            {
+                this.cultuurCodeOnbebouwdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int naamCultuurCodeOnbebouwd
+        {
+            get
+            {
+                return this.naamCultuurCodeOnbebouwdField;
+            }
+            set
+            {
+                this.naamCultuurCodeOnbebouwdField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Hoofdzaak", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Brondocument))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Ligplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Openbareruimte))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.PandBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Pand))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Standplaats))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.Verblijfsobject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.AdressenEnGebouwen.BouwkundigeBestemming))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpPostcodeEnHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.ZoekNummeraanduidingOpNaamOpenbareRuimteFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegVerblijfsobjectLigplaatsStandplaatsOpNummeraanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegPandVerblijfsobjectNummeraanduidingOpPandIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegLigplaatsNummeraanduidingOpLigplaatsIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.RaadpleegStandplaatsNummeraanduidingOpStandplaatsIdentificatieFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.Nummeraanduidingen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.AdressenEnGebouwen.Openbareruimtes))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractVerblijfsAdres))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Nummeraanduiding))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AdresBuitenland))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Postbusnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Antwoordnummer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.VerblijfsAdresRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Bankrekening))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Periode))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Gemeenschappelijk.Relatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Buurt.RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Buurt.Buurten))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Buurt.Buurt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersonen))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersoonOpStatutaireNaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NietNatuurlijkPersoon.ZoekIngeschrevenNietNatuurlijkPersonenOpBinnenlandsBezoekadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.AnderBuitenlandsNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.IngeschrevenNietNatuurlijkPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NietNatuurlijkPersoon.NietNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.AanduidingNaamgebruik))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.AdellijkeTitelPredikaat))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IndicatieGezag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.KindInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.NationaliteitInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Nationaliteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.OuderInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.OverlijdenInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Overlijdensdatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.PartnerInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfsadresInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfplaatsRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.Verblijfstitel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.IngeschrevenPersoon.VerblijfstitelInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.AnderNatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.Geslachtsaanduiding))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.NatuurlijkPersoon.NatuurlijkPersoonRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.TypeSplitsing))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.AppartementsrechtSplitsing))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurBebouwd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurOnbebouwd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.IngeschrevenNietNatuurlijkPersoonBeperktr))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraalPerceel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Mandeligheid))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakIdentificatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Koopsom))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Landinrichtingsrente))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Tenaamstelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.Zekerheidsstelling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Activiteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.EigenaarRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Handelsnaam))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.TyperingVestiging))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.VestigingBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Vestiging))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.VestigingInOnderzoekMetagegeven))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Wijk.Wijk))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Wijk.RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Koppelvlak.Services.Wijk.Wijken))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Extern.Entiteiten.Geometrie.WellKnownText))]
+    public partial class Hoofdzaak : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private object aandeelInMandeligheidTellerField;
+        
+        private object aandeelInMandeligheidNoemerField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt kadastraleOnroerendeZaakField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public object aandeelInMandeligheidTeller
+        {
+            get
+            {
+                return this.aandeelInMandeligheidTellerField;
+            }
+            set
+            {
+                this.aandeelInMandeligheidTellerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public object aandeelInMandeligheidNoemer
+        {
+            get
+            {
+                return this.aandeelInMandeligheidNoemerField;
+            }
+            set
+            {
+                this.aandeelInMandeligheidNoemerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt kadastraleOnroerendeZaak
+        {
+            get
+            {
+                return this.kadastraleOnroerendeZaakField;
+            }
+            set
+            {
+                this.kadastraleOnroerendeZaakField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KadastraalPerceel", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class KadastraalPerceel : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string aanduidingSoortGrootteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Extern.Entiteiten.Geometrie.WellKnownText begrenzingPerceelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal groottePerceelField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string aanduidingSoortGrootte
+        {
+            get
+            {
+                return this.aanduidingSoortGrootteField;
+            }
+            set
+            {
+                this.aanduidingSoortGrootteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Extern.Entiteiten.Geometrie.WellKnownText begrenzingPerceel
+        {
+            get
+            {
+                return this.begrenzingPerceelField;
+            }
+            set
+            {
+                this.begrenzingPerceelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal groottePerceel
+        {
+            get
+            {
+                return this.groottePerceelField;
+            }
+            set
+            {
+                this.groottePerceelField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KadastraleOnroerendeZaak", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class KadastraleOnroerendeZaak : StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.isOntstaanUitType isOntstaanUitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.Koopsom koopsomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.Landinrichtingsrente landinrichtingsrenteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurOnbebouwd cultuurOnbebouwdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurBebouwd cultuurBebouwdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatieomschrijvingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraalPerceel kadastraalPerceelField;
+        
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.zakelijkRechtenType zakelijkRechtenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.zekerheidsstellingenType zekerheidsstellingenField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.isOntstaanUitType isOntstaanUit
+        {
+            get
+            {
+                return this.isOntstaanUitField;
+            }
+            set
+            {
+                this.isOntstaanUitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.Koopsom koopsom
+        {
+            get
+            {
+                return this.koopsomField;
+            }
+            set
+            {
+                this.koopsomField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.Landinrichtingsrente landinrichtingsrente
+        {
+            get
+            {
+                return this.landinrichtingsrenteField;
+            }
+            set
+            {
+                this.landinrichtingsrenteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurOnbebouwd cultuurOnbebouwd
+        {
+            get
+            {
+                return this.cultuurOnbebouwdField;
+            }
+            set
+            {
+                this.cultuurOnbebouwdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.CultuurBebouwd cultuurBebouwd
+        {
+            get
+            {
+                return this.cultuurBebouwdField;
+            }
+            set
+            {
+                this.cultuurBebouwdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string locatieomschrijving
+        {
+            get
+            {
+                return this.locatieomschrijvingField;
+            }
+            set
+            {
+                this.locatieomschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraalPerceel kadastraalPerceel
+        {
+            get
+            {
+                return this.kadastraalPerceelField;
+            }
+            set
+            {
+                this.kadastraalPerceelField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.zakelijkRechtenType zakelijkRechten
+        {
+            get
+            {
+                return this.zakelijkRechtenField;
+            }
+            set
+            {
+                this.zakelijkRechtenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak.zekerheidsstellingenType zekerheidsstellingen
+        {
+            get
+            {
+                return this.zekerheidsstellingenField;
+            }
+            set
+            {
+                this.zekerheidsstellingenField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="KadastraleOnroerendeZaak.isOntstaanUitType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="kadastraleOnroerendeZaak")]
+        [System.SerializableAttribute()]
+        public class isOntstaanUitType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakIdentificatie>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="KadastraleOnroerendeZaak.zakelijkRechtenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="zakelijkRecht")]
+        [System.SerializableAttribute()]
+        public class zakelijkRechtenType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.ZakelijkRechtRelatie>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="KadastraleOnroerendeZaak.zekerheidsstellingenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="zekerheidsstelling")]
+        [System.SerializableAttribute()]
+        public class zekerheidsstellingenType : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.Zekerheidsstelling>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KadastraleOnroerendeZaakBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak))]
+    public partial class KadastraleOnroerendeZaakBeperkt : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string kadastraleIdentificatieField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheidField;
+        
+        private string kadastraleGemeentecodeField;
+        
+        private string sectieField;
+        
+        private string perceelnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string appartementsrechtVolgnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt.adressenType adressenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string kadastraleIdentificatie
+        {
+            get
+            {
+                return this.kadastraleIdentificatieField;
+            }
+            set
+            {
+                this.kadastraleIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheid
+        {
+            get
+            {
+                return this.datumBeginGeldigheidField;
+            }
+            set
+            {
+                this.datumBeginGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheid
+        {
+            get
+            {
+                return this.datumEindeGeldigheidField;
+            }
+            set
+            {
+                this.datumEindeGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string kadastraleGemeentecode
+        {
+            get
+            {
+                return this.kadastraleGemeentecodeField;
+            }
+            set
+            {
+                this.kadastraleGemeentecodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public string sectie
+        {
+            get
+            {
+                return this.sectieField;
+            }
+            set
+            {
+                this.sectieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        public string perceelnummer
+        {
+            get
+            {
+                return this.perceelnummerField;
+            }
+            set
+            {
+                this.perceelnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string appartementsrechtVolgnummer
+        {
+            get
+            {
+                return this.appartementsrechtVolgnummerField;
+            }
+            set
+            {
+                this.appartementsrechtVolgnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt.adressenType adressen
+        {
+            get
+            {
+                return this.adressenField;
+            }
+            set
+            {
+                this.adressenField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="KadastraleOnroerendeZaakBeperkt.adressenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+            "k", ItemName="adres")]
+        [System.SerializableAttribute()]
+        public class adressenType : System.Collections.Generic.List<StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KadastraleOnroerendeZaakIdentificatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class KadastraleOnroerendeZaakIdentificatie : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string kadastraleIdentificatieField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheidField;
+        
+        private string kadastraleGemeentecodeField;
+        
+        private string sectieField;
+        
+        private string perceelnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string appartementsrechtvolgnummerField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string kadastraleIdentificatie
+        {
+            get
+            {
+                return this.kadastraleIdentificatieField;
+            }
+            set
+            {
+                this.kadastraleIdentificatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumBeginGeldigheid
+        {
+            get
+            {
+                return this.datumBeginGeldigheidField;
+            }
+            set
+            {
+                this.datumBeginGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.Gemeenschappelijk.OnvolledigeDatum datumEindeGeldigheid
+        {
+            get
+            {
+                return this.datumEindeGeldigheidField;
+            }
+            set
+            {
+                this.datumEindeGeldigheidField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public string kadastraleGemeentecode
+        {
+            get
+            {
+                return this.kadastraleGemeentecodeField;
+            }
+            set
+            {
+                this.kadastraleGemeentecodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=4)]
+        public string sectie
+        {
+            get
+            {
+                return this.sectieField;
+            }
+            set
+            {
+                this.sectieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=5)]
+        public string perceelnummer
+        {
+            get
+            {
+                return this.perceelnummerField;
+            }
+            set
+            {
+                this.perceelnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string appartementsrechtvolgnummer
+        {
+            get
+            {
+                return this.appartementsrechtvolgnummerField;
+            }
+            set
+            {
+                this.appartementsrechtvolgnummerField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Koopsom", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class Koopsom : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal bedragField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int koopjaarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool meerOnroerendgoedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string transactiedatumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string valutasoortField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal bedrag
+        {
+            get
+            {
+                return this.bedragField;
+            }
+            set
+            {
+                this.bedragField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int koopjaar
+        {
+            get
+            {
+                return this.koopjaarField;
+            }
+            set
+            {
+                this.koopjaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool meerOnroerendgoed
+        {
+            get
+            {
+                return this.meerOnroerendgoedField;
+            }
+            set
+            {
+                this.meerOnroerendgoedField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string transactiedatum
+        {
+            get
+            {
+                return this.transactiedatumField;
+            }
+            set
+            {
+                this.transactiedatumField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string valutasoort
+        {
+            get
+            {
+                return this.valutasoortField;
+            }
+            set
+            {
+                this.valutasoortField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Landinrichtingsrente", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaa" +
+        "k")]
+    [System.SerializableAttribute()]
+    public partial class Landinrichtingsrente : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal bedragField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int eindjaarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string valutasoortField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal bedrag
+        {
+            get
+            {
+                return this.bedragField;
+            }
+            set
+            {
+                this.bedragField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int eindjaar
+        {
+            get
+            {
+                return this.eindjaarField;
+            }
+            set
+            {
+                this.eindjaarField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string valutasoort
+        {
+            get
+            {
+                return this.valutasoortField;
+            }
+            set
+            {
+                this.valutasoortField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Entiteiten.Handelsregister
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EigenaarRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class EigenaarRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon eigenaarField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractRechtspersoon eigenaar
+        {
+            get
+            {
+                return this.eigenaarField;
+            }
+            set
+            {
+                this.eigenaarField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaatschappelijkeActiviteitRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class MaatschappelijkeActiviteitRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt maatschappelijkeActiviteitField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt maatschappelijkeActiviteit
+        {
+            get
+            {
+                return this.maatschappelijkeActiviteitField;
+            }
+            set
+            {
+                this.maatschappelijkeActiviteitField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdresseerbaarObjectRelatie", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class AdresseerbaarObjectRelatie : StUF4.Entiteiten.Gemeenschappelijk.Relatie
+    {
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject adresseerbaarObjectField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AdresseerbaarObject adresseerbaarObject
+        {
+            get
+            {
+                return this.adresseerbaarObjectField;
+            }
+            set
+            {
+                this.adresseerbaarObjectField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Activiteit", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class Activiteit : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string activiteitcodeField;
+        
+        private string activiteitField;
+        
+        private bool indicatieHoofdactiviteitField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string activiteitcode
+        {
+            get
+            {
+                return this.activiteitcodeField;
+            }
+            set
+            {
+                this.activiteitcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string activiteit
+        {
+            get
+            {
+                return this.activiteitField;
+            }
+            set
+            {
+                this.activiteitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool indicatieHoofdactiviteit
+        {
+            get
+            {
+                return this.indicatieHoofdactiviteitField;
+            }
+            set
+            {
+                this.indicatieHoofdactiviteitField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Handelsnaam", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class Handelsnaam : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string handelsnaamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string verkorteNaamField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string handelsnaam
+        {
+            get
+            {
+                return this.handelsnaamField;
+            }
+            set
+            {
+                this.handelsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string verkorteNaam
+        {
+            get
+            {
+                return this.verkorteNaamField;
+            }
+            set
+            {
+                this.verkorteNaamField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaatschappelijkeActiviteitBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit))]
+    public partial class MaatschappelijkeActiviteitBeperkt : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string kvkNummerField;
+        
+        private StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt.handelsnamenType handelsnamenField;
+        
+        private StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt.activiteitenType activiteitenField;
+        
+        private StUF4.Entiteiten.Handelsregister.EigenaarRelatie eigenaarField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string kvkNummer
+        {
+            get
+            {
+                return this.kvkNummerField;
+            }
+            set
+            {
+                this.kvkNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt.handelsnamenType handelsnamen
+        {
+            get
+            {
+                return this.handelsnamenField;
+            }
+            set
+            {
+                this.handelsnamenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt.activiteitenType activiteiten
+        {
+            get
+            {
+                return this.activiteitenField;
+            }
+            set
+            {
+                this.activiteitenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.Handelsregister.EigenaarRelatie eigenaar
+        {
+            get
+            {
+                return this.eigenaarField;
+            }
+            set
+            {
+                this.eigenaarField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MaatschappelijkeActiviteitBeperkt.handelsnamenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ItemName="handelsnaam")]
+        [System.SerializableAttribute()]
+        public class handelsnamenType : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.Handelsnaam>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MaatschappelijkeActiviteitBeperkt.activiteitenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ItemName="activiteit")]
+        [System.SerializableAttribute()]
+        public class activiteitenType : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.Activiteit>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaatschappelijkeActiviteit", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class MaatschappelijkeActiviteit : StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt
+    {
+        
+        private System.DateTime datumAanvangField;
+        
+        private System.Nullable<System.DateTime> datumVoortzettingField;
+        
+        private System.Nullable<System.DateTime> datumEindeField;
+        
+        private StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitInOnderzoekMetagegeven inOnderzoekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Handelsregister.VestigingBeperkt oefentActiviteitUitInField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.DateTime datumAanvang
+        {
+            get
+            {
+                return this.datumAanvangField;
+            }
+            set
+            {
+                this.datumAanvangField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<System.DateTime> datumVoortzetting
+        {
+            get
+            {
+                return this.datumVoortzettingField;
+            }
+            set
+            {
+                this.datumVoortzettingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<System.DateTime> datumEinde
+        {
+            get
+            {
+                return this.datumEindeField;
+            }
+            set
+            {
+                this.datumEindeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitInOnderzoekMetagegeven inOnderzoek
+        {
+            get
+            {
+                return this.inOnderzoekField;
+            }
+            set
+            {
+                this.inOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public StUF4.Entiteiten.Handelsregister.VestigingBeperkt oefentActiviteitUitIn
+        {
+            get
+            {
+                return this.oefentActiviteitUitInField;
+            }
+            set
+            {
+                this.oefentActiviteitUitInField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaatschappelijkeActiviteitInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class MaatschappelijkeActiviteitInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool kvkNummerInOnderzoekField;
+        
+        private bool datumAanvangInOnderzoekField;
+        
+        private bool datumVoortzettingInOnderzoekField;
+        
+        private bool datumEindeInOnderzoekField;
+        
+        private bool handelsnamenInOnderzoekField;
+        
+        private bool activiteitenInOnderzoekField;
+        
+        private bool eigenaarInOnderzoekField;
+        
+        private bool oefentActiviteitUitInInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool kvkNummerInOnderzoek
+        {
+            get
+            {
+                return this.kvkNummerInOnderzoekField;
+            }
+            set
+            {
+                this.kvkNummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool datumAanvangInOnderzoek
+        {
+            get
+            {
+                return this.datumAanvangInOnderzoekField;
+            }
+            set
+            {
+                this.datumAanvangInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool datumVoortzettingInOnderzoek
+        {
+            get
+            {
+                return this.datumVoortzettingInOnderzoekField;
+            }
+            set
+            {
+                this.datumVoortzettingInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool datumEindeInOnderzoek
+        {
+            get
+            {
+                return this.datumEindeInOnderzoekField;
+            }
+            set
+            {
+                this.datumEindeInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool handelsnamenInOnderzoek
+        {
+            get
+            {
+                return this.handelsnamenInOnderzoekField;
+            }
+            set
+            {
+                this.handelsnamenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool activiteitenInOnderzoek
+        {
+            get
+            {
+                return this.activiteitenInOnderzoekField;
+            }
+            set
+            {
+                this.activiteitenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool eigenaarInOnderzoek
+        {
+            get
+            {
+                return this.eigenaarInOnderzoekField;
+            }
+            set
+            {
+                this.eigenaarInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public bool oefentActiviteitUitInInOnderzoek
+        {
+            get
+            {
+                return this.oefentActiviteitUitInInOnderzoekField;
+            }
+            set
+            {
+                this.oefentActiviteitUitInInOnderzoekField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TyperingVestiging", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    public enum TyperingVestiging : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hoofdvestiging = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Nevenvestiging = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VestigingBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StUF4.Entiteiten.Handelsregister.Vestiging))]
+    public partial class VestigingBeperkt : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string vestigingsNummerField;
+        
+        private StUF4.Entiteiten.Handelsregister.VestigingBeperkt.handelsnamenType handelsnamenField;
+        
+        private StUF4.Entiteiten.Handelsregister.TyperingVestiging typeringVestigingField;
+        
+        private StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt vestigingsAdresField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string vestigingsNummer
+        {
+            get
+            {
+                return this.vestigingsNummerField;
+            }
+            set
+            {
+                this.vestigingsNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public StUF4.Entiteiten.Handelsregister.VestigingBeperkt.handelsnamenType handelsnamen
+        {
+            get
+            {
+                return this.handelsnamenField;
+            }
+            set
+            {
+                this.handelsnamenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public StUF4.Entiteiten.Handelsregister.TyperingVestiging typeringVestiging
+        {
+            get
+            {
+                return this.typeringVestigingField;
+            }
+            set
+            {
+                this.typeringVestigingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.Gemeenschappelijk.NummeraanduidingBeperkt vestigingsAdres
+        {
+            get
+            {
+                return this.vestigingsAdresField;
+            }
+            set
+            {
+                this.vestigingsAdresField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="VestigingBeperkt.handelsnamenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ItemName="handelsnaam")]
+        [System.SerializableAttribute()]
+        public class handelsnamenType : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.Handelsnaam>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Vestiging", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class Vestiging : StUF4.Entiteiten.Handelsregister.VestigingBeperkt
+    {
+        
+        private System.DateTime datumAanvangField;
+        
+        private System.Nullable<System.DateTime> datumEindeField;
+        
+        private StUF4.Entiteiten.Handelsregister.Vestiging.activiteitenType activiteitenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres correspondentieAdresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string telefoonnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string faxnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string emailadresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string urlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Bankrekening bankrekeningField;
+        
+        private StUF4.Entiteiten.Handelsregister.VestigingInOnderzoekMetagegeven inOnderzoekField;
+        
+        private StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitRelatie oefentActiviteitenUitVoorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie hoofdLocatieField;
+        
+        private StUF4.Entiteiten.Handelsregister.Vestiging.nevenLocatiesType nevenLocatiesField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.DateTime datumAanvang
+        {
+            get
+            {
+                return this.datumAanvangField;
+            }
+            set
+            {
+                this.datumAanvangField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<System.DateTime> datumEinde
+        {
+            get
+            {
+                return this.datumEindeField;
+            }
+            set
+            {
+                this.datumEindeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public StUF4.Entiteiten.Handelsregister.Vestiging.activiteitenType activiteiten
+        {
+            get
+            {
+                return this.activiteitenField;
+            }
+            set
+            {
+                this.activiteitenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public StUF4.Entiteiten.Gemeenschappelijk.AbstractCorrespondentieAdres correspondentieAdres
+        {
+            get
+            {
+                return this.correspondentieAdresField;
+            }
+            set
+            {
+                this.correspondentieAdresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string telefoonnummer
+        {
+            get
+            {
+                return this.telefoonnummerField;
+            }
+            set
+            {
+                this.telefoonnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string faxnummer
+        {
+            get
+            {
+                return this.faxnummerField;
+            }
+            set
+            {
+                this.faxnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string emailadres
+        {
+            get
+            {
+                return this.emailadresField;
+            }
+            set
+            {
+                this.emailadresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string url
+        {
+            get
+            {
+                return this.urlField;
+            }
+            set
+            {
+                this.urlField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Bankrekening bankrekening
+        {
+            get
+            {
+                return this.bankrekeningField;
+            }
+            set
+            {
+                this.bankrekeningField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=9)]
+        public StUF4.Entiteiten.Handelsregister.VestigingInOnderzoekMetagegeven inOnderzoek
+        {
+            get
+            {
+                return this.inOnderzoekField;
+            }
+            set
+            {
+                this.inOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=10)]
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitRelatie oefentActiviteitenUitVoor
+        {
+            get
+            {
+                return this.oefentActiviteitenUitVoorField;
+            }
+            set
+            {
+                this.oefentActiviteitenUitVoorField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie hoofdLocatie
+        {
+            get
+            {
+                return this.hoofdLocatieField;
+            }
+            set
+            {
+                this.hoofdLocatieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=12)]
+        public StUF4.Entiteiten.Handelsregister.Vestiging.nevenLocatiesType nevenLocaties
+        {
+            get
+            {
+                return this.nevenLocatiesField;
+            }
+            set
+            {
+                this.nevenLocatiesField = value;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Vestiging.activiteitenType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ItemName="activiteit")]
+        [System.SerializableAttribute()]
+        public class activiteitenType : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.Activiteit>
+        {
+        }
+        
+        [System.Diagnostics.DebuggerStepThroughAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Vestiging.nevenLocatiesType", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister", ItemName="adresseerbaarObject")]
+        [System.SerializableAttribute()]
+        public class nevenLocatiesType : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.AdresseerbaarObjectRelatie>
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VestigingInOnderzoekMetagegeven", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister")]
+    [System.SerializableAttribute()]
+    public partial class VestigingInOnderzoekMetagegeven : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private bool vestigingsNummerInOnderzoekField;
+        
+        private bool handelsnamenInOnderzoekField;
+        
+        private bool datumAanvangInOnderzoekField;
+        
+        private bool datumEindeInOnderzoekField;
+        
+        private bool vestigingsAdresInOnderzoekField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool vestigingsNummerInOnderzoek
+        {
+            get
+            {
+                return this.vestigingsNummerInOnderzoekField;
+            }
+            set
+            {
+                this.vestigingsNummerInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool handelsnamenInOnderzoek
+        {
+            get
+            {
+                return this.handelsnamenInOnderzoekField;
+            }
+            set
+            {
+                this.handelsnamenInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool datumAanvangInOnderzoek
+        {
+            get
+            {
+                return this.datumAanvangInOnderzoekField;
+            }
+            set
+            {
+                this.datumAanvangInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool datumEindeInOnderzoek
+        {
+            get
+            {
+                return this.datumEindeInOnderzoekField;
+            }
+            set
+            {
+                this.datumEindeInOnderzoekField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool vestigingsAdresInOnderzoek
+        {
+            get
+            {
+                return this.vestigingsAdresInOnderzoekField;
+            }
+            set
+            {
+                this.vestigingsAdresInOnderzoekField = value;
+            }
+        }
+    }
+}
+namespace StUF4.Koppelvlak.Services.Gemeenschappelijk
+{
+    using System.Runtime.Serialization;
+    using System;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
+    [System.SerializableAttribute()]
+    public partial class Fout : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string codeField;
+        
+        private string omschrijvingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string detailField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string code
+        {
+            get
+            {
+                return this.codeField;
+            }
+            set
+            {
+                this.codeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string omschrijving
+        {
+            get
+            {
+                return this.omschrijvingField;
+            }
+            set
+            {
+                this.omschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string detail
+        {
+            get
+            {
+                return this.detailField;
+            }
+            set
+            {
+                this.detailField = value;
+            }
         }
     }
 }
@@ -10895,295 +8770,481 @@ namespace StUF4.Koppelvlak.Services.NatuurlijkPersoon
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string postcodeField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeField;
+        
+        private bool inclusiefOverledenPersonenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string postcode
+        {
+            get
+            {
+                return this.postcodeField;
+            }
+            set
+            {
+                this.postcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periode
+        {
+            get
+            {
+                return this.periodeField;
+            }
+            set
+            {
+                this.periodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool inclusiefOverledenPersonen
+        {
+            get
+            {
+                return this.inclusiefOverledenPersonenField;
+            }
+            set
+            {
+                this.inclusiefOverledenPersonenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string woonplaatsnaamField;
+        
+        private string naamOpenbareRuimteField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        private bool inclusiefOverledenPersonenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string woonplaatsnaam
+        {
+            get
+            {
+                return this.woonplaatsnaamField;
+            }
+            set
+            {
+                this.woonplaatsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool inclusiefOverledenPersonen
+        {
+            get
+            {
+                return this.inclusiefOverledenPersonenField;
+            }
+            set
+            {
+                this.inclusiefOverledenPersonenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegBewoningFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegBewoningFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string identificatieNummeraanduidingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool inclusiefOverledenPersonenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string identificatieNummeraanduiding
+        {
+            get
+            {
+                return this.identificatieNummeraanduidingField;
+            }
+            set
+            {
+                this.identificatieNummeraanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periode
+        {
+            get
+            {
+                return this.periodeField;
+            }
+            set
+            {
+                this.periodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public bool inclusiefOverledenPersonen
+        {
+            get
+            {
+                return this.inclusiefOverledenPersonenField;
+            }
+            set
+            {
+                this.inclusiefOverledenPersonenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="IngeschrevenPersonenBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", ItemName="ingeschrevenPersoonBeperkt")]
+    [System.SerializableAttribute()]
+    public class IngeschrevenPersonenBeperkt : System.Collections.Generic.List<StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoonBeperkt>
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegIngeschrevenPersoonFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegIngeschrevenPersoonFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string burgerservicenummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.Gemeenschappelijk.Periode periodeField;
+        
+        private bool inclusiefVerblijfplaatsHistorieField;
+        
+        private bool inclusiefPartnerHistorieField;
+        
+        private bool inclusiefVerblijfstitelHistorieField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string burgerservicenummer
+        {
+            get
+            {
+                return this.burgerservicenummerField;
+            }
+            set
+            {
+                this.burgerservicenummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public StUF4.Entiteiten.Gemeenschappelijk.Periode periode
+        {
+            get
+            {
+                return this.periodeField;
+            }
+            set
+            {
+                this.periodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool inclusiefVerblijfplaatsHistorie
+        {
+            get
+            {
+                return this.inclusiefVerblijfplaatsHistorieField;
+            }
+            set
+            {
+                this.inclusiefVerblijfplaatsHistorieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool inclusiefPartnerHistorie
+        {
+            get
+            {
+                return this.inclusiefPartnerHistorieField;
+            }
+            set
+            {
+                this.inclusiefPartnerHistorieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool inclusiefVerblijfstitelHistorie
+        {
+            get
+            {
+                return this.inclusiefVerblijfstitelHistorieField;
+            }
+            set
+            {
+                this.inclusiefVerblijfstitelHistorieField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", ConfigurationName="StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon")]
     public interface BevraagIngeschrevenPersoon
     {
         
-        // CODEGEN: Parameter ingeschrevenPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpGeslacht" +
             "snaam", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout), Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpGeslacht" +
             "snaam", Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenPersonen")]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamResponse ZoekIngeschrevenPersonenOpGeslachtsnaam(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamRequest request);
+        StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpGeslachtsnaam(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpPostcode" +
             "Huisnummer", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout), Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpPostcode" +
             "Huisnummer", Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenPersonen")]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse ZoekIngeschrevenPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest request);
+        StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpBinnenla" +
             "ndsVerblijfsadres", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout), Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekIngeschrevenPersonenOpBinnenla" +
             "ndsVerblijfsadres", Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenPersonen")]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest request);
+        StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter filter);
         
-        // CODEGEN: Parameter ingeschrevenPersonen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegBewoning", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout), Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegBewoning", Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="ingeschrevenPersonen")]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningResponse RaadpleegBewoning(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningRequest request);
+        StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt RaadpleegBewoning(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningFilter filter);
         
-        // CODEGEN: Parameter IngeschrevenPersoon vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegIngeschrevenPersoon", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(StUF4.Koppelvlak.Services.Gemeenschappelijk.Fout), Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegIngeschrevenPersoon", Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="IngeschrevenPersoon")]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonResponse RaadpleegIngeschrevenPersoon(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpGeslachtsnaam", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpGeslachtsnaamRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenPersonenOpGeslachtsnaamFilter filter;
-        
-        public ZoekIngeschrevenPersonenOpGeslachtsnaamRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpGeslachtsnaamRequest(ZoekIngeschrevenPersonenOpGeslachtsnaamFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpGeslachtsnaamResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpGeslachtsnaamResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenPersoonBeperktType[] ingeschrevenPersonen;
-        
-        public ZoekIngeschrevenPersonenOpGeslachtsnaamResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpGeslachtsnaamResponse(IngeschrevenPersoonBeperktType[] ingeschrevenPersonen)
-        {
-            this.ingeschrevenPersonen = ingeschrevenPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpPostcodeHuisnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter filter;
-        
-        public ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest(ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenPersoonBeperktType[] ingeschrevenPersonen;
-        
-        public ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse(IngeschrevenPersoonBeperktType[] ingeschrevenPersonen)
-        {
-            this.ingeschrevenPersonen = ingeschrevenPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter filter;
-        
-        public ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest(ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenPersoonBeperktType[] ingeschrevenPersonen;
-        
-        public ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse()
-        {
-        }
-        
-        public ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse(IngeschrevenPersoonBeperktType[] ingeschrevenPersonen)
-        {
-            this.ingeschrevenPersonen = ingeschrevenPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegBewoning", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class RaadpleegBewoningRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegBewoningFilter filter;
-        
-        public RaadpleegBewoningRequest()
-        {
-        }
-        
-        public RaadpleegBewoningRequest(RaadpleegBewoningFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegBewoningResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class RaadpleegBewoningResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("ingeschrevenPersoonBeperkt", IsNullable=false)]
-        public IngeschrevenPersoonBeperktType[] ingeschrevenPersonen;
-        
-        public RaadpleegBewoningResponse()
-        {
-        }
-        
-        public RaadpleegBewoningResponse(IngeschrevenPersoonBeperktType[] ingeschrevenPersonen)
-        {
-            this.ingeschrevenPersonen = ingeschrevenPersonen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenPersoon", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenPersoonRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegIngeschrevenPersoonFilter filter;
-        
-        public RaadpleegIngeschrevenPersoonRequest()
-        {
-        }
-        
-        public RaadpleegIngeschrevenPersoonRequest(RaadpleegIngeschrevenPersoonFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegIngeschrevenPersoonResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", IsWrapped=true)]
-    public partial class RaadpleegIngeschrevenPersoonResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public IngeschrevenPersoonType IngeschrevenPersoon;
-        
-        public RaadpleegIngeschrevenPersoonResponse()
-        {
-        }
-        
-        public RaadpleegIngeschrevenPersoonResponse(IngeschrevenPersoonType IngeschrevenPersoon)
-        {
-            this.IngeschrevenPersoon = IngeschrevenPersoon;
-        }
+        StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon RaadpleegIngeschrevenPersoon(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonFilter filter);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -11220,78 +9281,33 @@ namespace StUF4.Koppelvlak.Services.NatuurlijkPersoon
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamResponse StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaam(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamRequest request)
+        public StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpGeslachtsnaam(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamFilter filter)
         {
-            return base.Channel.ZoekIngeschrevenPersonenOpGeslachtsnaam(request);
+            return base.Channel.ZoekIngeschrevenPersonenOpGeslachtsnaam(filter);
         }
         
-        public IngeschrevenPersoonBeperktType[] ZoekIngeschrevenPersonenOpGeslachtsnaam(ZoekIngeschrevenPersonenOpGeslachtsnaamFilter filter)
+        public StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter filter)
         {
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamRequest inValue = new StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpGeslachtsnaamResponse retVal = ((StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon)(this)).ZoekIngeschrevenPersonenOpGeslachtsnaam(inValue);
-            return retVal.ingeschrevenPersonen;
+            return base.Channel.ZoekIngeschrevenPersonenOpPostcodeHuisnummer(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest request)
+        public StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter filter)
         {
-            return base.Channel.ZoekIngeschrevenPersonenOpPostcodeHuisnummer(request);
+            return base.Channel.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(filter);
         }
         
-        public IngeschrevenPersoonBeperktType[] ZoekIngeschrevenPersonenOpPostcodeHuisnummer(ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter filter)
+        public StUF4.Koppelvlak.Services.NatuurlijkPersoon.IngeschrevenPersonenBeperkt RaadpleegBewoning(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningFilter filter)
         {
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest inValue = new StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse retVal = ((StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon)(this)).ZoekIngeschrevenPersonenOpPostcodeHuisnummer(inValue);
-            return retVal.ingeschrevenPersonen;
+            return base.Channel.RaadpleegBewoning(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest request)
+        public StUF4.Entiteiten.IngeschrevenPersoon.IngeschrevenPersoon RaadpleegIngeschrevenPersoon(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonFilter filter)
         {
-            return base.Channel.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(request);
-        }
-        
-        public IngeschrevenPersoonBeperktType[] ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter filter)
-        {
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest inValue = new StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse retVal = ((StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon)(this)).ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres(inValue);
-            return retVal.ingeschrevenPersonen;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningResponse StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon.RaadpleegBewoning(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningRequest request)
-        {
-            return base.Channel.RaadpleegBewoning(request);
-        }
-        
-        public IngeschrevenPersoonBeperktType[] RaadpleegBewoning(RaadpleegBewoningFilter filter)
-        {
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningRequest inValue = new StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegBewoningResponse retVal = ((StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon)(this)).RaadpleegBewoning(inValue);
-            return retVal.ingeschrevenPersonen;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonResponse StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon.RaadpleegIngeschrevenPersoon(StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonRequest request)
-        {
-            return base.Channel.RaadpleegIngeschrevenPersoon(request);
-        }
-        
-        public IngeschrevenPersoonType RaadpleegIngeschrevenPersoon(RaadpleegIngeschrevenPersoonFilter filter)
-        {
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonRequest inValue = new StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.NatuurlijkPersoon.RaadpleegIngeschrevenPersoonResponse retVal = ((StUF4.Koppelvlak.Services.NatuurlijkPersoon.BevraagIngeschrevenPersoon)(this)).RaadpleegIngeschrevenPersoon(inValue);
-            return retVal.IngeschrevenPersoon;
+            return base.Channel.RaadpleegIngeschrevenPersoon(filter);
         }
     }
 }
-namespace StUF4.Entiteiten.NatuurlijkPersoon
+namespace StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak
 {
     using System.Runtime.Serialization;
     using System;
@@ -11299,109 +9315,23 @@ namespace StUF4.Entiteiten.NatuurlijkPersoon
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Geboortedatum", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
+        "")]
     [System.SerializableAttribute()]
-    public partial class Geboortedatum : object, System.Runtime.Serialization.IExtensibleDataObject
+    public partial class RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private int jaarField;
+        private string kadastraleGemeentecodeField;
         
-        private System.Nullable<int> maandField;
+        private string sectieField;
         
-        private System.Nullable<int> dagField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int jaar
-        {
-            get
-            {
-                return this.jaarField;
-            }
-            set
-            {
-                this.jaarField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Nullable<int> maand
-        {
-            get
-            {
-                return this.maandField;
-            }
-            set
-            {
-                this.maandField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public System.Nullable<int> dag
-        {
-            get
-            {
-                return this.dagField;
-            }
-            set
-            {
-                this.dagField = value;
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Geslachtsaanduiding", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon")]
-    public enum Geslachtsaanduiding : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Man = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Vrouw = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Onbekend = 2,
-    }
-}
-namespace StUF4.Koppelvlak.Services.Gemeenschappelijk
-{
-    using System.Runtime.Serialization;
-    using System;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Fout", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk")]
-    [System.SerializableAttribute()]
-    public partial class Fout : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string codeField;
-        
-        private string omschrijvingField;
+        private string perceelnummerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string detailField;
+        private string appartementsrechtVolgnummerField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -11416,42 +9346,241 @@ namespace StUF4.Koppelvlak.Services.Gemeenschappelijk
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string code
+        public string kadastraleGemeentecode
         {
             get
             {
-                return this.codeField;
+                return this.kadastraleGemeentecodeField;
             }
             set
             {
-                this.codeField = value;
+                this.kadastraleGemeentecodeField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
-        public string omschrijving
+        public string sectie
         {
             get
             {
-                return this.omschrijvingField;
+                return this.sectieField;
             }
             set
             {
-                this.omschrijvingField = value;
+                this.sectieField = value;
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string detail
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=2)]
+        public string perceelnummer
         {
             get
             {
-                return this.detailField;
+                return this.perceelnummerField;
             }
             set
             {
-                this.detailField = value;
+                this.perceelnummerField = value;
             }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string appartementsrechtVolgnummer
+        {
+            get
+            {
+                return this.appartementsrechtVolgnummerField;
+            }
+            set
+            {
+                this.appartementsrechtVolgnummerField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string geslachtsnaamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum geboortedatumField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string geslachtsnaam
+        {
+            get
+            {
+                return this.geslachtsnaamField;
+            }
+            set
+            {
+                this.geslachtsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public StUF4.Entiteiten.NatuurlijkPersoon.Geboortedatum geboortedatum
+        {
+            get
+            {
+                return this.geboortedatumField;
+            }
+            set
+            {
+                this.geboortedatumField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="KadastraleOnroerendeZakenBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
+        "", ItemName="kadastraleOnroerendeZaakBeperkt")]
+    [System.SerializableAttribute()]
+    public class KadastraleOnroerendeZakenBeperkt : System.Collections.Generic.List<StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaakBeperkt>
+    {
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
+        "", ConfigurationName="StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaa" +
+        "k")]
+    public interface BevraagKadastraleOnroerendeZaak
+    {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
+            "lijkRechtIngeschrevenNatuurlijkPersoon", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(string burgerservicenummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
+            "lijkRechtAnderNatuurlijkPersoon", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter filter);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
+            "lijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(string rsin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
+            "lijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(string kvkNummer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
+            "lijkRechtAnderNietNatuurlijkPersoon", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(string naam);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpNumm" +
+            "eraanduiding", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpNummeraanduiding(string identificatieNummeraanduiding);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaak", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="KadastraleOnroerendeZaak")]
+        StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaak(string kadastraleIdentificatie);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaakO" +
+            "pAanduiding", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
+        StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaakOpAanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface BevraagKadastraleOnroerendeZaakChannel : StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak, System.ServiceModel.IClientChannel
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class BevraagKadastraleOnroerendeZaakClient : System.ServiceModel.ClientBase<StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak>, StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak
+    {
+        
+        public BevraagKadastraleOnroerendeZaakClient()
+        {
+        }
+        
+        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName)
+        {
+        }
+        
+        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
+        {
+        }
+        
+        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress)
+        {
+        }
+        
+        public BevraagKadastraleOnroerendeZaakClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress)
+        {
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(string burgerservicenummer)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(burgerservicenummer);
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter filter)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(filter);
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(string rsin)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(rsin);
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(string kvkNummer)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(kvkNummer);
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(string naam)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(naam);
+        }
+        
+        public StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpNummeraanduiding(string identificatieNummeraanduiding)
+        {
+            return base.Channel.ZoekKadastraleOnroerendeZaakOpNummeraanduiding(identificatieNummeraanduiding);
+        }
+        
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaak(string kadastraleIdentificatie)
+        {
+            return base.Channel.RaadpleegKadastraleOnroerendeZaak(kadastraleIdentificatie);
+        }
+        
+        public StUF4.Entiteiten.KadastraleOnroerendeZaak.KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaakOpAanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter)
+        {
+            return base.Channel.RaadpleegKadastraleOnroerendeZaakOpAanduiding(filter);
         }
     }
 }
@@ -11460,6 +9589,15 @@ namespace StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit
     using System.Runtime.Serialization;
     using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="MaatschappelijkeActiviteitenBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
+        "it", ItemName="maatschappelijkeActiviteitBeperkt")]
+    [System.SerializableAttribute()]
+    public class MaatschappelijkeActiviteitenBeperkt : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteitBeperkt>
+    {
+    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11515,6 +9653,114 @@ namespace StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
+        "it")]
+    [System.SerializableAttribute()]
+    public partial class ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string burgerservicenummerField;
+        
+        private bool inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string burgerservicenummer
+        {
+            get
+            {
+                return this.burgerservicenummerField;
+            }
+            set
+            {
+                this.burgerservicenummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool inclusiefBeeindigdeMaatschappelijkeActiviteiten
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
+        "it")]
+    [System.SerializableAttribute()]
+    public partial class ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string rsinField;
+        
+        private bool inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string rsin
+        {
+            get
+            {
+                return this.rsinField;
+            }
+            set
+            {
+                this.rsinField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool inclusiefBeeindigdeMaatschappelijkeActiviteiten
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeMaatschappelijkeActiviteitenField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
         "it", ConfigurationName="StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiv" +
@@ -11522,303 +9768,30 @@ namespace StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit
     public interface BevraagMaatschappelijkeActiviteit
     {
         
-        // CODEGEN: Parameter maatschappelijkeActiviteiten vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekMaatschappelijkeActiviteitOpHa" +
             "ndelsnaam", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="maatschappelijkeActiviteiten")]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse ZoekMaatschappelijkeActiviteitOpHandelsnaam(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest request);
+        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpHandelsnaam(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter filter);
         
-        // CODEGEN: Parameter maatschappelijkeActiviteiten vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekMaatschappelijkeActiviteitOpNa" +
             "tuurlijkPersoonAlsEigenaar", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="maatschappelijkeActiviteiten")]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest request);
+        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter filter);
         
-        // CODEGEN: Parameter maatschappelijkeActiviteiten vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekMaatschappelijkeActiviteitOpNi" +
             "etNatuurlijkPersoonAlsEigenaar", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="maatschappelijkeActiviteiten")]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest request);
+        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter filter);
         
-        // CODEGEN: Parameter maatschappelijkeActiviteit vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegMaatschappelijkeActivitei" +
             "tOpKvKnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="maatschappelijkeActiviteit")]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse RaadpleegMaatschappelijkeActiviteitOpKvKnummer(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest request);
+        StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpKvKnummer(string kvkNummer);
         
-        // CODEGEN: Parameter maatschappelijkeActiviteit vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegMaatschappelijkeActivitei" +
             "tOpVestigingsnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="maatschappelijkeActiviteit")]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpHandelsnaam", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter filter;
-        
-        public ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest(ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("maatschappelijkeActiviteitBeperkt", IsNullable=false)]
-        public MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten;
-        
-        public ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse(MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten)
-        {
-            this.maatschappelijkeActiviteiten = maatschappelijkeActiviteiten;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter filter;
-        
-        public ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest(ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("maatschappelijkeActiviteitBeperkt", IsNullable=false)]
-        public MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten;
-        
-        public ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse(MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten)
-        {
-            this.maatschappelijkeActiviteiten = maatschappelijkeActiviteiten;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter filter;
-        
-        public ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest(ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("maatschappelijkeActiviteitBeperkt", IsNullable=false)]
-        public MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten;
-        
-        public ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse()
-        {
-        }
-        
-        public ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse(MaatschappelijkeActiviteitBeperkt[] maatschappelijkeActiviteiten)
-        {
-            this.maatschappelijkeActiviteiten = maatschappelijkeActiviteiten;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegMaatschappelijkeActiviteitOpKvKnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string kvkNummer;
-        
-        public RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest()
-        {
-        }
-        
-        public RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest(string kvkNummer)
-        {
-            this.kvkNummer = kvkNummer;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public MaatschappelijkeActiviteit maatschappelijkeActiviteit;
-        
-        public RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse()
-        {
-        }
-        
-        public RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse(MaatschappelijkeActiviteit maatschappelijkeActiviteit)
-        {
-            this.maatschappelijkeActiviteit = maatschappelijkeActiviteit;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string vestigingsnummer;
-        
-        public RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest()
-        {
-        }
-        
-        public RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest(string vestigingsnummer)
-        {
-            this.vestigingsnummer = vestigingsnummer;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-        "it", IsWrapped=true)]
-    public partial class RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/MaatschappelijkeActivite" +
-            "it", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public MaatschappelijkeActiviteit maatschappelijkeActiviteit;
-        
-        public RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse()
-        {
-        }
-        
-        public RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse(MaatschappelijkeActiviteit maatschappelijkeActiviteit)
-        {
-            this.maatschappelijkeActiviteit = maatschappelijkeActiviteit;
-        }
+        StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(string vestigingsnummer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -11855,74 +9828,29 @@ namespace StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaam(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest request)
+        public StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpHandelsnaam(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter filter)
         {
-            return base.Channel.ZoekMaatschappelijkeActiviteitOpHandelsnaam(request);
+            return base.Channel.ZoekMaatschappelijkeActiviteitOpHandelsnaam(filter);
         }
         
-        public MaatschappelijkeActiviteitBeperkt[] ZoekMaatschappelijkeActiviteitOpHandelsnaam(ZoekMaatschappelijkeActiviteitOpHandelsnaamFilter filter)
+        public StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter filter)
         {
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest inValue = new StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpHandelsnaamResponse retVal = ((StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit)(this)).ZoekMaatschappelijkeActiviteitOpHandelsnaam(inValue);
-            return retVal.maatschappelijkeActiviteiten;
+            return base.Channel.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest request)
+        public StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.MaatschappelijkeActiviteitenBeperkt ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter filter)
         {
-            return base.Channel.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(request);
+            return base.Channel.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(filter);
         }
         
-        public MaatschappelijkeActiviteitBeperkt[] ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarFilter filter)
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpKvKnummer(string kvkNummer)
         {
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest inValue = new StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaarResponse retVal = ((StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit)(this)).ZoekMaatschappelijkeActiviteitOpNatuurlijkPersoonAlsEigenaar(inValue);
-            return retVal.maatschappelijkeActiviteiten;
+            return base.Channel.RaadpleegMaatschappelijkeActiviteitOpKvKnummer(kvkNummer);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest request)
+        public StUF4.Entiteiten.Handelsregister.MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(string vestigingsnummer)
         {
-            return base.Channel.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(request);
-        }
-        
-        public MaatschappelijkeActiviteitBeperkt[] ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarFilter filter)
-        {
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest inValue = new StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaarResponse retVal = ((StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit)(this)).ZoekMaatschappelijkeActiviteitOpNietNatuurlijkPersoonAlsEigenaar(inValue);
-            return retVal.maatschappelijkeActiviteiten;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummer(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest request)
-        {
-            return base.Channel.RaadpleegMaatschappelijkeActiviteitOpKvKnummer(request);
-        }
-        
-        public MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpKvKnummer(string kvkNummer)
-        {
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest inValue = new StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerRequest();
-            inValue.kvkNummer = kvkNummer;
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpKvKnummerResponse retVal = ((StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit)(this)).RaadpleegMaatschappelijkeActiviteitOpKvKnummer(inValue);
-            return retVal.maatschappelijkeActiviteit;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest request)
-        {
-            return base.Channel.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(request);
-        }
-        
-        public MaatschappelijkeActiviteit RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(string vestigingsnummer)
-        {
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest inValue = new StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerRequest();
-            inValue.vestigingsnummer = vestigingsnummer;
-            StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummerResponse retVal = ((StUF4.Koppelvlak.Services.MaatschappelijkeActiviteit.BevraagMaatschappelijkeActiviteit)(this)).RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(inValue);
-            return retVal.maatschappelijkeActiviteit;
+            return base.Channel.RaadpleegMaatschappelijkeActiviteitOpVestigingsnummer(vestigingsnummer);
         }
     }
 }
@@ -11931,6 +9859,14 @@ namespace StUF4.Koppelvlak.Services.Vestiging
     using System.Runtime.Serialization;
     using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="VestigingenBeperkt", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", ItemName="vestigingBeperkt")]
+    [System.SerializableAttribute()]
+    public class VestigingenBeperkt : System.Collections.Generic.List<StUF4.Entiteiten.Handelsregister.VestigingBeperkt>
+    {
+    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11985,340 +9921,426 @@ namespace StUF4.Koppelvlak.Services.Vestiging
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekVestigingOpKvKnummerFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
+    [System.SerializableAttribute()]
+    public partial class ZoekVestigingOpKvKnummerFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string kvkNummerField;
+        
+        private bool inclusiefBeeindigdeVestigingenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string kvkNummer
+        {
+            get
+            {
+                return this.kvkNummerField;
+            }
+            set
+            {
+                this.kvkNummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool inclusiefBeeindigdeVestigingen
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeVestigingenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeVestigingenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekVestigingOpNummeraanduidingFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
+    [System.SerializableAttribute()]
+    public partial class ZoekVestigingOpNummeraanduidingFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string identificatieNummeraanduidingField;
+        
+        private bool inclusiefBeeindigdeVestigingenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string identificatieNummeraanduiding
+        {
+            get
+            {
+                return this.identificatieNummeraanduidingField;
+            }
+            set
+            {
+                this.identificatieNummeraanduidingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool inclusiefBeeindigdeVestigingen
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeVestigingenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeVestigingenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekVestigingOpBinnenlandsVestigingsadresFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
+    [System.SerializableAttribute()]
+    public partial class ZoekVestigingOpBinnenlandsVestigingsadresFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string woonplaatsnaamField;
+        
+        private string naamOpenbareRuimteField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        private bool inclusiefBeeindigdeVestigingenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string woonplaatsnaam
+        {
+            get
+            {
+                return this.woonplaatsnaamField;
+            }
+            set
+            {
+                this.woonplaatsnaamField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false, Order=1)]
+        public string naamOpenbareRuimte
+        {
+            get
+            {
+                return this.naamOpenbareRuimteField;
+            }
+            set
+            {
+                this.naamOpenbareRuimteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool inclusiefBeeindigdeVestigingen
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeVestigingenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeVestigingenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ZoekVestigingOpPostcodeHuisnummerFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
+    [System.SerializableAttribute()]
+    public partial class ZoekVestigingOpPostcodeHuisnummerFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string postcodeField;
+        
+        private int huisnummerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisletterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string huisnummertoevoegingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string locatiebeschrijvingField;
+        
+        private bool inclusiefBeeindigdeVestigingenField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string postcode
+        {
+            get
+            {
+                return this.postcodeField;
+            }
+            set
+            {
+                this.postcodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int huisnummer
+        {
+            get
+            {
+                return this.huisnummerField;
+            }
+            set
+            {
+                this.huisnummerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string huisletter
+        {
+            get
+            {
+                return this.huisletterField;
+            }
+            set
+            {
+                this.huisletterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string huisnummertoevoeging
+        {
+            get
+            {
+                return this.huisnummertoevoegingField;
+            }
+            set
+            {
+                this.huisnummertoevoegingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string locatiebeschrijving
+        {
+            get
+            {
+                return this.locatiebeschrijvingField;
+            }
+            set
+            {
+                this.locatiebeschrijvingField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public bool inclusiefBeeindigdeVestigingen
+        {
+            get
+            {
+                return this.inclusiefBeeindigdeVestigingenField;
+            }
+            set
+            {
+                this.inclusiefBeeindigdeVestigingenField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RaadpleegVestigingFilter", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging")]
+    [System.SerializableAttribute()]
+    public partial class RaadpleegVestigingFilter : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string vestigingsnummerField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        public string vestigingsnummer
+        {
+            get
+            {
+                return this.vestigingsnummerField;
+            }
+            set
+            {
+                this.vestigingsnummerField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", ConfigurationName="StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging")]
     public interface BevraagVestiging
     {
         
-        // CODEGEN: Parameter vestigingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekVestigingOpHandelsnaam", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestigingen")]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamResponse ZoekVestigingOpHandelsnaam(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamRequest request);
+        StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpHandelsnaam(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamFilter filter);
         
-        // CODEGEN: Parameter vestigingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekVestigingOpKvKnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestigingen")]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerResponse ZoekVestigingOpKvKnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerRequest request);
+        StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpKvKnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerFilter filter);
         
-        // CODEGEN: Parameter vestigingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekVestigingOpNummeraanduiding", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestigingen")]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingResponse ZoekVestigingOpNummeraanduiding(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingRequest request);
+        StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpNummeraanduiding(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingFilter filter);
         
-        // CODEGEN: Parameter vestigingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekVestigingOpBinnenlandsVestigin" +
             "gsadres", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestigingen")]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresResponse ZoekVestigingOpBinnenlandsVestigingsadres(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresRequest request);
+        StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpBinnenlandsVestigingsadres(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresFilter filter);
         
-        // CODEGEN: Parameter vestigingen vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekVestigingOpPostcodeHuisnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestigingen")]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerResponse ZoekVestigingOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerRequest request);
+        StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerFilter filter);
         
-        // CODEGEN: Parameter vestiging vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
         [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegVestiging", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="vestiging")]
-        StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingResponse RaadpleegVestiging(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpHandelsnaam", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpHandelsnaamRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekVestigingOpHandelsnaamFilter filter;
-        
-        public ZoekVestigingOpHandelsnaamRequest()
-        {
-        }
-        
-        public ZoekVestigingOpHandelsnaamRequest(ZoekVestigingOpHandelsnaamFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpHandelsnaamResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpHandelsnaamResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("vestigingBeperkt", IsNullable=false)]
-        public VestigingBeperkt[] vestigingen;
-        
-        public ZoekVestigingOpHandelsnaamResponse()
-        {
-        }
-        
-        public ZoekVestigingOpHandelsnaamResponse(VestigingBeperkt[] vestigingen)
-        {
-            this.vestigingen = vestigingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpKvKnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpKvKnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekVestigingOpKvKnummerFilter filter;
-        
-        public ZoekVestigingOpKvKnummerRequest()
-        {
-        }
-        
-        public ZoekVestigingOpKvKnummerRequest(ZoekVestigingOpKvKnummerFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpKvKnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpKvKnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("vestigingBeperkt", IsNullable=false)]
-        public VestigingBeperkt[] vestigingen;
-        
-        public ZoekVestigingOpKvKnummerResponse()
-        {
-        }
-        
-        public ZoekVestigingOpKvKnummerResponse(VestigingBeperkt[] vestigingen)
-        {
-            this.vestigingen = vestigingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpNummeraanduiding", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpNummeraanduidingRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekVestigingOpNummeraanduidingFilter filter;
-        
-        public ZoekVestigingOpNummeraanduidingRequest()
-        {
-        }
-        
-        public ZoekVestigingOpNummeraanduidingRequest(ZoekVestigingOpNummeraanduidingFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpNummeraanduidingResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpNummeraanduidingResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("vestigingBeperkt", IsNullable=false)]
-        public VestigingBeperkt[] vestigingen;
-        
-        public ZoekVestigingOpNummeraanduidingResponse()
-        {
-        }
-        
-        public ZoekVestigingOpNummeraanduidingResponse(VestigingBeperkt[] vestigingen)
-        {
-            this.vestigingen = vestigingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpBinnenlandsVestigingsadres", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpBinnenlandsVestigingsadresRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekVestigingOpBinnenlandsVestigingsadresFilter filter;
-        
-        public ZoekVestigingOpBinnenlandsVestigingsadresRequest()
-        {
-        }
-        
-        public ZoekVestigingOpBinnenlandsVestigingsadresRequest(ZoekVestigingOpBinnenlandsVestigingsadresFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpBinnenlandsVestigingsadresResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpBinnenlandsVestigingsadresResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("vestigingBeperkt", IsNullable=false)]
-        public VestigingBeperkt[] vestigingen;
-        
-        public ZoekVestigingOpBinnenlandsVestigingsadresResponse()
-        {
-        }
-        
-        public ZoekVestigingOpBinnenlandsVestigingsadresResponse(VestigingBeperkt[] vestigingen)
-        {
-            this.vestigingen = vestigingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpPostcodeHuisnummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpPostcodeHuisnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekVestigingOpPostcodeHuisnummerFilter filter;
-        
-        public ZoekVestigingOpPostcodeHuisnummerRequest()
-        {
-        }
-        
-        public ZoekVestigingOpPostcodeHuisnummerRequest(ZoekVestigingOpPostcodeHuisnummerFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekVestigingOpPostcodeHuisnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class ZoekVestigingOpPostcodeHuisnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("vestigingBeperkt", IsNullable=false)]
-        public VestigingBeperkt[] vestigingen;
-        
-        public ZoekVestigingOpPostcodeHuisnummerResponse()
-        {
-        }
-        
-        public ZoekVestigingOpPostcodeHuisnummerResponse(VestigingBeperkt[] vestigingen)
-        {
-            this.vestigingen = vestigingen;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVestiging", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class RaadpleegVestigingRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegVestigingFilter filter;
-        
-        public RaadpleegVestigingRequest()
-        {
-        }
-        
-        public RaadpleegVestigingRequest(RaadpleegVestigingFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegVestigingResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", IsWrapped=true)]
-    public partial class RaadpleegVestigingResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Vestiging", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Vestiging vestiging;
-        
-        public RaadpleegVestigingResponse()
-        {
-        }
-        
-        public RaadpleegVestigingResponse(Vestiging vestiging)
-        {
-            this.vestiging = vestiging;
-        }
+        StUF4.Entiteiten.Handelsregister.Vestiging RaadpleegVestiging(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingFilter filter);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -12355,88 +10377,34 @@ namespace StUF4.Koppelvlak.Services.Vestiging
         {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.ZoekVestigingOpHandelsnaam(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamRequest request)
+        public StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpHandelsnaam(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamFilter filter)
         {
-            return base.Channel.ZoekVestigingOpHandelsnaam(request);
+            return base.Channel.ZoekVestigingOpHandelsnaam(filter);
         }
         
-        public VestigingBeperkt[] ZoekVestigingOpHandelsnaam(ZoekVestigingOpHandelsnaamFilter filter)
+        public StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpKvKnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerFilter filter)
         {
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpHandelsnaamResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).ZoekVestigingOpHandelsnaam(inValue);
-            return retVal.vestigingen;
+            return base.Channel.ZoekVestigingOpKvKnummer(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.ZoekVestigingOpKvKnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerRequest request)
+        public StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpNummeraanduiding(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingFilter filter)
         {
-            return base.Channel.ZoekVestigingOpKvKnummer(request);
+            return base.Channel.ZoekVestigingOpNummeraanduiding(filter);
         }
         
-        public VestigingBeperkt[] ZoekVestigingOpKvKnummer(ZoekVestigingOpKvKnummerFilter filter)
+        public StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpBinnenlandsVestigingsadres(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresFilter filter)
         {
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpKvKnummerResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).ZoekVestigingOpKvKnummer(inValue);
-            return retVal.vestigingen;
+            return base.Channel.ZoekVestigingOpBinnenlandsVestigingsadres(filter);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.ZoekVestigingOpNummeraanduiding(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingRequest request)
+        public StUF4.Koppelvlak.Services.Vestiging.VestigingenBeperkt ZoekVestigingOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerFilter filter)
         {
-            return base.Channel.ZoekVestigingOpNummeraanduiding(request);
+            return base.Channel.ZoekVestigingOpPostcodeHuisnummer(filter);
         }
         
-        public VestigingBeperkt[] ZoekVestigingOpNummeraanduiding(ZoekVestigingOpNummeraanduidingFilter filter)
+        public StUF4.Entiteiten.Handelsregister.Vestiging RaadpleegVestiging(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingFilter filter)
         {
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpNummeraanduidingResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).ZoekVestigingOpNummeraanduiding(inValue);
-            return retVal.vestigingen;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.ZoekVestigingOpBinnenlandsVestigingsadres(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresRequest request)
-        {
-            return base.Channel.ZoekVestigingOpBinnenlandsVestigingsadres(request);
-        }
-        
-        public VestigingBeperkt[] ZoekVestigingOpBinnenlandsVestigingsadres(ZoekVestigingOpBinnenlandsVestigingsadresFilter filter)
-        {
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpBinnenlandsVestigingsadresResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).ZoekVestigingOpBinnenlandsVestigingsadres(inValue);
-            return retVal.vestigingen;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.ZoekVestigingOpPostcodeHuisnummer(StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerRequest request)
-        {
-            return base.Channel.ZoekVestigingOpPostcodeHuisnummer(request);
-        }
-        
-        public VestigingBeperkt[] ZoekVestigingOpPostcodeHuisnummer(ZoekVestigingOpPostcodeHuisnummerFilter filter)
-        {
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.ZoekVestigingOpPostcodeHuisnummerResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).ZoekVestigingOpPostcodeHuisnummer(inValue);
-            return retVal.vestigingen;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingResponse StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging.RaadpleegVestiging(StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingRequest request)
-        {
-            return base.Channel.RaadpleegVestiging(request);
-        }
-        
-        public Vestiging RaadpleegVestiging(RaadpleegVestigingFilter filter)
-        {
-            StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingRequest inValue = new StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.Vestiging.RaadpleegVestigingResponse retVal = ((StUF4.Koppelvlak.Services.Vestiging.BevraagVestiging)(this)).RaadpleegVestiging(inValue);
-            return retVal.vestiging;
+            return base.Channel.RaadpleegVestiging(filter);
         }
     }
 }
@@ -12445,14 +10413,6 @@ namespace StUF4.Koppelvlak.Services.Wijk
     using System.Runtime.Serialization;
     using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Wijken", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4", ItemName="wijk")]
-    [System.SerializableAttribute()]
-    public class Wijken : System.Collections.Generic.List<StUF4.Entiteiten.Wijk.Wijk>
-    {
-    }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12505,6 +10465,14 @@ namespace StUF4.Koppelvlak.Services.Wijk
                 this.gemeentecodeField = value;
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="Wijken", Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Wijk/v4", ItemName="wijk")]
+    [System.SerializableAttribute()]
+    public class Wijken : System.Collections.Generic.List<StUF4.Entiteiten.Wijk.Wijk>
+    {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -12573,646 +10541,6 @@ namespace StUF4.Koppelvlak.Services.Wijk
         public StUF4.Entiteiten.Wijk.Wijk RaadpleegWijkOpWijkcodeGemeenteCode(StUF4.Koppelvlak.Services.Wijk.RaadpleegWijkOpWijkcodeGemeenteCodeFilter filter)
         {
             return base.Channel.RaadpleegWijkOpWijkcodeGemeenteCode(filter);
-        }
-    }
-}
-namespace StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak
-{
-    
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", ConfigurationName="StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaa" +
-        "k")]
-    public interface BevraagKadastraleOnroerendeZaak
-    {
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
-            "lijkRechtIngeschrevenNatuurlijkPersoon", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
-            "lijkRechtAnderNatuurlijkPersoon", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
-            "lijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
-            "lijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpZake" +
-            "lijkRechtAnderNietNatuurlijkPersoon", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlArrayAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/ZoekKadastraleOnroerendeZaakOpNumm" +
-            "eraanduiding", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse ZoekKadastraleOnroerendeZaakOpNummeraanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest request);
-        
-        // CODEGEN: Parameter KadastraleOnroerendeZaak vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaak", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="KadastraleOnroerendeZaak")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakResponse RaadpleegKadastraleOnroerendeZaak(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakRequest request);
-        
-        // CODEGEN: Parameter kadastraleOnroerendeZaken vereist aanvullende schema-informatie die niet kan worden vastgelegd in de parametermodus. Het specifieke kenmerk is System.Xml.Serialization.XmlElementAttribute.
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.stufstandaarden.nl/koppelvlak/STUF4/RaadpleegKadastraleOnroerendeZaakO" +
-            "pAanduiding", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute()]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Fout))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Brondocument))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegWijkOpWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RaadpleegBuurtOpBuurtcodeWijkcodeGemeenteCodeFilter))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Relatie))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AbstractAdresBase))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="kadastraleOnroerendeZaken")]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse RaadpleegKadastraleOnroerendeZaakOpAanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string burgerservicenummer;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest(string burgerservicenummer)
-        {
-            this.burgerservicenummer = burgerservicenummer;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter filter;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest(ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRs" +
-        "in", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rsin;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest(string rsin)
-        {
-            this.rsin = rsin;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRs" +
-        "inResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKv" +
-        "Knummer", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string kvkNummer;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest(string kvkNummer)
-        {
-            this.kvkNummer = kvkNummer;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKv" +
-        "KnummerResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string naam;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest(string naam)
-        {
-            this.naam = naam;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpNummeraanduiding", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificatieNummeraanduiding;
-        
-        public ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest(string identificatieNummeraanduiding)
-        {
-            this.identificatieNummeraanduiding = identificatieNummeraanduiding;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("kadastraleOnroerendeZaakBeperkt", IsNullable=false)]
-        public KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken;
-        
-        public ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse()
-        {
-        }
-        
-        public ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse(KadastraleOnroerendeZaakBeperkt[] kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegKadastraleOnroerendeZaak", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class RaadpleegKadastraleOnroerendeZaakRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string kadastraleIdentificatie;
-        
-        public RaadpleegKadastraleOnroerendeZaakRequest()
-        {
-        }
-        
-        public RaadpleegKadastraleOnroerendeZaakRequest(string kadastraleIdentificatie)
-        {
-            this.kadastraleIdentificatie = kadastraleIdentificatie;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegKadastraleOnroerendeZaakResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class RaadpleegKadastraleOnroerendeZaakResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public KadastraleOnroerendeZaak KadastraleOnroerendeZaak;
-        
-        public RaadpleegKadastraleOnroerendeZaakResponse()
-        {
-        }
-        
-        public RaadpleegKadastraleOnroerendeZaakResponse(KadastraleOnroerendeZaak KadastraleOnroerendeZaak)
-        {
-            this.KadastraleOnroerendeZaak = KadastraleOnroerendeZaak;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegKadastraleOnroerendeZaakOpAanduiding", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter;
-        
-        public RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest()
-        {
-        }
-        
-        public RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest(RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter)
-        {
-            this.filter = filter;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse", WrapperNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-        "", IsWrapped=true)]
-    public partial class RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" +
-            "", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public KadastraleOnroerendeZaak kadastraleOnroerendeZaken;
-        
-        public RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse()
-        {
-        }
-        
-        public RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse(KadastraleOnroerendeZaak kadastraleOnroerendeZaken)
-        {
-            this.kadastraleOnroerendeZaken = kadastraleOnroerendeZaken;
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface BevraagKadastraleOnroerendeZaakChannel : StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak, System.ServiceModel.IClientChannel
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BevraagKadastraleOnroerendeZaakClient : System.ServiceModel.ClientBase<StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak>, StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak
-    {
-        
-        public BevraagKadastraleOnroerendeZaakClient()
-        {
-        }
-        
-        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName)
-        {
-        }
-        
-        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress)
-        {
-        }
-        
-        public BevraagKadastraleOnroerendeZaakClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress)
-        {
-        }
-        
-        public BevraagKadastraleOnroerendeZaakClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress)
-        {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(string burgerservicenummer)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonRequest();
-            inValue.burgerservicenummer = burgerservicenummer;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoonResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNatuurlijkPersoon(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonFilter filter)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoonResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNatuurlijkPersoon(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(string rsin)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinRequest();
-            inValue.rsin = rsin;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsinResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetRsin(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(string kvkNummer)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerRequest();
-            inValue.kvkNummer = kvkNummer;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummerResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpZakelijkRechtIngeschrevenNietNatuurlijkPersoonMetKvKnummer(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(string naam)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonRequest();
-            inValue.naam = naam;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoonResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpZakelijkRechtAnderNietNatuurlijkPersoon(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest request)
-        {
-            return base.Channel.ZoekKadastraleOnroerendeZaakOpNummeraanduiding(request);
-        }
-        
-        public KadastraleOnroerendeZaakBeperkt[] ZoekKadastraleOnroerendeZaakOpNummeraanduiding(string identificatieNummeraanduiding)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingRequest();
-            inValue.identificatieNummeraanduiding = identificatieNummeraanduiding;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.ZoekKadastraleOnroerendeZaakOpNummeraanduidingResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).ZoekKadastraleOnroerendeZaakOpNummeraanduiding(inValue);
-            return retVal.kadastraleOnroerendeZaken;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaak(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakRequest request)
-        {
-            return base.Channel.RaadpleegKadastraleOnroerendeZaak(request);
-        }
-        
-        public KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaak(string kadastraleIdentificatie)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakRequest();
-            inValue.kadastraleIdentificatie = kadastraleIdentificatie;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).RaadpleegKadastraleOnroerendeZaak(inValue);
-            return retVal.KadastraleOnroerendeZaak;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduiding(StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest request)
-        {
-            return base.Channel.RaadpleegKadastraleOnroerendeZaakOpAanduiding(request);
-        }
-        
-        public KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaakOpAanduiding(RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter)
-        {
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest inValue = new StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingRequest();
-            inValue.filter = filter;
-            StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.RaadpleegKadastraleOnroerendeZaakOpAanduidingResponse retVal = ((StUF4.Koppelvlak.Services.KadastraleOnroerendeZaak.BevraagKadastraleOnroerendeZaak)(this)).RaadpleegKadastraleOnroerendeZaakOpAanduiding(inValue);
-            return retVal.kadastraleOnroerendeZaken;
         }
     }
 }

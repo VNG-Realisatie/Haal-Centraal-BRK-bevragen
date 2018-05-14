@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Johan Boer (Kwaliteitsinstituut Nederlandse Gemeenten) -->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" xmlns:NNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" xmlns:HR="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" xmlns:KOZ="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaak" xmlns:IP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon" xmlns:MKOZ="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" xmlns:NNP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" xmlns:HR="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" xmlns:KOZ="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaak" xmlns:MKOZ="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/KadastraleOnroerendeZaak" elementFormDefault="qualified">
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" schemaLocation="StUF4_msg_gemeenschappelijk.xsd"/>
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" schemaLocation="StUF4_ent_natuurlijkpersoon.xsd"/>
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NietNatuurlijkPersoon" schemaLocation="StUF4_ent_nietnatuurlijkpersoon.xsd"/>
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Handelsregister" schemaLocation="StUF4_ent_handelsregister.xsd"/>
 	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/KadastraleOnroerendeZaak" schemaLocation="StUF4_ent_kadastraleonroerendezaak.xsd"/>
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon" schemaLocation="StUF4_ent_ingeschrevenpersoon.xsd"/>
 	<complexType name="RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter">
 		<sequence>
 			<element name="kadastraleGemeentecode" type="KOZ:KadastraalAanduiding"/>
-			<element name="sectie" type="string"/>
-			<element name="perceelnummer" type="string"/>
+			<element name="sectie" type="BCMN:GeenWildcardStringFilter"/>
+			<element name="perceelnummer" type="BCMN:GeenWildcardStringFilter"/>
 			<element name="appartementsrechtVolgnummer" type="BCMN:GeenWildcardStringFilter" minOccurs="0"/>
 		</sequence>
 	</complexType>
@@ -139,7 +138,7 @@
 	<element name="RaadpleegKadastraleOnroerendeZaakResponse">
 		<complexType>
 			<sequence>
-				<element name="kadastraleOnroerendeZaak" type="KOZ:KadastraleOnroerendeZaak" nillable="true"/>
+				<element name="KadastraleOnroerendeZaak" type="KOZ:KadastraleOnroerendeZaak" nillable="true"/>
 			</sequence>
 		</complexType>
 	</element>

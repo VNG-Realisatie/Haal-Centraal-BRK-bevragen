@@ -23,6 +23,12 @@ namespace KadastraalOnroerendeZaakService
         }
 
         [return: MessageParameter(Name = "kadastraleOnroerendeZaken")]
+        public KadastraleOnroerendeZaak RaadpleegKadastraleOnroerendeZaakOpAanduiding(RaadpleegKadastraleOnroerendeZaakOpAanduidingFilter filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        [return: MessageParameter(Name = "kadastraleOnroerendeZaken")]
         public KadastraleOnroerendeZakenBeperkt ZoekKadastraleOnroerendeZaakOpNummeraanduiding(string identificatieNummeraanduiding)
         {
             throw new NotImplementedException();

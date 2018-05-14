@@ -1,10 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2017 sp2 (x64) (http://www.altova.com) by Michiel Verhoef (Kwaliteitsinstituut Nederlandse Gemeenten) -->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" xmlns:IP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon" xmlns:MIP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon" targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon" elementFormDefault="qualified">
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" schemaLocation="StUF4_ent_gemeenschappelijk.xsd"/>
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" schemaLocation="StUF4_msg_gemeenschappelijk.xsd"/>
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" schemaLocation="StUF4_ent_natuurlijkpersoon.xsd"/>
-	<import namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon" schemaLocation="StUF4_ent_ingeschrevenpersoon.xsd"/>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:CMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk"
+		xmlns:BCMN="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk"
+		xmlns:NP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon"
+		xmlns:IP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon"
+		targetNamespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon"
+		xmlns:MIP="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/IngeschrevenPersoon"
+		elementFormDefault="qualified"
+>
+
+	<import
+		schemaLocation="StUF4_ent_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_msg_gemeenschappelijk.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Berichten/Gemeenschappelijk" />
+
+	<import
+		schemaLocation="StUF4_ent_natuurlijkpersoon.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/NatuurlijkPersoon" />
+
+	<import
+		schemaLocation="StUF4_ent_ingeschrevenpersoon.xsd"
+		namespace="http://www.stufstandaarden.nl/koppelvlak/STUF4/Entiteiten/IngeschrevenPersoon" />
+
 	<complexType name="ZoekIngeschrevenPersonenOpGeslachtsnaamFilter">
 		<annotation>
 			<documentation>
@@ -13,132 +34,147 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="geslachtsnaam" type="BCMN:StringFilter"/>
-			<element name="geboortedatum" type="NP:Geboortedatum" minOccurs="0"/>
-			<element name="voornamen" type="BCMN:StringFilter" minOccurs="0"/>
-			<element name="voorvoegselGeslachtsnaam" type="NP:VoorvoegselGeslachtsnaam" minOccurs="0"/>
-			<element name="geslachtsaanduiding" type="NP:Geslachtsaanduiding" nillable="true"/>
-			<element name="geboorteplaats" type="CMN:PlaatsNaam" minOccurs="0"/>
-			<element name="inclusiefNietIngezetenen" type="boolean"/>
-			<element name="inclusiefOverledenPersonen" type="boolean"/>
+			<element name="geslachtsnaam" type="BCMN:StringFilter" />
+			<element name="geboortedatum" type="NP:Geboortedatum" minOccurs="0" />
+			<element name="voornamen" type="BCMN:StringFilter" minOccurs="0" />
+			<element name="voorvoegselGeslachtsnaam" type="NP:VoorvoegselGeslachtsnaam" minOccurs="0" />
+			<element name="geslachtsaanduiding" type="NP:Geslachtsaanduiding" nillable="true" />
+			<element name="geboorteplaats" type="CMN:PlaatsNaam" minOccurs="0" />
+			<element name="inclusiefNietIngezetenen" type="boolean" />
+			<element name="inclusiefOverledenPersonen" type="boolean" />
 		</sequence>
 	</complexType>
+
 	<element name="ZoekIngeschrevenPersonenOpGeslachtsnaam">
 		<complexType>
 			<sequence>
-				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpGeslachtsnaamFilter" nillable="true"/>
+				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpGeslachtsnaamFilter" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<element name="ZoekIngeschrevenPersonenOpGeslachtsnaamResponse">
 		<complexType>
 			<sequence>
-				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true"/>
+				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<complexType name="ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter">
 		<sequence>
-			<element name="postcode" type="CMN:Postcode"/>
-			<element name="huisnummer" type="CMN:Huisnummer"/>
-			<element name="huisletter" type="CMN:Huisletter" minOccurs="0"/>
-			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0"/>
-			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0"/>
-			<element name="periode" type="CMN:Periode" minOccurs="0"/>
-			<element name="inclusiefOverledenPersonen" type="boolean"/>
+			<element name="postcode" type="CMN:Postcode" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0" />
+			<element name="periode" type="CMN:Periode" minOccurs="0" />
+			<element name="inclusiefOverledenPersonen" type="boolean" />
 		</sequence>
 	</complexType>
+
 	<element name="ZoekIngeschrevenPersonenOpPostcodeHuisnummer">
 		<annotation>
 			<documentation>Met de operatie is het niet mogelijk om naar niet-ingezetenen te zoeken. De parameter 'inclusiefNietIngezetenen' is daarom niet aanwezig</documentation>
 		</annotation>
 		<complexType>
 			<sequence>
-				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter" nillable="true"/>
+				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpPostcodeHuisnummerFilter" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<element name="ZoekIngeschrevenPersonenOpPostcodeHuisnummerResponse">
 		<complexType>
 			<sequence>
-				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true"/>
+				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<complexType name="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter">
 		<annotation>
 			<documentation>Met de operatie is het niet mogelijk om naar niet-ingezetenen te zoeken. De parameter 'inclusiefNietIngezetenen' is daarom niet aanwezig</documentation>
 		</annotation>
 		<sequence>
-			<element name="woonplaatsnaam" type="CMN:PlaatsNaam"/>
-			<element name="naamOpenbareRuimte" type="BCMN:StringFilter"/>
-			<element name="huisnummer" type="CMN:Huisnummer"/>
-			<element name="huisletter" type="CMN:Huisletter" minOccurs="0"/>
-			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0"/>
-			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0"/>
-			<element name="inclusiefOverledenPersonen" type="boolean"/>
+			<element name="woonplaatsnaam" type="CMN:PlaatsNaam" />
+			<element name="naamOpenbareRuimte" type="BCMN:StringFilter" />
+			<element name="huisnummer" type="CMN:Huisnummer" />
+			<element name="huisletter" type="CMN:Huisletter" minOccurs="0" />
+			<element name="huisnummertoevoeging" type="CMN:Huisnummertoevoeging" minOccurs="0" />
+			<element name="locatiebeschrijving" type="CMN:Locatiebeschrijving" minOccurs="0" />
+			<element name="inclusiefOverledenPersonen" type="boolean" />
 		</sequence>
 	</complexType>
+
 	<element name="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadres">
 		<complexType>
 			<sequence>
-				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter" nillable="true"/>
+				<element name="filter" type="MIP:ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresFilter" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<element name="ZoekIngeschrevenPersonenOpBinnenlandsVerblijfsadresResponse">
 		<complexType>
 			<sequence>
-				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true"/>
+				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<complexType name="RaadpleegBewoningFilter">
 		<sequence>
-			<element name="identificatieNummeraanduiding" type="CMN:IdentificatieNummeraanduiding"/>
+			<element name="identificatieNummeraanduiding" type="CMN:IdentificatieNummeraanduiding" />
 			<element name="periode" type="CMN:Periode" minOccurs="0">
 				<annotation>
 					<documentation>Zoeken van personen die op aangegeven periode op dit adresseerbaar oject wonen</documentation>
 				</annotation>
 			</element>
-			<element name="inclusiefOverledenPersonen" type="boolean" minOccurs="0"/>
+			<element name="inclusiefOverledenPersonen" type="boolean" minOccurs="0" />
 		</sequence>
 	</complexType>
+
 	<element name="RaadpleegBewoning">
 		<complexType>
 			<sequence>
-				<element name="filter" type="MIP:RaadpleegBewoningFilter" nillable="true"/>
+				<element name="filter" type="MIP:RaadpleegBewoningFilter" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<element name="RaadpleegBewoningResponse">
 		<complexType>
 			<sequence>
-				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true"/>
+				<element name="ingeschrevenPersonen" type="MIP:IngeschrevenPersonenBeperkt" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<complexType name="IngeschrevenPersonenBeperkt">
 		<sequence>
-			<element name="ingeschrevenPersoonBeperkt" type="IP:IngeschrevenPersoonBeperkt" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="ingeschrevenPersoonBeperkt" type="IP:IngeschrevenPersoonBeperkt" minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 	</complexType>
+
 	<complexType name="RaadpleegIngeschrevenPersoonFilter">
 		<sequence>
-			<element name="burgerservicenummer" type="NP:BurgerServiceNummer"/>
-			<element name="periode" type="CMN:Periode" minOccurs="0"/>
-			<element name="inclusiefVerblijfplaatsHistorie" type="boolean"/>
-			<element name="inclusiefPartnerHistorie" type="boolean"/>
-			<element name="inclusiefVerblijfstitelHistorie" type="boolean"/>
+			<element name="burgerservicenummer" type="NP:BurgerServiceNummer" />
+			<element name="periode" type="CMN:Periode" minOccurs="0" />
+			<element name="inclusiefVerblijfplaatsHistorie" type="boolean" />
+			<element name="inclusiefPartnerHistorie" type="boolean" />
+			<element name="inclusiefVerblijfstitelHistorie" type="boolean" />
 		</sequence>
 	</complexType>
+
 	<element name="RaadpleegIngeschrevenPersoon">
 		<complexType>
 			<sequence>
-				<element name="filter" type="MIP:RaadpleegIngeschrevenPersoonFilter" nillable="true"/>
+				<element name="filter" type="MIP:RaadpleegIngeschrevenPersoonFilter" nillable="true" />
 			</sequence>
 		</complexType>
 	</element>
+
 	<element name="RaadpleegIngeschrevenPersoonResponse">
 		<complexType>
 			<sequence>
@@ -153,4 +189,5 @@
 			</sequence>
 		</complexType>
 	</element>
+
 </schema>
