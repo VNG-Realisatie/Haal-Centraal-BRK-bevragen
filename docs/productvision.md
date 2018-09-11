@@ -53,7 +53,7 @@ De te ontsluiten gegevens zijn beschreven in het Referentiemodel Stelsel van Gem
 
 RSGB gegevens die relevant zijn voor bijvoorbeeld het synchroon houden van de basisgegevens van de binnengemeentelijke afnemer, maar niet door afnemers worden gebruikt bij rechtstreekse bevraging, maken geen onderdeel uit van deze koppelvlakstandaard.
 
-De koppelvlakstandaard “Bevragingen ingeschreven personen” is de ‘eenheid van levering en compliancy’ voor beschreven referentie-componenten.
+De koppelvlakstandaard “BRK-bevragingen” is de ‘eenheid van levering en compliancy’ voor beschreven referentie-componenten.
 - Voor applicaties die de provider-rol invullen wil dat zeggen dat een applicatie alle services/operaties die in het koppelvlak zijn opgenomen MOET ondersteunen en alle beschreven gegevens moet kunnen leveren.
 - Voor applicaties die de consumer-rol invullen mag per service/operatie worden aangegeven of deze wordt ondersteund. Een applicatie die de consumer-rol invult hoeft niet alle beschreven query-parameters te ondersteunen en hoeft niet alle teruggeleverde gegevens te verwerken.
 
