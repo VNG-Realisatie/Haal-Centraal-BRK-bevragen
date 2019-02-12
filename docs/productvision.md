@@ -4,8 +4,8 @@
 Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Voor de BRK wordt gestart wordt met de realisatie van een API voor het zoeken en raadplegen van kadastrale onroerende zaken.
 
 ### Toegevoegde waarde voor gemeenten
-- kortere doorlooptijd afnemersaansluiting 
-- lagere kosten afnemersaansluiting (maal aantal aansluiters maal 351)
+- sneller aansluiten afnemers 
+- goedkoper aansluiten afnemers (x aantal binnegemeentelijke aansluiters x 351 gemeenten)
 - lagere investeringen (geen lokale kopie/ gegevensmagazijn)
 - lagere beheerkosten (geen gegevensbeheer lokale kopieen)
 - hogere ROI op de API door hergebruik door alle gemeenten
