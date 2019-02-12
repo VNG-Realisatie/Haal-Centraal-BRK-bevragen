@@ -1,45 +1,46 @@
 # Productvisie BRK Bevragen
 
 ## Introductie
-Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Voor de BRK wordt gestart wordt met de realisatie van een API voor het zoeken en raadplegen van kadastrale onroerende zaken.
+Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Voor de BRK wordt gestart met de realisatie van een API voor het zoeken en raadplegen van kadastrale onroerende zaken.
 
 ### Toegevoegde waarde voor gemeenten
 - sneller aansluiten afnemers 
 - goedkoper aansluiten afnemers (x aantal binnegemeentelijke aansluiters x 351 gemeenten)
 - lagere investeringen (geen lokale kopie/ gegevensmagazijn)
-- lagere beheerkosten (geen gegevensbeheer lokale kopieen)
+- lagere beheerkosten (geen gegevensbeheer lokale kopieën)
 - hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
 - betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
-- meer focus op de businessvraag van afnemers (geen aandacht meer nodig voor gegevensbeheer)
-- compliancy op de softwaremarkt (1 aanbieder van een API betekent 100% herbruikbare stekkers bij gemeenten)
+- meer focus op de businessvraag van afnemers (geen aandacht meer nodig voor gegevensbeheer lokale kopieën)
+- compliancy op de softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
 
 ### Toegevoegde waarde voor leveranciers
-- Kunnen zich richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing
+- Kunnen zich beter richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing concerns.
 
 ## Context
-Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag en het Kadaster. Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling tbv de pilot. 
+Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster. Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling gedurende de pilot. 
 
 ## Productvisie
 
 BRK bevragen API is:
 
 - Business driven 
-resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoefte van alle binnengemeentelijke afnemers van NL. Dit is niet hetzelfde als modelgedreven ontwikkeling (MDD)! Traceerbaarheid naar het informatiemodel waarborgt scope, semantiek en volledigheid. 
+Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoefte van alle binnengemeentelijke afnemers van NL. 
+Is niet hetzelfde als modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel. Dit waarborgt de realiseerbaarheid, semantiek en volledigheid van de API. 
 
 - Consumer first 
-voordelen zoveel mogelijk bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (maal x maal 351)
+Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (x aantal binnegemeentelijke afnemers x 351)
 
 - Developer first
-Focus op en getest op bruikbaarheid voor de ontwikkelaar (AOS spec getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), consistentie met andere Haal Centraal API’s en Landelijke API Strategie, ontwerpbeslissingen worden getest op het effect op de code, BDD scenario's in Gherkin om het gedrag van de API te beschrijven.
+Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getest op het effect op de code, maximale consistentie met andere Haal Centraal API’s, compliancy aan Landelijke API Strategie, BDD scenario's in Gherkin om het gedrag van de API te beschrijven.
 
 - Contract first
 …en niet development first. Agnostisch, vrij van implementatiedetails (uit providersysteem), niet gevoelig voor wijzigen systeemlogica provider.
 
 - Agnostisch
-= Zonder kennis van de consumer. Moet door alle gemeentelijke processen kunnen worden gebruikt die BRK gegevens nodig hebben.
+= zonder kennis van de consumer. De API moet door alle (in theorie 200 verschillende) gemeentelijke processen kunnen worden gebruikt die BRK gegevens nodig hebben.
 
 - Geïmplementeerd 
-Kadaster bouwt de API, gemeente Den Haag, gemeente Amsterdam en Vicrea bouwen consumers. 
+Kadaster bouwt de API, de gemeente Den Haag, de gemeente Amsterdam en Vicrea bouwen consumers. 
 
 Non functionals:
 - supersnel
