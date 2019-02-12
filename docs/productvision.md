@@ -8,7 +8,7 @@ Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan
 - goedkoper aansluiten afnemers (x aantal binnegemeentelijke aansluiters x 351 gemeenten)
 - lagere investeringen (geen lokale kopie/ gegevensmagazijn)
 - lagere beheerkosten (geen gegevensbeheer lokale kopieen)
-- hogere ROI op de API door hergebruik door alle gemeenten
+- hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
 - betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
 - meer focus op de businessvraag van afnemers (geen aandacht meer nodig voor gegevensbeheer)
 - compliancy op de softwaremarkt (1 aanbieder van een API betekent 100% herbruikbare stekkers bij gemeenten)
