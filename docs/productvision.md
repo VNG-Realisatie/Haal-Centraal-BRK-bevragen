@@ -10,7 +10,7 @@ Doel van het programma Haal Centraal het verstrekken van basisgegevens aan binne
 - lagere beheerkosten (geen gegevensbeheer lokale kopieën)
 - hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
 - betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
-- meer focus op de businessvraag van afnemers (geen aandacht meer nodig voor gegevensbeheer lokale kopieën)
+- meer focus op de businessvraag van afnemers (i.p.v. betrouwbaarheid etc. lokale kopieën)
 - maximale compliancy op de gemeentelijke softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
 
 ### Toegevoegde waarde voor leveranciers
