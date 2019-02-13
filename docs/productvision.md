@@ -17,7 +17,7 @@ Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan
 - Kunnen zich beter richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing concerns.
 
 ## Context
-Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster. Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling gedurende de pilot. 
+Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster op basis van de RSGB bevragingen standaard (voorloper BRK-bevragen). Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling gedurende de pilot. 
 
 ## Productvisie
 
@@ -40,7 +40,7 @@ Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegenera
 = zonder kennis van de consumer. De API moet door alle (in theorie 200 verschillende) gemeentelijke processen kunnen worden gebruikt die BRK gegevens nodig hebben.
 
 - Geïmplementeerd 
-Kadaster bouwt de API, de gemeente Den Haag, de gemeente Amsterdam en Vicrea bouwen consumers. 
+Kadaster bouwt de API, de gemeente Den Haag, de gemeente Amsterdam en Vicrea bouwen consumers in een SCRUM traject. 
 
 Non functionals:
 - supersnel
@@ -52,7 +52,7 @@ Non functionals:
 Ontwerp o.b.v. een inventarisatie informatiebehoefte binnengemeentelijke afnemers. Invulling van de informatiebehoefte wordt beperkt door de inhoud van het BRK informatiemodel.
 
 ## REST
-De API is zo RESTful mogelijk.
+De API is zo RESTful mogelijk, met het oog op maximale realisatie van de REST doelstellingen: performance, schaalbaarheid, eenvoud, aanpasbaarheid, zichtbaarheid, verplaatsbaarheid en betrouwbaarheid.  
 
 ## DSO API Strategie
 Het project conformeert zich aan de DSO API strategie en levert een bijdrage aan de ontwikkeling van deze strategie naar een landelijke API strategie voor de Nederlandse overheid.  
@@ -76,9 +76,9 @@ mogelijk toegepast.
 ## Realisatie
 Van iedere informatiebehoefte van binnengemeentelijke afnemers wordt een issue (user story) gemaakt. Voor deze issues worden achtereenvolgens AOS3 specs en featues opgesteld en gerealiseerd. 
 
-OAS3 specs worden opgesteld door VNG Realisatie ism een developer 
+OAS3 specs worden opgesteld door VNG Realisatie adviseur standaarden ism een developer 
 OAS3 specs worden getoetst door een developer. 
-BDD scenario's worden beschreven door de PO, VNG Realisatie en de developer. 
+BDD scenario's worden beschreven door de PO, VNG Realisatie adviseur standaarden en de developer. 
 BRK bevragen API wordt gerealiseerd door het Kadaster
 Consumers worden gerealiseerd door de gemeente Den Haag, de gemeente Amsterdam en Vicrea
 
