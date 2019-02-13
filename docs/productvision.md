@@ -1,7 +1,7 @@
 # Productvisie BRK Bevragen
 
 ## Introductie
-Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Voor de BRK wordt gestart met de realisatie van een API voor het zoeken en raadplegen van kadastrale onroerende zaken.
+Doel van het programma Haal Centraal het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Dit moet leiden tot een forse reductie van lokale kopieën bij gemeenten. We doen dit door voor zoveel mogelijk activiteiten op een lokale kopie een Haal Centraal alternatief te bieden in de vorm van een API. Deze API biedt binnengemeentelijke afnemers (e.a.) de mogelijkheid om kadastrale onroerende zaken te zoeken en raadplegen.
 
 ### Toegevoegde waarde voor gemeenten
 - sneller aansluiten afnemers 
@@ -17,7 +17,7 @@ Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan
 - Kunnen zich richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing concerns.
 
 ## Context
-Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster op basis van de RSGB bevragingen standaard (voorloper BRK-bevragen). Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling gedurende de pilot. 
+Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster op basis van de RSGB bevragingen standaard (voorloper BRK-bevragen). De businesscase is gebaseerd op ervaringscijfers van de gemeente Den Haag en de softwareontwikkeling gedurende de pilot. 
 
 ## Productvisie
 
@@ -58,7 +58,7 @@ De API is zo RESTful mogelijk, met het oog op maximale realisatie van de REST do
 Het project conformeert zich aan de DSO API strategie en levert een bijdrage aan de ontwikkeling van deze strategie naar een landelijke API strategie voor de Nederlandse overheid.  
 
 ## Uitgangspunten
-- Startpunt voor informatiemodellen van gegevens in de berichten is IMKAD model versie .....
+- Alle ingredienten van de API zijn herleidbaar naar het IMKAD model
 - Alle code, documenten en specificaties die ontstaan in dit traject wordt Open
 Source gepubliceerd onder de
 [EUPL licentie](https://joinup.ec.europa.eu/collection/eupl/eupl-text-11-12).
