@@ -1,10 +1,8 @@
 # BRK-bevragingen
 
-BRK-bevragingen is een API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. 
+BRK-bevragingen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. 
 
 De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
-
-De API confomeert zich aan de DSO API strategie en DSO URI strategie, en levert een bijdrage aan de doorontwikkeling naar een overheidsbrede API strategie.
 
 ## Documentatie
 * [Productvisie](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/productvision.md)
