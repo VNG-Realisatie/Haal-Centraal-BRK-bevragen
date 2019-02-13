@@ -1,12 +1,10 @@
 # BRK-bevragingen
 
-BRK-bevragingen is een berichtenstandaard voor het opvragen van gegevens in de basisregistratie Kadaster.
+BRK-bevragingen is een API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers van BRK gegevens in NL. 
 
-Inhoudelijk startpunt voor de bevragingen zijn de geïnventariseerde vragen die zijn opgesteld door de werkgroep RSGB bevragingen en vastgelegd in standaard [RSGB-bevragingen 1.0](https://www.gemmaonline.nl/index.php/RSGB_Bevragingen), module kadastrale onroerende zaken.
+De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 
-Startpunt voor informatiemodellen van gegevens in de berichten is imKad.
-
-Startpunt voor technische uitwisselafspraken voor de te ontwikkelen RESTfull API operaties is de DSO API strategie en DSO URI strategie.
+De API confomeert zich in principe aan de DSO API strategie en DSO URI strategie, en levert een bijdrage aan de doorontwikkeling naar een overheidsbrede API strategie.
 
 ## Documentatie
 * [Productvisie](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/productvision.md)
@@ -18,14 +16,11 @@ Startpunt voor technische uitwisselafspraken voor de te ontwikkelen RESTfull API
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
 ## Bronnen
-* Informatiemodel [RSGB](https://www.gemmaonline.nl/index.php/RSGB_3.0_in_ontwikkeling) (in ontwikkeling)
 * [API strategie en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/)
-* [GEMMA 2](https://www.gemmaonline.nl/index.php/GEMMA_Architectuur)
-* [Common Ground](https://commonground.pleio.nl)
 
 ## Contactpersonen:
-* Projectleider: Frank Samwel frank.samwel@vng.nl
+* Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl 
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
 
 ## Licentie
-De koppelvlakstandaard, inclusief alle onderdelen die erbij horen (volgens productvisie en/of definition of done) zijn gelicenceerd onder [EUPL](https://eupl.eu/1.2/nl/).
+De OAS specificatie, inclusief alle onderdelen die erbij horen volgens productvisie en/of definition of done zijn gelicenceerd onder [EUPL](https://eupl.eu/1.2/nl/).
