@@ -11,10 +11,10 @@ Het programma Haal Centraal heeft tot doel het verstrekken van basisgegevens aan
 - hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
 - betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
 - meer focus op de businessvraag van afnemers (geen aandacht meer nodig voor gegevensbeheer lokale kopieën)
-- compliancy op de softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
+- maximale compliancy op de gemeentelijke softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
 
 ### Toegevoegde waarde voor leveranciers
-- Kunnen zich beter richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing concerns.
+- Kunnen zich richten op het bieden van toegevoegde waarde voor burgers, bedrijven en medewerkers i.p.v. plumbing concerns.
 
 ## Context
 Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven). Het concept is getoetst in de BRK pilot van de gemeente Den Haag met het Kadaster op basis van de RSGB bevragingen standaard (voorloper BRK-bevragen). Businesscase op basis van ervaringscijfers gemeente Den Haag en softwareontwikkeling gedurende de pilot. 
@@ -28,7 +28,7 @@ Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoe
 Is niet hetzelfde als modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel. Dit waarborgt de realiseerbaarheid, semantiek en volledigheid van de API. 
 
 - Consumer first 
-Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (x aantal binnegemeentelijke afnemers x 351)
+Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
 
 - Developer first
 Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getest op het effect op de code, maximale consistentie met andere Haal Centraal API’s, compliancy aan Landelijke API Strategie, BDD scenario's in Gherkin om het gedrag van de API te beschrijven.
