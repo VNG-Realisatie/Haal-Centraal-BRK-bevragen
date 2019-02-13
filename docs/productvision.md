@@ -29,8 +29,8 @@ BRK bevragen API is:
 Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoefte van alle binnengemeentelijke afnemers van NL. 
 Is niet hetzelfde als modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel. Dit waarborgt de realiseerbaarheid, semantiek en volledigheid van de API. 
 
-- Consumer first 
-Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
+- Consumer first
+#Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
 
 - Developer first
 Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getest op het effect op de code, maximale consistentie met andere Haal Centraal API’s, compliancy aan Landelijke API Strategie, BDD scenario's in Gherkin om het gedrag van de API te beschrijven.
