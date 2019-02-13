@@ -25,7 +25,7 @@ Haal Centraal is een G5 initiatief (Amsterdam, Rotterdam, Den Haag, Utrecht en E
 
 BRK bevragen API is:
 
-- Business driven 
+### Business driven 
 Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoefte van alle binnengemeentelijke afnemers van NL. 
 Is niet hetzelfde als modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel. Dit waarborgt de realiseerbaarheid, semantiek en volledigheid van de API. 
 
