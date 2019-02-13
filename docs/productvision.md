@@ -28,16 +28,16 @@ Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoe
 Niet te verwarren met modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel, zodat de realiseerbaarheid, semantiek en volledigheid van de API geborgd is. 
 
 ### Consumer first
-#Gestreefd wordt naar zoveel mogelijk voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
+Beleg de voordelen bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
 
 ### Developer first
-Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getest op het effect op de code, maximale consistentie met andere Haal Centraal API’s, compliancy aan Landelijke API Strategie, BDD scenario's in Gherkin om het gedrag van de API te beschrijven.
+Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getoetst op het effect op de code, maximale consistentie met andere Haal Centraal API’s en behaviour driven development (BDD) scenario's in Gherkin om het gedrag van de API te beschrijven.
 
 ### Contract first
-…en niet development first. Agnostisch, vrij van implementatiedetails (uit providersysteem), niet gevoelig voor wijzigen systeemlogica provider.
+…en niet development first. Agnostisch, vrij van implementatiedetails providersysteem, niet gevoelig voor wijzigen in systeemlogica provider.
 
 ### Agnostisch
-= zonder kennis van de consumer. De API moet door alle (in theorie 200 verschillende) gemeentelijke processen kunnen worden gebruikt die BRK gegevens nodig hebben.
+= zonder kennis van de consumer. De API moet door alle (in theorie 200-250 verschillende) gemeentelijke processen kunnen worden gebruikt die BRK gegevens nodig hebben.
 
 ### Geïmplementeerd 
 Kadaster bouwt de API, de gemeente Den Haag, de gemeente Amsterdam en Vicrea bouwen consumers in een SCRUM traject. 
@@ -49,7 +49,7 @@ Kadaster bouwt de API, de gemeente Den Haag, de gemeente Amsterdam en Vicrea bou
 - resilient
 
 ## Scope
-Ontwerp o.b.v. een inventarisatie informatiebehoefte binnengemeentelijke afnemers. Invulling van de informatiebehoefte wordt beperkt door de inhoud van het BRK informatiemodel.
+Ontwerp o.b.v. een inventarisatie informatiebehoefte binnengemeentelijke afnemers van alle binnengemeentelijke afnemers van NL. Invulling van de informatiebehoefte wordt beperkt door de inhoud van het IMKAD informatiemodel.
 
 ## REST
 De API is zo RESTful mogelijk, met het oog op maximale realisatie van de REST doelstellingen: performance, schaalbaarheid, eenvoud, aanpasbaarheid, zichtbaarheid, verplaatsbaarheid en betrouwbaarheid.  
@@ -74,7 +74,7 @@ zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar
 mogelijk toegepast.
 
 ## Realisatie
-Van iedere informatiebehoefte van binnengemeentelijke afnemers wordt een issue (user story) gemaakt. Voor deze issues worden achtereenvolgens AOS3 specs en featues opgesteld en gerealiseerd. 
+Van iedere informatiebehoefte van een binnengemeentelijke afnemer die bij ons bekend is wordt een issue (user story) gemaakt. Voor de meest voorkomende stories issues worden achtereenvolgens AOS3 specs en indien nodig BDD scenario's opgesteld en gerealiseerd. 
 
 OAS3 specs worden opgesteld door VNG Realisatie adviseur standaarden ism een developer 
 OAS3 specs worden getoetst door een developer. 
@@ -82,5 +82,5 @@ BDD scenario's worden beschreven door de PO, VNG Realisatie adviseur standaarden
 BRK bevragen API wordt gerealiseerd door het Kadaster
 Consumers worden gerealiseerd door de gemeente Den Haag, de gemeente Amsterdam en Vicrea
 
-Alle deelproducten (deliverables) van het project worden gepubliceerd op het GitHub project, m.u.v. de consumers van de gemeente Den Haag en Vicrea. De API specificaties worden daarnaast op SWAGGERhub geplaatst.
+Alle deliverables worden gepubliceerd op het GitHub project, m.u.v. de consumers van de gemeente Den Haag en Vicrea. De API specificaties worden ook op SWAGGERhub geplaatst.
 
