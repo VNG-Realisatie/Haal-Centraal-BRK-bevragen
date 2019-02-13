@@ -1,7 +1,7 @@
 # Productvisie BRK Bevragen
 
 ## Introductie
-Doel van het programma Haal Centraal het verstrekken van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Dit moet leiden tot een forse reductie van lokale kopieën bij gemeenten. 
+Doel van het programma Haal Centraal is om de verstrekking van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Dit moet leiden tot een forse reductie van lokale kopieën bij gemeenten. 
 
 We doen dit door voor zoveel mogelijk activiteiten op een lokale kopie een Haal Centraal alternatief te bieden in de vorm van een API. De BRK bevragen API biedt binnengemeentelijke afnemers (e.a.) de mogelijkheid om kadastrale onroerende zaken te zoeken en raadplegen.
 
@@ -74,7 +74,7 @@ zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar
 mogelijk toegepast.
 
 ## Realisatie
-Van iedere informatiebehoefte van een binnengemeentelijke afnemer die bij ons bekend is wordt een issue (user story) gemaakt. Voor de meest voorkomende stories issues worden achtereenvolgens AOS3 specs en indien nodig BDD scenario's opgesteld en gerealiseerd. 
+Van iedere informatiebehoefte van een binnengemeentelijke afnemer die bij ons bekend is wordt een issue (user story) gemaakt. Voor de meest voorkomende stories worden achtereenvolgens AOS3 specs en indien nodig BDD scenario's opgesteld en gerealiseerd. 
 
 OAS3 specs worden opgesteld door VNG Realisatie adviseur standaarden ism een developer 
 OAS3 specs worden getoetst door een developer. 
