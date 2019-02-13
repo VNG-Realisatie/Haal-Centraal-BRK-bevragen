@@ -4,7 +4,7 @@ BRK-bevragingen is een API voor het zoeken en raadplegen van gegevens in de basi
 
 De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 
-De API confomeert zich in principe aan de DSO API strategie en DSO URI strategie, en levert een bijdrage aan de doorontwikkeling naar een overheidsbrede API strategie.
+De API confomeert zich aan de DSO API strategie en DSO URI strategie, en levert een bijdrage aan de doorontwikkeling naar een overheidsbrede API strategie.
 
 ## Documentatie
 * [Productvisie](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/productvision.md)
