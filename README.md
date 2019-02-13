@@ -1,4 +1,4 @@
-# BRK-bevragingen
+# Haal Centraal BRK-bevragen
 
 BRK-bevragingen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. 
 
