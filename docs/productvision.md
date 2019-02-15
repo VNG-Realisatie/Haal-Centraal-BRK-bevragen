@@ -3,7 +3,7 @@
 ## Introductie
 Doel van het programma Haal Centraal is om de verstrekking van basisgegevens aan binnengemeentelijke afnemers te outsourcen naar Landelijke Registraties (Kadaster, KVK, RvIG). Dit moet leiden tot een forse reductie van lokale kopieën bij gemeenten. 
 
-Dit doen we door voor iedere activiteit op een lokale kopie een Haal Centraal alternatief te bieden in de vorm van een API. Deze BRK bevragen API biedt binnengemeentelijke afnemers (e.a.) de mogelijkheid om kadastrale onroerende zaken te zoeken en raadplegen.
+Het idee is om voor iedere gemeentelijke activiteit op een lokale kopie een Haal Centraal alternatief te bieden in de vorm van een API. Deze BRK bevragen API biedt binnengemeentelijke afnemers (e.a.) de mogelijkheid om kadastrale onroerende zaken te zoeken en raadplegen.
 
 ### Toegevoegde waarde voor gemeenten
 - sneller aansluiten afnemers 
@@ -12,7 +12,7 @@ Dit doen we door voor iedere activiteit op een lokale kopie een Haal Centraal al
 - lagere beheerkosten (geen gegevensbeheer lokale kopieën)
 - hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
 - betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
-- meer focus op de businessvraag van afnemers (i.p.v. op betrouwbaarheid etc. lokale kopieën)
+- meer focus op de businessvraag van afnemers (i.p.v. op het bijwerken van lokale kopieën)
 - maximale compliancy op de gemeentelijke softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
 
 ### Toegevoegde waarde voor leveranciers
