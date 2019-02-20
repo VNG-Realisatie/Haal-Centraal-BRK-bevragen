@@ -10,7 +10,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * [Definition of Done](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/definition_of_done.md)
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
-* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/tree/master/api-specificatie) (Open API Specificaties en JSON schema) en op [SwaggerHub](https://app.swaggerhub.com/apis/VNGRealisatie/BRK-bevragingen/1.0)
+* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/tree/master/api-specificatie) (Open API Specificaties en JSON schema) en  [Technische specificaties van de Bevraging Ingeschreven Persoon](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/tree/master/api-specificatie/Bevraging-Ingeschreven-Persoon) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/api-specificatie/openapi.yaml)
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
 ## Bronnen
