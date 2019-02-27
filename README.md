@@ -21,6 +21,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 ## Contactpersonen:
 * Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl 
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
+* Scrum Master: Jan Willem Kooi jan.willem.kooi@sltn.nl
 
 ## Licentie
 De OAS specificatie, inclusief alle onderdelen die erbij horen volgens productvisie en/of definition of done zijn gelicenceerd onder [EUPL](https://eupl.eu/1.2/nl/).
