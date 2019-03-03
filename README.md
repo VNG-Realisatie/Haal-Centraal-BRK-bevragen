@@ -10,7 +10,9 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * [Definition of Done](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/definition_of_done.md)
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
-* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/tree/master/api-specificatie) (Open API Specificaties en JSON schema) en op [SwaggerHub](https://app.swaggerhub.com/apis/VNGRealisatie/BRK-bevragingen/1.0)
+
+* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/master/specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/openapi.yaml)
+
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
 ## Bronnen
@@ -19,6 +21,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 ## Contactpersonen:
 * Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl 
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
+* Scrum Master: Jan Willem Kooi jan.willem.kooi@sltn.nl
 
 ## Licentie
 De OAS specificatie, inclusief alle onderdelen die erbij horen volgens productvisie en/of definition of done zijn gelicenceerd onder [EUPL](https://eupl.eu/1.2/nl/).
