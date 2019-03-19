@@ -56,6 +56,15 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/Kadastraalonroerendezaak'
+        '400':
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
         '401':
           description: Unauthorized
           headers:
