@@ -161,6 +161,7 @@ components:
           type: "string"
           title: "omschrijvingOnderzoekErfdienstbaarheden"
           description: ""
+          pattern: \S[\s\S.]*
         toestandsdatumonderzoekerfdienstbaarheden:
           type: "string"
           title: "toestandsdatumOnderzoekErfdienstbaarheden"
@@ -169,6 +170,7 @@ components:
         toelichtingbewaarder:
           type: "string"
           title: "toelichtingBewaarder"
+          pattern: \S[\s\S.]*
           description: ""
         identificatie:
           $ref: "#/components/schemas/CompositeID"
@@ -203,6 +205,7 @@ components:
             \ toelichting van de bewaarder op een geregistreerd feit. ToelichtingBewaarder\
             \ is een aanvullende toelichting van de bewaarder op een geregistreerd\
             \ feit."
+          pattern: \S[\s\S.]*
         identificatie:
           $ref: "#/components/schemas/CompositeID"
         aard:
@@ -263,17 +266,20 @@ components:
           type: "string"
           title: "namespace"
           description: ""
+          pattern: NL\.[A-Za-z]+\.[A-Za-z]+
           minLength: 1
         lokaalid:
           type: "string"
           title: "lokaalID"
           description: ""
+          pattern: "[1-9][0-9]{0,14}"
           maxLength: 15
           minLength: 1
         versie:
           type: "string"
           title: "versie"
           description: ""
+          pattern: "[1-9][0-9]{0,14}"
     TypeKadastraleAanduiding:
       type: "object"
       description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende\
