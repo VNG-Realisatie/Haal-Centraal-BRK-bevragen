@@ -14,6 +14,144 @@ info:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
 paths:
+  /percelen/{kadastraleaanduiding}:
+    get:
+      operationId: GetPerceel
+      description: "Het ophalen van een Perceel"
+      parameters: 
+        - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
+        - in: path
+          name: kadastraleaanduiding
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: fields
+          description: "Geeft de mogelijkheid de inhoud van de body van het antwoord naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400 Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen, worden alle gedefinieerde velden die een waarde hebben teruggegeven."
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Perceel'
+        '401':
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '403':
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '404':
+          description: Not Found
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '406':
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '409':
+          description: Conflict
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '410':
+          description: Gone
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '412':
+          description: Precondition Failed
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '415':
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '429':
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        '500':
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+        'default':
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
+          content:
+            application/problem+json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
+      tags: 
+      - Percelen
   /kadastraalobjecten/{kadastraleaanduiding}/zakelijkrechten:
     get:
       operationId: Getzakelijkrecht
@@ -169,146 +307,22 @@ paths:
                 $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
       tags: 
       - Zakelijke rechten
-  /percelen/{kadastraleaanduiding}:
-    get:
-      operationId: GetPerceel
-      description: "Het ophalen van een Perceel"
-      parameters: 
-        - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
-        - in: path
-          name: kadastraleaanduiding
-          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
-          required: true
-          schema:
-            type: string
-            maxLength: 16
-        - in: query
-          name: fields
-          description: "Geeft de mogelijkheid de inhoud van de body van het antwoord naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400 Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen, worden alle gedefinieerde velden die een waarde hebben teruggegeven."
-          required: false
-          schema:
-            type: string
-      responses:
-        '200':
-          description: "Zoekactie geslaagd"
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-            warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/warning"
-            X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Limit"
-            X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Remaining"
-            X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/X_Rate_Limit_Reset"
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/Perceel'
-        '401':
-          description: Unauthorized
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '403':
-          description: Forbidden
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '404':
-          description: Not Found
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '406':
-          description: Not Acceptable
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '409':
-          description: Conflict
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '410':
-          description: Gone
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '412':
-          description: Precondition Failed
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '415':
-          description: Unsupported Media Type
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '429':
-          description: Too Many Requests
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        '500':
-          description: Internal Server Error
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-        'default':
-          description: Er is een onverwachte fout opgetreden.
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/headers.yaml#/api_version"
-          content:
-            application/problem+json:
-              schema:
-                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
-      tags: 
-      - Percelen
 components:
   schemas:
+    Perceel:
+      allOf:
+      - $ref: "#/components/schemas/Kadastraalobject"
+      - type: "object"
+        description: "URI tax.kadaster.nl/id/begrip/Perceel"
+        required:
+        - "begrenzingperceel"
+        properties:
+          begrenzingperceel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml#/GeoJSONGeometry"
+          plaatscoordinaten:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml#/GeoJSONGeometry"
+          _links:
+            $ref: "#/components/schemas/Perceel_links"
     Zakelijkrecht:
       type: "object"
       description: "URI https://tax.kadaster.nl/doc/begrip/Zakelijk_recht"
@@ -332,47 +346,62 @@ components:
           $ref: "#/components/schemas/Zakelijkrecht_links"
         _embedded:
           $ref: "#/components/schemas/Zakelijkrecht_embedded"
-    Perceel:
-      allOf:
-      - $ref: "#/components/schemas/Kadastraalobject"
-      - type: "object"
-        description: "URI tax.kadaster.nl/id/begrip/Perceel"
-        required:
-        - "begrenzingperceel"
-        properties:
-          begrenzingperceel:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml#/GeoJSONGeometry"
-          plaatscoordinaten:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml#/GeoJSONGeometry"
-          _links:
-            $ref: "#/components/schemas/Perceel_links"
     Tenaamstelling:
+      allOf:
+      - $ref: "#/components/schemas/Voorkomenor"
+      - type: "object"
+        description: "Een tenaamstelling is een registratie van (een aandeel in) een\
+          \ zakelijk recht dat een persoon heeft, dat rust op een kadastraal object."
+        required:
+        - "identificatie"
+        properties:
+          omschrijving:
+            type: "string"
+            title: "omschrijving"
+            description: ""
+          verklaringinzakederdenbescherming:
+            type: "string"
+            title: "verklaringInzakeDerdenBescherming"
+            description: ""
+          identificatie:
+            $ref: "#/components/schemas/CompositeID"
+          aandeel:
+            $ref: "#/components/schemas/TypeBreuk"
+          burgerlijkestaattentijdevanverkrijging:
+            $ref: "#/components/schemas/Waardelijst"
+          verkregennamenssamenwerkingsverband:
+            $ref: "#/components/schemas/Waardelijst"
+          _links:
+            $ref: "#/components/schemas/Tenaamstelling_links"
+          _embedded:
+            $ref: "#/components/schemas/Tenaamstelling_embedded"
+    Historie:
       type: "object"
-      description: "Een tenaamstelling is een registratie van (een aandeel in) een\
-        \ zakelijk recht dat een persoon heeft, dat rust op een kadastraal object."
+      description: "KadasterHistorie is een verzameling gegevens waarmee historie\
+        \ vastgelegd wordt. Historie betreft alleen voorkomens van objecten, dus het\
+        \ object op een bepaald moment. De historie is conform het Kadaster historiemodel."
       required:
-      - "identificatie"
+      - "tijdstipregistratie"
+      - "volgnummer"
+      - "statushistorie"
       properties:
-        omschrijving:
+        tijdstipregistratie:
           type: "string"
-          title: "omschrijving"
-          description: ""
-        verklaringinzakederdenbescherming:
+          title: "tijdstipRegistratie"
+          description: "Het moment waarop het voorkomen in de registratie is ontstaan."
+        eindregistratie:
           type: "string"
-          title: "verklaringInzakeDerdenBescherming"
-          description: ""
-        identificatie:
-          $ref: "#/components/schemas/CompositeID"
-        aandeel:
-          $ref: "#/components/schemas/TypeBreuk"
-        burgerlijkestaattentijdevanverkrijging:
+          title: "eindRegistratie"
+          description: "Het moment waarop het voorkomen in de registratie is vervallen.\
+            \ Wanneer deze waarde niet is opgegeven is de instantie nog geldig."
+        volgnummer:
+          type: "integer"
+          title: "volgnummer"
+          description: "Opvolgend nummer ter identificatie van een versie indien de\
+            \ identificatie van die versie niet wijzigt. Initieel heeft dit attribuut\
+            \ de waarde 0."
+        statushistorie:
           $ref: "#/components/schemas/Waardelijst"
-        verkregennamenssamenwerkingsverband:
-          $ref: "#/components/schemas/Waardelijst"
-        _links:
-          $ref: "#/components/schemas/Tenaamstelling_links"
-        _embedded:
-          $ref: "#/components/schemas/Tenaamstelling_embedded"
     Persoon:
       type: "object"
       description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
@@ -500,46 +529,6 @@ components:
           description: ""
         _links:
           $ref: "#/components/schemas/Postbuslocatie_links"
-    CompositeID:
-      type: "object"
-      description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
-        \ unieke identificatie van een object binnen een registratie."
-      required:
-      - "namespace"
-      - "lokaalid"
-      properties:
-        namespace:
-          type: "string"
-          title: "namespace"
-          description: ""
-          minLength: 1
-        lokaalid:
-          type: "string"
-          title: "lokaalID"
-          description: ""
-          maxLength: 15
-          minLength: 1
-        versie:
-          type: "string"
-          title: "versie"
-          description: ""
-    TypeBreuk:
-      type: "object"
-      description: "Een deling van twee gehele getallen"
-      required:
-      - "teller"
-      - "noemer"
-      properties:
-        teller:
-          type: "integer"
-          title: "teller"
-          description: "Het aantal delen. De teller is altijd lager dan de noemer."
-          maximum: 9.9999999E7
-        noemer:
-          type: "integer"
-          title: "noemer"
-          description: "De noemer van het deel."
-          maximum: 9.9999999E7
     TypeKadastraleAanduiding:
       type: "object"
       description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende\
@@ -590,6 +579,47 @@ components:
           title: "appartementsrechtVolgnummer"
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
+    CompositeID:
+      type: "object"
+      description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
+        \ unieke identificatie van een object binnen een registratie."
+      required:
+      - "namespace"
+      - "lokaalid"
+      properties:
+        namespace:
+          type: "string"
+          title: "namespace"
+          description: ""
+          minLength: 1
+        lokaalid:
+          type: "string"
+          title: "lokaalID"
+          description: ""
+          pattern: "^[1-9][0-9]{0,14}$"
+          maxLength: 15
+        versie:
+          type: "string"
+          title: "versie"
+          description: ""
+          pattern: "^[0-9]+$"
+    TypeBreuk:
+      type: "object"
+      description: "Een deling van twee gehele getallen"
+      required:
+      - "teller"
+      - "noemer"
+      properties:
+        teller:
+          type: "integer"
+          title: "teller"
+          description: "Het aantal delen. De teller is altijd lager dan de noemer."
+          maximum: 9.9999999E7
+        noemer:
+          type: "integer"
+          title: "noemer"
+          description: "De noemer van het deel."
+          maximum: 9.9999999E7
     Waardelijst:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
@@ -616,6 +646,20 @@ components:
       properties:
         kadastraleaanduiding:
           $ref: "#/components/schemas/TypeKadastraleAanduiding"
+    Voorkomenor:
+      type: "object"
+      description: "Een Voorkomen is een Object in de registratie waarvan wordt bijgehouden\
+        \ op basis waarvan en wanneer de vastgelegde informatie is ontstaan of gewijzigd."
+      required:
+      - "historie"
+      properties:
+        historie:
+          $ref: "#/components/schemas/Historie"
+    Perceel_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
     Zakelijkrecht_links:
       type: "object"
       properties:
@@ -676,11 +720,6 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
-    Perceel_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
     Zakelijkrecht_embedded:
       type: "object"
       properties:
@@ -699,11 +738,11 @@ components:
       type: "object"
       properties:
         woonlocatie:
-          oneOf:
-          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
-          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
+          oneOf :
+          - $ref: "#/components/schemas/Objectlocatiebuitenland"
+          - $ref: "#/components/schemas/Objectlocatiebinnenland"
         postlocatie:
-          oneOf:
-          - $ref: "#/components/schemas/Objectlocatiebuitenland"	
-          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
+          oneOf :
+          - $ref: "#/components/schemas/Objectlocatiebuitenland"
+          - $ref: "#/components/schemas/Objectlocatiebinnenland"
           - $ref: "#/components/schemas/Postbuslocatie"
