@@ -567,12 +567,7 @@ components:
       - "perceelnummer"
       properties:
         kadastralegemeente:
-          type: "string"
-          title: "kadastraleGemeente"
-          description: "De kadastrale gemeente, deel van de kadastrale aanduiding\
-            \ van de onroerende zaak. De waarden komen uit een Waardelijst. Er zijn\
-            \ 1111 kadastrale gemeentenamen. Elke kadastrale gemeentenaam is uniek."
-          minLength: 1
+          $ref: "#/components/schemas/Waardelijst"
         sectie:
           type: "string"
           title: "sectie"
