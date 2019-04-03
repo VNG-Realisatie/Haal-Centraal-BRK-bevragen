@@ -704,6 +704,11 @@ components:
       type: "object"
       properties:
         woonlocatie:
-          $ref: "#/components/schemas/Objectlocatiebinnenland"
+          oneOf:
+          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
+          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
         postlocatie:
-          $ref: "#/components/schemas/Objectlocatiebuitenland"
+          oneOf:
+          - $ref: "#/components/schemas/Objectlocatiebuitenland"	
+          - $ref: "#/components/schemas/Objectlocatiebinnenland"	
+          - $ref: "#/components/schemas/Postbuslocatie"
