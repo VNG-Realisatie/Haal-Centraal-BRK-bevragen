@@ -9,8 +9,10 @@ Voor veruit de meeste gebruikers is het gewenst om op een kadastrale onroerende 
 Kadastrale onroerende zaak en teboekgestelde zaak blijven twee aparte resources en worden NIET samengenomen in een resource kadastraal object.
 De sociale dienst (opsporing uitkeringsfraude) is de enige gebruiker die de teboekgestelde zaak nodig heeft. Deze kunnen zij apart opvragen. Het alternatief is alle andere gebruikers lastig te vallen met de teboekgestelde zaak (niet wenselijk).
 
-Zakelijk rechten worden alleen via de KOZ of via de persoon opgevraagd, daarom wordt het zakelijk recht als subresource gedefinieerd, en embedded opgenomen in de KOZ, omdat veel afnemers geinteresseerd zijn in het zakelijk recht.
+Zakelijke rechten worden als subresource gedefinieerd, en embedded opgenomen in de KOZ.
+Zakelijke rechten worden alleen via de KOZ of via de persoon opgevraagd, daarom wordt het zakelijk recht als subresource gedefinieerd. omdat veel afnemers geinteresseerd zijn in het zakelijk recht, worden zij embedded opgenomen bij de KOZ.
 
+Zekerheidsstellingen worden als subresource gedefinieerd, en niet embedded opgenomen in de KOZ.
 Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daarom wordt de zekerheidsstelling als subresource gedefinieerd. Deze worden niet embedded opgenomen in de KOZ, omdat slechts enkele afnemers geinteresseerd zijn in de zekerheidsstelling.
 
 
