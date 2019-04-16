@@ -708,8 +708,6 @@ components:
       type: "object"
       description: "Een Voorkomen is een Object in de registratie waarvan wordt bijgehouden\
         \ op basis waarvan en wanneer de vastgelegde informatie is ontstaan of gewijzigd."
-      required:
-      - "historie"
       properties:
         historie:
           $ref: "#/components/schemas/Historie"
@@ -789,8 +787,8 @@ components:
       properties:
         woonlocatie:
           oneOf:
-            - $ref: "#/components/schemas/ObjectlocatieBuitenland"
-            - $ref: "#/components/schemas/ObjectlocatieBinnenland"
+          - $ref: "#/components/schemas/ObjectlocatieBuitenland"
+          - $ref: "#/components/schemas/ObjectlocatieBinnenland"
         postlocatie:
           oneOf:
             - $ref: "#/components/schemas/ObjectlocatieBuitenland"
