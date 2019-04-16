@@ -305,28 +305,30 @@ paths:
 components:
   schemas:
     ZakelijkRecht:
-      type: "object"
-      description: "URI https://tax.kadaster.nl/doc/begrip/Zakelijk_recht"
-      required:
-      - "identificatie"
-      - "aard"
-      properties:
-        toelichtingBewaarder:
-          type: "string"
-          title: "toelichtingBewaarder"
-          description: "ToelichtingBewaarder is een aanvullende toelichting van de\
-            \ bewaarder op een geregistreerd feit. ToelichtingBewaarder is een aanvullende\
-            \ toelichting van de bewaarder op een geregistreerd feit. ToelichtingBewaarder\
-            \ is een aanvullende toelichting van de bewaarder op een geregistreerd\
-            \ feit."
-        identificatie:
-          $ref: "#/components/schemas/CompositeID"
-        aard:
-          $ref: "#/components/schemas/Waardelijst"
-        _links:
-          $ref: "#/components/schemas/ZakelijkRecht_links"
-        _embedded:
-          $ref: "#/components/schemas/ZakelijkRecht_embedded"
+      allOf:
+      - $ref: "#/components/schemas/Voorkomenor"
+      - type: "object"
+        description: "URI https://tax.kadaster.nl/doc/begrip/Zakelijk_recht"
+        required:
+        - "identificatie"
+        - "aard"
+        properties:
+          toelichtingBewaarder:
+            type: "string"
+            title: "toelichtingBewaarder"
+            description: "ToelichtingBewaarder is een aanvullende toelichting van\
+              \ de bewaarder op een geregistreerd feit. ToelichtingBewaarder is een\
+              \ aanvullende toelichting van de bewaarder op een geregistreerd feit.\
+              \ ToelichtingBewaarder is een aanvullende toelichting van de bewaarder\
+              \ op een geregistreerd feit."
+          identificatie:
+            $ref: "#/components/schemas/CompositeID"
+          aard:
+            $ref: "#/components/schemas/Waardelijst"
+          _links:
+            $ref: "#/components/schemas/ZakelijkRecht_links"
+          _embedded:
+            $ref: "#/components/schemas/ZakelijkRecht_embedded"
     KadastraalOnroerendeZaak:
       type: "object"
       description: "URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak\
@@ -373,6 +375,33 @@ components:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         _embedded:
           $ref: "#/components/schemas/KadastraalOnroerendeZaak_embedded"
+    Historie:
+      type: "object"
+      description: "KadasterHistorie is een verzameling gegevens waarmee historie\
+        \ vastgelegd wordt. Historie betreft alleen voorkomens van objecten, dus het\
+        \ object op een bepaald moment. De historie is conform het Kadaster historiemodel."
+      required:
+      - "tijdstipRegistratie"
+      - "volgnummer"
+      - "statusHistorie"
+      properties:
+        tijdstipRegistratie:
+          type: "string"
+          title: "tijdstipRegistratie"
+          description: "Het moment waarop het voorkomen in de registratie is ontstaan."
+        eindRegistratie:
+          type: "string"
+          title: "eindRegistratie"
+          description: "Het moment waarop het voorkomen in de registratie is vervallen.\
+            \ Wanneer deze waarde niet is opgegeven is de instantie nog geldig."
+        volgnummer:
+          type: "integer"
+          title: "volgnummer"
+          description: "Opvolgend nummer ter identificatie van een versie indien de\
+            \ identificatie van die versie niet wijzigt. Initieel heeft dit attribuut\
+            \ de waarde 0."
+        statusHistorie:
+          $ref: "#/components/schemas/Waardelijst"
     Tenaamstelling:
       allOf:
       - $ref: "#/components/schemas/Voorkomenor"
@@ -402,33 +431,6 @@ components:
             $ref: "#/components/schemas/Tenaamstelling_links"
           _embedded:
             $ref: "#/components/schemas/Tenaamstelling_embedded"
-    Historie:
-      type: "object"
-      description: "KadasterHistorie is een verzameling gegevens waarmee historie\
-        \ vastgelegd wordt. Historie betreft alleen voorkomens van objecten, dus het\
-        \ object op een bepaald moment. De historie is conform het Kadaster historiemodel."
-      required:
-      - "tijdstipRegistratie"
-      - "volgnummer"
-      - "statusHistorie"
-      properties:
-        tijdstipRegistratie:
-          type: "string"
-          title: "tijdstipRegistratie"
-          description: "Het moment waarop het voorkomen in de registratie is ontstaan."
-        eindRegistratie:
-          type: "string"
-          title: "eindRegistratie"
-          description: "Het moment waarop het voorkomen in de registratie is vervallen.\
-            \ Wanneer deze waarde niet is opgegeven is de instantie nog geldig."
-        volgnummer:
-          type: "integer"
-          title: "volgnummer"
-          description: "Opvolgend nummer ter identificatie van een versie indien de\
-            \ identificatie van die versie niet wijzigt. Initieel heeft dit attribuut\
-            \ de waarde 0."
-        statusHistorie:
-          $ref: "#/components/schemas/Waardelijst"
     Persoon:
       type: "object"
       description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
@@ -449,7 +451,7 @@ components:
             $ref: "#/components/schemas/MetNaamOpenbaarRegister"
         _embedded:
           $ref: "#/components/schemas/Persoon_embedded"
-    Objectlocatiebuitenland:
+    ObjectlocatieBuitenland:
       type: "object"
       description: "Een objectlocatiebuitenland is een adres buiten Nederland."
       required:
@@ -471,7 +473,7 @@ components:
         land:
           $ref: "#/components/schemas/Waardelijst"
         _links:
-          $ref: "#/components/schemas/Objectlocatiebuitenland_links"
+          $ref: "#/components/schemas/ObjectlocatieBuitenland_links"
     MetNaamOpenbaarRegister:
       type: "object"
       description: "NaamOpenbaarRegister is gegevensgroep waarin, indien van toepassing,\
@@ -706,8 +708,6 @@ components:
       type: "object"
       description: "Een Voorkomen is een Object in de registratie waarvan wordt bijgehouden\
         \ op basis waarvan en wanneer de vastgelegde informatie is ontstaan of gewijzigd."
-      required:
-      - "historie"
       properties:
         historie:
           $ref: "#/components/schemas/Historie"
@@ -734,7 +734,7 @@ components:
           properties:
             href:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
-    Objectlocatiebuitenland_links:
+    ObjectlocatieBuitenland_links:
       type: "object"
       properties:
         self:
@@ -787,11 +787,11 @@ components:
       properties:
         woonlocatie:
           oneOf:
-          - $ref: "#/components/schemas/Objectlocatiebuitenland"
+          - $ref: "#/components/schemas/ObjectlocatieBuitenland"
           - $ref: "#/components/schemas/ObjectlocatieBinnenland"
         postlocatie:
           oneOf:
-            - $ref: "#/components/schemas/Objectlocatiebuitenland"
+            - $ref: "#/components/schemas/ObjectlocatieBuitenland"
             - $ref: "#/components/schemas/Postbuslocatie"
             - $ref: "#/components/schemas/ObjectlocatieBinnenland"
     KadastraalOnroerendeZaak_embedded:
