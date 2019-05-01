@@ -493,6 +493,7 @@ components:
           type: "string"
           title: "omschrijvingOnderzoekErfdienstbaarheden"
           description: ""
+          pattern: \S[\s\S.]*
         toestandsdatumOnderzoekErfdienstbaarheden:
           type: "string"
           title: "toestandsdatumOnderzoekErfdienstbaarheden"
@@ -504,6 +505,7 @@ components:
           type: "string"
           title: "toelichtingBewaarder"
           description: ""
+          pattern: \S[\s\S.]*
         kadastraleAanduiding:
           $ref: "#/components/schemas/TypeKadastraleAanduiding"
         kadastraleGrootte:
@@ -533,6 +535,7 @@ components:
             \ toelichting van de bewaarder op een geregistreerd feit. ToelichtingBewaarder\
             \ is een aanvullende toelichting van de bewaarder op een geregistreerd\
             \ feit."
+          pattern: \S[\s\S.]*
         identificatie:
           $ref: "#/components/schemas/CompositeID"
         aard:
@@ -982,6 +985,7 @@ components:
           type: "string"
           title: "namespace"
           description: ""
+          pattern: NL\.[A-Za-z]+\.[A-Za-z]+
           minLength: 1
         lokaalid:
           type: "string"
@@ -1135,6 +1139,7 @@ components:
           type: "string"
           title: "toelichtingBewaarder"
           description: ""
+          pattern: \S[\s\S.]*
         _links:
           $ref: "#/components/schemas/Stuk_links"
     KadastraalOnroerendeZaak_links:
@@ -1161,7 +1166,7 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
-        woonlocatie:
+        woonlocatie_adresbuitenland:
           title: "woonlocatie"
           type: "object"
           description: "Toelichting: Bij een Persoon is de woonlocatie altijd gevuld, Dat kan een objectlocatiebinnenland of een objectlocatiebuitenland zijn. 
@@ -1315,16 +1320,15 @@ components:
     Persoon_embedded:
       type: "object"
       properties:
-        woonlocatie_adresbuitenland:
-          $ref: "#/components/schemas/ObjectlocatieBuitenland"
-        postlocatie_adresbuitenland:
-          $ref: "#/components/schemas/ObjectlocatieBuitenland"
-        woonlocatie_adresbinnenland:
-          $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatie_postbuslocatie:
-          $ref: "#/components/schemas/Postbuslocatie"
-        postlocatie_adresbinnenland:
-          $ref: "#/components/schemas/ObjectlocatieBinnenland"
+        woonlocatie:
+          oneOf:
+            - $ref: "#/components/schemas/ObjectlocatieBuitenland"
+            - $ref: "#/components/schemas/ObjectlocatieBinnenland"
+        postlocatie:
+          oneOf:
+            - $ref: "#/components/schemas/ObjectlocatieBuitenland"
+            - $ref: "#/components/schemas/Postbuslocatie"
+            - $ref: "#/components/schemas/ObjectlocatieBinnenland"
     KadastraalOnroerendeZaak_embedded:
       type: "object"
       properties:
