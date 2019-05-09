@@ -16,6 +16,7 @@ Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daar
 
 - Personen worden voor de tenaamstellingen niet embedded opgenomen. Er wordt dus met links verwezen en daarmee wordt er ook een endpoint voor kadaster-personenen geintroduceerd (niet-ingeschreven personen die eigenaar zijn). 
 - Voor de ingeschreven personen verwijzen we voor tenaamstellingen altijd naar de actuele gegevens van de ingeschreven persoon in de BRP (vooralsnog middels BSN). De gegevens van de ingeschreven persoon zoals die op de akte staan worden dus niet geleverd. Voor niet-ingeschreven personenen levert het kadaster de gegevens zoals zij die kent, maar kan daar geen garantie leveren voor de actualiteit. (Dit zijn de persoonsgegevens zoals die op de akte zijn vastgelegd. 
+- Tenaamstellingen worden niet embedded opgenomen maar worden als een gegevensgroep opgenomen. 
 
 
 
