@@ -1,8 +1,7 @@
 # Design decisions
 Dit document beschrijft ontwerpkeuzes die gemaakt zijn voor het ontwerpen en specificeren van de API's in dit koppelvlak.
 
-Beslissing | Ratio
----------- | -----
+Beslissing | 
 Kadastrale onroerende zaak, perceel en appartementsrecht wordt 1 resource
 Voor veruit de meeste gebruikers is het gewenst om op een kadastrale onroerende zaak te zoeken. De response geeft kadastrale onroerende zaken terug, zowel percelen als appartementsrechten.  De KOZ wordt platgeslagen als 1 resource, waarbij de de eigenschappen van het perceel optioneel zijn. Ook wordt een type element toegevoegd (type perceel of appartementsrecht).
 
@@ -14,6 +13,9 @@ Zakelijke rechten worden alleen via de KOZ of via de persoon opgevraagd, daarom 
 
 Zekerheidsstellingen worden als subresource gedefinieerd, en niet embedded opgenomen in de KOZ.  
 Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daarom wordt de zekerheidsstelling als subresource gedefinieerd. Deze worden niet embedded opgenomen in de KOZ, omdat slechts enkele afnemers geinteresseerd zijn in de zekerheidsstelling.
+
+- Personen worden voor de tenaamstellingen niet embedded opgenomen. Er wordt dus met links verwezen en daarmee wordt er ook een endpoint voor kadaster-personenen geintroduceerd (niet-ingeschreven personen die eigenaar zijn). 
+- Voor de ingeschreven personen verwijzen we voor tenaamstellingen altijd naar de actuele gegevens van de ingeschreven persoon in de BRP (vooralsnog middels BSN). De gegevens van de ingeschreven persoon zoals die op de akte staan worden dus niet geleverd. Voor niet-ingeschreven personenen levert het kadaster de gegevens zoals zij die kent, maar kan daar geen garantie leveren voor de actualiteit. (Dit zijn de persoonsgegevens zoals die op de akte zijn vastgelegd. 
 
 
 
