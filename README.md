@@ -11,7 +11,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/master/specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/JohanBoer/BRK-Bevragingen/master/specificatie/openapi.yaml)
+* [Technische specificaties](https://github.com/VNG-Realisatie/BRK-bevragingen/master/specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](BRK-Bevragingen/master/specificatie/openapi.yaml)
 
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
