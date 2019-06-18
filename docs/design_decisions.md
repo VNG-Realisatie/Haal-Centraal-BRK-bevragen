@@ -18,7 +18,8 @@ Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daar
 - Voor de ingeschreven personen verwijzen we voor tenaamstellingen altijd naar de actuele gegevens van de ingeschreven persoon in de BRP (vooralsnog middels BSN). De gegevens van de ingeschreven persoon zoals die op de akte staan worden dus niet geleverd. Voor niet-ingeschreven personenen levert het kadaster de gegevens zoals zij die kent, maar kan daar geen garantie leveren voor de actualiteit. (Dit zijn de persoonsgegevens zoals die op de akte zijn vastgelegd. \
 - De gegevens van een natuurlijk persoon die bij het kadaster is geregistreerd, maar niet als ingeschreven persoon is opgenomen in de BRP wordt door het kadaster ontsloten als de resource "BRKPersoon"
 - De gegevens van een rechtspersoon die bij het kadaster zijn geregistreerd, maar niet als ingeschreven rechtspersoon i sopgenomen in het Handelsregister wordt door het kadaster ontsloten als de resource "BRKRechtspersoon"
-- Tenaamstellingen worden niet embedded opgenomen maar worden als een gegevensgroep opgenomen. 
+- Tenaamstellingen worden niet embedded opgenomen maar worden als een gegevensgroep opgenomen bij het zakelijkrecht.
+- tenaamstellingfiliatie wordt niet opgenomen. Dit is een blik op historische gegevens. Dit objecttype wordt meegenomen als er historische bevragingen woren uitgewerkt.
 
 
 
