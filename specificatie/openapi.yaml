@@ -530,7 +530,7 @@ paths:
                 $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Foutbericht"
       tags: 
       - Kadastraal Onroerende Zaken
-  /kadastraalonroerendezaken/{kadastraleaanduiding}/zakelijkrechten:
+  /kadastraalonroerendezaken/{kadastraleaanduiding}/zakelijkrechttenaamstellingen:
     get:
       operationId: GetZakelijkeRechten
       description: "Het ophalen van een de zakelijke rechten behorende bij een Kadastraal Onroerende Zaak."
@@ -576,17 +576,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                type: object
-                properties:
-                  _links:
-                    $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalPaginationLinks"
-                  _embedded:
-                    type: object
-                    properties:
-                      zakelijkrechten:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/ZakelijkRechtTennaamstelling'
+                $ref: '#/components/schemas/Zakelijkrechttennaamstelling_collectie'   
         '401':
           description: Unauthorized
           headers:
@@ -683,7 +673,7 @@ components:
   schemas:
     BRKPersoon:
       allOf:
-      - $ref: "#/components/schemas/_persoon"
+      - $ref: "#/components/schemas/persoon"
       - type: "object"
         description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
           \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
@@ -716,6 +706,8 @@ components:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
             $ref: "#/components/schemas/Overlijden"
+          _embedded:
+            $ref: "#/components/schemas/BRKPersoon_embedded"
           _links:
             $ref: "#/components/schemas/BRKPersoon_links"
     Stukdeel:
@@ -757,7 +749,7 @@ components:
           $ref: "#/components/schemas/Stukdeel_embedded"
     BRKrechtspersoon:
       allOf:
-      - $ref: "#/components/schemas/_persoon"
+      - $ref: "#/components/schemas/persoon"
       - type: "object"
         description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
         required:
@@ -775,6 +767,8 @@ components:
             description: ""
           rechtsvorm:
             $ref: "#/components/schemas/Waardelijst"
+          _embedded:
+            $ref: "#/components/schemas/BRKrechtspersoon_embedded"
           _links:
             $ref: "#/components/schemas/BRKrechtspersoon_links"
     KadastraalOnroerendeZaak:
@@ -850,6 +844,18 @@ components:
             $ref: "#/components/schemas/Tenaamstelling"
         _links:
           $ref: "#/components/schemas/ZakelijkRechtTennaamstelling_links"
+    Zakelijkrechttennaamstelling_collectie:
+      type: object
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalPaginationLinks"
+        _embedded:
+          type: object
+          properties:
+            zakelijkrechten:
+              type: array
+              items:
+                $ref: '#/components/schemas/ZakelijkRechtTennaamstelling'
     Objectlocatiebuitenland:
       allOf:
       - $ref: "#/components/schemas/_objectlocatie"
@@ -1324,12 +1330,7 @@ components:
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
         kadastraleGemeente:
-          type: "string"
-          title: "kadastraleGemeente"
-          description: "De kadastrale gemeente, deel van de kadastrale aanduiding\
-            \ van de onroerende zaak. De waarden komen uit een Waardelijst. Er zijn\
-            \ 1111 kadastrale gemeentenamen. Elke kadastrale gemeentenaam is uniek."
-          minLength: 1
+          $ref: "#/components/schemas/Waardelijst"
         perceelnummer:
           type: "integer"
           title: "perceelnummer"
@@ -1355,11 +1356,7 @@ components:
       - "waarde"
       properties:
         soortGrootte:
-          type: "string"
-          title: "soortGrootte"
-          description: "De soortGrootte geeft aan of de grootte van het perceel voorlopig,\
-            \ administratief of definitief is vastgesteld."
-          minLength: 1
+          $ref: "#/components/schemas/Waardelijst"
         waarde:
           type: "integer"
           title: "waarde"
@@ -1416,7 +1413,7 @@ components:
           title: "waarde"
           description: "De waarde zoals aangetroffen in de Waardelijst. het moment\
             \ waarop de waarde geassocieerd is met de meegeleverde code is onbepaald."
-    _persoon:
+    persoon:
       type: "object"
       description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
       required:
@@ -1434,8 +1431,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/MetNaamOpenbaarRegister"
-        _embedded:
-          $ref: "#/components/schemas/_persoon_embedded"
     _objectlocatie:
       allOf:
       - $ref: "#/components/schemas/_adreslocatie"
@@ -1459,10 +1454,62 @@ components:
           title: "toelichtingBewaarder"
           description: ""
     BRKPersoon_links:
+      allOf:
+        - $ref: "#/components/schemas/persoon_links"
+        - type: "object"
+          properties:
+            self:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+    BRKPersoon_embedded:
+      allOf:
+        - $ref: "#/components/schemas/persoon_embedded"
+    persoon_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+        stukdelen:
+          title: "isvermeldin"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        woonlocatie_adresbuitenland:
+          title: "woonlocatie1"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        woonlocatie_adresbinnenland:
+          title: "woonlocatie2"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_adresbinnenland:
+          title: "postlocatie2"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_adresbuitenland:
+          title: "postlocatie3"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_postbuslocatie:
+          title: "postlocatie1"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
     Objectlocatiebuitenland_links:
       type: "object"
       properties:
@@ -1490,7 +1537,7 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
-        isonderdeelvan:
+        kadasterstukken:
           title: "isonderdeelvan"
           type: "object"
           description: ""
@@ -1514,7 +1561,7 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
-        heeft:
+        kadasterverzoeken:
           title: "heeft"
           type: "array"
           description: ""
@@ -1526,10 +1573,15 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
     BRKrechtspersoon_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+      allOf:
+        - $ref: "#/components/schemas/persoon_links"
+        - type: "object"
+          properties:
+            self:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+    BRKrechtspersoon_embedded:
+      allOf:
+        - $ref: "#/components/schemas/persoon_embedded"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
@@ -1601,7 +1653,7 @@ components:
           description: ""
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
-    _persoon_embedded:
+    persoon_embedded:
       type: "object"
       properties:
         woonlocatie_adresbuitenland:
@@ -1617,14 +1669,14 @@ components:
     Stukdeel_embedded:
       type: "object"
       properties:
-        isonderdeelvan:
+        kadasterstukken:
           $ref: "#/components/schemas/Kadasterstuk"
         terinschrijvingAangebodenStukken:
           $ref: "#/components/schemas/TerInschrijvingAangebodenStuk"
     TerInschrijvingAangebodenStuk_embedded:
       type: "object"
       properties:
-        heeft:
+        kadasterverzoeken:
           title: "heeft"
           type: "array"
           description: ""
@@ -1682,9 +1734,10 @@ components:
           description: ""
     TypeDeelEnNummer:
       type: "object"
-      description: "Dummy"
-      properties:
-        som:
-          type: "string"
-          title: "Dummy."
-          description: ""
+      properties: 
+        soortregister:
+          $ref: "#/components/schemas/Waardelijst"
+        registercode:
+          $ref: "#/components/schemas/Waardelijst"
+        reeks:
+          $ref: "#/components/schemas/Waardelijst"
