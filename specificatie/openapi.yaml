@@ -858,7 +858,7 @@ components:
                 $ref: '#/components/schemas/ZakelijkRechtTennaamstelling'
     Objectlocatiebuitenland:
       allOf:
-      - $ref: "#/components/schemas/_objectlocatie"
+      - $ref: "#/components/schemas/objectlocatie"
       - type: "object"
         description: "Een objectlocatiebuitenland is een adres buiten Nederland."
         required:
@@ -883,7 +883,7 @@ components:
             $ref: "#/components/schemas/Objectlocatiebuitenland_links"
     ObjectlocatieBinnenland:
       allOf:
-      - $ref: "#/components/schemas/_objectlocatie"
+      - $ref: "#/components/schemas/objectlocatie"
       - type: "object"
         description: "Een ObjectlocatieBinnenland is een adres binnen nederland."
         required:
@@ -1041,7 +1041,7 @@ components:
           $ref: "#/components/schemas/Datum_onvolledig"
     Kadasterstuk:
       allOf:
-      - $ref: "#/components/schemas/_stuk"
+      - $ref: "#/components/schemas/stuk"
       - type: "object"
         description: "URI https://tax.kadaster.nl/doc/begrip/Kadasterstuk"
         required:
@@ -1060,7 +1060,7 @@ components:
             $ref: "#/components/schemas/Kadasterstuk_links"
     TerInschrijvingAangebodenStuk:
       allOf:
-      - $ref: "#/components/schemas/_stuk"
+      - $ref: "#/components/schemas/stuk"
       - type: "object"
         description: "URI https://tax.kadaster.nl/doc/begrip/Ter_inschrijving_aangeboden_stuk"
         required:
@@ -1431,12 +1431,12 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/MetNaamOpenbaarRegister"
-    _objectlocatie:
+    objectlocatie:
       allOf:
-      - $ref: "#/components/schemas/_adreslocatie"
+      - $ref: "#/components/schemas/adreslocatie"
       - type: "object"
         description: "Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland."
-    _adreslocatie:
+    adreslocatie:
       type: "object"
       description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
       required:
@@ -1444,7 +1444,7 @@ components:
       properties:
         identificatie:
           $ref: "#/components/schemas/CompositeID"
-    _stuk:
+    stuk:
       type: "object"
       description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
         \ waaruit een wijziging in de BRK blijkt."
