@@ -24,4 +24,5 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Scrum Master: Jan Willem Kooi jan.willem.kooi@sltn.nl
 
 ## Licentie
-De OAS specificatie, inclusief alle onderdelen die erbij horen volgens productvisie en/of definition of done zijn gelicenceerd onder [EUPL](https://eupl.eu/1.2/nl/).
+Copyright (C) VNG rRealisatie 2018
+Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/LICENCE.md)
