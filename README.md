@@ -24,5 +24,5 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Scrum Master: Jan Willem Kooi jan.willem.kooi@sltn.nl
 
 ## Licentie
-Copyright (C) VNG Realisatie 2018
+Copyright &copy; VNG Realisatie 2018
 Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/LICENCE.md)
