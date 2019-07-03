@@ -7,7 +7,7 @@ servers:
 info:
   title: Kadastraal onroerende zaken
   description: "Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
-  version: "20181201"
+  version: "20190703"
   contact:
     url: https://github.com/VNG-Realisatie/BRK-Bevragingen
   license:
