@@ -703,6 +703,8 @@ components:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
             $ref: "#/components/schemas/Overlijden"
+          _embedded:
+            $ref: "#/components/schemas/BRKPersoon_embedded"
           _links:
             $ref: "#/components/schemas/BRKPersoon_links"
     Stukdeel:
@@ -762,6 +764,8 @@ components:
             description: ""
           rechtsvorm:
             $ref: "#/components/schemas/Waardelijst"
+          _embedded:
+            $ref: "#/components/schemas/BRKrechtspersoon_embedded"
           _links:
             $ref: "#/components/schemas/BRKrechtspersoon_links"
     KadastraalOnroerendeZaak:
@@ -1493,8 +1497,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/MetNaamOpenbaarRegister"
-        _embedded:
-          $ref: "#/components/schemas/Persoon_embedded"
     Objectlocatie:
       allOf:
       - $ref: "#/components/schemas/Adreslocatie"
@@ -1518,10 +1520,62 @@ components:
           title: "toelichtingBewaarder"
           description: ""
     BRKPersoon_links:
+      allOf:
+        - $ref: "#/components/schemas/Persoon_links"
+        - type: "object"
+          properties:
+            self:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+    BRKPersoon_embedded:
+      allOf:
+        - $ref: "#/components/schemas/Persoon_embedded"
+    Persoon_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+        stukdelen:
+          title: "isvermeldin"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        woonlocatie_adresbuitenland:
+          title: "woonlocatie1"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        woonlocatie_adresbinnenland:
+          title: "woonlocatie2"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_adresbinnenland:
+          title: "postlocatie2"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_adresbuitenland:
+          title: "postlocatie3"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
+        postlocatie_postbuslocatie:
+          title: "postlocatie1"
+          type: "object"
+          description: ""
+          properties:
+            href:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/Href"
     Objectlocatiebuitenland_links:
       type: "object"
       properties:
@@ -1578,10 +1632,15 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
     BRKrechtspersoon_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+      allOf:
+        - $ref: "#/components/schemas/Persoon_links"
+        - type: "object"
+          properties:
+            self:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/components.yaml#/HalLink"
+    BRKrechtspersoon_embedded:
+      allOf:
+        - $ref: "#/components/schemas/Persoon_embedded"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
