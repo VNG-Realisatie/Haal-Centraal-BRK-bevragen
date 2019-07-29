@@ -7,11 +7,11 @@ Het idee is om voor iedere gemeentelijke activiteit op een lokale kopie een Haal
 
 ### Toegevoegde waarde voor gemeenten
 - sneller aansluiten afnemers 
-- goedkoper aansluiten afnemers (x aantal binnegemeentelijke aansluiters x 351 gemeenten)
+- goedkoper aansluiten afnemers (x aantal binnegemeentelijke aansluiters x 355 gemeenten)
 - lagere investeringen (geen lokale kopie/ gegevensmagazijn)
 - lagere beheerkosten (geen gegevensbeheer lokale kopieën)
 - hogere ROI: hergebruik API Landelijke Registratie door alle gemeenten
-- betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 351 afzonderlijke gemeenten) 
+- betere technologie-business alignment (Landelijke Registratie voert sneller een wijziging door dan 355 afzonderlijke gemeenten) 
 - meer focus op de businessvraag van afnemers (i.p.v. op het bijwerken van lokale kopieën)
 - maximale compliancy op de gemeentelijke softwaremarkt (aansluiting gemeente x = 100% herbruikbaar in gemeente y)
 
@@ -28,10 +28,10 @@ Resourcedefinitie op basis van de businessvraag van de grootste gemene infobehoe
 Niet te verwarren met modelgedreven ontwikkeling (MDD). Wel is er sprake van traceerbaarheid naar het IMKAD informatiemodel, zodat de realiseerbaarheid, semantiek en volledigheid van de API geborgd is. 
 
 ### Consumer first
-Beleg de voordelen waar mogelijk bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 351)
+Beleg de voordelen waar mogelijk bij de consumer (=binnengemeentelijke afnemer) vanwege de hefboomwerking: complexiteit bij de provider (1x), de voordelen in kosten en doorlooptijd bij de consumer (aantal binnengemeentelijke afnemers x 355)
 
 ### Developer first
-Focus op bruikbaarheid voor de ontwikkelaar: AOS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getoetst op het effect op de code, maximale consistentie met andere Haal Centraal API’s en behaviour driven development (BDD) scenario's in Gherkin om het gedrag van de API te beschrijven.
+Focus op bruikbaarheid voor de ontwikkelaar: OAS spec wordt getest op codegeneratie (Java, .NET meest gebruikt in gemeentelijke markt), ontwerpbeslissingen worden getoetst op het effect op de code, maximale consistentie met andere Haal Centraal API’s en behaviour driven development (BDD) scenario's in Gherkin om het gedrag van de API te beschrijven.
 
 ### Contract first
 …en niet development first. Agnostisch, vrij van implementatiedetails providersysteem, niet gevoelig voor wijzigen in systeemlogica provider.
