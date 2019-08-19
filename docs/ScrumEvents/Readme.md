@@ -1,1 +1,1 @@
-Hier komende de documenten die aan scrum events zijn gerelateerd.
+Hier staan de documenten die aan scrum events van BRK bevragen zijn gerelateerd.
