@@ -21,7 +21,7 @@ Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daar
 - Tenaamstellingen worden niet embedded opgenomen maar worden als een gegevensgroep opgenomen bij het zakelijkrecht.
 - tenaamstellingfiliatie wordt niet opgenomen. Dit is een blik op historische gegevens. Dit objecttype wordt meegenomen als er historische bevragingen woren uitgewerkt.
 
-
+- Het gezamenlijk aandeel kan een complexe geneste situatie omvatten. We laten dus zien dat er sprake is van een gezamenlijk aandeel, maar niet welk aandeel dat is en of er eventueel sprake is van een gezamenlijk aandeel van een gezamenlijk aandeel.  
 
 
 
