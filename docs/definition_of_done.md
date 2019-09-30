@@ -1,9 +1,9 @@
 # Definition of Done
-- er is een functionele specificatie
-- er is een Open API specificatie (versie 3)
-- er is gegenereerde code
-- er zijn testgevallen beschreven
-- er is een referentie-implementatie
+- functionele specificatie aanwezig
+- volgens Open API specificatie (versie 3)
+- code generatie werkt
+- testgevallen beschreven
+- toepasbaar in referentie-implementatie
 
 Geen onderdeel van de definition of done tijdens het project, wel onderdeel van de vastgestelde koppelvlakstandaard zijn:
 - er is een compliancy- en testvoorziening
