@@ -1,0 +1,2166 @@
+openapi: 3.0.0
+info:
+  title: Kadastraal onroerende zaken
+  description: Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing
+    worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar
+    gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak
+    informatie.
+  contact:
+    url: https://github.com/VNG-Realisatie/BRK-Bevragingen
+  license:
+    name: European Union Public License, version 1.2 (EUPL-1.2)
+    url: https://eupl.eu/1.2/nl/
+  version: "20190703"
+servers:
+- url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken/v20181201
+  description: SwaggerHub API Auto Mocking
+- url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken/v20181201
+  description: Referentie-implementatie
+paths:
+  /BRKpersonen/{identificatie}:
+    get:
+      tags:
+      - BRK-Personen
+      description: Het ophalen van een bij het Kadaster geregistreerd Persoon, niet
+        zijnde een ingeschreven persoon.
+      operationId: GetBRK-persoon
+      parameters:
+      - name: expand
+        in: query
+        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
+          moeten worden. Resources en velden van resources die gewenst zijn kunnen
+          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
+          van resource kunnen worden opgegeven door het opgeven van de resource-naam
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature).
+        required: false
+        schema:
+          type: string
+          example: kinderen,adressen.postcode,adressen.huisnummer
+      - name: identificatie
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maxLength: 60
+          type: string
+      responses:
+        200:
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X_Rate_Limit_Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X_Rate_Limit_Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X_Rate_Limit_Reset'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/BRKPersoon'
+        400:
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFoutbericht'
+        401:
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        403:
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        406:
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        409:
+          description: Conflict
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        410:
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        415:
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        429:
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        500:
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        default:
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+  /stukdelen/{identificatie}:
+    get:
+      tags:
+      - Stukdelen
+      description: Het ophalen van een bij het Kadaster geregistreerd Persoon, niet
+        zijnde een ingeschreven persoon.
+      operationId: Getstukdeel
+      parameters:
+      - name: expand
+        in: query
+        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
+          moeten worden. Resources en velden van resources die gewenst zijn kunnen
+          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
+          van resource kunnen worden opgegeven door het opgeven van de resource-naam
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature).
+        required: false
+        schema:
+          type: string
+          example: kinderen,adressen.postcode,adressen.huisnummer
+      - name: identificatie
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maxLength: 60
+          type: string
+      responses:
+        200:
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X_Rate_Limit_Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X_Rate_Limit_Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X_Rate_Limit_Reset'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stukdeel'
+        400:
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFoutbericht'
+        401:
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        403:
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        406:
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        409:
+          description: Conflict
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        410:
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        415:
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        429:
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        500:
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        default:
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+  /BRKrechtspersonen/{identificatie}:
+    get:
+      tags:
+      - BRKPersonen
+      description: Het ophalen van een bij het Kadaster geregistreerd Persoon, niet
+        zijnde een ingeschreven persoon.
+      operationId: GetBRKrechtspersoon
+      parameters:
+      - name: expand
+        in: query
+        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
+          moeten worden. Resources en velden van resources die gewenst zijn kunnen
+          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
+          van resource kunnen worden opgegeven door het opgeven van de resource-naam
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature).
+        required: false
+        schema:
+          type: string
+          example: kinderen,adressen.postcode,adressen.huisnummer
+      - name: identificatie
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maxLength: 60
+          type: string
+      responses:
+        200:
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X_Rate_Limit_Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X_Rate_Limit_Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X_Rate_Limit_Reset'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/BRKrechtspersoon'
+        400:
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFoutbericht'
+        401:
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        403:
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        406:
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        409:
+          description: Conflict
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        410:
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        415:
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        429:
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        500:
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        default:
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+  /kadastraalonroerendezaken/{kadastraleaanduiding}:
+    get:
+      tags:
+      - Kadastraal Onroerende Zaken
+      description: Het ophalen van een Kadastraal Onroerende zaak.
+      operationId: GetKadastraalOnroerendeZaken
+      parameters:
+      - name: Accept-Crs
+        in: header
+        description: Gewenste CRS van de coördinaten in de response.
+        required: false
+        schema:
+          type: string
+          default: epsg:4258
+          enum:
+          - epsg:4258
+          - epsg:28992
+      - name: expand
+        in: query
+        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
+          moeten worden. Resources en velden van resources die gewenst zijn kunnen
+          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
+          van resource kunnen worden opgegeven door het opgeven van de resource-naam
+          gevolgd door de veldnaam, met daartussen een punt.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: kadastraleaanduiding
+        in: path
+        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
+          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
+          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
+          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
+          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
+          een herindeling plaatsvindt.'
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maxLength: 16
+          type: string
+      - name: fields
+        in: query
+        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
+          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
+          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
+          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
+          worden alle gedefinieerde velden die een waarde hebben teruggegeven.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X_Rate_Limit_Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X_Rate_Limit_Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X_Rate_Limit_Reset'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaak'
+        401:
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        403:
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        404:
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        406:
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        409:
+          description: Conflict
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        410:
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        412:
+          description: Precondition Failed
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        415:
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        429:
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        500:
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        default:
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+  /kadastraalonroerendezaken/{kadastraleaanduiding}/zakelijkrechten:
+    get:
+      tags:
+      - ZakelijkeRechten
+      description: Het ophalen van een de zakelijke rechten behorende bij een Kadastraal
+        Onroerende Zaak.
+      operationId: GetZakelijkeRechten
+      parameters:
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde resultatenset.
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 1
+          type: integer
+      - name: kadastraleaanduiding
+        in: path
+        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
+          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
+          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
+          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
+          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
+          een herindeling plaatsvindt.'
+        required: true
+        style: simple
+        explode: false
+        schema:
+          maxLength: 16
+          type: string
+      - name: fields
+        in: query
+        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
+          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
+          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
+          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
+          worden alle gedefinieerde velden die een waarde hebben teruggegeven.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X_Pagination_Page'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X_Pagination_Limit'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X_Rate_Limit_Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X_Rate_Limit_Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X_Rate_Limit_Reset'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZakelijkRechtTenaamstellingCollectie'
+        401:
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        403:
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        404:
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        406:
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        409:
+          description: Conflict
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        410:
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        415:
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        429:
+          description: Too Many Requests
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        500:
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+        default:
+          description: Er is een onverwachte fout opgetreden.
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+components:
+  schemas:
+    BRKPersoon:
+      allOf:
+      - $ref: '#/components/schemas/Persoon'
+      - required:
+        - geslacht
+        - indicatieGeheim
+        - naam
+        type: object
+        properties:
+          indicatieGeheim:
+            title: indicatieGeheim
+            type: boolean
+            description: indicatieGeheim is een aanduiding die aangeeft dat gegevens
+              van een persoon wel of niet verstrekt mogen worden.
+          aanduidingNaamgebruik:
+            $ref: '#/components/schemas/Waardelijst'
+          adellijkeTitelOfPredikaat:
+            $ref: '#/components/schemas/Waardelijst'
+          landWaarnaarVertrokken:
+            $ref: '#/components/schemas/Waardelijst'
+          geslacht:
+            $ref: '#/components/schemas/Geslacht'
+          heeftPartnerschap:
+            type: array
+            items:
+              $ref: '#/components/schemas/HeeftPartnerschap'
+          naam:
+            $ref: '#/components/schemas/Naam'
+          geboorte:
+            $ref: '#/components/schemas/Geboorte'
+          overlijden:
+            $ref: '#/components/schemas/Overlijden'
+          _embedded:
+            $ref: '#/components/schemas/BRKPersoon_embedded'
+          _links:
+            $ref: '#/components/schemas/BRKPersoon_links'
+        description: Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd
+          in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet
+          ingezetene.
+    Stukdeel:
+      required:
+      - aard
+      - identificatie
+      type: object
+      properties:
+        omschrijvingGekozenWoonplaats:
+          title: omschrijvingGekozenWoonplaats
+          type: string
+        omschrijvingKadastraleObjecten:
+          title: omschrijvingKadastraleObjecten
+          type: string
+        omschrijvingTopografischeMutatie:
+          title: omschrijvingTopografischeMutatie
+          type: string
+          description: De beschrijving van de Topografische mutatie zoals in het Stuk
+            vermeld.
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        bedragTransactiesOmlevering:
+          $ref: '#/components/schemas/Bedrag'
+        bedragVorderingsbeslag:
+          $ref: '#/components/schemas/Bedrag'
+        bedragZekerheidsstellingHypotheek:
+          $ref: '#/components/schemas/Bedrag'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        redenDoorhalingTeboekstelling:
+          $ref: '#/components/schemas/Waardelijst'
+        _links:
+          $ref: '#/components/schemas/Stukdeel_links'
+        _embedded:
+          $ref: '#/components/schemas/Stukdeel_embedded'
+      description: Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd
+        wordt.
+    BRKrechtspersoon:
+      allOf:
+      - $ref: '#/components/schemas/Persoon'
+      - required:
+        - rechtsvorm
+        - statutaireNaam
+        type: object
+        properties:
+          statutaireNaam:
+            title: statutaireNaam
+            minLength: 1
+            type: string
+          statutaireZetel:
+            title: statutaireZetel
+            type: string
+          rechtsvorm:
+            $ref: '#/components/schemas/Waardelijst'
+          _embedded:
+            $ref: '#/components/schemas/BRKrechtspersoon_embedded'
+          _links:
+            $ref: '#/components/schemas/BRKrechtspersoon_links'
+        description: URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon
+    KadastraalOnroerendeZaak:
+      required:
+      - begrenzingPerceel
+      - kadastraleAanduiding
+      - kadastraleGrootte
+      - typeKadastraalOnroerendeZaak
+      type: object
+      properties:
+        begrenzingPerceel:
+          $ref: '#/components/schemas/GeoJSONGeometry'
+        omschrijvingOnderzoekErfdienstbaarheden:
+          title: omschrijvingOnderzoekErfdienstbaarheden
+          type: string
+        perceelnummerRotatie:
+          title: perceelnummerRotatie
+          maximum: 999
+          type: number
+        plaatscoordinaten:
+          $ref: '#/components/schemas/GeoJSONGeometry'
+        toelichtingBewaarder:
+          title: toelichtingBewaarder
+          type: string
+        toestandsdatumOnderzoekErfdienstbaarheden:
+          title: toestandsdatumOnderzoekErfdienstbaarheden
+          type: string
+          format: date
+        typeKadastraalOnroerendeZaak:
+          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
+        aardCultuurBebouwd:
+          $ref: '#/components/schemas/Waardelijst'
+        aardCultuurOnbebouwd:
+          $ref: '#/components/schemas/Waardelijst'
+        kadastraleAanduiding:
+          $ref: '#/components/schemas/TypeKadastraleAanduiding'
+        kadastraleGrootte:
+          $ref: '#/components/schemas/TypeOppervlak'
+        perceelnummerVerschuiving:
+          $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
+        _links:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
+        _embedded:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
+      description: URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak
+        URL http://tax.kadaster.nl/id/begrip/Appartementsrecht
+    ZakelijkRechtTennaamstelling:
+      required:
+      - aard
+      - identificatie
+      type: object
+      properties:
+        toelichtingBewaarder:
+          title: toelichtingBewaarder
+          type: string
+          description: ToelichtingBewaarder is een aanvullende toelichting van de
+            bewaarder op een geregistreerd feit. ToelichtingBewaarder is een aanvullende
+            toelichting van de bewaarder op een geregistreerd feit. ToelichtingBewaarder
+            is een aanvullende toelichting van de bewaarder op een geregistreerd feit.
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        tenaamstelling:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tenaamstelling'
+        _links:
+          $ref: '#/components/schemas/ZakelijkRechtTennaamstelling_links'
+      description: URI https://tax.kadaster.nl/doc/begrip/Zakelijk_recht
+    ZakelijkRechtTenaamstellingCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZakelijkRechtTenaamstellingCollectie__embedded'
+    Objectlocatiebuitenland:
+      allOf:
+      - $ref: '#/components/schemas/Objectlocatie'
+      - required:
+        - land
+        type: object
+        properties:
+          adres:
+            title: adres
+            type: string
+            description: Het adres is een combinatie van de straat en huisnummer.
+          regio:
+            title: regio
+            type: string
+          woonplaats:
+            title: woonplaats
+            type: string
+            description: Woonplaats is De postcode/woonplaats is de combinatie van
+              een eventuele postcode en woonplaats.
+          land:
+            $ref: '#/components/schemas/Waardelijst'
+          _links:
+            $ref: '#/components/schemas/Objectlocatiebuitenland_links'
+        description: Een objectlocatiebuitenland is een adres buiten Nederland.
+    ObjectlocatieBinnenland:
+      allOf:
+      - $ref: '#/components/schemas/Objectlocatie'
+      - required:
+        - huisnummer
+        - inOnderzoek
+        - openbareruimtenaam
+        - woonplaatsnaam
+        type: object
+        properties:
+          huisletter:
+            title: huisletter
+            type: string
+            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
+              [a-zA-Z]
+          huisnummer:
+            title: huisnummer
+            type: integer
+            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
+              [1-9][0-9]{0,4}
+          huisnummerToevoeging:
+            title: huisnummertoevoeging
+            type: string
+            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
+              ([a-z,A-Z,0-9])+
+          inOnderzoek:
+            title: inOnderzoek
+            type: boolean
+            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/InOnderzoek
+          openbareruimtenaam:
+            title: openbareRuimteNaam
+            minLength: 1
+            type: string
+          postcode:
+            title: postcode
+            type: string
+            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Postcode
+              [1-9][0-9][0-9][0-9][A-Z][A-Z]
+          woonplaatsnaam:
+            title: woonplaatsNaam
+            minLength: 1
+            type: string
+          _links:
+            $ref: '#/components/schemas/ObjectlocatieBinnenland_links'
+        description: Een ObjectlocatieBinnenland is een adres binnen nederland.
+    MetNaamOpenbaarRegister:
+      required:
+      - naam
+      type: object
+      properties:
+        naam:
+          title: naam
+          maxLength: 320
+          minLength: 1
+          type: string
+      description: NaamOpenbaarRegister is gegevensgroep waarin, indien van toepassing,
+        een afwijkende schrijfwijze van de naam van een persoon volgens het openbare
+        register van het Kadaster wordt vastgelegd.
+    Postbuslocatie:
+      required:
+      - identificatie
+      - postbusnummer
+      - postcode
+      type: object
+      properties:
+        postbusnummer:
+          title: postbusnummer
+          type: integer
+          description: N7
+        postcode:
+          title: postcode
+          maxLength: 6
+          pattern: ^[1-9]{1}[0-9]{3}[A-Z]{2}$
+          type: string
+          description: '[1-9]{1}[0-9]{3}[A-Z]{2}'
+        woonplaatsnaam:
+          title: woonplaatsNaam
+          type: string
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        _links:
+          $ref: '#/components/schemas/Postbuslocatie_links'
+      description: Een PostbusLocatie is een aanduiding van de locatie van een postbus.
+    Geslacht:
+      required:
+      - geslachtsAanduiding
+      type: object
+      properties:
+        geslachtsAanduiding:
+          $ref: '#/components/schemas/Geslacht_enum'
+      description: Geslacht is een groep gegevens die waarmee het geslacht van de
+        persoon wordt aangeduid.
+    HeeftPartnerschap:
+      required:
+      - datumSluiting
+      - naam
+      type: object
+      properties:
+        datumOntbinding:
+          $ref: '#/components/schemas/Datum_onvolledig'
+        datumSluiting:
+          $ref: '#/components/schemas/Datum_onvolledig'
+        naam:
+          $ref: '#/components/schemas/Naam'
+      description: Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus
+        van een persoon.
+    Naam:
+      required:
+      - geslachtsnaam
+      type: object
+      properties:
+        geslachtsnaam:
+          title: geslachtsnaam
+          minLength: 1
+          type: string
+          description: De geslachtsnaam is de (geslachts)naam waarvan de eventueel
+            aanwezige voorvoegsels en adellijke titel zijn afgesplitst.
+        voornamen:
+          title: voornamen
+          type: string
+          description: De voornamen zijn de verzameling namen die, gescheiden door
+            spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat
+            afgesplitst.
+        voorvoegselsgeslachtsnaam:
+          title: voorvoegselsgeslachtsnaam
+          type: string
+          description: Voorvoegselsgeslachtsnaam zijn dat deel van de geslachtsnaam
+            dat voorkomt in Tabel 36, Voorvoegseltabel en, gescheiden door een spatie,
+            vooraf gaat aan de rest van de geslachtsnaam.
+      description: Naam is een groep gegevens met de geslachtsnaam, voorletters en
+        voornamen die men wil gebruiken bij aanschrijving.
+    Geboorte:
+      required:
+      - geboorteDatum
+      type: object
+      properties:
+        geboortePlaats:
+          title: geboorteplaats
+          type: string
+          description: De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft
+            waar de persoon is geboren
+        geboorteDatum:
+          $ref: '#/components/schemas/Datum_onvolledig'
+        geboorteLand:
+          $ref: '#/components/schemas/Waardelijst'
+      description: Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon.
+    Overlijden:
+      required:
+      - datumOverlijden
+      type: object
+      properties:
+        datumOverlijden:
+          $ref: '#/components/schemas/Datum_onvolledig'
+      description: Overlijden is een groep gegevens over het overlijden van een persoon.
+    Kadasterstuk:
+      allOf:
+      - $ref: '#/components/schemas/Stuk'
+      - required:
+        - identificatie
+        - indicatieCorrectie
+        type: object
+        properties:
+          indicatieCorrectie:
+            title: indicatieCorrectie
+            type: boolean
+          acgIdentificatie:
+            $ref: '#/components/schemas/AcgID'
+          identificatie:
+            $ref: '#/components/schemas/Waardelijst'
+          _links:
+            $ref: '#/components/schemas/Kadasterstuk_links'
+        description: URI https://tax.kadaster.nl/doc/begrip/Kadasterstuk
+    TerInschrijvingAangebodenStuk:
+      allOf:
+      - $ref: '#/components/schemas/Stuk'
+      - required:
+        - aard
+        - deelEnNummer
+        - identificatie
+        - ondertekenaar
+        - statusStukOr
+        - tijdstipAanbieding
+        - tijdstipOndertekening
+        type: object
+        properties:
+          bewaardersVerklaring:
+            title: bewaardersverklaring
+            type: string
+          tekeningIngeschreven:
+            title: tekeningIngeschreven
+            type: boolean
+            description: Er is sprake van een appartementstekening (splitsingstekening
+              van appartementen) als bijlage bij het stuk.
+          tijdstipAanbieding:
+            title: tijdstipAanbieding
+            type: string
+          tijdstipOndertekening:
+            title: tijdstipOndertekening
+            type: string
+          aard:
+            $ref: '#/components/schemas/Waardelijst'
+          deelEnNummer:
+            $ref: '#/components/schemas/TypeDeelEnNummer'
+          identificatie:
+            $ref: '#/components/schemas/CompositeID'
+          statusStukOr:
+            $ref: '#/components/schemas/Waardelijst'
+          heeftAlsEquivalentieVerklaarder:
+            $ref: '#/components/schemas/HeeftAlsEquivalentieVerklaarder'
+          ondertekenaar:
+            $ref: '#/components/schemas/Ondertekenaar'
+          _links:
+            $ref: '#/components/schemas/TerInschrijvingAangebodenStuk_links'
+          _embedded:
+            $ref: '#/components/schemas/TerInschrijvingAangebodenStuk_embedded'
+        description: URI https://tax.kadaster.nl/doc/begrip/Ter_inschrijving_aangeboden_stuk
+    Kadasterverzoek:
+      required:
+      - aard
+      - heeftRedenVerzoek
+      - identificatie
+      type: object
+      properties:
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        heeftRedenVerzoek:
+          type: array
+          items:
+            $ref: '#/components/schemas/HeeftRedenVerzoek'
+        _links:
+          $ref: '#/components/schemas/Kadasterverzoek_links'
+      description: uri https://tax.kadaster.nl/doc/begrip/Kadaster_verzoek
+    HeeftRedenVerzoek:
+      required:
+      - reden
+      type: object
+      properties:
+        redenOmschrijving:
+          title: redenOmschrijving
+          type: string
+          description: De omschrijving van de reden voor een Kadaster verzoek die
+            afwijkt van de standaard redenen die bij reden kunnen worden opgegeven.
+            Bij reden is voor overig gekozen.
+        reden:
+          $ref: '#/components/schemas/Waardelijst'
+      description: RedenVerzoek is de omschrijving van de reden om een stuk niet in
+        te schrijven of om verbetering te vragen.
+    HeeftAlsEquivalentieVerklaarder:
+      required:
+      - geslachtsnaam
+      - standplaats
+      - voornamen
+      type: object
+      properties:
+        geslachtsnaam:
+          title: geslachtsnaam
+          minLength: 1
+          type: string
+          description: De naamgegevens van een natuurlijk persoon, met uitzondering
+            van de voornamen en eventuele voorvoegsels.
+        standplaats:
+          title: standplaats
+          minLength: 1
+          type: string
+          description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
+        voornamen:
+          title: voornamen
+          minLength: 1
+          type: string
+          description: De verzameling van een of meer naamgegevens, ter onderscheiding
+            van personen met dezelfde achternaam, (rechtens) aan een persoon gegeven
+            of -indien hiervan sprake is- door hem gekozen.
+        voorvoegsels:
+          title: voorvoegsels
+          type: string
+          description: De verzameling van een of meer voorzetsels en/of lidwoorden
+            die aan de geslachtsnaam vooraf gaat en daarmee de gezamenlijk de achternaam
+            vormt.
+      description: Een ondertekenaar is een persoon die bevoegd is een akte op te
+        maken en een afschrift daarvan equivalent te verklaren.
+    Ondertekenaar:
+      required:
+      - geslachtsnaam
+      - standplaats
+      - voornamen
+      type: object
+      properties:
+        geslachtsnaam:
+          title: geslachtsnaam
+          minLength: 1
+          type: string
+          description: De naamgegevens van een natuurlijk persoon, met uitzondering
+            van de voornamen en eventuele voorvoegsels.
+        standplaats:
+          title: standplaats
+          minLength: 1
+          type: string
+          description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
+        voornamen:
+          title: voornamen
+          minLength: 1
+          type: string
+          description: De verzameling van een of meer naamgegevens, ter onderscheiding
+            van personen met dezelfde achternaam, (rechtens) aan een persoon gegeven
+            of -indien hiervan sprake is- door hem gekozen.
+        voorvoegsels:
+          title: voorvoegsels
+          type: string
+          description: De verzameling van een of meer voorzetsels en/of lidwoorden
+            die aan de geslachtsnaam vooraf gaat en daarmee de gezamenlijk de achternaam
+            vormt.
+      description: Een ondertekenaar is een persoon die bevoegd is een akte op te
+        maken en een afschrift daarvan equivalent te verklaren.
+    AantekeningWkpb:
+      required:
+      - aard
+      - wkpbOmschrijving
+      type: object
+      properties:
+        aard:
+          $ref: '#/components/schemas/Wkpb'
+        wkpbOmschrijving:
+          $ref: '#/components/schemas/WkpbOmschrijving'
+        _links:
+          $ref: '#/components/schemas/AantekeningWkpb_links'
+    WkpbOmschrijving:
+      required:
+      - datumInWerking
+      - idGemeentelijkeRegistratie
+      - nummer
+      - omschrijvingPubliekrechtelijkeBeperking
+      type: object
+      properties:
+        datumInWerking:
+          title: datumInWerking
+          minLength: 1
+          type: string
+          description: 'Datum als bedoeld in artikel 6, eerste lid, onder b, van de
+            WKPB, te weten het tijdstip van inwerkingtreding van het desbetreffende
+            beperkingenbesluit, het tijdstip van het van kracht worden van een daaropbetrekking
+            hebbende beslissing in administratief beroep of rechterlijke uitspraak
+            dan wel het tijdstip van inschrijving van een vervallenverklaring als
+            bedoeld in artikel 7, vierde lid, van de WKPB. Formaat: jjjjmmdd of jjjjmm00
+            of jjjj0000, het formaat wordt niet afgedwongen door het xsd.'
+        idGemeentelijkeRegistratie:
+          title: idGemeentelijkeRegistratie
+          minLength: 1
+          type: string
+          description: Identificatie van de registratie van de gemeente.
+        nummer:
+          title: nummer
+          minLength: 1
+          type: string
+          description: Gemeentenaam Nederland
+        omschrijvingPubliekrechtelijkeBeperking:
+          title: omschrijvingPubliekrechtelijkeBeperking
+          minLength: 1
+          type: string
+      description: 'Gegevensgroep zoals gedefinieerd voor de communciatie tussen Kadaster
+        en Landelijke Voorziening, bedoeld in artikel 10, eerste lid, van de Wet kenbaarheid
+        publiekrechtelijke beperkingen onroerende zaken (Wkpb) Opmerking: de Wkpb
+        is een kernregistratie en kent dus geen landelijk authentieke kenmerken.'
+    Tenaamstelling:
+      required:
+      - identificatie
+      type: object
+      properties:
+        omschrijving:
+          title: omschrijving
+          type: string
+        verklaringInzakeDerdenbescherming:
+          title: verklaringInzakeDerdenBescherming
+          type: string
+        aandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        burgerlijkeStaatTenTijdeVanVerkrijging:
+          $ref: '#/components/schemas/Waardelijst'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        verkregenNamensSamenwerkingsverband:
+          $ref: '#/components/schemas/Waardelijst'
+        gezamenlijkAandeel:
+          $ref: '#/components/schemas/GezamenlijkAandeel'
+      description: Een tenaamstelling is een registratie van (een aandeel in) een
+        zakelijk recht dat een persoon heeft, dat rust op een kadastraal object.
+    GezamenlijkAandeel:
+      required:
+      - identificatie
+      type: object
+      properties:
+        aandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+      description: GezamenlijkAandeel is wanneer twee of meer personen een gezamenlijk
+        aandeel hebben in een zakelijk recht, waarbij het afzonderlijke aandeel in
+        het gezamenlijk aandeel niet bekend is (als gezamenlijkAandeel bekend is dan
+        is het individuele aandeel niet bekend en omgekeerd).
+    CompositeID:
+      required:
+      - lokaalid
+      - namespace
+      type: object
+      properties:
+        lokaalid:
+          title: lokaalID
+          maxLength: 15
+          minLength: 1
+          type: string
+        namespace:
+          title: namespace
+          minLength: 1
+          type: string
+        versie:
+          title: versie
+          type: string
+      description: CompositeID is een samengesteld datatype gebruikt wordt de universeel
+        unieke identificatie van een object binnen een registratie.
+    Datum_onvolledig:
+      type: object
+      properties:
+        dag:
+          title: dag
+          maxLength: 2
+          pattern: ^99$
+          type: string
+          description: De dag. Als de dag van de datum bekend is wordt deze hier ingevuld.
+            Ook als de volledige datum bekend is.
+        datum:
+          title: datum
+          type: string
+          description: De volledige datum die in de `date` definitie past. Dit element
+            wordt alleen gevuld als de volledige datum bekend is.
+          format: date
+        jaar:
+          title: jaar
+          pattern: ^[1-2]{1}[0-9]{3}$
+          type: string
+          description: Het jaar van de datum. Als het jaar bekend is wordt dit element
+            gevuld, ook als de volledige datum bekend is.
+          format: date_fullyear
+        maand:
+          title: maand
+          maxLength: 2
+          pattern: ^99$
+          type: string
+          description: De maand. Als de maand van een datum bekend is wordt deze hier
+            ingevuld. Ook als de volledige datum is ingevuld.
+      description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
+        de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
+        datum bekend is worden alle elementen gevuld.
+    TypeKadastraleAanduiding:
+      required:
+      - kadastraleGemeente
+      - perceelnummer
+      - sectie
+      type: object
+      properties:
+        appartementsrechtVolgnummer:
+          title: appartementsrechtVolgnummer
+          type: integer
+          description: Nummer dat het kadastraal object uniek identificeert als een
+            appartementsrecht binnen het complex.
+        kadastraleGemeente:
+          $ref: '#/components/schemas/Waardelijst'
+        perceelnummer:
+          title: perceelnummer
+          type: integer
+          description: Het perceelnummer dat een geheel perceel of een complex uniek
+            identificeert binnen de sectie. Per kadastrale gemeente en per sectie
+            heeft een perceel een perceelnummer oplopend door de jaren heen van `00001`
+            tot max `99999`
+        sectie:
+          title: sectie
+          minLength: 1
+          type: string
+          description: Sectie is een onderverdeling van de kadastrale gemeente, bedoeld
+            om het werk van de meetdienst en de kadastrale kaarten overzichtelijk
+            te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke sectie
+            heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ' .
+            Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)
+            te voorkomen met `I`
+      description: Kadastrale aanduiding is de unieke aanduiding van een onroerende
+        zaak, die door het kadaster wordt vastgesteld. Percelen worden kadastraal
+        aangeduid door vermelding van achtereenvolgens de kadastrale gemeente en sectie,
+        waarin de percelen en gedeelten van percelen zijn gelegen waarvan het grondgebied
+        tot die zaak behoort, alsmede de nummers van die percelen. Voor een onroerende
+        zaak die zich krachtens een opstalrecht op, in of boven de grond van een ander
+        bevindt, geldt dezelfde kadastrale aanduiding als van de onroerende zaak die
+        met dat opstalrecht is bezwaard. Dit is van overeenkomstige toepassing op
+        een onroerende zaak die zich op, in of boven de grond van een ander bevindt
+        krachtens een recht als bedoeld in het voor 1 januari 1992 geldende artikel
+        5, derde lid, onder b, laatste zinsnede, van de Belemmeringenwet Privaatrecht.
+        Appartementsrechten worden kadastraal aangeduid door de vermelding van achtereenvolgens
+        de kadastrale gemeente en sectie, waarin de in de splitsing betrokken percelen
+        zijn gelegen, de complexaanduiding en de appartementsindex (Een oplopend volgnummer
+        van `0001` tot `9999`). De complexaanduiding bestaat uit het voor de in de
+        splitsing betrokken percelen vastgestelde complexnummer, gevolgd door de hoofdletter
+        A. Onze Minister stelt regelen vast omtrent de vaststelling van het complexnummer.
+        Er zijn 1111 kadastrale gemeentenamen. Elke kadastrale gemeentenaam is uniek.
+    TypeOppervlak:
+      required:
+      - soortGrootte
+      - waarde
+      type: object
+      properties:
+        soortGrootte:
+          $ref: '#/components/schemas/Waardelijst'
+        waarde:
+          title: waarde
+          type: integer
+          description: Oppervlak grootte, in vierkante meters. [1-9][0-9]*|0,[1-4]
+      description: Oppervlakte.
+    TypePerceelnummerVerschuiving:
+      required:
+      - deltax
+      - deltay
+      type: object
+      properties:
+        deltax:
+          title: deltaX
+          type: integer
+          description: Verschuiving op de X as.
+        deltay:
+          title: deltaY
+          type: integer
+          description: Verschuiving op de Y as.
+      description: Verschuiving van het perceelnummer ten behoeve van visualisatie
+        op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
+    TypeBreuk:
+      required:
+      - noemer
+      - teller
+      type: object
+      properties:
+        noemer:
+          title: noemer
+          maximum: 99999999
+          type: integer
+          description: De noemer van het deel.
+        teller:
+          title: teller
+          maximum: 99999999
+          type: integer
+          description: Het aantal delen. De teller is altijd lager dan de noemer.
+      description: Een deling van twee gehele getallen
+    Waardelijst:
+      required:
+      - code
+      type: object
+      properties:
+        code:
+          title: code
+          minLength: 1
+          type: string
+          description: De code van deze waarde. De code is uniek binnen de Waardelijst
+            en taalonafhankelijk.
+        waarde:
+          title: waarde
+          type: string
+          description: De waarde zoals aangetroffen in de Waardelijst. het moment
+            waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.
+      description: Waardelijst is een samengesteld datatype voor het weergeven van
+        een gegeven binnen een extern beheerde referentielijst.
+    Wkpb:
+      required:
+      - code
+      type: object
+      properties:
+        code:
+          title: code
+          minLength: 1
+          type: string
+          description: De code van deze waarde. De code is uniek binnen de Waardelijst
+            en taalonafhankelijk.
+        waarde:
+          title: waarde
+          type: string
+          description: De waarde zoals aangetroffen in de Waardelijst. het moment
+            waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.
+      description: Waardelijst is een samengesteld datatype voor het weergeven van
+        een gegeven binnen een extern beheerde referentielijst.
+    Persoon:
+      required:
+      - identificatie
+      type: object
+      properties:
+        indicatieNietToonbareDiakriet:
+          title: indicatieNietToonbareDiakriet
+          type: boolean
+        beschikkingsbevoegdheid:
+          $ref: '#/components/schemas/Waardelijst'
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+        metNaamOpenbaarRegister:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetNaamOpenbaarRegister'
+      description: URI https://tax.kadaster.nl/doc/begrip/Persoon
+    Objectlocatie:
+      allOf:
+      - $ref: '#/components/schemas/Adreslocatie'
+      - type: object
+        description: Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland.
+    Adreslocatie:
+      required:
+      - identificatie
+      type: object
+      properties:
+        identificatie:
+          $ref: '#/components/schemas/CompositeID'
+      description: Een AdresLocatie is een ObjectLocatie of een PostbusLocatie
+    Stuk:
+      type: object
+      properties:
+        toelichtingBewaarder:
+          title: toelichtingBewaarder
+          type: string
+      description: Een stuk is een, door het Kadaster als authentiek erkend, document
+        waaruit een wijziging in de BRK blijkt.
+    BRKPersoon_links:
+      allOf:
+      - $ref: '#/components/schemas/Persoon_links'
+      - type: object
+        properties:
+          self:
+            $ref: '#/components/schemas/HalLink'
+    BRKPersoon_embedded:
+      allOf:
+      - $ref: '#/components/schemas/Persoon_embedded'
+    Persoon_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        stukdelen:
+          $ref: '#/components/schemas/isvermeldin'
+        woonlocatie_adresbuitenland:
+          $ref: '#/components/schemas/isvermeldin'
+        woonlocatie_adresbinnenland:
+          $ref: '#/components/schemas/isvermeldin'
+        postlocatie_adresbinnenland:
+          $ref: '#/components/schemas/isvermeldin'
+        postlocatie_adresbuitenland:
+          $ref: '#/components/schemas/isvermeldin'
+        postlocatie_postbuslocatie:
+          $ref: '#/components/schemas/isvermeldin'
+    Objectlocatiebuitenland_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    ObjectlocatieBinnenland_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    Postbuslocatie_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    Stukdeel_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        kadasterstukken:
+          $ref: '#/components/schemas/isvermeldin'
+        terinschrijvingAangebodenStukken:
+          $ref: '#/components/schemas/isvermeldin'
+    Kadasterstuk_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    TerInschrijvingAangebodenStuk_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        kadasterversoeken:
+          title: heeft
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+    Kadasterverzoek_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    BRKrechtspersoon_links:
+      allOf:
+      - $ref: '#/components/schemas/Persoon_links'
+      - type: object
+        properties:
+          self:
+            $ref: '#/components/schemas/HalLink'
+    BRKrechtspersoon_embedded:
+      allOf:
+      - $ref: '#/components/schemas/Persoon_embedded'
+    KadastraalOnroerendeZaak_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        betreftkadastraalobject:
+          title: betreftkadastraalobject
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        nummeraanduidingen:
+          title: betreft
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        zakelijkrechttenaamstellingen:
+          title: heeft
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        BRKAdressen:
+          title: betreft
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+    AantekeningWkpb_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    ZakelijkRechtTennaamstelling_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        ingeschrevenpersonen:
+          $ref: '#/components/schemas/isvermeldin'
+        isvermeldin:
+          title: isvermeldin
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        isgebaseerdop:
+          title: isgebaseerdop
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        BRKPersonen:
+          $ref: '#/components/schemas/isvermeldin'
+        BRKrechtspersonen:
+          $ref: '#/components/schemas/isvermeldin'
+        rechtspersonen:
+          $ref: '#/components/schemas/isvermeldin'
+        zakelijkerechten:
+          title: isbelastmet
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+    Persoon_embedded:
+      type: object
+      properties:
+        woonlocatie_adresbuitenland:
+          $ref: '#/components/schemas/Objectlocatiebuitenland'
+        woonlocatie_adresbinnenland:
+          $ref: '#/components/schemas/ObjectlocatieBinnenland'
+        postlocatie_adresbinnenland:
+          $ref: '#/components/schemas/ObjectlocatieBinnenland'
+        postlocatie_adresbuitenland:
+          $ref: '#/components/schemas/Objectlocatiebuitenland'
+        postlocatie_postbuslocatie:
+          $ref: '#/components/schemas/Postbuslocatie'
+    Stukdeel_embedded:
+      type: object
+      properties:
+        kadasterstukken:
+          $ref: '#/components/schemas/Kadasterstuk'
+        terinschrijvingAangebodenStukken:
+          $ref: '#/components/schemas/TerInschrijvingAangebodenStuk'
+    TerInschrijvingAangebodenStuk_embedded:
+      type: object
+      properties:
+        kadasterversoeken:
+          title: heeft
+          type: array
+          items:
+            $ref: '#/components/schemas/Kadasterverzoek'
+    KadastraalOnroerendeZaak_embedded:
+      type: object
+      properties:
+        betreftkadastraalobject:
+          title: betreftKadastraalObject
+          type: array
+          items:
+            $ref: '#/components/schemas/AantekeningWkpb'
+        zakelijkrechttenaamstellingen:
+          title: rustOp
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkRechtTennaamstelling'
+        BRKAdressen:
+          title: betreft
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectlocatieBinnenland'
+    TypeKadastraalOnroerendeZaak_enum:
+      type: string
+      description: |-
+        :
+        * `appartementsrecht` - appartementsrecht
+        * `perceel` - perceel
+      enum:
+      - appartementsrecht
+      - perceel
+    Geslacht_enum:
+      type: string
+      description: |-
+        Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
+        * `M` - Man
+        * `V` - Vrouw
+        * `O` - Onbekend
+      enum:
+      - M
+      - V
+      - O
+    Bedrag:
+      type: object
+      properties:
+        som:
+          title: Het bedrag. Dit is een waarde met max. 2 decimalen.
+          type: string
+        valuta:
+          $ref: '#/components/schemas/Waardelijst'
+      description: Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid
+        geld in cijfers in een bepaalde valuta.
+    AcgID:
+      type: object
+      properties:
+        som:
+          title: Dummy.
+          type: string
+      description: Dummy
+    TypeDeelEnNummer:
+      type: object
+      properties:
+        soortregister:
+          $ref: '#/components/schemas/Waardelijst'
+        registercode:
+          $ref: '#/components/schemas/Waardelijst'
+        reeks:
+          $ref: '#/components/schemas/Waardelijst'
+    ValidatieFoutbericht:
+      allOf:
+      - $ref: '#/components/schemas/Foutbericht400'
+      - type: object
+        properties:
+          invalid-params:
+            type: array
+            description: Foutmelding per fout in een parameter. Alle gevonden fouten
+              worden één keer teruggemeld.
+            items:
+              $ref: '#/components/schemas/InvalidParams'
+    Foutbericht400:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Link naar meer informatie over deze fout
+          format: uri
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
+            400 Bad Request
+        title:
+          type: string
+          description: Beschrijving van de fout
+          example: Ten minste één parameter moet worden opgegeven.
+        status:
+          type: integer
+          description: Http status code
+          example: 400
+        detail:
+          type: string
+          description: Details over de fout
+          example: The request could not be understood by the server due to malformed
+            syntax. The client SHOULD NOT repeat the request without modification.
+        instance:
+          type: string
+          description: Uri van de aanroep die de fout heeft veroorzaakt
+          format: uri
+          example: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+        code:
+          minLength: 1
+          type: string
+          description: Systeemcode die het type fout aangeeft
+          example: paramsRequired
+      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
+    InvalidParams:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          example: https://www.vng.nl/realisatie/api/validaties/integer
+        name:
+          type: string
+          description: Naam van de parameter
+          example: verblijfplaats__huisnummer
+        code:
+          minLength: 1
+          type: string
+          description: Systeemcode die het type fout aangeeft
+          example: integer
+        reason:
+          type: string
+          description: Beschrijving van de fout op de parameterwaarde
+          example: Waarde is geen geldige integer.
+      description: Details over fouten in opgegeven parameters
+    Foutbericht:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Link naar meer informatie over deze fout
+          format: uri
+        title:
+          type: string
+          description: Beschrijving van de fout
+        status:
+          type: integer
+          description: Http status code
+        detail:
+          type: string
+          description: Details over de fout
+        instance:
+          type: string
+          description: Uri van de aanroep die de fout heeft veroorzaakt
+          format: uri
+        code:
+          minLength: 1
+          type: string
+          description: Systeemcode die het type fout aangeeft
+      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
+    GeoJSONGeometry:
+      title: GeoJSONGeometry
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/Point'
+      - $ref: '#/components/schemas/MultiPoint'
+      - $ref: '#/components/schemas/LineString'
+      - $ref: '#/components/schemas/MultiLineString'
+      - $ref: '#/components/schemas/Polygon'
+      - $ref: '#/components/schemas/MultiPolygon'
+      - $ref: '#/components/schemas/GeometryCollection'
+    Point:
+      type: object
+      description: GeoJSON point geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.2
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            $ref: '#/components/schemas/Point2D'
+    Geometry:
+      title: Geometry
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+          description: The geometry type
+          enum:
+          - Point
+          - MultiPoint
+          - LineString
+          - MultiLineString
+          - Polygon
+          - MultiPolygon
+          - Feature
+          - FeatureCollection
+          - GeometryCollection
+      description: GeoJSON geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1
+      discriminator:
+        propertyName: type
+    Point2D:
+      title: Point2D
+      maxItems: 2
+      minItems: 2
+      type: array
+      description: A 2D point
+      items:
+        type: number
+    MultiPoint:
+      type: object
+      description: GeoJSON multi-point geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.3
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+    LineString:
+      type: object
+      description: GeoJSON line-string geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.4
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            minItems: 2
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+    MultiLineString:
+      type: object
+      description: GeoJSON multi-line-string geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.5
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+    Polygon:
+      type: object
+      description: GeoJSON polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.6
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+    MultiPolygon:
+      type: object
+      description: GeoJSON multi-polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.7
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point2D'
+    GeometryCollection:
+      type: object
+      description: GeoJSON multi-polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.8
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - geometries
+        type: object
+        properties:
+          geometries:
+            type: array
+            items:
+              $ref: '#/components/schemas/Geometry'
+    HalPaginationLinks:
+      allOf:
+      - $ref: '#/components/schemas/HalCollectionLinks'
+      - type: object
+        properties:
+          first:
+            $ref: '#/components/schemas/HalPaginationLinks_first'
+          previous:
+            $ref: '#/components/schemas/HalPaginationLinks_previous'
+          next:
+            $ref: '#/components/schemas/HalPaginationLinks_next'
+    HalCollectionLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalCollectionLinks_self'
+    Href:
+      type: string
+      format: uri
+      example: datapunt.voorbeeldgemeente.nl/api/resourcename/123456789
+    HalLink:
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Href'
+    ZakelijkRechtTenaamstellingCollectie__embedded:
+      type: object
+      properties:
+        zakelijkrechten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkRechtTennaamstelling'
+    isvermeldin:
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Href'
+    HalPaginationLinks_first:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://datapunt.voorbeeldgemeente.nl/api/resourcenaam?page=1
+        title:
+          type: string
+          example: Eerste pagina
+      description: uri voor het opvragen van de eerste pagina van deze collectie
+    HalPaginationLinks_previous:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://datapunt.voorbeeldgemeente.nl/api/resourcenaam?page=3
+        title:
+          type: string
+          example: Vorige pagina
+      description: uri voor het opvragen van de vorige pagina van deze collectie
+    HalPaginationLinks_next:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://datapunt.voorbeeldgemeente.nl/api/resourcenaam?page=5
+        title:
+          type: string
+          example: Volgende pagina
+      description: uri voor het opvragen van de volgende pagina van deze collectie
+    HalCollectionLinks_self:
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Href'
+      description: uri van de api aanroep die tot dit resultaat heeft geleid
+  headers:
+    api_version:
+      schema:
+        type: string
+        description: Geeft een specifieke API-versie aan in de context van een specifieke
+          aanroep.
+        example: 1.0.1
+    warning:
+      schema:
+        type: string
+        description: zie RFC 7234. In het geval een major versie wordt uitgefaseerd,
+          gebruiken we warn-code 299 ("Miscellaneous Persistent Warning") en het API
+          end-point (inclusief versienummer) als de warn-agent van de warning, gevolgd
+          door de warn-text met de human-readable waarschuwing
+        example: '299 https://service.../api/.../v1 "Deze versie van de API is verouderd
+          en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie
+          hier de documentatie: https://omgevingswet.../api/.../v1".'
+    X_Rate_Limit_Limit:
+      schema:
+        type: integer
+    X_Rate_Limit_Remaining:
+      schema:
+        type: integer
+    X_Rate_Limit_Reset:
+      schema:
+        type: integer
+    X_Pagination_Page:
+      required: true
+      schema:
+        type: integer
+        description: Huidige pagina.
+        example: 3
+    X_Pagination_Limit:
+      required: true
+      schema:
+        type: integer
+        description: Aantal resultaten per pagina.
+        example: 20
