@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
   - description: "SwaggerHub API Auto Mocking"
-    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken/v20190703
+    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken/v1
   - description: "Referentie-implementatie"
-    url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken/v20190703
+    url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken/v1
 info:
   title: Kadastraal onroerende zaken
   description: "<body>Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.</body>"
-  version: "20190703"
+  version: "1.0.0"
   x-imvertor-generator-version: "1.55.1"
   x-yamlCompiler-stylesheets-version: "20190920"
   contact:
@@ -27,7 +27,7 @@ paths:
           required: false
           schema:
             type: integer
-            minimum: 1
+            minimum: 1        
         - in: path
           name: kadastraleaanduiding
           description: "Een pagina binnen de gepagineerde resultatenset."
@@ -293,14 +293,73 @@ components:
       - "burgerservicenummer"
       properties:
         burgerservicenummer:
-          type: "integer"
+          type: "string"
           title: "burgerservicenummer"
           description: ""
-          maximum: 9.99999999E8
+          minLength: 1
+          example: "123456789"
         _links:
           $ref: "#/components/schemas/IngeschrevenPersoon_links"
         _embedded:
           $ref: "#/components/schemas/IngeschrevenPersoon_embedded"
+    KadasterRechtspersoon:
+      type: "object"
+      description: "<body>URI https://tax.kadaster.nl/doc/begrip/Rechtspersoon</body>"
+      required:
+      - "identificatie"
+      - "rechtsvorm"
+      - "rsin"
+      - "statutairenaam"
+      properties:
+        beschikkingsbevoegdheid:
+          allOf:
+          - $ref: "#/components/schemas/Beschikkingsbevoegdheid"
+          - title: "beschikkingsbevoegdheid"
+            description: ""
+        identificatie:
+          type: "string"
+          title: "identificatie"
+          description: "<body>Identificatie is een door het Kadaster toegekend landelijk\
+            \ uniek nummer aan een object binnen de kadastrale registratie.</body>"
+          minLength: 1
+          example: "NL.IMKAD.Persoon.24273336"
+        indicatieniettoonbarediakriet:
+          type: "boolean"
+          title: "indicatieNietToonbareDiakriet"
+          description: ""
+        kvknummer:
+          type: "string"
+          title: "KvKNummer"
+          description: "<body>Het KvKNummer is een uniek identificerend administratienummer\
+            \ van een rechtspersoon zijnde een niet-natuurlijk persoon zoals toegewezen\
+            \ door de Kamer van Koophandel</body>"
+          example: "08031998"
+        rechtsvorm:
+          allOf:
+          - $ref: "#/components/schemas/Rechtsvorm"
+          - title: "rechtsvorm"
+            description: ""
+        rsin:
+          type: "string"
+          title: "RSIN"
+          description: "<body>Het RSIN is het Rechtspersonen Samenwerkingsverbanden\
+            \ Informatie Nummer is een uniek nummer wat iedere rechtspersoon krijgt.</body>"
+          minLength: 1
+        statutairenaam:
+          type: "string"
+          title: "statutaireNaam"
+          description: ""
+          minLength: 1
+          example: "A.Goudkuil Beheer B.V."
+        statutairezetel:
+          type: "string"
+          title: "statutaireZetel"
+          description: ""
+          example: "AELDOORN"
+        _links:
+          $ref: "#/components/schemas/KadasterRechtspersoon_links"
+        _embedded:
+          $ref: "#/components/schemas/KadasterRechtspersoon_embedded"
     Kadasterpersoon:
       type: "object"
       description: ""
@@ -338,6 +397,7 @@ components:
           description: "<body>Identificatie is een door het Kadaster toegekend landelijk\
             \ uniek nummer aan een object binnen de kadastrale registratie.</body>"
           minLength: 1
+          example: "NL.IMKAD.Persoon.123456789"
         indicatieafschermingpersoonsgegevens:
           type: "boolean"
           title: "indicatieAfschermingPersoonsgegevens"
@@ -347,6 +407,7 @@ components:
           title: "indicatieGeheim"
           description: "<body>indicatieGeheim is een aanduiding die aangeeft dat gegevens\
             \ van een persoon wel of niet verstrekt mogen worden.</body>"
+          example: "true"
         indicatieniettoonbarediakriet:
           type: "boolean"
           title: "indicatieNietToonbareDiakriet"
@@ -486,6 +547,47 @@ components:
           description: "<body>datumIngang (onderzoek) is de datum waarop een onderzoek\
             \ inzake de onjuistheid of de strijdigheid met de openbare orde is gestart.</body>"
           format: "date"
+    Rechtspersoon:
+      type: "object"
+      description: ""
+      required:
+      - "rsin"
+      properties:
+        kvknummer:
+          type: "string"
+          title: "KvKNummer"
+          description: "<body>Het KvKNummer is een uniek identificerend administratienummer\
+            \ van een rechtspersoon zijnde een niet-natuurlijk persoon zoals toegewezen\
+            \ door de Kamer van Koophandel</body>"
+          example: "08031998"
+        rsin:
+          type: "string"
+          title: "RSIN"
+          description: "<body>Het RSIN is het Rechtspersonen Samenwerkingsverbanden\
+            \ Informatie Nummer is een uniek nummer wat iedere rechtspersoon krijgt.</body>"
+          minLength: 1
+        _links:
+          $ref: "#/components/schemas/Rechtspersoon_links"
+        _embedded:
+          $ref: "#/components/schemas/Rechtspersoon_embedded"
+    Rechtsvorm:
+      type: "object"
+      description: ""
+      required:
+      - "code"
+      properties:
+        code:
+          type: "string"
+          title: "code"
+          description: "<body>De code van deze waarde. De code is uniek binnen de\
+            \ Waardelijst en taalonafhankelijk.</body>"
+          minLength: 1
+        waarde:
+          type: "string"
+          title: "waarde"
+          description: "<body>De waarde zoals aangetroffen in de Waardelijst. het\
+            \ moment waarop de waarde geassocieerd is met de meegeleverde code is\
+            \ onbepaald.</body>"
     Samenwerkingsverband:
       type: "object"
       description: ""
@@ -625,11 +727,40 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         isTennameVan:
-          title: "isTennameVan"
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          allOf:
+          - title: "isTennameVan"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    KadasterRechtspersoon_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isTennameVan:
+          allOf:
+          - title: "isTennameVan"
+            type: "object"
+            description: "<body><p>n</p></body>"
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        postlocatie:
+          allOf:
+          - title: "postlocatie"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        woonlocatie:
+          allOf:
+          - title: "woonlocatie"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        postloctie:
+          allOf:
+          - title: "postloctie"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Kadasterpersoon_links:
       type: "object"
       properties:
@@ -658,15 +789,46 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        ingeschrevenpersonen:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadasterPersoon:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isEigendomVanKadasterPersoon:
+          allOf:
+          - title: "isEigendomVanKadasterPersoon"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isEigendomVanIngeschrevenPersoon:
+          allOf:
+          - title: "isEigendomVanIngeschrevenPersoon"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isEigendomVanRechtspersoon:
+          allOf:
+          - title: "isEigendomVanRechtspersoon"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isEigendomVanKadasterRechtspersoon:
+          allOf:
+          - title: "isEigendomVanKadasterRechtspersoon"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Postbuslocatie_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Rechtspersoon_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isTennameVan:
+          allOf:
+          - title: "isTennameVan"
+            type: "object"
+            description: ""
+          - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Tenaamstelling_links:
       type: "object"
       properties:
@@ -682,11 +844,16 @@ components:
       type: "object"
       properties:
         isTennameVan:
-          title: "isTennameVan"
-          type: "array"
-          description: ""
-          items:
-            $ref: "#/components/schemas/Tenaamstelling"
+          $ref: "#/components/schemas/Tenaamstelling"
+    KadasterRechtspersoon_embedded:
+      type: "object"
+      properties:
+        isTennameVan:
+          $ref: "#/components/schemas/Tenaamstelling"
+        postlocatie:
+          $ref: "#/components/schemas/Adresbuitenland"
+        woonlocatie:
+          $ref: "#/components/schemas/Adresbuitenland"
     Kadasterpersoon_embedded:
       type: "object"
       properties:
@@ -699,6 +866,18 @@ components:
     KadastraalOnroerendeZaak_embedded:
       type: "object"
       properties:
+        isEigendomVanRechtspersoon:
+          title: "isEigendomVanRechtspersoon"
+          type: "array"
+          description: ""
+          items:
+            $ref: "#/components/schemas/Rechtspersoon"
+        isEigendomVanKadasterRechtspersoon:
+          title: "isEigendomVanKadasterRechtspersoon"
+          type: "array"
+          description: ""
+          items:
+            $ref: "#/components/schemas/KadasterRechtspersoon"
         isEigendomVanIngeschrevenPersoon:
           title: "isEigendomVanIngeschrevenPersoon"
           type: "array"
@@ -711,6 +890,11 @@ components:
           description: ""
           items:
             $ref: "#/components/schemas/Kadasterpersoon"
+    Rechtspersoon_embedded:
+      type: "object"
+      properties:
+        isTennameVan:
+          $ref: "#/components/schemas/Tenaamstelling"
     Tenaamstelling_embedded:
       type: "object"
       properties:
