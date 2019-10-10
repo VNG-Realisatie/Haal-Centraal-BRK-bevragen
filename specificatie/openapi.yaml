@@ -880,6 +880,8 @@ components:
           - $ref: "#/components/schemas/NietIngeschrevenPersoonCompact"
           - $ref: "#/components/schemas/IngeschrevenRechtspersoon"
           - $ref: "#/components/schemas/NietIngeschrevenRechtspersoonCompact"
+          discriminator:
+            propertyName: Persoonstype
         _links:
           $ref: "#/components/schemas/Tenaamstelling_links"
         _embedden:
@@ -1477,6 +1479,8 @@ components:
       oneOf:
       - $ref: "#/components/schemas/KadasterstukHal"
       - $ref: "#/components/schemas/AangebodenStukHal"
+      discriminator:
+        propertyName: Stuktype
     Objectlocatiebuitenland_links:
       type: "object"
       properties:
