@@ -74,12 +74,12 @@ zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar
 mogelijk toegepast.
 
 ## Realisatie
-Van iedere informatiebehoefte van een binnengemeentelijke afnemer die bij ons bekend is wordt een issue (user story) gemaakt. Voor de meest voorkomende stories worden achtereenvolgens AOS3 specs en indien nodig BDD scenario's opgesteld en gerealiseerd. 
+Van iedere informatiebehoefte van een binnengemeentelijke afnemer die bij ons bekend is wordt een user story gemaakt, en gestructureerd in een goals_hows document. Voor de meest voorkomende stories worden achtereenvolgens AOS3 specs en indien nodig features opgesteld en gerealiseerd. 
 - OAS3 specs worden opgesteld door VNG Realisatie adviseur standaarden ism een developer. 
-- OAS3 specs worden getoetst door een developer. 
-- BDD scenario's worden beschreven door de PO, VNG Realisatie adviseur standaarden en de developer. 
+- OAS3 specs worden getoetst door een developer op code generatie, hergebruik van OAS componenten e.d. 
+- Features worden beschreven door de PO, VNG Realisatie adviseur standaarden en de developer. 
 - BRK bevragen API wordt gerealiseerd door het Kadaster.
 - Consumers worden gerealiseerd door de gemeente Den Haag, de gemeente Amsterdam en Vicrea.
 
-Alle deliverables worden gepubliceerd op het GitHub project, m.u.v. de consumers van de gemeente Den Haag en Vicrea. De API specificaties worden ook op SWAGGERhub geplaatst.
+Alle deliverables worden gepubliceerd op het GitHub project, m.u.v. de consumers van de gemeente Den Haag en Vicrea. De API specificaties worden ook op SWAGGERhub gedeeld.
 
