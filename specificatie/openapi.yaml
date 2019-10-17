@@ -543,7 +543,83 @@ paths:
         'default':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
-      - Kadastraal Onroerende Zaken
+      - Aantekeningen
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/aantekeningen/{identificatie}:
+    get:
+      operationId: GetAantekeningKadastraalonroerendezaak
+      description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
+      parameters: 
+        - in: query
+          name: page
+          description: "Een pagina binnen de gepagineerde resultatenset."
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - in: path
+          name: identificatie
+          description: "Identificatie van een aantekening."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Pagination-Page:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Pagination_Page"
+            X-Pagination-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Pagination_Limit"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/AantekeningHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
+      tags: 
+      - Aantekeningen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie}/aantekeningen:
     get:
       operationId: GetAantekeningenZakelijkgerechtigden
@@ -760,75 +836,120 @@ paths:
       - Beslagen
 components:
   schemas:
-    NietIngeschrevenPersoon:
+    Aantekening: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aardAantekening:
+          $ref: "#/components/schemas/Waardelijst"
+        omschrijving:
+          type: "string"
+        begrenzing: 
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
+        begrenzingDienendErf:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
+        begernzingHeersendErf:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
+        einddatum: 
+          type: "string"
+          format: "date"
+        eindatumRecht:
+          type: "string"
+          format: "date"
+        indicatieOorspronkelijkObject:
+          type: "boolean"
+        naamKavelruil:
+          type: "string"
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+    AantekeningHal:
       allOf:
-      - $ref: "#/components/schemas/Persoon"
-      - type: "object"
-        description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
-          \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
-          \ ingezetene."
-        required:
-        - "indicatieGeheim"
-        - "geslacht"
-        - "naam"
-        properties:
-          indicatieGeheim:
-            type: "boolean"
-            title: "indicatieGeheim"
-            description: "indicatieGeheim is een aanduiding die aangeeft dat gegevens\
-              \ van een persoon wel of niet verstrekt mogen worden."
-          aanduidingNaamgebruik:
-            $ref: "#/components/schemas/Waardelijst"
-          adellijkeTitelOfPredikaat:
-            $ref: "#/components/schemas/Waardelijst"
-          landWaarnaarVertrokken:
-            $ref: "#/components/schemas/Waardelijst"
-          geslacht:
-            $ref: "#/components/schemas/Geslacht"
-          heeftPartnerschap:
-            type: "array"
-            items:
-              $ref: "#/components/schemas/HeeftPartnerschap"
-          naam:
-            $ref: "#/components/schemas/Naam"
-          geboorte:
-            $ref: "#/components/schemas/Geboorte"
-          overlijden:
-            $ref: "#/components/schemas/Overlijden"
-    NietIngeschrevenPersoonHal:
-      allOf:
-      - $ref: "#/components/schemas/NietIngeschrevenPersoon"
+      - $ref: "#/components/schemas/Aantekening"
       - type: "object"
         properties:
           _links:
-            $ref: "#/components/schemas/NietIngeschrevenPersoon_links"
-    NietIngeschrevenRechtspersoon:
+            $ref: "#/components/schemas/Aantekening_links"
+    AantekeningHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            aantekeningen:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/AantekeningHal"
+    Beslag: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht: 
+          $ref: "#/components/schemas/Waardelijst"
+        toelichtingBewaarder:
+          type: "string"
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+    BeslagHal:
       allOf:
-      - $ref: "#/components/schemas/Persoon"
-      - type: "object"
-        description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
-        required:
-        - "statutaireNaam"
-        - "rechtsvorm"
-        properties:
-          statutaireNaam:
-            type: "string"
-            title: "statutaireNaam"
-            description: ""
-            minLength: 1
-          statutaireZetel:
-            type: "string"
-            title: "statutaireZetel"
-            description: ""
-          rechtsvorm:
-            $ref: "#/components/schemas/Waardelijst"
-    NietIngeschrevenRechtspersoonHal:
-      allOf:
-      - $ref: "#/components/schemas/NietIngeschrevenRechtspersoon"
+      - $ref: "#/components/schemas/Beslag"
       - type: "object"
         properties:
           _links:
-            $ref: "#/components/schemas/NietIngeschrevenRechtspersoon_links"
+            $ref: "#/components/schemas/Beslag_links"
+    BeslagHalCollectie: 
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            beslagen:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/BeslagHal"
+    Hypotheek: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht: 
+          $ref: "#/components/schemas/Waardelijst"
+        toelichtingBewaarder:
+          type: "string"
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+    HypotheekHal:
+      allOf:
+      - $ref: "#/components/schemas/Hypotheek"
+      - type: "object"
+        properties:
+          _links:
+            $ref: "#/components/schemas/Hypotheek_links"
+    HypotheekHalCollectie: 
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            hypotheken:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/HypotheekHal"
     KadastraalOnroerendeZaak:
       type: "object"
       description: "URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak\
@@ -898,86 +1019,75 @@ components:
               type: "array"
               items: 
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
-    Aantekening: 
-      type: "object"
-      properties:
-        identificatie: 
-          $ref: "#/components/schemas/CompositeID"
-        aardAantekening:
-          $ref: "#/components/schemas/Waardelijst"
-        omschrijving:
-          type: "string"
-        begrenzing: 
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
-        begrenzingDienendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
-        begernzingHeersendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/geojson.yaml"
-        einddatum: 
-          type: "string"
-          format: "date"
-        eindatumRecht:
-          type: "string"
-          format: "date"
-        indicatieOorspronkelijkObject:
-          type: "boolean"
-        naamKavelruil:
-          type: "string"
-        betreftGedeelteVanPerceel:
-          type: "boolean"
-    AantekeningHal:
+    NietIngeschrevenPersoon:
       allOf:
-      - $ref: "#/components/schemas/Aantekening"
+      - $ref: "#/components/schemas/Persoon"
+      - type: "object"
+        description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
+          \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
+          \ ingezetene."
+        required:
+        - "indicatieGeheim"
+        - "geslacht"
+        - "naam"
+        properties:
+          indicatieGeheim:
+            type: "boolean"
+            title: "indicatieGeheim"
+            description: "indicatieGeheim is een aanduiding die aangeeft dat gegevens\
+              \ van een persoon wel of niet verstrekt mogen worden."
+          landWaarnaarVertrokken:
+            $ref: "#/components/schemas/Waardelijst"
+          geslacht:
+            $ref: "#/components/schemas/Geslacht_enum"
+          heeftPartnerschap:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/HeeftPartnerschap"
+          naam:
+            $ref: "#/components/schemas/Naam"
+          geboorte:
+            $ref: "#/components/schemas/Geboorte"
+          overlijden:
+            $ref: "#/components/schemas/Overlijden"
+    NietIngeschrevenPersoonHal:
+      allOf:
+      - $ref: "#/components/schemas/NietIngeschrevenPersoon"
       - type: "object"
         properties:
           _links:
-            $ref: "#/components/schemas/Aantekening_links"
-    AantekeningHalCollectie:
-      type: "object"
-      properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          type: "object"
-          properties:
-            aantekeningen:
-              type: "array"
-              items: 
-                $ref: "#/components/schemas/AantekeningHal"
-    Hypotheek: 
-      type: "object"
-      properties:
-        identificatie: 
-          $ref: "#/components/schemas/CompositeID"
-        aandeelInBetrokkenRecht:
-          $ref: "#/components/schemas/TypeBreuk"
-        gedeeltelijkeBezwaringOudObject:
-          type: "boolean"
-        omschrijvingBetrokkenRecht: 
-          $ref: "#/components/schemas/Waardelijst"
-        toelichtingBewaarder:
-          type: "string"
-        betreftGedeelteVanPerceel:
-          type: "boolean"
-    HypotheekHal:
+            $ref: "#/components/schemas/NietIngeschrevenPersoon_links"
+          _embedded:
+            $ref: "#/components/schemas/Persoon_embedded"
+    NietIngeschrevenRechtspersoon:
       allOf:
-      - $ref: "#/components/schemas/Hypotheek"
+      - $ref: "#/components/schemas/Persoon"
+      - type: "object"
+        description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
+        required:
+        - "statutaireNaam"
+        - "rechtsvorm"
+        properties:
+          statutaireNaam:
+            type: "string"
+            title: "statutaireNaam"
+            description: ""
+            minLength: 1
+          statutaireZetel:
+            type: "string"
+            title: "statutaireZetel"
+            description: ""
+          rechtsvorm:
+            $ref: "#/components/schemas/Waardelijst"
+    NietIngeschrevenRechtspersoonHal:
+      allOf:
+      - $ref: "#/components/schemas/NietIngeschrevenRechtspersoon"
       - type: "object"
         properties:
           _links:
-            $ref: "#/components/schemas/Hypotheek_links"
-    HypotheekHalCollectie: 
-      type: "object"
-      properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          type: "object"
-          properties:
-            hypotheken:
-              type: "array"
-              items: 
-                $ref: "#/components/schemas/HypotheekHal"
+            $ref: "#/components/schemas/NietIngeschrevenRechtspersoon_links"
+          _embedded:
+            $ref: "#/components/schemas/Persoon_embedded"
     Hypotheek_links:
       type: "object"
       properties:
@@ -1004,40 +1114,6 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Beslag: 
-      type: "object"
-      properties:
-        identificatie: 
-          $ref: "#/components/schemas/CompositeID"
-        aandeelInBetrokkenRecht:
-          $ref: "#/components/schemas/TypeBreuk"
-        gedeeltelijkeBezwaringOudObject:
-          type: "boolean"
-        omschrijvingBetrokkenRecht: 
-          $ref: "#/components/schemas/Waardelijst"
-        toelichtingBewaarder:
-          type: "string"
-        aard:
-          $ref: "#/components/schemas/Waardelijst"
-    BeslagHal:
-      allOf:
-      - $ref: "#/components/schemas/Beslag"
-      - type: "object"
-        properties:
-          _links:
-            $ref: "#/components/schemas/Beslag_links"
-    BeslagHalCollectie: 
-      type: "object"
-      properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          type: "object"
-          properties:
-            beslagen:
-              type: "array"
-              items: 
-                $ref: "#/components/schemas/BeslagHal"
     Beslag_links:
       type: "object"
       properties:
@@ -1133,24 +1209,11 @@ components:
           $ref: "#/components/schemas/TypeBreuk"
         persoon:
           oneOf:
-          - $ref: "#/components/schemas/IngeschrevenPersoon"
-          - $ref: "#/components/schemas/NietIngeschrevenPersoonCompact"
-          - $ref: "#/components/schemas/IngeschrevenRechtspersoon"
-          - $ref: "#/components/schemas/NietIngeschrevenRechtspersoonCompact"
+          - $ref: "#/components/schemas/PersoonCompact"
+          - $ref: "#/components/schemas/RechtspersoonCompact"
           discriminator:
             propertyName: Persoonstype
-        _links:
-          $ref: "#/components/schemas/Tenaamstelling_links"
-        _embedden:
-          $ref: "#/components/schemas/Tenaamstelling_embedded"
-    NietIngeschrevenPersoonCompact:
-      properties:
-        naam: 
-          description: ""
-          type: string
-        geboortedatum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-    IngeschrevenPersoon:
+    PersoonCompact:
       type: object
       properties:
         naam: 
@@ -1158,12 +1221,7 @@ components:
           type: string
         geboortedatum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-    IngeschrevenRechtspersoon:
-      properties:
-        actueleStatutaireNaam: 
-          description: ""
-          type: string
-    NietIngeschrevenRechtspersoonCompact:
+    RechtspersoonCompact:
       properties:
         actueleStatutaireNaam: 
           description: ""
@@ -1280,15 +1338,6 @@ components:
           $ref: "#/components/schemas/CompositeID"
         _links:
           $ref: "#/components/schemas/Postbuslocatie_links"
-    Geslacht:
-      type: "object"
-      description: "Geslacht is een groep gegevens die waarmee het geslacht van de\
-        \ persoon wordt aangeduid."
-      required:
-      - "geslachtsAanduiding"
-      properties:
-        geslachtsAanduiding:
-          $ref: "#/components/schemas/Geslacht_enum"
     HeeftPartnerschap:
       type: "object"
       description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
@@ -1334,14 +1383,14 @@ components:
       required:
       - "geboorteDatum"
       properties:
-        geboortePlaats:
+        plaats:
           type: "string"
           title: "geboorteplaats"
           description: "De geboorteplaats is de plaats of een plaatsbepaling, die\
             \ aangeeft waar de persoon is geboren"
-        geboorteDatum:
+        datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-        geboorteLand:
+        land:
           $ref: "#/components/schemas/Waardelijst"
     Overlijden:
       type: "object"
@@ -1349,7 +1398,7 @@ components:
       required:
       - "datumOverlijden"
       properties:
-        datumOverlijden:
+        datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
     Kadasterstuk:
       allOf:
@@ -1397,6 +1446,7 @@ components:
             description: ""
           tijdstipOndertekening:
             type: "string"
+            format: "date-time"
             title: "tijdstipOndertekening"
             description: ""
           aard:
@@ -1461,31 +1511,14 @@ components:
       - "geslachtsnaam"
       - "standplaats"
       - "voornamen"
-      properties:
-        geslachtsnaam:
-          type: "string"
-          title: "geslachtsnaam"
-          description: "De naamgegevens van een natuurlijk persoon, met uitzondering\
-            \ van de voornamen en eventuele voorvoegsels."
-          minLength: 1
-        standplaats:
-          type: "string"
-          title: "standplaats"
-          description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
-          minLength: 1
-        voornamen:
-          type: "string"
-          title: "voornamen"
-          description: "De verzameling van een of meer naamgegevens, ter onderscheiding\
-            \ van personen met dezelfde achternaam, (rechtens) aan een persoon gegeven\
-            \ of -indien hiervan sprake is- door hem gekozen."
-          minLength: 1
-        voorvoegsels:
-          type: "string"
-          title: "voorvoegsels"
-          description: "De verzameling van een of meer voorzetsels en/of lidwoorden\
-            \ die aan de geslachtsnaam vooraf gaat en daarmee de gezamenlijk de achternaam\
-            \ vormt."
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        -  properties:
+            standplaats:
+              type: "string"
+              title: "standplaats"
+              description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
+              minLength: 1
     Ondertekenaar:
       type: "object"
       description: "Een ondertekenaar is een persoon die bevoegd is een akte op te\
@@ -1494,31 +1527,14 @@ components:
       - "geslachtsnaam"
       - "standplaats"
       - "voornamen"
-      properties:
-        geslachtsnaam:
-          type: "string"
-          title: "geslachtsnaam"
-          description: "De naamgegevens van een natuurlijk persoon, met uitzondering\
-            \ van de voornamen en eventuele voorvoegsels."
-          minLength: 1
-        standplaats:
-          type: "string"
-          title: "standplaats"
-          description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
-          minLength: 1
-        voornamen:
-          type: "string"
-          title: "voornamen"
-          description: "De verzameling van een of meer naamgegevens, ter onderscheiding\
-            \ van personen met dezelfde achternaam, (rechtens) aan een persoon gegeven\
-            \ of -indien hiervan sprake is- door hem gekozen."
-          minLength: 1
-        voorvoegsels:
-          type: "string"
-          title: "voorvoegsels"
-          description: "De verzameling van een of meer voorzetsels en/of lidwoorden\
-            \ die aan de geslachtsnaam vooraf gaat en daarmee de gezamenlijk de achternaam\
-            \ vormt."
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - properties:
+            standplaats:
+              type: "string"
+              title: "standplaats"
+              description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
+              minLength: 1
     CompositeID:
       type: "object"
       description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
@@ -1675,8 +1691,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/MetNaamOpenbaarRegister"
-        _embedded:
-          $ref: "#/components/schemas/Persoon_embedded"
     Objectlocatie:
       allOf:
       - $ref: "#/components/schemas/Adreslocatie"
@@ -1756,33 +1770,33 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betreftkadastraalobject:
+        betreftKadastraalObject:
           title: "betreftkadastraalobject"
           type: "array"
           description: ""
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekening:
+        aantekeningen:
           title: ""
           type: "array"
           description: ""
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bagadressen:
+        bagAdressen:
           title: "betreft"
           type: "array"
           description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkgerechtigden:
+        zakelijkGerechtigden:
           title: "heeft"
           type: "array"
           description: ""
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietbagadressen:
+        nietBagAdressen:
           title: "betreft"
           type: "array"
           description: ""
@@ -1806,56 +1820,18 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        aantekeningen:
+          title: ""
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        persoon:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Aantekening_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Tenaamstelling_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        ingeschrevenPersonen:
-          title: "tennamevan"
-          type: "object"
-          description: ""
-          properties:
-            href:
-             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekening:
-          title: "tennamevan"
-          type: "object"
-          description: ""
-          properties:
-            href:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietIngeschrevenPersonen:
-          title: "tennamevan"
-          type: "object"
-          description: ""
-          properties:
-            href:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        ingeschrevenRechtspersoon:
-          title: "tennamevan"
-          type: "object"
-          description: ""
-          properties:
-            href:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietIngeschrevenRechtspersoon:
-          title: "tennamevan"
-          type: "object"
-          description: ""
-          properties:
-            href:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Tenaamstelling_embedded:
-      type: "object"
-      properties:
-        aantekening:
-          $ref: "#/components/schemas/Aantekening"
     Persoon_embedded:
       type: "object"
       properties:
@@ -1902,9 +1878,9 @@ components:
         \ vrouw is, of dat het geslacht (nog) onbekend is:\n* `M` - Man\n* `V` - Vrouw\n\
         * `O` - Onbekend"
       enum:
-      - "M"
-      - "V"
-      - "O"
+      - "man"
+      - "vrouw"
+      - "onbekend"
     Bedrag:
       type: "object"
       description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
