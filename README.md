@@ -21,7 +21,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 ## Contactpersonen:
 * Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl 
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
-* Scrum Master: Jan Willem Kooi jan.willem.kooi@sltn.nl
+* Scrum Master: Jan Willem Kooi JanWillem.Kooi@vng.nl
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2018
