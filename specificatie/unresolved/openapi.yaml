@@ -7,7 +7,7 @@ servers:
 info:
   title: Kadastraal onroerende zaken
   description: "Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
-  version: "1.0.0"
+  version: "1.0.1"
   contact:
     name: VNGRealisatie Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -1320,8 +1320,12 @@ components:
       type: object
       properties:
         typeGerechtigde:
-            type: "string"
-            description: "Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen met AardzakelijkRecht"
+          type: "string"
+          description: "Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen met AardzakelijkRecht"
+        aanvangsdatum:
+          type: "string"
+          description: "Datum waarop het zakelijk recht van kracht is geworden. "
+          format: "date"
         erfpachtCanon:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstellingen:
