@@ -1823,15 +1823,6 @@ paths:
         onroerende zaak horen of bij de bijbehorende tenaamstellings is. '
       operationId: GetPrivaatrechtelijkeBeperkingen
       parameters:
-      - name: page
-        in: query
-        description: Een pagina binnen de gepagineerde resultatenset.
-        required: false
-        style: form
-        explode: true
-        schema:
-          minimum: 1
-          type: integer
       - name: kadastraalobjectidentificatie
         in: path
         description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
@@ -5105,6 +5096,8 @@ components:
       type: object
       properties:
         self:
+          $ref: '#/components/schemas/HalLink'
+        stukken:
           $ref: '#/components/schemas/HalLink'
     Persoon_embedded:
       type: object
