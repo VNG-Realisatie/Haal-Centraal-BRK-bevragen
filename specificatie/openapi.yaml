@@ -4484,6 +4484,10 @@ components:
           type: string
           description: Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen
             met AardzakelijkRecht
+        aanvangsdatum:
+          type: string
+          description: 'Datum waarop het zakelijk recht van kracht is geworden. '
+          format: date
         erfpachtCanon:
           $ref: '#/components/schemas/ErfpachtCanon'
         tenaamstellingen:
