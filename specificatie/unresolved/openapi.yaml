@@ -1,0 +1,2013 @@
+openapi: 3.0.0
+servers:
+  - description: "SwaggerHub API Auto Mocking"
+    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken
+  - description: "Referentie-implementatie"
+    url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken
+info:
+  title: Kadastraal onroerende zaken
+  description: "Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
+  version: "1.0.0"
+  contact:
+    name: VNGRealisatie Haal Centraal BRK-Bevragen
+    url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
+  license:
+    name: European Union Public License, version 1.2 (EUPL-1.2)
+    url: https://eupl.eu/1.2/nl/
+paths:
+  /kadastraalonroerendezaken:
+    get:
+      operationId: GetKadastraalOnroerendeZaken
+      description: "Het ophalen van een verzameling Kadastraal Onroerende Zaken. "
+      parameters: 
+        - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: kadastraleaanduiding
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: burgerservicenummer
+          description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+        - in: query
+          name: kadastraleidentificatie
+          description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: typegerechtigde
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Kadastraal Onroerende Zaken
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}:
+    get:
+      operationId: GetKadastraalOnroerendeZaak
+      description: "Het ophalen van een Kadastraal Onroerende zaak."
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Kadastraal Onroerende Zaken
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
+    get:
+      operationId: GetZakelijkGerechtigden
+      description: "Het ophalen van een de zakelijke gerechtigden behorende bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: typegerechtigde
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Zakelijke Gerechtigden
+  /nietingeschrevenpersonen/{identificatie}:
+    get:
+      operationId: GetNietIngeschrevenPersoon
+      description: "Het ophalen van een bij het Kadaster geregistreerd Persoon, niet zijnde een ingeschreven persoon."
+      parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - in: path
+          name: identificatie
+          description: ""
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/NietIngeschrevenPersoonHal'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Niet Ingeschreven (Rechts)Personen
+  /nietingeschrevenrechtspersonen/{identificatie}:
+    get:
+      operationId: GetNietIngeschrevenRechtspersoon
+      description: "Het ophalen van een bij het Kadaster geregistreerd Persoon, niet zijnde een ingeschreven persoon."
+      parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - in: path
+          name: identificatie
+          description: ""
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/NietIngeschrevenRechtspersoonHal'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Niet Ingeschreven (Rechts)Personen
+  /stukken/{identificatie}:
+    get:
+      operationId: Getstuk
+      description: "In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. De rechtsfeiten zijn gestructureerd vastglegd in stukdelen en deze stukdelen verwijzen naar de akte. Het is dus mogelijk om met verschillende stukdeel-identificaties dezelfde akte op te vragen. Daarnaast zijn er twee typen aktes die geretourneerd kunnen worden. Een aangeboden stuk of een kadasterstuk."
+      parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - in: path
+          name: identificatie
+          description: ""
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/AangebodenStukHal'
+                - $ref: '#/components/schemas/KadasterStukHal'
+                discriminator:
+                  propertyName: Stuktype
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Aangeboden Stukken (Akte) 
+  /privaatrechtelijkebeperkingen/{kadastraalobjectidentificatie}:
+    get:
+      operationId: GetPrivaatrechtelijkeBeperkingen
+      description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen of bij de bijbehorende tenaamstellings is. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/AantekeningHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Privaatrechtelijke Beperkingen
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/aantekeningen:
+    get:
+      operationId: GetAantekeningenKadastraalonroerendezaak
+      description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/AantekeningHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Aantekeningen
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/aantekeningen/{identificatie}:
+    get:
+      operationId: GetAantekeningKadastraalonroerendezaak
+      description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - in: path
+          name: identificatie
+          description: "Identificatie van een aantekening."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/AantekeningHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Aantekeningen
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie}/aantekeningen:
+    get:
+      operationId: GetAantekeningenZakelijkgerechtigden
+      description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+        - in: path
+          name: identificatie
+          description: "Identificatie van de zakelijk gerechtigde"
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/AantekeningHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Zakelijke Gerechtigden
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/hypotheken:
+    get:
+      operationId: GetHypothekenKadastraalOnroerendeZaak
+      description: "Het ophalen van hypotheken en hypotheeknemers van een specifieke kadastraal onroerende zaak."
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/HypotheekHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Hypotheken
+  /hypotheken:
+    get:
+      operationId: GetHypotheken
+      description: "Het ophalen van hypotheken van een specifieke geldverstrekker."
+      parameters: 
+        - in: query
+          name: burgerservicenummer
+          description: "Het burgerservicenummer van de ingeschreven persoon."
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+        - in: query
+          name: kadastraleidentificatie
+          description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: type
+          description: "Het type betrokkene waarvan de hypotheken worden opgevraagd. Bij een hypotheek is er sprake van een 'Geldverstrekker' en er is sprake van een 'Onderpandgever'  "
+          required: true
+          schema: 
+            type: string
+            maxLength: 15
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/HypotheekHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Hypotheken
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
+    get:
+      operationId: GetBeslagenKadastraalOnroerendeZaak
+      description: "Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal Onroerende Zaak. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/BeslagHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Beslagen
+  /beslagen:
+    get:
+      operationId: GetBeslagen
+      description: "Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd."
+      parameters: 
+        - in: query
+          name: burgerservicenummer
+          description: "Het burgerservicenummer van de ingeschreven persoon."
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+        - in: query
+          name: kadastraleidentificatie
+          description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
+          required: false
+          schema:
+            type: string
+            maxLength: 16
+        - in: query
+          name: type
+          description: "Het type betrokkene die beslag heeft gelegd op een Kadastraal Onroerende Zaak."
+          required: true
+          schema: 
+            type: string
+            maxLength: 15
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/BeslagHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Beslagen
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/kadastralegrenzen:
+    get:
+      operationId: GetKadatraleGrenzeKadastraalOnroerendeZaak
+      description: "Het ophalen van kadastraleGrenzen en de daarbijbehorende verwijzing naar de aangrenzende percelen van een specifieke Kadastraal Onroerende Zaak. "
+      parameters: 
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+            maxLength: 16
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/KadastraleGrensHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+      tags: 
+      - Aangrenzende Percelen
+components:
+  schemas:
+    Aantekening: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aardAantekening:
+          $ref: "#/components/schemas/Waardelijst"
+        omschrijving:
+          type: "string"
+        begrenzing: 
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        begrenzingDienendErf:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        begernzingHeersendErf:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        einddatum: 
+          type: "string"
+          format: "date"
+        eindatumRecht:
+          type: "string"
+          format: "date"
+        indicatieOorspronkelijkObject:
+          type: "boolean"
+        naamKavelruil:
+          type: "string"
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+    AantekeningHal:
+      allOf:
+      - $ref: "#/components/schemas/Aantekening"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/Aantekening_links"
+    AantekeningHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            aantekeningen:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/AantekeningHal"
+    Beslag: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht: 
+          $ref: "#/components/schemas/Waardelijst"
+        toelichtingBewaarder:
+          type: "string"
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+    BeslagHal:
+      allOf:
+      - $ref: "#/components/schemas/Beslag"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/Beslag_links"
+    BeslagHalCollectie: 
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            beslagen:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/BeslagHal"
+    Hypotheek: 
+      type: "object"
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht: 
+          $ref: "#/components/schemas/Waardelijst"
+        toelichtingBewaarder:
+          type: "string"
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+    HypotheekHal:
+      allOf:
+      - $ref: "#/components/schemas/Hypotheek"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/Hypotheek_links"
+    HypotheekHalCollectie: 
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            hypotheken:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/HypotheekHal"
+    KadastraalOnroerendeZaak:
+      type: "object"
+      description: "URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak\
+        \ URL http://tax.kadaster.nl/id/begrip/Appartementsrecht"
+      properties:
+        kadastraalObjectIdentificatie:
+          description: "Dit is de unieke identificatie van een kadastraal object. "
+          type: "string" 
+        begrenzingPerceel:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        omschrijvingOnderzoekErfdienstbaarheden:
+          type: "string"
+          title: "omschrijvingOnderzoekErfdienstbaarheden"
+          description: ""
+        perceelnummerRotatie:
+          type: "number"
+          title: "perceelnummerRotatie"
+          description: ""
+          maximum: 999
+        plaatscoordinaten:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        koopsom:
+          $ref: "#/components/schemas/TypeKoopsom"
+        toelichtingBewaarder:
+          type: "string"
+          title: "toelichtingBewaarder"
+          description: ""
+        onderzoekErfdienstbaarheden:
+          type: "object"
+          properties:
+            toestandsdatum:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+            omschrijving:
+              type: "string"
+              title: "omschrijvingOnderzoekErfdienstbaarheden"
+              description: ""
+        typeKadastraalOnroerendeZaak:
+          $ref: "#/components/schemas/TypeKadastraalOnroerendeZaak_enum"
+        aardCultuurBebouwd:
+          $ref: "#/components/schemas/Waardelijst"
+        aardCultuurOnbebouwd:
+          $ref: "#/components/schemas/Waardelijst"
+        kadastraleAanduiding:
+          $ref: "#/components/schemas/TypeKadastraleAanduiding"
+        kadastraleGrootte:
+          $ref: "#/components/schemas/TypeOppervlak"
+        perceelnummerVerschuiving:
+          $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
+    KadastraalOnroerendeZaakHal:
+      allOf:
+      - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaak_links"
+          _embedded:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaak_embedded"
+    KadastraalOnroerendeZaakHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            kadastraalOnroerendeZaken:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
+    KadastraleGrens:
+      type: "object"
+      description: "--Definitie--\
+      \ uri http://tax.kadaster.nl/id/begrip/Kadastrale_grens\
+      \ --Toelichting--\
+      \ In de praktijk kent Kadastrale grens nu twee betekenissen:\
+      \ De grens zoals vastgesteld in het terrein, de terrein grens.\ 
+      \ (vaststelling o.b.v. de aanwijs van partijen aan beide zijde van de\
+      \ betreffende grens en vastgelegd door het Kadaster). De terreingrens is\
+      \ opgenomen in de terrestrische registratie van het Kadaster.\
+      \ De visualisatie van deze grens op de kadastrale kaart. De kaartgrens.\
+      \ Deze kan mogelijk 'verschoven' liggen door het inpassen van deze\
+      \ terreingrens in het 'overall' kaartbeeld. De kadastrale grens in deze\
+      \ betekenis vormt een indicatief gegeven over de ligging van de grens \
+      \ t.o.v. de topografie, d.w.z. van de in het terrein visueel waarneembare\
+      \ 'objecten' als huizen, straten, sloten, etc. \
+      \  Met het begrip 'Kadastrale grens' in relatie tot de BRK bedoelen we de\
+      \ kaartgrens. De terreingrens uit de 'terrestrische registratie' vormt de\
+      \ basis voor de kaartgrens. Bij juridische geschillen wordt echter de\
+      \ terreingrens uitgezet."
+      properties:
+        identificatie: 
+          $ref: "#/components/schemas/CompositeID"
+        grenslijn:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+        type:
+          $ref: "#/components/schemas/Waardelijst"
+    KadastraleGrensHal:
+      allOf:
+      - $ref: "#/components/schemas/KadastraleGrens"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/KadastraleGrens_links"
+    KadastraleGrensHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            kadastraleGrenzen:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/KadastraleGrensHal"
+    NietIngeschrevenPersoon:
+      allOf:
+      - $ref: "#/components/schemas/Persoon"
+      - description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
+          \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
+          \ ingezetene."
+        properties:
+          indicatieGeheim:
+            type: "boolean"
+            title: "indicatieGeheim"
+            description: "indicatieGeheim is een aanduiding die aangeeft dat gegevens\
+              \ van een persoon wel of niet verstrekt mogen worden."
+          landWaarnaarVertrokken:
+            $ref: "#/components/schemas/Waardelijst"
+          geslacht:
+            $ref: "#/components/schemas/Geslacht_enum"
+          heeftPartnerschap:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/HeeftPartnerschap"
+          naam:
+            $ref: "#/components/schemas/Naam"
+          geboorte:
+            $ref: "#/components/schemas/Geboorte"
+          overlijden:
+            $ref: "#/components/schemas/Overlijden"
+    NietIngeschrevenPersoonHal:
+      allOf:
+      - $ref: "#/components/schemas/NietIngeschrevenPersoon"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/NietIngeschrevenPersoon_links"
+          _embedded:
+            $ref: "#/components/schemas/Persoon_embedded"
+    NietIngeschrevenRechtspersoon:
+      allOf:
+      - $ref: "#/components/schemas/Persoon"
+      - description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
+        properties:
+          statutaireNaam:
+            type: "string"
+            title: "statutaireNaam"
+            description: ""
+            minLength: 1
+          statutaireZetel:
+            type: "string"
+            title: "statutaireZetel"
+            description: ""
+          rechtsvorm:
+            $ref: "#/components/schemas/Waardelijst"
+    NietIngeschrevenRechtspersoonHal:
+      allOf:
+      - $ref: "#/components/schemas/NietIngeschrevenRechtspersoon"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/NietIngeschrevenRechtspersoon_links"
+          _embedded:
+            $ref: "#/components/schemas/Persoon_embedded"
+    Hypotheek_links:
+      type: "object"
+      properties:
+        aantekening:
+          title: ""
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        geldverstrekker:
+          title: "isGeldverstrekker"
+          type: "object"
+          description: ""
+          properties:
+            href:
+             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          title: ""
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
+          title: "isOnderpandgever"
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Beslag_links:
+      type: "object"
+      properties:
+        aantekening:
+          title: ""
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        beslaglegger:
+          title: "isBeslaglegger"
+          type: "object"
+          description: ""
+          properties:
+            href:
+             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          title: ""
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
+          title: "rustOp"
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    TypeKoopsom:
+      type: "object"
+      properties:
+        koopsom:
+          type: "integer"
+        koopjaar:
+          type: "integer"
+        indicatieMetMeerObjectenVerkregen:
+          type: "boolean"
+    ErfpachtCanon:
+      type: "object"
+      properties:
+        soortErfpachtCanon:
+          $ref: "#/components/schemas/Waardelijst"
+        jaarlijksBedrag:
+          $ref: "#/components/schemas/Bedrag"
+        betrefMeerOnroerendeZaken:
+          type: "boolean"
+        einddatumAfkoop:
+          type: "string"
+          format: "date"
+        indicatieOudeOnroerendeZaakBetrokken:
+          type: "boolean"
+    ZakelijkGerechtigde:
+      type: object
+      properties:
+        typeGerechtigde:
+          type: "string"
+          description: "Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen met AardzakelijkRecht"
+        aanvangsdatum:
+          type: "string"
+          description: "Datum waarop het zakelijk recht van kracht is geworden. "
+          format: "date"
+        erfpachtCanon:
+          $ref: "#/components/schemas/ErfpachtCanon"
+        tenaamstellingen:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/Tenaamstelling"
+    ZakelijkGerechtigdeHal:
+      allOf:
+      - $ref: "#/components/schemas/ZakelijkGerechtigde"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/ZakelijkGerechtigde_links"
+    ZakelijkGerechtigdeHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            zakelijkGerechtigden:
+              type: "array"
+              items: 
+                $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+    Tenaamstelling:
+      type: object
+      properties:
+        aandeel:
+          $ref: "#/components/schemas/TypeBreuk"
+        burgerlijkeStaatTenTijdeVanVerkrijging: 
+          $ref: "#/components/schemas/Waardelijst"
+        verkregenNamensSamenwerkingsverband:
+           $ref: "#/components/schemas/Waardelijst"
+        aantekening: 
+          $ref: "#/components/schemas/Aantekening"
+        gezamenlijkAandeel:
+          $ref: "#/components/schemas/TypeBreuk"
+        persoon:
+          oneOf:
+          - $ref: "#/components/schemas/PersoonCompact"
+          - $ref: "#/components/schemas/RechtspersoonCompact"
+          discriminator:
+            propertyName: Persoonstype
+    PersoonCompact:
+      type: object
+      properties:
+        naam: 
+          description: ""
+          type: string
+        geboortedatum:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+    RechtspersoonCompact:
+      properties:
+        actueleStatutaireNaam: 
+          description: ""
+          type: string
+    Objectlocatiebuitenland:
+      allOf:
+      - $ref: "#/components/schemas/Objectlocatie"
+      - description: "Een objectlocatiebuitenland is een adres buiten Nederland."
+        properties:
+          adres:
+            type: "string"
+            title: "adres"
+            description: "Het adres is een combinatie van de straat en huisnummer."
+          regio:
+            type: "string"
+            title: "regio"
+            description: ""
+          woonplaats:
+            type: "string"
+            title: "woonplaats"
+            description: "Woonplaats is De postcode/woonplaats is de combinatie van\
+              \ een eventuele postcode en woonplaats."
+          land:
+            $ref: "#/components/schemas/Waardelijst"
+          _links:
+            $ref: "#/components/schemas/Objectlocatiebuitenland_links"
+    ObjectlocatieBinnenland:
+      allOf:
+      - $ref: "#/components/schemas/Objectlocatie"
+      - description: "Een ObjectlocatieBinnenland is een adres binnen nederland."
+        properties:
+          huisletter:
+            type: "string"
+            title: "huisletter"
+            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter\
+              \ [a-zA-Z]"
+          huisnummer:
+            type: "integer"
+            title: "huisnummer"
+            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer\
+              \ [1-9][0-9]{0,4}"
+          huisnummerToevoeging:
+            type: "string"
+            title: "huisnummertoevoeging"
+            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging\
+              \ ([a-z,A-Z,0-9])+"
+          inOnderzoek:
+            type: "boolean"
+            title: "inOnderzoek"
+            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/InOnderzoek"
+          openbareruimtenaam:
+            type: "string"
+            title: "openbareRuimteNaam"
+            description: ""
+            minLength: 1
+          postcode:
+            type: "string"
+            title: "postcode"
+            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Postcode\
+              \ [1-9][0-9][0-9][0-9][A-Z][A-Z]"
+          woonplaatsnaam:
+            type: "string"
+            title: "woonplaatsNaam"
+            description: ""
+            minLength: 1
+          _links:
+            $ref: "#/components/schemas/ObjectlocatieBinnenland_links"
+    MetNaamOpenbaarRegister:
+      type: "object"
+      description: "NaamOpenbaarRegister is gegevensgroep waarin, indien van toepassing,\
+        \ een afwijkende schrijfwijze van de naam van een persoon volgens het openbare\
+        \ register van het Kadaster wordt vastgelegd."
+      properties:
+        naam:
+          type: "string"
+          title: "naam"
+          description: ""
+          maxLength: 320
+          minLength: 1
+    Postbuslocatie:
+      type: "object"
+      description: "Een PostbusLocatie is een aanduiding van de locatie van een postbus."
+      properties:
+        postbusnummer:
+          type: "integer"
+          title: "postbusnummer"
+          description: "N7"
+        postcode:
+          type: "string"
+          title: "postcode"
+          description: "[1-9]{1}[0-9]{3}[A-Z]{2}"
+          pattern: "^[1-9]{1}[0-9]{3}[A-Z]{2}$"
+          maxLength: 6
+        woonplaatsnaam:
+          type: "string"
+          title: "woonplaatsNaam"
+          description: ""
+        identificatie:
+          $ref: "#/components/schemas/CompositeID"
+        _links:
+          $ref: "#/components/schemas/Postbuslocatie_links"
+    HeeftPartnerschap:
+      type: "object"
+      description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
+        \ van een persoon."
+      properties:
+        datumOntbinding:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+        datumSluiting:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+        naam:
+          $ref: "#/components/schemas/Naam"
+    Naam:
+      type: "object"
+      description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en\
+        \ voornamen die men wil gebruiken bij aanschrijving."
+      properties:
+        geslachtsnaam:
+          type: "string"
+          title: "geslachtsnaam"
+          description: "De geslachtsnaam is de (geslachts)naam waarvan de eventueel\
+            \ aanwezige voorvoegsels en adellijke titel zijn afgesplitst."
+          minLength: 1
+        voornamen:
+          type: "string"
+          title: "voornamen"
+          description: "De voornamen zijn de verzameling namen die, gescheiden door\
+            \ spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het\
+            \ predikaat afgesplitst."
+        voorvoegselsgeslachtsnaam:
+          type: "string"
+          title: "voorvoegselsgeslachtsnaam"
+          description: "Voorvoegselsgeslachtsnaam zijn dat deel van de geslachtsnaam\
+            \ dat voorkomt in Tabel 36, Voorvoegseltabel en, gescheiden door een spatie,\
+            \ vooraf gaat aan de rest van de geslachtsnaam."
+    Geboorte:
+      type: "object"
+      description: "Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon."
+      properties:
+        plaats:
+          type: "string"
+          title: "geboorteplaats"
+          description: "De geboorteplaats is de plaats of een plaatsbepaling, die\
+            \ aangeeft waar de persoon is geboren"
+        datum:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+        land:
+          $ref: "#/components/schemas/Waardelijst"
+    Overlijden:
+      type: "object"
+      description: "Overlijden is een groep gegevens over het overlijden van een persoon."
+      properties:
+        datum:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+    KadasterStuk:
+      allOf:
+      - $ref: "#/components/schemas/Stuk"
+      - description: "URI https://tax.kadaster.nl/doc/begrip/KadasterStuk"
+        properties:
+          indicatieCorrectie:
+            type: "boolean"
+            title: "indicatieCorrectie"
+            description: ""
+          acgIdentificatie:
+            $ref: "#/components/schemas/AcgID"
+          identificatie:
+            $ref: "#/components/schemas/CompositeID"
+    KadasterStukHal:
+      allOf:
+      - $ref: "#/components/schemas/KadasterStuk"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/KadasterStuk_links"
+    AangebodenStuk:
+      allOf:
+      - $ref: "#/components/schemas/Stuk"
+      - description: "URI https://tax.kadaster.nl/doc/begrip/Ter_inschrijving_aangeboden_stuk"
+        properties:
+          bewaardersVerklaring:
+            type: "string"
+            title: "bewaardersverklaring"
+            description: ""
+          tekeningIngeschreven:
+            type: "boolean"
+            title: "tekeningIngeschreven"
+            description: "Er is sprake van een appartementstekening (splitsingstekening\
+              \ van appartementen) als bijlage bij het stuk."
+          tijdstipAanbieding:
+            type: "string"
+            title: "tijdstipAanbieding"
+            format: "date-time"
+            description: ""
+          tijdstipOndertekening:
+            type: "string"
+            format: "date-time"
+            title: "tijdstipOndertekening"
+            description: ""
+          aard:
+            $ref: "#/components/schemas/Waardelijst"
+          deelEnNummer:
+            $ref: "#/components/schemas/TypeDeelEnNummer"
+          identificatie:
+            $ref: "#/components/schemas/CompositeID"
+          statusStukOr:
+            $ref: "#/components/schemas/Waardelijst"
+          heeftAlsEquivalentieVerklaarder:
+            $ref: "#/components/schemas/HeeftAlsEquivalentieVerklaarder"
+          ondertekenaar:
+            $ref: "#/components/schemas/Ondertekenaar"
+    AangebodenStukHal:
+      allOf:
+      - $ref: "#/components/schemas/AangebodenStuk"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/AangebodenStuk_links"
+          _embedded:
+            $ref: "#/components/schemas/AangebodenStuk_embedded"
+    Kadasterverzoek:
+      type: "object"
+      description: "uri https://tax.kadaster.nl/doc/begrip/Kadaster_verzoek"
+      properties:
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+        identificatie:
+          $ref: "#/components/schemas/CompositeID"
+        heeftRedenVerzoek:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/HeeftRedenVerzoek"
+        _links:
+          $ref: "#/components/schemas/Kadasterverzoek_links"
+    HeeftRedenVerzoek:
+      type: "object"
+      description: "RedenVerzoek is de omschrijving van de reden om een stuk niet\
+        \ in te schrijven of om verbetering te vragen."
+      properties:
+        redenOmschrijving:
+          type: "string"
+          title: "redenOmschrijving"
+          description: "De omschrijving van de reden voor een Kadaster verzoek die\
+            \ afwijkt van de standaard redenen die bij reden kunnen worden opgegeven.\
+            \ Bij reden is voor overig gekozen."
+        reden:
+          $ref: "#/components/schemas/Waardelijst"
+    HeeftAlsEquivalentieVerklaarder:
+      type: "object"
+      description: "Een ondertekenaar is een persoon die bevoegd is een akte op te\
+        \ maken en een afschrift daarvan equivalent te verklaren."
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        -  properties:
+            standplaats:
+              type: "string"
+              title: "standplaats"
+              description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
+              minLength: 1
+    Ondertekenaar:
+      type: "object"
+      description: "Een ondertekenaar is een persoon die bevoegd is een akte op te\
+        \ maken en een afschrift daarvan equivalent te verklaren."
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - properties:
+            standplaats:
+              type: "string"
+              title: "standplaats"
+              description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
+              minLength: 1
+    CompositeID:
+      type: "object"
+      description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
+        \ unieke identificatie van een object binnen een registratie."
+      properties:
+        lokaalid:
+          type: "string"
+          title: "lokaalID"
+          description: ""
+          maxLength: 15
+          minLength: 1
+        namespace:
+          type: "string"
+          title: "namespace"
+          description: ""
+          minLength: 1
+        versie:
+          type: "string"
+          title: "versie"
+          description: ""
+    TypeKadastraleAanduiding:
+      type: "object"
+      description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende\
+        \ zaak, die door het kadaster wordt vastgesteld. Percelen worden kadastraal\
+        \ aangeduid door vermelding van achtereenvolgens de kadastrale gemeente en\
+        \ sectie, waarin de percelen en gedeelten van percelen zijn gelegen waarvan\
+        \ het grondgebied tot die zaak behoort, alsmede de nummers van die percelen.\
+        \ Voor een onroerende zaak die zich krachtens een opstalrecht op, in of boven\
+        \ de grond van een ander bevindt, geldt dezelfde kadastrale aanduiding als\
+        \ van de onroerende zaak die met dat opstalrecht is bezwaard. Dit is van overeenkomstige\
+        \ toepassing op een onroerende zaak die zich op, in of boven de grond van\
+        \ een ander bevindt krachtens een recht als bedoeld in het voor 1 januari\
+        \ 1992 geldende artikel 5, derde lid, onder b, laatste zinsnede, van de Belemmeringenwet\
+        \ Privaatrecht. Appartementsrechten worden kadastraal aangeduid door de vermelding\
+        \ van achtereenvolgens de kadastrale gemeente en sectie, waarin de in de splitsing\
+        \ betrokken percelen zijn gelegen, de complexaanduiding en de appartementsindex\
+        \ (Een oplopend volgnummer van `0001` tot `9999`). De complexaanduiding bestaat\
+        \ uit het voor de in de splitsing betrokken percelen vastgestelde complexnummer,\
+        \ gevolgd door de hoofdletter A. Onze Minister stelt regelen vast omtrent\
+        \ de vaststelling van het complexnummer. Er zijn 1111 kadastrale gemeentenamen.\
+        \ Elke kadastrale gemeentenaam is uniek."
+      properties:
+        appartementsrechtVolgnummer:
+          type: "integer"
+          title: "appartementsrechtVolgnummer"
+          description: "Nummer dat het kadastraal object uniek identificeert als een\
+            \ appartementsrecht binnen het complex."
+        kadastraleGemeente:
+          $ref: "#/components/schemas/Waardelijst"  
+        perceelnummer:
+          type: "integer"
+          title: "perceelnummer"
+          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
+            \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
+            \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
+            \ `00001` tot max `99999`"
+        sectie:
+          type: "string"
+          title: "sectie"
+          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
+            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
+            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
+            \ sectie heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ'\
+            \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
+            \ te voorkomen met `I`"
+          minLength: 1
+    TypeOppervlak:
+      type: "object"
+      description: "Oppervlakte."
+      properties:
+        soortGrootte:
+          $ref: "#/components/schemas/Waardelijst"  
+        waarde:
+          type: "integer"
+          title: "waarde"
+          description: "Oppervlak grootte, in vierkante meters. [1-9][0-9]*|0,[1-4]"
+    TypePerceelnummerVerschuiving:
+      type: "object"
+      description: "Verschuiving van het perceelnummer ten behoeve van visualisatie\
+        \ op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar\
+        \ overlappen."
+      properties:
+        deltax:
+          type: "integer"
+          title: "deltaX"
+          description: "Verschuiving op de X as."
+        deltay:
+          type: "integer"
+          title: "deltaY"
+          description: "Verschuiving op de Y as."
+    TypeBreuk:
+      type: "object"
+      description: "Een deling van twee gehele getallen"
+      properties:
+        noemer:
+          type: "integer"
+          title: "noemer"
+          description: "De noemer van het deel."
+          maximum: 99999999
+        teller:
+          type: "integer"
+          title: "teller"
+          description: "Het aantal delen. De teller is altijd lager dan de noemer."
+          maximum: 99999999
+    Waardelijst:
+      type: "object"
+      description: "Waardelijst is een samengesteld datatype voor het weergeven van\
+        \ een gegeven binnen een extern beheerde referentielijst."
+      properties:
+        code:
+          type: "string"
+          title: "code"
+          description: "De code van deze waarde. De code is uniek binnen de Waardelijst\
+            \ en taalonafhankelijk."
+          minLength: 1
+        waarde:
+          type: "string"
+          title: "waarde"
+          description: "De waarde zoals aangetroffen in de Waardelijst. het moment\
+            \ waarop de waarde geassocieerd is met de meegeleverde code is onbepaald."
+    Persoon:
+      type: "object"
+      description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
+      properties:
+        indicatieNietToonbareDiakriet:
+          type: "boolean"
+          title: "indicatieNietToonbareDiakriet"
+          description: ""
+        beschikkingsbevoegdheid:
+          $ref: "#/components/schemas/Waardelijst"
+        identificatie:
+          $ref: "#/components/schemas/CompositeID"
+        metNaamOpenbaarRegister:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/MetNaamOpenbaarRegister"
+    Objectlocatie:
+      allOf:
+      - $ref: "#/components/schemas/Adreslocatie"
+      - description: "Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland."
+    Adreslocatie:
+      type: "object"
+      description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
+      properties:
+        identificatie:
+          $ref: "#/components/schemas/CompositeID"
+    Stuk:
+      type: "object"
+      description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
+        \ waaruit een wijziging in de BRK blijkt."
+      properties:
+        toelichtingBewaarder:
+          type: "string"
+          title: "toelichtingBewaarder"
+          description: ""
+      discriminator:
+        propertyName: stukType
+    Objectlocatiebuitenland_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    ObjectlocatieBinnenland_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Postbuslocatie_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    KadasterStuk_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    AangebodenStuk_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadasterverzoeken:
+          title: "heeft"
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Kadasterverzoek_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    NietIngeschrevenRechtspersoon_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    NietIngeschrevenPersoon_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    KadastraalOnroerendeZaak_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        betreftKadastraalObject:
+          title: "betreftkadastraalobject"
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        aantekeningen:
+          title: ""
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        bagAdressen:
+          title: "betreft"
+          type: "array"
+          description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
+          title: "heeft"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        nietBagAdressen:
+          title: "betreft"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          title: ""
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadastraleGrenzen:
+          title: "KadastraleGrens"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    KadastraleGrens_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        perceelLinks:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        perceelRechts:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        aantekeningen:
+          title: ""
+          type: "array"
+          description: ""
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        bagAdressen:
+          title: "betreft"
+          type: "array"
+          description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
+          title: "heeft"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        nietBagAdressen:
+          title: "betreft"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          title: ""
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadastraleGrenzen:
+          title: "KadastraleGrens"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    ZakelijkGerechtigde_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          title: ""
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        aantekeningen:
+          title: ""
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        persoon:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Aantekening_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"        
+    Persoon_embedded:
+      type: "object"
+      properties:
+        woonlocatie_adresbuitenland:
+          $ref: "#/components/schemas/Objectlocatiebuitenland"
+        woonlocatie_adresbinnenland:
+          $ref: "#/components/schemas/ObjectlocatieBinnenland"
+        postlocatie_adresbinnenland:
+          $ref: "#/components/schemas/ObjectlocatieBinnenland"
+        postlocatie_adresbuitenland:
+          $ref: "#/components/schemas/Objectlocatiebuitenland"
+        postlocatie_postbuslocatie:
+          $ref: "#/components/schemas/Postbuslocatie"
+    AangebodenStuk_embedded:
+      type: "object"
+      properties:
+        kadasterverzoeken:
+          title: "heeft"
+          type: "array"
+          description: ""
+          items:
+            $ref: "#/components/schemas/Kadasterverzoek"
+    KadastraalOnroerendeZaak_embedded:
+      type: "object"
+      properties:
+        zakelijkGerechtigden:
+          title: "rustOp"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/ZakelijkGerechtigde"
+        aantekening:
+          $ref: "#/components/schemas/Aantekening"
+        kadstraleGrenzen:
+          title: "kadastraleGrens"
+          type: "array"
+          description: ""
+          minItems: 1
+          items:
+            $ref: "#/components/schemas/KadastraleGrens"
+    TypeKadastraalOnroerendeZaak_enum:
+      type: "string"
+      description: ":\n* `appartementsrecht` - appartementsrecht\n* `perceel` - perceel"
+      enum:
+      - "appartementsrecht"
+      - "perceel"
+    Geslacht_enum:
+      type: "string"
+      description: "Een aanduiding die aangeeft dat de ingeschrevene een man of een\
+        \ vrouw is, of dat het geslacht (nog) onbekend is:\n* `M` - Man\n* `V` - Vrouw\n\
+        * `O` - Onbekend"
+      enum:
+      - "man"
+      - "vrouw"
+      - "onbekend"
+    Bedrag:
+      type: "object"
+      description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
+      properties:
+        som:
+          type: "string"
+          title: "Het bedrag. Dit is een waarde met max. 2 decimalen."
+          description: ""
+        valuta:
+          $ref: "#/components/schemas/Waardelijst"
+    AcgID:
+      type: "object"
+      description: ""
+      properties:
+        AKRregistercode: 
+          $ref: "#/components/schemas/Waardelijst"
+        akrStukdeel1:
+          type: "string"
+        akrStukdeel2:
+          type: "string"
+        akrStukdeel3:
+          type: "string"
+        volgnummerStaat75:
+          type: "integer"
+    TypeDeelEnNummer:
+      type: "object"
+      properties: 
+        soortregister:
+          $ref: "#/components/schemas/Waardelijst"
+        registercode:
+          $ref: "#/components/schemas/Waardelijst"
+        reeks:
+          $ref: "#/components/schemas/Waardelijst"
