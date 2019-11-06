@@ -86,12 +86,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}:
@@ -147,12 +143,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
@@ -211,12 +203,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Zakelijke Gerechtigden
   /nietingeschrevenpersonen/{identificatie}:
@@ -270,12 +258,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Niet Ingeschreven (Rechts)Personen
   /nietingeschrevenrechtspersonen/{identificatie}:
@@ -329,12 +313,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Niet Ingeschreven (Rechts)Personen
   /stukken/{identificatie}:
@@ -392,12 +372,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Aangeboden Stukken (Akte) 
   /privaatrechtelijkebeperkingen/{kadastraalobjectidentificatie}:
@@ -450,12 +426,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Privaatrechtelijke Beperkingen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/aantekeningen:
@@ -508,12 +480,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Aantekeningen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/aantekeningen/{identificatie}:
@@ -573,12 +541,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Aantekeningen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie}/aantekeningen:
@@ -638,12 +602,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Zakelijke Gerechtigden
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/hypotheken:
@@ -696,12 +656,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Hypotheken
   /hypotheken:
@@ -768,12 +724,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Hypotheken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
@@ -826,12 +778,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Beslagen
   /beslagen:
@@ -898,12 +846,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Beslagen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/kadastralegrenzen:
@@ -956,12 +900,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/default"
       tags: 
       - Aangrenzende Percelen
 components:
@@ -1196,10 +1136,6 @@ components:
       - description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
           \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
           \ ingezetene."
-        required:
-        - "indicatieGeheim"
-        - "geslacht"
-        - "naam"
         properties:
           indicatieGeheim:
             type: "boolean"
@@ -1397,8 +1333,6 @@ components:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
       - description: "Een objectlocatiebuitenland is een adres buiten Nederland."
-        required:
-        - "land"
         properties:
           adres:
             type: "string"
@@ -1421,11 +1355,6 @@ components:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
       - description: "Een ObjectlocatieBinnenland is een adres binnen nederland."
-        required:
-        - "huisnummer"
-        - "inOnderzoek"
-        - "openbareruimtenaam"
-        - "woonplaatsnaam"
         properties:
           huisletter:
             type: "string"
@@ -1468,8 +1397,6 @@ components:
       description: "NaamOpenbaarRegister is gegevensgroep waarin, indien van toepassing,\
         \ een afwijkende schrijfwijze van de naam van een persoon volgens het openbare\
         \ register van het Kadaster wordt vastgelegd."
-      required:
-      - "naam"
       properties:
         naam:
           type: "string"
@@ -1480,10 +1407,6 @@ components:
     Postbuslocatie:
       type: "object"
       description: "Een PostbusLocatie is een aanduiding van de locatie van een postbus."
-      required:
-      - "postbusnummer"
-      - "postcode"
-      - "identificatie"
       properties:
         postbusnummer:
           type: "integer"
@@ -1507,9 +1430,6 @@ components:
       type: "object"
       description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
         \ van een persoon."
-      required:
-      - "datumSluiting"
-      - "naam"
       properties:
         datumOntbinding:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
@@ -1521,8 +1441,6 @@ components:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en\
         \ voornamen die men wil gebruiken bij aanschrijving."
-      required:
-      - "geslachtsnaam"
       properties:
         geslachtsnaam:
           type: "string"
@@ -1545,8 +1463,6 @@ components:
     Geboorte:
       type: "object"
       description: "Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon."
-      required:
-      - "geboorteDatum"
       properties:
         plaats:
           type: "string"
@@ -1560,8 +1476,6 @@ components:
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
-      required:
-      - "datumOverlijden"
       properties:
         datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
@@ -1569,9 +1483,6 @@ components:
       allOf:
       - $ref: "#/components/schemas/Stuk"
       - description: "URI https://tax.kadaster.nl/doc/begrip/KadasterStuk"
-        required:
-        - "indicatieCorrectie"
-        - "identificatie"
         properties:
           indicatieCorrectie:
             type: "boolean"
@@ -1634,10 +1545,6 @@ components:
     Kadasterverzoek:
       type: "object"
       description: "uri https://tax.kadaster.nl/doc/begrip/Kadaster_verzoek"
-      required:
-      - "aard"
-      - "identificatie"
-      - "heeftRedenVerzoek"
       properties:
         aard:
           $ref: "#/components/schemas/Waardelijst"
@@ -1653,8 +1560,6 @@ components:
       type: "object"
       description: "RedenVerzoek is de omschrijving van de reden om een stuk niet\
         \ in te schrijven of om verbetering te vragen."
-      required:
-      - "reden"
       properties:
         redenOmschrijving:
           type: "string"
@@ -1668,10 +1573,6 @@ components:
       type: "object"
       description: "Een ondertekenaar is een persoon die bevoegd is een akte op te\
         \ maken en een afschrift daarvan equivalent te verklaren."
-      required:
-      - "geslachtsnaam"
-      - "standplaats"
-      - "voornamen"
       allOf:
         - $ref: "#/components/schemas/Naam"
         -  properties:
@@ -1684,10 +1585,6 @@ components:
       type: "object"
       description: "Een ondertekenaar is een persoon die bevoegd is een akte op te\
         \ maken en een afschrift daarvan equivalent te verklaren."
-      required:
-      - "geslachtsnaam"
-      - "standplaats"
-      - "voornamen"
       allOf:
         - $ref: "#/components/schemas/Naam"
         - properties:
@@ -1700,9 +1597,6 @@ components:
       type: "object"
       description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
         \ unieke identificatie van een object binnen een registratie."
-      required:
-      - "lokaalid"
-      - "namespace"
       properties:
         lokaalid:
           type: "string"
@@ -1740,10 +1634,6 @@ components:
         \ gevolgd door de hoofdletter A. Onze Minister stelt regelen vast omtrent\
         \ de vaststelling van het complexnummer. Er zijn 1111 kadastrale gemeentenamen.\
         \ Elke kadastrale gemeentenaam is uniek."
-      required:
-      - "kadastraleGemeente"
-      - "perceelnummer"
-      - "sectie"
       properties:
         appartementsrechtVolgnummer:
           type: "integer"
@@ -1772,9 +1662,6 @@ components:
     TypeOppervlak:
       type: "object"
       description: "Oppervlakte."
-      required:
-      - "soortGrootte"
-      - "waarde"
       properties:
         soortGrootte:
           $ref: "#/components/schemas/Waardelijst"  
@@ -1787,9 +1674,6 @@ components:
       description: "Verschuiving van het perceelnummer ten behoeve van visualisatie\
         \ op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar\
         \ overlappen."
-      required:
-      - "deltax"
-      - "deltay"
       properties:
         deltax:
           type: "integer"
@@ -1802,9 +1686,6 @@ components:
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
-      required:
-      - "noemer"
-      - "teller"
       properties:
         noemer:
           type: "integer"
@@ -1820,8 +1701,6 @@ components:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
         \ een gegeven binnen een extern beheerde referentielijst."
-      required:
-      - "code"
       properties:
         code:
           type: "string"
@@ -1837,8 +1716,6 @@ components:
     Persoon:
       type: "object"
       description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
-      required:
-      - "identificatie"
       properties:
         indicatieNietToonbareDiakriet:
           type: "boolean"
@@ -1859,8 +1736,6 @@ components:
     Adreslocatie:
       type: "object"
       description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
-      required:
-      - "identificatie"
       properties:
         identificatie:
           $ref: "#/components/schemas/CompositeID"
@@ -1873,6 +1748,8 @@ components:
           type: "string"
           title: "toelichtingBewaarder"
           description: ""
+      discriminator:
+        propertyName: stukType
     Objectlocatiebuitenland_links:
       type: "object"
       properties:
