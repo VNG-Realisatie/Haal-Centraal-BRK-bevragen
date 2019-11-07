@@ -46,7 +46,7 @@ paths:
             maxLength: 16
         - in: query
           name: typeGerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde "eigenaar" ondersteund.De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde eigenaar ondersteund.De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
           required: false
           schema:
             type: integer
@@ -319,7 +319,7 @@ paths:
       - Niet Ingeschreven (Rechts)Personen
   /stukken/{identificatie}:
     get:
-      operationId: Getstuk
+      operationId: GetStuk
       description: "In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. De rechtsfeiten zijn gestructureerd vastglegd in stukdelen en deze stukdelen verwijzen naar de akte. Het is dus mogelijk om met verschillende stukdeel-identificaties dezelfde akte op te vragen. Daarnaast zijn er twee typen aktes die geretourneerd kunnen worden. Een aangeboden stuk of een kadasterstuk."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
@@ -347,11 +347,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                oneOf:
-                - $ref: '#/components/schemas/AangebodenStukHal'
-                - $ref: '#/components/schemas/KadasterStukHal'
-                discriminator:
-                  propertyName: Stuktype
+                $ref: '#/components/schemas/Stuk'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -882,24 +878,6 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         type:
           $ref: "#/components/schemas/Waardelijst"
-    KadastraleGrensHal:
-      allOf:
-      - $ref: "#/components/schemas/KadastraleGrens"
-      - properties:
-          _links:
-            $ref: "#/components/schemas/KadastraleGrens_links"
-    KadastraleGrensHalCollectie:
-      type: "object"
-      properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          type: "object"
-          properties:
-            kadastraleGrenzen:
-              type: "array"
-              items: 
-                $ref: "#/components/schemas/KadastraleGrensHal"
     NietIngeschrevenPersoon:
       allOf:
       - $ref: "#/components/schemas/Persoon"
@@ -1512,7 +1490,7 @@ components:
     Stuk:
       type: "object"
       description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
-        \ waaruit een wijziging in de BRK blijkt."
+        \ waaruit een wijziging in de BRK blijkt. Hier wordt een Kadasterstuk of een Aangebodenstuk aan gekoppeld. De OneOf levert hier genreer-problemen op en is dus niet opgenomen in deze YAML. Als deze genereer-problemen opgelost zijn wordt dit herzien. "
       properties:
         toelichtingBewaarder:
           type: "string"
