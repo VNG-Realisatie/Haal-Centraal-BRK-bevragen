@@ -673,7 +673,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraleidentificatie
+          name: kadastraalPersoonIdentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
@@ -795,7 +795,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraleidentificatie
+          name: kadastraalPersoonIdentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
