@@ -1,15 +1,13 @@
 openapi: 3.0.0
 servers:
-  - description: "SwaggerHub API Auto Mocking"
-    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken
-  - description: "Referentie-implementatie"
-    url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken
+  - description: "BRK bevragen Kadastraal Onroerende Zaak"
+    url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
 info:
   title: Kadastraal onroerende zaken
-  description: "Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
+  description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
   version: "1.0.0"
   contact:
-    name: VNGRealisatie Haal Centraal BRK-Bevragen
+    name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
