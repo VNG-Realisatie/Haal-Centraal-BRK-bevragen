@@ -1,15 +1,13 @@
 openapi: 3.0.0
 servers:
-  - description: "SwaggerHub API Auto Mocking"
-    url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken
-  - description: "Referentie-implementatie"
-    url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken
+  - description: "Brk-bevragen KadastraalOnroerende Zaak"
+    url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
 info:
   title: Kadastraal onroerende zaken
-  description: "Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
+  description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
   version: "1.0.0"
   contact:
-    name: VNGRealisatie Haal Centraal BRK-Bevragen
+    name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
@@ -851,33 +849,6 @@ components:
               type: "array"
               items: 
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
-    KadastraleGrens:
-      type: "object"
-      description: "--Definitie--\
-      \ uri http://tax.kadaster.nl/id/begrip/Kadastrale_grens\
-      \ --Toelichting--\
-      \ In de praktijk kent Kadastrale grens nu twee betekenissen:\
-      \ De grens zoals vastgesteld in het terrein, de terrein grens.\ 
-      \ (vaststelling o.b.v. de aanwijs van partijen aan beide zijde van de\
-      \ betreffende grens en vastgelegd door het Kadaster). De terreingrens is\
-      \ opgenomen in de terrestrische registratie van het Kadaster.\
-      \ De visualisatie van deze grens op de kadastrale kaart. De kaartgrens.\
-      \ Deze kan mogelijk 'verschoven' liggen door het inpassen van deze\
-      \ terreingrens in het 'overall' kaartbeeld. De kadastrale grens in deze\
-      \ betekenis vormt een indicatief gegeven over de ligging van de grens \
-      \ t.o.v. de topografie, d.w.z. van de in het terrein visueel waarneembare\
-      \ 'objecten' als huizen, straten, sloten, etc. \
-      \  Met het begrip 'Kadastrale grens' in relatie tot de BRK bedoelen we de\
-      \ kaartgrens. De terreingrens uit de 'terrestrische registratie' vormt de\
-      \ basis voor de kaartgrens. Bij juridische geschillen wordt echter de\
-      \ terreingrens uitgezet."
-      properties:
-        identificatie: 
-          $ref: "#/components/schemas/CompositeID"
-        grenslijn:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
-        type:
-          $ref: "#/components/schemas/Waardelijst"
     NietIngeschrevenPersoon:
       allOf:
       - $ref: "#/components/schemas/Persoon"
@@ -1589,63 +1560,6 @@ components:
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadastraleGrenzen:
-          title: "KadastraleGrens"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadastraleGrens_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        perceelLinks:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        perceelRechts:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekeningen:
-          title: ""
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bagAdressen:
-          title: "betreft"
-          type: "array"
-          description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigden:
-          title: "heeft"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietBagAdressen:
-          title: "betreft"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukken:
-          title: ""
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadastraleGrenzen:
-          title: "KadastraleGrens"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_links:
       type: "object"
       properties:
@@ -1704,13 +1618,6 @@ components:
             $ref: "#/components/schemas/ZakelijkGerechtigde"
         aantekening:
           $ref: "#/components/schemas/Aantekening"
-        kadstraleGrenzen:
-          title: "kadastraleGrens"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "#/components/schemas/KadastraleGrens"
     TypeKadastraalOnroerendeZaak_enum:
       type: "string"
       description: ":\n* `appartementsrecht` - appartementsrecht\n* `perceel` - perceel"
@@ -1759,3 +1666,15 @@ components:
           $ref: "#/components/schemas/Waardelijst"
         reeks:
           $ref: "#/components/schemas/Waardelijst"
+    GeoJSONGeometry:
+      title: GeoJSONGeometry
+      description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen" 
+      type: object
+      oneOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Point'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPoint'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/LineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiLineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Polygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
