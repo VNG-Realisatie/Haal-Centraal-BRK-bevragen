@@ -1,6 +1,9 @@
 ---
 name: 'Issue: Als ... wil ik ...'
 about: 'Beschrijving van een feature/user story. '
+title: ''
+labels: ''
+assignees: ''
 
 ---
 

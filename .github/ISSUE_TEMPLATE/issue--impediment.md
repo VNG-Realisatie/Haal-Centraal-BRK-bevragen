@@ -1,6 +1,9 @@
 ---
 name: 'Issue: Impediment'
 about: 'Breng een belemmering onder de aandacht. '
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
