@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - description: "Brk-bevragen KadastraalOnroerende Zaak"
+  - description: "Brk-bevragen Kadastraal Onroerende Zaak"
     url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
 info:
   title: Kadastraal onroerende zaken
@@ -21,6 +21,34 @@ paths:
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: appartementsrechtVolgnummer
+          description: "Nummer dat het kadastraal object uniek identificeert als een\
+            \ appartementsrecht binnen het complex."
+          schema: 
+            type: "integer"
+        - in: query
+          name: kadastraleGemeente
+          schema: 
+            type: "string"  
+        - in: query
+          name: perceelnummer
+          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
+              \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
+              \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
+              \ `00001` tot max `99999`"
+          schema:
+            type: "integer"
+        - in: query
+          name: sectie
+          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
+            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
+            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
+            \ sectie heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ'\
+            \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
+            \ te voorkomen met `I`"
+          schema:
+            type: "string"
         - in: query
           name: kadastraleaanduiding
           description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
