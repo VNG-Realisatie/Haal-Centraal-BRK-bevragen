@@ -13,7 +13,7 @@ info:
   version: 1.0.0
 servers:
 - url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
-  description: Brk-bevragen KadastraalOnroerende Zaak
+  description: Brk-bevragen Kadastraal Onroerende Zaak
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -3288,22 +3288,32 @@ components:
         gezamenlijkAandeel:
           $ref: '#/components/schemas/TypeBreuk'
         persoon:
-          discriminator:
-            propertyName: Persoonstype
-          oneOf:
-          - $ref: '#/components/schemas/PersoonCompact'
-          - $ref: '#/components/schemas/RechtspersoonCompact'
-    PersoonCompact:
+          $ref: '#/components/schemas/AbstractPersoonCompact'
+    AbstractPersoonCompact:
       type: object
       properties:
-        naam:
+        identificatie:
+          title: identificatie
           type: string
-        geboortedatum:
-          $ref: '#/components/schemas/Datum_onvolledig'
+      description: 'Deze constructie is toegevoegd om te voorkomen dat het persson-element
+        uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert
+        problemen op bij codegeneratie. '
+      discriminator:
+        propertyName: type
+    PersoonCompact:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPersoonCompact'
+      - properties:
+          naam:
+            type: string
+          geboortedatum:
+            $ref: '#/components/schemas/Datum_onvolledig'
     RechtspersoonCompact:
-      properties:
-        actueleStatutaireNaam:
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPersoonCompact'
+      - properties:
+          actueleStatutaireNaam:
+            type: string
     Objectlocatiebuitenland:
       allOf:
       - $ref: '#/components/schemas/Objectlocatie'
