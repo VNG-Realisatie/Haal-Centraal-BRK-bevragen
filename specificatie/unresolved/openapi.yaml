@@ -674,7 +674,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aardAantekening:
           $ref: "#/components/schemas/Waardelijst"
         omschrijving:
@@ -719,7 +719,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -752,7 +752,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1142,7 +1142,7 @@ components:
           title: "woonplaatsNaam"
           description: ""
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         _links:
           $ref: "#/components/schemas/Postbuslocatie_links"
     HeeftPartnerschap:
@@ -1210,7 +1210,7 @@ components:
           acgIdentificatie:
             $ref: "#/components/schemas/AcgID"
           identificatie:
-            $ref: "#/components/schemas/CompositeID"
+            type: "string"
     KadasterStukHal:
       allOf:
       - $ref: "#/components/schemas/KadasterStuk"
@@ -1246,7 +1246,7 @@ components:
           deelEnNummer:
             $ref: "#/components/schemas/TypeDeelEnNummer"
           identificatie:
-            $ref: "#/components/schemas/CompositeID"
+            type: "string"
           statusStukOr:
             $ref: "#/components/schemas/Waardelijst"
           heeftAlsEquivalentieVerklaarder:
@@ -1268,7 +1268,7 @@ components:
         aard:
           $ref: "#/components/schemas/Waardelijst"
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         heeftRedenVerzoek:
           type: "array"
           items:
@@ -1312,26 +1312,6 @@ components:
               title: "standplaats"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
               minLength: 1
-    CompositeID:
-      type: "object"
-      description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
-        \ unieke identificatie van een object binnen een registratie."
-      properties:
-        lokaalid:
-          type: "string"
-          title: "lokaalID"
-          description: ""
-          maxLength: 15
-          minLength: 1
-        namespace:
-          type: "string"
-          title: "namespace"
-          description: ""
-          minLength: 1
-        versie:
-          type: "string"
-          title: "versie"
-          description: ""
     TypeKadastraleAanduiding:
       type: "object"
       description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende\
@@ -1443,7 +1423,7 @@ components:
         beschikkingsbevoegdheid:
           $ref: "#/components/schemas/Waardelijst"
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         metNaamOpenbaarRegister:
           type: "array"
           items:
@@ -1457,7 +1437,7 @@ components:
       description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
       properties:
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
     Stuk:
       type: "object"
       description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
