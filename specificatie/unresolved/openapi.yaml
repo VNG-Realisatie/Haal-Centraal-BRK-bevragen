@@ -1058,24 +1058,30 @@ components:
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
         persoon:
-          oneOf:
-          - $ref: "#/components/schemas/PersoonCompact"
-          - $ref: "#/components/schemas/RechtspersoonCompact"
-          discriminator:
-            propertyName: Persoonstype
-    PersoonCompact:
+          $ref: "#/components/schemas/AbstractPersoonCompact"
+    AbstractPersoonCompact:
       type: object
+      description: "Deze constructie is toegevoegd om te voorkomen dat het persson-element uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert problemen op bij codegeneratie. "
       properties:
-        naam: 
-          description: ""
+        identificatie:
+          title: identificatie
           type: string
-        geboortedatum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+      discriminator:
+        propertyName: type
+    PersoonCompact:
+      allOf:
+      - $ref: '#/components/schemas/AbstractPersoonCompact'
+      - properties:
+          naam:
+            type: string
+          geboortedatum:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
     RechtspersoonCompact:
-      properties:
-        actueleStatutaireNaam: 
-          description: ""
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/AbstractPersoonCompact'
+      - properties:
+          actueleStatutaireNaam:
+            type: string
     Objectlocatiebuitenland:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
