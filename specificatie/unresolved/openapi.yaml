@@ -849,33 +849,6 @@ components:
               type: "array"
               items: 
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
-    KadastraleGrens:
-      type: "object"
-      description: "--Definitie--\
-      \ uri http://tax.kadaster.nl/id/begrip/Kadastrale_grens\
-      \ --Toelichting--\
-      \ In de praktijk kent Kadastrale grens nu twee betekenissen:\
-      \ De grens zoals vastgesteld in het terrein, de terrein grens.\ 
-      \ (vaststelling o.b.v. de aanwijs van partijen aan beide zijde van de\
-      \ betreffende grens en vastgelegd door het Kadaster). De terreingrens is\
-      \ opgenomen in de terrestrische registratie van het Kadaster.\
-      \ De visualisatie van deze grens op de kadastrale kaart. De kaartgrens.\
-      \ Deze kan mogelijk 'verschoven' liggen door het inpassen van deze\
-      \ terreingrens in het 'overall' kaartbeeld. De kadastrale grens in deze\
-      \ betekenis vormt een indicatief gegeven over de ligging van de grens \
-      \ t.o.v. de topografie, d.w.z. van de in het terrein visueel waarneembare\
-      \ 'objecten' als huizen, straten, sloten, etc. \
-      \  Met het begrip 'Kadastrale grens' in relatie tot de BRK bedoelen we de\
-      \ kaartgrens. De terreingrens uit de 'terrestrische registratie' vormt de\
-      \ basis voor de kaartgrens. Bij juridische geschillen wordt echter de\
-      \ terreingrens uitgezet."
-      properties:
-        identificatie: 
-          $ref: "#/components/schemas/CompositeID"
-        grenslijn:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
-        type:
-          $ref: "#/components/schemas/Waardelijst"
     NietIngeschrevenPersoon:
       allOf:
       - $ref: "#/components/schemas/Persoon"
@@ -1594,56 +1567,6 @@ components:
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadastraleGrens_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        perceelLinks:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        perceelRechts:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekeningen:
-          title: ""
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bagAdressen:
-          title: "betreft"
-          type: "array"
-          description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigden:
-          title: "heeft"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietBagAdressen:
-          title: "betreft"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukken:
-          title: ""
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadastraleGrenzen:
-          title: "KadastraleGrens"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_links:
       type: "object"
       properties:
@@ -1702,13 +1625,6 @@ components:
             $ref: "#/components/schemas/ZakelijkGerechtigde"
         aantekening:
           $ref: "#/components/schemas/Aantekening"
-        kadstraleGrenzen:
-          title: "kadastraleGrens"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "#/components/schemas/KadastraleGrens"
     TypeKadastraalOnroerendeZaak_enum:
       type: "string"
       description: ":\n* `appartementsrecht` - appartementsrecht\n* `perceel` - perceel"
