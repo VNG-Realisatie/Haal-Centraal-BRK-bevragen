@@ -1,22 +1,19 @@
 openapi: 3.0.0
 info:
   title: Kadastraal onroerende zaken
-  description: Dit is de toepassing Extra Services Dataverzoeken. D.m.v. deze toepassing
-    worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar
-    gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak
-    informatie.
+  description: D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis
+    Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken
+    van Kadastrale Onroerende Zaak informatie.
   contact:
-    name: VNGRealisatie Haal Centraal BRK-Bevragen
+    name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/VNGRealisatie/api/kadastraal_onroerende_zaken
-  description: SwaggerHub API Auto Mocking
-- url: https://www.voorbeeldgemeente.nl/api/kadastraal_onroerende_zaken
-  description: Referentie-implementatie
+- url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
+  description: Brk-bevragen KadastraalOnroerende Zaak
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -54,6 +51,46 @@ paths:
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
           [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
         required: false
+        schema:
+          type: string
+      - name: appartementsrechtVolgnummer
+        in: query
+        description: Nummer dat het kadastraal object uniek identificeert als een
+          appartementsrecht binnen het complex.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: kadastraleGemeente
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: perceelnummer
+        in: query
+        description: Het perceelnummer dat een geheel perceel of een complex uniek
+          identificeert binnen de sectie. Per kadastrale gemeente en per sectie heeft
+          een perceel een perceelnummer oplopend door de jaren heen van `00001` tot
+          max `99999`
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: sectie
+        in: query
+        description: Sectie is een onderverdeling van de kadastrale gemeente, bedoeld
+          om het werk van de meetdienst en de kadastrale kaarten overzichtelijk te
+          houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke sectie
+          heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ' . Alleen
+          de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven) te
+          voorkomen met `I`
+        required: false
+        style: form
+        explode: true
         schema:
           type: string
       - name: kadastraleaanduiding
@@ -2947,7 +2984,7 @@ components:
       type: object
       properties:
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         aardAantekening:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
@@ -2987,7 +3024,7 @@ components:
       type: object
       properties:
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         aandeelInBetrokkenRecht:
           $ref: '#/components/schemas/TypeBreuk'
         gedeeltelijkeBezwaringOudObject:
@@ -3015,7 +3052,7 @@ components:
       type: object
       properties:
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         aandeelInBetrokkenRecht:
           $ref: '#/components/schemas/TypeBreuk'
         gedeeltelijkeBezwaringOudObject:
@@ -3092,29 +3129,6 @@ components:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
           $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie__embedded'
-    KadastraleGrens:
-      type: object
-      properties:
-        identificatie:
-          $ref: '#/components/schemas/CompositeID'
-        grenslijn:
-          $ref: '#/components/schemas/Geometry'
-        type:
-          $ref: '#/components/schemas/Waardelijst'
-      description: '--Definitie-- uri http://tax.kadaster.nl/id/begrip/Kadastrale_grens
-        --Toelichting-- In de praktijk kent Kadastrale grens nu twee betekenissen:
-        De grens zoals vastgesteld in het terrein, de terrein grens.   (vaststelling
-        o.b.v. de aanwijs van partijen aan beide zijde van de betreffende grens en
-        vastgelegd door het Kadaster). De terreingrens is opgenomen in de terrestrische
-        registratie van het Kadaster. De visualisatie van deze grens op de kadastrale
-        kaart. De kaartgrens. Deze kan mogelijk ''verschoven'' liggen door het inpassen
-        van deze terreingrens in het ''overall'' kaartbeeld. De kadastrale grens in
-        deze betekenis vormt een indicatief gegeven over de ligging van de grens  t.o.v.
-        de topografie, d.w.z. van de in het terrein visueel waarneembare ''objecten''
-        als huizen, straten, sloten, etc.   Met het begrip ''Kadastrale grens'' in
-        relatie tot de BRK bedoelen we de kaartgrens. De terreingrens uit de ''terrestrische
-        registratie'' vormt de basis voor de kaartgrens. Bij juridische geschillen
-        wordt echter de terreingrens uitgezet.'
     NietIngeschrevenPersoon:
       allOf:
       - $ref: '#/components/schemas/Persoon'
@@ -3378,7 +3392,7 @@ components:
           title: woonplaatsNaam
           type: string
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         _links:
           $ref: '#/components/schemas/Postbuslocatie_links'
       description: Een PostbusLocatie is een aanduiding van de locatie van een postbus.
@@ -3445,7 +3459,7 @@ components:
           acgIdentificatie:
             $ref: '#/components/schemas/AcgID'
           identificatie:
-            $ref: '#/components/schemas/CompositeID'
+            type: string
         description: URI https://tax.kadaster.nl/doc/begrip/KadasterStuk
     KadasterStukHal:
       allOf:
@@ -3478,7 +3492,7 @@ components:
           deelEnNummer:
             $ref: '#/components/schemas/TypeDeelEnNummer'
           identificatie:
-            $ref: '#/components/schemas/CompositeID'
+            type: string
           statusStukOr:
             $ref: '#/components/schemas/Waardelijst'
           heeftAlsEquivalentieVerklaarder:
@@ -3500,7 +3514,7 @@ components:
         aard:
           $ref: '#/components/schemas/Waardelijst'
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         heeftRedenVerzoek:
           type: array
           items:
@@ -3545,23 +3559,6 @@ components:
             minLength: 1
             type: string
             description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
-    CompositeID:
-      type: object
-      properties:
-        lokaalid:
-          title: lokaalID
-          maxLength: 15
-          minLength: 1
-          type: string
-        namespace:
-          title: namespace
-          minLength: 1
-          type: string
-        versie:
-          title: versie
-          type: string
-      description: CompositeID is een samengesteld datatype gebruikt wordt de universeel
-        unieke identificatie van een object binnen een registratie.
     TypeKadastraleAanduiding:
       type: object
       properties:
@@ -3669,7 +3666,7 @@ components:
         beschikkingsbevoegdheid:
           $ref: '#/components/schemas/Waardelijst'
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
         metNaamOpenbaarRegister:
           type: array
           items:
@@ -3683,7 +3680,7 @@ components:
       type: object
       properties:
         identificatie:
-          $ref: '#/components/schemas/CompositeID'
+          type: string
       description: Een AdresLocatie is een ObjectLocatie of een PostbusLocatie
     Stuk:
       type: object
@@ -3783,57 +3780,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        kadastraleGrenzen:
-          title: KadastraleGrens
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-    KadastraleGrens_links:
-      type: object
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        perceelLinks:
-          $ref: '#/components/schemas/HalLink'
-        perceelRechts:
-          $ref: '#/components/schemas/HalLink'
-        aantekeningen:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        bagAdressen:
-          title: betreft
-          minItems: 1
-          type: array
-          description: 'Dit is nu nog een koppeling naar de nummeraanduiding, maar
-            de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend
-            op het endpoint adres van de BAG nemen we die hier op. '
-          items:
-            $ref: '#/components/schemas/HalLink'
-        zakelijkGerechtigden:
-          title: heeft
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        nietBagAdressen:
-          title: betreft
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        stukken:
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        kadastraleGrenzen:
-          title: KadastraleGrens
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
     ZakelijkGerechtigde_links:
       type: object
       properties:
@@ -3888,12 +3834,6 @@ components:
             $ref: '#/components/schemas/ZakelijkGerechtigde'
         aantekening:
           $ref: '#/components/schemas/Aantekening'
-        kadstraleGrenzen:
-          title: kadastraleGrens
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/KadastraleGrens'
     TypeKadastraalOnroerendeZaak_enum:
       type: string
       description: |-
@@ -3946,6 +3886,22 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         reeks:
           $ref: '#/components/schemas/Waardelijst'
+    GeoJSONGeometry:
+      title: GeoJSONGeometry
+      type: object
+      description: Dit component is opgenomen om alle Geometry types ook bij het resolven
+        op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan
+        met de oneOf constructie en daardoor worden de componenten uit een oneOf in
+        de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig,
+        maar wel nodig om dit probleem op te lossen
+      oneOf:
+      - $ref: '#/components/schemas/Point'
+      - $ref: '#/components/schemas/MultiPoint'
+      - $ref: '#/components/schemas/LineString'
+      - $ref: '#/components/schemas/MultiLineString'
+      - $ref: '#/components/schemas/Polygon'
+      - $ref: '#/components/schemas/MultiPolygon'
+      - $ref: '#/components/schemas/GeometryCollection'
     Foutbericht:
       type: object
       properties:
@@ -4066,6 +4022,126 @@ components:
       description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
         de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
         datum bekend is worden alle elementen gevuld.
+    Point:
+      type: object
+      description: GeoJSON point geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.2
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            $ref: '#/components/schemas/Point2D'
+    Point2D:
+      title: Point2D
+      maxItems: 2
+      minItems: 2
+      type: array
+      description: A 2D point
+      items:
+        type: number
+    MultiPoint:
+      type: object
+      description: GeoJSON multi-point geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.3
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+    LineString:
+      type: object
+      description: GeoJSON line-string geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.4
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            minItems: 2
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+    MultiLineString:
+      type: object
+      description: GeoJSON multi-line-string geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.5
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+    Polygon:
+      type: object
+      description: GeoJSON polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.6
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+    MultiPolygon:
+      type: object
+      description: GeoJSON multi-polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.7
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point2D'
+    GeometryCollection:
+      type: object
+      description: GeoJSON multi-polygon geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.8
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - geometries
+        type: object
+        properties:
+          geometries:
+            type: array
+            items:
+              $ref: '#/components/schemas/Geometry'
     AantekeningHalCollectie__embedded:
       type: object
       properties:
