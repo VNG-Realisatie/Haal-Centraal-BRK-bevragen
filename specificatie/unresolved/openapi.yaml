@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - description: "BRK bevragen Kadastraal Onroerende Zaak"
+  - description: "Brk-bevragen Kadastraal Onroerende Zaak"
     url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
 info:
   title: Kadastraal onroerende zaken
@@ -21,6 +21,34 @@ paths:
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: appartementsrechtVolgnummer
+          description: "Nummer dat het kadastraal object uniek identificeert als een\
+            \ appartementsrecht binnen het complex."
+          schema: 
+            type: "integer"
+        - in: query
+          name: kadastraleGemeente
+          schema: 
+            type: "string"  
+        - in: query
+          name: perceelnummer
+          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
+              \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
+              \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
+              \ `00001` tot max `99999`"
+          schema:
+            type: "integer"
+        - in: query
+          name: sectie
+          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
+            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
+            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
+            \ sectie heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ'\
+            \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
+            \ te voorkomen met `I`"
+          schema:
+            type: "string"
         - in: query
           name: kadastraleaanduiding
           description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
@@ -674,7 +702,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aardAantekening:
           $ref: "#/components/schemas/Waardelijst"
         omschrijving:
@@ -719,7 +747,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -752,7 +780,7 @@ components:
       type: "object"
       properties:
         identificatie: 
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1142,7 +1170,7 @@ components:
           title: "woonplaatsNaam"
           description: ""
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         _links:
           $ref: "#/components/schemas/Postbuslocatie_links"
     HeeftPartnerschap:
@@ -1210,7 +1238,7 @@ components:
           acgIdentificatie:
             $ref: "#/components/schemas/AcgID"
           identificatie:
-            $ref: "#/components/schemas/CompositeID"
+            type: "string"
     KadasterStukHal:
       allOf:
       - $ref: "#/components/schemas/KadasterStuk"
@@ -1246,7 +1274,7 @@ components:
           deelEnNummer:
             $ref: "#/components/schemas/TypeDeelEnNummer"
           identificatie:
-            $ref: "#/components/schemas/CompositeID"
+            type: "string"
           statusStukOr:
             $ref: "#/components/schemas/Waardelijst"
           heeftAlsEquivalentieVerklaarder:
@@ -1268,7 +1296,7 @@ components:
         aard:
           $ref: "#/components/schemas/Waardelijst"
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         heeftRedenVerzoek:
           type: "array"
           items:
@@ -1312,26 +1340,6 @@ components:
               title: "standplaats"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
               minLength: 1
-    CompositeID:
-      type: "object"
-      description: "CompositeID is een samengesteld datatype gebruikt wordt de universeel\
-        \ unieke identificatie van een object binnen een registratie."
-      properties:
-        lokaalid:
-          type: "string"
-          title: "lokaalID"
-          description: ""
-          maxLength: 15
-          minLength: 1
-        namespace:
-          type: "string"
-          title: "namespace"
-          description: ""
-          minLength: 1
-        versie:
-          type: "string"
-          title: "versie"
-          description: ""
     TypeKadastraleAanduiding:
       type: "object"
       description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende\
@@ -1443,7 +1451,7 @@ components:
         beschikkingsbevoegdheid:
           $ref: "#/components/schemas/Waardelijst"
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
         metNaamOpenbaarRegister:
           type: "array"
           items:
@@ -1457,7 +1465,7 @@ components:
       description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
       properties:
         identificatie:
-          $ref: "#/components/schemas/CompositeID"
+          type: "string"
     Stuk:
       type: "object"
       description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
@@ -1555,13 +1563,6 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadastraleGrenzen:
-          title: "KadastraleGrens"
           type: "array"
           description: ""
           minItems: 1
@@ -1673,3 +1674,15 @@ components:
           $ref: "#/components/schemas/Waardelijst"
         reeks:
           $ref: "#/components/schemas/Waardelijst"
+    GeoJSONGeometry:
+      title: GeoJSONGeometry
+      description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen" 
+      type: object
+      oneOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Point'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPoint'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/LineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiLineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Polygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
