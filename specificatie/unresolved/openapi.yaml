@@ -758,6 +758,14 @@ components:
           type: "string"
         aard:
           $ref: "#/components/schemas/Waardelijst"
+        beslaglegger:
+          type: "object"
+          description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          properties: 
+            identificatie:
+              type: "string"
+          discriminator:
+            propertyName: type 
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -791,6 +799,14 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
+        geldverstrekker:
+          type: "object"
+          description: "Dit element is opgenomen om de identificatie van de geldverstrekker beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          properties: 
+            identificatie:
+              type: "string"
+          discriminator:
+            propertyName: type 
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -857,6 +873,12 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
+        bagAdres:
+          type: "object"
+          description: "Dit element is opgenomen om de identificatie van de bagAdres beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          properties: 
+            identificatie:
+              type: "string"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
