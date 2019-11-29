@@ -2936,6 +2936,8 @@ components:
           type: string
         aard:
           $ref: '#/components/schemas/Waardelijst'
+        beslaglegger:
+          $ref: '#/components/schemas/Beslag_beslaglegger'
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
@@ -2964,6 +2966,8 @@ components:
           type: string
         betreftGedeelteVanPerceel:
           type: boolean
+        geldverstrekker:
+          $ref: '#/components/schemas/Hypotheek_geldverstrekker'
     HypotheekHal:
       allOf:
       - $ref: '#/components/schemas/Hypotheek'
@@ -3013,6 +3017,8 @@ components:
           $ref: '#/components/schemas/TypeOppervlak'
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
+        bagAdres:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaak_bagAdres'
       description: URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak
         URL http://tax.kadaster.nl/id/begrip/Appartementsrecht
     KadastraalOnroerendeZaakHal:
@@ -4080,6 +4086,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AantekeningHal'
+    Beslag_beslaglegger:
+      type: object
+      properties:
+        identificatie:
+          type: string
+      description: Dit element is opgenomen om de identificatie van de beslaglegger
+        beschikbaar te stellen voor partijen die geen gebruik willen maken van de
+        HalLinks voor een verwijzing naar een resource buiten het domein van deze
+        API
     BeslagHalCollectie__embedded:
       type: object
       properties:
@@ -4087,6 +4102,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BeslagHal'
+    Hypotheek_geldverstrekker:
+      type: object
+      properties:
+        identificatie:
+          type: string
+      description: Dit element is opgenomen om de identificatie van de geldverstrekker
+        beschikbaar te stellen voor partijen die geen gebruik willen maken van de
+        HalLinks voor een verwijzing naar een resource buiten het domein van deze
+        API
     HypotheekHalCollectie__embedded:
       type: object
       properties:
@@ -4102,6 +4126,14 @@ components:
         omschrijving:
           title: omschrijvingOnderzoekErfdienstbaarheden
           type: string
+    KadastraalOnroerendeZaak_bagAdres:
+      type: object
+      properties:
+        identificatie:
+          type: string
+      description: Dit element is opgenomen om de identificatie van de bagAdres beschikbaar
+        te stellen voor partijen die geen gebruik willen maken van de HalLinks voor
+        een verwijzing naar een resource buiten het domein van deze API
     KadastraalOnroerendeZaakHalCollectie__embedded:
       type: object
       properties:
