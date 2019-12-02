@@ -876,11 +876,8 @@ components:
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         bagAdres:
-          type: "object"
+          type: "string"
           description: "Dit element is opgenomen om de identificatie van de bagAdres beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-          properties: 
-            identificatie:
-              type: "string"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
