@@ -3018,7 +3018,11 @@ components:
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
         bagAdres:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaak_bagAdres'
+          type: string
+          description: Dit element is opgenomen om de identificatie van de bagAdres
+            beschikbaar te stellen voor partijen die geen gebruik willen maken van
+            de HalLinks voor een verwijzing naar een resource buiten het domein van
+            deze API
       description: URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak
         URL http://tax.kadaster.nl/id/begrip/Appartementsrecht
     KadastraalOnroerendeZaakHal:
@@ -4140,14 +4144,6 @@ components:
         omschrijving:
           title: omschrijvingOnderzoekErfdienstbaarheden
           type: string
-    KadastraalOnroerendeZaak_bagAdres:
-      type: object
-      properties:
-        identificatie:
-          type: string
-      description: Dit element is opgenomen om de identificatie van de bagAdres beschikbaar
-        te stellen voor partijen die geen gebruik willen maken van de HalLinks voor
-        een verwijzing naar een resource buiten het domein van deze API
     KadastraalOnroerendeZaakHalCollectie__embedded:
       type: object
       properties:
