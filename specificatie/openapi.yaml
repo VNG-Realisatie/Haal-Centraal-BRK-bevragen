@@ -4091,6 +4091,13 @@ components:
       properties:
         identificatie:
           type: string
+        typePersoon:
+          type: string
+          description: 'De beslaglegger kan een Ingeschreven Persoon, een Niet-ingeschreven
+            Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven
+            Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type
+            Persoon de beslaglegger is zodat de consumer weet waar eventueel aanvullende
+            informatie over die persoon op te halen is. '
       description: Dit element is opgenomen om de identificatie van de beslaglegger
         beschikbaar te stellen voor partijen die geen gebruik willen maken van de
         HalLinks voor een verwijzing naar een resource buiten het domein van deze
@@ -4107,6 +4114,13 @@ components:
       properties:
         identificatie:
           type: string
+        typePersoon:
+          type: string
+          description: 'De geldverstrekker kan een Ingeschreven Persoon, een Niet-ingeschreven
+            Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven
+            Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type
+            Persoon de geldverstrekker is zodat de consumer weet waar eventueel aanvullende
+            informatie over die persoon op te halen is. '
       description: Dit element is opgenomen om de identificatie van de geldverstrekker
         beschikbaar te stellen voor partijen die geen gebruik willen maken van de
         HalLinks voor een verwijzing naar een resource buiten het domein van deze
