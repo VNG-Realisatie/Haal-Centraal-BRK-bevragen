@@ -764,8 +764,9 @@ components:
           properties: 
             identificatie:
               type: "string"
-          discriminator:
-            propertyName: type 
+            typePersoon: 
+              type: "string"
+              description: "De beslaglegger kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de beslaglegger is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -805,8 +806,9 @@ components:
           properties: 
             identificatie:
               type: "string"
-          discriminator:
-            propertyName: type 
+            typePersoon: 
+              type: "string"
+              description: "De geldverstrekker kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de geldverstrekker is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
