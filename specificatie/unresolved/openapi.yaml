@@ -229,10 +229,10 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Zakelijke Gerechtigden
-  /nietingeschrevenpersonen/{identificatie}:
+  /kadasternatuurlijkpersonen/{identificatie}:
     get:
-      operationId: GetNietIngeschrevenPersoon
-      description: "Het ophalen van een bij het Kadaster geregistreerd Persoon, niet zijnde een ingeschreven persoon."
+      operationId: GetKadasterPersoon
+      description: "Het ophalen van een bij het Kadaster geregistreerd Natuurlijk Persoon, niet zijnde een ingeschreven natuurlijk persoon."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
@@ -259,7 +259,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/NietIngeschrevenPersoonHal'
+                $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -283,11 +283,11 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
-      - Niet Ingeschreven (Rechts)Personen
-  /nietingeschrevenrechtspersonen/{identificatie}:
+      - Kadaster (niet)Natuurlijk Personen
+  /kadasternietnatuurlijkpersonen/{identificatie}:
     get:
-      operationId: GetNietIngeschrevenRechtspersoon
-      description: "Het ophalen van een bij het Kadaster geregistreerd Persoon, niet zijnde een ingeschreven persoon."
+      operationId: GetKadasterNietNatuurlijkPersoon
+      description: "Het ophalen van een bij het Kadaster geregistreerd niet natuurlijk Persoon, niet zijnde een ingeschreven niet natuurlijk persoon."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
@@ -314,7 +314,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/NietIngeschrevenRechtspersoonHal'
+                $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -338,7 +338,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
-      - Niet Ingeschreven (Rechts)Personen
+      - Kadaster (niet)Natuurlijk Personen 
   /stukken/{identificatie}:
     get:
       operationId: GetStuk
@@ -889,10 +889,10 @@ components:
               type: "array"
               items: 
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
-    NietIngeschrevenPersoon:
+    KadasterNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/Persoon"
-      - description: "Een GeregistreerdPersoon is natuurlijk persoon die is geregistreerd\
+      - description: "Een KadasternatuurlijkPersoon is natuurlijk persoon die is geregistreerd\
           \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
           \ ingezetene."
         properties:
@@ -915,15 +915,15 @@ components:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
             $ref: "#/components/schemas/Overlijden"
-    NietIngeschrevenPersoonHal:
+    KadasterNatuurlijkPersoonHal:
       allOf:
-      - $ref: "#/components/schemas/NietIngeschrevenPersoon"
+      - $ref: "#/components/schemas/KadasterNatuurlijkPersoon"
       - properties:
           _links:
-            $ref: "#/components/schemas/NietIngeschrevenPersoon_links"
+            $ref: "#/components/schemas/KadasterNatuurlijkPersoon_links"
           _embedded:
             $ref: "#/components/schemas/Persoon_embedded"
-    NietIngeschrevenRechtspersoon:
+    KadasterNietNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/Persoon"
       - description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
@@ -939,12 +939,12 @@ components:
             description: ""
           rechtsvorm:
             $ref: "#/components/schemas/Waardelijst"
-    NietIngeschrevenRechtspersoonHal:
+    KadasterNietNatuurlijkPersoonHal:
       allOf:
-      - $ref: "#/components/schemas/NietIngeschrevenRechtspersoon"
+      - $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon"
       - properties:
           _links:
-            $ref: "#/components/schemas/NietIngeschrevenRechtspersoon_links"
+            $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon_links"
           _embedded:
             $ref: "#/components/schemas/Persoon_embedded"
     Hypotheek_links:
@@ -1073,7 +1073,7 @@ components:
           $ref: "#/components/schemas/AbstractPersoonCompact"
     AbstractPersoonCompact:
       type: object
-      description: "Deze constructie is toegevoegd om te voorkomen dat het persson-element uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert problemen op bij codegeneratie. "
+      description: "Deze constructie is toegevoegd om te voorkomen dat het persoon-element uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert problemen op bij codegeneratie. "
       properties:
         identificatie:
           title: identificatie
@@ -1088,7 +1088,7 @@ components:
             type: string
           geboortedatum:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-    RechtspersoonCompact:
+    NietNatuurlijkPersoonCompact:
       allOf:
       - $ref: '#/components/schemas/AbstractPersoonCompact'
       - properties:
@@ -1531,12 +1531,12 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    NietIngeschrevenRechtspersoon_links:
+    KadasterNietNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    NietIngeschrevenPersoon_links:
+    KadasterNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
