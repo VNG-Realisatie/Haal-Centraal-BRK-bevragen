@@ -55,7 +55,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
@@ -69,7 +68,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: typeGerechtigde
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde eigenaar (code 2) ondersteund.De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
@@ -127,7 +125,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
@@ -184,7 +181,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: typegerechtigde
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
@@ -409,7 +405,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -463,7 +458,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -524,7 +518,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: type
           description: "Het type betrokkene waarvan de hypotheken worden opgevraagd. Bij een hypotheek is er sprake van een 'Geldverstrekker' en er is sprake van een 'Onderpandgever'  "
@@ -585,7 +578,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -646,7 +638,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: type
           description: "Het type betrokkene die beslag heeft gelegd op een Kadastraal Onroerende Zaak."
