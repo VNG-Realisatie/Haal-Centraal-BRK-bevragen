@@ -55,7 +55,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
@@ -69,7 +68,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: typeGerechtigde
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde eigenaar (code 2) ondersteund.De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
@@ -127,7 +125,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
@@ -184,7 +181,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: typegerechtigde
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
@@ -409,7 +405,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -463,7 +458,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -524,7 +518,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: type
           description: "Het type betrokkene waarvan de hypotheken worden opgevraagd. Bij een hypotheek is er sprake van een 'Geldverstrekker' en er is sprake van een 'Onderpandgever'  "
@@ -585,7 +578,6 @@ paths:
           required: true
           schema:
             type: string
-            maxLength: 16
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -646,7 +638,6 @@ paths:
           required: false
           schema:
             type: string
-            maxLength: 16
         - in: query
           name: type
           description: "Het type betrokkene die beslag heeft gelegd op een Kadastraal Onroerende Zaak."
@@ -758,6 +749,15 @@ components:
           type: "string"
         aard:
           $ref: "#/components/schemas/Waardelijst"
+        beslaglegger:
+          type: "object"
+          description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          properties: 
+            identificatie:
+              type: "string"
+            typePersoon: 
+              type: "string"
+              description: "De beslaglegger kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de beslaglegger is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -791,6 +791,15 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
+        geldverstrekker:
+          type: "object"
+          description: "Dit element is opgenomen om de identificatie van de geldverstrekker beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          properties: 
+            identificatie:
+              type: "string"
+            typePersoon: 
+              type: "string"
+              description: "De geldverstrekker kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de geldverstrekker is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -857,6 +866,9 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
+        bagAdres:
+          type: "string"
+          description: "Dit element is opgenomen om de identificatie van de bagAdres beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
