@@ -16,6 +16,8 @@ De apiKey kan opgevraagd worden bij de mensen van het BRK team.
 
 ### Werking
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
+De openapi.yaml specficatie kun je importeren als project, waarna je de verschillende requests kunt doen.
+LET OP: je moet de apiKey als header meegeven met als key=apiKey en als value de apiKey zelf.
 
 ### Nog niet gerealiseerd
 De volgende functies zijn nog niet gerealiseerd voor het API lab.
@@ -35,7 +37,7 @@ Om kadastrale onroerende zaken op te vragen van een specifiek persoon waar de pe
 kpi test persoon | situatie
 ---------------- | :-------  
 NL.IMKAD.Persoon.158578833 | Derks (Kadaster Natuurlijk Persoon)
-NL.IMKAD.Persoon.15878844  | Goedhart (Kadaster Natuurlijk Persoon)
+NL.IMKAD.Persoon.158578844  | Goedhart (Kadaster Natuurlijk Persoon)
 
 #### Endpoint /kadastraalonroerendezaken?burgerservicenummer={bsn}
 Om kadastrale onroerende zaken op te vragen van een specifiek persoon waar de persoon eigenaar is op basis van een BSN
