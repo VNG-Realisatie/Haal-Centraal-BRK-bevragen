@@ -10,8 +10,9 @@ De (resolved) OAS specificatie is te downloaden van de Haal-Centraal-BRK-bevrage
 De API lab versie is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/
 
 ### ApiKey
-Om de api te kunnen bevragen is een apikey nodig. Voor de API lab is een algemene apiKey beschikbaar. Deze is ook alleen maar geldig op de API lab en zal na het API lab gedisabled worden.
-De apiKey = [TODO]
+Om de api te kunnen bevragen is een apikey nodig. Voor de API lab is een algemene apiKey beschikbaar. 
+Deze is ook alleen maar geldig op de API lab en zal na het API lab gedisabled worden.
+De apiKey kan opgevraagd worden bij de mensen van het BRK team.
 
 ### Werking
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
