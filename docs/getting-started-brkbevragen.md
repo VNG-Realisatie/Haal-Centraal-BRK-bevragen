@@ -74,8 +74,8 @@ Om informatie over een kadaster natuurlijk persoon op te vragen op basis van een
 
 kpi test persoon | situatie
 ---------------- | :-------  
-NL.IMKAD.Persoon.15878833 | Derks (Kadaster Natuurlijk Persoon)
-NL.IMKAD.Persoon.15878844 | Goedhart (Kadaster Natuurlijk Persoon) 
+NL.IMKAD.Persoon.158578833 | Derks (Kadaster Natuurlijk Persoon)
+NL.IMKAD.Persoon.158578844 | Goedhart (Kadaster Natuurlijk Persoon) 
 NL.IMKAD.Persoon.68910095 | Oever (Kadaster Natuurlijk Persoon)
 
 #### Endpoint /kadasternietnatuurlijkpersonen/{kpi}
