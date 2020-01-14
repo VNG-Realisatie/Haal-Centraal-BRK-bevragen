@@ -53,7 +53,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: appartementsrechtVolgnummer
+      - name: appartementsrechtvolgnummer
         in: query
         description: Nummer dat het kadastraal object uniek identificeert als een
           appartementsrecht binnen het complex.
@@ -62,7 +62,7 @@ paths:
         explode: true
         schema:
           type: integer
-      - name: kadastraleGemeente
+      - name: kadastralegemeente
         in: query
         required: false
         style: form
@@ -79,6 +79,7 @@ paths:
         style: form
         explode: true
         schema:
+          maximum: 99999
           type: integer
       - name: sectie
         in: query
@@ -119,7 +120,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalPersoonIdentificatie
+      - name: kadastraalpersoonidentificatie
         in: query
         description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
           persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
@@ -131,12 +132,11 @@ paths:
         explode: true
         schema:
           type: string
-      - name: typeGerechtigde
+      - name: typegerechtigde
         in: query
         description: 'Een typering van het recht dat de zakelijkgerechtigde heeft
-          op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde eigenaar
-          (code 2) ondersteund.De mogelijke waarden van deze typering is te vinden
-          in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).
+          op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering
+          is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).
           Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken
           geretourneerd waar een recht op rust van het opgegeven type. '
         required: false
@@ -648,9 +648,7 @@ paths:
         in: query
         description: 'Een typering van het recht dat de zakelijkgerechtigde heeft
           op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering
-          is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).
-          Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken
-          geretourneerd waar een recht op rust van het opgegeven type. '
+          is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).  '
         required: false
         style: form
         explode: true
@@ -2127,7 +2125,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalPersoonIdentificatie
+      - name: kadastraalpersoonidentificatie
         in: query
         description: De kadastrale identificatie van een persoon of een rechtspersoon
           die bij het kadaster geregistreerd is.
@@ -2629,7 +2627,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalPersoonIdentificatie
+      - name: kadastraalpersoonidentificatie
         in: query
         description: De kadastrale identificatie van een persoon of een rechtspersoon
           die bij het kadaster geregistreerd is.
@@ -3717,15 +3715,15 @@ components:
     Persoon_embedded:
       type: object
       properties:
-        woonlocatie_adresbuitenland:
+        woonlocatieAdresBuitenland:
           $ref: '#/components/schemas/Objectlocatiebuitenland'
-        woonlocatie_adresbinnenland:
+        woonlocatieAdresBinnenland:
           $ref: '#/components/schemas/ObjectlocatieBinnenland'
-        postlocatie_adresbinnenland:
+        postlocatieAdresBinnenland:
           $ref: '#/components/schemas/ObjectlocatieBinnenland'
-        postlocatie_adresbuitenland:
+        postlocatieAdresBuitenland:
           $ref: '#/components/schemas/Objectlocatiebuitenland'
-        postlocatie_postbuslocatie:
+        postlocatiePostbuslocatie:
           $ref: '#/components/schemas/Postbuslocatie'
     AangebodenStuk_embedded:
       type: object
@@ -4157,10 +4155,10 @@ components:
   headers:
     api_version:
       schema:
-        type: integer
-        description: Geeft een specifieke major API-versie aan in de context van een
-          specifieke aanroep.
-        example: 1
+        type: string
+        description: Geeft een specifieke API-versie aan in de context van een specifieke
+          aanroep.
+        example: 1.0.0
     warning:
       schema:
         type: string
