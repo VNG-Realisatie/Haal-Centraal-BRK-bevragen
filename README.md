@@ -11,9 +11,9 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API Specificaties en JSON schema) van de **unresolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
+* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API Specificaties en JSON schema) van de **resolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/unresolved) (Open API Specificaties en JSON schema) van de **resolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/unresolved/openapi.yaml)
+* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/unresolved) (Open API Specificaties en JSON schema) van de **unresolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/unresolved/openapi.yaml)
 
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
