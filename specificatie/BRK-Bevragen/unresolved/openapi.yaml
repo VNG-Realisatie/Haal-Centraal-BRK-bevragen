@@ -22,13 +22,13 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: appartementsrechtVolgnummer
+          name: appartementsrechtvolgnummer
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
           schema: 
             type: "integer"
         - in: query
-          name: kadastraleGemeente
+          name: kadastralegemeente
           schema: 
             type: "string"  
         - in: query
@@ -39,6 +39,7 @@ paths:
               \ `00001` tot max `99999`"
           schema:
             type: "integer"
+            maximum: 99999
         - in: query
           name: sectie
           description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
@@ -63,14 +64,14 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalPersoonIdentificatie
+          name: kadastraalpersoonidentificatie
           description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
             type: string
         - in: query
-          name: typeGerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Vooralsnog wordt alleen de waarde eigenaar (code 2) ondersteund.De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          name: typegerechtigde
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
           required: false
           schema:
             type: integer
@@ -183,7 +184,7 @@ paths:
             type: string
         - in: query
           name: typegerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).  "
           required: false
           schema:
             type: string
@@ -513,7 +514,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalPersoonIdentificatie
+          name: kadastraalpersoonidentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
@@ -633,7 +634,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalPersoonIdentificatie
+          name: kadastraalpersoonidentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
@@ -1613,15 +1614,15 @@ components:
     Persoon_embedded:
       type: "object"
       properties:
-        woonlocatie_adresbuitenland:
+        woonlocatieAdresBuitenland:
           $ref: "#/components/schemas/Objectlocatiebuitenland"
-        woonlocatie_adresbinnenland:
+        woonlocatieAdresBinnenland:
           $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatie_adresbinnenland:
+        postlocatieAdresBinnenland:
           $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatie_adresbuitenland:
+        postlocatieAdresBuitenland:
           $ref: "#/components/schemas/Objectlocatiebuitenland"
-        postlocatie_postbuslocatie:
+        postlocatiePostbuslocatie:
           $ref: "#/components/schemas/Postbuslocatie"
     AangebodenStuk_embedded:
       type: "object"
