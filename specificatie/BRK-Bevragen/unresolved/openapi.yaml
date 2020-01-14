@@ -184,7 +184,7 @@ paths:
             type: string
         - in: query
           name: typegerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht).  "
           required: false
           schema:
             type: string
@@ -1614,15 +1614,15 @@ components:
     Persoon_embedded:
       type: "object"
       properties:
-        woonlocatie_adresbuitenland:
+        woonlocatieAdresBuitenland:
           $ref: "#/components/schemas/Objectlocatiebuitenland"
-        woonlocatie_adresbinnenland:
+        woonlocatieAdresBinnenland:
           $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatie_adresbinnenland:
+        postlocatieAdresBinnenland:
           $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatie_adresbuitenland:
+        postlocatieAdresBuitenland:
           $ref: "#/components/schemas/Objectlocatiebuitenland"
-        postlocatie_postbuslocatie:
+        postlocatiePostbuslocatie:
           $ref: "#/components/schemas/Postbuslocatie"
     AangebodenStuk_embedded:
       type: "object"
