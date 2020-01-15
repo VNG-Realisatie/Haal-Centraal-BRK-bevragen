@@ -21,8 +21,6 @@ LET OP: je moet de apiKey als header meegeven met als key=apiKey en als value de
 
 ### Nog niet gerealiseerd
 De volgende functies zijn nog niet gerealiseerd voor het API lab.
-- Foutafhandeling: alle foutsituaties geven nu een http 404 error response terug
-- Fields & Expand query parameters
 - Ophalen Kadastraal Onroerende Zaken op basis van een kadastraleAanduiding (kadastraleGemeenteNaam, sectie, perceelNummer)
 - Ophalen van stukken
 - Ophalen van hypotheken van een specifieke geldverstrekker
@@ -91,3 +89,14 @@ NL.IMKAD.Persoon.537742055  | Beslaglegger1 Utrecht (Kadaster Niet Natuurlijk Pe
 NL.IMKAD.Persoon.146134936  | Vastgoed Hypotheken Zeist (Kadaster Niet Natuurlijk Persoon)
 NL.IMKAD.Persoon.533499594  | BetereGeld B.V. Groningen (Kadaster Niet Natuurlijk Persoon)
 NL.IMKAD.Persoon.537735891  | GoedeKeuze B.V. Assen (Ingeschreven Niet Natuurlijk Persoon) 
+
+#### Foutscenarios
+Zie hieronder een paar endpoints waarmee bepaalde foutscenarios te testen zijn. 
+
+Aanvraag | Foutscenario
+---------------- | :-------  
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003017000 | 500 Internal server error
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003147000 | 404 Not found 
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003157000 | 410 Gone
+
+De validatie op de fields & expand parameters kan per endpoint getest worden.
