@@ -105,10 +105,10 @@ components:
         - $ref: '#/components/schemas/KadasterPersoon'
       properties:
         _link:
-          $ref: '#/components/schemas/KadasterPersoonHal_links'
+          $ref: '#/components/schemas/KadasterPersoon_links'
       discriminator:
         propertyName: kadasterPersoonType
-    KadasterPersoonHal_links:
+    KadasterPersoon_links:
       type: object
       properties:
         self:
@@ -116,15 +116,15 @@ components:
     KadasterNatuurlijkPersoonHal:
       allOf:
         - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
-        - $ref: '#/components/schemas/KadasterPersoonHal'
+        - $ref: '#/components/schemas/KadasterPersoon_links'
     KadasterNietNatuurlijkPersoonHal:
       allOf:
         - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
-        - $ref: '#/components/schemas/KadasterPersoonHal'
+        - $ref: '#/components/schemas/KadasterPersoon_links'
     IngeschrevenNietNatuurlijkPersoonHal:
       allOf:
         - $ref: '#/components/schemas/IngeschrevenNietNatuurlijkPersoon'
-        - $ref: '#/components/schemas/KadasterPersoonHal'
+        - $ref: '#/components/schemas/KadasterPersoon_links'
     KadasterPersoon:
       oneOf:
 #       - $ref: '#/components/schemas/AbstractKadasterPersoon'
