@@ -16,17 +16,31 @@ paths:
   /kadastraalonroerendezaken:
     get:
       operationId: GetKadastraalOnroerendeZaken
-      description: "Het ophalen van een verzameling Kadastraal Onroerende Zaken. "
+      description: |
+          Het ophalen van een collectie Kadastraal Onroerende zaken. 
+          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen 
+          1.  Kadastrale aanduiding
+              -  kadastrale_gemeente (verplicht)
+              -  perceelnummer (verplicht)
+              -  sectie (verplicht)
+              -  appartementsrechtnummer (optioneel)
+          2.  Ingeschreven persoon als zakelijk gerechtigde
+              -  burgerservicenummer
+          3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde 
+              -  kadastraalpersoonidentificatie
+          4.  Type zakelijk gerechtigden
+              -  typegerechtigde
+          5.  Adres
+              -  postcode (verplicht)
+              -  huisnummer (optioneel) 
+              -  huisletter (optioneel)
+              -  huisnummertoevoeging (optioneel)
+
+          Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding."
       parameters: 
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
-        - in: query
-          name: appartementsrechtvolgnummer
-          description: "Nummer dat het kadastraal object uniek identificeert als een\
-            \ appartementsrecht binnen het complex."
-          schema: 
-            type: "integer"
         - in: query
           name: kadastralegemeente
           schema: 
@@ -45,17 +59,17 @@ paths:
           description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
             \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
             \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
-            \ sectie heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ'\
+            \ sectie heeft een of twee letters (bijv. `A`, `B`, ....`AA`, `AB`, ....`ZZ`\
             \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
             \ te voorkomen met `I`"
           schema:
             type: "string"
         - in: query
-          name: kadastraleaanduiding
-          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
-          required: false
-          schema:
-            type: string
+          name: appartementsrechtvolgnummer
+          description: "Nummer dat het kadastraal object uniek identificeert als een\
+            \ appartementsrecht binnen het complex."
+          schema: 
+            type: "integer"
         - in: query
           name: burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
@@ -71,10 +85,38 @@ paths:
             type: string
         - in: query
           name: typegerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardZakelijkRecht). Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst] __***(Hier nog de locatie van de betreffende waardelijst toevoegen !***__  . We gebruiken de **code** can de waardelijst als parameter. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
           required: false
           schema:
             type: integer
+        - in: query
+          name: postcode
+          description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema: 
+            type: string
+            pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$" 
+        - in: query
+          name: huisnummer
+          description: "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema: 
+            type: integer
+            pattern: "^[1-9][0-9]{0,4}$" 
+        - in: query
+          name: huisletter
+          description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema: 
+            type: string
+            pattern: "^[a-zA-Z]$" 
+        - in: query
+          name: huisnummertoevoeging
+          description: "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema: 
+            type: string
+            pattern: "^([a-z,A-Z,0-9])+$" 
       responses:
         '200':
           description: "Zoekactie geslaagd"
