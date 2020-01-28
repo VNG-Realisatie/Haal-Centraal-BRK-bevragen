@@ -39,8 +39,8 @@ paths:
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding."
       parameters: 
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: kadastralegemeente
           schema: 
@@ -122,39 +122,39 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}:
@@ -169,48 +169,48 @@ paths:
           schema:
             type: string
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
       responses:
         '200':
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
@@ -218,6 +218,7 @@ paths:
       operationId: GetZakelijkGerechtigden
       description: "Het ophalen van een de zakelijke gerechtigden behorende bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
           description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
@@ -235,41 +236,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Zakelijke Gerechtigden
   /kadasternatuurlijkpersonen/{identificatie}:
@@ -277,7 +278,8 @@ paths:
       operationId: GetKadasterPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd Natuurlijk Persoon, niet zijnde een ingeschreven natuurlijk persoon."
       parameters: 
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: identificatie
           description: ""
@@ -290,41 +292,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadaster (niet)Natuurlijk Personen
   /kadasternatuurlijkpersonen:
@@ -332,7 +334,8 @@ paths:
       operationId: GetKadasterPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerd Natuurlijk Personen, niet zijnde ingeschreven natuurlijk personen."
       parameters: 
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
           description: "Free query parameter"
@@ -344,41 +347,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadaster (niet)Natuurlijk Personen
   /kadasternietnatuurlijkpersonen/{identificatie}:
@@ -386,7 +389,8 @@ paths:
       operationId: GetKadasterNietNatuurlijkPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd niet natuurlijk Persoon, niet zijnde een ingeschreven niet natuurlijk persoon."
       parameters: 
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: identificatie
           description: ""
@@ -399,41 +403,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadaster (niet)Natuurlijk Personen 
   /kadasternietnatuurlijkpersonen:
@@ -441,7 +445,8 @@ paths:
       operationId: GetKadasterNietNatuurlijkPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerde niet natuurlijk Personen, niet zijnde ingeschreven niet natuurlijk personen."
       parameters: 
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
           description: "Free query parameter"
@@ -453,41 +458,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Kadaster (niet)Natuurlijk Personen 
   /stukken/{identificatie}:
@@ -495,7 +500,8 @@ paths:
       operationId: GetStuk
       description: "In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. De rechtsfeiten zijn gestructureerd vastglegd in stukdelen en deze stukdelen verwijzen naar de akte. Het is dus mogelijk om met verschillende stukdeel-identificaties dezelfde akte op te vragen. Daarnaast zijn er twee typen aktes die geretourneerd kunnen worden. Een aangeboden stuk of een kadasterstuk."
       parameters: 
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: identificatie
           description: ""
@@ -508,41 +514,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/Stuk'
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Aangeboden Stukken (Akte) 
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/privaatrechtelijkebeperkingen:
@@ -550,9 +556,10 @@ paths:
       operationId: GetPrvaatrechtelijkeBeperkingKadastraalonroerendezaak
       description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
-          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          description: "Kadastrale identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
           required: true
           schema:
             type: string
@@ -561,41 +568,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/AantekeningHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Privaatrechtelijke Beperkingen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/hypotheken:
@@ -603,9 +610,10 @@ paths:
       operationId: GetHypothekenKadastraalOnroerendeZaak
       description: "Het ophalen van hypotheken en hypotheeknemers van een specifieke kadastraal onroerende zaak."
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
-          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          description: "Kadastrale identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
           required: true
           schema:
             type: string
@@ -614,41 +622,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/HypotheekHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Hypotheken
   /hypotheken:
@@ -656,6 +664,7 @@ paths:
       operationId: GetHypotheken
       description: "Het ophalen van hypotheken van een specifieke geldverstrekker."
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
@@ -674,41 +683,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/HypotheekHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Hypotheken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
@@ -716,6 +725,7 @@ paths:
       operationId: GetBeslagenKadastraalOnroerendeZaak
       description: "Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal Onroerende Zaak. "
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
           description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
@@ -727,41 +737,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/BeslagHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Beslagen
   /beslagen:
@@ -769,6 +779,7 @@ paths:
       operationId: GetBeslagen
       description: "Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd."
       parameters: 
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
@@ -794,41 +805,41 @@ paths:
           description: "Zoekactie geslaagd"
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
             X-Rate-Limit-Remaining:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
             X-Rate-Limit-Reset:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             application/hal+json:
               schema:
                 $ref: "#/components/schemas/BeslagHalCollectie"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
         '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/404"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
         '409':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/409"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
         '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/410"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
         '415':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/415"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
         '429':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/429"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags: 
       - Beslagen
 components:
@@ -843,11 +854,11 @@ components:
         omschrijving:
           type: "string"
         begrenzing: 
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         begrenzingDienendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         begernzingHeersendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         einddatum: 
           type: "string"
           format: "date"
@@ -870,7 +881,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -912,7 +923,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -954,7 +965,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -971,7 +982,7 @@ components:
           description: "Dit is de unieke identificatie van een kadastraal object. "
           type: "string" 
         begrenzingPerceel:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         omschrijvingOnderzoekErfdienstbaarheden:
           type: "string"
           title: "omschrijvingOnderzoekErfdienstbaarheden"
@@ -982,7 +993,7 @@ components:
           description: ""
           maximum: 999
         plaatscoordinaten:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         koopsom:
           $ref: "#/components/schemas/TypeKoopsom"
         toelichtingBewaarder:
@@ -993,7 +1004,7 @@ components:
           type: "object"
           properties:
             toestandsdatum:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
             omschrijving:
               type: "string"
               title: "omschrijvingOnderzoekErfdienstbaarheden"
@@ -1025,7 +1036,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -1071,7 +1082,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -1107,7 +1118,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -1123,19 +1134,19 @@ components:
           type: "array"
           description: ""
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         geldverstrekker:
           title: "isGeldverstrekker"
           type: "object"
           description: ""
           properties:
             href:
-             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Beslag_links:
       type: "object"
       properties:
@@ -1144,24 +1155,24 @@ components:
           type: "array"
           description: ""
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         beslaglegger:
           title: "isBeslaglegger"
           type: "object"
           description: ""
           properties:
             href:
-             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           title: "rustOp"
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     TypeKoopsom:
       type: "object"
       properties:
@@ -1211,7 +1222,7 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           type: "object"
           properties:
@@ -1250,7 +1261,7 @@ components:
           naam:
             type: string
           geboortedatum:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
     NietNatuurlijkPersoonCompact:
       allOf:
       - $ref: '#/components/schemas/AbstractPersoonCompact'
@@ -1360,9 +1371,9 @@ components:
         \ van een persoon."
       properties:
         datumOntbinding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         datumSluiting:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     Naam:
@@ -1398,7 +1409,7 @@ components:
           description: "De geboorteplaats is de plaats of een plaatsbepaling, die\
             \ aangeeft waar de persoon is geboren"
         datum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         land:
           $ref: "#/components/schemas/Waardelijst"
     Overlijden:
@@ -1406,7 +1417,7 @@ components:
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
       properties:
         datum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
     KadasterStuk:
       allOf:
       - $ref: "#/components/schemas/Stuk"
@@ -1662,117 +1673,117 @@ components:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ObjectlocatieBinnenland_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Postbuslocatie_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterStuk_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     AangebodenStuk_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadasterverzoeken:
           title: "heeft"
           type: "array"
           description: ""
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Kadasterverzoek_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterNietNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         betreftKadastraalObject:
           title: "betreftkadastraalobject"
           type: "array"
           description: ""
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         aantekeningen:
           title: ""
           type: "array"
           description: ""
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         bagAdressen:
           title: "betreft"
           type: "array"
           description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
           minItems: 1
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           title: "heeft"
           type: "array"
           description: ""
           minItems: 1
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         nietBagAdressen:
           title: "betreft"
           type: "array"
           description: ""
           minItems: 1
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
           description: ""
           minItems: 1
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         aantekeningen:
           title: ""
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         persoon:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Aantekening_links:
       type: "object"
       properties:
         self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"        
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"        
     Persoon_embedded:
       type: "object"
       properties:
@@ -1860,10 +1871,10 @@ components:
       description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen" 
       type: object
       oneOf:
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Point'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPoint'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/LineString'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiLineString'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/Polygon'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Point'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPoint'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/LineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiLineString'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Polygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
