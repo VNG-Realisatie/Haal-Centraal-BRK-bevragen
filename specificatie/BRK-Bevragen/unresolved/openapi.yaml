@@ -734,6 +734,8 @@ paths:
       - Beslagen
 components:
   schemas:
+    Identificatie: 
+      type: "string"
     Aantekening: 
       type: "object"
       properties:
@@ -761,6 +763,13 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
+        stukken:
+          type: "array"
+          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
+          items:
+            $ref: "#/components/schemas/Identificatie"
+          discriminator: 
+            propertyName: Stuktype
     AantekeningHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -800,9 +809,15 @@ components:
           properties: 
             identificatie:
               type: "string"
-            typePersoon: 
-              type: "string"
-              description: "De beslaglegger kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de beslaglegger is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
+          discriminator:
+            propertyName: typePersoon
+        stukken:
+          type: "array"
+          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
+          items:
+            $ref: "#/components/schemas/Identificatie"
+          discriminator: 
+            propertyName: Stuktype
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -842,9 +857,15 @@ components:
           properties: 
             identificatie:
               type: "string"
-            typePersoon: 
-              type: "string"
-              description: "De geldverstrekker kan een Ingeschreven Persoon, een Niet-ingeschreven Persoon , een Ingeschreven Niet-Natuurlijk Persoon of een Niet-Ingeschreven Niet-Natuurlijk Persoon zijn. In dit element wordt aangegeven welk type Persoon de geldverstrekker is zodat de consumer weet waar eventueel aanvullende informatie over die persoon op te halen is. "
+          discriminator: 
+            propertyName: typePersoon
+        stukken:
+          type: "array"
+          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
+          items:
+            $ref: "#/components/schemas/Identificatie"
+          discriminator: 
+            propertyName: Stuktype
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -911,9 +932,16 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        bagAdres:
+        nummeraanduidingIdentificatie:
           type: "string"
-          description: "Dit element is opgenomen om de identificatie van de bagAdres beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+          description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de tamplated Halling naar de BAG."
+        stukIdentificatie:
+          type: "array"
+          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
+          items:
+            $ref: "#/components/schemas/Identificatie"
+          discriminator: 
+            propertyName: Stuktype
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1002,9 +1030,9 @@ components:
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         geldverstrekker:
-          title: "isGeldverstrekker"
+          title: "isGeldverstrekker"     
           type: "object"
-          description: ""
+          description: "Dit is een natuurlijk persoon of een niet-natuurlijk persoon die Het geld heeft verstrekt in het kader van de hypothecaire lening"
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1016,12 +1044,12 @@ components:
     Beslag_links:
       type: "object"
       properties:
-        aantekening:
-          title: ""
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#        aantekening:
+#          title: ""
+#          type: "array"
+#          description: ""
+#          items:
+#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schema#s/HalLink"
         beslaglegger:
           title: "isBeslaglegger"
           type: "object"
@@ -1078,6 +1106,17 @@ components:
             type: "array"
             items:
               $ref: "#/components/schemas/Tenaamstelling"
+        stukken:
+          type: "array"
+          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
+          items:
+            $ref: "#/components/schemas/Identificatie"
+          discriminator: 
+            propertyName: Stuktype
+        persoon: 
+          type: "string"  
+          discriminator:
+            propertyName: typePersoon
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
@@ -1568,12 +1607,12 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        kadasterverzoeken:
-          title: "heeft"
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#        kadasterverzoeken:
+#         title: "heeft"
+#         type: "array"
+#          description: ""        Is geen endpoint voor ontworpen, dus geen link.
+#          items:
+#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Kadasterverzoek_links:
       type: "object"
       properties:
@@ -1594,18 +1633,12 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betreftKadastraalObject:
-          title: "betreftkadastraalobject"
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekeningen:
-          title: ""
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#        betreftKadastraalObject:
+#          title: "betreftkadastraalobject"
+#          type: "array"                            Komt volgens mij te vervallen
+#          description: ""
+#          items:
+#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         bagAdressen:
           title: "betreft"
           type: "array"
@@ -1620,13 +1653,13 @@ components:
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nietBagAdressen:
-          title: "betreft"
-          type: "array"
-          description: ""
-          minItems: 1
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#        nietBagAdressen:
+#          title: "betreft"
+#          type: "array"            Is geen endpoint voor Komt te vervallen ?
+#          description: ""
+#          minItems: 1
+#          items:
+#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
@@ -1644,11 +1677,11 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        aantekeningen:
-          title: ""
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#        aantekeningen:
+#          title: ""            Er is geen endpoint aantekeningen. Komt dus te vervallen als link
+#          type: "array"
+#          items:
+#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         persoon:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Aantekening_links:
