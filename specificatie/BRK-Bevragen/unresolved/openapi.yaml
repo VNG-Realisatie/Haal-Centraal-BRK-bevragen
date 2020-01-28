@@ -561,13 +561,6 @@ paths:
           required: false
           schema:
             type: string
-        - in: query
-          name: type
-          description: "Het type betrokkene waarvan de hypotheken worden opgevraagd. Bij een hypotheek is er sprake van een 'Geldverstrekker' en er is sprake van een 'Onderpandgever'  "
-          required: true
-          schema: 
-            type: string
-            maxLength: 15
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1008,11 +1001,6 @@ components:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigden:
-          title: "isOnderpandgever"
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/common.yaml#/components/schemas/HalLink"
