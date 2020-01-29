@@ -1154,12 +1154,6 @@ components:
     Hypotheek_links:
       type: "object"
       properties:
-        aantekening:
-          title: ""
-          type: "array"
-          description: ""
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         geldverstrekker:
           title: "isGeldverstrekker"     
           type: "object"
@@ -1175,12 +1169,6 @@ components:
     Beslag_links:
       type: "object"
       properties:
-#        aantekening:
-#          title: ""
-#          type: "array"
-#          description: ""
-#          items:
-#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schema#s/HalLink"
         beslaglegger:
           title: "isBeslaglegger"
           type: "object"
@@ -1808,11 +1796,6 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-#        aantekeningen:
-#          title: ""            Er is geen endpoint aantekeningen. Komt dus te vervallen als link
-#          type: "array"
-#          items:
-#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         persoon:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Aantekening_links:
