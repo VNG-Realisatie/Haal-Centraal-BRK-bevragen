@@ -85,7 +85,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/Waardelijst"
+                $ref: "#/components/schemas/TypeWaardelijst"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -186,7 +186,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Waarde'
+                $ref: '#/components/schemas/Waardelijst'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -251,16 +251,26 @@ components:
       schema:
         type: string
   schemas:
-    Waarde:
-      $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Waardelijst"
+    Waardelijst:
+      type: "object"
+      description: "Generieke lijst met waarden om een code en waarde op te nemen."
+      properties:
+        code:
+          type: "string"
+          title: "code"
+          description: ""
+        waarde:
+          type: "string"
+          title: "waarde"
+          description: ""
     WaardeCollectie:
       type: object
       properties:
         waarden:
           type: array
           items:
-            $ref: '#/components/schemas/Waarde'
-    Waardelijst:
+            $ref: "#/components/schemas/Waardelijst"
+    TypeWaardelijst:
       type: "object"
       description: "Waardelijsten zoals ontsloten door het Kadaster."
       properties:
@@ -278,4 +288,4 @@ components:
         waardelijsten:
           type: array
           items:
-            $ref: "#/components/schemas/Waardelijst"
+            $ref: "#/components/schemas/TypeWaardelijst"
