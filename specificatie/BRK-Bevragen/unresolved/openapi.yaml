@@ -28,9 +28,8 @@ paths:
               -  burgerservicenummer
           3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde 
               -  kadastraalpersoonidentificatie
-          4.  Type zakelijk gerechtigden
               -  typegerechtigde
-          5.  Adres
+          4.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel) 
               -  huisletter (optioneel)
