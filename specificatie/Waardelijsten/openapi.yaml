@@ -259,7 +259,7 @@ components:
         waarden:
           type: array
           items:
-            $ref: '#/components/schemas/Waarde'
+            $ref: "#/components/schemas/Waarde"
     Waardelijst:
       type: "object"
       description: "Waardelijsten zoals ontsloten door het Kadaster."
