@@ -54,6 +54,7 @@ paths:
               \ 1 tot max 99999"
           schema:
             type: "integer"
+            minimum: 1
             maximum: 99999
         - in: query
           name: sectie
