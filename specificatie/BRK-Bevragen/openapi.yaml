@@ -1891,7 +1891,7 @@ components:
       - "onbekend"
     TypePersoon_enum:
       type: "string"
-      description: ":\n* `ingeschrevenpersoon`\n* `kadasterpersoon` "
+      description: "Een ingeschrevenpersoon is een peroon die is geregistreerd in de BRP en dus een BSN heeft. Een kadasterpersoon is een persoon of een rechtspersoon die voorkomt in de registratie van het kadaster. :\n* `ingeschrevenpersoon`\n* `kadasterpersoon` "
       enum:
       - "ingeschrevenpersoon"
       - "kadasterpersoon"
@@ -1900,7 +1900,8 @@ components:
       description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
       properties:
         som:
-          type: "integer"
+          type: "number"
+          format: "float"
           title: "Het bedrag. Dit is een waarde met max. 2 decimalen."
           description: ""
         valuta:
