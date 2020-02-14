@@ -5,7 +5,7 @@ servers:
     url: https://www.voorbeeldgemeente.nl/api/waardelijsten/
 info:
   title: Kadaster Waardelijsten
-  description: "API voor het ontsluiten van de waardelijsten van het kadaster."
+  description: "API voor het ontsluiten van de waardelijsten van het Kadaster."
   version: "1.0.0"
   contact:
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/api-specificatie/Waardelijsten
@@ -17,9 +17,9 @@ paths:
     get:
       operationId: getWaardelijsten
       description: "Het ophalen van een collectie Waardelijsten<br>  Bij het zoeken mag er gebruik worden gemaakt van [wildcards](https://github.com/VNG-Realisatie/Haal-centraal-common/blob/master/features/wildcard.feature). Zoeken is **case-insensitive**."
-      parameters: 
+      parameters:
         - $ref: '#/components/parameters/waardelijstidentificatie'
-        - $ref: '#/components/parameters/waarde'
+        - $ref: '#/components/parameters/lijstomschrijving'
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -60,7 +60,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Waardelijsten
   /waardelijsten/{waardelijstidentificatie}:
     get:
@@ -110,16 +110,17 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
         - Waardelijsten
   /waardelijsten/{waardelijstidentificatie}/waarden:
     get:
       operationId: getWaarden
-      description: "Het ophalen van de waarden van een waardelijst <br> Als er op waarde of code gezocht wordt worden alleen actuele waarden geretourneerd. <br> Als de parameter <b> inclusief beeindigd </b> met waarde <i> true </i>  wordt meegegeven bij de call worden ook beeindigde waarden geretourneerd. <br> Bij het zoeken op de omschrijving mag er gebruik worden gemaakt van [wildcards](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/wildcard.feature). Zoeken is **case-insensitive**."
-      parameters: 
+      description: "Het ophalen van de waarden van een waardelijst.<br>Default worden alleen actuele waarden geretourneerd. Met de parameter <b>inclusiefbeeindigd</b> kunnen ook beëindigde waarden gevraagd."
+      parameters:
         - $ref: '#/components/parameters/waardelijstidentificatie_path'
         - $ref: '#/components/parameters/code'
         - $ref: '#/components/parameters/waarde'
+        - $ref: '#/components/parameters/inclusiefbeeindigd'
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -160,8 +161,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
-      - waardelijstwaarden
+      tags:
+      - Waarden
   /waardelijsten/{waardelijstidentificatie}/waarden/{code}:
     get:
       operationId: getWaarde
@@ -211,7 +212,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/501"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Waarden
 components:
   parameters:
@@ -222,6 +223,7 @@ components:
       required: false
       schema:
         type: string
+        example: "AardZakelijkRecht"
     waardelijstidentificatie_path:
       name: waardelijstidentificatie
       in: path
@@ -229,6 +231,7 @@ components:
       required: true
       schema:
         type: string
+        example: "AardZakelijkRecht"
     code:
       name: code
       in: query
@@ -236,6 +239,7 @@ components:
       required: false
       schema:
         type: string
+        example: "6"
     code_path:
       name: code
       in: path
@@ -243,6 +247,15 @@ components:
       required: true
       schema:
         type: string
+        example: "6"
+    lijstomschrijving:
+      in: query
+      name: omschrijving
+      description: "De omschrijving (lange naam) van de waardelijst. <br> Bij het zoeken mag er gebruik worden gemaakt van <b>[wildcards](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/wildcard.feature)</b>.<br>Zoeken is <b>[case-Insensitive](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/case_insensitive.feature)</b></a>"
+      required: false
+      schema:
+        type: string
+        example: "aard zakelijk*"
     waarde:
       in: query
       name: waarde
@@ -250,9 +263,31 @@ components:
       required: false
       schema:
         type: string
+        example: "huurrecht*"
+    inclusiefbeeindigd:
+      in: query
+      name: inclusiefbeeindigd
+      description: "De indicatie waarmee aangegeven wordt of beëindigde waarden moeten worden meegeleverd. Wanneer deze wordt opgenomen met de waarde true, dan worden ook beëindigde waarden meegeleverd."
+      required: false
+      schema:
+        type: boolean
   schemas:
     Waarde:
-      $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Waardelijst"
+      allOf:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Waardelijst"
+        - type: object
+          properties:
+            datumVanaf:
+              type: string
+              format: date
+              example: "2011-01-01"
+            datumTot:
+              type: string
+              format: date
+              example: "2018-09-01"
+            toelichting:
+              type: string
+              example: "* alleen voor luchtvaartuigen"
     WaardeCollectie:
       type: object
       properties:
@@ -264,14 +299,15 @@ components:
       type: "object"
       description: "Waardelijsten zoals ontsloten door het Kadaster."
       properties:
-        waardelijstidentificatie: 
+        waardelijstidentificatie:
           type: "string"
           description: "De identificatie, behorende bij de waardelijst."
           example: "SoortErfpachtCanon"
-        omschrijving: 
+        omschrijving:
           type: "string"
-          description: "De omschrijving van de waardelijst"
-          example: ""
+          title: LongName
+          description: "De omschrijving (lange naam) van de waardelijst."
+          example: "SoortErfpachtCanon"
     WaardelijstCollectie:
       type: object
       properties:
