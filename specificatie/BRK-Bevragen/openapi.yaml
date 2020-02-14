@@ -1212,9 +1212,7 @@ components:
         erfpachtCanon:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstellingen:
-            type: "array"
-            items:
-              $ref: "#/components/schemas/Tenaamstelling"
+          $ref: "#/components/schemas/Tenaamstelling"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
