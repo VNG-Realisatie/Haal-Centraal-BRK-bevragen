@@ -41,16 +41,17 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: kadastralegemeente
-          description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst. Elke kadastrale gemeentenaam is uniek."
+          name: kadastralegemeente__code
+          description: "De code van de kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De doe en waarde zijn vastgelegd in een Waardelijst."
           schema: 
             type: "string"  
+            example: "50"
         - in: query
           name: perceelnummer
           description: "Het perceelnummer dat een geheel perceel of een complex uniek\
               \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
               \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
-              \ `00001` tot max `99999`"
+              \ 1 tot max 99999"
           schema:
             type: "integer"
             maximum: 99999
@@ -580,7 +581,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/AantekeningHalCollectie"
+                $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -777,7 +778,15 @@ paths:
   /beslagen:
     get:
       operationId: GetBeslagen
-      description: "Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd."
+      description: |
+          Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd. 
+          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen 
+          1.  Beslaglegger is een Persoon die bekend is in de BRP als ingeschreven persoon
+              -  burgerservicenummer (verplicht)
+              -  typepersoon (verplicht)
+          2.  Beslaglegger is niet bekend als ingeschreven persoon in de BRP of de beslaglegger is een rechtspersoon
+              -  kadasterpersoonidentificatie (verplicht)
+              -  typepersoon (verplicht)
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -788,18 +797,17 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalpersoonidentificatie
+          name: kadasterpersoonidentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
             type: string
         - in: query
-          name: type
-          description: "Het type betrokkene die beslag heeft gelegd op een Kadastraal Onroerende Zaak."
+          name: typepersoon
+          description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
           required: true
           schema: 
-            type: string
-            maxLength: 15
+            $ref: "#/components/schemas/TypePersoon_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -883,13 +891,13 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             $ref: "#/components/schemas/ResourceIdentificatie"
-    AantekeningHal:
+    PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
       - properties:
           _links:
-            $ref: "#/components/schemas/Aantekening_links"
-    AantekeningHalCollectie:
+            $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+    PrivaatrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
         _links:
@@ -897,10 +905,10 @@ components:
         _embedded:
           type: "object"
           properties:
-            aantekeningen:
+            privaatrechtelijkeBeperkingen:
               type: "array"
               items: 
-                $ref: "#/components/schemas/AantekeningHal"
+                $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
     Beslag: 
       type: "object"
       properties:
@@ -914,12 +922,11 @@ components:
           $ref: "#/components/schemas/Waardelijst"
         toelichtingBewaarder:
           type: "string"
+          description: "ToelichtingBewaarder is een aanvullende toelichting van de bewaarder op  een geregistreerd feit."
         aard:
           $ref: "#/components/schemas/Waardelijst"
         beslaglegger:
-          allOf:
-            - description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-            - $ref: "#/components/schemas/ResourceIdentificatie"
+          $ref: "#/components/schemas/Beslaglegger"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -943,6 +950,10 @@ components:
               type: "array"
               items: 
                 $ref: "#/components/schemas/BeslagHal"
+    Beslaglegger:
+      allOf:
+        - description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+        - $ref: "#/components/schemas/ResourceIdentificatie"
     Hypotheek: 
       type: "object"
       properties:
@@ -1206,7 +1217,7 @@ components:
       properties:
         typeGerechtigde:
           type: "string"
-          description: "Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen met AardzakelijkRecht"
+          description: "Het type zakelijk recht dat deze gerechtigde heeft."
         aanvangsdatum:
           type: "string"
           description: "Datum waarop het zakelijk recht van kracht is geworden. "
@@ -1582,7 +1593,7 @@ components:
           description: "Het perceelnummer dat een geheel perceel of een complex uniek\
             \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
             \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
-            \ `00001` tot max `99999`"
+            \ 1 tot max 99999"
         sectie:
           type: "string"
           title: "sectie"
@@ -1602,7 +1613,7 @@ components:
         waarde:
           type: "integer"
           title: "waarde"
-          description: "Oppervlak grootte, in vierkante meters. [1-9][0-9]*|0,[1-4]"
+          description: "Oppervlak grootte, met als eenheid de soortGrootte. [1-9][0-9]*|0,[1-4]"
     TypePerceelnummerVerschuiving:
       type: "object"
       description: "Verschuiving van het perceelnummer ten behoeve van visualisatie\
@@ -1749,7 +1760,7 @@ components:
         bagAdressen:
           title: "betreft"
           type: "array"
-          description: "Dit is nu nog een koppeling naar de nummeraanduiding, maar de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend op het endpoint adres van de BAG nemen we die hier op. "
+          description: "Dit een koppeling naar het Adres zoals dat in de HC-Bag API wordt aangeboden."
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1786,11 +1797,9 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         persoon:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Aantekening_links:
+    PrivaatrechtelijkeBeperking_links:
       type: "object"
       properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"        
     Persoon_embedded:
@@ -1842,12 +1851,18 @@ components:
       - "man"
       - "vrouw"
       - "onbekend"
+    TypePersoon_enum:
+      type: "string"
+      description: ":\n* `ingeschrevenpersoon`\n* `kadasterpersoon` "
+      enum:
+      - "ingeschrevenpersoon"
+      - "kadasterpersoon"
     Bedrag:
       type: "object"
       description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
       properties:
         som:
-          type: "string"
+          type: "integer"
           title: "Het bedrag. Dit is een waarde met max. 2 decimalen."
           description: ""
         valuta:
