@@ -42,6 +42,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: kadastralegemeente
+          description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst. Elke kadastrale gemeentenaam is uniek."
           schema: 
             type: "string"  
         - in: query
@@ -1572,7 +1573,9 @@ components:
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
         kadastraleGemeente:
-          $ref: "#/components/schemas/Waardelijst"  
+          allOf:
+            - description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst. Elke kadastrale gemeentenaam is uniek."
+            - $ref: "#/components/schemas/Waardelijst"  
         perceelnummer:
           type: "integer"
           title: "perceelnummer"
