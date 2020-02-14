@@ -660,7 +660,7 @@ paths:
   /hypotheken:
     get:
       operationId: GetHypotheken
-      description: "Het ophalen van hypotheken van een specifieke geldverstrekker."
+      description: "Het ophalen van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -956,9 +956,9 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
-        geldverstrekker:
+        hypotheekhouder:
           allOf:
-            - description: "Dit element is opgenomen om de identificatie van de geldverstrekker beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+            - description: "Dit element is opgenomen om de identificatie van de hypotheekhouder (De hypotheekhouder is de geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening.) beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
             - $ref: "#/components/schemas/ResourceIdentificatie"
         stukken:
           type: "array"
@@ -1144,10 +1144,10 @@ components:
     Hypotheek_links:
       type: "object"
       properties:
-        geldverstrekker:
-          title: "isGeldverstrekker"     
+        hypotheekhouder:
+          title: "isHypotheekhouder"     
           type: "object"
-          description: "Dit is een natuurlijk persoon of een niet-natuurlijk persoon die Het geld heeft verstrekt in het kader van de hypothecaire lening"
+          description: "Dit is een natuurlijk persoon of een niet-natuurlijk persoon die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening."
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
