@@ -77,7 +77,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalpersoonidentificatie
+          name: kadasterpersoonidentificatie
           description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
@@ -523,7 +523,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/Stuk'
+                $ref: '#/components/schemas/StukHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -550,7 +550,7 @@ paths:
       - Aangeboden Stukken (Akte) 
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/privaatrechtelijkebeperkingen:
     get:
-      operationId: GetPrvaatrechtelijkeBeperkingKadastraalonroerendezaak
+      operationId: GetPrivaatrechtelijkeBeperkingKadastraalonroerendezaak
       description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
@@ -670,8 +670,8 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: kadastraalpersoonidentificatie
-          description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
+          name: kadasterpersoonidentificatie
+          description: "De identificatie van een kadaster persoon of een rechtspersoon die bij het kadaster is geregistreerd."
           required: false
           schema:
             type: string
@@ -720,7 +720,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
     get:
       operationId: GetBeslagenKadastraalOnroerendeZaak
-      description: "Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal Onroerende Zaak. "
+      description: "Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal Onroerende Zaak."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -841,8 +841,13 @@ paths:
       - Beslagen
 components:
   schemas:
-    Identificatie: 
-      type: "string"
+    ResourceIdentificatie:
+      type: object
+      properties:
+        identificatie:
+          type: string
+        type:
+          type: string
     Aantekening: 
       type: "object"
       properties:
@@ -874,9 +879,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/Identificatie"
-          discriminator: 
-            propertyName: Stuktype
+            $ref: "#/components/schemas/ResourceIdentificatie"
     AantekeningHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -911,20 +914,14 @@ components:
         aard:
           $ref: "#/components/schemas/Waardelijst"
         beslaglegger:
-          type: "object"
-          description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-          properties: 
-            identificatie:
-              type: "string"
-          discriminator:
-            propertyName: typePersoon
+          allOf:
+            - description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+            - $ref: "#/components/schemas/ResourceIdentificatie"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/Identificatie"
-          discriminator: 
-            propertyName: Stuktype
+            $ref: "#/components/schemas/ResourceIdentificatie"
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -959,20 +956,14 @@ components:
         betreftGedeelteVanPerceel:
           type: "boolean"
         geldverstrekker:
-          type: "object"
-          description: "Dit element is opgenomen om de identificatie van de geldverstrekker beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-          properties: 
-            identificatie:
-              type: "string"
-          discriminator: 
-            propertyName: typePersoon
+          allOf:
+            - description: "Dit element is opgenomen om de identificatie van de geldverstrekker beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
+            - $ref: "#/components/schemas/ResourceIdentificatie"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/Identificatie"
-          discriminator: 
-            propertyName: Stuktype
+            $ref: "#/components/schemas/ResourceIdentificatie"
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -1046,9 +1037,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/Identificatie"
-          discriminator: 
-            propertyName: Stuktype
+            $ref: "#/components/schemas/ResourceIdentificatie"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1229,13 +1218,9 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/Identificatie"
-          discriminator: 
-            propertyName: Stuktype
+            $ref: "#/components/schemas/ResourceIdentificatie"
         persoon: 
-          type: "string"  
-          discriminator:
-            propertyName: typePersoon
+          $ref: "#/components/schemas/ResourceIdentificatie"
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
@@ -1268,10 +1253,12 @@ components:
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
         persoon:
+          discriminator:
+            propertyName: persoonType
           oneOf:
-#           - $ref: "#/components/schemas/AbstractPersoonCompact"   Nodig om de juiste code te genereren.
-            - $ref: "#/components/schemas/PersoonCompact"
-            - $ref: "#/components/schemas/NietNatuurlijkPersoonCompact"
+#         - $ref: '#/components/schemas/AbstractPersoonCompact'    Nodig om de juiste code te genereren.
+          - $ref: '#/components/schemas/NatuurlijkPersoonCompact'
+          - $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
     AbstractPersoonCompact:
       type: object
       description: "Deze constructie is toegevoegd om te voorkomen dat het persoon-element uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert problemen op bij codegeneratie. "
@@ -1279,9 +1266,7 @@ components:
         identificatie:
           title: identificatie
           type: string
-      discriminator:
-        propertyName: type
-    PersoonCompact:
+    NatuurlijkPersoonCompact:
       allOf:
       - $ref: '#/components/schemas/AbstractPersoonCompact'
       - properties:
@@ -1685,7 +1670,7 @@ components:
       properties:
         identificatie:
           type: "string"
-    Stuk:
+    StukHal:
       oneOf: 
 #       - $ref: "#/components/schemas/AbstractStuk"   Nodig voor het correct genereren van code. 
         - $ref: "#/components/schemas/AangebodenStukHal"
@@ -1899,3 +1884,4 @@ components:
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Polygon'
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
+      

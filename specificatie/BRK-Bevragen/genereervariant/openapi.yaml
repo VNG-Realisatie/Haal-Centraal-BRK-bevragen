@@ -118,7 +118,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalpersoonidentificatie
+      - name: kadasterpersoonidentificatie
         in: query
         description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
           persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
@@ -1998,7 +1998,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/Stuk'
+                $ref: '#/components/schemas/StukHal'
         "400":
           description: Bad Request
           headers:
@@ -2209,7 +2209,7 @@ paths:
       - Privaatrechtelijke Beperkingen
       description: 'Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal
         onroerende zaak horen. '
-      operationId: GetPrvaatrechtelijkeBeperkingKadastraalonroerendezaak
+      operationId: GetPrivaatrechtelijkeBeperkingKadastraalonroerendezaak
       parameters:
       - name: fields
         in: query
@@ -2730,10 +2730,10 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalpersoonidentificatie
+      - name: kadasterpersoonidentificatie
         in: query
-        description: De kadastrale identificatie van een persoon of een rechtspersoon
-          die bij het kadaster geregistreerd is.
+        description: De identificatie van een kadaster persoon of een rechtspersoon
+          die bij het kadaster is geregistreerd.
         required: false
         style: form
         explode: true
@@ -2965,8 +2965,8 @@ paths:
     get:
       tags:
       - Beslagen
-      description: 'Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal
-        Onroerende Zaak. '
+      description: Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal
+        Onroerende Zaak.
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -3486,8 +3486,13 @@ paths:
                 code: notAvailable
 components:
   schemas:
-    Identificatie:
-      type: string
+    ResourceIdentificatie:
+      type: object
+      properties:
+        identificatie:
+          type: string
+        type:
+          type: string
     Aantekening:
       type: object
       properties:
@@ -3519,10 +3524,8 @@ components:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
-          discriminator:
-            propertyName: Stuktype
           items:
-            $ref: '#/components/schemas/Identificatie'
+            $ref: '#/components/schemas/ResourceIdentificatie'
     AantekeningHal:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
@@ -3552,15 +3555,18 @@ components:
         aard:
           $ref: '#/components/schemas/Waardelijst'
         beslaglegger:
-          $ref: '#/components/schemas/Beslag_beslaglegger'
+          allOf:
+          - description: Dit element is opgenomen om de identificatie van de beslaglegger
+              beschikbaar te stellen voor partijen die geen gebruik willen maken van
+              de HalLinks voor een verwijzing naar een resource buiten het domein
+              van deze API
+          - $ref: '#/components/schemas/ResourceIdentificatie'
         stukken:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
-          discriminator:
-            propertyName: Stuktype
           items:
-            $ref: '#/components/schemas/Identificatie'
+            $ref: '#/components/schemas/ResourceIdentificatie'
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
@@ -3590,15 +3596,18 @@ components:
         betreftGedeelteVanPerceel:
           type: boolean
         geldverstrekker:
-          $ref: '#/components/schemas/Hypotheek_geldverstrekker'
+          allOf:
+          - description: Dit element is opgenomen om de identificatie van de geldverstrekker
+              beschikbaar te stellen voor partijen die geen gebruik willen maken van
+              de HalLinks voor een verwijzing naar een resource buiten het domein
+              van deze API
+          - $ref: '#/components/schemas/ResourceIdentificatie'
         stukken:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
-          discriminator:
-            propertyName: Stuktype
           items:
-            $ref: '#/components/schemas/Identificatie'
+            $ref: '#/components/schemas/ResourceIdentificatie'
     HypotheekHal:
       allOf:
       - $ref: '#/components/schemas/Hypotheek'
@@ -3657,10 +3666,8 @@ components:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
-          discriminator:
-            propertyName: Stuktype
           items:
-            $ref: '#/components/schemas/Identificatie'
+            $ref: '#/components/schemas/ResourceIdentificatie'
       description: URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak
         URL http://tax.kadaster.nl/id/begrip/Appartementsrecht
     KadastraalOnroerendeZaakHal:
@@ -3716,7 +3723,7 @@ components:
       type: object
       properties:
         _links:
-          $ref: '#/components/schemas/HalCollectionLinks_2'
+          $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
           $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie__embedded'
     KadasterNietNatuurlijkPersoon:
@@ -3745,7 +3752,7 @@ components:
       type: object
       properties:
         _links:
-          $ref: '#/components/schemas/HalCollectionLinks_2'
+          $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
           $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie__embedded'
     Hypotheek_links:
@@ -3815,14 +3822,10 @@ components:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
-          discriminator:
-            propertyName: Stuktype
           items:
-            $ref: '#/components/schemas/Identificatie'
+            $ref: '#/components/schemas/ResourceIdentificatie'
         persoon:
-          type: string
-          discriminator:
-            propertyName: typePersoon
+          $ref: '#/components/schemas/ResourceIdentificatie'
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: '#/components/schemas/ZakelijkGerechtigde'
@@ -3850,10 +3853,10 @@ components:
         gezamenlijkAandeel:
           $ref: '#/components/schemas/TypeBreuk'
         persoon:
+          discriminator:
+            propertyName: persoonType
           oneOf:
-          # de eerste regel hieronder is toegevoegd t.b.v. het genereren van de juiste code. Code-generatoren hebben moeite met de oneOf constructie. 
-          - $ref: '#/components/schemas/AbstractPersoonCompact'
-          - $ref: '#/components/schemas/PersoonCompact'
+          - $ref: '#/components/schemas/NatuurlijkPersoonCompact'
           - $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
     AbstractPersoonCompact:
       type: object
@@ -3861,10 +3864,10 @@ components:
         identificatie:
           title: identificatie
           type: string
-      description: 'Dit element faciliteerd code-generatie '
-      discriminator:
-        propertyName: type
-    PersoonCompact:
+      description: 'Deze constructie is toegevoegd om te voorkomen dat het persoon-element
+        uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert
+        problemen op bij codegeneratie. '
+    NatuurlijkPersoonCompact:
       allOf:
       - $ref: '#/components/schemas/AbstractPersoonCompact'
       - properties:
@@ -4256,12 +4259,10 @@ components:
         identificatie:
           type: string
       description: Een AdresLocatie is een ObjectLocatie of een PostbusLocatie
-    Stuk:
+    StukHal:
       discriminator:
         propertyName: stukType
       oneOf:
-      # de eerste regel hieronder is toegevoegd t.b.v. het genereren van de juiste code. Code-generatoren hebben moeite met de oneOf constructie. 
-      - $ref: '#/components/schemas/AbstractStuk'
       - $ref: '#/components/schemas/AangebodenStukHal'
       - $ref: '#/components/schemas/KadasterStukHal'
     AbstractStuk:
@@ -4272,7 +4273,9 @@ components:
           type: string
       description: 'Een stuk is een, door het Kadaster als authentiek erkend, document
         waaruit een wijziging in de BRK blijkt. Hier wordt een Kadasterstuk of een
-        Aangebodenstuk aan gekoppeld. De OneOf levert hier genreer-problemen en om dat op te lossen is dit element opgenomen '
+        Aangebodenstuk aan gekoppeld. De OneOf levert hier genreer-problemen op en
+        is dus niet opgenomen in deze YAML. Als deze genereer-problemen opgelost zijn
+        wordt dit herzien. '
     Objectlocatiebuitenland_links:
       type: object
       properties:
@@ -4513,63 +4516,6 @@ components:
           description: Beschrijving van de fout op de parameterwaarde
           example: Waarde is geen geldige integer.
       description: Details over fouten in opgegeven parameters
-    BadRequestFoutbericht_2:
-      allOf:
-      - $ref: '#/components/schemas/Foutbericht_2'
-      - type: object
-        properties:
-          invalidParams:
-            type: array
-            description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden één keer teruggemeld.
-            items:
-              $ref: '#/components/schemas/InvalidParams_2'
-    Foutbericht_2:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Link naar meer informatie over deze fout
-          format: uri
-        title:
-          type: string
-          description: Beschrijving van de fout
-        status:
-          type: integer
-          description: Http status code
-        detail:
-          type: string
-          description: Details over de fout
-        instance:
-          type: string
-          description: Uri van de aanroep die de fout heeft veroorzaakt
-          format: uri
-        code:
-          minLength: 1
-          type: string
-          description: Systeemcode die het type fout aangeeft
-      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
-    InvalidParams_2:
-      type: object
-      properties:
-        type:
-          type: string
-          format: uri
-          example: https://www.vng.nl/realisatie/api/validaties/integer
-        name:
-          type: string
-          description: Naam van de parameter
-          example: verblijfplaats__huisnummer
-        code:
-          minLength: 1
-          type: string
-          description: Systeemcode die het type fout aangeeft
-          example: integer
-        reason:
-          type: string
-          description: Beschrijving van de fout op de parameterwaarde
-          example: Waarde is geen geldige integer.
-      description: Details over fouten in opgegeven parameters
     Geometry:
       title: Geometry
       required:
@@ -4652,26 +4598,6 @@ components:
       description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
         de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
         datum bekend is worden alle elementen gevuld.
-    HalCollectionLinks_2:
-      type: object
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink_2'
-    HalLink_2:
-      required:
-      - href
-      type: object
-      properties:
-        href:
-          $ref: '#/components/schemas/Href_2'
-        title:
-          type: string
-          description: Voor mens leesbaar label bij de link
-      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
-    Href_2:
-      type: string
-      format: uri
-      example: datapunt.voorbeeldgemeente.nl/api/resourcename/123456789
     Point:
       type: object
       description: GeoJSON point geometry
@@ -4799,15 +4725,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AantekeningHal'
-    Beslag_beslaglegger:
-      type: object
-      properties:
-        identificatie:
-          type: string
-      description: Dit element is opgenomen om de identificatie van de beslaglegger
-        beschikbaar te stellen voor partijen die geen gebruik willen maken van de
-        HalLinks voor een verwijzing naar een resource buiten het domein van deze
-        API
     BeslagHalCollectie__embedded:
       type: object
       properties:
@@ -4815,15 +4732,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BeslagHal'
-    Hypotheek_geldverstrekker:
-      type: object
-      properties:
-        identificatie:
-          type: string
-      description: Dit element is opgenomen om de identificatie van de geldverstrekker
-        beschikbaar te stellen voor partijen die geen gebruik willen maken van de
-        HalLinks voor een verwijzing naar een resource buiten het domein van deze
-        API
     HypotheekHalCollectie__embedded:
       type: object
       properties:
