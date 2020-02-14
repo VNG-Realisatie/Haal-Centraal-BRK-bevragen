@@ -391,6 +391,7 @@ paths:
       description: "Het ophalen van een collectie bij het Kadaster geregistreerd Natuurlijk Personen, niet zijnde ingeschreven natuurlijk personen."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
           description: "Free query parameter"
@@ -445,6 +446,7 @@ paths:
       description: "Het ophalen van een collectie bij het Kadaster geregistreerde niet natuurlijk Personen, niet zijnde ingeschreven niet natuurlijk personen."
       parameters: 
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
           description: "Free query parameter"
@@ -862,7 +864,7 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         begrenzingDienendErf:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
-        begernzingHeersendErf:
+        begrenzingHeersendErf:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         einddatum: 
           type: "string"
