@@ -807,8 +807,9 @@ paths:
           name: typepersoon
           description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
           required: true
-          schema: 
-            $ref: "#/components/schemas/TypePersoon_enum"
+          schema:
+            type: string
+            maxLength: 15
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1269,6 +1270,8 @@ components:
                 $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
     Tenaamstelling:
       type: object
+      description: "Een tenaamstelling is een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal object.\n
+      De tenaamstelling is ten name één van de volgende soorten persoon: kadasterNatuurlijkPersoon, kadasterNietNatuurlijkPersoon, ingeschrevenNatuurlijkPersoon, ingeschrevenNietNatuurlijkPersoon."
       properties:
         aandeel:
           $ref: "#/components/schemas/TypeBreuk"
@@ -1282,16 +1285,17 @@ components:
           $ref: "#/components/schemas/Aantekening"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
-        persoon:
-          discriminator:
-            propertyName: persoonType
-          oneOf:
-#         - $ref: '#/components/schemas/AbstractPersoonCompact'    Nodig om de juiste code te genereren.
-          - $ref: '#/components/schemas/NatuurlijkPersoonCompact'
-          - $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
+        kadasterNatuurlijkPersoon:
+          $ref: '#/components/schemas/NatuurlijkPersoonCompact'
+        kadasterNietNatuurlijkPersoon:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
+        ingeschrevenNatuurlijkPersoon:
+          $ref: '#/components/schemas/IngeschrevenNatuurlijkPersoonCompact'
+        ingeschrevenNietNatuurlijkPersoon:
+          $ref: '#/components/schemas/IngeschrevenNietNatuurlijkPersoonCompact'
     AbstractPersoonCompact:
       type: object
-      description: "Deze constructie is toegevoegd om te voorkomen dat het persoon-element uittenaamstelling met een oneOf zou moeten worden gedefinieerd. Dat levert problemen op bij codegeneratie. "
+      description: ""
       properties:
         identificatie:
           title: identificatie
@@ -1310,6 +1314,24 @@ components:
       - properties:
           actueleStatutaireNaam:
             type: string
+    IngeschrevenNatuurlijkPersoonCompact:
+      type: object
+      description: "Natuurlijk persoon ingeschreven in de Basisregistratie Personen (BRP) met een burgerservicenummer"
+      properties:
+        burgerservicenummer:
+          type: string
+        naam:
+          type: string
+        geboortedatum:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+    IngeschrevenNietNatuurlijkPersoonCompact:
+      type: object
+      description: "Niet-natuurlijk persoon ingeschreven in het Handelsregister"
+      properties:
+        rsin:
+          type: string
+        naam:
+          type: string
     Objectlocatiebuitenland:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
@@ -1475,14 +1497,6 @@ components:
             description: ""
           acgIdentificatie:
             $ref: "#/components/schemas/AcgID"
-          identificatie:
-            type: "string"
-    KadasterStukHal:
-      allOf:
-      - $ref: "#/components/schemas/KadasterStuk"
-      - properties:
-          _links:
-            $ref: "#/components/schemas/KadasterStuk_links"
     AangebodenStuk:
       allOf:
       - $ref: "#/components/schemas/AbstractStuk"
@@ -1513,8 +1527,6 @@ components:
             - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)"
           deelEnNummer:
             $ref: "#/components/schemas/TypeDeelEnNummer"
-          identificatie:
-            type: "string"
           statusStukOr:
             allOf:
             - $ref: "#/components/schemas/Waardelijst"
@@ -1523,14 +1535,6 @@ components:
             $ref: "#/components/schemas/HeeftAlsEquivalentieVerklaarder"
           ondertekenaar:
             $ref: "#/components/schemas/Ondertekenaar"
-    AangebodenStukHal:
-      allOf:
-      - $ref: "#/components/schemas/AangebodenStuk"
-      - properties:
-          _links:
-            $ref: "#/components/schemas/AangebodenStuk_links"
-          _embedded:
-            $ref: "#/components/schemas/AangebodenStuk_embedded"
     Kadasterverzoek:
       type: "object"
       description: "uri https://tax.kadaster.nl/doc/begrip/Kadaster_verzoek"
@@ -1719,21 +1723,35 @@ components:
         identificatie:
           type: "string"
     StukHal:
-      oneOf:
-#       - $ref: "#/components/schemas/AbstractStuk"   Nodig voor het correct genereren van code.
-        - $ref: "#/components/schemas/AangebodenStukHal"
-        - $ref: "#/components/schemas/KadasterStukHal"
-      discriminator:
-        propertyName: stukType
+      type: object
+      description: "Een stuk is een document waaruit een wijziging in de BRK blijkt.\n
+      Er zijn 2 soorten stukken: \n
+* Een ter inschrijving in de openbare registers aangeboden stuk en \n
+* een door het Kadaster opgemaakt stuk.
+\n \n
+In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk opgenomen."
+      properties:
+        kadasterstuk:
+          $ref: "#/components/schemas/KadasterStuk"
+        terInschrijvingAangebodenStuk:
+          $ref: "#/components/schemas/AangebodenStuk"
+        _links:
+          $ref: "#/components/schemas/Stuk_links"
+        _embedded:
+          $ref: "#/components/schemas/AangebodenStuk_embedded"
+
     AbstractStuk:
       type: "object"
       description: "Een stuk is een, door het Kadaster als authentiek erkend, document\
-        \ waaruit een wijziging in de BRK blijkt. Hier wordt een Kadasterstuk of een Aangebodenstuk aan gekoppeld. De OneOf levert hier genreer-problemen op en is dus niet opgenomen in deze YAML. Als deze genereer-problemen opgelost zijn wordt dit herzien. "
+        \ waaruit een wijziging in de BRK blijkt. Hier wordt een Kadasterstuk of een Aangebodenstuk aan gekoppeld."
       properties:
+        identificatie:
+          type: "string"
+          description: "Uniek nummer van het object binnen de kadastrale registratie"
         toelichtingBewaarder:
           type: "string"
           title: "toelichtingBewaarder"
-          description: ""
+          description: "Toelichtende tekst bij een onroerende zaak toegevoegd door de bewaarder"
     Objectlocatiebuitenland_links:
       type: "object"
       properties:
@@ -1749,12 +1767,7 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadasterStuk_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    AangebodenStuk_links:
+    Stuk_links:
       type: "object"
       properties:
         self:
