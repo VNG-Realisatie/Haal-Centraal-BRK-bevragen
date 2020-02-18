@@ -17,8 +17,8 @@ paths:
     get:
       operationId: GetKadastraalOnroerendeZaken
       description: |
-          Het ophalen van een collectie Kadastraal Onroerende zaken. 
-          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen 
+          Het ophalen van een collectie Kadastraal Onroerende zaken.
+          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen
           1.  Kadastrale aanduiding
               -  kadastrale_gemeente (verplicht)
               -  perceelnummer (verplicht)
@@ -26,17 +26,17 @@ paths:
               -  appartementsrechtnummer (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer
-          3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde 
+          3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
               -  kadastraalpersoonidentificatie
               -  typegerechtigde
           4.  Adres
               -  postcode (verplicht)
-              -  huisnummer (optioneel) 
+              -  huisnummer (optioneel)
               -  huisletter (optioneel)
               -  huisnummertoevoeging (optioneel)
 
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding."
-      parameters: 
+      parameters:
         - $ref: "https://cdn.jsdelivr.net/gh/geonovum/kp-api-guidelines@1.0.0/components/parameters.yaml#/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
@@ -70,7 +70,7 @@ paths:
           name: appartementsrechtvolgnummer
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
-          schema: 
+          schema:
             type: "integer"
         - in: query
           name: burgerservicenummer
@@ -95,30 +95,30 @@ paths:
           name: postcode
           description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
-          schema: 
+          schema:
             type: string
-            pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$" 
+            pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$"
         - in: query
           name: huisnummer
           description: "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
-          schema: 
+          schema:
             type: integer
-            pattern: "^[1-9][0-9]{0,4}$" 
+            pattern: "^[1-9][0-9]{0,4}$"
         - in: query
           name: huisletter
           description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
-          schema: 
+          schema:
             type: string
-            pattern: "^[a-zA-Z]$" 
+            pattern: "^[a-zA-Z]$"
         - in: query
           name: huisnummertoevoeging
           description: "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
-          schema: 
+          schema:
             type: string
-            pattern: "^([a-z,A-Z,0-9])+$" 
+            pattern: "^([a-z,A-Z,0-9])+$"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -157,13 +157,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}:
     get:
       operationId: GetKadastraalOnroerendeZaak
       description: "Het ophalen van een Kadastraal Onroerende zaak."
-      parameters: 
+      parameters:
         - in: path
           name: kadastraalobjectidentificatie
           description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
@@ -213,13 +213,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Kadastraal Onroerende Zaken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
     get:
       operationId: GetZakelijkGerechtigden
       description: "Het ophalen van een de zakelijke gerechtigden behorende bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
@@ -229,10 +229,10 @@ paths:
             type: string
         - in: query
           name: typegerechtigde
-          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. De mogelijke waarden van deze typering is te vinden in een [waardelijst] __***(Hier nog de locatie van de betreffende waardelijst toevoegen !***__  . We gebruiken de **code** can de waardelijst als parameter. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. "
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak."
           required: false
           schema:
-            type: string
+            $ref: "#/components/schemas/typeGerechtigde_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -273,13 +273,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Zakelijke Gerechtigden
   /kadasternatuurlijkpersonen/{identificatie}:
     get:
       operationId: GetKadasterPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd Natuurlijk Persoon, niet zijnde een ingeschreven natuurlijk persoon."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -329,13 +329,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Kadaster (niet)Natuurlijk Personen
   /kadasternietnatuurlijkpersonen/{identificatie}:
     get:
       operationId: GetKadasterNietNatuurlijkPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd niet natuurlijk Persoon, niet zijnde een ingeschreven niet natuurlijk persoon."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -385,13 +385,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
-      - Kadaster (niet)Natuurlijk Personen 
+      tags:
+      - Kadaster (niet)Natuurlijk Personen
   /kadasternatuurlijkpersonen:
     get:
       operationId: GetKadasterPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerd Natuurlijk Personen, niet zijnde ingeschreven natuurlijk personen."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -440,13 +440,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Kadaster (niet)Natuurlijk Personen
   /kadasternietnatuurlijkpersonen:
     get:
       operationId: GetKadasterNietNatuurlijkPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerde niet natuurlijk Personen, niet zijnde ingeschreven niet natuurlijk personen."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -495,13 +495,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
-      - Kadaster (niet)Natuurlijk Personen 
+      tags:
+      - Kadaster (niet)Natuurlijk Personen
   /stukken/{identificatie}:
     get:
       operationId: GetStuk
       description: "In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. De rechtsfeiten zijn gestructureerd vastglegd in stukdelen en deze stukdelen verwijzen naar de akte. Het is dus mogelijk om met verschillende stukdeel-identificaties dezelfde akte op te vragen. Daarnaast zijn er twee typen aktes die geretourneerd kunnen worden. Een aangeboden stuk of een kadasterstuk."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -551,13 +551,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
-      - Aangeboden Stukken (Akte) 
+      tags:
+      - Aangeboden Stukken (Akte)
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/privaatrechtelijkebeperkingen:
     get:
       operationId: GetPrivaatrechtelijkeBeperkingKadastraalonroerendezaak
       description: "Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal onroerende zaak horen. "
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
@@ -605,13 +605,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Privaatrechtelijke Beperkingen
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/hypotheken:
     get:
       operationId: GetHypothekenKadastraalOnroerendeZaak
       description: "Het ophalen van hypotheken en hypotheeknemers van een specifieke kadastraal onroerende zaak."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
@@ -659,7 +659,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Hypotheken
   /hypotheken:
     get:
@@ -720,13 +720,13 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Hypotheken
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
     get:
       operationId: GetBeslagenKadastraalOnroerendeZaak
       description: "Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal Onroerende Zaak."
-      parameters: 
+      parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalobjectidentificatie
@@ -774,7 +774,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Beslagen
   /beslagen:
     get:
@@ -849,7 +849,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
-      tags: 
+      tags:
       - Beslagen
 components:
   schemas:
@@ -860,10 +860,10 @@ components:
           type: string
         type:
           type: string
-    Aantekening: 
+    Aantekening:
       type: "object"
       properties:
-        identificatie: 
+        identificatie:
           type: "string"
         aardAantekening:
           allOf:
@@ -871,13 +871,13 @@ components:
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
         omschrijving:
           type: "string"
-        begrenzing: 
+        begrenzing:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         begrenzingDienendErf:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         begrenzingHeersendErf:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
-        einddatum: 
+        einddatum:
           type: "string"
           format: "date"
         eindatumRecht:
@@ -915,7 +915,7 @@ components:
     Beslag: 
       type: "object"
       properties:
-        identificatie: 
+        identificatie:
           type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
@@ -945,7 +945,7 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/Beslag_links"
-    BeslagHalCollectie: 
+    BeslagHalCollectie:
       type: "object"
       properties:
         _links:
@@ -955,7 +955,7 @@ components:
           properties:
             beslagen:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/BeslagHal"
     Beslaglegger:
       allOf:
@@ -964,7 +964,7 @@ components:
     Hypotheek: 
       type: "object"
       properties:
-        identificatie: 
+        identificatie:
           type: "string"
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
@@ -993,7 +993,7 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/Hypotheek_links"
-    HypotheekHalCollectie: 
+    HypotheekHalCollectie:
       type: "object"
       properties:
         _links:
@@ -1003,7 +1003,7 @@ components:
           properties:
             hypotheken:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/HypotheekHal"
     KadastraalOnroerendeZaak:
       type: "object"
@@ -1012,7 +1012,7 @@ components:
       properties:
         kadastraalObjectIdentificatie:
           description: "Dit is de unieke identificatie van een kadastraal object. "
-          type: "string" 
+          type: "string"
         begrenzingPerceel:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         omschrijvingOnderzoekErfdienstbaarheden:
@@ -1081,7 +1081,7 @@ components:
           properties:
             kadastraalOnroerendeZaken:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
     KadasterNatuurlijkPersoon:
       allOf:
@@ -1129,7 +1129,7 @@ components:
           properties:
             kadasterNatuurlijkPersonen:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/KadasterNatuurlijkPersoonHal"
     KadasterNietNatuurlijkPersoon:
       allOf:
@@ -1167,7 +1167,7 @@ components:
           properties:
             kadasterNietNatuurlijkPersonen:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHal"
     Hypotheek_links:
       type: "object"
@@ -1233,8 +1233,7 @@ components:
       type: object
       properties:
         typeGerechtigde:
-          type: "string"
-          description: "Het type zakelijk recht dat deze gerechtigde heeft."
+          $ref: "#/components/schemas/typeGerechtigde_enum"
         aanvangsdatum:
           type: "string"
           description: "Datum waarop het zakelijk recht van kracht is geworden. "
@@ -1248,7 +1247,7 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             $ref: "#/components/schemas/ResourceIdentificatie"
-        persoon: 
+        persoon:
           $ref: "#/components/schemas/ResourceIdentificatie"
     ZakelijkGerechtigdeHal:
       allOf:
@@ -1266,7 +1265,7 @@ components:
           properties:
             zakelijkGerechtigden:
               type: "array"
-              items: 
+              items:
                 $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
     Tenaamstelling:
       type: object
@@ -1279,7 +1278,7 @@ components:
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/)"
         verkregenNamensSamenwerkingsverband:
            $ref: "#/components/schemas/Waardelijst"
-        aantekening: 
+        aantekening:
           $ref: "#/components/schemas/Aantekening"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
@@ -1720,8 +1719,8 @@ components:
         identificatie:
           type: "string"
     StukHal:
-      oneOf: 
-#       - $ref: "#/components/schemas/AbstractStuk"   Nodig voor het correct genereren van code. 
+      oneOf:
+#       - $ref: "#/components/schemas/AbstractStuk"   Nodig voor het correct genereren van code.
         - $ref: "#/components/schemas/AangebodenStukHal"
         - $ref: "#/components/schemas/KadasterStukHal"
       discriminator:
@@ -1880,11 +1879,47 @@ components:
       enum:
       - "appartementsrecht"
       - "perceel"
+    typeGerechtigde_enum:
+      type: string
+      description: "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n
+      * `beklemrechthouder` - 1 Beklemrechthouder\n
+      * `eigenaar` - 2 Eigenaar\n
+      * `erfpachter` - 3 Erfpachter\n
+      * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning\n
+      * `grondrente` - 5 Grondrente gerechtigde\n
+      * `opstalhouder` - 7 Opstalhouder\n
+      * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht\n
+      * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht\n
+      * `vruchtgebruiker` - 12 Vruchtgebruiker\n
+      * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder\n
+      * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen\n
+      * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen\n
+      * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende\n
+      * `bp_recht` - 22 BP-gerechtigde\n
+      * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel\n
+      * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel"
+      enum:
+        - "beklemrechthouder"
+        - "eigenaar"
+        - "erfpachter"
+        - "gebruik_bewoning"
+        - "grondrente"
+        - "opstalhouder"
+        - "vaderlandsrecht"
+        - "stadsmeierrecht"
+        - "vruchtgebruiker"
+        - "erfpachter_opstalhouder"
+        - "nutsvoorzieningen"
+        - "twee_belastingen"
+        - "belasting_derde"
+        - "bp_recht"
+        - "nutsvoorzieningen_gedeelte"
+        - "artikel5_3b"
     Geslacht_enum:
       type: "string"
       description: "Een aanduiding die aangeeft dat de ingeschrevene een man of een\
-        \ vrouw is, of dat het geslacht (nog) onbekend is:\n* `M` - Man\n* `V` - Vrouw\n\
-        * `O` - Onbekend"
+        \ vrouw is, of dat het geslacht (nog) onbekend is:\n* `man` - Man\n* `vrouw` - Vrouw\n\
+        * `onbekend` - Onbekend"
       enum:
       - "man"
       - "vrouw"
@@ -1912,7 +1947,7 @@ components:
       type: "object"
       description: ""
       properties:
-        AKRregistercode: 
+        AKRregistercode:
           $ref: "#/components/schemas/Waardelijst"
         akrStukdeel1:
           type: "string"
@@ -1924,7 +1959,7 @@ components:
           type: "integer"
     TypeDeelEnNummer:
       type: "object"
-      properties: 
+      properties:
         soortregister:
           allOf:
           - $ref: "#/components/schemas/Waardelijst"
@@ -1939,7 +1974,7 @@ components:
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)"
     GeoJSONGeometry:
       title: GeoJSONGeometry
-      description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen" 
+      description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen"
       type: object
       oneOf:
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Point'
@@ -1949,4 +1984,3 @@ components:
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Polygon'
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
       - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
-      
