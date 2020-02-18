@@ -1,6 +1,6 @@
 # Haal Centraal BRK bevragen
 
-BRK-bevragingen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. 
+BRK-bevragingen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL.
 
 De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 
@@ -11,9 +11,9 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API Specificaties en JSON schema) van de **resolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
+* BRK bevragen: [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/unresolved) (Open API Specificaties en JSON schema) van de **unresolved** versie en ook in in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/unresolved/openapi.yaml)
+* BRK Waardelijsten: [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/Waardelijsten) (Open API Specificaties) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/Waardelijsten/openapi.yaml)
 
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
@@ -21,7 +21,7 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * [API strategie en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/)
 
 ## Contactpersonen:
-* Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl 
+* Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
 * Scrum Master: Jan Willem Kooi JanWillem.Kooi@vng.nl
 
