@@ -11,9 +11,9 @@ De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
 
-* [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
+* BRK bevragen: [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
 
-* [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/Waardelijsten) (Open API Specificaties) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/Waardelijsten/openapi.yaml)
+* BRK Waardelijsten: [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/Waardelijsten) (Open API Specificaties) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/Waardelijsten/openapi.yaml)
 
 * Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/master/docs/design_decisions.md)
 
