@@ -64,19 +64,22 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastralegemeente
+      - name: kadastralegemeente__code
         in: query
+        description: De code van de kadastrale gemeente, deel van de kadastrale aanduiding
+          van de onroerende zaak. De doe en waarde zijn vastgelegd in een Waardelijst.
         required: false
         style: form
         explode: true
         schema:
           type: string
+          example: "50"
       - name: perceelnummer
         in: query
         description: Het perceelnummer dat een geheel perceel of een complex uniek
           identificeert binnen de sectie. Per kadastrale gemeente en per sectie heeft
-          een perceel een perceelnummer oplopend door de jaren heen van `00001` tot
-          max `99999`
+          een perceel een perceelnummer oplopend door de jaren heen van 1 tot max
+          99999
         required: false
         style: form
         explode: true
@@ -1463,6 +1466,17 @@ paths:
         required: false
         schema:
           type: string
+      - name: fields
+        in: query
+        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
+          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
+          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
+          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
+          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+        required: false
+        schema:
+          type: string
       - name: q
         in: query
         description: Free query parameter
@@ -1708,6 +1722,17 @@ paths:
           in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
           van resource kunnen worden opgegeven door het opgeven van de resource-naam
           gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+        required: false
+        schema:
+          type: string
+      - name: fields
+        in: query
+        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
+          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
+          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
+          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
+          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2248,7 +2273,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/AantekeningHalCollectie'
+                $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie'
         "400":
           description: Bad Request
           headers:
@@ -2707,7 +2732,9 @@ paths:
     get:
       tags:
       - Hypotheken
-      description: Het ophalen van hypotheken van een specifieke geldverstrekker.
+      description: Het ophalen van hypotheken van een specifieke hypotheekhouder die
+        als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de
+        lening.
       operationId: GetHypotheken
       parameters:
       - name: fields
@@ -3219,8 +3246,13 @@ paths:
     get:
       tags:
       - Beslagen
-      description: Het ophalen van beslagen die door een specifieke beslaglegger zijn
-        gelegd.
+      description: "Het ophalen van beslagen die door een specifieke beslaglegger\
+        \ zijn gelegd. \nTen minste één van de volgende combinaties van parameters\
+        \ moet zijn opgenomen \n1.  Beslaglegger is een Persoon die bekend is in de\
+        \ BRP als ingeschreven persoon\n    -  burgerservicenummer (verplicht)\n \
+        \   -  typepersoon (verplicht)\n2.  Beslaglegger is niet bekend als ingeschreven\
+        \ persoon in de BRP of de beslaglegger is een rechtspersoon\n    -  kadasterpersoonidentificatie\
+        \ (verplicht)\n    -  typepersoon (verplicht)\n"
       operationId: GetBeslagen
       parameters:
       - name: fields
@@ -3243,7 +3275,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: kadastraalpersoonidentificatie
+      - name: kadasterpersoonidentificatie
         in: query
         description: De kadastrale identificatie van een persoon of een rechtspersoon
           die bij het kadaster geregistreerd is.
@@ -3252,16 +3284,17 @@ paths:
         explode: true
         schema:
           type: string
-      - name: type
+      - name: typepersoon
         in: query
-        description: Het type betrokkene die beslag heeft gelegd op een Kadastraal
-          Onroerende Zaak.
+        description: Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie
+          Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster
+          wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon
+          zijn die niet in de BRP bekend is of een Rechtspersoon.
         required: true
         style: form
         explode: true
         schema:
-          maxLength: 15
-          type: string
+          $ref: '#/components/schemas/TypePersoon_enum'
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -3506,7 +3539,7 @@ components:
           $ref: '#/components/schemas/Geometry'
         begrenzingDienendErf:
           $ref: '#/components/schemas/Geometry'
-        begernzingHeersendErf:
+        begrenzingHeersendErf:
           $ref: '#/components/schemas/Geometry'
         einddatum:
           type: string
@@ -3526,19 +3559,19 @@ components:
             Stuk of een Kadasterstuk zijn.
           items:
             $ref: '#/components/schemas/ResourceIdentificatie'
-    AantekeningHal:
+    PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
       - properties:
           _links:
-            $ref: '#/components/schemas/Aantekening_links'
-    AantekeningHalCollectie:
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperking_links'
+    PrivaatrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/AantekeningHalCollectie__embedded'
+          $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie__embedded'
     Beslag:
       type: object
       properties:
@@ -3552,15 +3585,12 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
+          description: ToelichtingBewaarder is een aanvullende toelichting van de
+            bewaarder op  een geregistreerd feit.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         beslaglegger:
-          allOf:
-          - description: Dit element is opgenomen om de identificatie van de beslaglegger
-              beschikbaar te stellen voor partijen die geen gebruik willen maken van
-              de HalLinks voor een verwijzing naar een resource buiten het domein
-              van deze API
-          - $ref: '#/components/schemas/ResourceIdentificatie'
+          $ref: '#/components/schemas/Beslaglegger'
         stukken:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
@@ -3580,6 +3610,13 @@ components:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
           $ref: '#/components/schemas/BeslagHalCollectie__embedded'
+    Beslaglegger:
+      allOf:
+      - description: Dit element is opgenomen om de identificatie van de beslaglegger
+          beschikbaar te stellen voor partijen die geen gebruik willen maken van de
+          HalLinks voor een verwijzing naar een resource buiten het domein van deze
+          API
+      - $ref: '#/components/schemas/ResourceIdentificatie'
     Hypotheek:
       type: object
       properties:
@@ -3595,12 +3632,13 @@ components:
           type: string
         betreftGedeelteVanPerceel:
           type: boolean
-        geldverstrekker:
+        hypotheekhouder:
           allOf:
-          - description: Dit element is opgenomen om de identificatie van de geldverstrekker
-              beschikbaar te stellen voor partijen die geen gebruik willen maken van
-              de HalLinks voor een verwijzing naar een resource buiten het domein
-              van deze API
+          - description: Dit element is opgenomen om de identificatie van de hypotheekhouder
+              (De hypotheekhouder is de geldverstrekker die een recht van hypotheek
+              vestigt als zekerheid voor de lening.) beschikbaar te stellen voor partijen
+              die geen gebruik willen maken van de HalLinks voor een verwijzing naar
+              een resource buiten het domein van deze API
           - $ref: '#/components/schemas/ResourceIdentificatie'
         stukken:
           type: array
@@ -3758,8 +3796,8 @@ components:
     Hypotheek_links:
       type: object
       properties:
-        geldverstrekker:
-          $ref: '#/components/schemas/isGeldverstrekker'
+        hypotheekhouder:
+          $ref: '#/components/schemas/isHypotheekhouder'
         stukken:
           type: array
           items:
@@ -3806,8 +3844,7 @@ components:
       properties:
         typeGerechtigde:
           type: string
-          description: Het type zakelijk recht dat deze gerechtigde heeft. Komt overeen
-            met AardzakelijkRecht
+          description: Het type zakelijk recht dat deze gerechtigde heeft.
         aanvangsdatum:
           type: string
           description: 'Datum waarop het zakelijk recht van kracht is geworden. '
@@ -3815,9 +3852,7 @@ components:
         erfpachtCanon:
           $ref: '#/components/schemas/ErfpachtCanon'
         tenaamstellingen:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tenaamstelling'
+          $ref: '#/components/schemas/Tenaamstelling'
         stukken:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
@@ -3856,6 +3891,7 @@ components:
           discriminator:
             propertyName: persoonType
           oneOf:
+          - $ref: '#/components/schemas/AbstractPersoonCompact'
           - $ref: '#/components/schemas/NatuurlijkPersoonCompact'
           - $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
     AbstractPersoonCompact:
@@ -4145,14 +4181,18 @@ components:
           description: Nummer dat het kadastraal object uniek identificeert als een
             appartementsrecht binnen het complex.
         kadastraleGemeente:
-          $ref: '#/components/schemas/Waardelijst'
+          allOf:
+          - description: De kadastrale gemeente, deel van de kadastrale aanduiding
+              van de onroerende zaak. De waarden komen uit een Waardelijst. Elke kadastrale
+              gemeentenaam is uniek.
+          - $ref: '#/components/schemas/Waardelijst'
         perceelnummer:
           title: perceelnummer
           type: integer
           description: Het perceelnummer dat een geheel perceel of een complex uniek
             identificeert binnen de sectie. Per kadastrale gemeente en per sectie
-            heeft een perceel een perceelnummer oplopend door de jaren heen van `00001`
-            tot max `99999`
+            heeft een perceel een perceelnummer oplopend door de jaren heen van 1
+            tot max 99999
         sectie:
           title: sectie
           minLength: 1
@@ -4189,7 +4229,7 @@ components:
         waarde:
           title: waarde
           type: integer
-          description: Oppervlak grootte, in vierkante meters. [1-9][0-9]*|0,[1-4]
+          description: Oppervlak grootte, met als eenheid de soortGrootte. [1-9][0-9]*|0,[1-4]
       description: Oppervlakte.
     TypePerceelnummerVerschuiving:
       type: object
@@ -4263,6 +4303,7 @@ components:
       discriminator:
         propertyName: stukType
       oneOf:
+      - $ref: '#/components/schemas/AbstractStuk'
       - $ref: '#/components/schemas/AangebodenStukHal'
       - $ref: '#/components/schemas/KadasterStukHal'
     AbstractStuk:
@@ -4325,9 +4366,8 @@ components:
           title: betreft
           minItems: 1
           type: array
-          description: 'Dit is nu nog een koppeling naar de nummeraanduiding, maar
-            de business wens is om hier een BAG-adres te gebruiken. Vooruitlopend
-            op het endpoint adres van de BAG nemen we die hier op. '
+          description: Dit een koppeling naar het Adres zoals dat in de HC-Bag API
+            wordt aangeboden.
           items:
             $ref: '#/components/schemas/HalLink'
         zakelijkGerechtigden:
@@ -4352,11 +4392,9 @@ components:
             $ref: '#/components/schemas/HalLink'
         persoon:
           $ref: '#/components/schemas/HalLink'
-    Aantekening_links:
+    PrivaatrechtelijkeBeperking_links:
       type: object
       properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
         stukken:
           $ref: '#/components/schemas/HalLink'
     Persoon_embedded:
@@ -4411,12 +4449,18 @@ components:
       - man
       - vrouw
       - onbekend
+    TypePersoon_enum:
+      type: string
+      description: ":\n* `ingeschrevenpersoon`\n* `kadasterpersoon` "
+      enum:
+      - ingeschrevenpersoon
+      - kadasterpersoon
     Bedrag:
       type: object
       properties:
         som:
           title: Het bedrag. Dit is een waarde met max. 2 decimalen.
-          type: string
+          type: integer
         valuta:
           $ref: '#/components/schemas/Waardelijst'
       description: Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid
@@ -4718,13 +4762,13 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Geometry'
-    AantekeningHalCollectie__embedded:
+    PrivaatrechtelijkeBeperkingHalCollectie__embedded:
       type: object
       properties:
-        aantekeningen:
+        privaatrechtelijkeBeperkingen:
           type: array
           items:
-            $ref: '#/components/schemas/AantekeningHal'
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
     BeslagHalCollectie__embedded:
       type: object
       properties:
@@ -4768,13 +4812,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
-    isGeldverstrekker:
+    isHypotheekhouder:
       type: object
       properties:
         href:
           $ref: '#/components/schemas/HalLink'
       description: Dit is een natuurlijk persoon of een niet-natuurlijk persoon die
-        Het geld heeft verstrekt in het kader van de hypothecaire lening
+        als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de
+        lening.
     isBeslaglegger:
       type: object
       properties:
