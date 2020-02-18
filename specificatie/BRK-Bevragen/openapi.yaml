@@ -1242,7 +1242,7 @@ components:
     Tenaamstelling:
       type: object
       description: "Een tenaamstelling is een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal object.\n
-      De tenaamstelling is ten name één van de volgende soo óf een kadasterNatuurlijkPersoon, "
+      De tenaamstelling is ten name één van de volgende soorten persoon: kadasterNatuurlijkPersoon, kadasterNietNatuurlijkPersoon, ingeschrevenNatuurlijkPersoon, ingeschrevenNietNatuurlijkPersoon."
       properties:
         aandeel:
           $ref: "#/components/schemas/TypeBreuk"
