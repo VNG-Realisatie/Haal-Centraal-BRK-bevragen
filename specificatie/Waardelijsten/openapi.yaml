@@ -115,7 +115,7 @@ paths:
   /waardelijsten/{waardelijstidentificatie}/waarden:
     get:
       operationId: getWaarden
-      description: "Het ophalen van de waarden van een waardelijst.<br>Default worden alleen actuele waarden geretourneerd. Met de parameter <b>inclusiefbeeindigd</b> kunnen ook beëindigde waarden gevraagd."
+      description: "Het ophalen van de waarden van een waardelijst.<br>Default worden alleen actuele waarden geretourneerd. Met de parameter <b>inclusiefbeeindigd</b> kunnen ook beëindigde waarden worden gevraagd."
       parameters:
         - $ref: '#/components/parameters/waardelijstidentificatie_path'
         - $ref: '#/components/parameters/code'
