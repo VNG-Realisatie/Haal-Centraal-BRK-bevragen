@@ -1063,7 +1063,7 @@ components:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         nummeraanduidingIdentificatie:
           type: "string"
-          description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de tamplated HAL-linK naar de BAG."
+          description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
         stukIdentificatie:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
