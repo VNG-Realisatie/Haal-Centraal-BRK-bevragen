@@ -1818,7 +1818,7 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigde:
+        zakelijkGerechtigden:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
 #        nietBagAdressen:
 #          title: "betreft"
@@ -1883,7 +1883,7 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           title: "rustOp"
           type: "array"
           items:
-            $ref: "#/components/schemas/ZakelijkGerechtigde"
+            $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
     TypeKadastraalOnroerendeZaak_enum:
       type: "string"
       enum:
