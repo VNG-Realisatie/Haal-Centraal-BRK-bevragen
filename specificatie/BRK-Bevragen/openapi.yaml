@@ -35,7 +35,7 @@ paths:
               -  huisletter (optioneel)
               -  huisnummertoevoeging (optioneel)
 
-          Met gebruik van de parameter expand kunnen gerelateerde zakelijkgerechtigden direct worden meegeladen.
+          Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
 
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       parameters:
@@ -167,7 +167,7 @@ paths:
       description: |
         Het ophalen van een Kadastraal Onroerende zaak.
 
-        Met gebruik van de parameter expand kunnen gerelateerde zakelijkgerechtigden direct worden meegeladen.
+        Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
       parameters:
         - in: path
           name: kadastraalobjectidentificatie
