@@ -935,7 +935,7 @@ components:
           - $ref: "#/components/schemas/Waardelijst"
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
         beslaglegger:
-          $ref: "#/components/schemas/Beslaglegger"
+          $ref: "#/components/schemas/PersoonBeperkt"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -959,10 +959,6 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/BeslagHal"
-    Beslaglegger:
-      allOf:
-        - $ref: "#/components/schemas/ResourceIdentificatie"
-        - description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
     Hypotheek:
       type: "object"
       properties:
@@ -981,9 +977,7 @@ components:
         betreftGedeelteVanPerceel:
           type: "boolean"
         hypotheekhouder:
-          allOf:
-            - description: "Dit element is opgenomen om de identificatie van de hypotheekhouder (De hypotheekhouder is de geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening.) beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-            - $ref: "#/components/schemas/ResourceIdentificatie"
+          $ref: "#/components/schemas/PersoonBeperkt"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1245,7 +1239,7 @@ components:
           items:
             $ref: "#/components/schemas/ResourceIdentificatie"
         persoon:
-          $ref: "#/components/schemas/ZakelijkGerechtigdePersoon"
+          $ref: "#/components/schemas/PersoonBeperkt"
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
@@ -1673,7 +1667,7 @@ components:
       enum:
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
-    ZakelijkGerechtigdePersoon:
+    PersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
         - type: "object"
