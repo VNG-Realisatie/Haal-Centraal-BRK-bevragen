@@ -1696,8 +1696,6 @@ components:
               allOf:
               - $ref: "#/components/schemas/Waardelijst"
               - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
-            identificatie:
-              type: "string"
             metNaamOpenbaarRegister:
               type: "array"
               items:
