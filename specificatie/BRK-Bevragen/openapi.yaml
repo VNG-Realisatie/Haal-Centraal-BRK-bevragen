@@ -1644,8 +1644,7 @@ components:
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - type: "object"
-          properties:
+        - properties:
             type:
               $ref: "#/components/schemas/NatuurlijkPersoonType_enum"
     NatuurlijkPersoonType_enum:
@@ -1657,8 +1656,7 @@ components:
     NietNatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - type: "object"
-          properties:
+        - properties:
             type:
               $ref: "#/components/schemas/NietNatuurlijkPersoonType_enum"
     NietNatuurlijkPersoonType_enum:
@@ -1670,8 +1668,7 @@ components:
     PersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - type: "object"
-          properties:
+        - properties:
             type:
               $ref: "#/components/schemas/PersoonType_enum"
     PersoonType_enum:
@@ -1685,8 +1682,7 @@ components:
     KadasterPersoon:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - type: "object"
-          description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
+        - description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
           properties:
             indicatieNietToonbareDiakriet:
               type: "boolean"
