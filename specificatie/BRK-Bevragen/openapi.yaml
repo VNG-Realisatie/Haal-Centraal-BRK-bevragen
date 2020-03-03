@@ -1303,8 +1303,6 @@ components:
             allOf:
             - $ref: "#/components/schemas/Waardelijst"
             - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-          _links:
-            $ref: "#/components/schemas/Objectlocatiebuitenland_links"
     ObjectlocatieBinnenland:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
@@ -1344,8 +1342,6 @@ components:
             title: "woonplaatsNaam"
             description: ""
             minLength: 1
-          _links:
-            $ref: "#/components/schemas/ObjectlocatieBinnenland_links"
     Postbuslocatie:
       type: "object"
       description: "Een PostbusLocatie is een aanduiding van de locatie van een postbus."
@@ -1366,8 +1362,6 @@ components:
           description: ""
         identificatie:
           type: "string"
-        _links:
-          $ref: "#/components/schemas/Postbuslocatie_links"
     HeeftPartnerschap:
       type: "object"
       description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
@@ -1748,21 +1742,6 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           type: "string"
           title: "toelichtingBewaarder"
           description: "Toelichtende tekst bij een onroerende zaak toegevoegd door de bewaarder"
-    Objectlocatiebuitenland_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    ObjectlocatieBinnenland_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Postbuslocatie_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Stuk_links:
       type: "object"
       properties:
@@ -1784,10 +1763,14 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adres:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaak_links:
       type: "object"
