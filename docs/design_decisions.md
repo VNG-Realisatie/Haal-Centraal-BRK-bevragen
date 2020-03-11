@@ -1,5 +1,10 @@
-# Design decisions
-Dit document beschrijft ontwerpkeuzes die gemaakt zijn voor het ontwerpen en specificeren van de API's in dit koppelvlak.
+# Design decisions HaalCentraal BRK-Bevragen
+Dit document beschrijft ontwerpkeuzes die gemaakt zijn voor het ontwerpen en specificeren van de API's. .
+
+## Algemene Design Decisions
+In het document [design_desicions.md](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/docs/design_decisions.md) dat in de Haal-Centraal-common repository is opgenomen staan beslissingen opgesomd waar alle Haal Centraal API's zich aan conformeren.
+
+## Specifieke beslissingen t.a.v. de API BRK-Bevragen zijn hieronder vermeld.
 
 Beslissing | 
 Kadastrale onroerende zaak, perceel en appartementsrecht wordt 1 resource
