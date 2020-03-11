@@ -285,7 +285,6 @@ paths:
       operationId: GetKadasterPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd Natuurlijk Persoon, niet zijnde een ingeschreven natuurlijk persoon."
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: identificatie
@@ -341,7 +340,6 @@ paths:
       operationId: GetKadasterNietNatuurlijkPersoon
       description: "Het ophalen van een bij het Kadaster geregistreerd niet natuurlijk Persoon, niet zijnde een ingeschreven niet natuurlijk persoon."
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: identificatie
@@ -397,7 +395,6 @@ paths:
       operationId: GetKadasterPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerd Natuurlijk Personen, niet zijnde ingeschreven natuurlijk personen."
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
@@ -452,7 +449,6 @@ paths:
       operationId: GetKadasterNietNatuurlijkPersonen
       description: "Het ophalen van een collectie bij het Kadaster geregistreerde niet natuurlijk Personen, niet zijnde ingeschreven niet natuurlijk personen."
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
@@ -859,13 +855,6 @@ paths:
       - Beslagen
 components:
   schemas:
-    ResourceIdentificatie:
-      type: object
-      properties:
-        identificatie:
-          type: string
-        type:
-          type: string
     Aantekening:
       type: "object"
       properties:
@@ -899,7 +888,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -939,12 +928,12 @@ components:
           - $ref: "#/components/schemas/Waardelijst"
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
         beslaglegger:
-          $ref: "#/components/schemas/Beslaglegger"
+          $ref: "#/components/schemas/PersoonBeperkt"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -963,10 +952,6 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/BeslagHal"
-    Beslaglegger:
-      allOf:
-        - $ref: "#/components/schemas/ResourceIdentificatie"
-        - description: "Dit element is opgenomen om de identificatie van de beslaglegger beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
     Hypotheek:
       type: "object"
       properties:
@@ -985,14 +970,12 @@ components:
         betreftGedeelteVanPerceel:
           type: "boolean"
         hypotheekhouder:
-          allOf:
-            - description: "Dit element is opgenomen om de identificatie van de hypotheekhouder (De hypotheekhouder is de geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening.) beschikbaar te stellen voor partijen die geen gebruik willen maken van de HalLinks voor een verwijzing naar een resource buiten het domein van deze API"
-            - $ref: "#/components/schemas/ResourceIdentificatie"
+          $ref: "#/components/schemas/PersoonBeperkt"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -1064,11 +1047,11 @@ components:
         nummeraanduidingIdentificatie:
           type: "string"
           description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
-        stukIdentificatie:
+        stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1091,7 +1074,7 @@ components:
                 $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
     KadasterNatuurlijkPersoon:
       allOf:
-      - $ref: "#/components/schemas/Persoon"
+      - $ref: "#/components/schemas/KadasterPersoon"
       - description: "Een KadasternatuurlijkPersoon is natuurlijk persoon die is geregistreerd\
           \ in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet\
           \ ingezetene."
@@ -1123,8 +1106,6 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/KadasterNatuurlijkPersoon_links"
-          _embedded:
-            $ref: "#/components/schemas/Persoon_embedded"
     KadasterNatuurlijkPersoonHalCollectie:
       type: "object"
       properties:
@@ -1139,14 +1120,13 @@ components:
                 $ref: "#/components/schemas/KadasterNatuurlijkPersoonHal"
     KadasterNietNatuurlijkPersoon:
       allOf:
-      - $ref: "#/components/schemas/Persoon"
+      - $ref: "#/components/schemas/KadasterPersoon"
       - description: "URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon"
         properties:
           statutaireNaam:
             type: "string"
             title: "statutaireNaam"
             description: ""
-            minLength: 1
           statutaireZetel:
             type: "string"
             title: "statutaireZetel"
@@ -1161,8 +1141,6 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon_links"
-          _embedded:
-            $ref: "#/components/schemas/Persoon_embedded"
     KadasterNietNatuurlijkPersoonHalCollectie:
       type: "object"
       properties:
@@ -1246,15 +1224,15 @@ components:
           format: "date"
         erfpachtCanon:
           $ref: "#/components/schemas/ErfpachtCanon"
-        tenaamstellingen:
+        tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
         stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
         persoon:
-          $ref: "#/components/schemas/ResourceIdentificatie"
+          $ref: "#/components/schemas/PersoonBeperkt"
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
@@ -1290,53 +1268,12 @@ components:
           $ref: "#/components/schemas/Aantekening"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
-        kadasterNatuurlijkPersoon:
-          $ref: '#/components/schemas/NatuurlijkPersoonCompact'
-        kadasterNietNatuurlijkPersoon:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonCompact'
-        ingeschrevenNatuurlijkPersoon:
-          $ref: '#/components/schemas/IngeschrevenNatuurlijkPersoonCompact'
-        ingeschrevenNietNatuurlijkPersoon:
-          $ref: '#/components/schemas/IngeschrevenNietNatuurlijkPersoonCompact'
-    AbstractPersoonCompact:
-      type: object
-      description: ""
-      properties:
-        identificatie:
-          title: identificatie
-          type: string
-    NatuurlijkPersoonCompact:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPersoonCompact'
-      - properties:
-          naam:
-            type: string
-          geboortedatum:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-    NietNatuurlijkPersoonCompact:
-      allOf:
-      - $ref: '#/components/schemas/AbstractPersoonCompact'
-      - properties:
-          actueleStatutaireNaam:
-            type: string
-    IngeschrevenNatuurlijkPersoonCompact:
-      type: object
-      description: "Natuurlijk persoon ingeschreven in de Basisregistratie Personen (BRP) met een burgerservicenummer"
-      properties:
-        burgerservicenummer:
-          type: string
-        naam:
-          type: string
-        geboortedatum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-    IngeschrevenNietNatuurlijkPersoonCompact:
-      type: object
-      description: "Niet-natuurlijk persoon ingeschreven in het Handelsregister"
-      properties:
-        rsin:
-          type: string
-        naam:
-          type: string
+        betrokkenPartner:
+          $ref: '#/components/schemas/NatuurlijkPersoonBeperkt'
+        betrokkenSamenwerkingsverband:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        betrokkenGorzenEnAanwassen:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
     Objectlocatiebuitenland:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
@@ -1359,8 +1296,6 @@ components:
             allOf:
             - $ref: "#/components/schemas/Waardelijst"
             - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-          _links:
-            $ref: "#/components/schemas/Objectlocatiebuitenland_links"
     ObjectlocatieBinnenland:
       allOf:
       - $ref: "#/components/schemas/Objectlocatie"
@@ -1400,20 +1335,6 @@ components:
             title: "woonplaatsNaam"
             description: ""
             minLength: 1
-          _links:
-            $ref: "#/components/schemas/ObjectlocatieBinnenland_links"
-    MetNaamOpenbaarRegister:
-      type: "object"
-      description: "NaamOpenbaarRegister is gegevensgroep waarin, indien van toepassing,\
-        \ een afwijkende schrijfwijze van de naam van een persoon volgens het openbare\
-        \ register van het Kadaster wordt vastgelegd."
-      properties:
-        naam:
-          type: "string"
-          title: "naam"
-          description: ""
-          maxLength: 320
-          minLength: 1
     Postbuslocatie:
       type: "object"
       description: "Een PostbusLocatie is een aanduiding van de locatie van een postbus."
@@ -1434,8 +1355,6 @@ components:
           description: ""
         identificatie:
           type: "string"
-        _links:
-          $ref: "#/components/schemas/Postbuslocatie_links"
     HeeftPartnerschap:
       type: "object"
       description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
@@ -1699,26 +1618,83 @@ components:
           title: "waarde"
           description: "De waarde zoals aangetroffen in de Waardelijst. het moment\
             \ waarop de waarde geassocieerd is met de meegeleverde code is onbepaald."
-    Persoon:
+    PersoonBasis:
       type: "object"
-      description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
+      description: "Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn."
       properties:
-        indicatieNietToonbareDiakriet:
-          type: "boolean"
-          title: "indicatieNietToonbareDiakriet"
-          description: ""
-        beschikkingsbevoegdheid:
-          allOf:
-          - $ref: "#/components/schemas/Waardelijst"
-          - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
         identificatie:
-          type: "string"
-        metNaamOpenbaarRegister:
-          type: "array"
-          items:
-            type: "string"
-            title: "naam"
-            maxLength: 320
+          type: string
+          description: "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het rsin."
+        omschrijving:
+          type: string
+          description: "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam van de persoon)."
+    NatuurlijkPersoonBeperkt:
+      allOf:
+        - $ref: "#/components/schemas/PersoonBasis"
+        - properties:
+            type:
+              $ref: "#/components/schemas/NatuurlijkPersoonType_enum"
+    NatuurlijkPersoonType_enum:
+      type: "string"
+      description: "Een aanduiding die aangeeft of de persoon ingeschreven is in het BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster."
+      enum:
+      - "ingeschreven_natuurlijk_persoon"
+      - "kadaster_natuurlijk_persoon"
+    NietNatuurlijkPersoonBeperkt:
+      allOf:
+        - $ref: "#/components/schemas/PersoonBasis"
+        - properties:
+            type:
+              $ref: "#/components/schemas/NietNatuurlijkPersoonType_enum"
+    NietNatuurlijkPersoonType_enum:
+      type: "string"
+      description: "Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster."
+      enum:
+      - "ingeschreven_niet_natuurlijk_persoon"
+      - "kadaster_niet_natuurlijk_persoon"
+    PersoonBeperkt:
+      allOf:
+        - $ref: "#/components/schemas/PersoonBasis"
+        - properties:
+            type:
+              $ref: "#/components/schemas/PersoonType_enum"
+    PersoonType_enum:
+      type: "string"
+      description: "Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster."
+      enum:
+      - "ingeschreven_natuurlijk_persoon"
+      - "kadaster_natuurlijk_persoon"
+      - "ingeschreven_niet_natuurlijk_persoon"
+      - "kadaster_niet_natuurlijk_persoon"
+    KadasterPersoon:
+      allOf:
+        - $ref: "#/components/schemas/PersoonBasis"
+        - description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
+          properties:
+            indicatieNietToonbareDiakriet:
+              type: "boolean"
+              title: "indicatieNietToonbareDiakriet"
+              description: ""
+            beschikkingsbevoegdheid:
+              allOf:
+              - $ref: "#/components/schemas/Waardelijst"
+              - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
+            metNaamOpenbaarRegister:
+              type: "array"
+              items:
+                type: "string"
+                title: "naam"
+                maxLength: 320
+            woonlocatieAdresBuitenland:
+              $ref: "#/components/schemas/Objectlocatiebuitenland"
+            woonlocatieAdresBinnenland:
+              $ref: "#/components/schemas/ObjectlocatieBinnenland"
+            postlocatieAdresBinnenland:
+              $ref: "#/components/schemas/ObjectlocatieBinnenland"
+            postlocatieAdresBuitenland:
+              $ref: "#/components/schemas/Objectlocatiebuitenland"
+            postlocatiePostbuslocatie:
+              $ref: "#/components/schemas/Postbuslocatie"
     Objectlocatie:
       allOf:
       - $ref: "#/components/schemas/Adreslocatie"
@@ -1759,21 +1735,6 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           type: "string"
           title: "toelichtingBewaarder"
           description: "Toelichtende tekst bij een onroerende zaak toegevoegd door de bewaarder"
-    Objectlocatiebuitenland_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    ObjectlocatieBinnenland_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Postbuslocatie_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Stuk_links:
       type: "object"
       properties:
@@ -1795,10 +1756,14 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adres:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterNatuurlijkPersoon_links:
       type: "object"
       properties:
         self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaak_links:
       type: "object"
@@ -1846,6 +1811,12 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         persoon:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        betrokkenPartner:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        betrokkenSamenwerkingsverband:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        betrokkenGorzenEnAanwassen:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     PrivaatrechtelijkeBeperking_links:
       type: "object"
       properties:
@@ -1854,19 +1825,6 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Persoon_embedded:
-      type: "object"
-      properties:
-        woonlocatieAdresBuitenland:
-          $ref: "#/components/schemas/Objectlocatiebuitenland"
-        woonlocatieAdresBinnenland:
-          $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatieAdresBinnenland:
-          $ref: "#/components/schemas/ObjectlocatieBinnenland"
-        postlocatieAdresBuitenland:
-          $ref: "#/components/schemas/Objectlocatiebuitenland"
-        postlocatiePostbuslocatie:
-          $ref: "#/components/schemas/Postbuslocatie"
     AangebodenStuk_embedded:
       type: "object"
       properties:
