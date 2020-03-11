@@ -18,17 +18,18 @@ paths:
       operationId: GetKadastraalOnroerendeZaken
       description: |
           Het ophalen van een collectie Kadastraal Onroerende zaken.
-          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen
+          Ten minste één van de volgende combinaties van parameters moet moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
           1.  Kadastrale aanduiding
-              -  kadastrale_gemeente (verplicht)
+              -  kadastralegemeente__code (verplicht)
               -  perceelnummer (verplicht)
               -  sectie (verplicht)
               -  appartementsrechtnummer (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
-              -  burgerservicenummer
+              -  burgerservicenummer (verplicht)
+              -  typegerechtigde (optioneel)
           3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
-              -  kadastraalpersoonidentificatie
-              -  typegerechtigde
+              -  kadasterpersoonidentificatie (verplicht)
+              -  typegerechtigde (optioneel)
           4.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel)
