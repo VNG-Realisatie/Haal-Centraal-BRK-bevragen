@@ -220,6 +220,66 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Kadastraal Onroerende Zaken
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie]:
+    get:
+      operationId: GetZakelijkGerechtigde
+      description: "Het ophalen van een specifieke zakelijke gerechtigde behorende bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalobjectidentificatie
+          description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er een herindeling plaatsvindt."
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: identificatie
+          description: "De identificatie van de zakelijk gerechtigde"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Zakelijke Gerechtigden
   /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
     get:
       operationId: GetZakelijkGerechtigden
@@ -1052,6 +1112,11 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
+        zakelijkGerechtigdeIentificatie:
+          type: "array"
+          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
+          items:
+            type: string
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1216,6 +1281,9 @@ components:
     ZakelijkGerechtigde:
       type: object
       properties:
+        identificatie:
+          type: "string"
+          description: "Dit element is de identificatie van de zakelijk gerechtigde."
         typeGerechtigde:
           $ref: "#/components/schemas/typeGerechtigde_enum"
         aanvangsdatum:
@@ -1770,12 +1838,6 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-#        betreftKadastraalObject:
-#          title: "betreftkadastraalobject"
-#          type: "array"                            Komt volgens mij te vervallen
-#          description: ""
-#          items:
-#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         bagAdressen:
           title: "betreft"
           type: "array"
@@ -1785,13 +1847,6 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-#        nietBagAdressen:
-#          title: "betreft"
-#          type: "array"            Is geen endpoint voor Komt te vervallen ?
-#          description: ""
-#          minItems: 1
-#          items:
-#            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
