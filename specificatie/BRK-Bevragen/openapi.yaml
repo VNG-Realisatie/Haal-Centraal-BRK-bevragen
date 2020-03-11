@@ -1231,7 +1231,7 @@ components:
           format: "date"
         erfpachtCanon:
           $ref: "#/components/schemas/ErfpachtCanon"
-        tenaamstellingen:
+        tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
         stukken:
           type: "array"
