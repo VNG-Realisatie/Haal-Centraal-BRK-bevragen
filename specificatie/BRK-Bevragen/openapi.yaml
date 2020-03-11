@@ -855,13 +855,6 @@ paths:
       - Beslagen
 components:
   schemas:
-    ResourceIdentificatie:
-      type: object
-      properties:
-        identificatie:
-          type: string
-        type:
-          type: string
     Aantekening:
       type: "object"
       properties:
@@ -895,7 +888,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -940,7 +933,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -982,7 +975,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -1054,11 +1047,11 @@ components:
         nummeraanduidingIdentificatie:
           type: "string"
           description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
-        stukIdentificatie:
+        stukken:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1237,7 +1230,7 @@ components:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
-            $ref: "#/components/schemas/ResourceIdentificatie"
+            type: string
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
     ZakelijkGerechtigdeHal:
