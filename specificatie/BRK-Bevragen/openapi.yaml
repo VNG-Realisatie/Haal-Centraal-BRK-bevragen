@@ -49,7 +49,7 @@ paths:
             type: "string"
             example: "50"
         - in: query
-          name: perceelnummer
+          name: kadastraleaanduiding__perceelnummer
           description: "Het perceelnummer dat een geheel perceel of een complex uniek\
               \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
               \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
@@ -59,7 +59,7 @@ paths:
             minimum: 1
             maximum: 99999
         - in: query
-          name: sectie
+          name: kadastraleaanduiding__sectie
           description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
             \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
             \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
@@ -69,53 +69,53 @@ paths:
           schema:
             type: "string"
         - in: query
-          name: appartementsrechtvolgnummer
+          name: kadastraleaanduiding__appartementsrechtvolgnummer
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
           schema:
             type: "integer"
         - in: query
-          name: burgerservicenummer
+          name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: kadasterpersoonidentificatie
+          name: persoon_kadasterpersoonidentificatie
           description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
             type: string
         - in: query
-          name: typegerechtigde
+          name: zakelijkgerechtigde__typegerechtigde
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type."
           required: false
           schema:
             $ref: "#/components/schemas/typeGerechtigde_enum"
         - in: query
-          name: postcode
+          name: adres__postcode
           description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
             type: string
             pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$"
         - in: query
-          name: huisnummer
+          name: adres__huisnummer
           description: "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
             type: integer
             pattern: "^[1-9][0-9]{0,4}$"
         - in: query
-          name: huisletter
+          name: adres__huisletter
           description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
             type: string
             pattern: "^[a-zA-Z]$"
         - in: query
-          name: huisnummertoevoeging
+          name: adres__huisnummertoevoeging
           description: "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
@@ -729,18 +729,25 @@ paths:
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: burgerservicenummer
+          name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: kadasterpersoonidentificatie
+          name: persoon__kadasterpersoonidentificatie
           description: "De identificatie van een kadaster persoon of een rechtspersoon die bij het kadaster is geregistreerd."
           required: false
           schema:
             type: string
+        - in: query
+          name: persoon__typepersoon
+          description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
+          required: true
+          schema:
+            type: string
+            maxLength: 15
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -852,20 +859,20 @@ paths:
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: burgerservicenummer
+          name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: kadasterpersoonidentificatie
+          name: persoon__kadasterpersoonidentificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
             type: string
         - in: query
-          name: typepersoon
+          name: persoon__typepersoon
           description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
           required: true
           schema:
