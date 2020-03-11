@@ -1071,15 +1071,6 @@ components:
           type: "string"
         begrenzingPerceel:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
-        omschrijvingOnderzoekErfdienstbaarheden:
-          type: "string"
-          title: "omschrijvingOnderzoekErfdienstbaarheden"
-          description: ""
-        perceelnummerRotatie:
-          type: "number"
-          title: "perceelnummerRotatie"
-          description: ""
-          maximum: 999
         plaatscoordinaten:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         koopsom:
@@ -1088,15 +1079,6 @@ components:
           type: "string"
           title: "toelichtingBewaarder"
           description: ""
-        onderzoekErfdienstbaarheden:
-          type: "object"
-          properties:
-            toestandsdatum:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
-            omschrijving:
-              type: "string"
-              title: "omschrijvingOnderzoekErfdienstbaarheden"
-              description: ""
         typeKadastraalOnroerendeZaak:
           $ref: "#/components/schemas/TypeKadastraalOnroerendeZaak_enum"
         aardCultuurBebouwd:
@@ -1109,8 +1091,6 @@ components:
           $ref: "#/components/schemas/TypeKadastraleAanduiding"
         kadastraleGrootte:
           $ref: "#/components/schemas/TypeOppervlak"
-        perceelnummerVerschuiving:
-          $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         nummeraanduidingIdentificatie:
           type: "string"
           description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
@@ -1649,20 +1629,6 @@ components:
           type: "integer"
           title: "waarde"
           description: "Oppervlak grootte, met als eenheid de soortGrootte."
-    TypePerceelnummerVerschuiving:
-      type: "object"
-      description: "Verschuiving van het perceelnummer ten behoeve van visualisatie\
-        \ op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar\
-        \ overlappen."
-      properties:
-        deltax:
-          type: "integer"
-          title: "deltaX"
-          description: "Verschuiving op de X as."
-        deltay:
-          type: "integer"
-          title: "deltaY"
-          description: "Verschuiving op de Y as."
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
