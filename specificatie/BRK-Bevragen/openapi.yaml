@@ -725,7 +725,16 @@ paths:
   /hypotheken:
     get:
       operationId: GetHypotheken
-      description: "Het ophalen van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening."
+      description: |
+          Het ophalen van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek
+          vestigt als zekerheid voor de lening.
+          Één van de volgende combinaties van parameters moet zijn opgenomen
+          1.  Hypotheekhouder is een Persoon die bekend is in de BRP als ingeschreven persoon
+              -  burgerservicenummer (verplicht)
+              -  typepersoon (verplicht)
+          2.  Hypotheekhouder is niet bekend als ingeschreven persoon in de BRP of de hypotheekhouder is een rechtspersoon
+              -  kadasterpersoonidentificatie (verplicht)
+              -  typepersoon (verplicht)
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -736,7 +745,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: persoon__kadasterpersoonidentificatie
+          name: persoon__identificatie
           description: "De identificatie van een kadaster persoon of een rechtspersoon die bij het kadaster is geregistreerd."
           required: false
           schema:
@@ -746,8 +755,7 @@ paths:
           description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
           required: true
           schema:
-            type: string
-            maxLength: 15
+            $ref: "#/components/schemas/PersoonType_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -849,7 +857,7 @@ paths:
       operationId: GetBeslagen
       description: |
           Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd.
-          Ten minste één van de volgende combinaties van parameters moet zijn opgenomen
+          Één van de volgende combinaties van parameters moet zijn opgenomen
           1.  Beslaglegger is een Persoon die bekend is in de BRP als ingeschreven persoon
               -  burgerservicenummer (verplicht)
               -  typepersoon (verplicht)
@@ -866,7 +874,7 @@ paths:
             type: string
             maxLength: 9
         - in: query
-          name: persoon__kadasterpersoonidentificatie
+          name: persoon__identificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
@@ -876,8 +884,7 @@ paths:
           description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
           required: true
           schema:
-            type: string
-            maxLength: 15
+            $ref: "#/components/schemas/PersoonType_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
