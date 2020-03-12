@@ -1106,7 +1106,7 @@ components:
       - $ref: "#/components/schemas/KadasterNatuurlijkPersoon"
       - properties:
           _links:
-            $ref: "#/components/schemas/KadasterNatuurlijkPersoon_links"
+            $ref: "#/components/schemas/KadasterPersoon_links"
     KadasterNatuurlijkPersoonHalCollectie:
       type: "object"
       properties:
@@ -1141,7 +1141,7 @@ components:
       - $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon"
       - properties:
           _links:
-            $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon_links"
+            $ref: "#/components/schemas/KadasterPersoon_links"
     KadasterNietNatuurlijkPersoonHalCollectie:
       type: "object"
       properties:
@@ -1752,20 +1752,17 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadasterNietNatuurlijkPersoon_links:
+    KadasterPersoon_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         adres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadasterNatuurlijkPersoon_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        adres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
