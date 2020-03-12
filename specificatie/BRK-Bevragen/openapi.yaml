@@ -1099,7 +1099,7 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
-        zakelijkGerechtigdeIdentificatie:
+        zakelijkGerechtigdeIdentificaties:
           type: "array"
           description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
           items:
