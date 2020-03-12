@@ -18,7 +18,7 @@ paths:
       operationId: GetKadastraalOnroerendeZaken
       description: |
           Het ophalen van een collectie Kadastraal Onroerende zaken.
-          Ten minste één van de volgende combinaties van parameters moet moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
+          Ten minste één van de volgende combinaties van parameters moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
           1.  Kadastrale aanduiding
               -  kadastralegemeente__code (verplicht)
               -  perceelnummer (verplicht)
