@@ -1815,21 +1815,18 @@ In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk
           title: "betreft"
           type: "array"
           description: "Dit een koppeling naar het Adres zoals dat in de HC-Bag API wordt aangeboden."
-          minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           title: ""
           type: "array"
           description: ""
-          minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           title: ""
           type: "array"
           description: ""
-          minItems: 1
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_links:
