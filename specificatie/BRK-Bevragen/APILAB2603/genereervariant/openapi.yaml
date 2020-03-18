@@ -2295,7 +2295,7 @@ components:
         waarde:
           title: waarde
           type: integer
-          description: Oppervlak grootte, met als eenheid de soortGrootte.
+          description: Oppervlak grootte, in vierkante meters.
       description: Oppervlakte.
     TypeBreuk:
       type: object
