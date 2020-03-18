@@ -1893,11 +1893,11 @@ components:
         soortGrootte:
           allOf:
           - $ref: "#/components/schemas/Waardelijst"
-          - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)"
+          - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/rootte/)"
         waarde:
           type: "integer"
           title: "waarde"
-          description: "Oppervlak grootte, met als eenheid de soortGrootte."
+          description: "Oppervlak grootte, in vierkante meters"
     Waardelijst:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
