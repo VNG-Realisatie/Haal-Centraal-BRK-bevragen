@@ -1066,7 +1066,7 @@ components:
         waarde:
           type: "integer"
           title: "waarde"
-          description: "Oppervlak grootte, met als eenheid de soortGrootte."
+          description: "Oppervlak grootte, in vierkante meters."
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
