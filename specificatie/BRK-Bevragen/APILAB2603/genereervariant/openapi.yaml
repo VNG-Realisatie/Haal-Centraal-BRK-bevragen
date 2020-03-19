@@ -22,24 +22,20 @@ paths:
       description: "Het ophalen van een collectie Kadastraal Onroerende zaken.\nTen\
         \ minste één van de volgende combinaties van parameters moet worden gebruikt.\
         \ Het combineren van parameters uit verschillende combinaties is niet toegestaan.\n\
-        1.  Kadastrale aanduiding **Nog niet geimplementeerd voor de APIlab van 26-03-2020**\n\
-        \    -  kadastralegemeente__code (verplicht) **Nog niet geimplementeerd voor\
-        \ de APIlab van 26-03-2020**\n    -  perceelnummer (verplicht) **Nog niet\
-        \ geimplementeerd voor de APIlab van 26-03-2020**\n    -  sectie (verplicht)\
-        \ **Nog niet geimplementeerd voor de APIlab van 26-03-2020**\n    -  appartementsrechtnummer\
-        \ (optioneel) **Nog niet geimplementeerd voor de APIlab van 26-03-2020**\n\
-        2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer\
-        \ (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon\
-        \ of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie\
-        \ (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode\
-        \ (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\
-        \  **Nog niet geimplementeerd voor de APIlab van 26-03-2020**\n    -  huisnummertoevoeging\
-        \ (optioneel)  **Nog niet geimplementeerd voor de APIlab van 26-03-2020**\n\
-        \nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden\
-        \ meegeladen. \n\nHet maximale aantal zoekresultaten dat geretourneerd wordt\
-        \ is aan de provider om te bepalen. Als het resultaat van de de request dit\
-        \ aantal overtreft worden er geen resultaten geretourneerd en volgt er een\
-        \ foutmelding.\n"
+        1.  Kadastrale aanduiding \n    -  kadastralegemeente__code (verplicht) \n\
+        \    -  perceelnummer (verplicht) \n    -  sectie (verplicht) \n    -  appartementsrechtnummer\
+        \ (optioneel) \n2.  Ingeschreven persoon als zakelijk gerechtigde\n    - \
+        \ burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.\
+        \  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n\
+        \    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n\
+        4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n  \
+        \  -  huisletter (optioneel)  **Nog niet geimplementeerd voor de APIlab van\
+        \ 26-03-2020**\n    -  huisnummertoevoeging (optioneel)  **Nog niet geimplementeerd\
+        \ voor de APIlab van 26-03-2020**\n\nMet gebruik van de parameter expand kunnen\
+        \ zakelijkgerechtigden direct worden meegeladen. \n\nHet maximale aantal zoekresultaten\
+        \ dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat\
+        \ van de de request dit aantal overtreft worden er geen resultaten geretourneerd\
+        \ en volgt er een foutmelding.\n"
       operationId: GetKadastraalOnroerendeZaken
       parameters:
       - name: Accept-Crs
@@ -2632,7 +2628,6 @@ components:
       description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
     Href:
       type: string
-      format: uri
       example: datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcename/{resource-identificatie}
     KadasterNatuurlijkPersoonHalCollectie__embedded:
       type: object
