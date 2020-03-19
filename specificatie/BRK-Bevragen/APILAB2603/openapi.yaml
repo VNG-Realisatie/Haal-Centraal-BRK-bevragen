@@ -19,11 +19,11 @@ paths:
       description: |
           Het ophalen van een collectie Kadastraal Onroerende zaken.
           Ten minste één van de volgende combinaties van parameters moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
-          1.  Kadastrale aanduiding **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
-              -  kadastralegemeente__code (verplicht) **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
-              -  perceelnummer (verplicht) **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
-              -  sectie (verplicht) **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
-              -  appartementsrechtnummer (optioneel) **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
+          1.  Kadastrale aanduiding 
+              -  kadastralegemeente__code (verplicht) 
+              -  perceelnummer (verplicht) 
+              -  sectie (verplicht) 
+              -  appartementsrechtnummer (optioneel) 
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
               -  typegerechtigde (optioneel)
