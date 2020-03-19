@@ -20,7 +20,7 @@ De werking van de API is het makkelijkst te testen met behulp van [Postman](http
 De openapi.yaml specficatie kun je importeren als project, waarna je de verschillende requests kunt doen.
 
 Er is ook aan Postman collection beschikbaar met daarin een paar testgevallen, welke je ook kunt importeren in Postman.
-Zie [Postman collection](./BRK-Bevragen API.postman_collection.json)
+Zie [Postman-collection](BRK-Bevragen API.postman_collection.json)
 
 ### Testgevallen
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest.
