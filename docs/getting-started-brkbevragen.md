@@ -1,4 +1,4 @@
-bruce# Getting Started
+# Getting Started
 
 ## BRK Bevragen API
 De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI specifications (OAS).
