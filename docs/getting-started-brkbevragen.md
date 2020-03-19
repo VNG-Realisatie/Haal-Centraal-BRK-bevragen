@@ -1,10 +1,11 @@
-# Getting Started
+bruce# Getting Started
 
 ## BRK Bevragen API
 De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI specifications (OAS).
 
 ### OAS specificatie
 De (resolved) OAS specificatie is te downloaden van de Haal-Centraal-BRK-bevragen github repository - /specificatie/BRK-Bevragen/openapi.yaml
+Zie [openapi.yaml](../specificatie/BRK-Bevragen/openapi.yaml)
 
 ### URI
 De API lab versie is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/
@@ -17,86 +18,35 @@ De apiKey kan opgevraagd worden bij de mensen van het BRK team.
 ### Werking
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
 De openapi.yaml specficatie kun je importeren als project, waarna je de verschillende requests kunt doen.
-LET OP: je moet de apiKey als header meegeven met als key=apiKey en als value de apiKey zelf.
 
-### Nog niet gerealiseerd
-De volgende functies zijn nog niet gerealiseerd voor het API lab.
-- Ophalen Kadastraal Onroerende Zaken op basis van een kadastraleAanduiding (kadastraleGemeenteNaam, sectie, perceelNummer)
-- Ophalen van stukken
-- Ophalen van hypotheken van een specifieke geldverstrekker
-- Ophalen van beslagen van een specifieke beslaglegger 
+Er is ook aan Postman collection beschikbaar met daarin een paar testgevallen, welke je ook kunt importeren in Postman.
+Zie [Postman collection](./BRK-Bevragen API.postman_collection.json)
 
 ### Testgevallen
-Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest, uitgespecificeerd per endpoint
+Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest.
 
-#### Endpoint /kadastraalonroerendezaken?kadastraalPersoonIdentificatie={kpi}
-Om kadastrale onroerende zaken op te vragen van een specifiek persoon waar de persoon eigenaar is op basis van een KPI
+#### Onroerende Zaken
+Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding   |Postcode & huisnummer  |                                                                    
+----------------                                |:-------                                   |:-------               |:-------               |
+2 eigenaren (Kadaster Natuurlijk Persoon)       |NL.IMKAD.KadastraalObject.76870487970000   |Beekbergen K 4879      |7361EW 29              |
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870488070000   |Beekbergen K 4880      |7361EW 27              |
+1 eigenaar (Kadaster Natuurlijk Persoon)        |NL.IMKAD.KadastraalObject.76870482670000   |Beekbergen K 4826      |7361EW 25              |
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870482570000   |Beekbergen K 4825      |7361EW 21              |
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22310827210003   |'s-Gravenhage N 8272 3 |                       |
 
-kpi test persoon | situatie
----------------- | :-------  
-NL.IMKAD.Persoon.158578833 | Derks (Kadaster Natuurlijk Persoon)
-NL.IMKAD.Persoon.158578844  | Goedhart (Kadaster Natuurlijk Persoon)
-
-#### Endpoint /kadastraalonroerendezaken?burgerservicenummer={bsn}
-Om kadastrale onroerende zaken op te vragen van een specifiek persoon waar de persoon eigenaar is op basis van een BSN
-
-bsn test persoon | situatie
----------------- | :-------  
-999991905 | Haglund
-999993872 | Meijden
-999993926 | Leemstra
-999993550 | Jansen-de Groot
-999990421 | Holthuizen
-999990482 | Livramento
-999994669 | Streeveld
-
-#### Endpoint /kadastraalonroerendezaak/{koi}
-Om informatie over een kadastrale onroerende zaak op te vragen op basis van een KadastraalObjectIdentificatie. 
-
-Verder kunnen van deze kadastraal onroerende zaak de:
-- zakelijkgerechtigden van het type eigenaar opgevraagd worden via /kadastraalonroerendezaak/{koi}/zakelijkgerechtigden?type=eigenaar
-- hypotheken opgevraagd worden via /kadastraalonroerendezaak/{koi}/hypotheken
-- beslagen opgevraagd worden via /kadastraalonroerendezaak/{koi}/beslagen
-
-koi         |   situatie
----------------- | :------- 
-NL.IMKAD.KadastraalObject.76370602970000    |	1 eigenaar; 1 geldverstrekker
-NL.IMKAD.KadastraalObject.15710077470000    |	2 eigenaren; 1 geldverstrekker is particulier
-NL.IMKAD.KadastraalObject.25850153070000	|   1 eigenaar; 2 geldverstrekkers
-NL.IMKAD.KadastraalObject.89100047270000	|   1 eigenaar; geen hypotheek op dit object
-NL.IMKAD.KadastraalObject.1220294670000	    |   2 eigenaren; 2 hypotheken bij 1 geldverstrekker
-NL.IMKAD.KadastraalObject.2560430970000	    |   1 eigenaar; 2 beslagen (conservatoir beslag en  executoriaal beslag); 2 geldverstrekkers waarvan 1 particulier
-
-#### Endpoint /kadasternatuurlijkpersonen/{kpi}
-Om informatie over een kadaster natuurlijk persoon op te vragen op basis van een KadastraalPersoonIdentificatie.
-
-kpi test persoon | situatie
----------------- | :-------  
-NL.IMKAD.Persoon.158578833 | Derks (Kadaster Natuurlijk Persoon)
-NL.IMKAD.Persoon.158578844 | Goedhart (Kadaster Natuurlijk Persoon) 
-NL.IMKAD.Persoon.68910095 | Oever (Kadaster Natuurlijk Persoon)
-
-#### Endpoint /kadasternietnatuurlijkpersonen/{kpi}
-Om informatie over een kadaster niet natuurlijk persoon op te vragen op basis van een KadastraalPersoonIdentificatie. 
-Deze persoon kan een Kadaster Niet Natuurlijk Persoon zijn (rsin/kvk nummer niet bekend) of een Ingeschreven Niet Natuurlijk Persoon (rsin/kvk nummer wel bekend)
-
-kpi test persoon | situatie
----------------- | :-------  
-NL.IMKAD.Persoon.537471837  | DeHypotheekverstrekker Brussel (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.449125246  | GoedeHypotheken B.V. Rotterdam (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.24268005   | AlleenGoedeHypotheken Vlaardingen (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.537742055  | Beslaglegger1 Utrecht (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.146134936  | Vastgoed Hypotheken Zeist (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.533499594  | BetereGeld B.V. Groningen (Kadaster Niet Natuurlijk Persoon)
-NL.IMKAD.Persoon.537735891  | GoedeKeuze B.V. Assen (Ingeschreven Niet Natuurlijk Persoon) 
+#### Personen
+Naam                    |Geboortedatum    |Zetel        |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |
+----------------        |:-------         |:------      |:------                              |:------                        |:------              |
+Christaan Goede         |1971-11-01       |             |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.71303564      |                     |
+Willem Jansens          |1971-11-01       |             |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.70882239      |                     |
+Sidonia Jansens         |1950-01-01       |             |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.50550743      |                     |
+Linda Haglund           |1950-01-01       |             |Ingeschreven Natuurlijk Persoon      |                               |999991905            |
+Bankbedrijf             |                 |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |NL.IMKAD.Persoon.71291440      |                     |
+Bankbedrijf van vrucht  |                 |GRAVE        |Kadaster Niet Natuurlijk Persoon     |NL.IMKAD.Persoon.71291493      |                     |
 
 #### Foutscenarios
-Zie hieronder een paar endpoints waarmee bepaalde foutscenarios te testen zijn. 
-
-Aanvraag | Foutscenario
----------------- | :-------  
-/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003017000 | 500 Internal server error
-/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003147000 | 404 Not found 
-/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003157000 | 410 Gone
-
-De validatie op de fields & expand parameters kan per endpoint getest worden.
+Aanvraag                                                                                       | Foutscenario               |
+----------------                                                                               | :-------                   |
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003017000                              | 500 Internal server error  |
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003147000                              | 404 Not found              |
+/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.122003157000                              | 410 Gone                   |
