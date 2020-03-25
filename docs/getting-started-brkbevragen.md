@@ -13,7 +13,7 @@ De API lab versie is te benaderen via de volgende url: https://api.test.kadaster
 ### ApiKey
 Om de api te kunnen bevragen is een apikey nodig. Voor de API lab is een algemene apiKey beschikbaar. 
 Deze is ook alleen maar geldig op de API lab en zal na het API lab gedisabled worden.
-De apiKey is: [TODO:APIKEY]
+De apiKey is: l768cdafa7d7ab474baf89a86754cc9a6a
 
 ### Werking
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
