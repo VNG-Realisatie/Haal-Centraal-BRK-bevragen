@@ -12,7 +12,7 @@ info:
     url: https://eupl.eu/1.2/nl/
   version: 1.0.0
 servers:
-- url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
+- url: https://api.test.kadaster.nl/esd/gemeenten/brk
   description: Brk-bevragen Kadastraal Onroerende Zaak
 paths:
   /kadastraalonroerendezaken:
@@ -671,7 +671,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie]:
+  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie}:
     get:
       tags:
       - Zakelijke Gerechtigden
