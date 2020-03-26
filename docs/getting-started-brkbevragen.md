@@ -4,8 +4,8 @@
 De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI specifications (OAS).
 
 ### OAS specificatie
-De (resolved) OAS specificatie is te downloaden van de Haal-Centraal-BRK-bevragen github repository - /specificatie/BRK-Bevragen/APILAB2603/openapi.yaml
-Zie [openapi.yaml](../specificatie/BRK-Bevragen/APILAB2603/openapi.yaml)
+De (resolved) OAS specificatie is te downloaden van de Haal-Centraal-BRK-bevragen github repository - /specificatie/BRK-Bevragen/APILAB2603/genereervariant/openapi.yaml
+Zie [openapi.yaml](../specificatie/BRK-Bevragen/APILAB2603/genereervariant/openapi.yaml)
 
 ### URI
 De API lab versie is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/
@@ -40,9 +40,9 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 #### Natuurlijke Personen
 Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheid        |
 ----------------        |:-------         |:------                              |:------                        |:------              |:------              |
-Christaan Goede         |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.71303564      |                     ||
 Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.70882239      |                     |alle velden gevuld   |
-Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.50550743      |                     |woont in buitenland  |
+Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.50550743      |                     |  |
+Christaan Goede         |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.71303564      |                     ||
 Linda Haglund           |                 |Ingeschreven Natuurlijk Persoon      |                               |999991905            ||
 Lisanty do Livramento...|                 |Ingeschreven Natuurlijk Persoon      |                               |999990482            ||
 Merel Kooyman           |                 |Ingeschreven Natuurlijk Persoon      |                               |999993847            ||
