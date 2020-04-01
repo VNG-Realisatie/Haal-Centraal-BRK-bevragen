@@ -6,23 +6,23 @@ In het document [design_desicions.md](https://github.com/VNG-Realisatie/Haal-Cen
 
 ## Design decisions voor BRK-Bevragen.
 
-##Kadastrale onroerende zaak, perceel en appartementsrecht wordt 1 resource##
+## Kadastrale onroerende zaak, perceel en appartementsrecht wordt 1 resource 
 De resource heet KadastraalOnroerendeZaak en er is een property typeKadastraalOnroerendeZaak (waarden: perceel, appartementsrecht) in opgenomen.
 
-* Ratio* 
+*Ratio* 
 Voor veruit de meeste gebruikers is het gewenst om op een kadastrale onroerende zaak te zoeken. De response geeft kadastrale onroerende zaken terug, zowel percelen als appartementsrechten.  De KOZ wordt platgeslagen als 1 resource, waarbij de de eigenschappen van het perceel optioneel zijn. Ook wordt een type element toegevoegd (type perceel of appartementsrecht).
 
 
-## De Teboekgestelde zaak wordt niet opgenomen in de resource KadastraalOnroerendeZaak. ## 
+## De Teboekgestelde zaak wordt niet opgenomen in de resource KadastraalOnroerendeZaak.  
 De sociale dienst (opsporing uitkeringsfraude) is de enige gebruiker die de teboekgestelde zaak nodig heeft. Deze kunnen zij apart opvragen. Het alternatief is alle andere gebruikers lastig te vallen met de teboekgestelde zaak (niet wenselijk).
 
 
-##Zakelijke rechten, tenaamstellingen, persoon en gezamenlijkAandeel worden samengevoegd in de subresource ZakelijkGerechtigde## 
+## Zakelijke rechten, tenaamstellingen, persoon en gezamenlijkAandeel worden samengevoegd in de subresource ZakelijkGerechtigde
 
 *Ratio*
 Gebruikers zijn hoofdzakelijk geïnteresseerd in deze combinatie van gegevens en niet zozeer de losse objecten. Deze ZakelijkGerechtigde kan alleen bestaan in de context van een KadastraalOnroerendeZaak en is derhalve een subresource. 
 
-##Zekerheidsstellingen worden als subresource gedefinieerd, en niet embedded opgenomen in de KOZ.##
+## Zekerheidsstellingen worden als subresource gedefinieerd, en niet embedded opgenomen in de KOZ.
 Zekerheidsstellingen worden alleen via de KOZ of via de persoon opgevraagd, daarom wordt de zekerheidsstelling als subresource gedefinieerd. Deze worden niet embedded opgenomen in de KOZ, omdat slechts enkele afnemers geinteresseerd zijn in de zekerheidsstelling.
 
 - Personen worden voor de tenaamstellingen niet embedded opgenomen. Er wordt dus met links verwezen en daarmee wordt er ook een endpoint voor kadaster-personenen geintroduceerd (niet-ingeschreven personen die eigenaar zijn). 
