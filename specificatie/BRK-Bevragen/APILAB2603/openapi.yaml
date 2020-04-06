@@ -595,12 +595,6 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
-    Adreslocatie:
-      type: "object"
-      description: "Een AdresLocatie is een ObjectLocatie of een PostbusLocatie"
-      properties:
-        identificatie:
-          type: "string"
     Bedrag:
       type: "object"
       description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
@@ -777,22 +771,18 @@ components:
                 type: "string"
                 title: "naam"
                 maxLength: 320
-            woonlocatieAdresBuitenland:
-              $ref: "#/components/schemas/Objectlocatiebuitenland"
-            woonlocatieAdresBinnenland:
-              $ref: "#/components/schemas/ObjectlocatieBinnenland"
-            postlocatieAdresBinnenland:
-              $ref: "#/components/schemas/ObjectlocatieBinnenland"
-            postlocatieAdresBuitenland:
-              $ref: "#/components/schemas/Objectlocatiebuitenland"
-            postlocatiePostbuslocatie:
-              $ref: "#/components/schemas/Postbuslocatie"
+            woonadres:
+              $ref: "#/components/schemas/Adres"
+            postadres:
+              $ref: "#/components/schemas/Postadres"
     KadasterPersoon_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        adres:
+        woonadres:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        postadres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadastraalOnroerendeZaken:
           type: array
@@ -939,71 +929,54 @@ components:
       enum:
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
-    Objectlocatie:
+    Adres:
+      properties:
+        huisnummer:
+          type: "integer"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
+        huisletter:
+          type: "string"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter"
+          example: "A"
+        huisnummerToevoeging:
+          type: "string"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging"
+          example: "3"
+        straat:
+          type: "string"
+          example: "Baron Schimmelpenninck van der Oyelaan"
+        postcode:
+          type: "string"
+          example: "1234AA"
+        woonplaats:
+          type: "string"
+          example: "Nootdorp"
+        adresBuitenland:
+          type: "string"
+          description: "Het adres is een combinatie van de straat en huisnummer."
+          example: "1600 Pennsylvania Avenue NW"
+        woonplaatsBuitenland:
+          type: "string"
+          description: "Woonplaats buiten Nederland, eventueel in combinatie met de postcode"
+          example: "Washington, DC 20500"
+        regio:
+          type: "string"
+          description: "Een of meer geografische gebieden van het adres in het buitenland"
+          example: "Selangor"
+        land:
+          allOf:
+          - $ref: "#/components/schemas/Waardelijst"
+          - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+        inOnderzoek:
+          type: "boolean"
+          description: "Aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het adres."
+    Postadres:
       allOf:
-      - $ref: "#/components/schemas/Adreslocatie"
-      - description: "Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland."
-    Objectlocatiebuitenland:
-      allOf:
-      - $ref: "#/components/schemas/Objectlocatie"
-      - description: "Een objectlocatiebuitenland is een adres buiten Nederland."
-        properties:
-          adres:
-            type: "string"
-            title: "adres"
-            description: "Het adres is een combinatie van de straat en huisnummer."
-          regio:
-            type: "string"
-            title: "regio"
-            description: ""
-          woonplaats:
-            type: "string"
-            title: "woonplaats"
-            description: "Woonplaats is De postcode/woonplaats is de combinatie van\
-              \ een eventuele postcode en woonplaats."
-          land:
-            allOf:
-            - $ref: "#/components/schemas/Waardelijst"
-            - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-    ObjectlocatieBinnenland:
-      allOf:
-      - $ref: "#/components/schemas/Objectlocatie"
-      - description: "Een ObjectlocatieBinnenland is een adres binnen nederland."
-        properties:
-          huisletter:
-            type: "string"
-            title: "huisletter"
-            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter\
-              \ [a-zA-Z]"
-          huisnummer:
-            type: "integer"
-            title: "huisnummer"
-            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer\
-              \ [1-9][0-9]{0,4}"
-          huisnummerToevoeging:
-            type: "string"
-            title: "huisnummertoevoeging"
-            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging\
-              \ ([a-z,A-Z,0-9])+"
-          inOnderzoek:
-            type: "boolean"
-            title: "inOnderzoek"
-            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/InOnderzoek"
-          openbareruimtenaam:
-            type: "string"
-            title: "openbareRuimteNaam"
-            description: ""
-            minLength: 1
-          postcode:
-            type: "string"
-            title: "postcode"
-            description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Postcode\
-              \ [1-9][0-9][0-9][0-9][A-Z][A-Z]"
-          woonplaatsnaam:
-            type: "string"
-            title: "woonplaatsNaam"
-            description: ""
-            minLength: 1
+        - $ref: "#/components/schemas/Adres"
+        - type: "object"
+          properties:
+            postbusnummer:
+              type: "integer"
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
@@ -1034,26 +1007,6 @@ components:
       - "kadaster_natuurlijk_persoon"
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
-    Postbuslocatie:
-      type: "object"
-      description: "Een PostbusLocatie is een aanduiding van de locatie van een postbus."
-      properties:
-        postbusnummer:
-          type: "integer"
-          title: "postbusnummer"
-          description: "N7"
-        postcode:
-          type: "string"
-          title: "postcode"
-          description: "[1-9]{1}[0-9]{3}[A-Z]{2}"
-          pattern: "^[1-9]{1}[0-9]{3}[A-Z]{2}$"
-          maxLength: 6
-        woonplaatsnaam:
-          type: "string"
-          title: "woonplaatsNaam"
-          description: ""
-        identificatie:
-          type: "string"
     Tenaamstelling:
       type: object
       description: "Een tenaamstelling is een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal object.\n
