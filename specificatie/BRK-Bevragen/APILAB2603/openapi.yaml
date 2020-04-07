@@ -19,11 +19,11 @@ paths:
       description: |
           Het ophalen van een collectie Kadastraal Onroerende zaken.
           Ten minste één van de volgende combinaties van parameters moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
-          1.  Kadastrale aanduiding 
-              -  kadastralegemeente__code (verplicht) 
-              -  perceelnummer (verplicht) 
-              -  sectie (verplicht) 
-              -  appartementsrechtnummer (optioneel) 
+          1.  Kadastrale aanduiding
+              -  kadastralegemeente__code (verplicht)
+              -  perceelnummer (verplicht)
+              -  sectie (verplicht)
+              -  appartementsrechtnummer (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
               -  typegerechtigde (optioneel)
@@ -36,7 +36,7 @@ paths:
               -  huisletter (optioneel)  **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
               -  huisnummertoevoeging (optioneel)  **Nog niet geimplementeerd voor de APIlab van 26-03-2020**
 
-          Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen. 
+          Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
 
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       parameters:
@@ -931,6 +931,9 @@ components:
       - "kadaster_niet_natuurlijk_persoon"
     Adres:
       properties:
+        nummeraanduidingIdentificatie:
+          type: string
+          description: "identificatie van de nummeraanduiding in het geval dit adres een nummeraanduiding in BAG betreft."
         huisnummer:
           type: "integer"
           description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
