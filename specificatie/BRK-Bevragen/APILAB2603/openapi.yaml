@@ -954,17 +954,19 @@ components:
         woonplaats:
           type: "string"
           example: "Nootdorp"
-        adresBuitenland:
+        adresregel1:
           type: "string"
-          description: "Het adres is een combinatie van de straat en huisnummer."
+          description: "Het eerste deel van een adres is een combinatie van de straat en huisnummer."
           example: "1600 Pennsylvania Avenue NW"
-        woonplaatsBuitenland:
+          example: "Baron Schimmelpenninck van der Oyelaan 26A-3"
+        adresregel2:
           type: "string"
-          description: "Woonplaats buiten Nederland, eventueel in combinatie met de postcode"
+          description: "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode"
           example: "Washington, DC 20500"
-        regio:
+          example: "1234AA Nootdorp"
+        adresregel3:
           type: "string"
-          description: "Een of meer geografische gebieden van het adres in het buitenland"
+          description: "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland"
           example: "Selangor"
         land:
           allOf:
