@@ -947,7 +947,13 @@ components:
           example: "3"
         straat:
           type: "string"
-          example: "Baron Schimmelpenninck van der Oyelaan"
+          example: "Laan van de landinrichtingscommissie Duiven-Westervoort"
+        korteNaam:
+          title: korteNaam
+          description: 'De straatnaam, zo nodig volgens NEN5825 verkort tot maximaal 24 tekens.'
+          type: string
+          maxLength: 24
+          example: 'Ln vd l D Westervoort'
         postcode:
           type: "string"
           example: "1234AA"
@@ -957,12 +963,12 @@ components:
         adresregel1:
           type: "string"
           description: "Het eerste deel van een adres is een combinatie van de straat en huisnummer."
-          example: "1600 Pennsylvania Avenue NW"
-          example: "Baron Schimmelpenninck van der Oyelaan 26A-3"
+          # example: "1600 Pennsylvania Avenue NW"
+          example: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
         adresregel2:
           type: "string"
           description: "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode"
-          example: "Washington, DC 20500"
+          # example: "Washington, DC 20500"
           example: "1234AA Nootdorp"
         adresregel3:
           type: "string"
