@@ -33,11 +33,11 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 
 #### KadasterNatuurlijkPersoon
 - Opvragen van 1 specifiek kadaster natuurlijk persoon resource o.b.v. een kadasterpersoonidentificatie.
-- Opvragen van een collectie kadaster natuurlijkpersoon resources o.b.v. een zoekterm. <i>(Momenteel alleen mogelijk op naam + evt. geboortedatum [YYYY-mm-dd])</i>
+- Opvragen van een collectie kadaster natuurlijkpersoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternatuurlijkpersoon](../features/zoeken%kadasternatuurlijkpersoon.feature))
 
 #### KadasterNietNatuurlijkPersoon
 - Opvragen van 1 specifiek kadaster nietnatuurlijk persoon resource o.b.v. kadasterpersoonidentificatie.
-- Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. <i>(Momenteel alleen mogelijk op statutaire naam)</i>
+- Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](../features/zoeken%20kadasternietnatuurlijkpersoon.feature))
 
 ### Algemeen
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
