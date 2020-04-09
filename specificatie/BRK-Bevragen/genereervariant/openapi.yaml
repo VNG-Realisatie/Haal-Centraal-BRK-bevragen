@@ -3779,15 +3779,11 @@ components:
             type: string
             format: date-time
           aard:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)
+            $ref: '#/components/schemas/Waardelijst'
           deelEnNummer:
             $ref: '#/components/schemas/TypeDeelEnNummer'
           statusStukOr:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
+            $ref: '#/components/schemas/Waardelijst'
           heeftAlsEquivalentieVerklaarder:
             $ref: '#/components/schemas/HeeftAlsEquivalentieVerklaarder'
           ondertekenaar:
@@ -3807,9 +3803,7 @@ components:
         identificatie:
           type: string
         aardAantekening:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
+          $ref: '#/components/schemas/Waardelijst'
         omschrijving:
           type: string
         begrenzing:
@@ -3854,9 +3848,7 @@ components:
       type: object
       properties:
         AKRregistercode:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)
+          $ref: '#/components/schemas/Waardelijst'
         akrStukdeel1:
           type: string
         akrStukdeel2:
@@ -3879,9 +3871,7 @@ components:
           type: number
           format: float
         valuta:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta
+          $ref: '#/components/schemas/Waardelijst'
       description: Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid
         geld in cijfers in een bepaalde valuta.
     Beslag:
@@ -3894,17 +3884,13 @@ components:
         gedeeltelijkeBezwaringOudObject:
           type: boolean
         omschrijvingBetrokkenRecht:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+          $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
           description: ToelichtingBewaarder is een aanvullende toelichting van de
             bewaarder op  een geregistreerd feit.
         aard:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+          $ref: '#/components/schemas/Waardelijst'
         beslaglegger:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukken:
@@ -3944,9 +3930,7 @@ components:
       type: object
       properties:
         soortErfpachtCanon:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
+          $ref: '#/components/schemas/Waardelijst'
         jaarlijksBedrag:
           $ref: '#/components/schemas/Bedrag'
         betrefMeerOnroerendeZaken:
@@ -3967,9 +3951,7 @@ components:
         datum:
           $ref: '#/components/schemas/Datum_onvolledig'
         land:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+          $ref: '#/components/schemas/Waardelijst'
       description: Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon.
     GeoJSONGeometry:
       title: GeoJSONGeometry
@@ -4031,9 +4013,7 @@ components:
             afwijkt van de standaard redenen die bij reden kunnen worden opgegeven.
             Bij reden is voor overig gekozen.
         reden:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
+          $ref: '#/components/schemas/Waardelijst'
       description: RedenVerzoek is de omschrijving van de reden om een stuk niet in
         te schrijven of om verbetering te vragen.
     Hypotheek:
@@ -4046,9 +4026,7 @@ components:
         gedeeltelijkeBezwaringOudObject:
           type: boolean
         omschrijvingBetrokkenRecht:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+          $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
         betreftGedeelteVanPerceel:
@@ -4093,9 +4071,7 @@ components:
             description: indicatieGeheim is een aanduiding die aangeeft dat gegevens
               van een persoon wel of niet verstrekt mogen worden.
           landWaarnaarVertrokken:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+            $ref: '#/components/schemas/Waardelijst'
           geslacht:
             $ref: '#/components/schemas/Geslacht_enum'
           heeftPartnerschap:
@@ -4135,9 +4111,7 @@ components:
             title: statutaireZetel
             type: string
           rechtsvorm:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+            $ref: '#/components/schemas/Waardelijst'
         description: URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon
     KadasterNietNatuurlijkPersoonHal:
       allOf:
@@ -4160,9 +4134,7 @@ components:
             title: indicatieNietToonbareDiakriet
             type: boolean
           beschikkingsbevoegdheid:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
+            $ref: '#/components/schemas/Waardelijst'
           metNaamOpenbaarRegister:
             type: array
             items:
@@ -4205,9 +4177,7 @@ components:
       type: object
       properties:
         aard:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
+          $ref: '#/components/schemas/Waardelijst'
         identificatie:
           type: string
         heeftRedenVerzoek:
@@ -4245,13 +4215,9 @@ components:
         typeKadastraalOnroerendeZaak:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
         aardCultuurBebouwd:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)
+          $ref: '#/components/schemas/Waardelijst'
         aardCultuurOnbebouwd:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)
+          $ref: '#/components/schemas/Waardelijst'
         kadastraleAanduiding:
           $ref: '#/components/schemas/TypeKadastraleAanduiding'
         kadastraleGrootte:
@@ -4370,9 +4336,7 @@ components:
       - ingeschreven_niet_natuurlijk_persoon
       - kadaster_niet_natuurlijk_persoon
     Objectlocatie:
-      allOf:
-      - $ref: '#/components/schemas/Adreslocatie'
-      - description: Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland.
+      $ref: '#/components/schemas/Adreslocatie'
     ObjectlocatieBinnenland:
       allOf:
       - $ref: '#/components/schemas/Objectlocatie'
@@ -4427,9 +4391,7 @@ components:
             description: Woonplaats is De postcode/woonplaats is de combinatie van
               een eventuele postcode en woonplaats.
           land:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+            $ref: '#/components/schemas/Waardelijst'
         description: Een objectlocatiebuitenland is een adres buiten Nederland.
     Ondertekenaar:
       type: object
@@ -4547,13 +4509,9 @@ components:
         aandeel:
           $ref: '#/components/schemas/TypeBreuk'
         burgerlijkeStaatTenTijdeVanVerkrijging:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/)
+          $ref: '#/components/schemas/Waardelijst'
         verkregenNamensSamenwerkingsverband:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
+          $ref: '#/components/schemas/Waardelijst'
         aantekening:
           $ref: '#/components/schemas/Aantekening'
         gezamenlijkAandeel:
@@ -4585,17 +4543,11 @@ components:
       type: object
       properties:
         soortregister:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+          $ref: '#/components/schemas/Waardelijst'
         registercode:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+          $ref: '#/components/schemas/Waardelijst'
         reeks:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+          $ref: '#/components/schemas/Waardelijst'
     typeGerechtigde_enum:
       type: string
       description: |-
@@ -4647,11 +4599,7 @@ components:
           description: Nummer dat het kadastraal object uniek identificeert als een
             appartementsrecht binnen het complex.
         kadastraleGemeente:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: De kadastrale gemeente, deel van de kadastrale aanduiding
-              van de onroerende zaak. De waarden komen uit een Waardelijst( http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente).
-              Elke kadastrale gemeentenaam is uniek.
+          $ref: '#/components/schemas/Waardelijst'
         perceelnummer:
           title: perceelnummer
           type: integer
@@ -4700,9 +4648,7 @@ components:
       type: object
       properties:
         soortGrootte:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
+          $ref: '#/components/schemas/Waardelijst'
         waarde:
           title: waarde
           type: integer
