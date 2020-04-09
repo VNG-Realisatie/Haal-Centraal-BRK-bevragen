@@ -982,13 +982,26 @@ components:
           type: "boolean"
           description: "Aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het adres."
       example:
-        adresregel1: "18.G, Jalan Setia Indah"
-        adresregel2: "Seksyen U13, Setia Alam"
-        adresregel3: "Shah Alam, Selangor"
-        land:
-          code: "Maleisië"
-          waarde: "7026"
+        adresIdentificatie: "1234207890123456"
+        huisnummer: 26
+        huisletter: "A"
+        huisnummerToevoeging: "3"
+        straat: "Laan van de landinrichtingscommissie Duiven-Westervoort"
+        korteNaam: "Ln vd l D Westervoort"
+        postcode: "1234AA"
+        woonplaats: "Nootdorp"
+        adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
+        adresregel2: "1234AA Nootdorp"
         inOnderzoek: true
+      # voorbeeld adres buitenland:
+      # example:
+      #  adresregel1: "18.G, Jalan Setia Indah"
+      #  adresregel2: "Seksyen U13, Setia Alam"
+      #  adresregel3: "Shah Alam, Selangor"
+      #  land:
+      #    code: "Maleisië"
+      #    waarde: "7026"
+      #  inOnderzoek: true
     Postadres:
       allOf:
         - $ref: "#/components/schemas/Adres"
