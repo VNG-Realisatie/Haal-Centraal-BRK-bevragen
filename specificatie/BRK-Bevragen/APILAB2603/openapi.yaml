@@ -981,6 +981,14 @@ components:
         inOnderzoek:
           type: "boolean"
           description: "Aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het adres."
+      example:
+        adresregel1: "18.G, Jalan Setia Indah"
+        adresregel2: "Seksyen U13, Setia Alam"
+        adresregel3: "Shah Alam, Selangor"
+        land:
+          code: "Maleisië"
+          waarde: "7026"
+        inOnderzoek: true
     Postadres:
       allOf:
         - $ref: "#/components/schemas/Adres"
@@ -988,6 +996,12 @@ components:
           properties:
             postbusnummer:
               type: "integer"
+          example:
+            postbusnummer: 1021
+            postcode: 1234AA
+            woonplaats: "Nootdorp"
+            adresregel1: "Postbus 1021"
+            adresregel2: "1234AA Nootdorp"
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
