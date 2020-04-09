@@ -931,9 +931,9 @@ components:
       - "kadaster_niet_natuurlijk_persoon"
     Adres:
       properties:
-        nummeraanduidingIdentificatie:
+        adresIdentificatie:
           type: string
-          description: "identificatie van de nummeraanduiding in het geval dit adres een nummeraanduiding in BAG betreft."
+          description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
         huisnummer:
           type: "integer"
           description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
