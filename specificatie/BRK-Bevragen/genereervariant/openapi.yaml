@@ -414,8 +414,7 @@ paths:
       parameters:
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Dit is de unieke identificatie van een onroerende zaak, die
-          door het kadaster wordt vastgesteld. '
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -696,8 +695,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: Dit is de unieke identificatie van een kadastraal onroerende
-          zaak, die door het kadaster wordt vastgesteld.
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -955,8 +953,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: Dit is de unieke identificatie van een onroerende zaak, die door
-          het kadaster wordt vastgesteld.
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -2472,8 +2469,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Dit is de unieke identificatie van een onroerende zaak, die
-          door het kadaster wordt vastgesteld. '
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -2722,8 +2718,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Dit is de unieke identificatie van een onroerende zaak, die
-          door het kadaster wordt vastgesteld. '
+        description: 'De unieke identificatie van een kadastraal onroerende zaak '
         required: true
         style: simple
         explode: false
@@ -3250,8 +3245,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: Dit is de unieke identificatie van een onroerende zaak, die door
-          het kadaster wordt vastgesteld.
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -4197,8 +4191,7 @@ components:
       properties:
         identificatie:
           type: string
-          description: 'Dit is de unieke identificatie van een onroerende zaak, die
-            door het kadaster wordt vastgesteld. '
+          description: De unieke identificatie van een kadastraal onroerende zaak
         begrenzingPerceel:
           $ref: '#/components/schemas/Geometry'
         perceelnummerRotatie:
