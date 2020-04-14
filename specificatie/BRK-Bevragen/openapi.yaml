@@ -290,7 +290,8 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "DDe unieke identificatie van een kadastraal onroerende zaak."
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
+
           required: true
           schema:
             type: string
@@ -1415,6 +1416,7 @@ components:
         \ URL http://tax.kadaster.nl/id/begrip/Appartementsrecht"
       properties:
         identificatie:
+
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
           type: "string"
         begrenzingPerceel:
