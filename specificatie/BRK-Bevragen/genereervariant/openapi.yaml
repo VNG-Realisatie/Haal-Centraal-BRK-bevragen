@@ -4253,11 +4253,13 @@ components:
           $ref: '#/components/schemas/TypeOppervlak'
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
-        nummeraanduidingIdentificatie:
-          type: string
-          description: Dit element is de identificatie van het bagAdres. Dit om zelf
-            de URL op te stellen of om in te vullen in de templated HAL-linK naar
-            de BAG.
+        adresIdentificaties:
+          type: array
+          description: Identificaties van adressen die de objectlocaties zijn van
+            deze kadastraal onroerende zaak. Dit om zelf de URL op te stellen of om
+            in te vullen in de templated HAL-linK naar de BAG.
+          items:
+            type: string
         stukIdentificaties:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
@@ -4304,11 +4306,11 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
-        bagAdressen:
+        Adressen:
           title: betreft
           type: array
-          description: Dit een koppeling naar het Adres zoals dat in de HC-Bag API
-            wordt aangeboden.
+          description: Dit is een link naar het adres vande objectlocatie van de Kadatsraal
+            Onreorende Zaak.
           items:
             $ref: '#/components/schemas/HalLink'
         zakelijkGerechtigden:
