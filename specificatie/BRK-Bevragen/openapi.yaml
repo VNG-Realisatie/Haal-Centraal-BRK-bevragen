@@ -1369,6 +1369,14 @@ components:
               $ref: "#/components/schemas/Objectlocatiebuitenland"
             postlocatiePostbuslocatie:
               $ref: "#/components/schemas/Postbuslocatie"
+            kadastraalOnroerendeZaakIdentificaties:
+              type: "array"
+              items:
+                type: "string"
+            zakelijkGerechtigdeIdentificaties:
+              type: "array"
+              items:
+                type: "string"
     KadasterPersoon_links:
       type: "object"
       properties:
@@ -1377,6 +1385,10 @@ components:
         adres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
           type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
