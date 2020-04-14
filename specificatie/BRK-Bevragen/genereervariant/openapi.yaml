@@ -60,7 +60,7 @@ paths:
           moeten worden. Resources en velden van resources die gewenst zijn kunnen
           in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
           van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
@@ -71,7 +71,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -110,6 +110,7 @@ paths:
         style: form
         explode: true
         schema:
+          pattern: ^[A-IK-Z]{1,2}$
           type: string
       - name: kadastraleaanduiding__appartementsrechtvolgnummer
         in: query
@@ -401,7 +402,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
     get:
       tags:
       - Kadastraal Onroerende Zaken
@@ -411,14 +412,9 @@ paths:
         Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
-          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
-          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
-          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
-          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
-          een herindeling plaatsvindt.'
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -440,7 +436,7 @@ paths:
           moeten worden. Resources en velden van resources die gewenst zijn kunnen
           in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
           van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
@@ -451,7 +447,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -677,7 +673,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden/{identificatie]:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie]:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -693,24 +689,19 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
-          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
-          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
-          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
-          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
-          een herindeling plaatsvindt.'
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
         schema:
           type: string
-      - name: identificatie
+      - name: zakelijkgerechtigdeidentificatie
         in: path
         description: De identificatie van de zakelijk gerechtigde
         required: true
@@ -940,7 +931,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/zakelijkgerechtigden:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -956,18 +947,13 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
-          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
-          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
-          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
-          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
-          een herindeling plaatsvindt.'
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -1204,7 +1190,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadasternatuurlijkpersonen/{identificatie}:
+  /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
@@ -1219,11 +1205,11 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: identificatie
+      - name: kadasternatuurlijkpersoonidentificatie
         in: path
         required: true
         style: simple
@@ -1453,7 +1439,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadasternietnatuurlijkpersonen/{identificatie}:
+  /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
@@ -1468,11 +1454,11 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: identificatie
+      - name: kadasternietnatuurlijkpersoonidentificatie
         in: path
         required: true
         style: simple
@@ -1717,7 +1703,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1966,7 +1952,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2200,7 +2186,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /stukken/{identificatie}:
+  /stukken/{stukidentificatie}:
     get:
       tags:
       - Aangeboden Stukken (Akte)
@@ -2217,7 +2203,7 @@ paths:
           moeten worden. Resources en velden van resources die gewenst zijn kunnen
           in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
           van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
@@ -2228,11 +2214,11 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: identificatie
+      - name: stukidentificatie
         in: path
         required: true
         style: simple
@@ -2462,7 +2448,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/privaatrechtelijkebeperkingen:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
     get:
       tags:
       - Privaatrechtelijke Beperkingen
@@ -2477,14 +2463,13 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale identificatie van een onroerende zaak, die door het
-          kadaster wordt vastgesteld. '
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -2712,7 +2697,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/hypotheken:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
       tags:
       - Hypotheken
@@ -2727,14 +2712,13 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale identificatie van een onroerende zaak, die door het
-          kadaster wordt vastgesteld. '
+        description: 'De unieke identificatie van een kadastraal onroerende zaak '
         required: true
         style: simple
         explode: false
@@ -2985,7 +2969,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -3240,7 +3224,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalobjectidentificatie}/beslagen:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
     get:
       tags:
       - Beslagen
@@ -3255,18 +3239,13 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
-      - name: kadastraalobjectidentificatie
+      - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: 'Kadastrale aanduiding is de unieke aanduiding van een onroerende
-          zaak, die door het kadaster wordt vastgesteld. Kadastrale aanduiding is
-          de unieke aanduiding van een onroerende zaak, die door het kadaster wordt
-          vastgesteld. Toelichting : In de tijd gezien kan dezelfde onroerende zaak
-          wel meerdere kadastrale aanduidingen hebben, te weten in het geval dat er
-          een herindeling plaatsvindt.'
+        description: De unieke identificatie van een kadastraal onroerende zaak
         required: true
         style: simple
         explode: false
@@ -3516,7 +3495,7 @@ paths:
           veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
           Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
           worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -3794,15 +3773,11 @@ components:
             type: string
             format: date-time
           aard:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)
+            $ref: '#/components/schemas/Waardelijst'
           deelEnNummer:
             $ref: '#/components/schemas/TypeDeelEnNummer'
           statusStukOr:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
+            $ref: '#/components/schemas/Waardelijst'
           heeftAlsEquivalentieVerklaarder:
             $ref: '#/components/schemas/HeeftAlsEquivalentieVerklaarder'
           ondertekenaar:
@@ -3822,9 +3797,7 @@ components:
         identificatie:
           type: string
         aardAantekening:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
+          $ref: '#/components/schemas/Waardelijst'
         omschrijving:
           type: string
         begrenzing:
@@ -3892,9 +3865,7 @@ components:
           type: number
           format: float
         valuta:
-          allOf:
-          - description: Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta
-          - $ref: '#/components/schemas/Waardelijst'
+          $ref: '#/components/schemas/Waardelijst'
       description: Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid
         geld in cijfers in een bepaalde valuta.
     Beslag:
@@ -3907,17 +3878,13 @@ components:
         gedeeltelijkeBezwaringOudObject:
           type: boolean
         omschrijvingBetrokkenRecht:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+          $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
           description: ToelichtingBewaarder is een aanvullende toelichting van de
             bewaarder op  een geregistreerd feit.
         aard:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+          $ref: '#/components/schemas/Waardelijst'
         beslaglegger:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukken:
@@ -3957,9 +3924,7 @@ components:
       type: object
       properties:
         soortErfpachtCanon:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
+          $ref: '#/components/schemas/Waardelijst'
         jaarlijksBedrag:
           $ref: '#/components/schemas/Bedrag'
         betrefMeerOnroerendeZaken:
@@ -4028,9 +3993,7 @@ components:
             afwijkt van de standaard redenen die bij reden kunnen worden opgegeven.
             Bij reden is voor overig gekozen.
         reden:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
+          $ref: '#/components/schemas/Waardelijst'
       description: RedenVerzoek is de omschrijving van de reden om een stuk niet in
         te schrijven of om verbetering te vragen.
     Hypotheek:
@@ -4043,9 +4006,7 @@ components:
         gedeeltelijkeBezwaringOudObject:
           type: boolean
         omschrijvingBetrokkenRecht:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+          $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
         betreftGedeelteVanPerceel:
@@ -4090,9 +4051,7 @@ components:
             description: indicatieGeheim is een aanduiding die aangeeft dat gegevens
               van een persoon wel of niet verstrekt mogen worden.
           landWaarnaarVertrokken:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+            $ref: '#/components/schemas/Waardelijst'
           geslacht:
             $ref: '#/components/schemas/Geslacht_enum'
           heeftPartnerschap:
@@ -4132,9 +4091,7 @@ components:
             title: statutaireZetel
             type: string
           rechtsvorm:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+            $ref: '#/components/schemas/Waardelijst'
         description: URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon
     KadasterNietNatuurlijkPersoonHal:
       allOf:
@@ -4157,9 +4114,7 @@ components:
             title: indicatieNietToonbareDiakriet
             type: boolean
           beschikkingsbevoegdheid:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
+            $ref: '#/components/schemas/Waardelijst'
           metNaamOpenbaarRegister:
             type: array
             items:
@@ -4176,6 +4131,14 @@ components:
             $ref: '#/components/schemas/Objectlocatiebuitenland'
           postlocatiePostbuslocatie:
             $ref: '#/components/schemas/Postbuslocatie'
+          kadastraalOnroerendeZaakIdentificaties:
+            type: array
+            items:
+              type: string
+          zakelijkGerechtigdeIdentificaties:
+            type: array
+            items:
+              type: string
         description: URI https://tax.kadaster.nl/doc/begrip/Persoon
     KadasterPersoon_links:
       type: object
@@ -4185,6 +4148,10 @@ components:
         adres:
           $ref: '#/components/schemas/HalLink'
         kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        zakelijkGerechtigden:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -4202,9 +4169,7 @@ components:
       type: object
       properties:
         aard:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
+          $ref: '#/components/schemas/Waardelijst'
         identificatie:
           type: string
         heeftRedenVerzoek:
@@ -4222,11 +4187,15 @@ components:
     KadastraalOnroerendeZaak:
       type: object
       properties:
-        kadastraalObjectIdentificatie:
+        identificatie:
           type: string
-          description: 'Dit is de unieke identificatie van een kadastraal object. '
+          description: De unieke identificatie van een kadastraal onroerende zaak
         begrenzingPerceel:
           $ref: '#/components/schemas/polygonGeoJSON'
+        perceelnummerRotatie:
+          title: perceelnummerRotatie
+          maximum: 999
+          type: number
         plaatscoordinaten:
           $ref: '#/components/schemas/pointGeoJSON'
         koopsom:
@@ -4237,15 +4206,15 @@ components:
         typeKadastraalOnroerendeZaak:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
         aardCultuurBebouwd:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)
+          $ref: '#/components/schemas/Waardelijst'
         aardCultuurOnbebouwd:
           $ref: '#/components/schemas/Waardelijst'
         kadastraleAanduiding:
           $ref: '#/components/schemas/TypeKadastraleAanduiding'
         kadastraleGrootte:
           $ref: '#/components/schemas/TypeOppervlak'
+        perceelnummerVerschuiving:
+          $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
         nummeraanduidingIdentificatie:
           type: string
           description: Dit element is de identificatie van het bagAdres. Dit om zelf
@@ -4358,9 +4327,7 @@ components:
       - ingeschreven_niet_natuurlijk_persoon
       - kadaster_niet_natuurlijk_persoon
     Objectlocatie:
-      allOf:
-      - $ref: '#/components/schemas/Adreslocatie'
-      - description: Een Objectlocatie is een ObjectlocatieBinnenland of een ObjectlocatieBuitenland.
+      $ref: '#/components/schemas/Adreslocatie'
     ObjectlocatieBinnenland:
       allOf:
       - $ref: '#/components/schemas/Objectlocatie'
@@ -4415,9 +4382,7 @@ components:
             description: Woonplaats is De postcode/woonplaats is de combinatie van
               een eventuele postcode en woonplaats.
           land:
-            allOf:
-            - $ref: '#/components/schemas/Waardelijst'
-            - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+            $ref: '#/components/schemas/Waardelijst'
         description: Een objectlocatiebuitenland is een adres buiten Nederland.
     Ondertekenaar:
       type: object
@@ -4535,9 +4500,7 @@ components:
         aandeel:
           $ref: '#/components/schemas/TypeBreuk'
         burgerlijkeStaatTenTijdeVanVerkrijging:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/)
+          $ref: '#/components/schemas/Waardelijst'
         verkregenNamensSamenwerkingsverband:
           $ref: '#/components/schemas/Waardelijst'
         aantekening:
@@ -4571,17 +4534,11 @@ components:
       type: object
       properties:
         soortregister:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+          $ref: '#/components/schemas/Waardelijst'
         registercode:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+          $ref: '#/components/schemas/Waardelijst'
         reeks:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+          $ref: '#/components/schemas/Waardelijst'
     typeGerechtigde_enum:
       type: string
       description: |-
@@ -4633,11 +4590,7 @@ components:
           description: Nummer dat het kadastraal object uniek identificeert als een
             appartementsrecht binnen het complex.
         kadastraleGemeente:
-          allOf:
-          - description: De kadastrale gemeente, deel van de kadastrale aanduiding
-              van de onroerende zaak. De waarden komen uit een Waardelijst( http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente).
-              Elke kadastrale gemeentenaam is uniek.
-          - $ref: '#/components/schemas/Waardelijst'
+          $ref: '#/components/schemas/Waardelijst'
         perceelnummer:
           title: perceelnummer
           type: integer
@@ -4686,14 +4639,25 @@ components:
       type: object
       properties:
         soortGrootte:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/rootte/)
+          $ref: '#/components/schemas/Waardelijst'
         waarde:
           title: waarde
           type: integer
           description: Oppervlak grootte, in vierkante meters
       description: Oppervlakte.
+    TypePerceelnummerVerschuiving:
+      type: object
+      properties:
+        deltax:
+          title: deltaX
+          type: integer
+          description: Verschuiving op de X as.
+        deltay:
+          title: deltaY
+          type: integer
+          description: Verschuiving op de Y as.
+      description: Verschuiving van het perceelnummer ten behoeve van visualisatie
+        op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
     Waardelijst:
       type: object
       properties:
