@@ -3828,11 +3828,11 @@ components:
         omschrijving:
           type: string
         begrenzing:
-          $ref: '#/components/schemas/Geometry'
+          $ref: '#/components/schemas/polygonGeoJSON'
         begrenzingDienendErf:
-          $ref: '#/components/schemas/Geometry'
+          $ref: '#/components/schemas/polygonGeoJSON'
         begrenzingHeersendErf:
-          $ref: '#/components/schemas/Geometry'
+          $ref: '#/components/schemas/polygonGeoJSON'
         einddatum:
           type: string
           format: date
@@ -3984,22 +3984,6 @@ components:
           - $ref: '#/components/schemas/Waardelijst'
           - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
       description: Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon.
-    GeoJSONGeometry:
-      title: GeoJSONGeometry
-      type: object
-      description: Dit component is opgenomen om alle Geometry types ook bij het resolven
-        op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan
-        met de oneOf constructie en daardoor worden de componenten uit een oneOf in
-        de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig,
-        maar wel nodig om dit probleem op te lossen
-      oneOf:
-      - $ref: '#/components/schemas/Point'
-      - $ref: '#/components/schemas/MultiPoint'
-      - $ref: '#/components/schemas/LineString'
-      - $ref: '#/components/schemas/MultiLineString'
-      - $ref: '#/components/schemas/Polygon'
-      - $ref: '#/components/schemas/MultiPolygon'
-      - $ref: '#/components/schemas/GeometryCollection'
     Geslacht_enum:
       type: string
       description: |-
@@ -4192,14 +4176,6 @@ components:
             $ref: '#/components/schemas/Objectlocatiebuitenland'
           postlocatiePostbuslocatie:
             $ref: '#/components/schemas/Postbuslocatie'
-          kadastraalOnroerendeZaakIdentificaties:
-            type: array
-            items:
-              type: string
-          zakelijkGerechtigdeIdentificaties:
-            type: array
-            items:
-              type: string
         description: URI https://tax.kadaster.nl/doc/begrip/Persoon
     KadasterPersoon_links:
       type: object
@@ -4209,10 +4185,6 @@ components:
         adres:
           $ref: '#/components/schemas/HalLink'
         kadastraalOnroerendeZaken:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        zakelijkGerechtigden:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -4254,9 +4226,9 @@ components:
           type: string
           description: 'Dit is de unieke identificatie van een kadastraal object. '
         begrenzingPerceel:
-          $ref: '#/components/schemas/Geometry'
+          $ref: '#/components/schemas/polygonGeoJSON'
         plaatscoordinaten:
-          $ref: '#/components/schemas/Geometry'
+          $ref: '#/components/schemas/pointGeoJSON'
         koopsom:
           $ref: '#/components/schemas/TypeKoopsom'
         toelichtingBewaarder:
@@ -4850,30 +4822,26 @@ components:
           description: Beschrijving van de fout op de parameterwaarde
           example: Waarde is geen geldige integer.
       description: Details over fouten in opgegeven parameters
-    Geometry:
-      title: Geometry
+    polygonGeoJSON:
       required:
+      - coordinates
       - type
       type: object
       properties:
         type:
           type: string
-          description: The geometry type
           enum:
-          - Point
-          - MultiPoint
-          - LineString
-          - MultiLineString
           - Polygon
-          - MultiPolygon
-          - Feature
-          - FeatureCollection
-          - GeometryCollection
-      description: GeoJSON geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1
-      discriminator:
-        propertyName: type
+        coordinates:
+          type: array
+          items:
+            minItems: 4
+            type: array
+            items:
+              minItems: 2
+              type: array
+              items:
+                type: number
     HalCollectionLinks:
       type: object
       properties:
@@ -4931,126 +4899,21 @@ components:
       description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
         de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
         datum bekend is worden alle elementen gevuld.
-    Point:
+    pointGeoJSON:
+      required:
+      - coordinates
+      - type
       type: object
-      description: GeoJSON point geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.2
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            $ref: '#/components/schemas/Point2D'
-    Point2D:
-      title: Point2D
-      maxItems: 2
-      minItems: 2
-      type: array
-      description: A 2D point
-      items:
-        type: number
-    MultiPoint:
-      type: object
-      description: GeoJSON multi-point geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.3
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              $ref: '#/components/schemas/Point2D'
-    LineString:
-      type: object
-      description: GeoJSON line-string geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.4
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            minItems: 2
-            type: array
-            items:
-              $ref: '#/components/schemas/Point2D'
-    MultiLineString:
-      type: object
-      description: GeoJSON multi-line-string geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.5
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/Point2D'
-    Polygon:
-      type: object
-      description: GeoJSON polygon geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.6
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/Point2D'
-    MultiPolygon:
-      type: object
-      description: GeoJSON multi-polygon geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.7
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              type: array
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Point2D'
-    GeometryCollection:
-      type: object
-      description: GeoJSON multi-polygon geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.1.8
-      allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - geometries
-        type: object
-        properties:
-          geometries:
-            type: array
-            items:
-              $ref: '#/components/schemas/Geometry'
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          minItems: 2
+          type: array
+          items:
+            type: number
     BeslagHalCollectie__embedded:
       type: object
       properties:
