@@ -173,7 +173,7 @@ paths:
       parameters:
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -230,7 +230,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een kadastraal onroerende zaak, die door het kadaster wordt vastgesteld."
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -290,7 +290,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld."
+          description: "DDe unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -624,7 +624,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
@@ -678,7 +678,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
@@ -808,7 +808,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld."
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -1415,7 +1415,7 @@ components:
         \ URL http://tax.kadaster.nl/id/begrip/Appartementsrecht"
       properties:
         identificatie:
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           type: "string"
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
