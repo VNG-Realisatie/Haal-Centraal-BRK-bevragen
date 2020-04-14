@@ -20,8 +20,7 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het ophalen van een collectie Kadastraal Onroerende zaken.
-        Ten minste één van de volgende combinaties van parameters moet worden gebruikt. Het combineren van parameters uit verschillende combinaties is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
             -  kadastralegemeente__code (verplicht)
             -  perceelnummer (verplicht)
@@ -407,7 +406,7 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het ophalen van een Kadastraal Onroerende zaak.
+        Het raadplegen van een kadastrale onroerende zaak.
 
         Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
       operationId: GetKadastraalOnroerendeZaak
@@ -677,9 +676,9 @@ paths:
     get:
       tags:
       - Zakelijke Gerechtigden
-      description: Het ophalen van een specifieke zakelijke gerechtigde behorende
-        bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie
-        met het gezamenlijk aandeel.
+      description: Het raadplegen van een specifieke zakelijk gerechtigde van een
+        kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt
+        altijd geleverd in combinatie met het gezamenlijk aandeel.
       operationId: GetZakelijkGerechtigde
       parameters:
       - name: fields
@@ -953,7 +952,7 @@ paths:
           type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
-        description: DDe unieke identificatie van een kadastraal onroerende zaak.
+        description: De unieke identificatie van een kadastraal onroerende zaak.
         required: true
         style: simple
         explode: false
@@ -961,8 +960,8 @@ paths:
           type: string
       - name: typegerechtigde
         in: query
-        description: Een typering van het recht dat de zakelijkgerechtigde heeft op
-          de Kadastraal Onroerende Zaak.
+        description: Het type recht dat de zakelijk gerechtigde heeft op de kadastraal
+          onroerende zaak. De waarden van de typering staan in een waardelijst.
         required: false
         style: form
         explode: true
@@ -1194,8 +1193,10 @@ paths:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
-      description: Het ophalen van een bij het Kadaster geregistreerd Natuurlijk Persoon,
-        niet zijnde een ingeschreven natuurlijk persoon.
+      description: Het raadplegen van een bij het kadaster geregistreerde natuurlijke
+        persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of
+        wel is ingeschreven maar niet is _gematched_ gekoppeld bij het inschrijven
+        van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
       - name: fields
@@ -1443,8 +1444,9 @@ paths:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
-      description: Het ophalen van een bij het Kadaster geregistreerd niet natuurlijk
-        Persoon, niet zijnde een ingeschreven niet natuurlijk persoon.
+      description: Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke
+        persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen
+        worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
       - name: fields
@@ -1692,8 +1694,10 @@ paths:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
-      description: Het ophalen van een collectie bij het Kadaster geregistreerd Natuurlijk
-        Personen, niet zijnde ingeschreven natuurlijk personen.
+      description: 'Het zoeken van bij het kadaster geregistreerde natuurlijke personen
+        die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn
+        ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte).
+        Kadasternatuurlijkpersonen worden niet geactualiseerd. '
       operationId: GetKadasterPersonen
       parameters:
       - name: fields
@@ -1709,7 +1713,9 @@ paths:
           type: string
       - name: q
         in: query
-        description: Free query parameter
+        description: Free query parameter. Dit endpoint evolueert naar free query
+          zoeken. In deze versie kan alleen een combinatie van (het begin van) de
+          geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
         required: true
         style: form
         explode: true
@@ -1941,8 +1947,9 @@ paths:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
-      description: Het ophalen van een collectie bij het Kadaster geregistreerde niet
-        natuurlijk Personen, niet zijnde ingeschreven niet natuurlijk personen.
+      description: Het zoeken van bij het kadaster geregistreerde niet natuurlijke
+        personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen
+        worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
       - name: fields
@@ -1958,7 +1965,11 @@ paths:
           type: string
       - name: q
         in: query
-        description: Free query parameter
+        description: Free query parameter. Dit endpoint evolueert naar free query
+          zoeken. In deze versie kan alleen een combinatie van (het begin van de)
+          de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op!
+          Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier
+          voorkomen in de BRK.
         required: true
         style: form
         explode: true
@@ -2190,11 +2201,10 @@ paths:
     get:
       tags:
       - Aangeboden Stukken (Akte)
-      description: In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
-        De rechtsfeiten zijn gestructureerd vastglegd in stukdelen en deze stukdelen
-        verwijzen naar de akte. Het is dus mogelijk om met verschillende stukdeel-identificaties
-        dezelfde akte op te vragen. Daarnaast zijn er twee typen aktes die geretourneerd
-        kunnen worden. Een aangeboden stuk of een kadasterstuk.
+      description: 'Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten
+        (stukdelen) vastgelegd. Met verschillende stukdeel-identificaties kan mogelijk
+        dezelfde akte worden opgevraagd. Er worden twee typen aktes geleverd: een
+        aangeboden stuk of een kadasterstuk.'
       operationId: GetStuk
       parameters:
       - name: expand
@@ -2452,8 +2462,8 @@ paths:
     get:
       tags:
       - Privaatrechtelijke Beperkingen
-      description: 'Het ophalen van privaatrechtelijke beperkingen die bij een kadastraal
-        onroerende zaak horen. '
+      description: Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal
+        onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperkingKadastraalonroerendezaak
       parameters:
       - name: fields
@@ -2701,8 +2711,9 @@ paths:
     get:
       tags:
       - Hypotheken
-      description: Het ophalen van hypotheken en hypotheeknemers van een specifieke
-        kadastraal onroerende zaak.
+      description: Het raadplegen van hypotheken die rusten op een kadastraal onroerende
+        zaak met bijbehorende hypotheekhouder(s), die als geldverstrekker een recht
+        van hypotheek vestigt als zekerheid voor de lening.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -2951,9 +2962,7 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Het ophalen van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek
-        vestigt als zekerheid voor de lening.
-        Één van de volgende combinaties van parameters moet zijn opgenomen
+        Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. Geef één van de volgende combinaties van parameters op :
         1.  Hypotheekhouder is een Persoon die bekend is in de BRP als ingeschreven persoon
             -  burgerservicenummer (verplicht)
             -  typepersoon (verplicht)
@@ -3228,8 +3237,8 @@ paths:
     get:
       tags:
       - Beslagen
-      description: Het ophalen van beslagen en beslagleggers van een specifieke Kadastraal
-        Onroerende Zaak.
+      description: Het raadplegen van beslagen en beslagleggers van een kadastraal
+        onroerende zaak.
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -3478,8 +3487,7 @@ paths:
       tags:
       - Beslagen
       description: |
-        Het ophalen van beslagen die door een specifieke beslaglegger zijn gelegd.
-        Één van de volgende combinaties van parameters moet zijn opgenomen
+        Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. Geef één van de volgende combinaties van parameters op:
         1.  Beslaglegger is een Persoon die bekend is in de BRP als ingeschreven persoon
             -  burgerservicenummer (verplicht)
             -  typepersoon (verplicht)
@@ -3759,6 +3767,10 @@ components:
           bewaardersVerklaring:
             title: bewaardersverklaring
             type: string
+            description: Correctie in de openbare registers door de bewaarder. De
+              bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
+              in in de openbare registers en de basisregistratie Kadaster conform
+              de Kadasterwet.
           tekeningIngeschreven:
             title: tekeningIngeschreven
             type: boolean
@@ -3767,22 +3779,26 @@ components:
           tijdstipAanbieding:
             title: tijdstipAanbieding
             type: string
+            description: Het tijdstip dat het stuk bij het kadaster is binnengekomen.
             format: date-time
           tijdstipOndertekening:
             title: tijdstipOndertekening
             type: string
+            description: Het tijdstip dat het stuk is ondertekend door partijen en
+              de notaris
             format: date-time
           aard:
             $ref: '#/components/schemas/Waardelijst'
           deelEnNummer:
             $ref: '#/components/schemas/TypeDeelEnNummer'
-          statusStukOr:
+          statusStukOpenbaarRegister:
             $ref: '#/components/schemas/Waardelijst'
           heeftAlsEquivalentieVerklaarder:
             $ref: '#/components/schemas/HeeftAlsEquivalentieVerklaarder'
           ondertekenaar:
             $ref: '#/components/schemas/Ondertekenaar'
-        description: URI https://tax.kadaster.nl/doc/begrip/Ter_inschrijving_aangeboden_stuk
+        description: Een aangeboden brondocument dat aanleiding geeft tot een wijziging
+          van de gegevens in een basisregistratie.
     AangebodenStuk_embedded:
       type: object
       properties:
@@ -3818,10 +3834,11 @@ components:
           type: string
         betreftGedeelteVanPerceel:
           type: boolean
-        stukken:
+        stukIdentificaties:
           type: array
-          description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
-            Stuk of een Kadasterstuk zijn.
+          description: Identificatie van het stuk. Een stuk is een brondocument dat
+            aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een Kadasterstuk zijn.
           items:
             type: string
     AbstractStuk:
@@ -3829,16 +3846,17 @@ components:
       properties:
         identificatie:
           type: string
-          description: Uniek nummer van het object binnen de kadastrale registratie
         toelichtingBewaarder:
           title: toelichtingBewaarder
           type: string
-          description: Toelichtende tekst bij een onroerende zaak toegevoegd door
-            de bewaarder
-      description: Een stuk is een, door het Kadaster als authentiek erkend, document
-        waaruit een wijziging in de BRK blijkt. Hier wordt een Kadasterstuk of een
-        Aangebodenstuk aan gekoppeld.
-    AcgID:
+          description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
+            De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
+            in in de openbare registers en de basisregistratie Kadaster conform de
+            Kadasterwet.
+      description: Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld.
+        Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de
+        gegevens in een basisregistratie.
+    AmbtelijkCorrectiegegevenID:
       type: object
       properties:
         AKRregistercode:
@@ -3851,6 +3869,8 @@ components:
           type: string
         volgnummerStaat75:
           type: integer
+      description: Een ambtelijk correctie gegeven is een kadasterstuk waarmee het
+        kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
     Adreslocatie:
       type: object
       properties:
@@ -3881,18 +3901,21 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
-          description: ToelichtingBewaarder is een aanvullende toelichting van de
-            bewaarder op  een geregistreerd feit.
+          description: Toelichtende tekst van de bewaarder. De bewaarder is iemand
+            die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers
+            en de basisregistratie Kadaster conform de Kadasterwet.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         beslaglegger:
           $ref: '#/components/schemas/PersoonBeperkt'
-        stukken:
+        stukIdentificaties:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
           items:
             type: string
+      description: Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk
+        gerechtigde niets met de kadastraal onroerende zaak kan doen.
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
@@ -3934,6 +3957,8 @@ components:
           format: date
         indicatieOudeOnroerendeZaakBetrokken:
           type: boolean
+      description: Het bedrag dat een erfpachter moet betalen aan de eigenaar van
+        een stuk grond omdat hij zijn grond gebruikt.
     Geboorte:
       type: object
       properties:
@@ -3960,8 +3985,9 @@ components:
       - onbekend
     HeeftAlsEquivalentieVerklaarder:
       type: object
-      description: Een ondertekenaar is een persoon die bevoegd is een akte op te
-        maken en een afschrift daarvan equivalent te verklaren.
+      description: De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het
+        stuk dat hij inschrijft in de openbare registers hetzelfde is als het stuk
+        dat hij zelf onder zich houdt (equivalentieverklaring).
       allOf:
       - $ref: '#/components/schemas/Naam'
       - properties:
@@ -3987,13 +4013,13 @@ components:
         redenOmschrijving:
           title: redenOmschrijving
           type: string
-          description: De omschrijving van de reden voor een Kadaster verzoek die
-            afwijkt van de standaard redenen die bij reden kunnen worden opgegeven.
-            Bij reden is voor overig gekozen.
+          description: De omschrijving van de reden voor een kadasterverzoek die afwijkt
+            van de standaard redenen die kunnen worden opgegeven. Bij opgave van de
+            reden is voor _overig_ gekozen.
         reden:
           $ref: '#/components/schemas/Waardelijst'
-      description: RedenVerzoek is de omschrijving van de reden om een stuk niet in
-        te schrijven of om verbetering te vragen.
+      description: De reden om een stuk niet in te schrijven of om verbetering te
+        vragen.
     Hypotheek:
       type: object
       properties:
@@ -4007,11 +4033,14 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         toelichtingBewaarder:
           type: string
+          description: Toelichtende tekst van de bewaarder. De bewaarder is iemand
+            die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers
+            en de basisregistratie Kadaster conform de Kadasterwet.
         betreftGedeelteVanPerceel:
           type: boolean
         hypotheekhouder:
           $ref: '#/components/schemas/PersoonBeperkt'
-        stukken:
+        stukIdentificaties:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
@@ -4062,9 +4091,9 @@ components:
             $ref: '#/components/schemas/Geboorte'
           overlijden:
             $ref: '#/components/schemas/Overlijden'
-        description: Een KadasternatuurlijkPersoon is natuurlijk persoon die is geregistreerd
-          in de Basisregistatie Kadaster. Het betreft of een ingezetene of een niet
-          ingezetene.
+        description: Een bij het kadaster geregistreerde natuurlijke persoon die niet
+          in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen
+          worden niet geactualiseerd.
     KadasterNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
@@ -4090,7 +4119,8 @@ components:
             type: string
           rechtsvorm:
             $ref: '#/components/schemas/Waardelijst'
-        description: URI https://tax.kadaster.nl/doc/begrip/Niet-natuurlijk_persoon
+        description: Een bij het kadaster geregistreerde niet natuurlijke persoon.
+          Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
     KadasterNietNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
@@ -4161,8 +4191,11 @@ components:
             title: indicatieCorrectie
             type: boolean
           acgIdentificatie:
-            $ref: '#/components/schemas/AcgID'
-        description: URI https://tax.kadaster.nl/doc/begrip/KadasterStuk
+            $ref: '#/components/schemas/AmbtelijkCorrectiegegevenID'
+        description: Een Kadasterstuk is een document dat alleen door het Kadaster
+          gebruikt wordt. Met dit document worden veranderingen aangebracht in de
+          Basisregistratie Kadaster, maar het is niet terug te vinden in de openbare
+          registers.
     Kadasterverzoek:
       type: object
       properties:
@@ -4176,7 +4209,8 @@ components:
             $ref: '#/components/schemas/HeeftRedenVerzoek'
         _links:
           $ref: '#/components/schemas/Kadasterverzoek_links'
-      description: uri https://tax.kadaster.nl/doc/begrip/Kadaster_verzoek
+      description: een verzoek om verbetering van een aangeboden stuk, of om de aanbieder
+        te wijzen op het niet inschrijven van het stuk.
     Kadasterverzoek_links:
       type: object
       properties:
@@ -4187,13 +4221,15 @@ components:
       properties:
         identificatie:
           type: string
-          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
         begrenzingPerceel:
           $ref: '#/components/schemas/polygonGeoJSON'
         perceelnummerRotatie:
           title: perceelnummerRotatie
           maximum: 999
           type: number
+          description: Rotatie van het perceelnummer ten behoeve van visualisatie
+            op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal
+            perceel te passen.
         plaatscoordinaten:
           $ref: '#/components/schemas/pointGeoJSON'
         koopsom:
@@ -4201,6 +4237,10 @@ components:
         toelichtingBewaarder:
           title: toelichtingBewaarder
           type: string
+          description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
+            De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
+            in in de openbare registers en de basisregistratie Kadaster conform de
+            Kadasterwet.
         typeKadastraalOnroerendeZaak:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
         aardCultuurBebouwd:
@@ -4218,7 +4258,7 @@ components:
           description: Dit element is de identificatie van het bagAdres. Dit om zelf
             de URL op te stellen of om in te vullen in de templated HAL-linK naar
             de BAG.
-        stukken:
+        stukIdentificaties:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
@@ -4230,8 +4270,12 @@ components:
             op deze kadastaraal onroerende zaak
           items:
             type: string
-      description: URI tax.kadaster.nl/id/begrip/Perceel URI https://tax.kadaster.nl/doc/begrip/Onroerende_zaak
-        URL http://tax.kadaster.nl/id/begrip/Appartementsrecht
+      description: Een kadastraal onroerende zaak is een perceel of een appartementsrecht.
+        Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten
+        en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het
+        recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel
+        van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een
+        appartement genoemd.
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
@@ -4304,6 +4348,8 @@ components:
       - properties:
           type:
             $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
+        description: Kan een ingeschreven persoon (in de basisregistratie personen
+          (BRP)) of Kadasterpersoon zijn.
     NatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
@@ -4317,6 +4363,8 @@ components:
       - properties:
           type:
             $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
+        description: Kan een ingeschreven persoon (in het handelsregister) of Kadasterpersoon
+          zijn.
     NietNatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
@@ -4384,8 +4432,10 @@ components:
         description: Een objectlocatiebuitenland is een adres buiten Nederland.
     Ondertekenaar:
       type: object
-      description: Een ondertekenaar is een persoon die bevoegd is een akte op te
-        maken en een afschrift daarvan equivalent te verklaren.
+      description: De bevoegde persoon (bijvoorbeeld een notaris) die de akte heeft
+        opgemaakt en een afschrift daarvan equivalent heeft verklaard. Dit is een
+        verklaring dat het afschrift hetzelfde is als het stuk dat hij onder zich
+        houdt.
       allOf:
       - $ref: '#/components/schemas/Naam'
       - properties:
@@ -4405,10 +4455,10 @@ components:
       properties:
         identificatie:
           type: string
-          description: Unieke identificatie voor de persoon. Voor een Kadasterpersoon
+          description: 'Unieke identificatie voor de persoon. Voor een Kadasterpersoon
             is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
-            een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor
-            een ingeschreven niet-natuurlijk persoon is dit het rsin.
+            een ingeschreven niet-natuurlijk persoon is dit het rsin. Voor een ingeschreven
+            natuurlijk persoon is dit het burgerservicenummer. '
         omschrijving:
           type: string
           description: Voor mensen leesbare, herkenbare en identificerende omschrijving
@@ -4457,6 +4507,12 @@ components:
       - properties:
           _links:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperking_links'
+        description: Een privaatrechtelijke beperking is dat iemand niet alles met
+          een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die
+          hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens
+          het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een
+          wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster
+          in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -4511,9 +4567,8 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-      description: |-
-        Een tenaamstelling is een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal object.
-         De tenaamstelling is ten name één van de volgende soorten persoon: kadasterNatuurlijkPersoon, kadasterNietNatuurlijkPersoon, ingeschrevenNatuurlijkPersoon, ingeschrevenNietNatuurlijkPersoon.
+      description: Een registratie van (een aandeel in) een zakelijk recht dat een
+        persoon heeft, dat rust op een kadastraal onroerende zaak.
     TypeBreuk:
       type: object
       properties:
@@ -4607,23 +4662,7 @@ components:
             Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)
             te voorkomen met `I`
       description: Kadastrale aanduiding is de unieke aanduiding van een onroerende
-        zaak, die door het kadaster wordt vastgesteld. Percelen worden kadastraal
-        aangeduid door vermelding van achtereenvolgens de kadastrale gemeente en sectie,
-        waarin de percelen en gedeelten van percelen zijn gelegen waarvan het grondgebied
-        tot die zaak behoort, alsmede de nummers van die percelen. Voor een onroerende
-        zaak die zich krachtens een opstalrecht op, in of boven de grond van een ander
-        bevindt, geldt dezelfde kadastrale aanduiding als van de onroerende zaak die
-        met dat opstalrecht is bezwaard. Dit is van overeenkomstige toepassing op
-        een onroerende zaak die zich op, in of boven de grond van een ander bevindt
-        krachtens een recht als bedoeld in het voor 1 januari 1992 geldende artikel
-        5, derde lid, onder b, laatste zinsnede, van de Belemmeringenwet Privaatrecht.
-        Appartementsrechten worden kadastraal aangeduid door de vermelding van achtereenvolgens
-        de kadastrale gemeente en sectie, waarin de in de splitsing betrokken percelen
-        zijn gelegen, de complexaanduiding en de appartementsindex (Een oplopend volgnummer
-        van `0001` tot `9999`). De complexaanduiding bestaat uit het voor de in de
-        splitsing betrokken percelen vastgestelde complexnummer, gevolgd door de hoofdletter
-        A. Onze Minister stelt regelen vast omtrent de vaststelling van het complexnummer.
-        Er zijn 1111 kadastrale gemeentenamen. Elke kadastrale gemeentenaam is uniek.
+        zaak door het Kadaster
     TypeKoopsom:
       type: object
       properties:
@@ -4663,13 +4702,9 @@ components:
           title: code
           minLength: 1
           type: string
-          description: De code van deze waarde. De code is uniek binnen de Waardelijst
-            en taalonafhankelijk.
         waarde:
           title: waarde
           type: string
-          description: De waarde zoals aangetroffen in de Waardelijst. het moment
-            waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.
       description: Waardelijst is een samengesteld datatype voor het weergeven van
         een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn
         beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)
@@ -4689,7 +4724,7 @@ components:
           $ref: '#/components/schemas/ErfpachtCanon'
         tenaamstelling:
           $ref: '#/components/schemas/Tenaamstelling'
-        stukken:
+        stukIdentificaties:
           type: array
           description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
             Stuk of een Kadasterstuk zijn.
