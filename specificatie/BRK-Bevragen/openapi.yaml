@@ -1006,7 +1006,7 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
-        stukken:
+        stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
@@ -1078,7 +1078,7 @@ components:
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
         beslaglegger:
           $ref: "#/components/schemas/PersoonBeperkt"
-        stukken:
+        stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
@@ -1230,7 +1230,7 @@ components:
           type: "boolean"
         hypotheekhouder:
           $ref: "#/components/schemas/PersoonBeperkt"
-        stukken:
+        stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
@@ -1454,7 +1454,7 @@ components:
         nummeraanduidingIdentificatie:
           type: "string"
           description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
-        stukken:
+        stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
@@ -1930,7 +1930,7 @@ components:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
-        stukken:
+        stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
