@@ -987,11 +987,11 @@ components:
         omschrijving:
           type: "string"
         begrenzing:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         begrenzingDienendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         begrenzingHeersendErf:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         einddatum:
           type: "string"
           format: "date"
@@ -1146,18 +1146,6 @@ components:
         land:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-    GeoJSONGeometry:
-      title: GeoJSONGeometry
-      description: "Dit component is opgenomen om alle Geometry types ook bij het resolven op te lten nemen in de resolvde YAML. De resolver kan nog niet goed omgaan met de oneOf constructie en daardoor worden de componenten uit een oneOf in de common.yamlniet mee-geresolved. Deze constructie is inhoudelijk overbodig, maar wel nodig om dit probleem op te lossen"
-      type: object
-      oneOf:
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Point'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPoint'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/LineString'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiLineString'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Polygon'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/MultiPolygon'
-      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/GeometryCollection'
     Geslacht_enum:
       type: "string"
       description: "Een aanduiding die aangeeft dat de ingeschrevene een man of een\
@@ -1367,6 +1355,14 @@ components:
               $ref: "#/components/schemas/Objectlocatiebuitenland"
             postlocatiePostbuslocatie:
               $ref: "#/components/schemas/Postbuslocatie"
+            kadastraalOnroerendeZaakIdentificaties:
+              type: "array"
+              items:
+                type: "string"
+            zakelijkGerechtigdeIdentificaties:
+              type: "array"
+              items:
+                type: "string"
     KadasterPersoon_links:
       type: "object"
       properties:
@@ -1375,6 +1371,10 @@ components:
         adres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
           type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1418,6 +1418,7 @@ components:
           description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
           type: "string"
         begrenzingPerceel:
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         perceelnummerRotatie:
           type: "number"
@@ -1425,7 +1426,7 @@ components:
           description: ""
           maximum: 999
         plaatscoordinaten:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml"
         koopsom:
           $ref: "#/components/schemas/TypeKoopsom"
         toelichtingBewaarder:
