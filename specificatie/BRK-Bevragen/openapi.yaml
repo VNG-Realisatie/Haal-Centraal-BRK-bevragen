@@ -173,7 +173,7 @@ paths:
       parameters:
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak"
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -230,7 +230,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak"
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -290,7 +290,8 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak"
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
+
           required: true
           schema:
             type: string
@@ -624,7 +625,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak"
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
@@ -678,7 +679,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak "
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
@@ -808,7 +809,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak"
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
@@ -1415,11 +1416,11 @@ components:
         \ URL http://tax.kadaster.nl/id/begrip/Appartementsrecht"
       properties:
         identificatie:
-          description: "Dit is de unieke identificatie van een onroerende zaak, die door het kadaster wordt vastgesteld. "
+
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           type: "string"
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/Geometry"
         perceelnummerRotatie:
           type: "number"
           title: "perceelnummerRotatie"
@@ -1447,9 +1448,6 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-          description: "Verschuiving van het perceelnummer ten behoeve van visualisatie\
-          \ op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar\
-          \ overlappen."
         nummeraanduidingIdentificatie:
           type: "string"
           description: "Dit element is de identificatie van het bagAdres. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
