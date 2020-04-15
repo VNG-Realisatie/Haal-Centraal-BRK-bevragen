@@ -934,22 +934,18 @@ components:
         properties:
           bewaardersVerklaring:
             type: "string"
-            title: "bewaardersverklaring"
             description: "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
           tekeningIngeschreven:
             type: "boolean"
-            title: "tekeningIngeschreven"
             description: "Er is sprake van een appartementstekening (splitsingstekening\
               \ van appartementen) als bijlage bij het stuk."
           tijdstipAanbieding:
             type: "string"
-            title: "tijdstipAanbieding"
             format: "date-time"
             description: "Het tijdstip dat het stuk bij het kadaster is binnengekomen."
           tijdstipOndertekening:
             type: "string"
             format: "date-time"
-            title: "tijdstipOndertekening"
             description: "Het tijdstip dat het stuk is ondertekend door partijen en de notaris"
           aard:
             $ref: "#/components/schemas/Waardelijst"
@@ -967,7 +963,6 @@ components:
       type: "object"
       properties:
         kadasterverzoeken:
-          title: "heeft"
           type: "array"
           items:
             $ref: "#/components/schemas/Kadasterverzoek"
@@ -976,7 +971,7 @@ components:
       properties:
         identificatie:
           type: "string"
-        aardAantekening:
+        aard:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
         omschrijving:
@@ -1014,7 +1009,6 @@ components:
           type: "string"
         toelichtingBewaarder:
           type: "string"
-          title: "toelichtingBewaarder"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
     AmbtelijkCorrectiegegevenID:
       type: "object"
@@ -1038,8 +1032,7 @@ components:
         som:
           type: "number"
           format: "float"
-          title: "Het bedrag. Dit is een waarde met max. 2 decimalen."
-          description: ""
+          description: "Het bedrag. Dit is een waarde met max. 2 decimalen."
         valuta:
           $ref: "#/components/schemas/Waardelijst"
           description: "Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta"
@@ -1093,19 +1086,16 @@ components:
       type: "object"
       properties:
         beslaglegger:
-          title: "isBeslaglegger"
           type: "object"
           description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
-          title: ""
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
-          title: "rustOp"
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1155,9 +1145,7 @@ components:
         -  properties:
             standplaats:
               type: "string"
-              title: "standplaats"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
-              minLength: 1
     HeeftPartnerschap:
       type: "object"
       description: "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus\
@@ -1175,7 +1163,6 @@ components:
       properties:
         redenOmschrijving:
           type: "string"
-          title: "redenOmschrijving"
           description: "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen."
         reden:
           $ref: "#/components/schemas/Waardelijst"
@@ -1227,14 +1214,12 @@ components:
       type: "object"
       properties:
         hypotheekhouder:
-          title: "isHypotheekhouder"
           type: "object"
           description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
-          title: ""
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1243,15 +1228,15 @@ components:
       - $ref: "#/components/schemas/KadasterPersoon"
       - description: "Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd."
         properties:
-          indicatieGeheim:
+          geheimhoudingPersoonsgegevens:
             type: "boolean"
             title: "indicatieGeheim"
-            description: "indicatieGeheim is een aanduiding die aangeeft dat gegevens\
+            description: "Aanduiding die aangeeft dat gegevens\
               \ van een persoon wel of niet verstrekt mogen worden."
           landWaarnaarVertrokken:
             $ref: "#/components/schemas/Waardelijst"
             description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-          geslacht:
+          geslachtsaanduiding:
             $ref: "#/components/schemas/Geslacht_enum"
           heeftPartnerschap:
             type: "array"
@@ -1288,12 +1273,8 @@ components:
         properties:
           statutaireNaam:
             type: "string"
-            title: "statutaireNaam"
-            description: ""
           statutaireZetel:
             type: "string"
-            title: "statutaireZetel"
-            description: ""
           rechtsvorm:
             $ref: "#/components/schemas/Waardelijst"
             description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)"
@@ -1322,8 +1303,6 @@ components:
           properties:
             indicatieNietToonbareDiakriet:
               type: "boolean"
-              title: "indicatieNietToonbareDiakriet"
-              description: ""
             beschikkingsbevoegdheid:
               $ref: "#/components/schemas/Waardelijst"
               description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
@@ -1331,7 +1310,6 @@ components:
               type: "array"
               items:
                 type: "string"
-                title: "naam"
                 maxLength: 320
             woonadres:
               $ref: "#/components/schemas/Adres"
@@ -1369,8 +1347,6 @@ components:
         properties:
           indicatieCorrectie:
             type: "boolean"
-            title: "indicatieCorrectie"
-            description: ""
           acgIdentificatie:
             $ref: "#/components/schemas/AmbtelijkCorrectiegegevenID"
     Kadasterverzoek:
@@ -1403,7 +1379,6 @@ components:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         perceelnummerRotatie:
           type: "number"
-          title: "perceelnummerRotatie"
           description: "Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen."
           maximum: 999
         plaatscoordinaten:
@@ -1412,9 +1387,8 @@ components:
           $ref: "#/components/schemas/TypeKoopsom"
         toelichtingBewaarder:
           type: "string"
-          title: "toelichtingBewaarder"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
-        typeKadastraalOnroerendeZaak:
+        type:
           $ref: "#/components/schemas/TypeKadastraalOnroerendeZaak_enum"
         aardCultuurBebouwd:
           $ref: "#/components/schemas/Waardelijst"
@@ -1467,7 +1441,6 @@ components:
       type: "object"
       properties:
         zakelijkGerechtigden:
-          title: "rustOp"
           type: "array"
           items:
             $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
@@ -1477,21 +1450,16 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         adressen:
-          title: "betreft"
           type: "array"
-          description: "Dit is een link naar het adres van de objectlocatie van de Kadatsraal Onreorende Zaak."
+          description: "Dit is een link naar het adres van de objectlocatie van de Kadastraal Onroerende Zaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
-          title: ""
           type: "array"
-          description: ""
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
-          title: ""
           type: "array"
-          description: ""
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Naam:
@@ -1500,21 +1468,18 @@ components:
       properties:
         geslachtsnaam:
           type: "string"
-          title: "geslachtsnaam"
           description: "De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels en adellijke titel zijn afgesplitst."
-          minLength: 1
         voornamen:
           type: "string"
-          title: "voornamen"
           description: "De voornamen zijn de verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat afgesplitst."
-        voorvoegselsgeslachtsnaam:
+        voorvoegsel:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
           description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - description: "Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn."
+        - description: "Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn."
           properties:
             type:
               $ref: "#/components/schemas/NatuurlijkPersoonType_enum"
@@ -1527,7 +1492,7 @@ components:
     NietNatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - description: "Kan een ingeschreven persoon (in het handelsregister) of Kadasterpersoon zijn."
+        - description: "Een niet-natuurlijk persoon."
           properties:
             type:
               $ref: "#/components/schemas/NietNatuurlijkPersoonType_enum"
@@ -1583,9 +1548,8 @@ components:
           description: "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland"
           example: "Selangor"
         land:
-          allOf:
-          - $ref: "#/components/schemas/Waardelijst"
-          - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
         inOnderzoek:
           type: "boolean"
           description: "Aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het adres."
@@ -1600,7 +1564,6 @@ components:
         woonplaats: "Nootdorp"
         adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
         adresregel2: "1234AA Nootdorp"
-        inOnderzoek: true
       # voorbeeld adres buitenland:
       # example:
       #  adresregel1: "18.G, Jalan Setia Indah"
@@ -1609,7 +1572,6 @@ components:
       #  land:
       #    code: "Maleisië"
       #    waarde: "7026"
-      #  inOnderzoek: true
     Postadres:
       allOf:
         - $ref: "#/components/schemas/Adres"
@@ -1631,9 +1593,7 @@ components:
         - properties:
             standplaats:
               type: "string"
-              title: "standplaats"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
-              minLength: 1
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
@@ -1649,7 +1609,7 @@ components:
           description: "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven niet-natuurlijk persoon is dit het rsin. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. "
         omschrijving:
           type: string
-          description: "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam van de persoon)."
+          description: "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam)."
     PersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
@@ -1687,7 +1647,6 @@ components:
       type: "object"
       properties:
         stukken:
-          title: ""
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1696,7 +1655,7 @@ components:
       description: "Een stuk is een document waaruit een wijziging in de BRK blijkt.\
         \ Er zijn 2 soorten stukken: \n
         * Een ter inschrijving in de openbare registers aangeboden stuk en \n
-        * een door het Kadaster opgemaakt stuk.\n \n 
+        * een door het Kadaster opgemaakt stuk.\n \n
         In een stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk opgenomen."
       properties:
         kadasterstuk:
@@ -1743,12 +1702,16 @@ components:
           type: "integer"
           title: "noemer"
           description: "De noemer van het deel."
+          minimum: 1
           maximum: 99999999
         teller:
           type: "integer"
           title: "teller"
           description: "Het aantal delen. De teller is altijd lager dan de noemer."
           maximum: 99999999
+      example:
+        noemer: 2
+        teller: 1
     TypeDeelEnNummer:
       type: "object"
       properties:
@@ -1808,7 +1771,6 @@ components:
       properties:
         appartementsrechtVolgnummer:
           type: "integer"
-          title: "appartementsrechtVolgnummer"
           description: "Nummer dat het kadastraal object uniek identificeert als een\
             \ appartementsrecht binnen het complex."
         kadastraleGemeente:
@@ -1816,21 +1778,19 @@ components:
           description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst( http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente). Elke kadastrale gemeentenaam is uniek."
         perceelnummer:
           type: "integer"
-          title: "perceelnummer"
           description: "Het perceelnummer dat een geheel perceel of een complex uniek\
             \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
-            \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
-            \ 1 tot max 99999"
+            \ heeft een perceel een perceelnummer oplopend door de jaren heen."
+          minimum: 1
+          maximum: 99999
         sectie:
           type: "string"
           title: "sectie"
           description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
             \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
             \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
-            \ sectie heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ'\
-            \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
-            \ te voorkomen met `I`"
-          minLength: 1
+            \ sectie heeft een of twee letters"
+          maxLength: 2
     TypeKoopsom:
       type: "object"
       properties:
@@ -1842,14 +1802,13 @@ components:
           type: "boolean"
     TypeOppervlak:
       type: "object"
-      description: "Oppervlakte."
+      description: "Oppervlakte"
       properties:
         soortGrootte:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)"
         waarde:
           type: "integer"
-          title: "waarde"
           description: "Oppervlak grootte, in vierkante meters"
     TypePerceelnummerVerschuiving:
       type: "object"
@@ -1857,11 +1816,9 @@ components:
       properties:
         deltax:
           type: "integer"
-          title: "deltaX"
           description: "Verschuiving op de X as."
         deltay:
           type: "integer"
-          title: "deltaY"
           description: "Verschuiving op de Y as."
     Waardelijst:
       type: "object"
@@ -1870,18 +1827,16 @@ components:
       properties:
         code:
           type: "string"
-          title: "code"
           minLength: 1
         waarde:
           type: "string"
-          title: "waarde"
     ZakelijkGerechtigde:
       type: object
       properties:
         identificatie:
           type: "string"
           description: "Identificatie van de zakelijk gerechtigde."
-        typeGerechtigde:
+        type:
           $ref: "#/components/schemas/typeGerechtigde_enum"
         aanvangsdatum:
           type: "string"
@@ -1922,7 +1877,6 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
-          title: ""
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
