@@ -224,7 +224,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie]:
     get:
       operationId: GetZakelijkGerechtigde
-      description: "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
+      description: "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -284,7 +284,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
     get:
       operationId: GetZakelijkGerechtigden
-      description: "Het ophalen van een de zakelijke gerechtigden behorende bij een Kadastraal Onroerende Zaak. Aandeel wordt altijd geleverd in combinatie met het gezamenlijk aandeel."
+      description: "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -344,7 +344,7 @@ paths:
   /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
     get:
       operationId: GetKadasterPersoon
-      description: "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is _gematched_ gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd."
+      description: "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -562,7 +562,7 @@ paths:
   /stukken/{stukidentificatie}:
     get:
       operationId: GetStuk
-      description: "Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. Met verschillende stukdeel-identificaties kan mogelijk dezelfde akte worden opgevraagd. Er worden twee typen aktes geleverd: een aangeboden stuk of een kadasterstuk."
+      description: "Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. Met verschillende stukdeel-identificaties kan mogelijk dezelfde akte worden opgevraagd."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
@@ -672,7 +672,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
       operationId: GetHypothekenKadastraalOnroerendeZaak
-      description: "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s), die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening."
+      description: "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -985,8 +985,10 @@ components:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         begrenzingDienendErf:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+          description: "De omtrek van het stuk grond (dienend erf) waarvan de eigenaar iets moet toestaan aan de eigenaar van het heersende erf."
         begrenzingHeersendErf:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+          description: "De omtrek van het stuk grond (heersend erf) waarvan de eigenaar iets mag van de eigenaar van het dienende erf."
         einddatum:
           type: "string"
           format: "date"
@@ -1031,7 +1033,7 @@ components:
           type: "integer"
     Bedrag:
       type: "object"
-      description: "Bedrag is samengesteld datatype voor het vastleggen van een hoeveelheid geld in cijfers in een bepaalde valuta."
+      description: "Hoeveelheid geld in cijfers in een bepaalde valuta."
       properties:
         som:
           type: "number"
@@ -1051,6 +1053,7 @@ components:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
           type: "boolean"
+          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object"
         omschrijvingBetrokkenRecht:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
@@ -1062,7 +1065,7 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
         beslaglegger:
           $ref: "#/components/schemas/PersoonBeperkt"
-          description: "Een beslaglegger is iemand die iets tegoed heeft op een ander en beslag legt op het eigendom van die ander."
+          description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1092,7 +1095,7 @@ components:
         beslaglegger:
           title: "isBeslaglegger"
           type: "object"
-          description: ""
+          description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1124,7 +1127,7 @@ components:
           type: "boolean"
     Geboorte:
       type: "object"
-      description: "Geboorte is een groep gegevens over de geboorte van een GeregisteerdPersoon."
+      description: "Geboorte is een groep gegevens over de geboorte van een persoon."
       properties:
         plaats:
           type: "string"
@@ -1196,6 +1199,7 @@ components:
           type: "boolean"
         hypotheekhouder:
           $ref: "#/components/schemas/PersoonBeperkt"
+          description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1225,7 +1229,7 @@ components:
         hypotheekhouder:
           title: "isHypotheekhouder"
           type: "object"
-          description: "Dit is een natuurlijk persoon of een niet-natuurlijk persoon die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening."
+          description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
           properties:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1280,7 +1284,7 @@ components:
     KadasterNietNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
-      - description: "Een bij het kadaster geregistreerde niet natuurlijke persoon. Kadasternietnatuurlijkpersonen worden niet geactualiseerd."
+      - description: "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd."
         properties:
           statutaireNaam:
             type: "string"
@@ -1314,7 +1318,7 @@ components:
     KadasterPersoon:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - description: "URI https://tax.kadaster.nl/doc/begrip/Persoon"
+        - description: "Een in de basisregistratie kadaster geregistreerde persoon."
           properties:
             indicatieNietToonbareDiakriet:
               type: "boolean"
@@ -1426,7 +1430,7 @@ components:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         adresIdentificaties:
           type: "array"
-          description: "Identificaties van adressen die de objectlocaties zijn van deze kadastraal onroerende zaak. Dit om zelf de URL op te stellen of om in te vullen in de templated HAL-linK naar de BAG."
+          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
           items:
             type: "string"
         stukIdentificaties:
@@ -1492,27 +1496,21 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Naam:
       type: "object"
-      description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en\
-        \ voornamen die men wil gebruiken bij aanschrijving."
+      description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
       properties:
         geslachtsnaam:
           type: "string"
           title: "geslachtsnaam"
-          description: "De geslachtsnaam is de (geslachts)naam waarvan de eventueel\
-            \ aanwezige voorvoegsels en adellijke titel zijn afgesplitst."
+          description: "De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels en adellijke titel zijn afgesplitst."
           minLength: 1
         voornamen:
           type: "string"
           title: "voornamen"
-          description: "De voornamen zijn de verzameling namen die, gescheiden door\
-            \ spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het\
-            \ predikaat afgesplitst."
+          description: "De voornamen zijn de verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat afgesplitst."
         voorvoegselsgeslachtsnaam:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
-          description: "Voorvoegselsgeslachtsnaam zijn dat deel van de geslachtsnaam\
-            \ dat voorkomt in Tabel 36, Voorvoegseltabel en, gescheiden door een spatie,\
-            \ vooraf gaat aan de rest van de geslachtsnaam."
+          description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
@@ -1882,7 +1880,7 @@ components:
       properties:
         identificatie:
           type: "string"
-          description: "Dit element is de identificatie van de zakelijk gerechtigde."
+          description: "Identificatie van de zakelijk gerechtigde."
         typeGerechtigde:
           $ref: "#/components/schemas/typeGerechtigde_enum"
         aanvangsdatum:
