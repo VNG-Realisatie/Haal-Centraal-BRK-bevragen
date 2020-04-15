@@ -1482,10 +1482,10 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        Adressen:
+        adressen:
           title: "betreft"
           type: "array"
-          description: "Dit is een link naar het adres vande objectlocatie van de Kadatsraal Onreorende Zaak."
+          description: "Dit is een link naar het adres van de objectlocatie van de Kadatsraal Onreorende Zaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
