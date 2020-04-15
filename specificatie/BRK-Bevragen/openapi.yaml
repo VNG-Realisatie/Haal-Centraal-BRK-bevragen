@@ -1297,6 +1297,10 @@ components:
           rechtsvorm:
             $ref: "#/components/schemas/Waardelijst"
             description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)"
+          kvkNummer:
+            type: "string"
+          rsin:
+            type: "string"
     KadasterNietNatuurlijkPersoonHal:
       allOf:
       - $ref: "#/components/schemas/KadasterNietNatuurlijkPersoon"
@@ -1646,7 +1650,7 @@ components:
       properties:
         identificatie:
           type: string
-          description: "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven niet-natuurlijk persoon is dit het rsin. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. "
+          description: "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. "
         omschrijving:
           type: string
           description: "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam van de persoon)."
