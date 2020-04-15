@@ -3871,12 +3871,6 @@ components:
           type: integer
       description: Een ambtelijk correctie gegeven is een kadasterstuk waarmee het
         kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
-    Adreslocatie:
-      type: object
-      properties:
-        identificatie:
-          type: string
-      description: Een AdresLocatie is een ObjectLocatie of een PostbusLocatie
     Bedrag:
       type: object
       properties:
@@ -4149,16 +4143,10 @@ components:
               title: naam
               maxLength: 320
               type: string
-          woonlocatieAdresBuitenland:
-            $ref: '#/components/schemas/Objectlocatiebuitenland'
-          woonlocatieAdresBinnenland:
-            $ref: '#/components/schemas/ObjectlocatieBinnenland'
-          postlocatieAdresBinnenland:
-            $ref: '#/components/schemas/ObjectlocatieBinnenland'
-          postlocatieAdresBuitenland:
-            $ref: '#/components/schemas/Objectlocatiebuitenland'
-          postlocatiePostbuslocatie:
-            $ref: '#/components/schemas/Postbuslocatie'
+          woonadres:
+            $ref: '#/components/schemas/Adres'
+          postadres:
+            $ref: '#/components/schemas/Postadres'
           kadastraalOnroerendeZaakIdentificaties:
             type: array
             items:
@@ -4173,7 +4161,9 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
-        adres:
+        woonadres:
+          $ref: '#/components/schemas/HalLink'
+        postadres:
           $ref: '#/components/schemas/HalLink'
         kadastraalOnroerendeZaken:
           type: array
@@ -4306,11 +4296,11 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
-        Adressen:
+        adressen:
           title: betreft
           type: array
-          description: Dit is een link naar het adres vande objectlocatie van de Kadatsraal
-            Onreorende Zaak.
+          description: Dit is een link naar het adres van de objectlocatie van de
+            Kadatsraal Onreorende Zaak.
           items:
             $ref: '#/components/schemas/HalLink'
         zakelijkGerechtigden:
@@ -4374,64 +4364,87 @@ components:
       enum:
       - ingeschreven_niet_natuurlijk_persoon
       - kadaster_niet_natuurlijk_persoon
-    Objectlocatie:
-      $ref: '#/components/schemas/Adreslocatie'
-    ObjectlocatieBinnenland:
+    Adres:
+      properties:
+        adresIdentificatie:
+          type: string
+          description: identificatie van het adres in het geval dit adres in BAG geregistreerd
+            is.
+        huisnummer:
+          type: integer
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
+        huisletter:
+          type: string
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
+          example: A
+        huisnummerToevoeging:
+          type: string
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
+          example: "3"
+        straat:
+          type: string
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort
+        korteNaam:
+          title: korteNaam
+          maxLength: 24
+          type: string
+          description: De straatnaam, zo nodig volgens NEN5825 verkort tot maximaal
+            24 tekens.
+          example: Ln vd l D Westervoort
+        postcode:
+          type: string
+          example: 1234AA
+        woonplaats:
+          type: string
+          example: Nootdorp
+        adresregel1:
+          type: string
+          description: Het eerste deel van een adres is een combinatie van de straat
+            en huisnummer.
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
+        adresregel2:
+          type: string
+          description: Het tweede deel van een adres is een combinatie van woonplaats
+            eventueel in combinatie met de postcode
+          example: 1234AA Nootdorp
+        adresregel3:
+          type: string
+          description: Het derde deel van een adres is optioneel een of meer geografische
+            gebieden van het adres in het buitenland
+          example: Selangor
+        land:
+          allOf:
+          - $ref: '#/components/schemas/Waardelijst'
+          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+        inOnderzoek:
+          type: boolean
+          description: Aanduiding waarmee wordt aangegeven dat een onderzoek wordt
+            uitgevoerd naar de juistheid van een of meer gegevens van het adres.
+      example:
+        adresIdentificatie: "1234207890123456"
+        huisnummer: 26
+        huisletter: A
+        huisnummerToevoeging: "3"
+        straat: Laan van de landinrichtingscommissie Duiven-Westervoort
+        korteNaam: Ln vd l D Westervoort
+        postcode: 1234AA
+        woonplaats: Nootdorp
+        adresregel1: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
+        adresregel2: 1234AA Nootdorp
+        inOnderzoek: true
+    Postadres:
       allOf:
-      - $ref: '#/components/schemas/Objectlocatie'
-      - properties:
-          huisletter:
-            title: huisletter
-            type: string
-            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
-              [a-zA-Z]
-          huisnummer:
-            title: huisnummer
+      - $ref: '#/components/schemas/Adres'
+      - type: object
+        properties:
+          postbusnummer:
             type: integer
-            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
-              [1-9][0-9]{0,4}
-          huisnummerToevoeging:
-            title: huisnummertoevoeging
-            type: string
-            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
-              ([a-z,A-Z,0-9])+
-          inOnderzoek:
-            title: inOnderzoek
-            type: boolean
-            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/InOnderzoek
-          openbareruimtenaam:
-            title: openbareRuimteNaam
-            minLength: 1
-            type: string
-          postcode:
-            title: postcode
-            type: string
-            description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Postcode
-              [1-9][0-9][0-9][0-9][A-Z][A-Z]
-          woonplaatsnaam:
-            title: woonplaatsNaam
-            minLength: 1
-            type: string
-        description: Een ObjectlocatieBinnenland is een adres binnen nederland.
-    Objectlocatiebuitenland:
-      allOf:
-      - $ref: '#/components/schemas/Objectlocatie'
-      - properties:
-          adres:
-            title: adres
-            type: string
-            description: Het adres is een combinatie van de straat en huisnummer.
-          regio:
-            title: regio
-            type: string
-          woonplaats:
-            title: woonplaats
-            type: string
-            description: Woonplaats is De postcode/woonplaats is de combinatie van
-              een eventuele postcode en woonplaats.
-          land:
-            $ref: '#/components/schemas/Waardelijst'
-        description: Een objectlocatiebuitenland is een adres buiten Nederland.
+        example:
+          postbusnummer: 1021
+          postcode: 1234AA
+          woonplaats: Nootdorp
+          adresregel1: Postbus 1021
+          adresregel2: 1234AA Nootdorp
     Ondertekenaar:
       type: object
       description: De bevoegde persoon (bijvoorbeeld een notaris) die de akte heeft
@@ -4484,25 +4497,6 @@ components:
       - kadaster_natuurlijk_persoon
       - ingeschreven_niet_natuurlijk_persoon
       - kadaster_niet_natuurlijk_persoon
-    Postbuslocatie:
-      type: object
-      properties:
-        postbusnummer:
-          title: postbusnummer
-          type: integer
-          description: N7
-        postcode:
-          title: postcode
-          maxLength: 6
-          pattern: ^[1-9]{1}[0-9]{3}[A-Z]{2}$
-          type: string
-          description: '[1-9]{1}[0-9]{3}[A-Z]{2}'
-        woonplaatsnaam:
-          title: woonplaatsNaam
-          type: string
-        identificatie:
-          type: string
-      description: Een PostbusLocatie is een aanduiding van de locatie van een postbus.
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
