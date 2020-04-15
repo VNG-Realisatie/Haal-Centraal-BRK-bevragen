@@ -1586,9 +1586,6 @@ components:
           allOf:
           - $ref: "#/components/schemas/Waardelijst"
           - description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-        inOnderzoek:
-          type: "boolean"
-          description: "Aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het adres."
       example:
         adresIdentificatie: "1234207890123456"
         huisnummer: 26
@@ -1600,7 +1597,6 @@ components:
         woonplaats: "Nootdorp"
         adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
         adresregel2: "1234AA Nootdorp"
-        inOnderzoek: true
       # voorbeeld adres buitenland:
       # example:
       #  adresregel1: "18.G, Jalan Setia Indah"
@@ -1609,7 +1605,6 @@ components:
       #  land:
       #    code: "Maleisië"
       #    waarde: "7026"
-      #  inOnderzoek: true
     Postadres:
       allOf:
         - $ref: "#/components/schemas/Adres"
