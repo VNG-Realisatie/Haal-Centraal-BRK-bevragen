@@ -93,7 +93,7 @@ paths:
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type."
           required: false
           schema:
-            $ref: "#/components/schemas/typeGerechtigde_enum"
+            $ref: "#/components/schemas/TypeGerechtigde_enum"
         - in: query
           name: adres__postcode
           description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
@@ -298,7 +298,7 @@ paths:
           description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
           required: false
           schema:
-            $ref: "#/components/schemas/typeGerechtigde_enum"
+            $ref: "#/components/schemas/TypeGerechtigde_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1838,7 +1838,7 @@ components:
           type: "string"
           description: "Identificatie van de zakelijk gerechtigde."
         type:
-          $ref: "#/components/schemas/typeGerechtigde_enum"
+          $ref: "#/components/schemas/TypeGerechtigde_enum"
         aanvangsdatum:
           type: "string"
           description: "Datum waarop het zakelijk recht van kracht is geworden. "
