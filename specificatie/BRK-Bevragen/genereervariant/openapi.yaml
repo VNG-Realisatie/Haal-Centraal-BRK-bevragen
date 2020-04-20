@@ -155,7 +155,7 @@ paths:
         style: form
         explode: true
         schema:
-          $ref: '#/components/schemas/typeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigde_enum'
       - name: adres__postcode
         in: query
         description: De postcode van het adres van de objectlocatie van de kadastraal
@@ -970,7 +970,7 @@ paths:
         style: form
         explode: true
         schema:
-          $ref: '#/components/schemas/typeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigde_enum'
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -4592,7 +4592,7 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         reeks:
           $ref: '#/components/schemas/Waardelijst'
-    typeGerechtigde_enum:
+    TypeGerechtigde_enum:
       type: string
       description: |-
         Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
@@ -4715,7 +4715,7 @@ components:
           type: string
           description: Identificatie van de zakelijk gerechtigde.
         typeGerechtigde:
-          $ref: '#/components/schemas/typeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigde_enum'
         aanvangsdatum:
           type: string
           description: 'Datum waarop het zakelijk recht van kracht is geworden. '
