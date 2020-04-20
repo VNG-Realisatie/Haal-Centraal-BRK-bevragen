@@ -1,6 +1,9 @@
 # Haal Centraal BRK bevragen
 BRK-bevragingen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
 
+## Getting started
+Om te beginnen met ontwikkelen van de API is de [getting started](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/docs/getting-started-brkbevragen.md) een goed beginpunt. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
+
 # Planning
 https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 
@@ -23,7 +26,6 @@ https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 ## Contactpersonen:
 * Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
-* Scrum Master: Jan Willem Kooi JanWillem.Kooi@vng.nl
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2018
