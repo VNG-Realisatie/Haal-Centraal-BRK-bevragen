@@ -1725,7 +1725,7 @@ components:
         reeks:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)"
-    typeGerechtigde_enum:
+    TypeGerechtigde_enum:
       type: string
       description: "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n
       * `beklemrechthouder` - 1 Beklemrechthouder\n
