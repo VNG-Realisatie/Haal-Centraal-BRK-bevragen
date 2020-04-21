@@ -1016,7 +1016,7 @@ components:
       properties:
         AKRregistercode:
           $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+          description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
         akrStukdeel1:
           type: "string"
         akrStukdeel2:
