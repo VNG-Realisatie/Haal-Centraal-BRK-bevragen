@@ -55,22 +55,21 @@ paths:
           - epsg:28992
       - name: expand
         in: query
-        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
-          moeten worden. Resources en velden van resources die gewenst zijn kunnen
-          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
-          van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -431,22 +430,21 @@ paths:
           - epsg:28992
       - name: expand
         in: query
-        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
-          moeten worden. Resources en velden van resources die gewenst zijn kunnen
-          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
-          van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -685,12 +683,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -945,12 +942,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1205,12 +1201,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1455,12 +1450,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1706,12 +1700,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1958,12 +1951,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2212,22 +2204,21 @@ paths:
       parameters:
       - name: expand
         in: query
-        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
-          moeten worden. Resources en velden van resources die gewenst zijn kunnen
-          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
-          van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature)
         required: false
         schema:
           type: string
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2471,12 +2462,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2721,12 +2711,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2976,12 +2965,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -3246,12 +3234,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -3501,12 +3488,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
         required: false
         schema:
           type: string
@@ -3768,24 +3754,20 @@ components:
       - $ref: '#/components/schemas/AbstractStuk'
       - properties:
           bewaardersVerklaring:
-            title: bewaardersverklaring
             type: string
             description: Correctie in de openbare registers door de bewaarder. De
               bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
               in in de openbare registers en de basisregistratie Kadaster conform
               de Kadasterwet.
           tekeningIngeschreven:
-            title: tekeningIngeschreven
             type: boolean
             description: Er is sprake van een appartementstekening (splitsingstekening
               van appartementen) als bijlage bij het stuk.
           tijdstipAanbieding:
-            title: tijdstipAanbieding
             type: string
             description: Het tijdstip dat het stuk bij het kadaster is binnengekomen.
             format: date-time
           tijdstipOndertekening:
-            title: tijdstipOndertekening
             type: string
             description: Het tijdstip dat het stuk is ondertekend door partijen en
               de notaris
@@ -3806,7 +3788,6 @@ components:
       type: object
       properties:
         kadasterverzoeken:
-          title: heeft
           type: array
           items:
             $ref: '#/components/schemas/Kadasterverzoek'
@@ -3815,7 +3796,7 @@ components:
       properties:
         identificatie:
           type: string
-        aardAantekening:
+        aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
           type: string
@@ -3850,7 +3831,6 @@ components:
         identificatie:
           type: string
         toelichtingBewaarder:
-          title: toelichtingBewaarder
           type: string
           description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
             De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
@@ -3878,8 +3858,8 @@ components:
       type: object
       properties:
         som:
-          title: Het bedrag. Dit is een waarde met max. 2 decimalen.
           type: number
+          description: Het bedrag. Dit is een waarde met max. 2 decimalen.
           format: float
         valuta:
           $ref: '#/components/schemas/Waardelijst'
@@ -3904,6 +3884,8 @@ components:
             en de basisregistratie Kadaster conform de Kadasterwet.
         aard:
           $ref: '#/components/schemas/Waardelijst'
+        aantekening:
+          $ref: '#/components/schemas/Aantekening'
         beslaglegger:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukIdentificaties:
@@ -3931,13 +3913,12 @@ components:
       type: object
       properties:
         beslaglegger:
-          $ref: '#/components/schemas/isBeslaglegger'
+          $ref: '#/components/schemas/Beslag_links_beslaglegger'
         stukken:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
         zakelijkGerechtigden:
-          title: rustOp
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3990,8 +3971,6 @@ components:
       - $ref: '#/components/schemas/Naam'
       - properties:
           standplaats:
-            title: standplaats
-            minLength: 1
             type: string
             description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
     HeeftPartnerschap:
@@ -4009,7 +3988,6 @@ components:
       type: object
       properties:
         redenOmschrijving:
-          title: redenOmschrijving
           type: string
           description: De omschrijving van de reden voor een kadasterverzoek die afwijkt
             van de standaard redenen die kunnen worden opgegeven. Bij opgave van de
@@ -4036,6 +4014,8 @@ components:
             en de basisregistratie Kadaster conform de Kadasterwet.
         betreftGedeelteVanPerceel:
           type: boolean
+        aantekening:
+          $ref: '#/components/schemas/Aantekening'
         hypotheekhouder:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukIdentificaties:
@@ -4061,7 +4041,7 @@ components:
       type: object
       properties:
         hypotheekhouder:
-          $ref: '#/components/schemas/isHypotheekhouder'
+          $ref: '#/components/schemas/Hypotheek_links_hypotheekhouder'
         stukken:
           type: array
           items:
@@ -4070,14 +4050,14 @@ components:
       allOf:
       - $ref: '#/components/schemas/KadasterPersoon'
       - properties:
-          indicatieGeheim:
+          geheimhoudingPersoonsgegevens:
             title: indicatieGeheim
             type: boolean
-            description: indicatieGeheim is een aanduiding die aangeeft dat gegevens
-              van een persoon wel of niet verstrekt mogen worden.
+            description: Aanduiding die aangeeft dat gegevens van een persoon wel
+              of niet verstrekt mogen worden.
           landWaarnaarVertrokken:
             $ref: '#/components/schemas/Waardelijst'
-          geslacht:
+          geslachtsaanduiding:
             $ref: '#/components/schemas/Geslacht_enum'
           heeftPartnerschap:
             type: array
@@ -4110,13 +4090,15 @@ components:
       - $ref: '#/components/schemas/KadasterPersoon'
       - properties:
           statutaireNaam:
-            title: statutaireNaam
             type: string
           statutaireZetel:
-            title: statutaireZetel
             type: string
           rechtsvorm:
             $ref: '#/components/schemas/Waardelijst'
+          kvkNummer:
+            type: string
+          rsin:
+            type: string
         description: Een bij het kadaster geregistreerde niet natuurlijke persoon,
           al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen
           worden niet geactualiseerd.
@@ -4138,14 +4120,12 @@ components:
       - $ref: '#/components/schemas/PersoonBasis'
       - properties:
           indicatieNietToonbareDiakriet:
-            title: indicatieNietToonbareDiakriet
             type: boolean
           beschikkingsbevoegdheid:
             $ref: '#/components/schemas/Waardelijst'
           metNaamOpenbaarRegister:
             type: array
             items:
-              title: naam
               maxLength: 320
               type: string
           woonadres:
@@ -4183,7 +4163,6 @@ components:
       - $ref: '#/components/schemas/AbstractStuk'
       - properties:
           indicatieCorrectie:
-            title: indicatieCorrectie
             type: boolean
           acgIdentificatie:
             $ref: '#/components/schemas/AmbtelijkCorrectiegegevenID'
@@ -4219,7 +4198,6 @@ components:
         begrenzingPerceel:
           $ref: '#/components/schemas/polygonGeoJSON'
         perceelnummerRotatie:
-          title: perceelnummerRotatie
           maximum: 999
           type: number
           description: Rotatie van het perceelnummer ten behoeve van visualisatie
@@ -4230,13 +4208,12 @@ components:
         koopsom:
           $ref: '#/components/schemas/TypeKoopsom'
         toelichtingBewaarder:
-          title: toelichtingBewaarder
           type: string
           description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
             De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
             in in de openbare registers en de basisregistratie Kadaster conform de
             Kadasterwet.
-        typeKadastraalOnroerendeZaak:
+        type:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
         aardCultuurBebouwd:
           $ref: '#/components/schemas/Waardelijst'
@@ -4292,7 +4269,6 @@ components:
       type: object
       properties:
         zakelijkGerechtigden:
-          title: rustOp
           type: array
           items:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
@@ -4302,10 +4278,9 @@ components:
         self:
           $ref: '#/components/schemas/HalLink'
         adressen:
-          title: betreft
           type: array
           description: Dit is een link naar het adres van de objectlocatie van de
-            Kadatsraal Onreorende Zaak.
+            Kadastraal Onroerende Zaak.
           items:
             $ref: '#/components/schemas/HalLink'
         zakelijkGerechtigden:
@@ -4320,18 +4295,15 @@ components:
       type: object
       properties:
         geslachtsnaam:
-          title: geslachtsnaam
-          minLength: 1
           type: string
           description: De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels
             en adellijke titel zijn afgesplitst.
         voornamen:
-          title: voornamen
           type: string
           description: De voornamen zijn de verzameling namen die, gescheiden door
             spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat
             afgesplitst.
-        voorvoegselsgeslachtsnaam:
+        voorvoegsel:
           title: voorvoegselsgeslachtsnaam
           type: string
           description: Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam
@@ -4344,8 +4316,8 @@ components:
       - properties:
           type:
             $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
-        description: Kan een ingeschreven persoon (in de basisregistratie personen
-          (BRP)) of Kadasterpersoon zijn.
+        description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
+          personen (BRP)) of Kadasterpersoon zijn.
     NatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
@@ -4359,8 +4331,7 @@ components:
       - properties:
           type:
             $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
-        description: Kan een ingeschreven persoon (in het handelsregister) of Kadasterpersoon
-          zijn.
+        description: Een niet-natuurlijk persoon.
     NietNatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
@@ -4417,13 +4388,7 @@ components:
             gebieden van het adres in het buitenland
           example: Selangor
         land:
-          allOf:
-          - $ref: '#/components/schemas/Waardelijst'
-          - description: Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
-        inOnderzoek:
-          type: boolean
-          description: Aanduiding waarmee wordt aangegeven dat een onderzoek wordt
-            uitgevoerd naar de juistheid van een of meer gegevens van het adres.
+          $ref: '#/components/schemas/Waardelijst'
       example:
         adresIdentificatie: "1234207890123456"
         huisnummer: 26
@@ -4435,7 +4400,6 @@ components:
         woonplaats: Nootdorp
         adresregel1: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
         adresregel2: 1234AA Nootdorp
-        inOnderzoek: true
     Postadres:
       allOf:
       - $ref: '#/components/schemas/Adres'
@@ -4459,8 +4423,6 @@ components:
       - $ref: '#/components/schemas/Naam'
       - properties:
           standplaats:
-            title: standplaats
-            minLength: 1
             type: string
             description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
     Overlijden:
@@ -4476,12 +4438,11 @@ components:
           type: string
           description: 'Unieke identificatie voor de persoon. Voor een Kadasterpersoon
             is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
-            een ingeschreven niet-natuurlijk persoon is dit het rsin. Voor een ingeschreven
-            natuurlijk persoon is dit het burgerservicenummer. '
+            een ingeschreven natuurlijk persoon is dit het burgerservicenummer. '
         omschrijving:
           type: string
           description: Voor mensen leesbare, herkenbare en identificerende omschrijving
-            van de persoon (met bijvoorbeeld de naam van de persoon).
+            van de persoon (met bijvoorbeeld de naam).
       description: Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon
         zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon
         zijn.
@@ -4540,7 +4501,7 @@ components:
           $ref: '#/components/schemas/AangebodenStuk_embedded'
       description: "Een stuk is een document waaruit een wijziging in de BRK blijkt.\
         \ Er zijn 2 soorten stukken: \n * Een ter inschrijving in de openbare registers\
-        \ aangeboden stuk en \n * een door het Kadaster opgemaakt stuk.\n \n  In een\
+        \ aangeboden stuk en \n * een door het Kadaster opgemaakt stuk.\n \n In een\
         \ stuk is daarom óf een kadasterstuk óf een terInschrijvingAangebodenStuk\
         \ opgenomen."
     Stuk_links:
@@ -4575,6 +4536,7 @@ components:
         noemer:
           title: noemer
           maximum: 99999999
+          minimum: 1
           type: integer
           description: De noemer van het deel.
         teller:
@@ -4583,6 +4545,9 @@ components:
           type: integer
           description: Het aantal delen. De teller is altijd lager dan de noemer.
       description: Een deling van twee gehele getallen
+      example:
+        noemer: 2
+        teller: 1
     TypeDeelEnNummer:
       type: object
       properties:
@@ -4638,29 +4603,26 @@ components:
       type: object
       properties:
         appartementsrechtVolgnummer:
-          title: appartementsrechtVolgnummer
           type: integer
           description: Nummer dat het kadastraal object uniek identificeert als een
             appartementsrecht binnen het complex.
         kadastraleGemeente:
           $ref: '#/components/schemas/Waardelijst'
         perceelnummer:
-          title: perceelnummer
+          maximum: 99999
+          minimum: 1
           type: integer
           description: Het perceelnummer dat een geheel perceel of een complex uniek
             identificeert binnen de sectie. Per kadastrale gemeente en per sectie
-            heeft een perceel een perceelnummer oplopend door de jaren heen van 1
-            tot max 99999
+            heeft een perceel een perceelnummer oplopend door de jaren heen.
         sectie:
           title: sectie
-          minLength: 1
+          maxLength: 2
           type: string
           description: Sectie is een onderverdeling van de kadastrale gemeente, bedoeld
             om het werk van de meetdienst en de kadastrale kaarten overzichtelijk
             te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke sectie
-            heeft een of twee letters (bijv. `A`, 'B', ....'AA', 'AB', ....'ZZ' .
-            Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)
-            te voorkomen met `I`
+            heeft een of twee letters
       description: Kadastrale aanduiding is de unieke aanduiding van een onroerende
         zaak door het Kadaster
     TypeKoopsom:
@@ -4678,19 +4640,16 @@ components:
         soortGrootte:
           $ref: '#/components/schemas/Waardelijst'
         waarde:
-          title: waarde
           type: integer
           description: Oppervlak grootte, in vierkante meters
-      description: Oppervlakte.
+      description: Oppervlakte
     TypePerceelnummerVerschuiving:
       type: object
       properties:
         deltax:
-          title: deltaX
           type: integer
           description: Verschuiving op de X as.
         deltay:
-          title: deltaY
           type: integer
           description: Verschuiving op de Y as.
       description: Verschuiving van het perceelnummer ten behoeve van visualisatie
@@ -4699,11 +4658,9 @@ components:
       type: object
       properties:
         code:
-          title: code
           minLength: 1
           type: string
         waarde:
-          title: waarde
           type: string
       description: Waardelijst is een samengesteld datatype voor het weergeven van
         een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn
@@ -4714,7 +4671,7 @@ components:
         identificatie:
           type: string
           description: Identificatie van de zakelijk gerechtigde.
-        typeGerechtigde:
+        type:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
         aanvangsdatum:
           type: string
@@ -4918,7 +4875,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BeslagHal'
-    isBeslaglegger:
+    Beslag_links_beslaglegger:
       type: object
       properties:
         href:
@@ -4932,7 +4889,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HypotheekHal'
-    isHypotheekhouder:
+    Hypotheek_links_hypotheekhouder:
       type: object
       properties:
         href:
