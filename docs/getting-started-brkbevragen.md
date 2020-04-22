@@ -26,33 +26,33 @@ Zie [Postman-collection](BRK-Bevragen%20API.postman_collection.json)
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest.
 
 #### Onroerende Zaken
-Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheid      |                                                                    
+Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheden      |                                                                    
 ----------------                                |:-------                                   |:-------                  |:-------               |:-------           |
-2 eigenaren (Kadaster Natuurlijk Persoon)       |NL.IMKAD.KadastraalObject.76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |alle velden gevuld |
+2 eigenaren (Kadaster Natuurlijk Persoon)       |NL.IMKAD.KadastraalObject.76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |<ul><li>alle velden gevuld</li></ul> |
 1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870488070000   |Beekbergen:87 K 4880      |7361EW 27              ||
 1 eigenaar (Kadaster Natuurlijk Persoon)        |NL.IMKAD.KadastraalObject.76870482670000   |Beekbergen:87 K 4826      |7361EW 25              ||
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870482570000   |Beekbergen:87 K 4825      |7361EW 21              ||
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22310827210003   |'s Gravenhage:881 N 8272 3|2517GL 84              |appartementsrecht  |
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.56020234070000   |Odoorn:717 N 2340         |9573PA 3               ||
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870482570000   |Beekbergen:87 K 4825      |7361EW 21              |<ul><li>2 erfpachters met erfpachtcanon</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22310827210003   |'s Gravenhage:881 N 8272 3|2517GL 84              |<ul><li>appartementsrecht</li></ul> |
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.56020234070000   |Odoorn:717 N 2340         |9573PA 3               |<ul><li>1 artikel5_3b</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.23280647970000   |Loosduinen:561 H 6479     |2551XS 31              ||
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.65490485370000   |Hellendoorn:395 G 4853    |7441JC 1 a             ||
 
 #### Natuurlijke Personen
-Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheid        |
+Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheden        |
 ----------------        |:-------         |:------                              |:------                        |:------              |:------              |
-Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.70882239      |                     |alle velden gevuld   |
-Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.50550743      |                     |  |
-Christaan Goede         |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.71303564      |                     ||
+Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.70882239      |                     |<ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul> |
+Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.50550743      |                     |<ul><li>buitenlands woonadres</li></ul> |
+Christaan Goede         |1971-11-01       |Kadaster Natuurlijk Persoon          |NL.IMKAD.Persoon.71303564      |                     |<ul><li>woonadres is wel bekend in BAG</li></ul> |
 Linda Haglund           |                 |Ingeschreven Natuurlijk Persoon      |                               |999991905            ||
 Lisanty do Livramento...|                 |Ingeschreven Natuurlijk Persoon      |                               |999990482            ||
 Merel Kooyman           |                 |Ingeschreven Natuurlijk Persoon      |                               |999993847            ||
 Suzanne van der Stappen |                 |Ingeschreven Natuurlijk Persoon      |                               |999993653            ||
 
 #### Niet Natuurlijke Personen
-Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   | 
-----------------        |:------      |:------                              |:------                        |
-Bankbedrijf             |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |NL.IMKAD.Persoon.71291440      | 
-Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291493      |  
+Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden | 
+----------------        |:------      |:------                              |:------                        |:------        |
+Bankbedrijf             |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |NL.IMKAD.Persoon.71291440      |<ul><li>postadres is postbus</li></ul> |
+Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291493      |  |
 
 #### Foutscenarios
 Aanvraag                                                                                       | Foutscenario               |
