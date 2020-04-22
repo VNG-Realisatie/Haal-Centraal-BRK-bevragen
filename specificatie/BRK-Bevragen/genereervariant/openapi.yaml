@@ -174,7 +174,8 @@ paths:
         style: form
         explode: true
         schema:
-          pattern: ^[1-9][0-9]{0,4}$
+          minimum: 1
+          maximum: 99999
           type: integer
       - name: adres__huisletter
         in: query
@@ -672,7 +673,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie]:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -3828,7 +3829,7 @@ components:
         einddatum:
           type: string
           format: date
-        eindatumRecht:
+        einddatumRecht:
           type: string
           format: date
         indicatieOorspronkelijkObject:
