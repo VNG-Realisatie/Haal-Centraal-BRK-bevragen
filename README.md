@@ -14,7 +14,7 @@ https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/master/CODE_OF_CONDUCT.md)
 
-* BRK bevragen: [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/openapi.yaml)
+* BRK bevragen: [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/BRK-Bevragen) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/genereervariant/openapi.yaml)
 
 * BRK Waardelijsten: [Technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/specificatie/Waardelijsten) (Open API Specificaties) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/Waardelijsten/openapi.yaml)
 
