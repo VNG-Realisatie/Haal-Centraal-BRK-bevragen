@@ -3834,8 +3834,6 @@ components:
           format: date
         indicatieOorspronkelijkObject:
           type: boolean
-        naamKavelruil:
-          type: string
         betreftGedeelteVanPerceel:
           type: boolean
         stukIdentificaties:
@@ -3860,10 +3858,10 @@ components:
       description: Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld.
         Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de
         gegevens in een basisregistratie.
-    AmbtelijkCorrectiegegevenID:
+    PortefeuilleId:
       type: object
       properties:
-        AKRregistercode:
+        akrRegistercode:
           $ref: '#/components/schemas/Waardelijst'
         akrStukdeel1:
           type: string
@@ -4183,11 +4181,8 @@ components:
       allOf:
       - $ref: '#/components/schemas/AbstractStuk'
       - properties:
-          indicatieCorrectie:
-            title: indicatieCorrectie
-            type: boolean
-          acgIdentificatie:
-            $ref: '#/components/schemas/AmbtelijkCorrectiegegevenID'
+          portefeuilleNummer:
+            $ref: '#/components/schemas/PortefeuilleId'
         description: Een Kadasterstuk is een document dat alleen door het Kadaster
           gebruikt wordt. Met dit document worden veranderingen aangebracht in de
           Basisregistratie Kadaster, maar het is niet terug te vinden in de openbare
