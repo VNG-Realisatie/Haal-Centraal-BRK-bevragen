@@ -930,7 +930,12 @@ components:
     AangebodenStuk:
       allOf:
       - $ref: "#/components/schemas/AbstractStuk"
-      - description: "Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie."
+      - description: "Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+
+
+          Waardelijsten in deze component :
+          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
+          [statusStukOpenbaarRegister](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
         properties:
           bewaardersVerklaring:
             type: "string"
@@ -968,6 +973,8 @@ components:
             $ref: "#/components/schemas/Kadasterverzoek"
     Aantekening:
       type: "object"
+      description: "Waardelijst in deze component :
+          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
       properties:
         identificatie:
           type: "string"
@@ -1012,11 +1019,15 @@ components:
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
     AmbtelijkCorrectiegegevenID:
       type: "object"
-      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen."
+      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
+
+
+        Waardelijst in deze component :
+          [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
       properties:
         AKRregistercode:
           $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+          description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
         akrStukdeel1:
           type: "string"
         akrStukdeel2:
@@ -1027,7 +1038,11 @@ components:
           type: "integer"
     Bedrag:
       type: "object"
-      description: "Hoeveelheid geld in cijfers in een bepaalde valuta."
+      description: "Hoeveelheid geld in cijfers in een bepaalde valuta.
+
+
+      Waardelijst in deze component :
+          [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)"
       properties:
         som:
           type: "number"
@@ -1038,7 +1053,11 @@ components:
           description: "Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta"
     Beslag:
       type: "object"
-      description: "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
+      description: "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+
+        Waardelijst in deze component :
+          [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
       properties:
         identificatie:
           type: "string"
@@ -1104,7 +1123,11 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     ErfpachtCanon:
       type: "object"
-      description: "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt."
+      description: "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
+
+
+        Waardelijst in deze component :
+          [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)"
       properties:
         soortErfpachtCanon:
           $ref: "#/components/schemas/Waardelijst"
@@ -1120,7 +1143,11 @@ components:
           type: "boolean"
     Geboorte:
       type: "object"
-      description: "Geboorte is een groep gegevens over de geboorte van een persoon."
+      description: "Geboorte is een groep gegevens over de geboorte van een persoon.
+
+
+      Waardelijst in deze component :
+          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       properties:
         plaats:
           type: "string"
@@ -1162,7 +1189,11 @@ components:
           $ref: "#/components/schemas/Naam"
     HeeftRedenVerzoek:
       type: "object"
-      description: "De reden om een stuk niet in te schrijven of om verbetering te vragen."
+      description: "De reden om een stuk niet in te schrijven of om verbetering te vragen.
+
+
+      Waardelijst in deze component :
+          [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)"
       properties:
         redenOmschrijving:
           type: "string"
@@ -1172,6 +1203,8 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)"
     Hypotheek:
       type: "object"
+      description: "Waardelijst in deze component :
+          [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
       properties:
         identificatie:
           type: "string"
@@ -1232,7 +1265,11 @@ components:
     KadasterNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
-      - description: "Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd."
+      - description: "Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+
+
+        Waardelijst in deze component :
+          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
         properties:
           geheimhoudingPersoonsgegevens:
             type: "boolean"
@@ -1275,7 +1312,11 @@ components:
     KadasterNietNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
-      - description: "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd."
+      - description: "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+
+
+        Waardelijst in deze component :
+          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)"
         properties:
           statutaireNaam:
             type: "string"
@@ -1309,7 +1350,11 @@ components:
     KadasterPersoon:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
-        - description: "Een in de basisregistratie kadaster geregistreerde persoon."
+        - description: "Een in de basisregistratie kadaster geregistreerde persoon.
+
+
+            Waardelijst in deze component :
+            [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
           properties:
             indicatieNietToonbareDiakriet:
               type: "boolean"
@@ -1361,7 +1406,11 @@ components:
             $ref: "#/components/schemas/AmbtelijkCorrectiegegevenID"
     Kadasterverzoek:
       type: "object"
-      description: "een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk."
+      description: "een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
+
+
+        Waardelijst in deze component :
+          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)"
       properties:
         aard:
           $ref: "#/components/schemas/Waardelijst"
@@ -1381,7 +1430,11 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaak:
       type: "object"
-      description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd."
+      description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.
+
+
+         Waardelijst in deze component :
+         [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
       properties:
         identificatie:
           type: "string"
@@ -1513,6 +1566,8 @@ components:
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
     Adres:
+      description: "Waardelijst in deze component :
+          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       properties:
         adresIdentificatie:
           type: string
@@ -1680,7 +1735,11 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Tenaamstelling:
       type: object
-      description: "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak."
+      description: "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
+
+
+      Waardelijst in deze component :
+          [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)"
       properties:
         aandeel:
           $ref: "#/components/schemas/TypeBreuk"
@@ -1722,6 +1781,8 @@ components:
         teller: 1
     TypeDeelEnNummer:
       type: "object"
+      description: "Waardelijst in deze component :
+          [soortregister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) , [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/) en [reeks](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)"
       properties:
         soortregister:
           $ref: "#/components/schemas/Waardelijst"
@@ -1775,7 +1836,11 @@ components:
       - "perceel"
     TypeKadastraleAanduiding:
       type: "object"
-      description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster"
+      description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster
+
+
+        Waardelijst in deze component :
+          [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)"
       properties:
         appartementsrechtVolgnummer:
           type: "integer"
@@ -1810,7 +1875,11 @@ components:
           type: "boolean"
     TypeOppervlak:
       type: "object"
-      description: "Oppervlakte"
+      description: "Oppervlakte
+
+
+      Waardelijst in deze component :
+          [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)"
       properties:
         soortGrootte:
           $ref: "#/components/schemas/Waardelijst"

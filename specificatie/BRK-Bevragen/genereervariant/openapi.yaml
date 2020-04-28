@@ -3782,8 +3782,10 @@ components:
             $ref: '#/components/schemas/HeeftAlsEquivalentieVerklaarder'
           ondertekenaar:
             $ref: '#/components/schemas/Ondertekenaar'
-        description: Een aangeboden brondocument dat aanleiding geeft tot een wijziging
-          van de gegevens in een basisregistratie.
+        description: |-
+          Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+
+          Waardelijsten in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en  [statusStukOpenbaarRegister](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
     AangebodenStuk_embedded:
       type: object
       properties:
@@ -3825,6 +3827,7 @@ components:
             Dit kan een aangeboden stuk of een Kadasterstuk zijn.
           items:
             type: string
+      description: 'Waardelijst in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
     AbstractStuk:
       type: object
       properties:
@@ -3852,8 +3855,9 @@ components:
           type: string
         volgnummerStaat75:
           type: integer
-      description: Een ambtelijk correctie gegeven is een kadasterstuk waarmee het
-        kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
+      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het\
+        \ kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.\
+        \ \n\nWaardelijst in deze component :  [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
     Bedrag:
       type: object
       properties:
@@ -3863,7 +3867,10 @@ components:
           format: float
         valuta:
           $ref: '#/components/schemas/Waardelijst'
-      description: Hoeveelheid geld in cijfers in een bepaalde valuta.
+      description: |-
+        Hoeveelheid geld in cijfers in een bepaalde valuta.
+
+        Waardelijst in deze component :  [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
     Beslag:
       type: object
       properties:
@@ -3894,8 +3901,10 @@ components:
             Stuk of een Kadasterstuk zijn.
           items:
             type: string
-      description: Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk
-        gerechtigde niets met de kadastraal onroerende zaak kan doen.
+      description: |-
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+        Waardelijst in deze component :  [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
@@ -3936,8 +3945,10 @@ components:
           format: date
         indicatieOudeOnroerendeZaakBetrokken:
           type: boolean
-      description: Het bedrag dat een erfpachter moet betalen aan de eigenaar van
-        een stuk grond omdat hij zijn grond gebruikt.
+      description: |-
+        Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
+
+        Waardelijst in deze component :  [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
     Geboorte:
       type: object
       properties:
@@ -3950,7 +3961,10 @@ components:
           $ref: '#/components/schemas/Datum_onvolledig'
         land:
           $ref: '#/components/schemas/Waardelijst'
-      description: Geboorte is een groep gegevens over de geboorte van een persoon.
+      description: |-
+        Geboorte is een groep gegevens over de geboorte van een persoon.
+
+        Waardelijst in deze component :  [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
     Geslacht_enum:
       type: string
       description: |-
@@ -3994,8 +4008,10 @@ components:
             reden is voor _overig_ gekozen.
         reden:
           $ref: '#/components/schemas/Waardelijst'
-      description: De reden om een stuk niet in te schrijven of om verbetering te
-        vragen.
+      description: |-
+        De reden om een stuk niet in te schrijven of om verbetering te vragen.
+
+        Waardelijst in deze component :  [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
     Hypotheek:
       type: object
       properties:
@@ -4024,6 +4040,7 @@ components:
             Stuk of een Kadasterstuk zijn.
           items:
             type: string
+      description: 'Waardelijst in deze component :  [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)'
     HypotheekHal:
       allOf:
       - $ref: '#/components/schemas/Hypotheek'
@@ -4069,9 +4086,10 @@ components:
             $ref: '#/components/schemas/Geboorte'
           overlijden:
             $ref: '#/components/schemas/Overlijden'
-        description: Een bij het kadaster geregistreerde natuurlijke persoon die niet
-          in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen
-          worden niet geactualiseerd.
+        description: |-
+          Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+
+          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
     KadasterNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
@@ -4099,9 +4117,10 @@ components:
             type: string
           rsin:
             type: string
-        description: Een bij het kadaster geregistreerde niet natuurlijke persoon,
-          al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen
-          worden niet geactualiseerd.
+        description: |-
+          Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+
+          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
     KadasterNietNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
@@ -4140,7 +4159,10 @@ components:
             type: array
             items:
               type: string
-        description: Een in de basisregistratie kadaster geregistreerde persoon.
+        description: |-
+          Een in de basisregistratie kadaster geregistreerde persoon.
+
+          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     KadasterPersoon_links:
       type: object
       properties:
@@ -4183,8 +4205,10 @@ components:
             $ref: '#/components/schemas/HeeftRedenVerzoek'
         _links:
           $ref: '#/components/schemas/Kadasterverzoek_links'
-      description: een verzoek om verbetering van een aangeboden stuk, of om de aanbieder
-        te wijzen op het niet inschrijven van het stuk.
+      description: |-
+        een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
+
+        Waardelijst in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
     Kadasterverzoek_links:
       type: object
       properties:
@@ -4244,12 +4268,13 @@ components:
             op deze kadastaraal onroerende zaak
           items:
             type: string
-      description: Een kadastraal onroerende zaak is een perceel of een appartementsrecht.
-        Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten
-        en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het
-        recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel
-        van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een
-        appartement genoemd.
+      description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht.\
+        \ Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten\
+        \ en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is\
+        \ het recht dat iemand of een organisatie heeft om eigenaar te zijn van een\
+        \ deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal\
+        \ een appartement genoemd.\n\nWaardelijst in deze component :  [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
+        \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
@@ -4389,6 +4414,7 @@ components:
           example: Selangor
         land:
           $ref: '#/components/schemas/Waardelijst'
+      description: 'Waardelijst in deze component :  [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       example:
         adresIdentificatie: "1234207890123456"
         huisnummer: 26
@@ -4528,8 +4554,10 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-      description: Een registratie van (een aandeel in) een zakelijk recht dat een
-        persoon heeft, dat rust op een kadastraal onroerende zaak.
+      description: |-
+        Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
+
+        Waardelijst in deze component :  [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
     TypeBreuk:
       type: object
       properties:
@@ -4557,6 +4585,9 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         reeks:
           $ref: '#/components/schemas/Waardelijst'
+      description: 'Waardelijst in deze component :  [soortregister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+        , [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+        en [reeks](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)'
     TypeGerechtigde_enum:
       type: string
       description: |-
@@ -4623,8 +4654,10 @@ components:
             om het werk van de meetdienst en de kadastrale kaarten overzichtelijk
             te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke sectie
             heeft een of twee letters
-      description: Kadastrale aanduiding is de unieke aanduiding van een onroerende
-        zaak door het Kadaster
+      description: |-
+        Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster
+
+        Waardelijst in deze component :  [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)
     TypeKoopsom:
       type: object
       properties:
@@ -4642,7 +4675,10 @@ components:
         waarde:
           type: integer
           description: Oppervlak grootte, in vierkante meters
-      description: Oppervlakte
+      description: |-
+        Oppervlakte
+
+        Waardelijst in deze component :  [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
     TypePerceelnummerVerschuiving:
       type: object
       properties:
