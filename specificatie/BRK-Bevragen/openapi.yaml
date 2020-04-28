@@ -1075,6 +1075,9 @@ components:
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
+        aantekening:
+          $ref: "#/components/schemas/Aantekening"
+          description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor."
         beslaglegger:
           $ref: "#/components/schemas/PersoonBeperkt"
           description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
@@ -1217,6 +1220,9 @@ components:
           description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
         betreftGedeelteVanPerceel:
           type: "boolean"
+        aantekening:
+          $ref: "#/components/schemas/Aantekening"
+          description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak."
         hypotheekhouder:
           $ref: "#/components/schemas/PersoonBeperkt"
           description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
@@ -1745,6 +1751,7 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)"
         aantekening:
           $ref: "#/components/schemas/Aantekening"
+          description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
           description: "Wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is."

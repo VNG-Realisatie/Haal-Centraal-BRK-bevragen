@@ -3891,6 +3891,8 @@ components:
             en de basisregistratie Kadaster conform de Kadasterwet.
         aard:
           $ref: '#/components/schemas/Waardelijst'
+        aantekening:
+          $ref: '#/components/schemas/Aantekening'
         beslaglegger:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukIdentificaties:
@@ -4028,6 +4030,8 @@ components:
             en de basisregistratie Kadaster conform de Kadasterwet.
         betreftGedeelteVanPerceel:
           type: boolean
+        aantekening:
+          $ref: '#/components/schemas/Aantekening'
         hypotheekhouder:
           $ref: '#/components/schemas/PersoonBeperkt'
         stukIdentificaties:
