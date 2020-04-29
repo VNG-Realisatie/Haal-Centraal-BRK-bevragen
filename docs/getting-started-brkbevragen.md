@@ -36,13 +36,13 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.56020234070000   |Odoorn:717 N 2340         |9573PA 3               |<ul><li>1 artikel5_3b</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.23280647970000   |Loosduinen:561 H 6479     |2551XS 31              ||
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.65490485370000   |Hellendoorn:395 G 4853    |7441JC 1 a             |<ul><li>bevat huisletter</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.24780711870000   |Voorschoten:1040 B 7118   |2252EB 16              ||
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.24780711870000   |Voorschoten:1040 B 7118   |2252EB 16              |<ul><li>betrokkenGorzenEnAanwassen</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              ||
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.22590043870000   |'s Gravenhage:881 AW 438  |2545NN 182             |<ul><li>1 erfpachter</li></ul>|
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.22590043870000   |'s Gravenhage:881 AW 438  |2545NN 182             |<ul><li>1 erfpachter</li><li>betrokkenSamenwerkingsverband</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               ||
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.19560032970000   |Rotterdam:841 AF 329      |3011KD 72              ||
-2 eigenaren (Ingeschreven Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.17550448670000   |Kralingen:501 C 4486      |3066VS 9               ||
+2 eigenaren (Ingeschreven Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li></ul>|
 
 #### Natuurlijke Personen
 Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheden        |
