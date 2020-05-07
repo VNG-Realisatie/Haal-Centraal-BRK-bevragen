@@ -3,11 +3,11 @@ De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI Specifications
 
 ## OAS specificatie
 De (resolved) OAS specificatie is hier te downloaden:<br/>
-[openapi.yaml](../specificatie/BRK-Bevragen/APILAB2603/genereervariant/openapi.yaml)
+[openapi.yaml](../specificatie/BRK-Bevragen/genereervariant/openapi.yaml)
 
 ## URL
 De API is te benaderen via de volgende url: <br/>
-https://api.kadaster.nl/esd/gemeenten/brk/
+https://api.brk.kadaster.nl/esd/bevragen/v1/
 
 ## Connectiviteit
 [TODO; apiKey / TLS / OAuth????]
@@ -41,26 +41,24 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 
 ### Algemeen
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
-- Gebruik van de fields parameter om de response te filteren.*
+- Gebruik van de fields parameter om de response te filteren.* (Zie feature [fields](../../Haal-Centraal-common/features/fields.feature))
 
-<i>* Let op: voor bepaalde resources zijn een aantal velden die altijd verplicht worden geleverd. Deze worden hieronder opgesomd per resource.</i>
+<i>* LET OP: <br/> voor bepaalde resources zijn een aantal velden die altijd verplicht worden geleverd. Deze worden hieronder opgesomd per resource.</i>
 
-|Resource                    |Veld                          |
-|:---                        |:---                          |
-|KadastraalOnroerendeZaak    |identificatie                 |
-|                            |typekadastraalonroerendezaak  |
-|ZakelijkGerechtigde         |identificatie                 |
-|                            |typegerechtigde               |
-|Aantekening                 |identificatie                 |                                       
+|Resource                       |Veld                   | 
+|:---                           |:---                   |                         
+|KadastraalOnroerendeZaak       |identificatie<br/>type |
+|ZakelijkGerechtigde            |identificatie          |               
+|KadasterNatuurlijkPersoon      |identificatie          |                                                       
+|KadasterNietNatuurlijkPersoon  |identificatie          |                                                        
 
-<i>Daarnaast zijn er ook voor bepaalde gegevensgroepen velden die altijd worden teruggegeven, ongeacht of je deze gefilterd hebt middels het fields parameter:</i>
-
-|Gegevensgroep               |Veld                          |
-|:---                        |:---                          |
-|Koopsom                     |koopsom                       |
-|                            |koopjaar                      |
-                   
-- Gebruik van de expand parameter om subresources te ontsluiten. ** 
+<i>Daarnaast bestaan er nog uitzonderingen voor bepaalde combinaties van velden:</i>
+   
+|Resource                   |Velden                                                         |Subresource                   |
+|:---                       |:---                                                           |:---                          |
+|KadastraalOnroerendeZaak   |Koopsom & <br/>CultuurcodeBebouwd en/of CultuurcodeOnbebouwd      |[koopsom](rtrtTODO)           |   
+        
+- Gebruik van de expand parameter om subresources te ontsluiten. ** (Zie feature [expand](../../Haal-Centraal-common/features/expand.feature)) 
 
 <i>** Let op: dit is alleen mogelijk voor de volgende resources:</i>
 
