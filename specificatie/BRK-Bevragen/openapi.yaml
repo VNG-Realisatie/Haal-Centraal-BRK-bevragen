@@ -1470,7 +1470,7 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        adresIdentificaties:
+        nummeraanduidingIdentificaties:
           type: "array"
           description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
           items:
@@ -1574,7 +1574,7 @@ components:
       description: "Waardelijst in deze component :
           [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       properties:
-        adresIdentificatie:
+        nummeraanduidingIdentificatie:
           type: string
           description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
         huisnummer:
@@ -1621,7 +1621,7 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       example:
-        adresIdentificatie: "1234207890123456"
+        nummeraanduidingIdentificatie: "1234207890123456"
         huisnummer: 26
         huisletter: "A"
         huisnummerToevoeging: "3"
