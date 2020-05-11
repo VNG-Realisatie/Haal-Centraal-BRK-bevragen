@@ -1892,10 +1892,10 @@ components:
       description: "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen."
       properties:
         deltax:
-          type: "integer"
+          type: "number"
           description: "Verschuiving op de X as."
         deltay:
-          type: "integer"
+          type: "number"
           description: "Verschuiving op de Y as."
     Waardelijst:
       type: "object"
