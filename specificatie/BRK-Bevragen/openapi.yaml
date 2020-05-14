@@ -107,7 +107,8 @@ paths:
           required: false
           schema:
             type: integer
-            pattern: "^[1-9][0-9]{0,4}$"
+            minimum: 1
+            maximum: 99999
         - in: query
           name: adres__huisletter
           description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
@@ -121,7 +122,7 @@ paths:
           required: false
           schema:
             type: string
-            pattern: "^([a-z,A-Z,0-9])+$"
+            pattern: "^([a-z,A-Z,0-9]){1,4}$"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1465,7 +1466,7 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        adresIdentificaties:
+        nummeraanduidingIdentificaties:
           type: "array"
           description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
           items:
@@ -1569,7 +1570,7 @@ components:
       description: "Waardelijst in deze component :
           [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       properties:
-        adresIdentificatie:
+        nummeraanduidingIdentificatie:
           type: string
           description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
         huisnummer:
@@ -1616,7 +1617,7 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       example:
-        adresIdentificatie: "1234207890123456"
+        nummeraanduidingIdentificatie: "1234207890123456"
         huisnummer: 26
         huisletter: "A"
         huisnummerToevoeging: "3"
@@ -1892,10 +1893,10 @@ components:
       description: "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen."
       properties:
         deltax:
-          type: "integer"
+          type: "number"
           description: "Verschuiving op de X as."
         deltay:
-          type: "integer"
+          type: "number"
           description: "Verschuiving op de Y as."
     Waardelijst:
       type: "object"
