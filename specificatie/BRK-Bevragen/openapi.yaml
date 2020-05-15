@@ -40,10 +40,21 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: kadastraleaanduiding
-          description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is Kadastrale gemeente, perceelnummer, sectie en indien van toepassing appartementsrechtvolgnummer. "
+          description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+
+            - [Code Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/), 5 karakters zie kolom toelichting in waardelijst.
+
+            - perceelnummer, 5 cijfers gevuld met het perceelnummer met eventueel voorloopnullen als de waarde onder 10000 is
+
+            - sectie,  2 karakters
+
+            - appartementsrechtVolgnummer, 4 cijfers met het appartementsrechtvolgnummer met eventueel voorloopnullen als de waarde onder 1000 is en 0000 indien er geen appartementsrechtvolgnummer is."
+
           schema:
             type: "string"
+            minLength: 16
             maxLength: 16
+            pattern: "^[A-Z]{3}[0-9]{2}[0-9]{5}[0-9a-zA-Z]{2}[0-9]{4}$"
         - in: query
           name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
