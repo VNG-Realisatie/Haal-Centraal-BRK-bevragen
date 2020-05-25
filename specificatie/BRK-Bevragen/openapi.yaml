@@ -1004,8 +1004,6 @@ components:
           format: "date"
         indicatieOorspronkelijkObject:
           type: "boolean"
-        naamKavelruil:
-          type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
         stukIdentificaties:
@@ -1022,7 +1020,7 @@ components:
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
-    AmbtelijkCorrectiegegevenID:
+    PortefeuilleID:
       type: "object"
       description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
 
@@ -1405,10 +1403,8 @@ components:
       - $ref: "#/components/schemas/AbstractStuk"
       - description: "Een Kadasterstuk is een document dat alleen door het Kadaster gebruikt wordt. Met dit document worden veranderingen aangebracht in de Basisregistratie Kadaster, maar het is niet terug te vinden in de openbare registers."
         properties:
-          indicatieCorrectie:
-            type: "boolean"
-          acgIdentificatie:
-            $ref: "#/components/schemas/AmbtelijkCorrectiegegevenID"
+          portefeuilleNummer:
+            $ref: "#/components/schemas/PortefeuilleID"
     Kadasterverzoek:
       type: "object"
       description: "een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
