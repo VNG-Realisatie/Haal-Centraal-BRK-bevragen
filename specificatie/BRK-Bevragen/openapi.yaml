@@ -1011,6 +1011,12 @@ components:
           description: "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn."
           items:
             type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          $ref: "#/components/schemas/Stukdeel"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Stukdeel"
     AbstractStuk:
       type: "object"
       description: "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie."
@@ -1020,6 +1026,10 @@ components:
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Stukdeel"
     PortefeuilleId:
       type: "object"
       description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
@@ -1144,6 +1154,12 @@ components:
           format: "date"
         indicatieOudeOnroerendeZaakBetrokken:
           type: "boolean"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/Stukdeel"
+        isVermeldInStukdeel:
+          type: "array"
+          items:
+           $ref: "#/components/schemas/Stukdeel"
     Geboorte:
       type: "object"
       description: "Geboorte is een groep gegevens over de geboorte van een persoon.
@@ -1504,10 +1520,29 @@ components:
     KadastraalOnroerendeZaak_embedded:
       type: "object"
       properties:
+        adressen:
+          type: "array"
+          description: "Dit is een link naar het adres van de objectlocatie van de Kadastraal Onroerende Zaak."
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Adres"
         zakelijkGerechtigden:
           type: "array"
           items:
             $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/AangebodenStuk"
+        onroerendeZaakFiliatie:
+          type: "array"
+          description: "Dit is een link naar filiaties die deze Kadastraal Onroerende Zaak betreffen."
+          items:
+            $ref: "#/components/schemas/OnroerendeZaakFiliatie"
+        voorwaartseOnroerendeZaakFiliatie:
+          type: "array"
+          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
+          items:
+            $ref: "#/components/schemas/VoorwaartseOnroerendeZaakFiliatie"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
@@ -1524,6 +1559,16 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        onroerendeZaakFiliatie:
+          type: "array"
+          description: "Dit is een link naar filiaties die deze Kadastraal Onroerende Zaak betreffen."
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        voorwaartseOnroerendeZaakFiliatie:
+          type: "array"
+          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Naam:
@@ -1657,6 +1702,22 @@ components:
             standplaats:
               type: "string"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
+    OnroerendeZaakFiliatie:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+        aard:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
+        overgangsgrootte:
+          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
+          type: "integer"
+          example: 220
+        kadastraalOnroerendeZaakIdentificaties:
+          description: "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en) waar deze Kadastraal Onroerende Zaak uit is ontstaan."
+          type: "array"
+          items:
+            type: "string"
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
@@ -1713,6 +1774,30 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Stukdeel:
+      type: object
+      description: "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt."
+      properties:
+        identificatie:
+          type: "string"
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
+        bedragTransactiesomLevering:
+          $ref: "#/components/schemas/Bedrag"
+        bedragVorderingsbeslag:
+          $ref: "#/components/schemas/Bedrag"
+        bedragZekerheidsstellingHypotheek:
+          $ref: "#/components/schemas/Bedrag"
+        omschrijvingGekozenWoonplaats:
+            type: "string"
+        omschrijvingKadastraleObjecten:
+            type: "string"
+        omschrijvingToptgrafischeMutatie:
+            type: "string"
+        redenDoorhalingTeboekstelling:
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
     StukHal:
       type: object
       description: "Een stuk is een document waaruit een wijziging in de BRK blijkt.\
@@ -1762,6 +1847,12 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/Stukdeel"
+        isVermeldInStukdeel:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Stukdeel"
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
@@ -1898,6 +1989,22 @@ components:
         deltay:
           type: "number"
           description: "Verschuiving op de Y as."
+    VoorwaartseOnroerendeZaakFiliatie:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+        aard:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
+        overgangsgrootte:
+          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
+          type: "integer"
+          example: 220
+        kadastraalOnroerendeZaakIdentificaties:
+          description: "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en) waar deze Kadastraal Onroerende Zaak in is overgegaan."
+          type: "array"
+          items:
+            type: "string"
     Waardelijst:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
@@ -1929,6 +2036,20 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
+        mandeligheid:
+          properties:
+            identificatie:
+              type: "string"
+            heeftHoofdKadastraalOnroerendeZaakIdntificaties:
+              type: "array"
+              items:
+                type: "string"
+            isGebaseerdOpStukdeelIdentificatie:
+              $ref: "#/components/schemas/Stukdeel"
+            isVermeldInStukdeelIdentificaties:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/Stukdeel"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
     ZakelijkGerechtigdeHal:
