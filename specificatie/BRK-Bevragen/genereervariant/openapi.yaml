@@ -49,9 +49,10 @@ paths:
         required: false
         schema:
           type: string
-          default: epsg:4258
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          default: epsg:28992
           enum:
-          - epsg:4258
           - epsg:28992
       - name: expand
         in: query
@@ -173,8 +174,8 @@ paths:
         style: form
         explode: true
         schema:
-          minimum: 1
           maximum: 99999
+          minimum: 1
           type: integer
       - name: adres__huisletter
         in: query
@@ -194,7 +195,7 @@ paths:
         style: form
         explode: true
         schema:
-          pattern: ^([a-z,A-Z,0-9])+$
+          pattern: ^([a-z,A-Z,0-9]){1,4}$
           type: string
       responses:
         "200":
@@ -202,6 +203,8 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
             X-Rate-Limit-Limit:
@@ -232,7 +235,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -425,9 +428,10 @@ paths:
         required: false
         schema:
           type: string
-          default: epsg:4258
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          default: epsg:28992
           enum:
-          - epsg:4258
           - epsg:28992
       - name: expand
         in: query
@@ -455,6 +459,8 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
             X-Rate-Limit-Limit:
@@ -485,7 +491,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -744,7 +750,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -1004,7 +1010,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -1254,7 +1260,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -1503,7 +1509,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -1755,7 +1761,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -2008,7 +2014,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -2267,7 +2273,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -2515,7 +2521,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -2764,7 +2770,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -3039,7 +3045,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -3287,7 +3293,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -3562,7 +3568,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -3786,7 +3792,7 @@ components:
         description: |-
           Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
 
-          Waardelijsten in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en  [statusStukOpenbaarRegister](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
+          Waardelijsten in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en [statusStukOpenbaarRegister](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
     AangebodenStuk_embedded:
       type: object
       properties:
@@ -3826,7 +3832,7 @@ components:
             Dit kan een aangeboden stuk of een Kadasterstuk zijn.
           items:
             type: string
-      description: 'Waardelijst in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
+      description: 'Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
     AbstractStuk:
       type: object
       properties:
@@ -3854,9 +3860,10 @@ components:
           type: string
         volgnummerStaat75:
           type: integer
-      description: "Een portefeuille is een kadasterstuk waarmee het\
-        \ kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.\
-        \ \n\nWaardelijst in deze component :  [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+      description: |-
+        Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
+
+        Waardelijst in deze component : [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)
     Bedrag:
       type: object
       properties:
@@ -3869,7 +3876,7 @@ components:
       description: |-
         Hoeveelheid geld in cijfers in een bepaalde valuta.
 
-        Waardelijst in deze component :  [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
+        Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
     Beslag:
       type: object
       properties:
@@ -3903,7 +3910,7 @@ components:
       description: |-
         Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
 
-        Waardelijst in deze component :  [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+        Waardelijst in deze component : [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
@@ -3947,7 +3954,7 @@ components:
       description: |-
         Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
 
-        Waardelijst in deze component :  [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
+        Waardelijst in deze component : [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
     Geboorte:
       type: object
       properties:
@@ -3963,7 +3970,7 @@ components:
       description: |-
         Geboorte is een groep gegevens over de geboorte van een persoon.
 
-        Waardelijst in deze component :  [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+        Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
     Geslacht_enum:
       type: string
       description: |-
@@ -4010,7 +4017,7 @@ components:
       description: |-
         De reden om een stuk niet in te schrijven of om verbetering te vragen.
 
-        Waardelijst in deze component :  [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
+        Waardelijst in deze component : [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
     Hypotheek:
       type: object
       properties:
@@ -4039,7 +4046,7 @@ components:
             Stuk of een Kadasterstuk zijn.
           items:
             type: string
-      description: 'Waardelijst in deze component :  [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)'
+      description: 'Waardelijst in deze component : [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)'
     HypotheekHal:
       allOf:
       - $ref: '#/components/schemas/Hypotheek'
@@ -4088,7 +4095,7 @@ components:
         description: |-
           Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
 
-          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
     KadasterNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
@@ -4119,7 +4126,7 @@ components:
         description: |-
           Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
-          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
     KadasterNietNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
@@ -4161,7 +4168,7 @@ components:
         description: |-
           Een in de basisregistratie kadaster geregistreerde persoon.
 
-          Waardelijst in deze component :  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     KadasterPersoon_links:
       type: object
       properties:
@@ -4205,7 +4212,7 @@ components:
       description: |-
         een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
 
-        Waardelijst in deze component :  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
+        Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
     Kadasterverzoek_links:
       type: object
       properties:
@@ -4246,7 +4253,7 @@ components:
           $ref: '#/components/schemas/TypeOppervlak'
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
-        adresIdentificaties:
+        nummeraanduidingIdentificaties:
           type: array
           description: Identificatie van een adres uit de basisregistratie adressen
             en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om
@@ -4270,7 +4277,7 @@ components:
         \ en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is\
         \ het recht dat iemand of een organisatie heeft om eigenaar te zijn van een\
         \ deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal\
-        \ een appartement genoemd.\n\nWaardelijst in deze component :  [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
+        \ een appartement genoemd.\n\nWaardelijst in deze component : [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
         \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
     KadastraalOnroerendeZaakHal:
       allOf:
@@ -4363,7 +4370,7 @@ components:
       - kadaster_niet_natuurlijk_persoon
     Adres:
       properties:
-        adresIdentificatie:
+        nummeraanduidingIdentificatie:
           type: string
           description: identificatie van het adres in het geval dit adres in BAG geregistreerd
             is.
@@ -4411,9 +4418,9 @@ components:
           example: Selangor
         land:
           $ref: '#/components/schemas/Waardelijst'
-      description: 'Waardelijst in deze component :  [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
+      description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       example:
-        adresIdentificatie: "1234207890123456"
+        nummeraanduidingIdentificatie: "1234207890123456"
         huisnummer: 26
         huisletter: A
         huisnummerToevoeging: "3"
@@ -4459,12 +4466,12 @@ components:
       properties:
         identificatie:
           type: string
-          description: 'Unieke identificatie voor de persoon. Voor een Kadasterpersoon
+          description: Unieke identificatie voor de persoon. Voor een Kadasterpersoon
             is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
             een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor
-            een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in
-            identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie
-            is kan worden afgeleid uit het type persoon.'
+            een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde
+            in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie
+            is kan worden afgeleid uit het type persoon.
         omschrijving:
           type: string
           description: Voor mensen leesbare, herkenbare en identificerende omschrijving
@@ -4557,7 +4564,7 @@ components:
       description: |-
         Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
 
-        Waardelijst in deze component :  [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
+        Waardelijst in deze component : [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
     TypeBreuk:
       type: object
       properties:
@@ -4585,7 +4592,7 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         reeks:
           $ref: '#/components/schemas/Waardelijst'
-      description: 'Waardelijst in deze component :  [soortregister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+      description: 'Waardelijst in deze component : [soortregister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
         , [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
         en [reeks](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)'
     TypeGerechtigde_enum:
@@ -4657,7 +4664,7 @@ components:
       description: |-
         Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster
 
-        Waardelijst in deze component :  [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)
+        Waardelijst in deze component : [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)
     TypeKoopsom:
       type: object
       properties:
@@ -4678,15 +4685,15 @@ components:
       description: |-
         Oppervlakte
 
-        Waardelijst in deze component :  [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
+        Waardelijst in deze component : [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
     TypePerceelnummerVerschuiving:
       type: object
       properties:
         deltax:
-          type: integer
+          type: number
           description: Verschuiving op de X as.
         deltay:
-          type: integer
+          type: number
           description: Verschuiving op de Y as.
       description: Verschuiving van het perceelnummer ten behoeve van visualisatie
         op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
@@ -4974,6 +4981,14 @@ components:
         description: Geeft een specifieke API-versie aan in de context van een specifieke
           aanroep.
         example: 1.0.0
+    contentCrs:
+      description: CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New
+        Nederlands coordinatenstelsel.
+      schema:
+        type: string
+        default: epsg:28992
+        enum:
+        - epsg:28992
     warning:
       schema:
         type: string
