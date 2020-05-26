@@ -999,7 +999,7 @@ components:
         einddatum:
           type: "string"
           format: "date"
-        eindatumRecht:
+        einddatumRecht:
           type: "string"
           format: "date"
         indicatieOorspronkelijkObject:
@@ -1020,7 +1020,7 @@ components:
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
-    PortefeuilleID:
+    PortefeuilleId:
       type: "object"
       description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
 
@@ -1028,7 +1028,7 @@ components:
         Waardelijst in deze component :
           [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
       properties:
-        AKRregistercode:
+        akrRegistercode:
           $ref: "#/components/schemas/Waardelijst"
           description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
         akrStukdeel1:
@@ -1404,7 +1404,7 @@ components:
       - description: "Een Kadasterstuk is een document dat alleen door het Kadaster gebruikt wordt. Met dit document worden veranderingen aangebracht in de Basisregistratie Kadaster, maar het is niet terug te vinden in de openbare registers."
         properties:
           portefeuilleNummer:
-            $ref: "#/components/schemas/PortefeuilleID"
+            $ref: "#/components/schemas/PortefeuilleId"
     Kadasterverzoek:
       type: "object"
       description: "een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
