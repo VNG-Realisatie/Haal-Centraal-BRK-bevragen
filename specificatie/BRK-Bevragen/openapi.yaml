@@ -1421,6 +1421,9 @@ components:
         properties:
           portefeuilleNummer:
             $ref: "#/components/schemas/PortefeuilleId"
+          OorspronkelijkStukIdentificatie:
+            description: "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
+            type: "string"
     Kadasterverzoek:
       type: "object"
       description: "een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
