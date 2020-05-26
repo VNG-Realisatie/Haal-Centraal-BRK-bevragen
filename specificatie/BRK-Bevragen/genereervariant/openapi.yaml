@@ -3818,7 +3818,7 @@ components:
         einddatum:
           type: string
           format: date
-        eindatumRecht:
+        einddatumRecht:
           type: string
           format: date
         indicatieOorspronkelijkObject:
@@ -3847,10 +3847,10 @@ components:
       description: Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld.
         Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de
         gegevens in een basisregistratie.
-    PortefeuilleID:
+    PortefeuilleId:
       type: object
       properties:
-        AKRregistercode:
+        akrRegistercode:
           $ref: '#/components/schemas/Waardelijst'
         akrStukdeel1:
           type: string
@@ -4191,7 +4191,7 @@ components:
       - $ref: '#/components/schemas/AbstractStuk'
       - properties:
           portefeuilleNummer:
-            $ref: '#/components/schemas/PortefeuilleID'
+            $ref: '#/components/schemas/PortefeuilleId'
         description: Een Kadasterstuk is een document dat alleen door het Kadaster
           gebruikt wordt. Met dit document worden veranderingen aangebracht in de
           Basisregistratie Kadaster, maar het is niet terug te vinden in de openbare
