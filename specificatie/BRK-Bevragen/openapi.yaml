@@ -1475,11 +1475,15 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        nummeraanduidingIdentificaties:
+#        nummeraanduidingIdentificaties:
+#          type: "array"
+#          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
+#          items:
+#            type: "string"
+        locatieKadastraalObject:
           type: "array"
-          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
           items:
-            type: "string"
+            $ref: "#/components/schemas/LocatieKadastraalObject"
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1564,6 +1568,20 @@ components:
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Koppelingswijze_enum:
+      type: "string"
+      description: "Koppelingswijze is de beschrijving van de manier waarop de koppeling tussen het Kadastraalobject (Perceel of Appartementsrecht) met ObjectlocatieBinnenland bepaald is. De koppeling kan administratief bepaald zijn op basis van overeenkomstige adresgegevens en of geometrisch bepaald zijn, op basis van overeenkomstige geometrie."
+      enum:
+      - "Administratief"
+      - "Geometrisch"
+      - "Administratief en Geometrisch"
+    LocatieKadastraalObject:
+      type: "object"
+      properties:
+        nummeraanduidingIdentificatie:
+          type: "string"
+        koppelingswijze:
+          $ref: "#/components/schemas/Koppelingswijze_enum"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
