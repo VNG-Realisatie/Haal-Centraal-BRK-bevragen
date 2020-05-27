@@ -1030,25 +1030,13 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Stukdeel"
-    PortefeuilleId:
-      type: "object"
-      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
-
-
-        Waardelijst in deze component :
-          [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+    AppartementsrechtSplitsing:
+      type: object
       properties:
-        akrRegistercode:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
-        akrStukdeel1:
-          type: "string"
-        akrStukdeel2:
-          type: "string"
-        akrStukdeel3:
-          type: "string"
-        volgnummerStaat75:
-          type: "integer"
+        identificatie:
+          type: string
+        typeSplitsing:
+          $ref: "#/components/schemas/TypeSplitsing_enum"
     Bedrag:
       type: "object"
       description: "Hoeveelheid geld in cijfers in een bepaalde valuta.
@@ -1753,6 +1741,25 @@ components:
       - "kadaster_natuurlijk_persoon"
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
+    PortefeuilleId:
+      type: "object"
+      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
+
+
+        Waardelijst in deze component :
+          [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+      properties:
+        akrRegistercode:
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
+        akrStukdeel1:
+          type: "string"
+        akrStukdeel2:
+          type: "string"
+        akrStukdeel3:
+          type: "string"
+        volgnummerStaat75:
+          type: "integer"
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -2001,6 +2008,14 @@ components:
         deltay:
           type: "number"
           description: "Verschuiving op de Y as."
+    TypeSplitsing_enum:
+      type: "string"
+      description: "en appartementsrechtsplitsing is het in appartementsrechten gesplitste Zakelijk recht van 1 of meer kadastrale objecten"
+      enum:
+      - "Hoofdsplitsing"
+      - "Ondersplitsing"
+      - "SpiegelsplitsingAfkoopErfpacht"
+      - "SpiegelsplitsingOndersplitsing"
     VoorwaartseOnroerendeZaakFiliatie:
       type: "object"
       properties:
@@ -2064,6 +2079,12 @@ components:
                 $ref: "#/components/schemas/Stukdeel"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
+        isOntstaanUitAppartementsrechtSplitsing:
+          $ref: "#/components/schemas/AppartementsrechtSplitsing"
+        isBetrokkenBijAppartementsrechtSplitsing:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppartementsrechtSplitsing"
     ZakelijkGerechtigdeHal:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
