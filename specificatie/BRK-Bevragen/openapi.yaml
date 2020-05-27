@@ -1037,6 +1037,14 @@ components:
           type: string
         typeSplitsing:
           $ref: "#/components/schemas/TypeSplitsing_enum"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/Stukdeel"
+        isVermeldInStukdeel:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Stukdeel"
+        verenigingVanEigenaren:
+          $ref: "#/components/schemas/PersoonBeperkt"
     Bedrag:
       type: "object"
       description: "Hoeveelheid geld in cijfers in een bepaalde valuta.
@@ -1496,6 +1504,23 @@ components:
           description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
           items:
             type: string
+        verkavelObject:
+          type: "object"
+          properties:
+            afwijkingLijstRechthebbenden:
+              type: "boolean"
+            herverkavelingsGebied:
+              type: "object"
+              properties:
+                identificatie:
+                  type: "string"
+                bloknummer:
+                  type: "integer"
+                naamHerverkavelingsproject:
+                  type: "string"
+                statusHerverkavelingsProject:
+                  $ref: "#/components/schemas/Waardelijst"
+                  description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusHerverkavelingsproject/)"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
