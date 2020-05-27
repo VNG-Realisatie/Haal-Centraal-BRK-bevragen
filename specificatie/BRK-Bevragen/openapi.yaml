@@ -1479,6 +1479,8 @@ components:
         aardCultuurOnbebouwd:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)"
+        landinrichtingsrente:
+          $ref: "#/components/schemas/TypeLandinrichtingsrente"
         kadastraleAanduiding:
           $ref: "#/components/schemas/TypeKadastraleAanduiding"
         kadastraleGrootte:
@@ -1968,6 +1970,13 @@ components:
           type: "integer"
         indicatieMetMeerObjectenVerkregen:
           type: "boolean"
+    TypeLandinrichtingsrente:
+      type: "object"
+      properties:
+        bedrag:
+          $ref: "#/components/schemas/Bedrag"
+        eindjaar:
+          type: "integer"
     TypeOppervlak:
       type: "object"
       description: "Oppervlakte
