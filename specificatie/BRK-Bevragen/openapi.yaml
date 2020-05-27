@@ -1130,6 +1130,8 @@ components:
         Waardelijst in deze component :
           [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)"
       properties:
+        identificatie:
+          type: "string"
         soortErfpachtCanon:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)"
