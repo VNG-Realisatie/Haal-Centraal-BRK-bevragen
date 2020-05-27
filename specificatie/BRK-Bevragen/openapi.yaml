@@ -2076,6 +2076,9 @@ components:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
+        toelichtingBewaarder:
+          type: "string"
+          description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
