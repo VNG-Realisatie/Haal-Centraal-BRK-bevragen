@@ -882,11 +882,6 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
-        adressen:
-          type: "array"
-          description: "Dit is een link naar het adres van de objectlocatie van de Kadastraal Onroerende Zaak."
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           type: "array"
           items:
