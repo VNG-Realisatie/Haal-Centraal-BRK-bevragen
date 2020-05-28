@@ -845,11 +845,6 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        nummeraanduidingIdentificaties:
-          type: "array"
-          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
-          items:
-            type: "string"
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
