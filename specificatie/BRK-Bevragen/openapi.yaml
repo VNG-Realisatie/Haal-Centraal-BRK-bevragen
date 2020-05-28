@@ -983,9 +983,6 @@ components:
       properties:
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
@@ -1020,9 +1017,6 @@ components:
       properties:
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
@@ -1070,9 +1064,6 @@ components:
       properties:
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1220,9 +1211,6 @@ components:
       properties:
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1371,9 +1359,6 @@ components:
             Waardelijst in deze component :
             [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
           properties:
-            domein:
-              type: "string"
-              description: "Het domein waartoe de identificatie behoort."
             indicatieNietToonbareDiakriet:
               type: "boolean"
             beschikkingsbevoegdheid:
@@ -1433,9 +1418,6 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)"
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         heeftRedenVerzoek:
           type: "array"
           items:
@@ -1457,9 +1439,6 @@ components:
       properties:
         identificatie:
           type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         perceelnummerRotatie:
