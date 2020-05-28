@@ -774,11 +774,6 @@ components:
             beschikkingsbevoegdheid:
               $ref: "#/components/schemas/Waardelijst"
               description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
-            metNaamOpenbaarRegister:
-              type: "array"
-              items:
-                type: "string"
-                maxLength: 320
             woonadres:
               $ref: "#/components/schemas/Adres"
             postadres:
