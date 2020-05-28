@@ -674,6 +674,60 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Privaatrechtelijke Beperkingen
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen:
+    get:
+      operationId: GetPubliekrechtelijkeBeperkingKadastraalonroerendezaak
+      description: "Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak."
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Publiekrechtelijke Beperkingen
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
       operationId: GetHypothekenKadastraalOnroerendeZaak
@@ -1567,6 +1621,12 @@ components:
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "#/components/schemas/VoorwaartseOnroerendeZaakFiliatie"
+        publiekrechtelijkeBeperkingen:
+          type: "array"
+          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
+          items:
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
+
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
@@ -1591,6 +1651,12 @@ components:
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         voorwaartseOnroerendeZaakFiliatie:
+          type: "array"
+          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+#toegevoegd. Moeten Privaatrechtelijke beperkingen ook niet in de _links en de embedded worden opgenomen ?
+        publiekrechtelijkeBeperkingen:
           type: "array"
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
@@ -1828,6 +1894,69 @@ components:
       type: "object"
       properties:
         stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+    PubliekrechtelijkeBeperking:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+        grondslag:
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
+        datumInWerking:
+          type: "string"
+          format: "date"
+        datumBeeindiging:
+          type: "string"
+          format: "date"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/Stukdeel"
+        isVermeldInStukdeel:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Stukdeel"
+        bevoegdGezag:
+          $ref: "#/components/schemas/PersoonBeperkt"
+        beperkingsgebied:
+          type: "object"
+          properties:
+            identificatie:
+              type: "string"
+            werkingsgebied:
+              type: "object"
+              properties:
+                bgtObjectIdentificatie:
+                  type: "string"
+                bagObjectIdentificatie:
+                  type: "string"
+                kadatstraalObjectIdentificatie:
+                  type: "string"
+                vrijeContour:
+                  $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+    PubliekrechtelijkeBeperkingHal:
+      allOf:
+      - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+    PubliekrechtelijkeBeperkingHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            publiekrechtelijkeBeperkingen:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
+    PubliekrechtelijkeBeperking_links:
+      type: "object"
+      properties:
+        self:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
