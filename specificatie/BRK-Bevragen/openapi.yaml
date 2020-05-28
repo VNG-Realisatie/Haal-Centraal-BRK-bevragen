@@ -42,19 +42,20 @@ paths:
           name: kadastraleaanduiding
           description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
 
-            - [Code Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/), 5 karakters zie kolom toelichting in waardelijst.
+            - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
 
-            - perceelnummer, 5 cijfers gevuld met het perceelnummer met eventueel voorloopnullen als de waarde onder 10000 is
+            - sectie,
 
-            - sectie,  2 karakters
+            - perceelnummer,
 
-            - appartementsrechtVolgnummer, 4 cijfers met het appartementsrechtvolgnummer met eventueel voorloopnullen als de waarde onder 1000 is en 0000 indien er geen appartementsrechtvolgnummer is."
+            - appartementsrechtVolgnummer
 
+
+            gescheiden door een spatie"
           schema:
             type: "string"
-            minLength: 16
-            maxLength: 16
-            pattern: "^[A-Z]{3}[0-9]{2}[0-9]{5}[0-9a-zA-Z]{2}[0-9]{4}$"
+            pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
+            example: "'s Gravenhage C 1277 A3"
         - in: query
           name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
@@ -1440,7 +1441,7 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)"
         kadastraleAanduiding:
-          $ref: "#/components/schemas/TypeKadastraleAanduiding"
+          type: "string"
         kadastraleGrootte:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
@@ -1814,36 +1815,6 @@ components:
       enum:
       - "appartementsrecht"
       - "perceel"
-    TypeKadastraleAanduiding:
-      type: "object"
-      description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster
-
-
-        Waardelijst in deze component :
-          [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)"
-      properties:
-        appartementsrechtVolgnummer:
-          type: "integer"
-          description: "Nummer dat het kadastraal object uniek identificeert als een\
-            \ appartementsrecht binnen het complex."
-        kadastraleGemeente:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst( http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente). Elke kadastrale gemeentenaam is uniek."
-        perceelnummer:
-          type: "integer"
-          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
-            \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
-            \ heeft een perceel een perceelnummer oplopend door de jaren heen."
-          minimum: 1
-          maximum: 99999
-        sectie:
-          type: "string"
-          title: "sectie"
-          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
-            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
-            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
-            \ sectie heeft een of twee letters"
-          maxLength: 2
     TypeKoopsom:
       type: "object"
       properties:
