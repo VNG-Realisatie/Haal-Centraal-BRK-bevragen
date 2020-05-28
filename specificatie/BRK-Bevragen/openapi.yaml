@@ -952,12 +952,6 @@ components:
         straat:
           type: "string"
           example: "Laan van de landinrichtingscommissie Duiven-Westervoort"
-        korteNaam:
-          title: korteNaam
-          description: 'De straatnaam, zo nodig volgens NEN5825 verkort tot maximaal 24 tekens.'
-          type: string
-          maxLength: 24
-          example: 'Ln vd l D Westervoort'
         postcode:
           type: "string"
           example: "1234AA"
@@ -987,7 +981,6 @@ components:
         huisletter: "A"
         huisnummerToevoeging: "3"
         straat: "Laan van de landinrichtingscommissie Duiven-Westervoort"
-        korteNaam: "Ln vd l D Westervoort"
         postcode: "1234AA"
         woonplaats: "Nootdorp"
         adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
