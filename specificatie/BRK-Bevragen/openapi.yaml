@@ -44,11 +44,11 @@ paths:
 
             - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
 
-            - sectie,
+            - sectie, 1 of 2 hoofdletters
 
-            - perceelnummer,
+            - perceelnummer, 1 tot 5 cijfers
 
-            - appartementsrechtVolgnummer
+            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers
 
 
             gescheiden door een spatie"
