@@ -598,11 +598,6 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
-        stukIdentificaties:
-          type: "array"
-          description: "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn."
-          items:
-            type: string
     Bedrag:
       type: "object"
       description: "Hoeveelheid geld in cijfers in een bepaalde valuta.
@@ -840,11 +835,6 @@ components:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
-        stukIdentificaties:
-          type: "array"
-          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
-          items:
-            type: string
         zakelijkGerechtigdeIdentificaties:
           type: "array"
           description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
@@ -1207,11 +1197,6 @@ components:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
-        stukIdentificaties:
-          type: "array"
-          description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
-          items:
-            type: string
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
     ZakelijkGerechtigdeHal:
