@@ -33,15 +33,17 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 1 eigenaar (Kadaster Natuurlijk Persoon)        |NL.IMKAD.KadastraalObject.76870482670000   |Beekbergen:87 K 4826      |7361EW 25              ||
 1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.76870482570000   |Beekbergen:87 K 4825      |7361EW 21              |<ul><li>2 erfpachters met erfpachtcanon</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22310827210003   |'s Gravenhage:881 N 8272 3|2517GL 84              |<ul><li>appartementsrecht</li></ul> |
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22310827210004   |'s Gravenhage:881 N 8272 4|2517GL 85              |<ul><li>appartementsrecht</li></ul> |
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.56020234070000   |Odoorn:717 N 2340         |9573PA 3               |<ul><li>1 artikel5_3b</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.23280647970000   |Loosduinen:561 H 6479     |2551XS 31              ||
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.23280647970000   |Loosduinen:561 H 6479     |2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51              |<ul><li>meerdere adressen</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.65490485370000   |Hellendoorn:395 G 4853    |7441JC 1 a             |<ul><li>bevat huisletter</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.24780711870000   |Voorschoten:1040 B 7118   |2252EB 16              |<ul><li>betrokkenGorzenEnAanwassen</li></ul>|
+2 eigenaen (Ingeschreven & Kadaster Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.65490485270000   |Hellendoorn:395 G 4853    |7441JC 1               ||
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.24780711870000   |Voorschoten:1040 B 7118   |2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18              |<ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              ||
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.22590043870000   |'s Gravenhage:881 AW 438  |2545NN 182             |<ul><li>1 erfpachter</li><li>betrokkenSamenwerkingsverband</li></ul>|
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.22590043870000   |'s Gravenhage:881 AW 438  |2545NN 178<br/>2545NN 180<br/>2545NN 182             |<ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               ||
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.19560032970000   |Rotterdam:841 AF 329      |3011KD 72              ||
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |NL.IMKAD.KadastraalObject.19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li></ul>|
 2 eigenaren (Ingeschreven Natuurlijk Persoon)   |NL.IMKAD.KadastraalObject.17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li></ul>|
 
 #### Natuurlijke Personen
@@ -66,8 +68,10 @@ Paul Man          |                       |Ingeschreven Natuurlijk Persoon      
 Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden | 
 ----------------        |:------      |:------                              |:------                        |:------        |
 Bankbedrijf             |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |NL.IMKAD.Persoon.71291440      |<ul><li>postadres is postbus</li></ul> |
-Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291493      |  |
+Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291493      |<ul><li>heeft niks op naam</li></ul>  |
 Gasunie Test BV         |GRONINGEN    |Ingeschreven Niet Natuurlijk Persoon |NL.IMKAD.Persoon.440650207     |  |
+Gemeente Den Testland   |'S-GRAVENHAGE    |Kadaster Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291441     |<ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul> |
+Woningstichting Den Testland |'S-GRAVENHAGE    |Kadaster Niet Natuurlijk Persoon |NL.IMKAD.Persoon.71291442     |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
 
 #### Foutscenarios
 Aanvraag                                                                                       | Foutscenario               |
