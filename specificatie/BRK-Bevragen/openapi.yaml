@@ -48,7 +48,7 @@ paths:
 
             - perceelnummer, 1 tot 5 cijfers
 
-            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers
+            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
 
 
             gescheiden door een spatie"
