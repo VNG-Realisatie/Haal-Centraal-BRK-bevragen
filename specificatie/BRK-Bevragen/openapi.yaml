@@ -19,10 +19,6 @@ paths:
       description: |
           Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
-              -  kadastralegemeente__code (verplicht)
-              -  perceelnummer (verplicht)
-              -  sectie (verplicht)
-              -  appartementsrechtnummer (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
               -  typegerechtigde (optioneel)
@@ -43,38 +39,23 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: kadastralegemeente__code
-          description: "De code van de kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De code en waarde zijn vastgelegd in een [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/)"
+          name: kadastraleaanduiding
+          description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+
+            - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
+
+            - sectie, 1 of 2 hoofdletters
+
+            - perceelnummer, 1 tot 5 cijfers
+
+            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
+
+
+            gescheiden door een spatie"
           schema:
             type: "string"
-            example: "50"
-        - in: query
-          name: kadastraleaanduiding__perceelnummer
-          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
-              \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
-              \ heeft een perceel een perceelnummer oplopend door de jaren heen van\
-              \ 1 tot max 99999"
-          schema:
-            type: "integer"
-            minimum: 1
-            maximum: 99999
-        - in: query
-          name: kadastraleaanduiding__sectie
-          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
-            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
-            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
-            \ sectie heeft een of twee letters (bijv. `A`, `B`, ....`AA`, `AB`, ....`ZZ`\
-            \ . Alleen de sectieletter `J` werd niet gebruikt om verwarring (handgeschreven)\
-            \ te voorkomen met `I`"
-          schema:
-            type: "string"
-            pattern: "^[A-IK-Z]{1,2}$"
-        - in: query
-          name: kadastraleaanduiding__appartementsrechtvolgnummer
-          description: "Nummer dat het kadastraal object uniek identificeert als een\
-            \ appartementsrecht binnen het complex."
-          schema:
-            type: "integer"
+            pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
+            example: "'s Gravenhage C 1277 A3"
         - in: query
           name: ingeschrevenpersoon__burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
@@ -1461,7 +1442,7 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)"
         kadastraleAanduiding:
-          $ref: "#/components/schemas/TypeKadastraleAanduiding"
+          type: "string"
         kadastraleGrootte:
           $ref: "#/components/schemas/TypeOppervlak"
         perceelnummerVerschuiving:
@@ -1835,36 +1816,6 @@ components:
       enum:
       - "appartementsrecht"
       - "perceel"
-    TypeKadastraleAanduiding:
-      type: "object"
-      description: "Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak door het Kadaster
-
-
-        Waardelijst in deze component :
-          [kadastraleGemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente)"
-      properties:
-        appartementsrechtVolgnummer:
-          type: "integer"
-          description: "Nummer dat het kadastraal object uniek identificeert als een\
-            \ appartementsrecht binnen het complex."
-        kadastraleGemeente:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een Waardelijst( http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente). Elke kadastrale gemeentenaam is uniek."
-        perceelnummer:
-          type: "integer"
-          description: "Het perceelnummer dat een geheel perceel of een complex uniek\
-            \ identificeert binnen de sectie. Per kadastrale gemeente en per sectie\
-            \ heeft een perceel een perceelnummer oplopend door de jaren heen."
-          minimum: 1
-          maximum: 99999
-        sectie:
-          type: "string"
-          title: "sectie"
-          description: "Sectie is een onderverdeling van de kadastrale gemeente, bedoeld\
-            \ om het werk van de meetdienst en de kadastrale kaarten overzichtelijk\
-            \ te houden. Per kadastrale gemeente zijn er max. 26x26 secties . Elke\
-            \ sectie heeft een of twee letters"
-          maxLength: 2
     TypeKoopsom:
       type: "object"
       properties:
