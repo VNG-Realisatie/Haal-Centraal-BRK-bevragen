@@ -589,13 +589,11 @@ components:
         einddatum:
           type: "string"
           format: "date"
-        eindatumRecht:
+        einddatumRecht:
           type: "string"
           format: "date"
         indicatieOorspronkelijkObject:
           type: "boolean"
-        naamKavelruil:
-          type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
     Bedrag:
