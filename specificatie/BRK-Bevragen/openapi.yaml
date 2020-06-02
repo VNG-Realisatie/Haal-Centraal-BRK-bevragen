@@ -620,6 +620,62 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Aangeboden Stukken (Akte)
+  /stukdelen/{stukdeelidentificatie}:
+# Bij stukdelen vooralsnog geen Hal_links gedefinieerd i.v.m. risico op cirkel verwijzing. Dit zouden we wel in de vorm van links kunnen doen, maar zeker niet embedded, Dit gaarne bespreken!!.
+    get:
+      operationId: GetStukdeel
+      description: "Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd. Met de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd."
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: stukdeelidentificatie
+          description: ""
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Stukdeel'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/406"
+        '409':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/409"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/415"
+        '429':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/429"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Stukdelen
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
     get:
       operationId: GetPrivaatrechtelijkeBeperkingKadastraalonroerendezaak
@@ -1023,6 +1079,10 @@ components:
             $ref: "#/components/schemas/HeeftAlsEquivalentieVerklaarder"
           ondertekenaar:
             $ref: "#/components/schemas/Ondertekenaar"
+          stukdeelIdentificaties:
+            type: "array"
+            items:
+              type: "string"
     AangebodenStuk_embedded:
       type: "object"
       properties:
@@ -1066,11 +1126,13 @@ components:
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
-          $ref: "#/components/schemas/Stukdeel"
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze aantekening is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
+          description: "De identificaties van het stukdelen waarin deze aantekening is vermeld"
           items:
-            $ref: "#/components/schemas/Stukdeel"
+            type: "string"
     AbstractStuk:
       type: "object"
       description: "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie."
@@ -1091,12 +1153,14 @@ components:
           type: string
         typeSplitsing:
           $ref: "#/components/schemas/TypeSplitsing_enum"
-        isGebaseerdOpStukdeel:
-          $ref: "#/components/schemas/Stukdeel"
-        isVermeldInStukdeel:
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze appartementsrechtsplitsing is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
-            $ref: "#/components/schemas/Stukdeel"
+            type: "string"
+            description: "De identificaties van het stukdelen waarin deze appartementsrechtsplitsing is vermeld"
         verenigingVanEigenaren:
           $ref: "#/components/schemas/PersoonBeperkt"
     Bedrag:
@@ -1149,6 +1213,14 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop dit beslag is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: "De identificaties van het stukdelen waarin dit beslag is vermeld"
+          items:
+            type: "string"
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -1180,6 +1252,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         zakelijkGerechtigden:
           type: "array"
           items:
@@ -1206,12 +1282,14 @@ components:
           format: "date"
         indicatieOudeOnroerendeZaakBetrokken:
           type: "boolean"
-        isGebaseerdOpStukdeel:
-          $ref: "#/components/schemas/Stukdeel"
-        isVermeldInStukdeel:
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop dit erfpachtcanon is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
           type: "array"
+          description: "De identificaties van het stukdelen waarin dit erfpachtcanon is vermeld"
           items:
-           $ref: "#/components/schemas/Stukdeel"
+            type: "string"
     Geboorte:
       type: "object"
       description: "Geboorte is een groep gegevens over de geboorte van een persoon.
@@ -1302,6 +1380,15 @@ components:
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
           items:
             type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze hypotheek is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: "De identificaties van het stukdelen waarin deze hypotheek is vermeld"
+          items:
+            type: "string"
+
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -1330,6 +1417,10 @@ components:
             href:
              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1911,12 +2002,14 @@ components:
         datumBeeindiging:
           type: "string"
           format: "date"
-        isGebaseerdOpStukdeel:
-          $ref: "#/components/schemas/Stukdeel"
-        isVermeldInStukdeel:
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze publiekrechelijke beperking is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
           type: "array"
+          description: "De identificaties van het stukdelen waarin deze publiekrechtelijke beperking gerechtigde is vermeld"
           items:
-            $ref: "#/components/schemas/Stukdeel"
+            type: "string"
         bevoegdGezag:
           $ref: "#/components/schemas/PersoonBeperkt"
         beperkingsgebied:
@@ -2005,6 +2098,10 @@ components:
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/api-specificatie/common.yaml#/components/schemas/HalLink"
     Tenaamstelling:
       type: object
       description: "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
@@ -2033,12 +2130,14 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeel:
-          $ref: "#/components/schemas/Stukdeel"
-        isVermeldInStukdeel:
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze tenaamstelling is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
-            $ref: "#/components/schemas/Stukdeel"
+            type: "string"
+            description: "De identificaties van het stukdelen waarin deze tenaamstelling is vermeld"
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
@@ -2248,12 +2347,14 @@ components:
               type: "array"
               items:
                 type: "string"
-            isGebaseerdOpStukdeelIdentificatie:
-              $ref: "#/components/schemas/Stukdeel"
-            isVermeldInStukdeelIdentificaties:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/Stukdeel"
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: "De identificaties van het stukdelen waarin deze zakelijk gerechtigde is vermeld"
+          items:
+            type: "string"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
         isOntstaanUitAppartementsrechtSplitsing:
