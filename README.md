@@ -1,10 +1,10 @@
  
-# Haal Centraal BRK bevragen versie 1.0.0 IS LIVE!
+# Haal Centraal BRK bevragen v1.0.0 IS LIVE!
 Let op! Voor 1 juli wordt v1.1 verwacht met daarin de volgende (breaking!) changes:
 * 	NEN3610 wordt uit de identificatie gehaald, domein wordt toegevoegd als property van de resource
 *   RSIN wordt geleverd ipv KPID als die er is, met een link naar de kadasterpersoon (zie #480)
 *   Templating wordt toegevoegd voor interne links 
-*   Nummeraanduiding object is in 1.0 verwijderd en wordt toegevoegd met koppelingswijze administratief /geometrisch.
+*   Nummeraanduiding object is in v1.0.0 verwijderd en wordt toegevoegd met koppelingswijze administratief /geometrisch.
 
 # Haal Centraal BRK bevragen 
 BRK-bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
