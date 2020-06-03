@@ -10,7 +10,12 @@ De API is te benaderen via de volgende url: <br/>
 https://service30.kadaster.nl/esd/bevragen/v1/
 
 ## Connectiviteit
-[TODO; @Rene]
+Voor de connectie met deze API is vereist: 
+- Internet toegang tot het Kadaster endpoint via IPv4 of IPv6 en met het TLS 1.2 protocol. 
+- Een Staat der Nederlanden root CA - G3 certificaat in de truststore, zie hiervoor: https://www.pkioverheid.nl/ 
+- Een geldig PKIoverheid client certificaat met SERIALNUMMER=<eigen-OIN-nummer> in de keystore dat deel uitmaakt van de Staat der Nederlanden - G3 hiërarchie, 
+zie hiervoor: https://www.logius.nl/diensten/pkioverheid 
+- Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat. 
 
 ## Werking
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
