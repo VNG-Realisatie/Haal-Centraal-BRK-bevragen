@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
   - description: "Brk-bevragen Kadastraal Onroerende Zaak"
-    url: https://www.kadaster.nl/api/kadastraal_onroerende_zaken
+    url: https://service30.kadaster.nl/esd/bevragen/v1
 info:
   title: Kadastraal onroerende zaken
   description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
@@ -561,12 +561,6 @@ components:
           type: "string"
         begrenzing:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-        begrenzingDienendErf:
-          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-          description: "De omtrek van het stuk grond (dienend erf) waarvan de eigenaar iets moet toestaan aan de eigenaar van het heersende erf."
-        begrenzingHeersendErf:
-          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-          description: "De omtrek van het stuk grond (heersend erf) waarvan de eigenaar iets mag van de eigenaar van het dienende erf."
         einddatum:
           type: "string"
           format: "date"
