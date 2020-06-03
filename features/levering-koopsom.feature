@@ -1,4 +1,5 @@
-Functionaliteit: levering koopsom
+Functionaliteit: Koopsommen worden alleen geleverd in combinatie met zowel koopjaar als cultuurcode (bebouwd en/of onbebouwd).
+                 Als 1 van deze elementen niet geleverd kan worden door het Kadaster, dan worden alle andere elementen ook niet teruggegeven.
 
     Achtergrond:
         Gegeven de registratie BRK kent de onroerendezaak met kadastraalonroerendezaakidentificatie: NL.IMKAD.KadastraalObject.76870487970000,
@@ -39,7 +40,7 @@ Functionaliteit: levering koopsom
         """
 
 
-    Scenario: Onroerendezaak (met koopsom & koopjaar & aardCultuurbebouwd) wordt opgevraagd met fields parameter met 1 van die drie velden erin
+    Scenario: Onroerendezaak (met koopsom & koopjaar & aardCultuurbebouwd) wordt opgevraagd met fields parameter met 1 van die drie velden (koopsom of koopjaar of aardCultuurbebouwd) erin
         Als onroerendezaak gezocht word met /kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870487970000?fields=koopsom
         Dan worden de koopsom & koopjaar & aardCultuurBebouwd teruggegeven
         En wordt de volgende json response teruggegeven:
@@ -63,7 +64,7 @@ Functionaliteit: levering koopsom
         }
         """
 
-    Scenario: Onroerendezaak (met koopsom & koopjaar & aardCultuurbebouwd) wordt opgevraagd met fields parameter zonder 1 van die drie velden erin
+    Scenario: Onroerendezaak (met koopsom & koopjaar & aardCultuurbebouwd) wordt opgevraagd met fields parameter zonder 1 van die drie velden (koopsom of koopjaar of aardCultuurbebouwd) erin
         Als onroerendezaak gezocht word met /kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870487970000?fields=kadastraleAanduiding
         Dan worden de koopsom & koopjaar & aardCultuurBebouwd niet teruggegeven
         En wordt de volgende json response teruggegeven:
@@ -71,14 +72,7 @@ Functionaliteit: levering koopsom
         {
             "identificatie": "NL.IMKAD.KadastraalObject.76870487970000",
             "type": "perceel",
-            "kadastraleAanduiding": {
-                "kadastraleGemeente": {
-                    "code": "87",
-                    "waarde": "Beekbergen"
-                },
-                "perceelnummer": 4879,
-                "sectie": "K"
-            },
+            "kadastraleAanduiding": "Beekbergen K 4879",
             "_links": {
                 "self": {
                     "href": "/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870487970000?fields=kadastraleAanduiding"
@@ -95,14 +89,7 @@ Functionaliteit: levering koopsom
         {
             "identificatie": "NL.IMKAD.KadastraalObject.76870488070000",
             "type": "perceel",
-            "kadastraleAanduiding": {
-                "kadastraleGemeente": {
-                    "code": "87",
-                    "waarde": "Beekbergen"
-                },
-                "perceelnummer": 4880,
-                "sectie": "K"
-            },
+            "kadastraleAanduiding": "Beekbergen K 4880",
             "_links": {
                 "self": {
                     "href": "/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870488070000"
@@ -111,7 +98,7 @@ Functionaliteit: levering koopsom
         }
         """
 
-    Scenario: Onroerendezaak (met alleen koopsom & aardCultuurbebouwd) wordt opgevraagd met fields parameter met 1 van die drie velden erin
+    Scenario: Onroerendezaak (met alleen koopsom & aardCultuurbebouwd) wordt opgevraagd met fields parameter met 1 van die twee velden (koopsom of aardCultuurbebouwd) erin
         Als onroerendezaak gezocht word met /kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870488070000?fields=koopsom
         Dan worden de koopsom & aardCultuurBebouwd niet teruggegeven
         En wordt de volgende json response teruggegeven:
@@ -127,7 +114,7 @@ Functionaliteit: levering koopsom
         }
         """
 
-    Scenario: Onroerendezaak (met alleen koopsom & aardCultuurbebouwd) wordt opgevraagd met fields parameter met 1 van die drie velden erin
+    Scenario: Onroerendezaak (met alleen koopsom & aardCultuurbebouwd) wordt opgevraagd met fields parameter zonder 1 van die twee velden (koopsom of aardCultuurbebouwd) erin
         Als onroerendezaak gezocht word met /kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870488070000?fields=kadastraleAanduiding
         Dan worden de koopsom & aardCultuurBebouwd niet teruggegeven
         En wordt de volgende json response teruggegeven:
@@ -135,14 +122,7 @@ Functionaliteit: levering koopsom
         {
             "identificatie": "NL.IMKAD.KadastraalObject.76870488070000",
             "type": "perceel",
-            "kadastraleAanduiding": {
-                "kadastraleGemeente": {
-                    "code": "87",
-                    "waarde": "Beekbergen"
-                },
-                "perceelnummer": 4880,
-                "sectie": "K"
-            },
+            "kadastraleAanduiding": "Beekbergen K 4880",
             "_links": {
                 "self": {
                     "href": "/kadastraalonroerendezaken/NL.IMKAD.KadastraalObject.76870488070000?fields=kadastraleAanduiding"
