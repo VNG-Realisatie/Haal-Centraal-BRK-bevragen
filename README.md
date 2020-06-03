@@ -1,5 +1,9 @@
  
 # Haal Centraal BRK bevragen v1.0.0 IS LIVE!
+Meld je aan bij het kadaster via https://zakelijk.kadaster.nl/-/brk-bevragen; 
+om aan te sluiten: https://formulieren.kadaster.nl/aanmelden_brk_bevragen; 
+of voor toegang tot de testomgeving: https://formulieren.kadaster.nl/aanmelden_brk_bevragen. 
+
 Let op! Voor 1 juli wordt v1.1 verwacht met daarin de volgende (breaking!) changes:
 * 	NEN3610 wordt uit de identificatie gehaald, domein wordt toegevoegd als property van de resource
 *   RSIN wordt geleverd ipv KPID als die er is, met een link naar de kadasterpersoon (zie #480)
