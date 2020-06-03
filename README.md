@@ -1,5 +1,7 @@
  
 # Haal Centraal BRK bevragen v1.0.0 IS LIVE!
+BRK-bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL, maar ook waterschappen, belastingsamenwerkingen en andere overheden. 
+
 Meld je aan bij het kadaster om [aan te sluiten](https://formulieren.kadaster.nl/aanmelden_brk_bevragen), of voor [toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). 
 
 Let op! Voor 1 juli wordt v1.1 verwacht met daarin de volgende (breaking!) changes:
@@ -8,11 +10,8 @@ Let op! Voor 1 juli wordt v1.1 verwacht met daarin de volgende (breaking!) chang
 *  Templating wordt toegevoegd voor interne links 
 *  Nummeraanduiding object is in v1.0.0 verwijderd en wordt toegevoegd met koppelingswijze administratief /geometrisch.
 
-# Haal Centraal BRK bevragen 
-BRK-bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL. De informatie die de API levert is herleidbaar naar het imKad informatiemodel.
-
 ## Getting started
-Wil je aansluiten? Dan is de [getting started](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/docs/getting-started-brkbevragen.md) een goed startpunt. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
+Wil je een aansluiting ontwikkelen? Dan is de [getting started](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/docs/getting-started-brkbevragen.md) een goed begin. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
 
 # Planning Haal Centraal
 https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
