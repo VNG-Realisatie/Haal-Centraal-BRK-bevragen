@@ -10,6 +10,8 @@ Let op! Voor 1 juli wordt v1.1 verwacht met daarin de volgende (breaking!) chang
 *  Templating wordt toegevoegd voor interne links 
 *  Nummeraanduiding object is in v1.0.0 verwijderd en wordt toegevoegd met koppelingswijze administratief /geometrisch.
 
+Daarna wordt de API uitgebreid met beperkingen, hypotheken, beslagen en historie. We doen ons uiterste best om GEEN breaking changes te introduceren!
+
 ## Getting started
 Wil je een aansluiting ontwikkelen? Dan is de [getting started](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/docs/getting-started-brkbevragen.md) een goed begin. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
 
