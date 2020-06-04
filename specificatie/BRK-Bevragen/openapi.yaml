@@ -1663,7 +1663,7 @@ components:
           type: "array"
           description: "Dit is een link naar het adres van de objectlocatie van de Kadastraal Onroerende Zaak."
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Adres"
+            $ref: "#/components/schemas/Adres"
         zakelijkGerechtigden:
           type: "array"
           items:
@@ -1671,7 +1671,7 @@ components:
         stukken:
           type: "array"
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/AangebodenStuk"
+            $ref: "#/components/schemas/AangebodenStuk"
         onroerendeZaakFiliatie:
           type: "array"
           description: "Dit is een link naar filiaties die deze Kadastraal Onroerende Zaak betreffen."
