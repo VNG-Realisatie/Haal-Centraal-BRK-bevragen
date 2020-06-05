@@ -737,6 +737,9 @@ components:
             Waardelijst in deze component :
             [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
           properties:
+            domein:
+              type: "string"
+              description: "Het domein waartoe de identificatie behoort."
             indicatieNietToonbareDiakriet:
               type: "boolean"
             beschikkingsbevoegdheid:
@@ -781,6 +784,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         perceelnummerRotatie:
