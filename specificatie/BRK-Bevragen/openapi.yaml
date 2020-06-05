@@ -2109,14 +2109,6 @@ components:
           items:
             type: "string"
             description: "De identificaties van het stukdelen waarin deze tenaamstelling is vermeld"
-        hypotheekIdentificaties:
-          type: "array"
-          items:
-            type: "string"
-        beslagIdentificaties:
-          type: "array"
-          items:
-            type: "string"
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
@@ -2353,14 +2345,6 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         betrokkenGorzenEnAanwassen:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        hypotheken:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        beslagen:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_embedded:
       type: "object"
       properties:
@@ -2372,12 +2356,3 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Stukdeel"
-        hypotheken:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Hypotheek"
-        beslagen:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Beslag"
-# Hier eventueel nog de HalBasis introduceren om in de embedded resources op het laagste niveau wel de links mee te krijgen. Weet niet of dat Breaking is.......
