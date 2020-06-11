@@ -2179,6 +2179,9 @@ components:
       properties:
         identificatie:
           type: string
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
