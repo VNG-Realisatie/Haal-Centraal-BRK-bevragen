@@ -2179,6 +2179,9 @@ components:
       properties:
         identificatie:
           type: string
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
@@ -2340,6 +2343,9 @@ components:
       allOf:
       - $ref: '#/components/schemas/PersoonBasis'
       - properties:
+          domein:
+            type: string
+            description: Het domein waartoe de identificatie behoort.
           indicatieNietToonbareDiakriet:
             type: boolean
           beschikkingsbevoegdheid:
@@ -2382,6 +2388,9 @@ components:
       properties:
         identificatie:
           type: string
+        domein:
+          type: string
+          description: Het domein waartoe de identificatie behoort.
         begrenzingPerceel:
           $ref: '#/components/schemas/polygonGeoJSON'
         perceelnummerRotatie:
