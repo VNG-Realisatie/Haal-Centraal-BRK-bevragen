@@ -1108,7 +1108,7 @@ components:
           description: "De identificatie van het stukdeel waarop deze aantekening is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin deze aantekening is vermeld"
+          description: "De identificaties van de stukdelen waarin deze aantekening is vermeld"
           items:
             type: "string"
     AbstractStuk:
@@ -1141,7 +1141,7 @@ components:
           type: "array"
           items:
             type: "string"
-            description: "De identificaties van het stukdelen waarin deze appartementsrechtsplitsing is vermeld"
+            description: "De identificaties van de stukdelen waarin deze appartementsrechtsplitsing is vermeld"
         verenigingVanEigenaren:
           $ref: "#/components/schemas/PersoonBeperkt"
     Bedrag:
@@ -1202,7 +1202,7 @@ components:
           description: "De identificatie van het stukdeel waarop dit beslag is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin dit beslag is vermeld"
+          description: "De identificaties van de stukdelen waarin dit beslag is vermeld"
           items:
             type: "string"
     BeslagHal:
@@ -1236,7 +1236,9 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukdelen:
+        isGebaseerdOpStukdeel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1271,7 +1273,7 @@ components:
           description: "De identificatie van het stukdeel waarop dit erfpachtcanon is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin dit erfpachtcanon is vermeld"
+          description: "De identificaties van de stukdelen waarin dit erfpachtcanon is vermeld"
           items:
             type: "string"
     Geboorte:
@@ -1372,7 +1374,7 @@ components:
           description: "De identificatie van het stukdeel waarop deze hypotheek is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin deze hypotheek is vermeld"
+          description: "De identificaties van de stukdelen waarin deze hypotheek is vermeld"
           items:
             type: "string"
 
@@ -1407,7 +1409,9 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukdelen:
+        isGebaseerdOpStukdeel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -1705,7 +1709,7 @@ components:
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
-
+#toegevoegd. Moeten Privaatrechtelijke beperkingen ook niet in de embedded worden opgenomen ?
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
@@ -1734,7 +1738,10 @@ components:
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-#toegevoegd. Moeten Privaatrechtelijke beperkingen ook niet in de _links en de embedded worden opgenomen ?
+        privaatrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         publiekrechtelijkeBeperkingen:
           type: "array"
           description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
@@ -1969,8 +1976,15 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isGebaseerdOpStukdeel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     PubliekrechtelijkeBeperking:
       type: "object"
+      description: "De privaatrechtelijke beperking is een aantekening op een Kadastraal onroerende zaak of een aantekening op een recht op een kadastraal onroerende zaak"
       properties:
         identificatie:
           type: "string"
@@ -1991,7 +2005,7 @@ components:
           description: "De identificatie van het stukdeel waarop deze publiekrechelijke beperking is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin deze publiekrechtelijke beperking gerechtigde is vermeld"
+          description: "De identificaties van de stukdelen waarin deze publiekrechtelijke beperking gerechtigde is vermeld"
           items:
             type: "string"
         bevoegdGezag:
@@ -2034,6 +2048,12 @@ components:
       type: "object"
       properties:
         self:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isGebaseerdOpStukdeel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -2124,7 +2144,7 @@ components:
           type: "array"
           items:
             type: "string"
-            description: "De identificaties van het stukdelen waarin deze tenaamstelling is vermeld"
+            description: "De identificaties van de stukdelen waarin deze tenaamstelling is vermeld"
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
@@ -2309,7 +2329,7 @@ components:
           description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van het stukdelen waarin deze zakelijk gerechtigde is vermeld"
+          description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
           items:
             type: "string"
         persoon:
@@ -2349,7 +2369,9 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukdelen:
+        isGebaseerdOpStukdeel:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
