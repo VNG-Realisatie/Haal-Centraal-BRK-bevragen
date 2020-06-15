@@ -1117,6 +1117,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
@@ -1166,6 +1169,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1335,6 +1341,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         aandeelInBetrokkenRecht:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
@@ -1965,6 +1974,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         grondslag:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
@@ -2031,6 +2043,9 @@ components:
       properties:
         identificatie:
           type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
