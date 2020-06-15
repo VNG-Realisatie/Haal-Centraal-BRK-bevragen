@@ -1761,6 +1761,14 @@ components:
           description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
           items:
             type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          items:
+            type: "string"
+        publiekrechtelijkeBeperkingenIdentificaties:
+          type: "array"
+          items:
+            type: "string"
         verkavelObject:
           type: "object"
           properties:
