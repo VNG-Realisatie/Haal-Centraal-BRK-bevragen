@@ -1247,6 +1247,68 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Stukdeel"
+    Adres:
+      description: "Waardelijst in deze component :
+          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+      properties:
+        nummeraanduidingIdentificatie:
+          type: string
+          description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
+        huisnummer:
+          type: "integer"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
+        huisletter:
+          type: "string"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter"
+          example: "A"
+        huisnummerToevoeging:
+          type: "string"
+          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging"
+          example: "3"
+        straat:
+          type: "string"
+          example: "Laan van de landinrichtingscommissie Duiven-Westervoort"
+        postcode:
+          type: "string"
+          example: "1234AA"
+        woonplaats:
+          type: "string"
+          example: "Nootdorp"
+        adresregel1:
+          type: "string"
+          description: "Het eerste deel van een adres is een combinatie van de straat en huisnummer."
+          # example: "1600 Pennsylvania Avenue NW"
+          example: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
+        adresregel2:
+          type: "string"
+          description: "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode"
+          # example: "Washington, DC 20500"
+          example: "1234AA Nootdorp"
+        adresregel3:
+          type: "string"
+          description: "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland"
+          example: "Selangor"
+        land:
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+      example:
+        nummeraanduidingIdentificatie: "1234207890123456"
+        huisnummer: 26
+        huisletter: "A"
+        huisnummerToevoeging: "3"
+        straat: "Laan van de landinrichtingscommissie Duiven-Westervoort"
+        postcode: "1234AA"
+        woonplaats: "Nootdorp"
+        adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
+        adresregel2: "1234AA Nootdorp"
+      # voorbeeld adres buitenland:
+      # example:
+      #  adresregel1: "18.G, Jalan Setia Indah"
+      #  adresregel2: "Seksyen U13, Setia Alam"
+      #  adresregel3: "Shah Alam, Selangor"
+      #  land:
+      #    code: "Maleisië"
+      #    waarde: "7026"
     AppartementsrechtSplitsing:
       type: object
       properties:
@@ -1394,6 +1456,20 @@ components:
         isVermeldInStukdeelIdentificaties:
           type: "array"
           description: "De identificaties van de stukdelen waarin dit erfpachtcanon is vermeld"
+          items:
+            type: "string"
+    Filiatie:
+      type: "object"
+      properties:
+        aard:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
+        overgangsgrootte:
+          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
+          type: "integer"
+          example: 220
+        kadastraalOnroerendeZaakIdentificaties:
+          description: "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en)."
+          type: "array"
           items:
             type: "string"
     Geboorte:
@@ -1747,10 +1823,14 @@ components:
 #          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
 #          items:
 #            type: "string"
-        locatieKadastraalObject:
+        adres:
           type: "array"
           items:
-            $ref: "#/components/schemas/LocatieKadastraalObject"
+            allOf:
+              - $ref: "#/components/schemas/Adres"
+              - properties:
+                  koppelingswijze:
+                    $ref: "#/components/schemas/Koppelingswijze_enum"
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1769,6 +1849,10 @@ components:
           type: "array"
           items:
             type: "string"
+        isOvergegaanIn:
+          $ref: "#/components/schemas/Filiatie"
+        isOntstaanUit:
+          $ref: "#/components/schemas/Filiatie"
         verkavelObject:
           type: "object"
           properties:
@@ -1809,32 +1893,16 @@ components:
     KadastraalOnroerendeZaak_embedded:
       type: "object"
       properties:
-        adressen:
-          type: "array"
-          description: "Dit is een link naar het adres van de objectlocatie van de Kadastraal Onroerende Zaak."
-          items:
-            $ref: "#/components/schemas/Adres"
         zakelijkGerechtigden:
           type: "array"
           items:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+            $ref: "#/components/schemas/ZakelijkGerechtigdeHalBasis"
         stukken:
           type: "array"
           items:
             $ref: "#/components/schemas/AangebodenStuk"
-        onroerendeZaakFiliatie:
-          type: "array"
-          description: "Dit is een link naar filiaties die deze Kadastraal Onroerende Zaak betreffen."
-          items:
-            $ref: "#/components/schemas/OnroerendeZaakFiliatie"
-        voorwaartseOnroerendeZaakFiliatie:
-          type: "array"
-          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
-          items:
-            $ref: "#/components/schemas/VoorwaartseOnroerendeZaakFiliatie"
         publiekrechtelijkeBeperkingen:
           type: "array"
-          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
 #toegevoegd. Moeten Privaatrechtelijke beperkingen ook niet in de embedded worden opgenomen ?
@@ -1854,16 +1922,6 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        onroerendeZaakFiliatie:
-          type: "array"
-          description: "Dit is een link naar filiaties die deze Kadastraal Onroerende Zaak betreffen."
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        voorwaartseOnroerendeZaakFiliatie:
-          type: "array"
-          description: "Dit is een link naar filiaties waarbij deze Kadastraal Onroerende Zaak overgegaan in een andere KadastraalOnroerendeZaak."
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         privaatrechtelijkeBeperkingen:
@@ -1929,68 +1987,6 @@ components:
       enum:
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
-    Adres:
-      description: "Waardelijst in deze component :
-          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-      properties:
-        nummeraanduidingIdentificatie:
-          type: string
-          description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
-        huisnummer:
-          type: "integer"
-          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
-        huisletter:
-          type: "string"
-          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter"
-          example: "A"
-        huisnummerToevoeging:
-          type: "string"
-          description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging"
-          example: "3"
-        straat:
-          type: "string"
-          example: "Laan van de landinrichtingscommissie Duiven-Westervoort"
-        postcode:
-          type: "string"
-          example: "1234AA"
-        woonplaats:
-          type: "string"
-          example: "Nootdorp"
-        adresregel1:
-          type: "string"
-          description: "Het eerste deel van een adres is een combinatie van de straat en huisnummer."
-          # example: "1600 Pennsylvania Avenue NW"
-          example: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
-        adresregel2:
-          type: "string"
-          description: "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode"
-          # example: "Washington, DC 20500"
-          example: "1234AA Nootdorp"
-        adresregel3:
-          type: "string"
-          description: "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland"
-          example: "Selangor"
-        land:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-      example:
-        nummeraanduidingIdentificatie: "1234207890123456"
-        huisnummer: 26
-        huisletter: "A"
-        huisnummerToevoeging: "3"
-        straat: "Laan van de landinrichtingscommissie Duiven-Westervoort"
-        postcode: "1234AA"
-        woonplaats: "Nootdorp"
-        adresregel1: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
-        adresregel2: "1234AA Nootdorp"
-      # voorbeeld adres buitenland:
-      # example:
-      #  adresregel1: "18.G, Jalan Setia Indah"
-      #  adresregel2: "Seksyen U13, Setia Alam"
-      #  adresregel3: "Shah Alam, Selangor"
-      #  land:
-      #    code: "Maleisië"
-      #    waarde: "7026"
     Postadres:
       allOf:
         - $ref: "#/components/schemas/Adres"
@@ -2013,22 +2009,6 @@ components:
             standplaats:
               type: "string"
               description: "Adres of standplaats/plaats van vestiging van de ondertekenaar."
-    OnroerendeZaakFiliatie:
-      type: "object"
-      properties:
-        identificatie:
-          type: "string"
-        aard:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
-        overgangsgrootte:
-          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
-          type: "integer"
-          example: 220
-        kadastraalOnroerendeZaakIdentificaties:
-          description: "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en) waar deze Kadastraal Onroerende Zaak uit is ontstaan."
-          type: "array"
-          items:
-            type: "string"
     Overlijden:
       type: "object"
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
@@ -2150,7 +2130,7 @@ components:
                   type: "string"
                 bagObjectIdentificatie:
                   type: "string"
-                kadatstraalObjectIdentificatie:
+                kadastraalObjectIdentificatie:
                   type: "string"
                 vrijeContour:
                   $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
@@ -2394,22 +2374,6 @@ components:
       - "Ondersplitsing"
       - "SpiegelsplitsingAfkoopErfpacht"
       - "SpiegelsplitsingOndersplitsing"
-    VoorwaartseOnroerendeZaakFiliatie:
-      type: "object"
-      properties:
-        identificatie:
-          type: "string"
-        aard:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
-        overgangsgrootte:
-          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
-          type: "integer"
-          example: 220
-        kadastraalOnroerendeZaakIdentificaties:
-          description: "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en) waar deze Kadastraal Onroerende Zaak in is overgegaan."
-          type: "array"
-          items:
-            type: "string"
     Waardelijst:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
@@ -2445,10 +2409,19 @@ components:
           items:
             type: string
         mandeligheid:
+          description: "Mandeligheid is het ontstaan van een gemeenschappelijk eigendom van een onroerende zaak, van eigenaars van twee of meer erven, doordat de bestemming van het gemeenschappelijk nut is vastgelegd in een tussen de eigenaars opgemaakte notariële akte en dat deze akte is ingeschreven in de openbare registers. ( https://tax.kadaster.nl/doc/begrip/Mandeligheid)"
           properties:
             identificatie:
               type: "string"
-            heeftHoofdKadastraalOnroerendeZaakIdntificaties:
+            isGebaseerdOpStukdeelIdentificatie:
+              type: "string"
+              description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
+            isVermeldInStukdeelIdentificaties:
+              type: "array"
+              description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
+              items:
+                type: "string"
+            hoofdZaakIdentificaties:
               type: "array"
               items:
                 type: "string"
@@ -2468,12 +2441,16 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/AppartementsrechtSplitsing"
-    ZakelijkGerechtigdeHal:
+    ZakelijkGerechtigdeHalBasis:
       allOf:
       - $ref: "#/components/schemas/ZakelijkGerechtigde"
       - properties:
           _links:
             $ref: "#/components/schemas/ZakelijkGerechtigde_links"
+    ZakelijkGerechtigdeHal:
+      allOf:
+      - $ref: "#/components/schemas/ZakelijkGerechtigdeHalBasis"
+      - properties:
           _embedded:
             $ref: "#/components/schemas/ZakelijkGerechtigde_embedded"
     ZakelijkGerechtigdeHalCollectie:
@@ -2511,6 +2488,10 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         betrokkenGorzenEnAanwassen:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        hoofdzaak:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_embedded:
       type: "object"
       properties:
