@@ -1184,13 +1184,10 @@ components:
             type: "array"
             items:
               type: "string"
-    AangebodenStuk_embedded:
-      type: "object"
-      properties:
-        kadasterverzoeken:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Kadasterverzoek"
+          kadasterverzoeken:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/Kadasterverzoek"
     Aantekening:
       type: "object"
       description: "Waardelijst in deze component :
@@ -1325,7 +1322,7 @@ components:
             type: "string"
             description: "De identificaties van de stukdelen waarin deze appartementsrechtsplitsing is vermeld"
         verenigingVanEigenaren:
-          $ref: "#/components/schemas/PersoonBeperkt"
+          $ref: "#/components/schemas/NietNatuurlijkPersoonBeperkt"
     Bedrag:
       type: "object"
       description: "Hoeveelheid geld in cijfers in een bepaalde valuta.
@@ -1749,7 +1746,7 @@ components:
         properties:
           portefeuilleNummer:
             $ref: "#/components/schemas/PortefeuilleId"
-          OorspronkelijkStukIdentificatie:
+          oorspronkelijkStukIdentificatie:
             description: "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
             type: "string"
     Kadasterverzoek:
@@ -1769,13 +1766,8 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/HeeftRedenVerzoek"
-        _links:
-          $ref: "#/components/schemas/Kadasterverzoek_links"
-    Kadasterverzoek_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+
+
     KadastraalOnroerendeZaak:
       type: "object"
       description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.
@@ -2206,8 +2198,6 @@ components:
           $ref: "#/components/schemas/AangebodenStuk"
         _links:
           $ref: "#/components/schemas/Stuk_links"
-        _embedded:
-          $ref: "#/components/schemas/AangebodenStuk_embedded"
     Stuk_links:
       type: "object"
       properties:
@@ -2492,6 +2482,8 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        verenigingVanEigenaren:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigde_embedded:
       type: "object"
       properties:
