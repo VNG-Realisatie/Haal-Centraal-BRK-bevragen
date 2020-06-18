@@ -1338,6 +1338,22 @@ components:
         valuta:
           $ref: "#/components/schemas/Waardelijst"
           description: "Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta"
+    Beperkingsgebied:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+        werkingsgebied:
+          type: "object"
+          properties:
+            bgtObjectIdentificatie:
+              type: "string"
+            bagObjectIdentificatie:
+              type: "string"
+            kadastraalObjectIdentificatie:
+              type: "string"
+            vrijeContour:
+              $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
     Beslag:
       type: "object"
       description: "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
@@ -1406,11 +1422,7 @@ components:
       type: "object"
       properties:
         beslaglegger:
-          type: "object"
-          description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
-          properties:
-            href:
-             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+         $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           type: "array"
           items:
@@ -1597,11 +1609,7 @@ components:
       type: "object"
       properties:
         hypotheekhouder:
-          type: "object"
-          description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
-          properties:
-            href:
-             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
           type: "array"
           items:
@@ -1854,22 +1862,7 @@ components:
         isOntstaanUit:
           $ref: "#/components/schemas/Filiatie"
         verkavelObject:
-          type: "object"
-          properties:
-            afwijkingLijstRechthebbenden:
-              type: "boolean"
-            herverkavelingsGebied:
-              type: "object"
-              properties:
-                identificatie:
-                  type: "string"
-                bloknummer:
-                  type: "integer"
-                naamHerverkavelingsproject:
-                  type: "string"
-                statusHerverkavelingsProject:
-                  $ref: "#/components/schemas/Waardelijst"
-                  description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusHerverkavelingsproject/)"
+          $ref: "#/components/schemas/VerkavelObject"
     KadastraalOnroerendeZaakHal:
       allOf:
       - $ref: "#/components/schemas/KadastraalOnroerendeZaak"
@@ -1947,6 +1940,23 @@ components:
           type: "string"
         koppelingswijze:
           $ref: "#/components/schemas/Koppelingswijze_enum"
+    Mandeligheid:
+      description: "Mandeligheid is het ontstaan van een gemeenschappelijk eigendom van een onroerende zaak, van eigenaars van twee of meer erven, doordat de bestemming van het gemeenschappelijk nut is vastgelegd in een tussen de eigenaars opgemaakte notariële akte en dat deze akte is ingeschreven in de openbare registers. ( https://tax.kadaster.nl/doc/begrip/Mandeligheid)"
+      properties:
+        identificatie:
+          type: "string"
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
+          items:
+            type: "string"
+        hoofdZaakIdentificaties:
+          type: "array"
+          items:
+            type: "string"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
@@ -2123,21 +2133,7 @@ components:
         bevoegdGezag:
           $ref: "#/components/schemas/NietNatuurlijkPersoonBeperkt"
         beperkingsgebied:
-          type: "object"
-          properties:
-            identificatie:
-              type: "string"
-            werkingsgebied:
-              type: "object"
-              properties:
-                bgtObjectIdentificatie:
-                  type: "string"
-                bagObjectIdentificatie:
-                  type: "string"
-                kadastraalObjectIdentificatie:
-                  type: "string"
-                vrijeContour:
-                  $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+          $ref: "#/components/schemas/Beperkingsgebied"
     PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
@@ -2378,6 +2374,23 @@ components:
       - "Ondersplitsing"
       - "SpiegelsplitsingAfkoopErfpacht"
       - "SpiegelsplitsingOndersplitsing"
+    VerkavelObject:
+      type: "object"
+      properties:
+        afwijkingLijstRechthebbenden:
+          type: "boolean"
+        herverkavelingsGebied:
+          type: "object"
+          properties:
+            identificatie:
+              type: "string"
+            bloknummer:
+              type: "integer"
+            naamHerverkavelingsproject:
+              type: "string"
+            statusHerverkavelingsProject:
+              $ref: "#/components/schemas/Waardelijst"
+              description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusHerverkavelingsproject/)"
     Waardelijst:
       type: "object"
       description: "Waardelijst is een samengesteld datatype voor het weergeven van\
@@ -2413,22 +2426,7 @@ components:
           items:
             type: string
         mandeligheid:
-          description: "Mandeligheid is het ontstaan van een gemeenschappelijk eigendom van een onroerende zaak, van eigenaars van twee of meer erven, doordat de bestemming van het gemeenschappelijk nut is vastgelegd in een tussen de eigenaars opgemaakte notariële akte en dat deze akte is ingeschreven in de openbare registers. ( https://tax.kadaster.nl/doc/begrip/Mandeligheid)"
-          properties:
-            identificatie:
-              type: "string"
-            isGebaseerdOpStukdeelIdentificatie:
-              type: "string"
-              description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
-            isVermeldInStukdeelIdentificaties:
-              type: "array"
-              description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
-              items:
-                type: "string"
-            hoofdZaakIdentificaties:
-              type: "array"
-              items:
-                type: "string"
+          $ref: "#/components/schemas/Mandeligheid"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
           description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
