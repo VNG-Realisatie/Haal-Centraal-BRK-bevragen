@@ -46,8 +46,8 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 
 ### Algemeen
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
-- Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](../../Haal-Centraal-common/features/fields.feature))
-- Gebruik van de expand parameter om subresources te ontsluiten. (Voor werking, zie feature [expand](../../Haal-Centraal-common/features/expand.feature))
+- Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature))
+- Gebruik van de expand parameter om subresources te ontsluiten. (Voor werking, zie feature [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature))
 - Velden die altijd worden geleverd. (Voor werking, zie feature [levering velden](../features/levering-velden.feature))
 
 |Resource                           |Velden                         |
@@ -63,7 +63,7 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 |-----                              |------                         |----- |
 |KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
 
-- [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](../../Haal-Centraal-common/features/uri-templating.feature) worden geleverd.
+- [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/uri-templating.feature) worden geleverd.
 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
