@@ -912,7 +912,7 @@ components:
           type: "string"
           description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter"
           example: "A"
-        huisnummerToevoeging:
+        huisnummertoevoeging:
           type: "string"
           description: "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging"
           example: "3"
@@ -946,7 +946,7 @@ components:
         nummeraanduidingIdentificatie: "1234207890123456"
         huisnummer: 26
         huisletter: "A"
-        huisnummerToevoeging: "3"
+        huisnummertoevoeging: "3"
         straat: "Laan van de landinrichtingscommissie Duiven-Westervoort"
         postcode: "1234AA"
         woonplaats: "Nootdorp"
