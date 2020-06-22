@@ -3,7 +3,7 @@ De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI Specifications
 
 Om aan te sluiten kunt u de volgende stappen doorlopen:
 1. [Meld je aan bij het kadaster om toegang te krijgen](#Aanmelden-om-aan-te-sluiten)
-2. [Bestudeer de functionaliteit en specificaties](#Functionaliteit)
+2. [Bekijk de functionaliteit en specificaties](#Functionaliteit)
 3. [Probeer en test de API](#Probeer-en-test-de-API)
 4. [Sluit aan op productie](#Aansluiten-op-productie)
 
