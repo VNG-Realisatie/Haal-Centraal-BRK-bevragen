@@ -860,20 +860,16 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Koppelingswijze_enum:
-      type: "string"
-      description: "Koppelingswijze is de beschrijving van de manier waarop de koppeling tussen het Kadastraalobject (Perceel of Appartementsrecht) met ObjectlocatieBinnenland bepaald is. De koppeling kan administratief bepaald zijn op basis van overeenkomstige adresgegevens en of geometrisch bepaald zijn, op basis van overeenkomstige geometrie."
-      enum:
-      - "Administratief"
-      - "Geometrisch"
-      - "Administratief en Geometrisch"
     LocatieKadastraalObject:
       type: "object"
+      description: "Waardelijst in deze component :
+          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze/)"
       properties:
         nummeraanduidingIdentificatie:
           type: "string"
         koppelingswijze:
-          $ref: "#/components/schemas/Koppelingswijze_enum"
+          $ref: "#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze/)"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
