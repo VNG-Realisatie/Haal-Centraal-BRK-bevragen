@@ -687,12 +687,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            kadasterNatuurlijkPersonen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/KadasterNatuurlijkPersoonHal"
+          $ref: "#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded"
+    KadasterNatuurlijkPersoonHalCollectie_embedded:
+      type: "object"
+      properties:
+        kadasterNatuurlijkPersonen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/KadasterNatuurlijkPersoonHal"
     KadasterNietNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
@@ -725,12 +727,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            kadasterNietNatuurlijkPersonen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHal"
+          $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded"
+    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
+      type: "object"
+      properties:
+        kadasterNietNatuurlijkPersonen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHal"
     KadasterPersoon:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
@@ -836,12 +840,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            kadastraalOnroerendeZaken:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded"
+    KadastraalOnroerendeZaakHalCollectie_embedded:
+      type: "object"
+      properties:
+        kadastraalOnroerendeZaken:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
     KadastraalOnroerendeZaak_embedded:
       type: "object"
       properties:
@@ -1163,12 +1169,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            zakelijkGerechtigden:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded"
+    ZakelijkGerechtigdeHalCollectie_embedded:
+      type: "object"
+      properties:
+        zakelijkGerechtigden:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
     ZakelijkGerechtigde_links:
       type: "object"
       properties:
