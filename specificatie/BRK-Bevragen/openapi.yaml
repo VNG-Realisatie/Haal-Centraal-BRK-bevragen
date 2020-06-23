@@ -1021,9 +1021,9 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)"
         aantekeningen:
           type: array
+          description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst"
           items:
             $ref: "#/components/schemas/Aantekening"
-            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
           description: "Wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, waarbij het afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is."
