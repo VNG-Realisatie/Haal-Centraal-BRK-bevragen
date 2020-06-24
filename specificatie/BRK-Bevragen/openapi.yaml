@@ -818,6 +818,8 @@ components:
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         adres:
+          type: array
+          items:
             $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
@@ -862,14 +864,9 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     LocatieKadastraalObject:
       type: "object"
-      description: "Waardelijst in deze component :
-          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze/)"
       properties:
         nummeraanduidingIdentificatie:
           type: "string"
-        koppelingswijze:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze/)"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
