@@ -2650,8 +2650,10 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         verkregenNamensSamenwerkingsverband:
           $ref: '#/components/schemas/Waardelijst'
-        aantekening:
-          $ref: '#/components/schemas/Aantekening'
+        aantekeningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aantekening'
         gezamenlijkAandeel:
           $ref: '#/components/schemas/TypeBreuk'
         betrokkenPartner:
