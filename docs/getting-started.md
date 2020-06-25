@@ -1,15 +1,14 @@
 # Getting Started - BRK Bevragen API
 De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI Specifications (OAS3).
 
-Om aan te sluiten kunt u de volgende stappen doorlopen:
+Om aan te sluiten kun je de volgende stappen doorlopen:
 1. [Meld je aan bij het kadaster om toegang te krijgen](#Aanmelden-om-aan-te-sluiten)
 2. [Bekijk de functionaliteit en specificaties](#Functionaliteit)
 3. [Probeer en test de API](#Probeer-en-test-de-API)
 4. [Sluit aan op productie](#Aansluiten-op-productie)
 
 ## Aanmelden om aan te sluiten
-Meld je aan bij het kadaster om [aan te sluiten](https://formulieren.kadaster.nl/aanmelden_brk_bevragen) en voor [toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen).
-U ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
+Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
 
 ## Functionaliteit
 U kunt de Open API Specificaties (OAS3) van de API bekijken in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/master/specificatie/BRK-Bevragen/genereervariant/openapi.yaml).
@@ -52,10 +51,10 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 
 |Resource                           |Velden                         |
 |-----                              |------                         |
-|KadastraalOnroerendeZaak           |identificatie<br/>type<br/>_links.self |
-|ZakelijkGerechtigde                |identificatie<br/>_links.self |
-|KadasterNatuurlijkPersoon          |identificatie<br/>_links.self |
-|KadasterNietNatuurlijkPersoon      |identificatie<br/>_links.self |
+|KadastraalOnroerendeZaak           |identificatie, type, _links.self |
+|ZakelijkGerechtigde                |identificatie, _links.self |
+|KadasterNatuurlijkPersoon          |identificatie, _links.self |
+|KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
 
 - Combinatie van velden die altijd verplicht worden geleverd.
 
@@ -73,7 +72,7 @@ De [openapi.yaml](../specificatie/BRK-Bevragen/genereervariant/openapi.yaml) kun
 De testomgeving van de API is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/.
 
 ### API key
-Om de API te kunnen bevragen is op de testomgeving een API key nodig. Deze wordt bij de request opgenomen in request header "apikey". Wanneer u zich aanmeldt voor het gebruiken van de API ontvangt u de API key.
+Om de API te kunnen bevragen is op de testomgeving een API key nodig. Deze wordt bij de request opgenomen in request header "apikey". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API key.
 
 ### Testgevallen
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest.
