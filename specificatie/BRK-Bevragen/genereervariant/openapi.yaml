@@ -2372,10 +2372,6 @@ components:
             type: array
             items:
               type: string
-          zakelijkGerechtigdeIdentificaties:
-            type: array
-            items:
-              type: string
         description: |-
           Een in de basisregistratie kadaster geregistreerde persoon.
 

@@ -708,10 +708,6 @@ components:
               type: "array"
               items:
                 type: "string"
-            zakelijkGerechtigdeIdentificaties:
-              type: "array"
-              items:
-                type: "string"
     KadasterPersoon_links:
       type: "object"
       properties:
