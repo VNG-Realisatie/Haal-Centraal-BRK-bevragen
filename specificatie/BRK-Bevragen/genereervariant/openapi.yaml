@@ -58,7 +58,7 @@ paths:
           die je wil ontvangen geef je op met de resource-naam gevolgd door de property
           naam, met daartussen een punt. In de definitie van het antwoord kun je bij
           _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature).
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -68,7 +68,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -411,7 +411,7 @@ paths:
           die je wil ontvangen geef je op met de resource-naam gevolgd door de property
           naam, met daartussen een punt. In de definitie van het antwoord kun je bij
           _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature).
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -421,7 +421,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -666,7 +666,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -925,7 +925,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1184,7 +1184,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1433,7 +1433,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1683,7 +1683,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -1934,7 +1934,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -2180,8 +2180,8 @@ components:
         identificatie:
           type: string
         domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
+          type: string
+          description: Het domein waartoe de identificatie behoort.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
@@ -2307,7 +2307,14 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie__embedded'
+          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded'
+    KadasterNatuurlijkPersoonHalCollectie_embedded:
+      type: object
+      properties:
+        kadasterNatuurlijkPersonen:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
     KadasterNietNatuurlijkPersoon:
       allOf:
       - $ref: '#/components/schemas/KadasterPersoon'
@@ -2338,7 +2345,14 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie__embedded'
+          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded'
+    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
+      type: object
+      properties:
+        kadasterNietNatuurlijkPersonen:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
     KadasterPersoon:
       allOf:
       - $ref: '#/components/schemas/PersoonBasis'
@@ -2355,10 +2369,6 @@ components:
           postadres:
             $ref: '#/components/schemas/Postadres'
           kadastraalOnroerendeZaakIdentificaties:
-            type: array
-            items:
-              type: string
-          zakelijkGerechtigdeIdentificaties:
             type: array
             items:
               type: string
@@ -2448,7 +2458,14 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie__embedded'
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded'
+    KadastraalOnroerendeZaakHalCollectie_embedded:
+      type: object
+      properties:
+        kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
     KadastraalOnroerendeZaak_embedded:
       type: object
       properties:
@@ -2629,8 +2646,10 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         verkregenNamensSamenwerkingsverband:
           $ref: '#/components/schemas/Waardelijst'
-        aantekening:
-          $ref: '#/components/schemas/Aantekening'
+        aantekeningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aantekening'
         gezamenlijkAandeel:
           $ref: '#/components/schemas/TypeBreuk'
         betrokkenPartner:
@@ -2776,7 +2795,14 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie__embedded'
+          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded'
+    ZakelijkGerechtigdeHalCollectie_embedded:
+      type: object
+      properties:
+        zakelijkGerechtigden:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
     ZakelijkGerechtigde_links:
       type: object
       properties:
@@ -2939,34 +2965,6 @@ components:
           type: array
           items:
             type: number
-    KadasterNatuurlijkPersoonHalCollectie__embedded:
-      type: object
-      properties:
-        kadasterNatuurlijkPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
-    KadasterNietNatuurlijkPersoonHalCollectie__embedded:
-      type: object
-      properties:
-        kadasterNietNatuurlijkPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
-    KadastraalOnroerendeZaakHalCollectie__embedded:
-      type: object
-      properties:
-        kadastraalOnroerendeZaken:
-          type: array
-          items:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
-    ZakelijkGerechtigdeHalCollectie__embedded:
-      type: object
-      properties:
-        zakelijkGerechtigden:
-          type: array
-          items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
   headers:
     api_version:
       schema:
