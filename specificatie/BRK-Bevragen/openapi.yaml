@@ -1704,14 +1704,10 @@ components:
 #          description: "Identificatie van een adres uit de basisregistratie adressen en gebouwen (BAG). Dit kan worden gebruikt om een URL op bouwen of om in te vullen in de tempated HAL link naar de BAG."
 #          items:
 #            type: "string"
-        adres:
+        adressen:
           type: "array"
           items:
-            allOf:
-              - $ref: "#/components/schemas/Adres"
-              - properties:
-                  koppelingswijze:
-                    $ref: "#/components/schemas/Koppelingswijze_enum"
+            $ref: "#/components/schemas/LocatieKadastraalObject"
         stukIdentificaties:
           type: "array"
           description: "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn."
@@ -1819,20 +1815,15 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    Koppelingswijze_enum:
-      type: "string"
-      description: "Koppelingswijze is de beschrijving van de manier waarop de koppeling tussen het Kadastraalobject (Perceel of Appartementsrecht) met ObjectlocatieBinnenland bepaald is. De koppeling kan administratief bepaald zijn op basis van overeenkomstige adresgegevens en of geometrisch bepaald zijn, op basis van overeenkomstige geometrie."
-      enum:
-      - "Administratief"
-      - "Geometrisch"
-      - "Administratief en Geometrisch"
     LocatieKadastraalObject:
       type: "object"
-      properties:
-        nummeraanduidingIdentificatie:
-          type: "string"
-        koppelingswijze:
-          $ref: "#/components/schemas/Koppelingswijze_enum"
+      description: "Waardelijst in deze component :
+         [koppelingsijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
+      allOf:
+        - $ref: "#/components/schemas/Adres"
+        - properties:
+            koppelingswijze:
+              $ref: "#/components/schemas/Waardelijst"
     Mandeligheid:
       description: "Mandeligheid is het ontstaan van een gemeenschappelijk eigendom van een onroerende zaak, van eigenaars van twee of meer erven, doordat de bestemming van het gemeenschappelijk nut is vastgelegd in een tussen de eigenaars opgemaakte notariële akte en dat deze akte is ingeschreven in de openbare registers. ( https://tax.kadaster.nl/doc/begrip/Mandeligheid)"
       properties:
@@ -1847,6 +1838,7 @@ components:
           items:
             type: "string"
         hoofdZaakIdentificaties:
+          description: "Gerechtigden van 1 of meer onroerende zaken (de hoofdzaken) hebben gezamenlijk recht op een andere onroerende zaak (de mandelige zaak), waarbij: Zakelijke rechten op 1 of meer onroerende zaken bestemd zijn tot mandeligheid (tot algemeen nut) verklaard. Andere onroerende zaken (de hoofdzaken) een aandeel in die mandeligheid omvat."
           type: "array"
           items:
             type: "string"
@@ -1894,6 +1886,7 @@ components:
       description: "Waardelijst in deze component :
           [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       properties:
+# Adresdefinitie van de BAG hergebruiken als daar een versie 1.0.0 van is. Dit is geen zichtbare wijzigingen voor de consumers.
         nummeraanduidingIdentificatie:
           type: string
           description: "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
