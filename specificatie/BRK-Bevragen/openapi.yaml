@@ -818,7 +818,9 @@ components:
         perceelnummerVerschuiving:
           $ref: "#/components/schemas/TypePerceelnummerVerschuiving"
         adressen:
-          $ref: "#/components/schemas/LocatieKadastraalObjectArray"
+          type: "array"
+          items:
+            $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
           description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
@@ -868,11 +870,7 @@ components:
         nummeraanduidingIdentificatie:
           type: "string"
         koppelingswijze:
-              $ref: "#/components/schemas/Waardelijst"
-    LocatieKadastraalObjectArray:
-      type: "array"
-      items:
-        $ref: "#/components/schemas/LocatieKadastraalObject"
+          $ref: "#/components/schemas/Waardelijst"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
