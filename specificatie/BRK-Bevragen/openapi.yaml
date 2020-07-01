@@ -815,7 +815,7 @@ components:
     LocatieKadastraalObject:
       type: "object"
       description: "Waardelijst in deze component :
-         [koppelingsijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
+         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
       properties:
         nummeraanduidingIdentificatie:
           type: "string"
