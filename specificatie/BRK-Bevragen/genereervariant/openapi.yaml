@@ -2431,6 +2431,10 @@ components:
           $ref: '#/components/schemas/TypeOppervlak'
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
+        adressen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: array
           description: Alle personen en rechtspersonen die een zakelijk recht hebben
@@ -2482,6 +2486,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+    LocatieKadastraalObject:
+      type: "object"
+      description: "Waardelijst in deze component :
+         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
+      properties:
+        nummeraanduidingIdentificatie:
+          type: "string"
+        koppelingswijze:
+          $ref: '#/components/schemas/Waardelijst'
     Naam:
       type: object
       properties:
