@@ -20,16 +20,16 @@ paths:
           Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
           2.  Ingeschreven persoon als zakelijk gerechtigde
-              -  burgerservicenummer (verplicht)
-              -  typegerechtigde (optioneel)
+              -  ingeschrevenpersoon__burgerservicenummer (verplicht)
+              -  zakelijkgerechtigde__typegerechtigde (optioneel)
           3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
-              -  kadasterpersoonidentificatie (verplicht)
-              -  typegerechtigde (optioneel)
+              -  persoon__kadasterpersoonidentificatie (verplicht)
+              -  zakelijkgerechtigde__typegerechtigde (optioneel)
           4.  Adres
-              -  postcode (verplicht)
-              -  huisnummer (optioneel)
-              -  huisletter (optioneel)
-              -  huisnummertoevoeging (optioneel)
+              -  adres__postcode (verplicht)
+              -  adres__huisnummer (optioneel)
+              -  adres__huisletter (optioneel)
+              -  adres__huisnummertoevoeging (optioneel)
 
           Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
 
