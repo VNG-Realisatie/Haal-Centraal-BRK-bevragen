@@ -1827,8 +1827,6 @@ components:
     Mandeligheid:
       description: "Mandeligheid is het ontstaan van een gemeenschappelijk eigendom van een onroerende zaak, van eigenaars van twee of meer erven, doordat de bestemming van het gemeenschappelijk nut is vastgelegd in een tussen de eigenaars opgemaakte notariële akte en dat deze akte is ingeschreven in de openbare registers. ( https://tax.kadaster.nl/doc/begrip/Mandeligheid)"
       properties:
-        identificatie:
-          type: "string"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
           description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
