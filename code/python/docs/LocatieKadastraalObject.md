@@ -1,0 +1,10 @@
+# LocatieKadastraalObject
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**nummeraanduiding_identificatie** | **str** |  | [optional] 
+**koppelingswijze** | [**Waardelijst**](Waardelijst.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
