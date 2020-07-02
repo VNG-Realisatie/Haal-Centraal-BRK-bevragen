@@ -16,6 +16,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870487970000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "koopsom": {
                 "koopsom": 185000,
                 "koopjaar": 2015
@@ -42,6 +43,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870487970000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "koopsom": {
                 "koopsom": 185000,
                 "koopjaar": 2015
@@ -66,6 +68,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870487970000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "type": "perceel",
             "kadastraleAanduiding": "Beekbergen K 4879",
             "_links": {
@@ -83,6 +86,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870488070000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "type": "perceel",
             "kadastraleAanduiding": "Beekbergen K 4880",
             "_links": {
@@ -100,6 +104,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870488070000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "type": "perceel",
             "_links": {
                 "self": {
@@ -116,6 +121,7 @@ Functionaliteit: Koopsommen worden alleen geleverd in combinatie met koopjaar al
         """
         {
             "identificatie": "76870488070000",
+            "domein": "NL.IMKAD.KadastraalObject",
             "type": "perceel",
             "kadastraleAanduiding": "Beekbergen K 4880",
             "_links": {
