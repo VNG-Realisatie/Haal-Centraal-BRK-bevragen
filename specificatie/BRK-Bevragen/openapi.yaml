@@ -12,6 +12,8 @@ info:
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
+security:
+  - apiKeyAuth: []
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -494,6 +496,12 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
 components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: "De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden."
   schemas:
     Aantekening:
       type: "object"
