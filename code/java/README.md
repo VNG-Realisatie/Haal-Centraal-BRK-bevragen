@@ -2,7 +2,7 @@
 
 Kadastraal onroerende zaken
 - API version: 1.0.0
-  - Build date: 2020-07-02T13:29:42.896+02:00[Europe/Amsterdam]
+  - Build date: 2020-07-02T13:36:51.120+02:00[Europe/Amsterdam]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
 

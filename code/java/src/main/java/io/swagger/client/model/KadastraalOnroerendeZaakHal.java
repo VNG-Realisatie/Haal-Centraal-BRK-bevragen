@@ -38,7 +38,7 @@ import java.util.List;
  * KadastraalOnroerendeZaakHal
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:29:42.896+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:36:51.120+02:00[Europe/Amsterdam]")
 public class KadastraalOnroerendeZaakHal extends KadastraalOnroerendeZaak {
   @SerializedName("_links")
   private KadastraalOnroerendeZaakLinks _links = null;

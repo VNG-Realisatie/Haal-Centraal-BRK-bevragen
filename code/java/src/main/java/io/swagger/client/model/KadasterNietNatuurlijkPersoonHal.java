@@ -28,7 +28,7 @@ import java.io.IOException;
  * KadasterNietNatuurlijkPersoonHal
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:29:42.896+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:36:51.120+02:00[Europe/Amsterdam]")
 public class KadasterNietNatuurlijkPersoonHal extends KadasterNietNatuurlijkPersoon {
   @SerializedName("_links")
   private KadasterPersoonLinks _links = null;

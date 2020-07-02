@@ -67,6 +67,7 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
 De [openapi.yaml](../specificatie/BRK-Bevragen/genereervariant/openapi.yaml) kun je importeren als project, waarna de verschillende requests worden ingeladen die deze API ondersteunt.
+We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](../test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API key) nog invullen.
 
 ### URL
 De testomgeving van de API is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/.

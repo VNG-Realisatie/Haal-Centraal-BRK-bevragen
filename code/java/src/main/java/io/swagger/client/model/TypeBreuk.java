@@ -25,7 +25,7 @@ import java.io.IOException;
  * Een deling van twee gehele getallen
  */
 @Schema(description = "Een deling van twee gehele getallen")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:29:42.896+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-07-02T13:36:51.120+02:00[Europe/Amsterdam]")
 public class TypeBreuk {
   @SerializedName("noemer")
   private Integer noemer = null;
