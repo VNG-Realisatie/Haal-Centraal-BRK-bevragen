@@ -1,6 +1,9 @@
+
+
 # KadasterNietNatuurlijkPersoon
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **statutaireNaam** | **String** |  |  [optional]
@@ -8,3 +11,6 @@ Name | Type | Description | Notes
 **rechtsvorm** | [**Waardelijst**](Waardelijst.md) |  |  [optional]
 **kvkNummer** | **String** |  |  [optional]
 **rsin** | **String** |  |  [optional]
+
+
+

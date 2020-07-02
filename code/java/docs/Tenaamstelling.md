@@ -1,6 +1,10 @@
+
+
 # Tenaamstelling
 
+Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.  Waardelijst in deze component : [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aandeel** | [**TypeBreuk**](TypeBreuk.md) |  |  [optional]
@@ -11,3 +15,6 @@ Name | Type | Description | Notes
 **betrokkenPartner** | [**NatuurlijkPersoonBeperkt**](NatuurlijkPersoonBeperkt.md) |  |  [optional]
 **betrokkenSamenwerkingsverband** | [**NietNatuurlijkPersoonBeperkt**](NietNatuurlijkPersoonBeperkt.md) |  |  [optional]
 **betrokkenGorzenEnAanwassen** | [**NietNatuurlijkPersoonBeperkt**](NietNatuurlijkPersoonBeperkt.md) |  |  [optional]
+
+
+

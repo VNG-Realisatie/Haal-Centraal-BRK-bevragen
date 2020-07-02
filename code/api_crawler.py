@@ -32,6 +32,7 @@ TESTCASES_FILENAME = '../test/cases/testcases.json'
 SEPERATOR = ";"
 MAX_LEVELS = 6
 BASE_URL = "https://api.test.kadaster.nl/esd/gemeenten/brk/esd/gemeenten/brk"
+APIKEY_HEADER = "apikey"
 
 
 
@@ -220,7 +221,7 @@ if (apikey is None):
     print "Geef de API-key op met argument -k of --apikey gevolgd door de te gebruiken key"
     sys.exit()
 
-REQUEST_HEADERS = { "apikey": apikey }
+REQUEST_HEADERS = { APIKEY_HEADER : apikey }
 
 # read path templates and sheets
 templates = {}

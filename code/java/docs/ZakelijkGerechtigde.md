@@ -1,6 +1,9 @@
+
+
 # ZakelijkGerechtigde
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identificatie** | **String** | Identificatie van de zakelijk gerechtigde. |  [optional]
@@ -9,3 +12,6 @@ Name | Type | Description | Notes
 **erfpachtCanon** | [**ErfpachtCanon**](ErfpachtCanon.md) |  |  [optional]
 **tenaamstelling** | [**Tenaamstelling**](Tenaamstelling.md) |  |  [optional]
 **persoon** | [**PersoonBeperkt**](PersoonBeperkt.md) |  |  [optional]
+
+
+

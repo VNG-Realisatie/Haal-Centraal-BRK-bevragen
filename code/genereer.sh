@@ -12,6 +12,7 @@
 # precondities:
 # swagger-cli (https://www.npmjs.com/package/swagger-cli)
 # swagger-codegen (https://swagger.io/tools/swagger-codegen/)
+# openapi-generator (https://openapi-generator.tech/docs/usage)
 # openapi2postmanv2 (https://www.npmjs.com/package/openapi-to-postmanv2)
 # python is geïnstalleerd
 
@@ -39,7 +40,8 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   # genereer client SDKs:
   rm -R java
   mkdir java
-  swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
+  #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
+  openapi-generator generate -g java -i ../specificatie/BRK-Bevragen/genereervariant/openapi.yaml -o ./openapi-generator --additional-properties=dateLibrary=java8,java8=true
 
   rm -R csharp-dotnet2
   mkdir csharp-dotnet2

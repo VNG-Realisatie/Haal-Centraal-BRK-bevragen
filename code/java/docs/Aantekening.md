@@ -1,6 +1,10 @@
+
+
 # Aantekening
 
+Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identificatie** | **String** |  |  [optional]
@@ -12,3 +16,6 @@ Name | Type | Description | Notes
 **einddatumRecht** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **indicatieOorspronkelijkObject** | **Boolean** |  |  [optional]
 **betreftGedeelteVanPerceel** | **Boolean** |  |  [optional]
+
+
+

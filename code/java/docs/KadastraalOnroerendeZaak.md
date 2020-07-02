@@ -1,6 +1,10 @@
+
+
 # KadastraalOnroerendeZaak
 
+Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.  Waardelijst in deze component : [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identificatie** | **String** |  |  [optional]
@@ -18,3 +22,6 @@ Name | Type | Description | Notes
 **perceelnummerVerschuiving** | [**TypePerceelnummerVerschuiving**](TypePerceelnummerVerschuiving.md) |  |  [optional]
 **adressen** | [**List&lt;LocatieKadastraalObject&gt;**](LocatieKadastraalObject.md) |  |  [optional]
 **zakelijkGerechtigdeIdentificaties** | **List&lt;String&gt;** | Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak |  [optional]
+
+
+

@@ -1,6 +1,9 @@
+
+
 # KadasterPersoonLinks
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **self** | [**HalLink**](HalLink.md) |  |  [optional]
@@ -8,3 +11,6 @@ Name | Type | Description | Notes
 **postadres** | [**HalLink**](HalLink.md) |  |  [optional]
 **kadastraalOnroerendeZaken** | [**List&lt;HalLink&gt;**](HalLink.md) |  |  [optional]
 **zakelijkGerechtigden** | [**List&lt;HalLink&gt;**](HalLink.md) |  |  [optional]
+
+
+

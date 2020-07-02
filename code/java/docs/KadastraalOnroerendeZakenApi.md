@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**getKadastraalOnroerendeZaak**](KadastraalOnroerendeZakenApi.md#getKadastraalOnroerendeZaak) | **GET** /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie} | 
 [**getKadastraalOnroerendeZaken**](KadastraalOnroerendeZakenApi.md#getKadastraalOnroerendeZaken) | **GET** /kadastraalonroerendezaken | 
 
+
 <a name="getKadastraalOnroerendeZaak"></a>
 # **getKadastraalOnroerendeZaak**
 > KadastraalOnroerendeZaakHal getKadastraalOnroerendeZaak(kadastraalonroerendezaakidentificatie, acceptCrs, expand, fields)
@@ -18,21 +19,33 @@ Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadastraalOnroerendeZakenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadastraalOnroerendeZakenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadastraalOnroerendeZakenApi apiInstance = new KadastraalOnroerendeZakenApi();
-String kadastraalonroerendezaakidentificatie = "kadastraalonroerendezaakidentificatie_example"; // String | De unieke identificatie van een kadastraal onroerende zaak.
-String acceptCrs = "epsg:28992"; // String | Gewenste CRS van de coördinaten in de response.
-String expand = "expand_example"; // String | Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-try {
-    KadastraalOnroerendeZaakHal result = apiInstance.getKadastraalOnroerendeZaak(kadastraalonroerendezaakidentificatie, acceptCrs, expand, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadastraalOnroerendeZakenApi#getKadastraalOnroerendeZaak");
-    e.printStackTrace();
+    KadastraalOnroerendeZakenApi apiInstance = new KadastraalOnroerendeZakenApi(defaultClient);
+    String kadastraalonroerendezaakidentificatie = "kadastraalonroerendezaakidentificatie_example"; // String | De unieke identificatie van een kadastraal onroerende zaak.
+    String acceptCrs = "epsg:28992"; // String | Gewenste CRS van de coördinaten in de response.
+    String expand = "expand_example"; // String | Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    try {
+      KadastraalOnroerendeZaakHal result = apiInstance.getKadastraalOnroerendeZaak(kadastraalonroerendezaakidentificatie, acceptCrs, expand, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadastraalOnroerendeZakenApi#getKadastraalOnroerendeZaak");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -43,7 +56,7 @@ Name | Type | Description  | Notes
  **kadastraalonroerendezaakidentificatie** | **String**| De unieke identificatie van een kadastraal onroerende zaak. |
  **acceptCrs** | **String**| Gewenste CRS van de coördinaten in de response. | [optional] [default to epsg:28992] [enum: epsg:28992]
  **expand** | **String**| Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature). | [optional]
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
 
 ### Return type
 
@@ -58,6 +71,19 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**404** | Not Found |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
+
 <a name="getKadastraalOnroerendeZaken"></a>
 # **getKadastraalOnroerendeZaken**
 > KadastraalOnroerendeZaakHalCollectie getKadastraalOnroerendeZaken(acceptCrs, expand, fields, kadastraleaanduiding, ingeschrevenpersoonBurgerservicenummer, persoonKadasterpersoonidentificatie, zakelijkgerechtigdeTypegerechtigde, adresPostcode, adresHuisnummer, adresHuisletter, adresHuisnummertoevoeging)
@@ -69,28 +95,40 @@ Het zoeken van kadastraal onroerende zaken door een of meer parameters op te gev
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadastraalOnroerendeZakenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadastraalOnroerendeZakenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadastraalOnroerendeZakenApi apiInstance = new KadastraalOnroerendeZakenApi();
-String acceptCrs = "epsg:28992"; // String | Gewenste CRS van de coördinaten in de response.
-String expand = "expand_example"; // String | Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-String kadastraleaanduiding = "kadastraleaanduiding_example"; // String | Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/). - sectie, 1 of 2 hoofdletters - perceelnummer, 1 tot 5 cijfers - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)  gescheiden door een spatie
-String ingeschrevenpersoonBurgerservicenummer = "ingeschrevenpersoonBurgerservicenummer_example"; // String | Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
-String persoonKadasterpersoonidentificatie = "persoonKadasterpersoonidentificatie_example"; // String | De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
-TypeGerechtigdeEnum zakelijkgerechtigdeTypegerechtigde = new TypeGerechtigdeEnum(); // TypeGerechtigdeEnum | Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.
-String adresPostcode = "adresPostcode_example"; // String | De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak
-Integer adresHuisnummer = 56; // Integer | Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak
-String adresHuisletter = "adresHuisletter_example"; // String | De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak
-String adresHuisnummertoevoeging = "adresHuisnummertoevoeging_example"; // String | De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak
-try {
-    KadastraalOnroerendeZaakHalCollectie result = apiInstance.getKadastraalOnroerendeZaken(acceptCrs, expand, fields, kadastraleaanduiding, ingeschrevenpersoonBurgerservicenummer, persoonKadasterpersoonidentificatie, zakelijkgerechtigdeTypegerechtigde, adresPostcode, adresHuisnummer, adresHuisletter, adresHuisnummertoevoeging);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadastraalOnroerendeZakenApi#getKadastraalOnroerendeZaken");
-    e.printStackTrace();
+    KadastraalOnroerendeZakenApi apiInstance = new KadastraalOnroerendeZakenApi(defaultClient);
+    String acceptCrs = "epsg:28992"; // String | Gewenste CRS van de coördinaten in de response.
+    String expand = "expand_example"; // String | Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    String kadastraleaanduiding = 's Gravenhage C 1277 A3; // String | Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/). - sectie, 1 of 2 hoofdletters - perceelnummer, 1 tot 5 cijfers - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)  gescheiden door een spatie
+    String ingeschrevenpersoonBurgerservicenummer = "ingeschrevenpersoonBurgerservicenummer_example"; // String | Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
+    String persoonKadasterpersoonidentificatie = "persoonKadasterpersoonidentificatie_example"; // String | De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
+    TypeGerechtigdeEnum zakelijkgerechtigdeTypegerechtigde = new TypeGerechtigdeEnum(); // TypeGerechtigdeEnum | Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.
+    String adresPostcode = "adresPostcode_example"; // String | De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak
+    Integer adresHuisnummer = 56; // Integer | Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak
+    String adresHuisletter = "adresHuisletter_example"; // String | De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak
+    String adresHuisnummertoevoeging = "adresHuisnummertoevoeging_example"; // String | De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak
+    try {
+      KadastraalOnroerendeZaakHalCollectie result = apiInstance.getKadastraalOnroerendeZaken(acceptCrs, expand, fields, kadastraleaanduiding, ingeschrevenpersoonBurgerservicenummer, persoonKadasterpersoonidentificatie, zakelijkgerechtigdeTypegerechtigde, adresPostcode, adresHuisnummer, adresHuisletter, adresHuisnummertoevoeging);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadastraalOnroerendeZakenApi#getKadastraalOnroerendeZaken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -100,13 +138,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **acceptCrs** | **String**| Gewenste CRS van de coördinaten in de response. | [optional] [default to epsg:28992] [enum: epsg:28992]
  **expand** | **String**| Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature). | [optional]
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
  **kadastraleaanduiding** | **String**| Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/). - sectie, 1 of 2 hoofdletters - perceelnummer, 1 tot 5 cijfers - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)  gescheiden door een spatie | [optional]
  **ingeschrevenpersoonBurgerservicenummer** | **String**| Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. | [optional]
  **persoonKadasterpersoonidentificatie** | **String**| De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. | [optional]
- **zakelijkgerechtigdeTypegerechtigde** | [**TypeGerechtigdeEnum**](.md)| Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. | [optional]
+ **zakelijkgerechtigdeTypegerechtigde** | [**TypeGerechtigdeEnum**](.md)| Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. | [optional] [enum: beklemrechthouder, eigenaar, erfpachter, gebruik_bewoning, grondrente, opstalhouder, vaderlandsrecht, stadsmeierrecht, vruchtgebruiker, erfpachter_opstalhouder, nutsvoorzieningen, twee_belastingen, belasting_derde, bp_recht, nutsvoorzieningen_gedeelte, artikel5_3b]
  **adresPostcode** | **String**| De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak | [optional]
- **adresHuisnummer** | **Integer**| Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak | [optional] [enum: ]
+ **adresHuisnummer** | **Integer**| Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak | [optional]
  **adresHuisletter** | **String**| De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak | [optional]
  **adresHuisnummertoevoeging** | **String**| De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak | [optional]
 
@@ -122,4 +160,16 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
 

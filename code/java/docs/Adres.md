@@ -1,6 +1,10 @@
+
+
 # Adres
 
+Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nummeraanduidingIdentificatie** | **String** | identificatie van het adres in het geval dit adres in BAG geregistreerd is. |  [optional]
@@ -14,3 +18,6 @@ Name | Type | Description | Notes
 **adresregel2** | **String** | Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode |  [optional]
 **adresregel3** | **String** | Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland |  [optional]
 **land** | [**Waardelijst**](Waardelijst.md) |  |  [optional]
+
+
+

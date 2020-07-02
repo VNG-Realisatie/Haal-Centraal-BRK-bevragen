@@ -1,6 +1,9 @@
+
+
 # KadasterNatuurlijkPersoon
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **geheimhoudingPersoonsgegevens** | **Boolean** | Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. |  [optional]
@@ -10,3 +13,6 @@ Name | Type | Description | Notes
 **naam** | [**Naam**](Naam.md) |  |  [optional]
 **geboorte** | [**Geboorte**](Geboorte.md) |  |  [optional]
 **overlijden** | [**Overlijden**](Overlijden.md) |  |  [optional]
+
+
+

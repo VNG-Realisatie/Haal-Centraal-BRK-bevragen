@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getKadasterPersonen**](KadasterNietNatuurlijkPersonenApi.md#getKadasterPersonen) | **GET** /kadasternatuurlijkpersonen | 
 [**getKadasterPersoon**](KadasterNietNatuurlijkPersonenApi.md#getKadasterPersoon) | **GET** /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie} | 
 
+
 <a name="getKadasterNietNatuurlijkPersonen"></a>
 # **getKadasterNietNatuurlijkPersonen**
 > KadasterNietNatuurlijkPersoonHalCollectie getKadasterNietNatuurlijkPersonen(q, fields)
@@ -20,19 +21,31 @@ Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadasterNietNatuurlijkPersonenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi();
-String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-try {
-    KadasterNietNatuurlijkPersoonHalCollectie result = apiInstance.getKadasterNietNatuurlijkPersonen(q, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterNietNatuurlijkPersonen");
-    e.printStackTrace();
+    KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
+    String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    try {
+      KadasterNietNatuurlijkPersoonHalCollectie result = apiInstance.getKadasterNietNatuurlijkPersonen(q, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterNietNatuurlijkPersonen");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -41,7 +54,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. |
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
 
 ### Return type
 
@@ -56,6 +69,18 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
+
 <a name="getKadasterNietNatuurlijkPersoon"></a>
 # **getKadasterNietNatuurlijkPersoon**
 > KadasterNietNatuurlijkPersoonHal getKadasterNietNatuurlijkPersoon(kadasternietnatuurlijkpersoonidentificatie, fields)
@@ -67,19 +92,31 @@ Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadasterNietNatuurlijkPersonenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi();
-String kadasternietnatuurlijkpersoonidentificatie = "kadasternietnatuurlijkpersoonidentificatie_example"; // String | 
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-try {
-    KadasterNietNatuurlijkPersoonHal result = apiInstance.getKadasterNietNatuurlijkPersoon(kadasternietnatuurlijkpersoonidentificatie, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterNietNatuurlijkPersoon");
-    e.printStackTrace();
+    KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
+    String kadasternietnatuurlijkpersoonidentificatie = "kadasternietnatuurlijkpersoonidentificatie_example"; // String | 
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    try {
+      KadasterNietNatuurlijkPersoonHal result = apiInstance.getKadasterNietNatuurlijkPersoon(kadasternietnatuurlijkpersoonidentificatie, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterNietNatuurlijkPersoon");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -88,7 +125,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **kadasternietnatuurlijkpersoonidentificatie** | **String**|  |
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
 
 ### Return type
 
@@ -103,6 +140,19 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**404** | Not Found |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
+
 <a name="getKadasterPersonen"></a>
 # **getKadasterPersonen**
 > KadasterNatuurlijkPersoonHalCollectie getKadasterPersonen(q, fields)
@@ -114,19 +164,31 @@ Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadasterNietNatuurlijkPersonenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi();
-String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-try {
-    KadasterNatuurlijkPersoonHalCollectie result = apiInstance.getKadasterPersonen(q, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterPersonen");
-    e.printStackTrace();
+    KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
+    String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    try {
+      KadasterNatuurlijkPersoonHalCollectie result = apiInstance.getKadasterPersonen(q, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterPersonen");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -135,7 +197,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**| Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. |
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
 
 ### Return type
 
@@ -150,6 +212,18 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
+
 <a name="getKadasterPersoon"></a>
 # **getKadasterPersoon**
 > KadasterNatuurlijkPersoonHal getKadasterPersoon(kadasternatuurlijkpersoonidentificatie, fields)
@@ -161,19 +235,31 @@ Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die n
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.KadasterNietNatuurlijkPersonenApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
 
-KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi();
-String kadasternatuurlijkpersoonidentificatie = "kadasternatuurlijkpersoonidentificatie_example"; // String | 
-String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-try {
-    KadasterNatuurlijkPersoonHal result = apiInstance.getKadasterPersoon(kadasternatuurlijkpersoonidentificatie, fields);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterPersoon");
-    e.printStackTrace();
+    KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
+    String kadasternatuurlijkpersoonidentificatie = "kadasternatuurlijkpersoonidentificatie_example"; // String | 
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    try {
+      KadasterNatuurlijkPersoonHal result = apiInstance.getKadasterPersoon(kadasternatuurlijkpersoonidentificatie, fields);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterPersoon");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -182,7 +268,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **kadasternatuurlijkpersoonidentificatie** | **String**|  |
- **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#x27;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
+ **fields** | **String**| Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature) | [optional]
 
 ### Return type
 
@@ -196,4 +282,17 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/hal+json, application/problem+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Zoekactie geslaagd |  * api-version -  <br>  * warning -  <br>  * X-Rate-Limit-Limit -  <br>  * X-Rate-Limit-Remaining -  <br>  * X-Rate-Limit-Reset -  <br>  |
+**400** | Bad Request |  * api-version -  <br>  |
+**401** | Unauthorized |  * api-version -  <br>  |
+**403** | Forbidden |  * api-version -  <br>  |
+**404** | Not Found |  * api-version -  <br>  |
+**406** | Not Acceptable |  * api-version -  <br>  |
+**410** | Gone |  * api-version -  <br>  |
+**500** | Internal Server Error |  * api-version -  <br>  |
+**503** | Service Unavailable |  * api-version -  <br>  |
 

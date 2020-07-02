@@ -1,7 +1,13 @@
+
+
 # KadasterNietNatuurlijkPersoonHalCollectie
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_links** | [**HalCollectionLinks**](HalCollectionLinks.md) |  |  [optional]
-**_embedded** | [**KadasterNietNatuurlijkPersoonHalCollectieEmbedded**](KadasterNietNatuurlijkPersoonHalCollectieEmbedded.md) |  |  [optional]
+**links** | [**HalCollectionLinks**](HalCollectionLinks.md) |  |  [optional]
+**embedded** | [**KadasterNietNatuurlijkPersoonHalCollectieEmbedded**](KadasterNietNatuurlijkPersoonHalCollectieEmbedded.md) |  |  [optional]
+
+
+
