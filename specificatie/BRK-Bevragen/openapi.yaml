@@ -943,34 +943,22 @@ paths:
     get:
       operationId: GetHypotheken
       description: |
-          Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. Geef één van de volgende combinaties van parameters op :
-          1.  Hypotheekhouder is een Persoon die bekend is in de BRP als ingeschreven persoon
-              -  ingeschrevenpersoon__burgerservicenummer (verplicht)
-              -  persoon__typepersoon (verplicht)
-          2.  Hypotheekhouder is niet bekend als ingeschreven persoon in de BRP of de hypotheekhouder is een rechtspersoon
-              -  persoon__identificatie (verplicht)
-              -  persoon__typepersoon (verplicht)
+          Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. De hypotheekhouder kan een ingeschreven persoon zijn (gebruik hypotheekhouder__burgerservicenummer) of een kadasterpersoon (gebruik hypotheekhouder__identifictie).
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: ingeschrevenpersoon__burgerservicenummer
+          name: hypotheekhouder__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: persoon__identificatie
+          name: hypotheekhouder__identificatie
           description: "De identificatie van een kadaster persoon of een rechtspersoon die bij het kadaster is geregistreerd."
           required: false
           schema:
             type: string
-        - in: query
-          name: persoon__typepersoon
-          description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
-          required: true
-          schema:
-            $ref: "#/components/schemas/PersoonType_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1071,34 +1059,22 @@ paths:
     get:
       operationId: GetBeslagen
       description: |
-          Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. Geef één van de volgende combinaties van parameters op:
-          1.  Beslaglegger is een Persoon die bekend is in de BRP als ingeschreven persoon
-              -  ingeschrevenpersoon__burgerservicenummer (verplicht)
-              -  persoon__typepersoon (verplicht)
-          2.  Beslaglegger is niet bekend als ingeschreven persoon in de BRP of de beslaglegger is een rechtspersoon
-              -  persoon__identificatie (verplicht)
-              -  persoon__typepersoon (verplicht)
+          Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. De beslaglegger kan een ingeschreven persoon zijn (gebruik beslaglegger__burgerservicenummer) of een kadasterpersoon (gebruik beslaglegger__identificatie).
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: ingeschrevenpersoon__burgerservicenummer
+          name: beslaglegger__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: persoon__identificatie
+          name: beslaglegger__identificatie
           description: "De kadastrale identificatie van een persoon of een rechtspersoon die bij het kadaster geregistreerd is."
           required: false
           schema:
             type: string
-        - in: query
-          name: persoon__typepersoon
-          description: "Met dit type wordt aangegeven of het een Persoon uit de Basisregistratie Personen (ingeschrevenpersoon) betreft danwel een persoon die door het kadaster wordt geregistreerd (kadasterpersoon). Een kadasterpersoon kan een persoon zijn die niet in de BRP bekend is of een Rechtspersoon."
-          required: true
-          schema:
-            $ref: "#/components/schemas/PersoonType_enum"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -2085,7 +2061,7 @@ components:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
       - properties:
           _links:
-            $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperking_links"
     PubliekrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
