@@ -72,7 +72,7 @@ De [openapi.yaml](../specificatie/BRK-Bevragen/genereervariant/openapi.yaml) kun
 De testomgeving van de API is te benaderen via de volgende url: https://api.test.kadaster.nl/esd/gemeenten/brk/.
 
 ### API key
-Om de API te kunnen bevragen is op de testomgeving een API key nodig. Deze wordt bij de request opgenomen in request header "apikey". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API key.
+Om de API te kunnen bevragen is op de testomgeving een API key nodig. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API key.
 
 ### Testgevallen
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest.
