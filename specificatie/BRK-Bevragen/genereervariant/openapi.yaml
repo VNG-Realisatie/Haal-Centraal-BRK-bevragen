@@ -14,6 +14,8 @@ info:
 servers:
 - url: https://service30.kadaster.nl/esd/bevragen/v1
   description: Brk-bevragen Kadastraal Onroerende Zaak
+security:
+  - apiKeyAuth: []
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -2173,6 +2175,12 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
 components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: "De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden."
   schemas:
     Aantekening:
       type: object
