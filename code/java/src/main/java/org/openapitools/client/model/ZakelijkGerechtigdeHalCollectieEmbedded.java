@@ -30,7 +30,7 @@ import org.openapitools.client.model.ZakelijkGerechtigdeHal;
 /**
  * ZakelijkGerechtigdeHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-02T17:36:04.072+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
 public class ZakelijkGerechtigdeHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN = "zakelijkGerechtigden";
   @SerializedName(SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN)

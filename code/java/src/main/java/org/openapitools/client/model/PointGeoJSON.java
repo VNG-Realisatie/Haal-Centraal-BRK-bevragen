@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * PointGeoJSON
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-02T17:36:04.072+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
 public class PointGeoJSON {
   /**
    * Gets or Sets type

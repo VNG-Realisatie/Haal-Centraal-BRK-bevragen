@@ -20,6 +20,10 @@ import os.path
 
 
 IGNORELIST = {
+    'GetKadastraalOnroerendeZaken',
+    'GetZakelijkGerechtigden',
+    'GetKadasterPersonen',
+    'GetKadasterNietNatuurlijkPersonen',
     '#/components/schemas/Datum_onvolledig',
     '#/components/schemas/Waardetabel',
     '#/components/schemas/Waardelijst',
@@ -158,6 +162,8 @@ for path, pathDefinition in SWAGGER.get("paths").items():
     for method, method_definition in pathDefinition.items():
         if debug==True:
             print method_definition.get("operationId")
+        if method_definition.get("operationId") in IGNORELIST:
+            continue
         f = open (TARGET_FOLDER + method_definition.get("operationId") + ".csv", "w")
         f.write(';'*MAX_LEVELS + "\n")
         writeComponent (

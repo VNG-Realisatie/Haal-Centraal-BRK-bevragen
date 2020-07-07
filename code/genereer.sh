@@ -4,6 +4,8 @@
 
 # met dit script kan vanuit de openapi.yaml de
 # resolved specificaties, client SDKs en een postman collectie worden genereerd.
+# wanneer als parameter ook de api key is meegegeven, worden ook sheets met
+# testgevallen gegenereerd.
 
 # deze is gemaakt en getest op een Mac computer, maar kan en direct of met
 # minimale aanpassingen ook op Linux werken. Ik vermoed dat er met een aantal
@@ -20,6 +22,8 @@
 source_yaml=../specificatie/BRK-Bevragen/openapi.yaml
 target_resolved=../specificatie/BRK-Bevragen/genereervariant
 target_postman=../test/BRK-Bevragen-postman-collection.json
+target_testcases=../test/cases
+api_key=$1
 
 base_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$base_path"
@@ -41,11 +45,15 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   rm -R java
   mkdir java
   #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
-  openapi-generator generate -g java -i "$target_resolved"/openapi.yaml -o ./openapi-generator --additional-properties=dateLibrary=java8,java8=true
+  openapi-generator generate -g java -i "$target_resolved"/openapi.yaml -o java --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false
 
-  rm -R csharp-dotnet2
-  mkdir csharp-dotnet2
-  swagger-codegen generate -i "$target_resolved"/openapi.yaml -l csharp-dotnet2 -o csharp-dotnet2
+  rm -R csharp-netcore
+  mkdir csharp-netcore
+  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp-netcore -g csharp-netcore --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
+
+  rm -R csharp
+  mkdir csharp
+  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp -g csharp --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
 
   rm -R python
   mkdir python
@@ -53,4 +61,15 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
 
   # genereer Postman collectie voor deze API
   openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman"
+
+  #genereer in Excel te importeren CSV bestanden met overzicht testdata
+  if [ $# -eq 0 ]
+  then
+    echo "WARNING: Er is een API key opgegeven. Testcase sheets zijn niet bijgewerkt."
+  else
+    echo "Genereren testcase sheets"
+    python sheet_generator.py -s"$target_resolved"/openapi.yaml -t"$target_testcases"
+    echo "Vullen testcase sheets"
+    python api_crawler.py --apikey"$api_key"
+  fi
 fi

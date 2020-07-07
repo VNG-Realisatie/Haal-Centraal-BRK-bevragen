@@ -24,6 +24,7 @@ import yaml, json
 import re
 import requests
 import sys
+import os.path
 
 
 SOURCE_YAML = '../specificatie/BRK-Bevragen/openapi.yaml'
@@ -234,9 +235,10 @@ for path, pathDefinition in SWAGGER.get("paths").items():
             templates[operationId] = '^' + re.sub("{[^}]+}", "[^\/]+", path.replace('/', '\/')) + '$'
 
             #read sheet file
-            f = open(SHEET_FOLDER + operationId + ".csv", "r")
-            sheets[operationId] = f.readlines()
-            f.close()
+            if os.path.isfile(SHEET_FOLDER + operationId + ".csv"):
+                f = open(SHEET_FOLDER + operationId + ".csv", "r")
+                sheets[operationId] = f.readlines()
+                f.close()
 
 #read file with list of testdata uri
 with open(TESTCASES_FILENAME) as testuri_file:
