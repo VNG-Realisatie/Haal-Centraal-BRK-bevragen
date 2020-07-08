@@ -105,7 +105,7 @@ paths:
         schema:
           maxLength: 9
           type: string
-      - name: persoon_identificatie
+      - name: persoon__identificatie
         in: query
         description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
           persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
