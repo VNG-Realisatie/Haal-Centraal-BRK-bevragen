@@ -560,11 +560,13 @@ components:
           $ref: "#/components/schemas/Bedrag"
         betrefMeerOnroerendeZaken:
           type: "boolean"
+          description: "Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft."
         einddatumAfkoop:
           type: "string"
           format: "date"
         indicatieOudeOnroerendeZaakBetrokken:
           type: "boolean"
+          description: "Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel."
     Geboorte:
       type: "object"
       description: "Geboorte is een groep gegevens over de geboorte van een persoon.
