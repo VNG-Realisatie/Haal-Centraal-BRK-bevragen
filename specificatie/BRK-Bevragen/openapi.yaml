@@ -41,7 +41,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
-          name: kadastraleaanduiding
+          name: kadastraleAanduiding
           description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
 
             - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
@@ -59,20 +59,20 @@ paths:
             pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
             example: "'s Gravenhage C 1277 A3"
         - in: query
-          name: ingeschrevenpersoon__burgerservicenummer
+          name: ingeschrevenPersoon__burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
             type: string
             maxLength: 9
         - in: query
-          name: persoon_kadasterpersoonidentificatie
+          name: persoon__identificatie
           description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
             type: string
         - in: query
-          name: zakelijkgerechtigde__typegerechtigde
+          name: zakelijkGerechtigde__type
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type."
           required: false
           schema:
@@ -264,7 +264,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: typegerechtigde
+          name: type
           description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
           required: false
           schema:
