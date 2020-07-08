@@ -45,7 +45,7 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   rm -R java
   mkdir java
   #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
-  openapi-generator generate -g java -i "$target_resolved"/openapi.yaml -o java --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false
+  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o java -g java --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false
 
   rm -R csharp-netcore
   mkdir csharp-netcore
@@ -57,12 +57,15 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
 
   rm -R python
   mkdir python
-  swagger-codegen generate -i "$target_resolved"/openapi.yaml -l python -o python
+  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o python -g python --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
+  #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l python -o python
 
   # genereer Postman collectie voor deze API
   openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman"
 
-  #genereer in Excel te importeren CSV bestanden met overzicht testdata
+  # genereer in Excel te importeren CSV bestanden met overzicht testdata
+  # wordt alleen gemaakt wanneer een api key is opgegeven, zodat de testdata kan
+  # worden opgehaald
   if [ $# -eq 0 ]
   then
     echo "WARNING: Er is een API key opgegeven. Testcase sheets zijn niet bijgewerkt."

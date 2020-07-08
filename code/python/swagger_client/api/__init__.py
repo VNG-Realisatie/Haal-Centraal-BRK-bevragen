@@ -1,8 +1,0 @@
-from __future__ import absolute_import
-
-# flake8: noqa
-
-# import apis into api package
-from swagger_client.api.kadaster__niet_natuurlijk_personen_api import KadasterNietNatuurlijkPersonenApi
-from swagger_client.api.kadastraal_onroerende_zaken_api import KadastraalOnroerendeZakenApi
-from swagger_client.api.zakelijke_gerechtigden_api import ZakelijkeGerechtigdenApi

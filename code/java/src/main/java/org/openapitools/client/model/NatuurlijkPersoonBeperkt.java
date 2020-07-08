@@ -23,17 +23,72 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.NatuurlijkPersoonBeperktAllOf;
 import org.openapitools.client.model.NatuurlijkPersoonTypeEnum;
 import org.openapitools.client.model.PersoonBasis;
 
 /**
  * NatuurlijkPersoonBeperkt
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
-public class NatuurlijkPersoonBeperkt extends PersoonBasis {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
+public class NatuurlijkPersoonBeperkt {
+  public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
+  @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
+  private String identificatie;
+
+  public static final String SERIALIZED_NAME_OMSCHRIJVING = "omschrijving";
+  @SerializedName(SERIALIZED_NAME_OMSCHRIJVING)
+  private String omschrijving;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private NatuurlijkPersoonTypeEnum type;
+
+
+  public NatuurlijkPersoonBeperkt identificatie(String identificatie) {
+    
+    this.identificatie = identificatie;
+    return this;
+  }
+
+   /**
+   * Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.
+   * @return identificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.")
+
+  public String getIdentificatie() {
+    return identificatie;
+  }
+
+
+  public void setIdentificatie(String identificatie) {
+    this.identificatie = identificatie;
+  }
+
+
+  public NatuurlijkPersoonBeperkt omschrijving(String omschrijving) {
+    
+    this.omschrijving = omschrijving;
+    return this;
+  }
+
+   /**
+   * Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).
+   * @return omschrijving
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).")
+
+  public String getOmschrijving() {
+    return omschrijving;
+  }
+
+
+  public void setOmschrijving(String omschrijving) {
+    this.omschrijving = omschrijving;
+  }
 
 
   public NatuurlijkPersoonBeperkt type(NatuurlijkPersoonTypeEnum type) {
@@ -68,13 +123,14 @@ public class NatuurlijkPersoonBeperkt extends PersoonBasis {
       return false;
     }
     NatuurlijkPersoonBeperkt natuurlijkPersoonBeperkt = (NatuurlijkPersoonBeperkt) o;
-    return Objects.equals(this.type, natuurlijkPersoonBeperkt.type) &&
-        super.equals(o);
+    return Objects.equals(this.identificatie, natuurlijkPersoonBeperkt.identificatie) &&
+        Objects.equals(this.omschrijving, natuurlijkPersoonBeperkt.omschrijving) &&
+        Objects.equals(this.type, natuurlijkPersoonBeperkt.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, super.hashCode());
+    return Objects.hash(identificatie, omschrijving, type);
   }
 
 
@@ -82,7 +138,8 @@ public class NatuurlijkPersoonBeperkt extends PersoonBasis {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NatuurlijkPersoonBeperkt {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
+    sb.append("    omschrijving: ").append(toIndentedString(omschrijving)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

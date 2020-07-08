@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
  */
 @ApiModel(description = "Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
 public class Adres {
   public static final String SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE = "nummeraanduidingIdentificatie";
   @SerializedName(SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE)

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Waardelijst is een samengesteld datatype voor het weergeven van een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)
  */
 @ApiModel(description = "Waardelijst is een samengesteld datatype voor het weergeven van een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
 public class Waardelijst {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

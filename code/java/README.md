@@ -2,7 +2,7 @@
 
 Kadastraal onroerende zaken
 - API version: 1.0.0
-  - Build date: 2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]
+  - Build date: 2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
 
@@ -136,30 +136,38 @@ Class | Method | HTTP request | Description
  - [HeeftPartnerschap](docs/HeeftPartnerschap.md)
  - [InvalidParams](docs/InvalidParams.md)
  - [KadasterNatuurlijkPersoon](docs/KadasterNatuurlijkPersoon.md)
+ - [KadasterNatuurlijkPersoonAllOf](docs/KadasterNatuurlijkPersoonAllOf.md)
  - [KadasterNatuurlijkPersoonHal](docs/KadasterNatuurlijkPersoonHal.md)
+ - [KadasterNatuurlijkPersoonHalAllOf](docs/KadasterNatuurlijkPersoonHalAllOf.md)
  - [KadasterNatuurlijkPersoonHalCollectie](docs/KadasterNatuurlijkPersoonHalCollectie.md)
  - [KadasterNatuurlijkPersoonHalCollectieEmbedded](docs/KadasterNatuurlijkPersoonHalCollectieEmbedded.md)
  - [KadasterNietNatuurlijkPersoon](docs/KadasterNietNatuurlijkPersoon.md)
+ - [KadasterNietNatuurlijkPersoonAllOf](docs/KadasterNietNatuurlijkPersoonAllOf.md)
  - [KadasterNietNatuurlijkPersoonHal](docs/KadasterNietNatuurlijkPersoonHal.md)
  - [KadasterNietNatuurlijkPersoonHalCollectie](docs/KadasterNietNatuurlijkPersoonHalCollectie.md)
  - [KadasterNietNatuurlijkPersoonHalCollectieEmbedded](docs/KadasterNietNatuurlijkPersoonHalCollectieEmbedded.md)
  - [KadasterPersoon](docs/KadasterPersoon.md)
+ - [KadasterPersoonAllOf](docs/KadasterPersoonAllOf.md)
  - [KadasterPersoonLinks](docs/KadasterPersoonLinks.md)
  - [KadastraalOnroerendeZaak](docs/KadastraalOnroerendeZaak.md)
  - [KadastraalOnroerendeZaakEmbedded](docs/KadastraalOnroerendeZaakEmbedded.md)
  - [KadastraalOnroerendeZaakHal](docs/KadastraalOnroerendeZaakHal.md)
+ - [KadastraalOnroerendeZaakHalAllOf](docs/KadastraalOnroerendeZaakHalAllOf.md)
  - [KadastraalOnroerendeZaakHalCollectie](docs/KadastraalOnroerendeZaakHalCollectie.md)
  - [KadastraalOnroerendeZaakHalCollectieEmbedded](docs/KadastraalOnroerendeZaakHalCollectieEmbedded.md)
  - [KadastraalOnroerendeZaakLinks](docs/KadastraalOnroerendeZaakLinks.md)
  - [LocatieKadastraalObject](docs/LocatieKadastraalObject.md)
  - [Naam](docs/Naam.md)
  - [NatuurlijkPersoonBeperkt](docs/NatuurlijkPersoonBeperkt.md)
+ - [NatuurlijkPersoonBeperktAllOf](docs/NatuurlijkPersoonBeperktAllOf.md)
  - [NatuurlijkPersoonTypeEnum](docs/NatuurlijkPersoonTypeEnum.md)
  - [NietNatuurlijkPersoonBeperkt](docs/NietNatuurlijkPersoonBeperkt.md)
+ - [NietNatuurlijkPersoonBeperktAllOf](docs/NietNatuurlijkPersoonBeperktAllOf.md)
  - [NietNatuurlijkPersoonTypeEnum](docs/NietNatuurlijkPersoonTypeEnum.md)
  - [Overlijden](docs/Overlijden.md)
  - [PersoonBasis](docs/PersoonBasis.md)
  - [PersoonBeperkt](docs/PersoonBeperkt.md)
+ - [PersoonBeperktAllOf](docs/PersoonBeperktAllOf.md)
  - [PersoonTypeEnum](docs/PersoonTypeEnum.md)
  - [PointGeoJSON](docs/PointGeoJSON.md)
  - [PolygonGeoJSON](docs/PolygonGeoJSON.md)
@@ -175,6 +183,7 @@ Class | Method | HTTP request | Description
  - [Waardelijst](docs/Waardelijst.md)
  - [ZakelijkGerechtigde](docs/ZakelijkGerechtigde.md)
  - [ZakelijkGerechtigdeHal](docs/ZakelijkGerechtigdeHal.md)
+ - [ZakelijkGerechtigdeHalAllOf](docs/ZakelijkGerechtigdeHalAllOf.md)
  - [ZakelijkGerechtigdeHalCollectie](docs/ZakelijkGerechtigdeHalCollectie.md)
  - [ZakelijkGerechtigdeHalCollectieEmbedded](docs/ZakelijkGerechtigdeHalCollectieEmbedded.md)
  - [ZakelijkGerechtigdeLinks](docs/ZakelijkGerechtigdeLinks.md)

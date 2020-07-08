@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.Adres;
+import org.openapitools.client.model.KadasterPersoonAllOf;
 import org.openapitools.client.model.PersoonBasis;
 import org.openapitools.client.model.Postadres;
 import org.openapitools.client.model.Waardelijst;
@@ -33,8 +34,16 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadasterPersoon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
-public class KadasterPersoon extends PersoonBasis {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
+public class KadasterPersoon {
+  public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
+  @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
+  private String identificatie;
+
+  public static final String SERIALIZED_NAME_OMSCHRIJVING = "omschrijving";
+  @SerializedName(SERIALIZED_NAME_OMSCHRIJVING)
+  private String omschrijving;
+
   public static final String SERIALIZED_NAME_DOMEIN = "domein";
   @SerializedName(SERIALIZED_NAME_DOMEIN)
   private String domein;
@@ -58,6 +67,52 @@ public class KadasterPersoon extends PersoonBasis {
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
   private List<String> kadastraalOnroerendeZaakIdentificaties = null;
+
+
+  public KadasterPersoon identificatie(String identificatie) {
+    
+    this.identificatie = identificatie;
+    return this;
+  }
+
+   /**
+   * Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.
+   * @return identificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.")
+
+  public String getIdentificatie() {
+    return identificatie;
+  }
+
+
+  public void setIdentificatie(String identificatie) {
+    this.identificatie = identificatie;
+  }
+
+
+  public KadasterPersoon omschrijving(String omschrijving) {
+    
+    this.omschrijving = omschrijving;
+    return this;
+  }
+
+   /**
+   * Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).
+   * @return omschrijving
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).")
+
+  public String getOmschrijving() {
+    return omschrijving;
+  }
+
+
+  public void setOmschrijving(String omschrijving) {
+    this.omschrijving = omschrijving;
+  }
 
 
   public KadasterPersoon domein(String domein) {
@@ -215,18 +270,19 @@ public class KadasterPersoon extends PersoonBasis {
       return false;
     }
     KadasterPersoon kadasterPersoon = (KadasterPersoon) o;
-    return Objects.equals(this.domein, kadasterPersoon.domein) &&
+    return Objects.equals(this.identificatie, kadasterPersoon.identificatie) &&
+        Objects.equals(this.omschrijving, kadasterPersoon.omschrijving) &&
+        Objects.equals(this.domein, kadasterPersoon.domein) &&
         Objects.equals(this.indicatieNietToonbareDiakriet, kadasterPersoon.indicatieNietToonbareDiakriet) &&
         Objects.equals(this.beschikkingsbevoegdheid, kadasterPersoon.beschikkingsbevoegdheid) &&
         Objects.equals(this.woonadres, kadasterPersoon.woonadres) &&
         Objects.equals(this.postadres, kadasterPersoon.postadres) &&
-        Objects.equals(this.kadastraalOnroerendeZaakIdentificaties, kadasterPersoon.kadastraalOnroerendeZaakIdentificaties) &&
-        super.equals(o);
+        Objects.equals(this.kadastraalOnroerendeZaakIdentificaties, kadasterPersoon.kadastraalOnroerendeZaakIdentificaties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties, super.hashCode());
+    return Objects.hash(identificatie, omschrijving, domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties);
   }
 
 
@@ -234,7 +290,8 @@ public class KadasterPersoon extends PersoonBasis {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KadasterPersoon {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
+    sb.append("    omschrijving: ").append(toIndentedString(omschrijving)).append("\n");
     sb.append("    domein: ").append(toIndentedString(domein)).append("\n");
     sb.append("    indicatieNietToonbareDiakriet: ").append(toIndentedString(indicatieNietToonbareDiakriet)).append("\n");
     sb.append("    beschikkingsbevoegdheid: ").append(toIndentedString(beschikkingsbevoegdheid)).append("\n");

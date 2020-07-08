@@ -29,16 +29,179 @@ import org.openapitools.client.model.PersoonBeperkt;
 import org.openapitools.client.model.Tenaamstelling;
 import org.openapitools.client.model.TypeGerechtigdeEnum;
 import org.openapitools.client.model.ZakelijkGerechtigde;
+import org.openapitools.client.model.ZakelijkGerechtigdeHalAllOf;
 import org.openapitools.client.model.ZakelijkGerechtigdeLinks;
 
 /**
  * ZakelijkGerechtigdeHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
-public class ZakelijkGerechtigdeHal extends ZakelijkGerechtigde {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
+public class ZakelijkGerechtigdeHal {
+  public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
+  @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
+  private String identificatie;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private TypeGerechtigdeEnum type;
+
+  public static final String SERIALIZED_NAME_AANVANGSDATUM = "aanvangsdatum";
+  @SerializedName(SERIALIZED_NAME_AANVANGSDATUM)
+  private LocalDate aanvangsdatum;
+
+  public static final String SERIALIZED_NAME_ERFPACHT_CANON = "erfpachtCanon";
+  @SerializedName(SERIALIZED_NAME_ERFPACHT_CANON)
+  private ErfpachtCanon erfpachtCanon;
+
+  public static final String SERIALIZED_NAME_TENAAMSTELLING = "tenaamstelling";
+  @SerializedName(SERIALIZED_NAME_TENAAMSTELLING)
+  private Tenaamstelling tenaamstelling;
+
+  public static final String SERIALIZED_NAME_PERSOON = "persoon";
+  @SerializedName(SERIALIZED_NAME_PERSOON)
+  private PersoonBeperkt persoon = null;
+
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
   private ZakelijkGerechtigdeLinks links;
+
+
+  public ZakelijkGerechtigdeHal identificatie(String identificatie) {
+    
+    this.identificatie = identificatie;
+    return this;
+  }
+
+   /**
+   * Identificatie van de zakelijk gerechtigde.
+   * @return identificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identificatie van de zakelijk gerechtigde.")
+
+  public String getIdentificatie() {
+    return identificatie;
+  }
+
+
+  public void setIdentificatie(String identificatie) {
+    this.identificatie = identificatie;
+  }
+
+
+  public ZakelijkGerechtigdeHal type(TypeGerechtigdeEnum type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TypeGerechtigdeEnum getType() {
+    return type;
+  }
+
+
+  public void setType(TypeGerechtigdeEnum type) {
+    this.type = type;
+  }
+
+
+  public ZakelijkGerechtigdeHal aanvangsdatum(LocalDate aanvangsdatum) {
+    
+    this.aanvangsdatum = aanvangsdatum;
+    return this;
+  }
+
+   /**
+   * Datum waarop het zakelijk recht van kracht is geworden. 
+   * @return aanvangsdatum
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Datum waarop het zakelijk recht van kracht is geworden. ")
+
+  public LocalDate getAanvangsdatum() {
+    return aanvangsdatum;
+  }
+
+
+  public void setAanvangsdatum(LocalDate aanvangsdatum) {
+    this.aanvangsdatum = aanvangsdatum;
+  }
+
+
+  public ZakelijkGerechtigdeHal erfpachtCanon(ErfpachtCanon erfpachtCanon) {
+    
+    this.erfpachtCanon = erfpachtCanon;
+    return this;
+  }
+
+   /**
+   * Get erfpachtCanon
+   * @return erfpachtCanon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ErfpachtCanon getErfpachtCanon() {
+    return erfpachtCanon;
+  }
+
+
+  public void setErfpachtCanon(ErfpachtCanon erfpachtCanon) {
+    this.erfpachtCanon = erfpachtCanon;
+  }
+
+
+  public ZakelijkGerechtigdeHal tenaamstelling(Tenaamstelling tenaamstelling) {
+    
+    this.tenaamstelling = tenaamstelling;
+    return this;
+  }
+
+   /**
+   * Get tenaamstelling
+   * @return tenaamstelling
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Tenaamstelling getTenaamstelling() {
+    return tenaamstelling;
+  }
+
+
+  public void setTenaamstelling(Tenaamstelling tenaamstelling) {
+    this.tenaamstelling = tenaamstelling;
+  }
+
+
+  public ZakelijkGerechtigdeHal persoon(PersoonBeperkt persoon) {
+    
+    this.persoon = persoon;
+    return this;
+  }
+
+   /**
+   * Get persoon
+   * @return persoon
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public PersoonBeperkt getPersoon() {
+    return persoon;
+  }
+
+
+  public void setPersoon(PersoonBeperkt persoon) {
+    this.persoon = persoon;
+  }
 
 
   public ZakelijkGerechtigdeHal links(ZakelijkGerechtigdeLinks links) {
@@ -73,13 +236,18 @@ public class ZakelijkGerechtigdeHal extends ZakelijkGerechtigde {
       return false;
     }
     ZakelijkGerechtigdeHal zakelijkGerechtigdeHal = (ZakelijkGerechtigdeHal) o;
-    return Objects.equals(this.links, zakelijkGerechtigdeHal.links) &&
-        super.equals(o);
+    return Objects.equals(this.identificatie, zakelijkGerechtigdeHal.identificatie) &&
+        Objects.equals(this.type, zakelijkGerechtigdeHal.type) &&
+        Objects.equals(this.aanvangsdatum, zakelijkGerechtigdeHal.aanvangsdatum) &&
+        Objects.equals(this.erfpachtCanon, zakelijkGerechtigdeHal.erfpachtCanon) &&
+        Objects.equals(this.tenaamstelling, zakelijkGerechtigdeHal.tenaamstelling) &&
+        Objects.equals(this.persoon, zakelijkGerechtigdeHal.persoon) &&
+        Objects.equals(this.links, zakelijkGerechtigdeHal.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(links, super.hashCode());
+    return Objects.hash(identificatie, type, aanvangsdatum, erfpachtCanon, tenaamstelling, persoon, links);
   }
 
 
@@ -87,7 +255,12 @@ public class ZakelijkGerechtigdeHal extends ZakelijkGerechtigde {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ZakelijkGerechtigdeHal {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    aanvangsdatum: ").append(toIndentedString(aanvangsdatum)).append("\n");
+    sb.append("    erfpachtCanon: ").append(toIndentedString(erfpachtCanon)).append("\n");
+    sb.append("    tenaamstelling: ").append(toIndentedString(tenaamstelling)).append("\n");
+    sb.append("    persoon: ").append(toIndentedString(persoon)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();

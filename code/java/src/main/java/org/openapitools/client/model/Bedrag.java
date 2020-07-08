@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Hoeveelheid geld in cijfers in een bepaalde valuta.  Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
  */
 @ApiModel(description = "Hoeveelheid geld in cijfers in een bepaalde valuta.  Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
 public class Bedrag {
   public static final String SERIALIZED_NAME_SOM = "som";
   @SerializedName(SERIALIZED_NAME_SOM)

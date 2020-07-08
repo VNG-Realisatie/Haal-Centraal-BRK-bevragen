@@ -29,6 +29,7 @@ import org.openapitools.client.model.Adres;
 import org.openapitools.client.model.Geboorte;
 import org.openapitools.client.model.GeslachtEnum;
 import org.openapitools.client.model.HeeftPartnerschap;
+import org.openapitools.client.model.KadasterNatuurlijkPersoonAllOf;
 import org.openapitools.client.model.KadasterPersoon;
 import org.openapitools.client.model.Naam;
 import org.openapitools.client.model.Overlijden;
@@ -38,8 +39,40 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadasterNatuurlijkPersoon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-07T17:44:19.924+02:00[Europe/Amsterdam]")
-public class KadasterNatuurlijkPersoon extends KadasterPersoon {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]")
+public class KadasterNatuurlijkPersoon {
+  public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
+  @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
+  private String identificatie;
+
+  public static final String SERIALIZED_NAME_OMSCHRIJVING = "omschrijving";
+  @SerializedName(SERIALIZED_NAME_OMSCHRIJVING)
+  private String omschrijving;
+
+  public static final String SERIALIZED_NAME_DOMEIN = "domein";
+  @SerializedName(SERIALIZED_NAME_DOMEIN)
+  private String domein;
+
+  public static final String SERIALIZED_NAME_INDICATIE_NIET_TOONBARE_DIAKRIET = "indicatieNietToonbareDiakriet";
+  @SerializedName(SERIALIZED_NAME_INDICATIE_NIET_TOONBARE_DIAKRIET)
+  private Boolean indicatieNietToonbareDiakriet;
+
+  public static final String SERIALIZED_NAME_BESCHIKKINGSBEVOEGDHEID = "beschikkingsbevoegdheid";
+  @SerializedName(SERIALIZED_NAME_BESCHIKKINGSBEVOEGDHEID)
+  private Waardelijst beschikkingsbevoegdheid;
+
+  public static final String SERIALIZED_NAME_WOONADRES = "woonadres";
+  @SerializedName(SERIALIZED_NAME_WOONADRES)
+  private Adres woonadres;
+
+  public static final String SERIALIZED_NAME_POSTADRES = "postadres";
+  @SerializedName(SERIALIZED_NAME_POSTADRES)
+  private Postadres postadres = null;
+
+  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
+  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
+  private List<String> kadastraalOnroerendeZaakIdentificaties = null;
+
   public static final String SERIALIZED_NAME_GEHEIMHOUDING_PERSOONSGEGEVENS = "geheimhoudingPersoonsgegevens";
   @SerializedName(SERIALIZED_NAME_GEHEIMHOUDING_PERSOONSGEGEVENS)
   private Boolean geheimhoudingPersoonsgegevens;
@@ -67,6 +100,198 @@ public class KadasterNatuurlijkPersoon extends KadasterPersoon {
   public static final String SERIALIZED_NAME_OVERLIJDEN = "overlijden";
   @SerializedName(SERIALIZED_NAME_OVERLIJDEN)
   private Overlijden overlijden;
+
+
+  public KadasterNatuurlijkPersoon identificatie(String identificatie) {
+    
+    this.identificatie = identificatie;
+    return this;
+  }
+
+   /**
+   * Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.
+   * @return identificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.")
+
+  public String getIdentificatie() {
+    return identificatie;
+  }
+
+
+  public void setIdentificatie(String identificatie) {
+    this.identificatie = identificatie;
+  }
+
+
+  public KadasterNatuurlijkPersoon omschrijving(String omschrijving) {
+    
+    this.omschrijving = omschrijving;
+    return this;
+  }
+
+   /**
+   * Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).
+   * @return omschrijving
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).")
+
+  public String getOmschrijving() {
+    return omschrijving;
+  }
+
+
+  public void setOmschrijving(String omschrijving) {
+    this.omschrijving = omschrijving;
+  }
+
+
+  public KadasterNatuurlijkPersoon domein(String domein) {
+    
+    this.domein = domein;
+    return this;
+  }
+
+   /**
+   * Het domein waartoe de identificatie behoort.
+   * @return domein
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Het domein waartoe de identificatie behoort.")
+
+  public String getDomein() {
+    return domein;
+  }
+
+
+  public void setDomein(String domein) {
+    this.domein = domein;
+  }
+
+
+  public KadasterNatuurlijkPersoon indicatieNietToonbareDiakriet(Boolean indicatieNietToonbareDiakriet) {
+    
+    this.indicatieNietToonbareDiakriet = indicatieNietToonbareDiakriet;
+    return this;
+  }
+
+   /**
+   * Get indicatieNietToonbareDiakriet
+   * @return indicatieNietToonbareDiakriet
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIndicatieNietToonbareDiakriet() {
+    return indicatieNietToonbareDiakriet;
+  }
+
+
+  public void setIndicatieNietToonbareDiakriet(Boolean indicatieNietToonbareDiakriet) {
+    this.indicatieNietToonbareDiakriet = indicatieNietToonbareDiakriet;
+  }
+
+
+  public KadasterNatuurlijkPersoon beschikkingsbevoegdheid(Waardelijst beschikkingsbevoegdheid) {
+    
+    this.beschikkingsbevoegdheid = beschikkingsbevoegdheid;
+    return this;
+  }
+
+   /**
+   * Get beschikkingsbevoegdheid
+   * @return beschikkingsbevoegdheid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Waardelijst getBeschikkingsbevoegdheid() {
+    return beschikkingsbevoegdheid;
+  }
+
+
+  public void setBeschikkingsbevoegdheid(Waardelijst beschikkingsbevoegdheid) {
+    this.beschikkingsbevoegdheid = beschikkingsbevoegdheid;
+  }
+
+
+  public KadasterNatuurlijkPersoon woonadres(Adres woonadres) {
+    
+    this.woonadres = woonadres;
+    return this;
+  }
+
+   /**
+   * Get woonadres
+   * @return woonadres
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Adres getWoonadres() {
+    return woonadres;
+  }
+
+
+  public void setWoonadres(Adres woonadres) {
+    this.woonadres = woonadres;
+  }
+
+
+  public KadasterNatuurlijkPersoon postadres(Postadres postadres) {
+    
+    this.postadres = postadres;
+    return this;
+  }
+
+   /**
+   * Get postadres
+   * @return postadres
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Postadres getPostadres() {
+    return postadres;
+  }
+
+
+  public void setPostadres(Postadres postadres) {
+    this.postadres = postadres;
+  }
+
+
+  public KadasterNatuurlijkPersoon kadastraalOnroerendeZaakIdentificaties(List<String> kadastraalOnroerendeZaakIdentificaties) {
+    
+    this.kadastraalOnroerendeZaakIdentificaties = kadastraalOnroerendeZaakIdentificaties;
+    return this;
+  }
+
+  public KadasterNatuurlijkPersoon addKadastraalOnroerendeZaakIdentificatiesItem(String kadastraalOnroerendeZaakIdentificatiesItem) {
+    if (this.kadastraalOnroerendeZaakIdentificaties == null) {
+      this.kadastraalOnroerendeZaakIdentificaties = new ArrayList<>();
+    }
+    this.kadastraalOnroerendeZaakIdentificaties.add(kadastraalOnroerendeZaakIdentificatiesItem);
+    return this;
+  }
+
+   /**
+   * Get kadastraalOnroerendeZaakIdentificaties
+   * @return kadastraalOnroerendeZaakIdentificaties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getKadastraalOnroerendeZaakIdentificaties() {
+    return kadastraalOnroerendeZaakIdentificaties;
+  }
+
+
+  public void setKadastraalOnroerendeZaakIdentificaties(List<String> kadastraalOnroerendeZaakIdentificaties) {
+    this.kadastraalOnroerendeZaakIdentificaties = kadastraalOnroerendeZaakIdentificaties;
+  }
 
 
   public KadasterNatuurlijkPersoon geheimhoudingPersoonsgegevens(Boolean geheimhoudingPersoonsgegevens) {
@@ -247,19 +472,26 @@ public class KadasterNatuurlijkPersoon extends KadasterPersoon {
       return false;
     }
     KadasterNatuurlijkPersoon kadasterNatuurlijkPersoon = (KadasterNatuurlijkPersoon) o;
-    return Objects.equals(this.geheimhoudingPersoonsgegevens, kadasterNatuurlijkPersoon.geheimhoudingPersoonsgegevens) &&
+    return Objects.equals(this.identificatie, kadasterNatuurlijkPersoon.identificatie) &&
+        Objects.equals(this.omschrijving, kadasterNatuurlijkPersoon.omschrijving) &&
+        Objects.equals(this.domein, kadasterNatuurlijkPersoon.domein) &&
+        Objects.equals(this.indicatieNietToonbareDiakriet, kadasterNatuurlijkPersoon.indicatieNietToonbareDiakriet) &&
+        Objects.equals(this.beschikkingsbevoegdheid, kadasterNatuurlijkPersoon.beschikkingsbevoegdheid) &&
+        Objects.equals(this.woonadres, kadasterNatuurlijkPersoon.woonadres) &&
+        Objects.equals(this.postadres, kadasterNatuurlijkPersoon.postadres) &&
+        Objects.equals(this.kadastraalOnroerendeZaakIdentificaties, kadasterNatuurlijkPersoon.kadastraalOnroerendeZaakIdentificaties) &&
+        Objects.equals(this.geheimhoudingPersoonsgegevens, kadasterNatuurlijkPersoon.geheimhoudingPersoonsgegevens) &&
         Objects.equals(this.landWaarnaarVertrokken, kadasterNatuurlijkPersoon.landWaarnaarVertrokken) &&
         Objects.equals(this.geslachtsaanduiding, kadasterNatuurlijkPersoon.geslachtsaanduiding) &&
         Objects.equals(this.heeftPartnerschap, kadasterNatuurlijkPersoon.heeftPartnerschap) &&
         Objects.equals(this.naam, kadasterNatuurlijkPersoon.naam) &&
         Objects.equals(this.geboorte, kadasterNatuurlijkPersoon.geboorte) &&
-        Objects.equals(this.overlijden, kadasterNatuurlijkPersoon.overlijden) &&
-        super.equals(o);
+        Objects.equals(this.overlijden, kadasterNatuurlijkPersoon.overlijden);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(geheimhoudingPersoonsgegevens, landWaarnaarVertrokken, geslachtsaanduiding, heeftPartnerschap, naam, geboorte, overlijden, super.hashCode());
+    return Objects.hash(identificatie, omschrijving, domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties, geheimhoudingPersoonsgegevens, landWaarnaarVertrokken, geslachtsaanduiding, heeftPartnerschap, naam, geboorte, overlijden);
   }
 
 
@@ -267,7 +499,14 @@ public class KadasterNatuurlijkPersoon extends KadasterPersoon {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KadasterNatuurlijkPersoon {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
+    sb.append("    omschrijving: ").append(toIndentedString(omschrijving)).append("\n");
+    sb.append("    domein: ").append(toIndentedString(domein)).append("\n");
+    sb.append("    indicatieNietToonbareDiakriet: ").append(toIndentedString(indicatieNietToonbareDiakriet)).append("\n");
+    sb.append("    beschikkingsbevoegdheid: ").append(toIndentedString(beschikkingsbevoegdheid)).append("\n");
+    sb.append("    woonadres: ").append(toIndentedString(woonadres)).append("\n");
+    sb.append("    postadres: ").append(toIndentedString(postadres)).append("\n");
+    sb.append("    kadastraalOnroerendeZaakIdentificaties: ").append(toIndentedString(kadastraalOnroerendeZaakIdentificaties)).append("\n");
     sb.append("    geheimhoudingPersoonsgegevens: ").append(toIndentedString(geheimhoudingPersoonsgegevens)).append("\n");
     sb.append("    landWaarnaarVertrokken: ").append(toIndentedString(landWaarnaarVertrokken)).append("\n");
     sb.append("    geslachtsaanduiding: ").append(toIndentedString(geslachtsaanduiding)).append("\n");
