@@ -59,7 +59,7 @@ paths:
             pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
             example: "'s Gravenhage C 1277 A3"
         - in: query
-          name: ingeschrevenPersoon__burgerservicenummer
+          name: burgerservicenummer
           description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
           required: false
           schema:
@@ -78,14 +78,14 @@ paths:
           schema:
             $ref: "#/components/schemas/TypeGerechtigde_enum"
         - in: query
-          name: adres__postcode
+          name: postcode
           description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
             type: string
             pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$"
         - in: query
-          name: adres__huisnummer
+          name: huisnummer
           description: "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
@@ -93,14 +93,14 @@ paths:
             minimum: 1
             maximum: 99999
         - in: query
-          name: adres__huisletter
+          name: huisletter
           description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
             type: string
             pattern: "^[a-zA-Z]$"
         - in: query
-          name: adres__huisnummertoevoeging
+          name: huisnummertoevoeging
           description: "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak"
           required: false
           schema:
@@ -560,11 +560,13 @@ components:
           $ref: "#/components/schemas/Bedrag"
         betrefMeerOnroerendeZaken:
           type: "boolean"
+          description: "Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft."
         einddatumAfkoop:
           type: "string"
           format: "date"
         indicatieOudeOnroerendeZaakBetrokken:
           type: "boolean"
+          description: "Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel."
     Geboorte:
       type: "object"
       description: "Geboorte is een groep gegevens over de geboorte van een persoon.
