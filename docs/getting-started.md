@@ -67,7 +67,7 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
 De [openapi.yaml](../specificatie/BRK-Bevragen/genereervariant/openapi.yaml) kun je importeren als project, waarna de verschillende requests worden ingeladen die deze API ondersteunt.
-We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](../test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API key) nog invullen.
+We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](../test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API-key) nog invullen.
 
 Voor de connectie met de testomgeving van deze API is vereist:
 - Internet toegang tot het Kadaster endpoint via IPv4 of IPv6 en met het TLS 1.2 protocol.
@@ -75,7 +75,7 @@ Voor de connectie met de testomgeving van deze API is vereist:
 - Een geldig PKIoverheid client certificaat met SERIALNUMMER=<eigen-OIN-nummer> in de keystore dat deel uitmaakt van de Staat der Nederlanden - G3 hiërarchie,
 zie hiervoor: https://www.logius.nl/diensten/pkioverheid
 - Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
-- Een geldige API key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API key.
+- Een geldige API key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API-key.
 
 ### URL
 De testomgeving van de API is te benaderen via de volgende url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1/.
@@ -144,7 +144,7 @@ Voor de connectie met de productieomgeving van deze API is vereist:
 - Een geldig PKIoverheid client certificaat met SERIALNUMMER=<eigen-OIN-nummer> in de keystore dat deel uitmaakt van de Staat der Nederlanden - G3 hiërarchie,
 zie hiervoor: https://www.logius.nl/diensten/pkioverheid
 - Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
-- Een geldige API key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API key.
+- Een geldige API-key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API-key.
 
 ### URL
 De productieomgeving van de API is te benaderen via de volgende url: https://api.brk.kadaster.nl/esd/bevragen/v1/
