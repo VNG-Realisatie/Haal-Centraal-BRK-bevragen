@@ -92,7 +92,7 @@ paths:
             A[1-9][0-9]{0,3})?$
           type: string
           example: '''s Gravenhage C 1277 A3'
-      - name: ingeschrevenPersoon__burgerservicenummer
+      - name: burgerservicenummer
         in: query
         description: Het burgerservicenummer van de persoon die een zakelijk recht
           op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde
@@ -128,7 +128,7 @@ paths:
         explode: true
         schema:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
-      - name: adres__postcode
+      - name: postcode
         in: query
         description: De postcode van het adres van de objectlocatie van de kadastraal
           onroerende zaak
@@ -138,7 +138,7 @@ paths:
         schema:
           pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
           type: string
-      - name: adres__huisnummer
+      - name: huisnummer
         in: query
         description: Het huisnummer van het adres van de objectlocatie van de kadastraal
           onroerende zaak
@@ -149,7 +149,7 @@ paths:
           maximum: 99999
           minimum: 1
           type: integer
-      - name: adres__huisletter
+      - name: huisletter
         in: query
         description: De huisletter van het adres van de objectlocatie van de kadastraal
           onroerende zaak
@@ -159,7 +159,7 @@ paths:
         schema:
           pattern: ^[a-zA-Z]$
           type: string
-      - name: adres__huisnummertoevoeging
+      - name: huisnummertoevoeging
         in: query
         description: De huisnummertoevoeging van het adres van de objectlocatie van
           de kadastraal onroerende zaak
@@ -179,12 +179,6 @@ paths:
               $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -383,12 +377,6 @@ paths:
               $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -588,12 +576,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -794,12 +776,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -990,12 +966,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -1185,12 +1155,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -1383,12 +1347,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -1565,12 +1523,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/hal+json:
               schema:
@@ -1757,11 +1709,15 @@ components:
           $ref: '#/components/schemas/Bedrag'
         betrefMeerOnroerendeZaken:
           type: boolean
+          description: Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag
+            meerdere onroerende zaken betreft.
         einddatumAfkoop:
           type: string
           format: date
         indicatieOudeOnroerendeZaakBetrokken:
           type: boolean
+          description: Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk
+            gevestigd is bij een perceel dat later is verenigd met een ander perceel.
       description: |-
         Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
 
@@ -2543,15 +2499,6 @@ components:
         example: '299 https://service.../api/.../v1 "Deze versie van de API is verouderd
           en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie
           hier de documentatie: https://omgevingswet.../api/.../v1".'
-    X_Rate_Limit_Limit:
-      schema:
-        type: integer
-    X_Rate_Limit_Remaining:
-      schema:
-        type: integer
-    X_Rate_Limit_Reset:
-      schema:
-        type: integer
   securitySchemes:
     apiKeyAuth:
       type: apiKey
