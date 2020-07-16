@@ -1,11 +1,11 @@
 openapi: 3.0.0
 servers:
-  - description: "BRK-Bevragen API - PRODUCTIE"
-    url: https://api.brk.kadaster.nl/esd/bevragen/v1
-  - description: "BRK-Bevragen API - TEST (via API-key & mTLS)"
-    url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
   - description: "BRK-Bevragen API - TEST (via API-key)"
     url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
+  - description: "BRK-Bevragen API - TEST (via API-key & mTLS)"
+    url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
+  - description: "BRK-Bevragen API - PRODUCTIE"
+    url: https://api.brk.kadaster.nl/esd/bevragen/v1
 info:
   title: Kadaster - BRK-Bevragen API
   description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
