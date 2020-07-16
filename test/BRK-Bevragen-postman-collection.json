@@ -4055,7 +4055,7 @@
 		{
 			"id": "6864117d-5461-4b99-bc3a-a75049f151f2",
 			"key": "baseUrl",
-			"value": "https://api.brk.kadaster.nl/esd-eto/bevragen/v1"
+			"value": "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1"
 		},
 		{
 			"id": "c4f180cf-40ed-4662-8c92-a58c8e596361",
