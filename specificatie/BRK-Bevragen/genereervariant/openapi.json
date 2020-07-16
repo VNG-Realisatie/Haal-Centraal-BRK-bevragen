@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "Kadastraal onroerende zaken",
+    "title" : "Kadaster - BRK-Bevragen API",
     "description" : "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.",
     "contact" : {
       "name" : "Kadaster Haal Centraal BRK-Bevragen",
@@ -11,11 +11,20 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "1.0.0"
+    "version" : "1.1.0"
   },
   "servers" : [ {
-    "url" : "https://service30.kadaster.nl/esd/bevragen/v1",
-    "description" : "Brk-bevragen Kadastraal Onroerende Zaak"
+    "url" : "https://api.brk.kadaster.nl/esd/bevragen/v1",
+    "description" : "BRK-Bevragen API - PRODUCTIE"
+  }, {
+    "url" : "https://api.brk.kadaster.nl/esd-eto/bevragen/v1",
+    "description" : "BRK-Bevragen API - TEST (via API-key & mTLS)"
+  }, {
+    "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
+    "description" : "BRK-Bevragen API - TEST (via API-key)"
+  } ],
+  "security" : [ {
+    "apiKeyAuth" : [ ]
   } ],
   "paths" : {
     "/kadastraalonroerendezaken" : {
@@ -31,8 +40,8 @@
           "schema" : {
             "type" : "string",
             "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "default" : "epsg:28992",
-            "enum" : [ "epsg:28992" ]
+            "enum" : [ "epsg:28992" ],
+            "default" : "epsg:28992"
           }
         }, {
           "name" : "expand",
@@ -51,7 +60,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraleaanduiding",
+          "name" : "kadastraleAanduiding",
           "in" : "query",
           "description" : "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is\n- [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).\n- sectie, 1 of 2 hoofdletters\n- perceelnummer, 1 tot 5 cijfers\n- appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)\n\ngescheiden door een spatie",
           "required" : false,
@@ -63,7 +72,7 @@
             "example" : "'s Gravenhage C 1277 A3"
           }
         }, {
-          "name" : "ingeschrevenpersoon__burgerservicenummer",
+          "name" : "burgerservicenummer",
           "in" : "query",
           "description" : "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.",
           "required" : false,
@@ -74,7 +83,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "persoon_kadasterpersoonidentificatie",
+          "name" : "persoon__identificatie",
           "in" : "query",
           "description" : "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.",
           "required" : false,
@@ -84,7 +93,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "zakelijkgerechtigde__typegerechtigde",
+          "name" : "zakelijkGerechtigde__type",
           "in" : "query",
           "description" : "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.",
           "required" : false,
@@ -94,7 +103,7 @@
             "$ref" : "#/components/schemas/TypeGerechtigde_enum"
           }
         }, {
-          "name" : "adres__postcode",
+          "name" : "postcode",
           "in" : "query",
           "description" : "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak",
           "required" : false,
@@ -105,7 +114,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "adres__huisnummer",
+          "name" : "huisnummer",
           "in" : "query",
           "description" : "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak",
           "required" : false,
@@ -117,7 +126,7 @@
             "type" : "integer"
           }
         }, {
-          "name" : "adres__huisletter",
+          "name" : "huisletter",
           "in" : "query",
           "description" : "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak",
           "required" : false,
@@ -128,7 +137,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "adres__huisnummertoevoeging",
+          "name" : "huisnummertoevoeging",
           "in" : "query",
           "description" : "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak",
           "required" : false,
@@ -151,15 +160,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -363,8 +363,8 @@
           "schema" : {
             "type" : "string",
             "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "default" : "epsg:28992",
-            "enum" : [ "epsg:28992" ]
+            "enum" : [ "epsg:28992" ],
+            "default" : "epsg:28992"
           }
         }, {
           "name" : "expand",
@@ -395,15 +395,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -650,15 +641,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -886,7 +868,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "typegerechtigde",
+          "name" : "type",
           "in" : "query",
           "description" : "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.",
           "required" : false,
@@ -905,15 +887,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -1150,15 +1123,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -1395,15 +1359,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -1640,15 +1595,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -1862,15 +1808,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "X-Rate-Limit-Limit" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Limit"
-              },
-              "X-Rate-Limit-Remaining" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Remaining"
-              },
-              "X-Rate-Limit-Reset" : {
-                "$ref" : "#/components/headers/X_Rate_Limit_Reset"
               }
             },
             "content" : {
@@ -2114,14 +2051,16 @@
             "$ref" : "#/components/schemas/Bedrag"
           },
           "betrefMeerOnroerendeZaken" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft."
           },
           "einddatumAfkoop" : {
             "type" : "string",
             "format" : "date"
           },
           "indicatieOudeOnroerendeZaakBetrokken" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "description" : "Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel."
           }
         },
         "description" : "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.\n\nWaardelijst in deze component : [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)"
@@ -3049,8 +2988,8 @@
         "description" : "CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
         "schema" : {
           "type" : "string",
-          "default" : "epsg:28992",
-          "enum" : [ "epsg:28992" ]
+          "enum" : [ "epsg:28992" ],
+          "default" : "epsg:28992"
         }
       },
       "warning" : {
@@ -3059,21 +2998,14 @@
           "description" : "zie RFC 7234. In het geval een major versie wordt uitgefaseerd, gebruiken we warn-code 299 (\"Miscellaneous Persistent Warning\") en het API end-point (inclusief versienummer) als de warn-agent van de warning, gevolgd door de warn-text met de human-readable waarschuwing",
           "example" : "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
         }
-      },
-      "X_Rate_Limit_Limit" : {
-        "schema" : {
-          "type" : "integer"
-        }
-      },
-      "X_Rate_Limit_Remaining" : {
-        "schema" : {
-          "type" : "integer"
-        }
-      },
-      "X_Rate_Limit_Reset" : {
-        "schema" : {
-          "type" : "integer"
-        }
+      }
+    },
+    "securitySchemes" : {
+      "apiKeyAuth" : {
+        "type" : "apiKey",
+        "description" : "De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden.",
+        "name" : "X-Api-Key",
+        "in" : "header"
       }
     }
   }

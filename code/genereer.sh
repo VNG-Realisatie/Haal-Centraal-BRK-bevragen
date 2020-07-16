@@ -61,7 +61,7 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l python -o python
 
   # genereer Postman collectie voor deze API
-  openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman"
+  openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman" --pretty
 
   # genereer in Excel te importeren CSV bestanden met overzicht testdata
   # wordt alleen gemaakt wanneer een api key is opgegeven, zodat de testdata kan
