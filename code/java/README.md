@@ -1,8 +1,8 @@
 # openapi-java-client
 
-Kadastraal onroerende zaken
-- API version: 1.0.0
-  - Build date: 2020-07-08T15:06:35.604+02:00[Europe/Amsterdam]
+Kadaster - BRK-Bevragen API
+- API version: 1.1.0
+  - Build date: 2020-07-16T15:31:15.936+02:00[Europe/Amsterdam]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.0.0"
+compile "org.openapitools:openapi-java-client:1.1.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.0.0.jar`
+* `target/openapi-java-client-1.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -77,13 +77,20 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
 import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://service30.kadaster.nl/esd/bevragen/v1");
+    defaultClient.setBasePath("https://api.brk.kadaster.nl/esd/bevragen/v1");
+    
+    // Configure API key authorization: apiKeyAuth
+    ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
+    apiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //apiKeyAuth.setApiKeyPrefix("Token");
 
     KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
     String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
@@ -105,7 +112,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://service30.kadaster.nl/esd/bevragen/v1*
+All URIs are relative to *https://api.brk.kadaster.nl/esd/bevragen/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -191,8 +198,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### apiKeyAuth
+
+- **Type**: API key
+- **API key parameter name**: X-Api-Key
+- **Location**: HTTP header
+
 
 ## Recommendation
 

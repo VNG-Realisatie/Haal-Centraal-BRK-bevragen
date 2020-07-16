@@ -41,20 +41,15 @@ def valid_url_template(string, valid_yaml):
         return False
     return valid_yaml
 
-def valid_lower_kebab_case(string, valid_yaml):
-    # we staan ook underscores toe (in parameters), hoewel dat eigenlijk niet
-    # hoort in lower-kebab-case
-    if not re.search("^[a-z]+(([a-z\-\_]+)*)$", string):
-        print "Geen lower-kebab-case:", string
-        logfile.write( "Geen lower-kebab-case: " + string + '\n' )
-        return False
-    return valid_yaml
-
 def valid_camel_case(string, valid_yaml):
-    if not re.search("^[a-z\_][a-z0-9]+(([A-Z][a-z0-9]+)*)$", string):
+    # we staan ook beginnen met underscore toe t.b.v. HAL properties _links en _embedded
+    # we staan ook dubbele underscore toe t.b.v. parameters op subresource-velden
+
+    if not re.search("^[a-z\_][a-z0-9]*(([A-Z]|(\_\_))[a-z0-9]+)*$", string):
         print "Geen camelCase:",string
         logfile.write( "Geen camelCase: " + string + '\n' )
         return False
+
     return valid_yaml
 
 
@@ -125,13 +120,13 @@ if "paths" in SWAGGER:
             if "parameters" in method_definition:
                 for parameter_definition in method_definition.get("parameters"):
                     if "name" in parameter_definition and "in" in parameter_definition and parameter_definition.get("in")=="query":
-                        valid_yaml = valid_lower_kebab_case(parameter_definition.get("name"), valid_yaml)
+                        valid_yaml = valid_camel_case(parameter_definition.get("name"), valid_yaml)
 
 #components parameters
 if "components" in SWAGGER and "parameters" in SWAGGER.get("components"):
     for component_name, component_schema in SWAGGER.get("components").get("parameters").items():
         if "in" in component_schema and component_schema.get("in")=="query" and "name" in component_schema:
-            valid_yaml = valid_lower_kebab_case(component_schema.get("name"), valid_yaml)
+            valid_yaml = valid_camel_case(component_schema.get("name"), valid_yaml)
 
 # components schemas
 if "components" in SWAGGER and "schemas" in SWAGGER.get("components"):

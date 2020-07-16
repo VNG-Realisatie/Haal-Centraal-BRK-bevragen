@@ -9,11 +9,17 @@ info:
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
-  title: Kadastraal onroerende zaken
-  version: 1.0.0
+  title: Kadaster - BRK-Bevragen API
+  version: 1.1.0
 servers:
-- description: Brk-bevragen Kadastraal Onroerende Zaak
-  url: https://service30.kadaster.nl/esd/bevragen/v1
+- description: BRK-Bevragen API - PRODUCTIE
+  url: https://api.brk.kadaster.nl/esd/bevragen/v1
+- description: BRK-Bevragen API - TEST (via API-key & mTLS)
+  url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
+- description: BRK-Bevragen API - TEST (via API-key)
+  url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
+security:
+- apiKeyAuth: []
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -86,7 +92,7 @@ paths:
           gescheiden door een spatie
         explode: true
         in: query
-        name: kadastraleaanduiding
+        name: kadastraleAanduiding
         required: false
         schema:
           example: '''s Gravenhage C 1277 A3'
@@ -101,7 +107,7 @@ paths:
           recht op heeft.
         explode: true
         in: query
-        name: ingeschrevenpersoon__burgerservicenummer
+        name: burgerservicenummer
         required: false
         schema:
           maxLength: 9
@@ -114,7 +120,7 @@ paths:
           Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
         explode: true
         in: query
-        name: persoon_kadasterpersoonidentificatie
+        name: persoon__identificatie
         required: false
         schema:
           type: string
@@ -125,7 +131,7 @@ paths:
           van het opgegeven type.
         explode: true
         in: query
-        name: zakelijkgerechtigde__typegerechtigde
+        name: zakelijkGerechtigde__type
         required: false
         schema:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
@@ -134,7 +140,7 @@ paths:
           onroerende zaak
         explode: true
         in: query
-        name: adres__postcode
+        name: postcode
         required: false
         schema:
           pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
@@ -144,7 +150,7 @@ paths:
           onroerende zaak
         explode: true
         in: query
-        name: adres__huisnummer
+        name: huisnummer
         required: false
         schema:
           maximum: 99999
@@ -155,7 +161,7 @@ paths:
           onroerende zaak
         explode: true
         in: query
-        name: adres__huisletter
+        name: huisletter
         required: false
         schema:
           pattern: ^[a-zA-Z]$
@@ -165,7 +171,7 @@ paths:
           de kadastraal onroerende zaak
         explode: true
         in: query
-        name: adres__huisnummertoevoeging
+        name: huisnummertoevoeging
         required: false
         schema:
           pattern: ^([a-z,A-Z,0-9]){1,4}$
@@ -185,12 +191,6 @@ paths:
               $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -396,12 +396,6 @@ paths:
               $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -604,12 +598,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -796,7 +784,7 @@ paths:
           onroerende zaak. De waarden van de typering staan in een waardelijst.
         explode: true
         in: query
-        name: typegerechtigde
+        name: type
         required: false
         schema:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
@@ -813,12 +801,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -1012,12 +994,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -1210,12 +1186,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -1411,12 +1381,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -1596,12 +1560,6 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
         "400":
           content:
             application/problem+json:
@@ -1770,21 +1728,6 @@ components:
           hier de documentatie: https://omgevingswet.../api/.../v1".'
         type: string
       style: simple
-    X_Rate_Limit_Limit:
-      explode: false
-      schema:
-        type: integer
-      style: simple
-    X_Rate_Limit_Remaining:
-      explode: false
-      schema:
-        type: integer
-      style: simple
-    X_Rate_Limit_Reset:
-      explode: false
-      schema:
-        type: integer
-      style: simple
   schemas:
     Aantekening:
       description: 'Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
@@ -1835,11 +1778,15 @@ components:
         jaarlijksBedrag:
           $ref: '#/components/schemas/Bedrag'
         betrefMeerOnroerendeZaken:
+          description: Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag
+            meerdere onroerende zaken betreft.
           type: boolean
         einddatumAfkoop:
           format: date
           type: string
         indicatieOudeOnroerendeZaakBetrokken:
+          description: Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk
+            gevestigd is bij een perceel dat later is verenigd met een ander perceel.
           type: boolean
       type: object
     Geboorte:
@@ -2609,4 +2556,11 @@ components:
           items:
             $ref: '#/components/schemas/InvalidParams'
           type: array
+  securitySchemes:
+    apiKeyAuth:
+      description: De API-key dient bij elk request via de `X-Api-Key` request header
+        meegestuurd te worden.
+      in: header
+      name: X-Api-Key
+      type: apiKey
 
