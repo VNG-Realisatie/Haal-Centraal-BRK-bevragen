@@ -14,14 +14,14 @@
     "version" : "1.1.0"
   },
   "servers" : [ {
-    "url" : "https://api.brk.kadaster.nl/esd/bevragen/v1",
-    "description" : "BRK-Bevragen API - PRODUCTIE"
+    "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
+    "description" : "BRK-Bevragen API - TEST (via API-key)"
   }, {
     "url" : "https://api.brk.kadaster.nl/esd-eto/bevragen/v1",
     "description" : "BRK-Bevragen API - TEST (via API-key & mTLS)"
   }, {
-    "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
-    "description" : "BRK-Bevragen API - TEST (via API-key)"
+    "url" : "https://api.brk.kadaster.nl/esd/bevragen/v1",
+    "description" : "BRK-Bevragen API - PRODUCTIE"
   } ],
   "security" : [ {
     "apiKeyAuth" : [ ]
@@ -40,8 +40,8 @@
           "schema" : {
             "type" : "string",
             "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ],
-            "default" : "epsg:28992"
+            "default" : "epsg:28992",
+            "enum" : [ "epsg:28992" ]
           }
         }, {
           "name" : "expand",
@@ -363,8 +363,8 @@
           "schema" : {
             "type" : "string",
             "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ],
-            "default" : "epsg:28992"
+            "default" : "epsg:28992",
+            "enum" : [ "epsg:28992" ]
           }
         }, {
           "name" : "expand",
@@ -2988,8 +2988,8 @@
         "description" : "CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
         "schema" : {
           "type" : "string",
-          "enum" : [ "epsg:28992" ],
-          "default" : "epsg:28992"
+          "default" : "epsg:28992",
+          "enum" : [ "epsg:28992" ]
         }
       },
       "warning" : {
