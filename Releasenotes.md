@@ -26,3 +26,7 @@ De map "code" is toegevoegd. Deze map bevat gegenereerde code voor C#, Java en P
 ### testen:
 
 De map "test" is toegevoegd. Deze map bevat testgevallen die in de testomgeving beschikbaar zijn.
+
+### issues:
+
+Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "BRK-Bevragen 1.1" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
