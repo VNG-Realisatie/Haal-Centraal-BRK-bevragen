@@ -20,9 +20,9 @@ Er wordt getest op:
 
 Bij de opdracht moet het pad naar het te controleren Open API Specificatie
 yaml-bestand worden meegegeven.
-Bijvoorbeeld python validate_yaml.py "../specificatie/BRK-Bevragen/openapi.yaml"
+Bijvoorbeeld python validate_yaml.py "../specificatie/openapi.yaml"
 
-"../specificatie/BRK-Bevragen/openapi.yaml"
+"../specificatie/openapi.yaml"
 "../specificatie/BAG-Bevragen/openapi.yaml"
 "../specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml"
 "../specificatie/Bewoning/openapi.yaml"

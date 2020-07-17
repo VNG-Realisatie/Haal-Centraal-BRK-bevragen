@@ -2,6 +2,9 @@
 
 ## Versie 1.1.0:
 
+De repository is opgeschoond. Mappen die overbodig waren zijn verwijderd. De specificatie van de Waardelijsten API is verwijderd omdat die nog niet geïmplementeerd is.
+Dit heeft ook gevolgen voor de tree: Map BRK-Bevragen is komen te vervallen en openapi.yaml en de map genereervariant staan direct onder de map /specificatie).
+
 ### openapi.yaml:
 
 - Productie- en test-servers toegevoegd

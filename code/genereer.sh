@@ -19,8 +19,8 @@
 # python is geïnstalleerd
 
 
-source_yaml=../specificatie/BRK-Bevragen/openapi.yaml
-target_resolved=../specificatie/BRK-Bevragen/genereervariant
+source_yaml=../specificatie/openapi.yaml
+target_resolved=../specificatie/genereervariant
 target_postman=../test/BRK-Bevragen-postman-collection.json
 target_testcases=../test/cases
 api_key=$1
