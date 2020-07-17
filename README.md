@@ -19,15 +19,15 @@ Wil je een aansluiting ontwikkelen? Dan is de [getting started](./docs/getting-s
 https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 
 ## Documentatie
-* [Productvisie](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/v1.1.0/docs/productvision.md)
-* [Definition of Ready](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/v1.1.0/docs/definition_of_ready.md)
-* [Definition of Done](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/v1.1.0/docs/definition_of_done.md)
-* Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/Tutorial/blob/v1.1.0/CONTRIBUTING.md)
-* [Omgangsvormen](https://github.com/VNG-Realisatie/Tutorial/blob/v1.1.0/CODE_OF_CONDUCT.md)
+* [Productvisie](../docs/productvision.md)
+* [Definition of Ready](../docs/definition_of_ready.md)
+* [Definition of Done](../docs/definition_of_done.md)
+* Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CONTRIBUTING.md)
+* [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/v1.1.0/CODE_OF_CONDUCT.md)
 
-* BRK bevragen: [Technische specificaties van de **resolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/v1.1.0/specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/v1.1.0/specificatie) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
+* BRK bevragen: [Technische specificaties van de **resolved** versie](../specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](../specificatie) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
 
-* Ontwerpkeuzes staan in het document [Design decisions](https://github.com/VNG-Realisatie/BRK-bevragingen/blob/v1.1.0/docs/design_decisions.md)
+* Ontwerpkeuzes staan in het document [Design decisions](../docs/design_decisions.md)
 
 ## Bronnen
 * [API strategie en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/)
@@ -38,4 +38,4 @@ https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2018
-Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/v1.1.0/LICENCE.md)
+Licensed under the [EUPL](../LICENCE.md)
