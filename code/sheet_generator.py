@@ -9,7 +9,7 @@ Command line arguments:
 --target  -t    Geef pad van map waar gegenereerde csv bestanden geplaatst moeten worden.
                 Bij voorbeeld -t"../test/cases/"
 
-Gebruik dit door bijvoorbeeld: python sheet_generator.py -s"../specificatie/BRK-Bevragen/genereervariant/openapi.yaml" -t"../test/cases"
+Gebruik dit door bijvoorbeeld: python sheet_generator.py -s"../specificatie/genereervariant/openapi.yaml" -t"../test/cases"
 """
 
 
