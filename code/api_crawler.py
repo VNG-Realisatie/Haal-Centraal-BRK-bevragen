@@ -27,7 +27,7 @@ import sys
 import os.path
 
 
-SOURCE_YAML = '../specificatie/BRK-Bevragen/openapi.yaml'
+SOURCE_YAML = '../specificatie/openapi.yaml'
 SHEET_FOLDER = '../test/cases/'
 TESTCASES_FILENAME = '../test/cases/testcases.json'
 SEPERATOR = ";"
