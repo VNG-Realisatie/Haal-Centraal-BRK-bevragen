@@ -23,7 +23,7 @@ https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 * [Definition of Ready](../docs/definition_of_ready.md)
 * [Definition of Done](../docs/definition_of_done.md)
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CONTRIBUTING.md)
-* [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/v1.1.0/CODE_OF_CONDUCT.md)
+* [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CODE_OF_CONDUCT.md)
 
 * BRK bevragen: [Technische specificaties van de **resolved** versie](../specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](../specificatie) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
 
