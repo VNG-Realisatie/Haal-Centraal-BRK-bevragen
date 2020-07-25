@@ -1335,7 +1335,7 @@ components:
       type: "object"
       properties:
         aard:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
         overgangsgrootte:
           description: "De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak."
           type: "integer"
