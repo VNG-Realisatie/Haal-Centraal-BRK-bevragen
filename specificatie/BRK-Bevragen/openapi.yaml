@@ -1153,10 +1153,10 @@ components:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze aantekening is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze aantekening is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin deze aantekening is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld"
           items:
             type: "string"
         betrokkenPersoonIdentificaties:
@@ -1172,12 +1172,12 @@ components:
           $ref: "#/components/schemas/TypeSplitsing_enum"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze appartementsrechtsplitsing is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze appartementsrechtsplitsing is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
             type: "string"
-            description: "De identificaties van de stukdelen waarin deze appartementsrechtsplitsing is vermeld"
+            description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze appartementsrechtsplitsing is vermeld"
         verenigingVanEigenaren:
           $ref: "#/components/schemas/NietNatuurlijkPersoonBeperkt"
     Bedrag:
@@ -1202,6 +1202,7 @@ components:
           type: "string"
         werkingsgebied:
           type: "object"
+          description: "Datgene waarop de beperking van toepassing is."
           properties:
             bgtObjectIdentificatie:
               type: "string"
@@ -1228,7 +1229,7 @@ components:
           $ref: "#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
           type: "boolean"
-          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object"
+          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat."
         omschrijvingBetrokkenRecht:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
@@ -1251,10 +1252,10 @@ components:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop dit beslag is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin dit beslag is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld"
           items:
             type: "string"
     BeslagHal:
@@ -1324,10 +1325,10 @@ components:
           type: "boolean"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop dit erfpachtcanon is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit erfpachtcanon is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin dit erfpachtcanon is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit erfpachtcanon is vermeld"
           items:
             type: "string"
     Filiatie:
@@ -1336,7 +1337,7 @@ components:
         aard:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/master/specificatie/BRK-Bevragen/openapi.yaml#/components/schemas/Waardelijst"
         overgangsgrootte:
-          description: "De oppervlakte van het gedeelte van de oude Onroerende zaak dat opgegaan is in de nieuwe Onroerende zaak. De overgangsgrootte heeft uitsluitend betrekking op Onroerende zaak van het soort Perceel."
+          description: "De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak."
           type: "integer"
           example: 220
         kadastraalOnroerendeZaakIdentificaties:
@@ -1353,7 +1354,7 @@ components:
         plaats:
           type: "string"
           title: "geboorteplaats"
-          description: "De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft waar de persoon is geboren"
+          description: "Plaats of plaatsbepaling waar de persoon is geboren."
         datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         land:
@@ -1404,7 +1405,9 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)"
     Hypotheek:
       type: "object"
-      description: "Waardelijst in deze component :
+      description: "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheeknemer (geldverstrekker).
+
+      Waardelijst in deze component :
           [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
       properties:
         identificatie:
@@ -1437,10 +1440,10 @@ components:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze hypotheek is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin deze hypotheek is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld"
           items:
             type: "string"
 
@@ -1669,6 +1672,7 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)"
         landinrichtingsrente:
           $ref: "#/components/schemas/TypeLandinrichtingsrente"
+          description: "Het bedrag waarmee de Onroerende zaak is belast in het kader van de landinrichtingswet. De kosten zijn door het Rijk voorgeschoten, over de verkavelde percelen omgeslagen, en moeten worden (met rente) worden afbetaald. "
         kadastraleAanduiding:
           type: "string"
         kadastraleGrootte:
@@ -1805,10 +1809,10 @@ components:
       properties:
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze mandeligheid is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld"
           items:
             type: "string"
         hoofdZaakIdentificaties:
@@ -2028,7 +2032,7 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     PubliekrechtelijkeBeperking:
       type: "object"
-      description: "De privaatrechtelijke beperking is een aantekening op een Kadastraal onroerende zaak of een aantekening op een recht op een kadastraal onroerende zaak"
+      description: "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging."
       properties:
         identificatie:
           type: "string"
@@ -2046,10 +2050,10 @@ components:
           format: "date"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze publiekrechelijke beperking is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin deze publiekrechtelijke beperking gerechtigde is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld"
           items:
             type: "string"
         bevoegdGezag:
@@ -2103,10 +2107,13 @@ components:
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
         bedragTransactiesomLevering:
           $ref: "#/components/schemas/Bedrag"
+          description: "De koopsom"
         bedragVorderingsbeslag:
           $ref: "#/components/schemas/Bedrag"
+          description: "Bedrag waarvoor beslag is gelegd op de kadastraal onroerende zaak."
         bedragZekerheidsstellingHypotheek:
           $ref: "#/components/schemas/Bedrag"
+          description: "Het bedrag waarvoor een hypotheek is ingeschreven"
         omschrijvingGekozenWoonplaats:
             type: "string"
         omschrijvingKadastraleObjecten:
@@ -2177,7 +2184,6 @@ components:
           type: "string"
     StukType_enum:
       type: "string"
-      description: "en appartementsrechtsplitsing is het in appartementsrechten gesplitste Zakelijk recht van 1 of meer kadastrale objecten"
       enum:
       - "Kadasterstuk"
       - "Aangebodenstuk"
@@ -2228,12 +2234,12 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze tenaamstelling is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
             type: "string"
-            description: "De identificaties van de stukdelen waarin deze tenaamstelling is vermeld"
+            description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld"
     TypeBreuk:
       type: "object"
       description: "Een deling van twee gehele getallen"
@@ -2349,7 +2355,6 @@ components:
           description: "Verschuiving op de Y as."
     TypeSplitsing_enum:
       type: "string"
-      description: "en appartementsrechtsplitsing is het in appartementsrechten gesplitste Zakelijk recht van 1 of meer kadastrale objecten"
       enum:
       - "Hoofdsplitsing"
       - "Ondersplitsing"
@@ -2357,11 +2362,14 @@ components:
       - "SpiegelsplitsingOndersplitsing"
     VerkavelObject:
       type: "object"
+      description: "Een onroerende zaak die is betrokken bij een herverkaveling."
       properties:
         afwijkingLijstRechthebbenden:
           type: "boolean"
+          description: "Afwijkingen tussen de kadastrale registratie en de lijst van rechthebbenden, bedoeld in artikel 183, eerste lid, van de Landinrichtingswet, artikel 71, tweede lid, van de Wet inrichting landelijk gebied, artikel 68 van de Reconstructiewet Midden-Delfland, dan wel in artikel 53 van de Herinrichtingswet Oost-Groningen en de Gronings-Drentse Veenkoloniën."
         herverkavelingsGebied:
           type: "object"
+          description: "Gebied waarin onroerende zaken worden samengevoegd, verkaveld en verdeeld door toepassing van de Wet inrichting landelijk Gebied"
           properties:
             identificatie:
               type: "string"
@@ -2374,8 +2382,6 @@ components:
               description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusHerverkavelingsproject/)"
     Waardelijst:
       type: "object"
-      description: "Waardelijst is een samengesteld datatype voor het weergeven van\
-        \ een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)"
       properties:
         code:
           type: "string"
@@ -2410,10 +2416,10 @@ components:
           $ref: "#/components/schemas/Mandeligheid"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
-          description: "De identificatie van het stukdeel waarop deze zakelijkgerechtigde is gebaseerd"
+          description: "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd."
         isVermeldInStukdeelIdentificaties:
           type: "array"
-          description: "De identificaties van de stukdelen waarin deze zakelijk gerechtigde is vermeld"
+          description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld"
           items:
             type: "string"
         persoon:
