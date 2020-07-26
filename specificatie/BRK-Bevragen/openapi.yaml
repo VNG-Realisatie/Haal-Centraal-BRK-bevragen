@@ -30,6 +30,7 @@ paths:
               -  adres__huisnummer (optioneel)
               -  adres__huisletter (optioneel)
               -  adres__huisnummertoevoeging (optioneel)
+          5.  NummeraanduidingIdentificatie
 
           Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
 
@@ -104,6 +105,14 @@ paths:
           schema:
             type: string
             pattern: "^([a-z,A-Z,0-9]){1,4}$"
+        - in: query
+          name: nummeraanduidingIdentificatie
+          description: "Identificatie van een nummeraanduiding uit de BAG. Deze is 16 cijfers lang."
+          required: false
+          schema:
+            type: string
+            pattern: '^[0-9]{16}$'
+            example: '0226200000038923'
       responses:
         '200':
           description: "Zoekactie geslaagd"
