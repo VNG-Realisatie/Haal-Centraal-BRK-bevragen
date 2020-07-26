@@ -1679,9 +1679,6 @@ components:
         aardCultuurOnbebouwd:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)"
-        landinrichtingsrente:
-          $ref: "#/components/schemas/TypeLandinrichtingsrente"
-          description: "Het bedrag waarmee de Onroerende zaak is belast in het kader van de landinrichtingswet. De kosten zijn door het Rijk voorgeschoten, over de verkavelde percelen omgeslagen, en moeten worden (met rente) worden afbetaald. "
         kadastraleAanduiding:
           type: "string"
         kadastraleGrootte:
