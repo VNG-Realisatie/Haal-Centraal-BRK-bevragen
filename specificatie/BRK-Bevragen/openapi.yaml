@@ -1519,7 +1519,7 @@ components:
             items:
               $ref: "#/components/schemas/HeeftPartnerschap"
           naam:
-            $ref: "#/components/schemas/Naam"
+            $ref: "#/components/schemas/NaamPersoon"
           geboorte:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
@@ -1840,6 +1840,27 @@ components:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
           description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
+    NaamPersoon:
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - type: "object"
+          description: "Gegevens over de naam van de persoon"
+          properties:
+            aanhef:
+              type: "string"
+              title: "aanhef"
+              description: "De aanhef zoals die in een brief, gericht aan een persoon gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)"
+              example: "Hooggeboren vrouwe van der Veen-van den Aedel"
+            aanschrijfwijze:
+              type: "string"
+              title: "aanschrijfwijze"
+              description: "Samengestelde naam zoals die in communicatie met de persoon gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)"
+              example: "W. gravin van den Aedel-van der Veen"
+            gebruikInLopendeTekst:
+              type: "string"
+              title: "gebruikInLopendeTekst"
+              description: "De naam zoals die in lopende tekst kan worden. Hoe het samenstellen van een naam in de lopendetekst te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)"
+              example: "mevrouw van der Veen-gravin van den Aedel"
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
