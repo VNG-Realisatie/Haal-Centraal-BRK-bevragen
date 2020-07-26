@@ -1981,25 +1981,6 @@ components:
       - "kadaster_natuurlijk_persoon"
       - "ingeschreven_niet_natuurlijk_persoon"
       - "kadaster_niet_natuurlijk_persoon"
-    PortefeuilleId:
-      type: "object"
-      description: "Een ambtelijk correctie gegeven is een kadasterstuk waarmee het kadaster foute gegevens in de Basisregistratie Kadaster kan herstellen.
-
-
-        Waardelijst in deze component :
-          [akrRegistercode](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
-      properties:
-        akrRegistercode:
-          $ref: "#/components/schemas/Waardelijst"
-          description: "Code van een kadasterstuk uit een voormalige registratie, bedoeld om vervolgonderzoek gemakkelijker mogelijk te maken. Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/akrRegistercode/)"
-        akrStukdeel1:
-          type: "string"
-        akrStukdeel2:
-          type: "string"
-        akrStukdeel3:
-          type: "string"
-        volgnummerStaat75:
-          type: "integer"
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/Aantekening"
@@ -2183,8 +2164,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Kadasterverzoek"
-        portefeuilleNummer:
-          $ref: "#/components/schemas/PortefeuilleId"
         oorspronkelijkStukIdentificatie:
           description: "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
           type: "string"
