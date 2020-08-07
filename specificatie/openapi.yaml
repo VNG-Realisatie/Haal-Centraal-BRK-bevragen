@@ -874,6 +874,8 @@ paths:
           required: false
           schema:
             type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/page"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/pageSize"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -891,7 +893,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/HypotheekHalCollectie"
+                $ref: "#/components/schemas/HypotheekHalPagedCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -990,6 +992,8 @@ paths:
           required: false
           schema:
             type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/page"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/pageSize"
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -1007,7 +1011,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/BeslagHalCollectie"
+                $ref: "#/components/schemas/BeslagHalPagedCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -1197,6 +1201,18 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/BeslagHal"
+    BeslagHalPagedCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalPaginationLinks"
+        _embedded:
+          type: "object"
+          properties:
+            beslagen:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/BeslagHal"
     Beslag_links:
       type: "object"
       properties:
@@ -1379,6 +1395,18 @@ components:
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            hypotheken:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/HypotheekHal"
+    HypotheekHalPagedCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalPaginationLinks"
         _embedded:
           type: "object"
           properties:
