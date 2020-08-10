@@ -1183,6 +1183,9 @@ components:
           description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld"
           items:
             type: "string"
+        onroerendeZaakIdentificatie:
+          type: "string"
+          description: "identificatie van de Kadastraal onroerende zaak waar het beslag op rust"
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
@@ -1238,6 +1241,8 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        rustOpObject:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ErfpachtCanon:
       type: "object"
       description: "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
@@ -1383,7 +1388,9 @@ components:
           description: "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld"
           items:
             type: "string"
-
+        onroerendeZaakIdentificatie:
+          type: "string"
+          description: "identificatie van de Kadastraal onroerende zaak waar de hypotheek op rust"
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -1435,6 +1442,8 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        rustOpObject:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadasterNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
