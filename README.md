@@ -4,7 +4,7 @@ BRK-bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens
 
 Meld je aan bij het kadaster om [aan te sluiten](https://formulieren.kadaster.nl/aanmelden_brk_bevragen), of voor [toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen).
 
-Komende periode wordt de API uitgebreid met beperkingen, hypotheken, beslagen (v1.2) en historie vanaf oktober 2018 (v1.3). We doen ons uiterste best om GEEN breaking changes te introduceren!
+Komende periode wordt de API uitgebreid met beperkingen, hypotheken, beslagen (v1.2) en historie vanaf oktober 2018 (v1.3). We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
 
 ## Getting started
 Wil je een aansluiting ontwikkelen? Dan is de [getting started](./docs/getting-started.md) een goed begin. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
