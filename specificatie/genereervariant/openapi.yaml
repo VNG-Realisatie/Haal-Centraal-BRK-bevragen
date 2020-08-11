@@ -12,19 +12,19 @@ info:
     url: https://eupl.eu/1.2/nl/
   version: 1.2.0
 servers:
-- url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
-  description: BRK-Bevragen API - TEST (via API-key)
-- url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
-  description: BRK-Bevragen API - TEST (via API-key & mTLS)
-- url: https://api.brk.kadaster.nl/esd/bevragen/v1
-  description: BRK-Bevragen API - PRODUCTIE
+  - url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
+    description: BRK-Bevragen API - TEST (via API-key)
+  - url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
+    description: BRK-Bevragen API - TEST (via API-key & mTLS)
+  - url: https://api.brk.kadaster.nl/esd/bevragen/v1
+    description: BRK-Bevragen API - PRODUCTIE
 security:
-- apiKeyAuth: []
+  - apiKeyAuth: []
 paths:
   /kadastraalonroerendezaken:
     get:
       tags:
-      - Kadastraal Onroerende Zaken
+        - Kadastraal Onroerende Zaken
       description: |
         Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
@@ -46,145 +46,145 @@ paths:
         Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       operationId: GetKadastraalOnroerendeZaken
       parameters:
-      - name: Accept-Crs
-        in: header
-        description: Gewenste CRS van de coördinaten in de response.
-        required: false
-        schema:
-          type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
-            RD New Nederlands coordinatenstelsel.
-          default: epsg:28992
-          enum:
-          - epsg:28992
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraleAanduiding
-        in: query
-        description: |-
-          Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
-          - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
-          - sectie, 1 of 2 hoofdletters
-          - perceelnummer, 1 tot 5 cijfers
-          - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
+        - name: Accept-Crs
+          in: header
+          description: Gewenste CRS van de coördinaten in de response.
+          required: false
+          schema:
+            type: string
+            description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+              RD New Nederlands coordinatenstelsel.
+            default: epsg:28992
+            enum:
+              - epsg:28992
+        - name: expand
+          in: query
+          description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+            moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+            enkele properties geef je in de expand parameter kommagescheiden op. Properties
+            die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+            naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+            _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+            [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+          required: false
+          schema:
+            type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraleAanduiding
+          in: query
+          description: |-
+            Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+            - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
+            - sectie, 1 of 2 hoofdletters
+            - perceelnummer, 1 tot 5 cijfers
+            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
 
-          gescheiden door een spatie
-        required: false
-        style: form
-        explode: true
-        schema:
-          pattern: ^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})(
-            A[1-9][0-9]{0,3})?$
-          type: string
-          example: '''s Gravenhage C 1277 A3'
-      - name: burgerservicenummer
-        in: query
-        description: Het burgerservicenummer van de persoon die een zakelijk recht
-          op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde
-          van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken
-          worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk
-          recht op heeft.
-        required: false
-        style: form
-        explode: true
-        schema:
-          maxLength: 9
-          type: string
-      - name: persoon__identificatie
-        in: query
-        description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
-          persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
-          geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende
-          Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende
-          Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: zakelijkGerechtigde__type
-        in: query
-        description: Een typering van het recht dat de zakelijkgerechtigde heeft op
-          de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter
-          worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust
-          van het opgegeven type.
-        required: false
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
-      - name: postcode
-        in: query
-        description: De postcode van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
-        required: false
-        style: form
-        explode: true
-        schema:
-          pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
-          type: string
-      - name: huisnummer
-        in: query
-        description: Het huisnummer van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
-        required: false
-        style: form
-        explode: true
-        schema:
-          maximum: 99999
-          minimum: 1
-          type: integer
-      - name: huisletter
-        in: query
-        description: De huisletter van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
-        required: false
-        style: form
-        explode: true
-        schema:
-          pattern: ^[a-zA-Z]$
-          type: string
-      - name: huisnummertoevoeging
-        in: query
-        description: De huisnummertoevoeging van het adres van de objectlocatie van
-          de kadastraal onroerende zaak
-        required: false
-        style: form
-        explode: true
-        schema:
-          pattern: ^([a-z,A-Z,0-9]){1,4}$
-          type: string
-      - name: nummeraanduidingIdentificatie
-        in: query
-        description: Identificatie van een nummeraanduiding uit de BAG. Deze is 16
-          cijfers lang.
-        required: false
-        style: form
-        explode: true
-        schema:
-          pattern: ^[0-9]{16}$
-          type: string
-          example: "0226200000038923"
+            gescheiden door een spatie
+          required: false
+          style: form
+          explode: true
+          schema:
+            pattern: ^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})(
+              A[1-9][0-9]{0,3})?$
+            type: string
+            example: '''s Gravenhage C 1277 A3'
+        - name: burgerservicenummer
+          in: query
+          description: Het burgerservicenummer van de persoon die een zakelijk recht
+            op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde
+            van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken
+            worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk
+            recht op heeft.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maxLength: 9
+            type: string
+        - name: persoon__identificatie
+          in: query
+          description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
+            persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
+            geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende
+            Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende
+            Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: zakelijkGerechtigde__type
+          in: query
+          description: Een typering van het recht dat de zakelijkgerechtigde heeft op
+            de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter
+            worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust
+            van het opgegeven type.
+          required: false
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/TypeGerechtigde_enum'
+        - name: postcode
+          in: query
+          description: De postcode van het adres van de objectlocatie van de kadastraal
+            onroerende zaak
+          required: false
+          style: form
+          explode: true
+          schema:
+            pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
+            type: string
+        - name: huisnummer
+          in: query
+          description: Het huisnummer van het adres van de objectlocatie van de kadastraal
+            onroerende zaak
+          required: false
+          style: form
+          explode: true
+          schema:
+            maximum: 99999
+            minimum: 1
+            type: integer
+        - name: huisletter
+          in: query
+          description: De huisletter van het adres van de objectlocatie van de kadastraal
+            onroerende zaak
+          required: false
+          style: form
+          explode: true
+          schema:
+            pattern: ^[a-zA-Z]$
+            type: string
+        - name: huisnummertoevoeging
+          in: query
+          description: De huisnummertoevoeging van het adres van de objectlocatie van
+            de kadastraal onroerende zaak
+          required: false
+          style: form
+          explode: true
+          schema:
+            pattern: ^([a-z,A-Z,0-9]){1,4}$
+            type: string
+        - name: nummeraanduidingIdentificatie
+          in: query
+          description: Identificatie van een nummeraanduiding uit de BAG. Deze is 16
+            cijfers lang.
+          required: false
+          style: form
+          explode: true
+          schema:
+            pattern: ^[0-9]{16}$
+            type: string
+            example: "0226200000038923"
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -218,10 +218,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -335,54 +335,54 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
     get:
       tags:
-      - Kadastraal Onroerende Zaken
+        - Kadastraal Onroerende Zaken
       description: |
         Het raadplegen van een kadastrale onroerende zaak.
 
         Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: De unieke identificatie van een kadastraal onroerende zaak.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: Accept-Crs
-        in: header
-        description: Gewenste CRS van de coördinaten in de response.
-        required: false
-        schema:
-          type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
-            RD New Nederlands coordinatenstelsel.
-          default: epsg:28992
-          enum:
-          - epsg:28992
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: Accept-Crs
+          in: header
+          description: Gewenste CRS van de coördinaten in de response.
+          required: false
+          schema:
+            type: string
+            description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+              RD New Nederlands coordinatenstelsel.
+            default: epsg:28992
+            enum:
+              - epsg:28992
+        - name: expand
+          in: query
+          description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+            moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+            enkele properties geef je in de expand parameter kommagescheiden op. Properties
+            die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+            naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+            _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+            [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+          required: false
+          schema:
+            type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -416,10 +416,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -550,7 +550,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:
       tags:
-      - Zakelijke Gerechtigden
+        - Zakelijke Gerechtigden
       description: Het raadplegen van een specifieke zakelijk gerechtigde van een
         kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt
         altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of
@@ -558,32 +558,32 @@ paths:
         afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
       operationId: GetZakelijkGerechtigde
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: De unieke identificatie van een kadastraal onroerende zaak.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: zakelijkgerechtigdeidentificatie
-        in: path
-        description: De identificatie van de zakelijk gerechtigde
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: zakelijkgerechtigdeidentificatie
+          in: path
+          description: De identificatie van de zakelijk gerechtigde
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -615,10 +615,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -749,7 +749,7 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
     get:
       tags:
-      - Zakelijke Gerechtigden
+        - Zakelijke Gerechtigden
       description: Het zoeken van zakelijk gerechtigden van een kadastraal onroerende
         zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie
         met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk
@@ -757,33 +757,33 @@ paths:
         gezamenlijk aandeel niet bekend is)
       operationId: GetZakelijkGerechtigden
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: De unieke identificatie van een kadastraal onroerende zaak.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: Het type recht dat de zakelijk gerechtigde heeft op de kadastraal
-          onroerende zaak. De waarden van de typering staan in een waardelijst.
-        required: false
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Het type recht dat de zakelijk gerechtigde heeft op de kadastraal
+            onroerende zaak. De waarden van de typering staan in een waardelijst.
+          required: false
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/TypeGerechtigde_enum'
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -815,10 +815,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -949,31 +949,31 @@ paths:
   /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
     get:
       tags:
-      - Kadaster (niet)Natuurlijk Personen
+        - Kadaster (niet)Natuurlijk Personen
       description: Het raadplegen van een bij het kadaster geregistreerde natuurlijke
         persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of
         wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte).
         Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadasternatuurlijkpersoonidentificatie
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          maxLength: 60
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadasternatuurlijkpersoonidentificatie
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            maxLength: 60
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1005,10 +1005,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -1139,30 +1139,30 @@ paths:
   /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
     get:
       tags:
-      - Kadaster (niet)Natuurlijk Personen
+        - Kadaster (niet)Natuurlijk Personen
       description: Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke
         persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen
         worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadasternietnatuurlijkpersoonidentificatie
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          maxLength: 60
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadasternietnatuurlijkpersoonidentificatie
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            maxLength: 60
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1194,10 +1194,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -1328,33 +1328,33 @@ paths:
   /kadasternatuurlijkpersonen:
     get:
       tags:
-      - Kadaster (niet)Natuurlijk Personen
+        - Kadaster (niet)Natuurlijk Personen
       description: 'Het zoeken van bij het kadaster geregistreerde natuurlijke personen
         die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn
         ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte).
         Kadasternatuurlijkpersonen worden niet geactualiseerd. '
       operationId: GetKadasterPersonen
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: q
-        in: query
-        description: Free query parameter. Dit endpoint evolueert naar free query
-          zoeken. In deze versie kan alleen een combinatie van (het begin van) de
-          geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: Free query parameter. Dit endpoint evolueert naar free query
+            zoeken. In deze versie kan alleen een combinatie van (het begin van) de
+            geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1386,10 +1386,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -1503,34 +1503,34 @@ paths:
   /kadasternietnatuurlijkpersonen:
     get:
       tags:
-      - Kadaster (niet)Natuurlijk Personen
+        - Kadaster (niet)Natuurlijk Personen
       description: Het zoeken van bij het kadaster geregistreerde niet natuurlijke
         personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen
         worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: q
-        in: query
-        description: Free query parameter. Dit endpoint evolueert naar free query
-          zoeken. In deze versie kan alleen een combinatie van (het begin van de)
-          de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op!
-          Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier
-          voorkomen in de BRK.
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: q
+          in: query
+          description: Free query parameter. Dit endpoint evolueert naar free query
+            zoeken. In deze versie kan alleen een combinatie van (het begin van de)
+            de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op!
+            Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier
+            voorkomen in de BRK.
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1562,10 +1562,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -1679,41 +1679,41 @@ paths:
   /stukken/{stukidentificatie}:
     get:
       tags:
-      - Stukken (Akte)
+        - Stukken (Akte)
       description: 'Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten
         (stukdelen) vastgelegd. '
       operationId: GetStuk
       parameters:
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: stukidentificatie
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          maxLength: 60
-          type: string
+        - name: expand
+          in: query
+          description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+            moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+            enkele properties geef je in de expand parameter kommagescheiden op. Properties
+            die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+            naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+            _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+            [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+          required: false
+          schema:
+            type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: stukidentificatie
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            maxLength: 60
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1745,10 +1745,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -1822,24 +1822,6 @@ paths:
                   not acceptable according to thr accept headers sent in the request
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAcceptable
-        "409":
-          description: Conflict
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10
-                  409 Conflict
-                title: Conflict
-                status: 409
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: conflict
         "410":
           description: Gone
           headers:
@@ -1858,42 +1840,6 @@ paths:
                   the current state of the resource
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: gone
-        "415":
-          description: Unsupported Media Type
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
-                  415 Unsupported Media Type
-                title: Unsupported Media Type
-                status: 415
-                detail: The server is refusing the request because the entity of the
-                  request is in a format not supported by the requested resource for
-                  the requested method.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: unsupported
-        "429":
-          description: Too Many Requests
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-                title: Too many request
-                status: 429
-                detail: The user has sent too many requests in a given amount of time
-                  (rate limiting).
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: tooManyRequests
         "500":
           description: Internal Server Error
           headers:
@@ -1933,30 +1879,30 @@ paths:
   /stukdelen/{stukdeelidentificatie}:
     get:
       tags:
-      - Stukdelen
+        - Stukdelen
       description: Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten
         (stukdelen) vastgelegd. Met de stukdeel-identificaties kunnen gegevens over
         het stukdeel worden opgevraagd.
       operationId: GetStukdeel
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: stukdeelidentificatie
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          maxLength: 60
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: stukdeelidentificatie
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            maxLength: 60
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -1988,10 +1934,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -2065,24 +2011,6 @@ paths:
                   not acceptable according to thr accept headers sent in the request
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAcceptable
-        "409":
-          description: Conflict
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10
-                  409 Conflict
-                title: Conflict
-                status: 409
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: conflict
         "410":
           description: Gone
           headers:
@@ -2101,42 +2029,6 @@ paths:
                   the current state of the resource
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: gone
-        "415":
-          description: Unsupported Media Type
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
-                  415 Unsupported Media Type
-                title: Unsupported Media Type
-                status: 415
-                detail: The server is refusing the request because the entity of the
-                  request is in a format not supported by the requested resource for
-                  the requested method.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: unsupported
-        "429":
-          description: Too Many Requests
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-                title: Too many request
-                status: 429
-                detail: The user has sent too many requests in a given amount of time
-                  (rate limiting).
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: tooManyRequests
         "500":
           description: Internal Server Error
           headers:
@@ -2176,29 +2068,29 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
     get:
       tags:
-      - Privaatrechtelijke Beperkingen
+        - Privaatrechtelijke Beperkingen
       description: Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal
         onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperkingen
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2230,10 +2122,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -2364,36 +2256,36 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
     get:
       tags:
-      - Privaatrechtelijke Beperkingen
+        - Privaatrechtelijke Beperkingen
       description: Het raadplegen van een specifieke privaatrechtelijke beperkingen.
       operationId: GetPrivaatrechtelijkeBeperking
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: privaatrechtelijkebeperkingidentificatie
-        in: path
-        description: De unieke identificatie van een privaatrechtelijke beperking
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: privaatrechtelijkebeperkingidentificatie
+          in: path
+          description: De unieke identificatie van een privaatrechtelijke beperking
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2425,10 +2317,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -2559,29 +2451,29 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen:
     get:
       tags:
-      - Publiekrechtelijke Beperkingen
+        - Publiekrechtelijke Beperkingen
       description: Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal
         onroerende zaak.
       operationId: GetPubliekrechtelijkeBeperkingen
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2613,10 +2505,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -2747,37 +2639,37 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
     get:
       tags:
-      - Publiekrechtelijke Beperkingen
+        - Publiekrechtelijke Beperkingen
       description: Het raadplegen van een specifieke publiekrechtelijke beperkingen
         op een kadastraal onroerende zaak.
       operationId: GetPubliekrechtelijkeBeperking
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: publiekrechtelijkebeperkingidentificatie
-        in: path
-        description: De unieke identificatie van een publiekrechtelijke beperking
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: publiekrechtelijkebeperkingidentificatie
+          in: path
+          description: De unieke identificatie van een publiekrechtelijke beperking
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2809,10 +2701,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -2943,30 +2835,30 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
       tags:
-      - Hypotheken
+        - Hypotheken
       description: Het raadplegen van hypotheken die rusten op een kadastraal onroerende
         zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als
         geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2998,10 +2890,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -3132,39 +3024,55 @@ paths:
   /hypotheken:
     get:
       tags:
-      - Hypotheken
+        - Hypotheken
       description: |
         Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. De hypotheekhouder kan een ingeschreven persoon zijn (gebruik hypotheekhouder__burgerservicenummer) of een kadasterpersoon (gebruik hypotheekhouder__identifictie).
       operationId: GetHypotheken
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: hypotheekhouder__burgerservicenummer
-        in: query
-        description: Het burgerservicenummer van de ingeschreven persoon.
-        required: false
-        style: form
-        explode: true
-        schema:
-          maxLength: 9
-          type: string
-      - name: hypotheekhouder__identificatie
-        in: query
-        description: De identificatie van een kadaster persoon of een rechtspersoon
-          die bij het kadaster is geregistreerd.
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: hypotheekhouder__burgerservicenummer
+          in: query
+          description: Het burgerservicenummer van de ingeschreven persoon.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maxLength: 9
+            type: string
+        - name: hypotheekhouder__identificatie
+          in: query
+          description: De identificatie van een kadaster persoon of een rechtspersoon
+            die bij het kadaster is geregistreerd.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Pagina nummer
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            maximum: 100
+            minimum: 1
+            type: integer
+            default: 20
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -3176,7 +3084,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/HypotheekHalCollectie'
+                $ref: '#/components/schemas/HypotheekHalPagedCollectie'
         "400":
           description: Bad Request
           headers:
@@ -3196,10 +3104,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -3273,24 +3181,6 @@ paths:
                   not acceptable according to thr accept headers sent in the request
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAcceptable
-        "409":
-          description: Conflict
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10
-                  409 Conflict
-                title: Conflict
-                status: 409
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: conflict
         "410":
           description: Gone
           headers:
@@ -3309,42 +3199,6 @@ paths:
                   the current state of the resource
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: gone
-        "415":
-          description: Unsupported Media Type
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
-                  415 Unsupported Media Type
-                title: Unsupported Media Type
-                status: 415
-                detail: The server is refusing the request because the entity of the
-                  request is in a format not supported by the requested resource for
-                  the requested method.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: unsupported
-        "429":
-          description: Too Many Requests
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-                title: Too many request
-                status: 429
-                detail: The user has sent too many requests in a given amount of time
-                  (rate limiting).
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: tooManyRequests
         "500":
           description: Internal Server Error
           headers:
@@ -3384,29 +3238,29 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
     get:
       tags:
-      - Beslagen
+        - Beslagen
       description: Het raadplegen van beslagen en beslagleggers van een kadastraal
         onroerende zaak.
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: De unieke identificatie van een kadastraal onroerende zaak.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: kadastraalonroerendezaakidentificatie
+          in: path
+          description: De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -3438,10 +3292,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -3572,39 +3426,55 @@ paths:
   /beslagen:
     get:
       tags:
-      - Beslagen
+        - Beslagen
       description: |
         Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. De beslaglegger kan een ingeschreven persoon zijn (gebruik beslaglegger__burgerservicenummer) of een kadasterpersoon (gebruik beslaglegger__identificatie).
       operationId: GetBeslagen
       parameters:
-      - name: fields
-        in: query
-        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: beslaglegger__burgerservicenummer
-        in: query
-        description: Het burgerservicenummer van de ingeschreven persoon.
-        required: false
-        style: form
-        explode: true
-        schema:
-          maxLength: 9
-          type: string
-      - name: beslaglegger__identificatie
-        in: query
-        description: De kadastrale identificatie van een persoon of een rechtspersoon
-          die bij het kadaster geregistreerd is.
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: fields
+          in: query
+          description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+            door een door komma's gescheiden lijst van property namen op te geven. Bij
+            opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+            Wanneer de fields parameter niet is opgegeven, worden alle properties met
+            een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          required: false
+          schema:
+            type: string
+        - name: beslaglegger__burgerservicenummer
+          in: query
+          description: Het burgerservicenummer van de ingeschreven persoon.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maxLength: 9
+            type: string
+        - name: beslaglegger__identificatie
+          in: query
+          description: De kadastrale identificatie van een persoon of een rechtspersoon
+            die bij het kadaster geregistreerd is.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Pagina nummer
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            maximum: 100
+            minimum: 1
+            type: integer
+            default: 20
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -3616,7 +3486,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/BeslagHalCollectie'
+                $ref: '#/components/schemas/BeslagHalPagedCollectie'
         "400":
           description: Bad Request
           headers:
@@ -3636,10 +3506,10 @@ paths:
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
                 invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
+                  - type: https://www.vng.nl/realisatie/api/validaties/integer
+                    name: verblijfplaats__huisnummer
+                    code: integer
+                    reason: Waarde is geen geldige integer.
         "401":
           description: Unauthorized
           headers:
@@ -3713,24 +3583,6 @@ paths:
                   not acceptable according to thr accept headers sent in the request
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAcceptable
-        "409":
-          description: Conflict
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10
-                  409 Conflict
-                title: Conflict
-                status: 409
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: conflict
         "410":
           description: Gone
           headers:
@@ -3749,42 +3601,6 @@ paths:
                   the current state of the resource
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: gone
-        "415":
-          description: Unsupported Media Type
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
-                  415 Unsupported Media Type
-                title: Unsupported Media Type
-                status: 415
-                detail: The server is refusing the request because the entity of the
-                  request is in a format not supported by the requested resource for
-                  the requested method.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: unsupported
-        "429":
-          description: Too Many Requests
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-                title: Too many request
-                status: 429
-                detail: The user has sent too many requests in a given amount of time
-                  (rate limiting).
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: tooManyRequests
         "500":
           description: Internal Server Error
           headers:
@@ -3950,21 +3766,32 @@ components:
             met een rechtsfeit) waarin dit beslag is vermeld
           items:
             type: string
+        onroerendeZaakIdentificatie:
+          type: string
+          description: identificatie van de Kadastraal onroerende zaak waar het beslag
+            op rust
       description: |-
         Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
 
         Waardelijst in deze component : [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
     BeslagHal:
       allOf:
-      - $ref: '#/components/schemas/Beslag'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/Beslag_links'
+        - $ref: '#/components/schemas/Beslag'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/Beslag_links'
     BeslagHalCollectie:
       type: object
       properties:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/BeslagHalCollectie__embedded'
+    BeslagHalPagedCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
         _embedded:
           $ref: '#/components/schemas/BeslagHalCollectie__embedded'
     Beslag_links:
@@ -3979,9 +3806,7 @@ components:
           items:
             $ref: '#/components/schemas/HalLink'
         isGebaseerdOpStukdeel:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
+          $ref: '#/components/schemas/HalLink'
         isVermeldInStukdelen:
           type: array
           items:
@@ -3990,6 +3815,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        rustOpObject:
+          $ref: '#/components/schemas/HalLink'
     ErfpachtCanon:
       type: object
       properties:
@@ -4058,20 +3885,20 @@ components:
         * `vrouw` - Vrouw
         * `onbekend` - Onbekend
       enum:
-      - man
-      - vrouw
-      - onbekend
+        - man
+        - vrouw
+        - onbekend
     HeeftAlsEquivalentieVerklaarder:
       type: object
       description: De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het
         stuk dat hij inschrijft in de openbare registers hetzelfde is als het stuk
         dat hij zelf onder zich houdt ( lentieverklaring).
       allOf:
-      - $ref: '#/components/schemas/Naam'
-      - properties:
-          standplaats:
-            type: string
-            description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
+        - $ref: '#/components/schemas/Naam'
+        - properties:
+            standplaats:
+              type: string
+              description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
     HeeftPartnerschap:
       type: object
       properties:
@@ -4142,20 +3969,31 @@ components:
             met een rechtsfeit) waarin deze hypotheek is vermeld
           items:
             type: string
+        onroerendeZaakIdentificatie:
+          type: string
+          description: identificatie van de Kadastraal onroerende zaak waar de hypotheek
+            op rust
       description: |-
         Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheeknemer (geldverstrekker).
         Waardelijst in deze component : [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
     HypotheekHal:
       allOf:
-      - $ref: '#/components/schemas/Hypotheek'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/Hypotheek_links'
+        - $ref: '#/components/schemas/Hypotheek'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/Hypotheek_links'
     HypotheekHalCollectie:
       type: object
       properties:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/HypotheekHalCollectie__embedded'
+    HypotheekHalPagedCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
         _embedded:
           $ref: '#/components/schemas/HypotheekHalCollectie__embedded'
     Hypotheek_links:
@@ -4170,9 +4008,7 @@ components:
           items:
             $ref: '#/components/schemas/HalLink'
         isGebaseerdOpStukdeel:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
+          $ref: '#/components/schemas/HalLink'
         isVermeldInStukdelen:
           type: array
           items:
@@ -4181,39 +4017,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        rustOpObject:
+          $ref: '#/components/schemas/HalLink'
     KadasterNatuurlijkPersoon:
       allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
-      - properties:
-          geheimhoudingPersoonsgegevens:
-            title: indicatieGeheim
-            type: boolean
-            description: Aanduiding die aangeeft dat gegevens van een persoon wel
-              of niet verstrekt mogen worden.
-          landWaarnaarVertrokken:
-            $ref: '#/components/schemas/Waardelijst'
-          geslachtsaanduiding:
-            $ref: '#/components/schemas/Geslacht_enum'
-          heeftPartnerschap:
-            type: array
-            items:
-              $ref: '#/components/schemas/HeeftPartnerschap'
-          naam:
-            $ref: '#/components/schemas/NaamPersoon'
-          geboorte:
-            $ref: '#/components/schemas/Geboorte'
-          overlijden:
-            $ref: '#/components/schemas/Overlijden'
-        description: |-
-          Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        - $ref: '#/components/schemas/KadasterPersoon'
+        - properties:
+            geheimhoudingPersoonsgegevens:
+              title: indicatieGeheim
+              type: boolean
+              description: Aanduiding die aangeeft dat gegevens van een persoon wel
+                of niet verstrekt mogen worden.
+            landWaarnaarVertrokken:
+              $ref: '#/components/schemas/Waardelijst'
+            geslachtsaanduiding:
+              $ref: '#/components/schemas/Geslacht_enum'
+            heeftPartnerschap:
+              type: array
+              items:
+                $ref: '#/components/schemas/HeeftPartnerschap'
+            naam:
+              $ref: '#/components/schemas/NaamPersoon'
+            geboorte:
+              $ref: '#/components/schemas/Geboorte'
+            overlijden:
+              $ref: '#/components/schemas/Overlijden'
+          description: |-
+            Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
 
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+            Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
     KadasterNatuurlijkPersoonHal:
       allOf:
-      - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/KadasterPersoon_links'
+        - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/KadasterPersoon_links'
     KadasterNatuurlijkPersoonHalCollectie:
       type: object
       properties:
@@ -4230,28 +4068,28 @@ components:
             $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
     KadasterNietNatuurlijkPersoon:
       allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
-      - properties:
-          statutaireNaam:
-            type: string
-          statutaireZetel:
-            type: string
-          rechtsvorm:
-            $ref: '#/components/schemas/Waardelijst'
-          kvkNummer:
-            type: string
-          rsin:
-            type: string
-        description: |-
-          Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+        - $ref: '#/components/schemas/KadasterPersoon'
+        - properties:
+            statutaireNaam:
+              type: string
+            statutaireZetel:
+              type: string
+            rechtsvorm:
+              $ref: '#/components/schemas/Waardelijst'
+            kvkNummer:
+              type: string
+            rsin:
+              type: string
+          description: |-
+            Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+            Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
     KadasterNietNatuurlijkPersoonHal:
       allOf:
-      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/KadasterPersoon_links'
+        - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/KadasterPersoon_links'
     KadasterNietNatuurlijkPersoonHalCollectie:
       type: object
       properties:
@@ -4268,31 +4106,31 @@ components:
             $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
     KadasterPersoon:
       allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          domein:
-            type: string
-            description: Het domein waartoe de identificatie behoort.
-          indicatieNietToonbareDiakriet:
-            type: boolean
-          beschikkingsbevoegdheid:
-            $ref: '#/components/schemas/Waardelijst'
-          woonadres:
-            $ref: '#/components/schemas/Adres'
-          postadres:
-            $ref: '#/components/schemas/Postadres'
-          kadastraalOnroerendeZaakIdentificaties:
-            type: array
-            items:
+        - $ref: '#/components/schemas/PersoonBasis'
+        - properties:
+            domein:
               type: string
-          zakelijkGerechtigdeIdentificaties:
-            type: array
-            items:
-              type: string
-        description: |-
-          Een in de basisregistratie kadaster geregistreerde persoon.
+              description: Het domein waartoe de identificatie behoort.
+            indicatieNietToonbareDiakriet:
+              type: boolean
+            beschikkingsbevoegdheid:
+              $ref: '#/components/schemas/Waardelijst'
+            woonadres:
+              $ref: '#/components/schemas/Adres'
+            postadres:
+              $ref: '#/components/schemas/Postadres'
+            kadastraalOnroerendeZaakIdentificaties:
+              type: array
+              items:
+                type: string
+            zakelijkGerechtigdeIdentificaties:
+              type: array
+              items:
+                type: string
+          description: |-
+            Een in de basisregistratie kadaster geregistreerde persoon.
 
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
+            Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     KadasterPersoon_links:
       type: object
       properties:
@@ -4406,12 +4244,12 @@ components:
         \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
     KadastraalOnroerendeZaakHal:
       allOf:
-      - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
-          _embedded:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
+        - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
+            _embedded:
+              $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
     KadastraalOnroerendeZaakHalCollectie:
       type: object
       properties:
@@ -4484,10 +4322,10 @@ components:
       type: object
       description: 'Waardelijst in deze component : [koppelingsijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)'
       allOf:
-      - $ref: '#/components/schemas/Adres'
-      - properties:
-          koppelingswijze:
-            $ref: '#/components/schemas/Waardelijst'
+        - $ref: '#/components/schemas/Adres'
+        - properties:
+            koppelingswijze:
+              $ref: '#/components/schemas/Waardelijst'
     Mandeligheid:
       properties:
         isGebaseerdOpStukdeelIdentificatie:
@@ -4535,60 +4373,60 @@ components:
         voornamen die men wil gebruiken bij aanschrijving.
     NaamPersoon:
       allOf:
-      - $ref: '#/components/schemas/Naam'
-      - type: object
-        properties:
-          aanhef:
-            title: aanhef
-            type: string
-            description: De aanhef zoals die in een brief, gericht aan een persoon
-              gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat
-              is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)
-            example: Hooggeboren vrouwe van der Veen-van den Aedel
-          aanschrijfwijze:
-            title: aanschrijfwijze
-            type: string
-            description: Samengestelde naam zoals die in communicatie met de persoon
-              gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te
-              werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)
-            example: W. gravin van den Aedel-van der Veen
-          gebruikInLopendeTekst:
-            title: gebruikInLopendeTekst
-            type: string
-            description: De naam zoals die in lopende tekst kan worden. Hoe het samenstellen
-              van een naam in de lopendetekst te werk gaat is beschreven in de [functionele
-              specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)
-            example: mevrouw van der Veen-gravin van den Aedel
-        description: Gegevens over de naam van de persoon
+        - $ref: '#/components/schemas/Naam'
+        - type: object
+          properties:
+            aanhef:
+              title: aanhef
+              type: string
+              description: De aanhef zoals die in een brief, gericht aan een persoon
+                gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat
+                is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)
+              example: Hooggeboren vrouwe van der Veen-van den Aedel
+            aanschrijfwijze:
+              title: aanschrijfwijze
+              type: string
+              description: Samengestelde naam zoals die in communicatie met de persoon
+                gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te
+                werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)
+              example: W. gravin van den Aedel-van der Veen
+            gebruikInLopendeTekst:
+              title: gebruikInLopendeTekst
+              type: string
+              description: De naam zoals die in lopende tekst kan worden. Hoe het samenstellen
+                van een naam in de lopendetekst te werk gaat is beschreven in de [functionele
+                specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)
+              example: mevrouw van der Veen-gravin van den Aedel
+          description: Gegevens over de naam van de persoon
     NatuurlijkPersoonBeperkt:
       allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          type:
-            $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
-        description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
-          personen (BRP)) of Kadasterpersoon zijn.
+        - $ref: '#/components/schemas/PersoonBasis'
+        - properties:
+            type:
+              $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
+          description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
+            personen (BRP)) of Kadasterpersoon zijn.
     NatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
         BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster.
       enum:
-      - ingeschreven_natuurlijk_persoon
-      - kadaster_natuurlijk_persoon
+        - ingeschreven_natuurlijk_persoon
+        - kadaster_natuurlijk_persoon
     NietNatuurlijkPersoonBeperkt:
       allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          type:
-            $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
-        description: Een niet-natuurlijk persoon.
+        - $ref: '#/components/schemas/PersoonBasis'
+        - properties:
+            type:
+              $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
+          description: Een niet-natuurlijk persoon.
     NietNatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
         Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.
       enum:
-      - ingeschreven_niet_natuurlijk_persoon
-      - kadaster_niet_natuurlijk_persoon
+        - ingeschreven_niet_natuurlijk_persoon
+        - kadaster_niet_natuurlijk_persoon
     Adres:
       properties:
         nummeraanduidingIdentificatie:
@@ -4645,17 +4483,17 @@ components:
         adresregel2: 1234AA Nootdorp
     Postadres:
       allOf:
-      - $ref: '#/components/schemas/Adres'
-      - type: object
-        properties:
-          postbusnummer:
-            type: integer
-        example:
-          postbusnummer: 1021
-          postcode: 1234AA
-          woonplaats: Nootdorp
-          adresregel1: Postbus 1021
-          adresregel2: 1234AA Nootdorp
+        - $ref: '#/components/schemas/Adres'
+        - type: object
+          properties:
+            postbusnummer:
+              type: integer
+          example:
+            postbusnummer: 1021
+            postcode: 1234AA
+            woonplaats: Nootdorp
+            adresregel1: Postbus 1021
+            adresregel2: 1234AA Nootdorp
     Ondertekenaar:
       type: object
       description: De bevoegde persoon (bijvoorbeeld een notaris) die de akte heeft
@@ -4663,11 +4501,11 @@ components:
         verklaring dat het afschrift hetzelfde is als het stuk dat hij onder zich
         houdt.
       allOf:
-      - $ref: '#/components/schemas/Naam'
-      - properties:
-          standplaats:
-            type: string
-            description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
+        - $ref: '#/components/schemas/Naam'
+        - properties:
+            standplaats:
+              type: string
+              description: Adres of standplaats/plaats van vestiging van de ondertekenaar.
     Overlijden:
       type: object
       properties:
@@ -4694,20 +4532,20 @@ components:
         zijn.
     PersoonBeperkt:
       allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          type:
-            $ref: '#/components/schemas/PersoonType_enum'
+        - $ref: '#/components/schemas/PersoonBasis'
+        - properties:
+            type:
+              $ref: '#/components/schemas/PersoonType_enum'
     PersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk
         persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister
         (KvK), dan wel vastgelegd is bij het Kadaster.
       enum:
-      - ingeschreven_natuurlijk_persoon
-      - kadaster_natuurlijk_persoon
-      - ingeschreven_niet_natuurlijk_persoon
-      - kadaster_niet_natuurlijk_persoon
+        - ingeschreven_natuurlijk_persoon
+        - kadaster_natuurlijk_persoon
+        - ingeschreven_niet_natuurlijk_persoon
+        - kadaster_niet_natuurlijk_persoon
     PrivaatrechtelijkeBeperkingHal:
       allOf:
         - $ref: '#/components/schemas/Aantekening'
@@ -4787,10 +4625,10 @@ components:
         worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
     PubliekrechtelijkeBeperkingHal:
       allOf:
-      - $ref: '#/components/schemas/PubliekrechtelijkeBeperking'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/PubliekrechtelijkeBeperking_links'
+        - $ref: '#/components/schemas/PubliekrechtelijkeBeperking'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/PubliekrechtelijkeBeperking_links'
     PubliekrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -4903,14 +4741,14 @@ components:
     StukType_enum:
       type: string
       enum:
-      - Kadasterstuk
-      - Aangebodenstuk
+        - Kadasterstuk
+        - Aangebodenstuk
     StukHalBasis:
       allOf:
-      - $ref: '#/components/schemas/Stuk'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/Stuk_links'
+        - $ref: '#/components/schemas/Stuk'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/Stuk_links'
     Stuk_links:
       type: object
       properties:
@@ -5011,27 +4849,27 @@ components:
          * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
          * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
       enum:
-      - beklemrechthouder
-      - eigenaar
-      - erfpachter
-      - gebruik_bewoning
-      - grondrente
-      - opstalhouder
-      - vaderlandsrecht
-      - stadsmeierrecht
-      - vruchtgebruiker
-      - erfpachter_opstalhouder
-      - nutsvoorzieningen
-      - twee_belastingen
-      - belasting_derde
-      - bp_recht
-      - nutsvoorzieningen_gedeelte
-      - artikel5_3b
+        - beklemrechthouder
+        - eigenaar
+        - erfpachter
+        - gebruik_bewoning
+        - grondrente
+        - opstalhouder
+        - vaderlandsrecht
+        - stadsmeierrecht
+        - vruchtgebruiker
+        - erfpachter_opstalhouder
+        - nutsvoorzieningen
+        - twee_belastingen
+        - belasting_derde
+        - bp_recht
+        - nutsvoorzieningen_gedeelte
+        - artikel5_3b
     TypeKadastraalOnroerendeZaak_enum:
       type: string
       enum:
-      - appartementsrecht
-      - perceel
+        - appartementsrecht
+        - perceel
     TypeKoopsom:
       type: object
       properties:
@@ -5067,10 +4905,10 @@ components:
     TypeSplitsing_enum:
       type: string
       enum:
-      - Hoofdsplitsing
-      - Ondersplitsing
-      - SpiegelsplitsingAfkoopErfpacht
-      - SpiegelsplitsingOndersplitsing
+        - Hoofdsplitsing
+        - Ondersplitsing
+        - SpiegelsplitsingAfkoopErfpacht
+        - SpiegelsplitsingOndersplitsing
     VerkavelObject:
       type: object
       properties:
@@ -5141,16 +4979,16 @@ components:
             $ref: '#/components/schemas/AppartementsrechtSplitsing'
     ZakelijkGerechtigdeHalBasis:
       allOf:
-      - $ref: '#/components/schemas/ZakelijkGerechtigde'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/ZakelijkGerechtigde_links'
+        - $ref: '#/components/schemas/ZakelijkGerechtigde'
+        - properties:
+            _links:
+              $ref: '#/components/schemas/ZakelijkGerechtigde_links'
     ZakelijkGerechtigdeHal:
       allOf:
-      - $ref: '#/components/schemas/ZakelijkGerechtigdeHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/ZakelijkGerechtigde_embedded'
+        - $ref: '#/components/schemas/ZakelijkGerechtigdeHalBasis'
+        - properties:
+            _embedded:
+              $ref: '#/components/schemas/ZakelijkGerechtigde_embedded'
     ZakelijkGerechtigdeHalCollectie:
       type: object
       properties:
@@ -5215,15 +5053,15 @@ components:
             $ref: '#/components/schemas/Stukdeel'
     BadRequestFoutbericht:
       allOf:
-      - $ref: '#/components/schemas/Foutbericht'
-      - type: object
-        properties:
-          invalidParams:
-            type: array
-            description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden één keer teruggemeld.
-            items:
-              $ref: '#/components/schemas/InvalidParams'
+        - $ref: '#/components/schemas/Foutbericht'
+        - type: object
+          properties:
+            invalidParams:
+              type: array
+              description: Foutmelding per fout in een parameter. Alle gevonden fouten
+                worden één keer teruggemeld.
+              items:
+                $ref: '#/components/schemas/InvalidParams'
     Foutbericht:
       type: object
       properties:
@@ -5272,14 +5110,14 @@ components:
       description: Details over fouten in opgegeven parameters
     polygonGeoJSON:
       required:
-      - coordinates
-      - type
+        - coordinates
+        - type
       type: object
       properties:
         type:
           type: string
           enum:
-          - Polygon
+            - Polygon
         coordinates:
           type: array
           items:
@@ -5297,7 +5135,7 @@ components:
           $ref: '#/components/schemas/HalLink'
     HalLink:
       required:
-      - href
+        - href
       type: object
       properties:
         href:
@@ -5311,6 +5149,17 @@ components:
     Href:
       type: string
       example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
+    HalPaginationLinks:
+      allOf:
+        - $ref: '#/components/schemas/HalCollectionLinks'
+        - type: object
+          properties:
+            first:
+              $ref: '#/components/schemas/HalPaginationLinks_first'
+            previous:
+              $ref: '#/components/schemas/HalPaginationLinks_previous'
+            next:
+              $ref: '#/components/schemas/HalPaginationLinks_next'
     Datum_onvolledig:
       type: object
       properties:
@@ -5349,14 +5198,14 @@ components:
         datum bekend is worden alle elementen gevuld.
     pointGeoJSON:
       required:
-      - coordinates
-      - type
+        - coordinates
+        - type
       type: object
       properties:
         type:
           type: string
           enum:
-          - Point
+            - Point
         coordinates:
           minItems: 2
           type: array
@@ -5415,6 +5264,42 @@ components:
           $ref: '#/components/schemas/Waardelijst'
       description: Gebied waarin onroerende zaken worden samengevoegd, verkaveld en
         verdeeld door toepassing van de Wet inrichting landelijk Gebied
+    HalPaginationLinks_first:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=1
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Eerste pagina
+      description: uri voor het opvragen van de eerste pagina van deze collectie
+    HalPaginationLinks_previous:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=3
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Vorige pagina
+      description: uri voor het opvragen van de vorige pagina van deze collectie
+    HalPaginationLinks_next:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=5
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Volgende pagina
+      description: uri voor het opvragen van de volgende pagina van deze collectie
   headers:
     api_version:
       schema:
@@ -5429,7 +5314,7 @@ components:
         type: string
         default: epsg:28992
         enum:
-        - epsg:28992
+          - epsg:28992
     warning:
       schema:
         type: string
