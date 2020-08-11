@@ -1,6 +1,5 @@
 # language: nl
 
-# User story #13
 Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze van mijn burgers
   Attribuut "aanschrijfwijze" bij een natuurlijk persoon wordt gevuld om de persoon op eenduidige wijze te kunnen aanschrijven.
   De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres.
@@ -41,8 +40,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
   Bij de samenstelling van de aanschrijfwijze volgens bovenstaande tabel gelden de volgende regels:
   1. Voor adellijke titel en predicaat wordt de Waarde volgens waardelijst "AdellijkeTitelOfPredikaat" gebruikt, geschreven in kleine letters.
   2. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
-  3. De adellijke titel of het predikaat wordt alleen gebruikt wanneer ook de eigen geslachtsnaam wordt gebruikt (aanduidingNaamgebruik ongelijk aan "P").
-
+  
 
   Abstract Scenario: Aanschrijfwijze
     Als de kadasternatuurlijkpersoon wordt geraadpleegd
@@ -59,13 +57,13 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
       | V                     | Gert-Jan H Isaak    | van    | Velzen   | In het | Veld     | G.H I. In het Veld-van Velzen |
 
     Voorbeelden: persoon heeft een adelijke titel of predikaat
-      | aanduidingNaamgebruik | AT/PK | VN             | VV      | GN           | VP      | GP       | aanschrijfwijze                        |
-      | E                     | G     | Arthur         | van den | Aedel        | van der | Veen     | A. graaf van den Aedel                 |
-      | N                     | PS    | Belle          | van den | Aedel        | van der | Veen     | B. prinses van den Aedel-van der Veen  |
-      | P                     | BS    | Constance      | van den | Aedel        | van der | Veen     | C. van der Veen                        |
-      | V                     | GI    | Deirdre        | van den | Aedel        | van der | Veen     | D. van der Veen-gravin van den Aedel   |
-      | E                     | JH    | Ernst Frederik | van     | Hoogh        | in het  | Veld     | jonkheer E.F. van Hoogh                |
-      | N                     | JV    | Gratia         | van     | Hoogh        | in het  | Veld     | jonkvrouw G. van Hoogh-in het Veld     |
-      | P                     | JV    | Hannelore      | van     | Hoogh        | in het  | Veld     | H. in het Veld                         |
-      | V                     | JV    | Isabelle       | van     | Hoogh        | in het  | Veld     | I. in het Veld-jonkvrouw van Hoogh     |
-      | V                     | JV    | Johanna        |         | Blancanieves |         | Cazador  | J. Cazador-jonkvrouw Blancanieves      |
+      | aanduidingNaamgebruik | AT/PK | VN             | VV      | GN           | VP      | GP                  | aanschrijfwijze                               |
+      | E                     | G     | Arthur         | van den | Aedel        | van der | Veen                | A. graaf van den Aedel                        |
+      | N                     | PS    | Belle          | van den | Aedel        | van der | Veen                | B. prinses van den Aedel-van der Veen         |
+      | P                     | BS    | Constance      | van den | Aedel        | van der | Veen                | C. van der Veen                               |
+      | V                     | GI    | Deirdre        | van den | Aedel        | van der | Veen                | D. van der Veen-gravin van den Aedel          |
+      | E                     | JH    | Ernst Frederik | van     | Hoogh        | in het  | Veld                | jonkheer E.F. van Hoogh                       |
+      | N                     | JV    | Gratia         | van     | Hoogh        | in het  | Veld                | jonkvrouw G. van Hoogh-in het Veld            |
+      | P                     | JV    | Hannelore      | van     | Hoogh        | in het  | Veld                | H. in het Veld                                |
+      | V                     | JV    | Isabelle       | van     | Hoogh        | in het  | Veld                | I. in het Veld-jonkvrouw van Hoogh            |
+      | V                     | JV    | Johanna        |         | Blancanieves |         | Príncipe Encantador | J. Príncipe Encantador-jonkvrouw Blancanieves |

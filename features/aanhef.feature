@@ -18,6 +18,8 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
       - geslachtsnaam
       - voorvoegselsgeslachtsnaam
 
+  In de BRK is niet bekend of de partner een adellijke titel heeft. In de aanhef wordt daarom nooit een adellijke titel van de partner gebruikt.
+
   In onderstaande tabellen betekenen de afkortingen voor naamcomponenten:
   - AH = aanhef afhankelijk van geslachtsaanduiding:
     - Als geslachtsaanduiding==1 (Man) Dan “Geachte heer”
