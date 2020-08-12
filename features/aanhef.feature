@@ -1,7 +1,7 @@
 # language: nl
 
 Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in communicatie naar burgers
-  Attribuut "aanhef" bij een natuurlijk persoon wordt gevuld wordt gevuld om de persoon op eenduidige wijze te kunnen aanschrijven.
+  Attribuut "aanhef" bij een natuurlijk persoon wordt gevuld om de persoon op eenduidige wijze te kunnen aanschrijven.
   De aanhef wordt gebruikt bovenaan een brief.
 
   Attribuut aanschrijfwijze wordt samengesteld op basis van:
