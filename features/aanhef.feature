@@ -72,7 +72,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
       | P                     | 2 (Vrouw)           |        | Groenink |        | Groenen  | Geachte mevrouw Groenen                     |
       | V                     | 3 (Onbekend)        | van    | Velzen   | in het | Veld     | Geachte heer/mevrouw In het Veld-van Velzen |
 
-    Voorbeelden: persoon heeft een adelijke titel of predikaat
+    Voorbeelden: persoon heeft een adellijke titel of predikaat
       | aanduidingNaamgebruik | AT/PK | geslachtsaanduiding | VV      | GN          | VP      | GP       | aanhef                       |
       | E                     | G     | 1 (Man)             | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
       | N                     | PS    | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Hoogheid                     |

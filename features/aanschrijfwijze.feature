@@ -28,7 +28,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
   - VP = heeftPartnerschap.naamPartner.voorvoegselsgeslachtsnaam
   - GP = heeftPartnerschap.naamPartner.geslachtsnaam
   - PK = Predikaat (adellijkeTitelOfPredikaat is "JV" of "JH")
-  - AT = Adelijke titel (adellijkeTitelOfPredikaat anders dan "JV" of "JH")
+  - AT = adellijke titel (adellijkeTitelOfPredikaat anders dan "JV" of "JH")
 
   Samenstelling van aanschrijfwijze:
   | aanduidingNaamgebruik | aanschrijfwijze      |
@@ -40,7 +40,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
   Bij de samenstelling van de aanschrijfwijze volgens bovenstaande tabel gelden de volgende regels:
   1. Voor adellijke titel en predicaat wordt de Waarde volgens waardelijst "AdellijkeTitelOfPredikaat" gebruikt, geschreven in kleine letters.
   2. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
-  
+
 
   Abstract Scenario: Aanschrijfwijze
     Als de kadasternatuurlijkpersoon wordt geraadpleegd
@@ -56,7 +56,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
       | P                     | Felice              |        | Groenink |        | Groenen  | F. Groenen                    |
       | V                     | Gert-Jan H Isaak    | van    | Velzen   | In het | Veld     | G.H I. In het Veld-van Velzen |
 
-    Voorbeelden: persoon heeft een adelijke titel of predikaat
+    Voorbeelden: persoon heeft een adellijke titel of predikaat
       | aanduidingNaamgebruik | AT/PK | VN             | VV      | GN           | VP      | GP                  | aanschrijfwijze                               |
       | E                     | G     | Arthur         | van den | Aedel        | van der | Veen                | A. graaf van den Aedel                        |
       | N                     | PS    | Belle          | van den | Aedel        | van der | Veen                | B. prinses van den Aedel-van der Veen         |

@@ -65,7 +65,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
       | P                     | 2 (Vrouw)           |        | Groenink |        | Groenen  | mevrouw Groenen                        |
       | V                     | 3 (Onbekend)        | van    | Velzen   | in het | Veld     | de heer/mevrouw In het Veld-van Velzen |
 
-    Voorbeelden: persoon heeft een adelijke titel of predikaat
+    Voorbeelden: persoon heeft een adellijke titel of predikaat
       | aanduidingNaamgebruik | geslachtsaanduiding | AP | VV      | GN           | VP      | GP                  | gebruikInLopendeTekst                              |
       | E                     | 1 (Man)             | G  | van den | Aedel        | van der | Veen                | graaf Van den Aedel                                |
       | N                     | 2 (Vrouw)           | PS | van den | Aedel        | van der | Veen                | prinses Van den Aedel-van der Veen                 |
