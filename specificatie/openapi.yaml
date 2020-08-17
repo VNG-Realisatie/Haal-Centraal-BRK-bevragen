@@ -1590,7 +1590,7 @@ components:
         publiekrechtelijkeBeperkingen:
           type: "array"
           items:
-            $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
 #toegevoegd. Moeten Privaatrechtelijke beperkingen ook niet in de embedded worden opgenomen ?
     KadastraalOnroerendeZaak_links:
       type: "object"
