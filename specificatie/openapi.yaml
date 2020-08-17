@@ -37,6 +37,7 @@ paths:
               -  huisletter (optioneel)
               -  huisnummertoevoeging (optioneel)
           5.  NummeraanduidingIdentificatie
+          6.  Locatie
 
           Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
 
@@ -119,6 +120,21 @@ paths:
             type: string
             pattern: '^[0-9]{16}$'
             example: '0226200000038923'
+        - in: query
+          name: locatie
+          description: Coordinaten van een locatie (punt) die gebruikt wordt om een object te zoeken. Let op, explode is false dus het formaat is ?locatie=194602.722,464154.308
+          required: false
+          explode: false
+          schema:
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              type: number
+            example:
+            - 196733.510
+            - 439931.890
+        - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -143,6 +159,10 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
