@@ -170,7 +170,7 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
     post:
-      operationId: PostKadastraalOnroerendeZaken
+      operationId: ZoekKadastraalOnroerendeZakenBinnenContour
       description: "Het zoeken van Kadastraal onroerende zaken binnen een opgegeven contour."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
