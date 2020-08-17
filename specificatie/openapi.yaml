@@ -770,6 +770,56 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Hypotheken
+  /hypotheken/{hypotheekidentificatie}:
+    get:
+      operationId: GetHypotheek
+      description: |
+          Het raadplegen van een hypotheek.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: hypotheekidentificatie
+          description: "De unieke identificatie van de hypotheek."
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      responses:
+        '200':
+          description: "Raadplegen geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/HypotheekHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Hypotheken
   /hypotheken:
     get:
       operationId: GetHypotheken
@@ -858,6 +908,56 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Beslagen
+  /beslagen/{beslagidentificatie}:
+    get:
+      operationId: GetBeslag
+      description: |
+          Het raadplegen van een beslag.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: beslagidentificatie
+          description: "De unieke identificatie van het beslag."
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      responses:
+        '200':
+          description: "Raadplegen geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/BeslagHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
