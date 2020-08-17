@@ -862,7 +862,7 @@ paths:
       tags:
       - Publiekrechtelijke Beperkingen
     post:
-      operationId: PostPubliekrechtelijkeBeperkingen
+      operationId: ZoekPubliekrechtelijkeBeperkingenBinnenContour
       description: "Het zoeken van de publiekrechtelijke beperkingen binnen een opgegeven contour."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
