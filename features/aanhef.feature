@@ -25,10 +25,17 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
     - Als geslachtsaanduiding==1 (Man) Dan “Geachte heer”
     - Als geslachtsaanduiding==2 (Vrouw) Dan “Geachte mevrouw"
     - Als geslachtsaanduiding==3 (Onbekend) Dan “Geachte heer/mevrouw"
+  - AP = AdellijkeTitelOfPredikaat
   - VV = naam.voorvoegselsgeslachtsnaam
   - GN = naam.geslachtsnaam
   - VP = heeftPartnerschap.naamPartner.voorvoegselsgeslachtsnaam
   - GP = heeftPartnerschap.naamPartner.geslachtsnaam
+
+  Codes voor aanduidingNaamgebruik hieronder zijn volgens waardelijst [BRPAanduidingNaamgebruik](https://www.kadaster.nl/schemas/waardelijsten/BRPAanduidingNaamgebruik/)
+  - E	= Eigen geslachtsnaam
+  - P	= Geslachtsnaam echtgenoot/geregistreerd partner
+  - V	= Geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam
+  - N	= Geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam
 
   Samenstelling van aanhef voor een persoon zonder adellijke titel of predikaat:
   | aanduidingNaamgebruik | aanschrijfwijze |
@@ -73,8 +80,8 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
       | V                     | 3 (Onbekend)        | van    | Velzen   | in het | Veld     | Geachte heer/mevrouw In het Veld-van Velzen |
 
     Voorbeelden: persoon heeft een adellijke titel of predikaat
-      | aanduidingNaamgebruik | AT/PK | geslachtsaanduiding | VV      | GN          | VP      | GP       | aanhef                       |
-      | E                     | G     | 1 (Man)             | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
-      | N                     | PS    | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Hoogheid                     |
-      | P                     | BS    | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Geachte mevrouw Van der Veen |
-      | V                     | JV    | 3 (Onbekend)        |         | Cenerentola | il      | Principe | Hoogwelgeboren vrouwe        |
+      | aanduidingNaamgebruik | AP        | geslachtsaanduiding | VV      | GN          | VP      | GP       | aanhef                       |
+      | E                     | Graaf     | 1 (Man)             | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
+      | N                     | Prinses   | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Hoogheid                     |
+      | P                     | Barones   | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Geachte mevrouw Van der Veen |
+      | V                     | Jonkvrouw | 3 (Onbekend)        |         | Cenerentola | il      | Principe | Hoogwelgeboren vrouwe        |

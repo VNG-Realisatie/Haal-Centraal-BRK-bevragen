@@ -30,6 +30,12 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
   - PK = Predikaat (adellijkeTitelOfPredikaat is "JV" of "JH")
   - AT = adellijke titel (adellijkeTitelOfPredikaat anders dan "JV" of "JH")
 
+  Codes voor aanduidingNaamgebruik hieronder zijn volgens waardelijst [BRPAanduidingNaamgebruik](https://www.kadaster.nl/schemas/waardelijsten/BRPAanduidingNaamgebruik/)
+  - E	= Eigen geslachtsnaam
+  - P	= Geslachtsnaam echtgenoot/geregistreerd partner
+  - V	= Geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam
+  - N	= Geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam
+
   Samenstelling van aanschrijfwijze:
   | aanduidingNaamgebruik | aanschrijfwijze      |
   | E                     | PK VL AT VV GN       |

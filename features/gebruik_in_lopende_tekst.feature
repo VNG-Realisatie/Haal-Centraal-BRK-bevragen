@@ -31,6 +31,12 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
   - VP = heeftPartnerschap.naamPartner.voorvoegselsgeslachtsnaam
   - GP = heeftPartnerschap.naamPartner.geslachtsnaam
 
+  Codes voor aanduidingNaamgebruik hieronder zijn volgens waardelijst [BRPAanduidingNaamgebruik](https://www.kadaster.nl/schemas/waardelijsten/BRPAanduidingNaamgebruik/)
+  - E	= Eigen geslachtsnaam
+  - P	= Geslachtsnaam echtgenoot/geregistreerd partner
+  - V	= Geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam
+  - N	= Geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam
+
   Samenstelling van gebruikInLopendeTekst voor een persoon zonder adellijke titel of predikaat:
   | aanduidingNaamgebruik | gebruikInLopendeTekst |
   | E                     | AH VV GN              |
