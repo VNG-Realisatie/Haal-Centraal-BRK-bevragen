@@ -41,38 +41,40 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   rm "$target_resolved"/.swagger-codegen-ignore
   rm "$target_resolved"/README.md
 
-  # genereer client SDKs:
-  rm -R java
-  mkdir java
-  #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
-  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o java -g java --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false
+  if swagger-cli validate "$target_resolved"/openapi.yaml | tee /dev/stderr | grep -q "is valid"; then
+    # genereer client SDKs:
+    rm -R java
+    mkdir java
+    #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l java -o java
+    npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o java -g java --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false
 
-  rm -R csharp-netcore
-  mkdir csharp-netcore
-  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp-netcore -g csharp-netcore --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
+    rm -R csharp-netcore
+    mkdir csharp-netcore
+    npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp-netcore -g csharp-netcore --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
 
-  rm -R csharp
-  mkdir csharp
-  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp -g csharp --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
+    rm -R csharp
+    mkdir csharp
+    npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o csharp -g csharp --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
 
-  rm -R python
-  mkdir python
-  npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o python -g python --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
-  #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l python -o python
+    rm -R python
+    mkdir python
+    npx @openapitools/openapi-generator-cli generate -i "$target_resolved"/openapi.yaml -o python -g python --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false
+    #swagger-codegen generate -i "$target_resolved"/openapi.yaml -l python -o python
 
-  # genereer Postman collectie voor deze API
-  openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman" --pretty
+    # genereer Postman collectie voor deze API
+    openapi2postmanv2 -s "$target_resolved"/openapi.yaml -o "$target_postman" --pretty
 
-  # genereer in Excel te importeren CSV bestanden met overzicht testdata
-  # wordt alleen gemaakt wanneer een api key is opgegeven, zodat de testdata kan
-  # worden opgehaald
-  if [ $# -eq 0 ]
-  then
-    echo "WARNING: Er is een API key opgegeven. Testcase sheets zijn niet bijgewerkt."
-  else
-    echo "Genereren testcase sheets"
-    python sheet_generator.py -s"$target_resolved"/openapi.yaml -t"$target_testcases"
-    echo "Vullen testcase sheets"
-    python api_crawler.py --apikey"$api_key"
+    # genereer in Excel te importeren CSV bestanden met overzicht testdata
+    # wordt alleen gemaakt wanneer een api key is opgegeven, zodat de testdata kan
+    # worden opgehaald
+    if [ $# -eq 0 ]
+    then
+      echo "WARNING: Er is een API key opgegeven. Testcase sheets zijn niet bijgewerkt."
+    else
+      echo "Genereren testcase sheets"
+      python sheet_generator.py -s"$target_resolved"/openapi.yaml -t"$target_testcases"
+      echo "Vullen testcase sheets"
+      python api_crawler.py --apikey"$api_key"
+    fi
   fi
 fi
