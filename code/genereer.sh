@@ -32,14 +32,20 @@ if swagger-cli validate $source_yaml | tee /dev/stderr | grep -q "is valid"; the
   # Controleer tegen ontwerpregels (style guide)
   python validate_yaml.py "$source_yaml"
 
+  FILE=swagger-codegen-cli.jar
+  if [ ! -f "$FILE" ]; then
+      wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.19/swagger-codegen-cli-3.0.19.jar -O swagger-codegen-cli.jar
+  fi
+
   # maak resolved yaml:
-  swagger-codegen generate -i "$source_yaml" -l openapi-yaml -o "$target_resolved"
+  java -jar swagger-codegen-cli.jar generate -i "$source_yaml" -l openapi-yaml -o "$target_resolved"
   # maak resolved json:
-  swagger-codegen generate -i "$source_yaml" -l openapi -o "$target_resolved"
+  java -jar swagger-codegen-cli.jar generate -i "$source_yaml" -l openapi -o "$target_resolved"
   # verwijder door codegen toegevoegde dingen die niet nodig zijn:
   rm -R "$target_resolved"/.swagger-codegen
   rm "$target_resolved"/.swagger-codegen-ignore
   rm "$target_resolved"/README.md
+  rm $FILE
 
   # genereer client SDKs:
   rm -R java
