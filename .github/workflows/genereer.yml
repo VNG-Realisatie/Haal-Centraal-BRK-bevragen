@@ -57,8 +57,8 @@ jobs:
           path: specificatie/genereervariant
       - name: push resolved to remote
         run: |
-          git config user.name "${{ secrets.GH_USER }}"
-          git config user.email "${{ secrets.GH_MAIL }}"
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add specificatie/genereervariant/openapi.*
           git commit -m "commit resolve artifacts"
           git push
