@@ -22,11 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Swagger Codegen v3 yaml
-        uses: ducksify/swagger-codegen-action@v3.0
+        uses: ./swagger-codegen-action
         with:
           args: generate -i specificatie/openapi.yaml -l openapi-yaml -o specificatie/genereervariant
       - name: Swagger Codegen v3 json
-        uses: ducksify/swagger-codegen-action@v3.0
+        uses: ./swagger-codegen-action
         with:
           args: generate -i specificatie/openapi.yaml -l openapi -o specificatie/genereervariant
       - uses: actions/upload-artifact@master
