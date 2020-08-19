@@ -1,0 +1,16 @@
+name: Resolve OpenAPI specs
+
+on:
+  push:
+    paths:
+      - specificatie/*.yaml
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: swagger-cli
+        uses: mpetrunic/swagger-cli-action@v1
+        with:
+          command: validate specificatie/openapi.yaml
