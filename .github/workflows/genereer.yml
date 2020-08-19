@@ -2,8 +2,10 @@ name: Resolve OpenAPI specs
 
 on:
   push:
-    paths:
-      - specificatie/*.yaml
+    # paths:
+    #   - specificatie/*.yaml
+    branches:
+      - '**'
 
 jobs:
   validate:
