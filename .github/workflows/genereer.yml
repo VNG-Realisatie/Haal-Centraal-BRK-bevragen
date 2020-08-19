@@ -57,6 +57,9 @@ jobs:
           path: specificatie/genereervariant
       - name: push resolved to remote
         run: |
+          git config user.name ${{ secrets.GH_USER }}
+          git config user.email ${{ secrets.GH_MAIL }}
           git add specificatie/genereervariant/openapi.*
           git commit -m "commit resolved OpenAPI specs"
           git push
+          
