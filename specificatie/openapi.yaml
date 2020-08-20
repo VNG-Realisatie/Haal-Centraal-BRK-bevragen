@@ -529,7 +529,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/Stukdeel'
+                $ref: '#/components/schemas/StukdeelHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -641,9 +641,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen:
     get:
       operationId: GetPubliekrechtelijkeBeperkingen
-      description: "Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak."
+      description: |
+        Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
@@ -683,9 +687,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
     get:
       operationId: GetPubliekrechtelijkeBeperking
-      description: "Het raadplegen van een specifieke publiekrechtelijke beperkingen op een kadastraal onroerende zaak."
+      description: |
+        Het raadplegen van een specifieke publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
@@ -731,9 +739,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
       operationId: GetHypothekenKadastraalOnroerendeZaak
-      description: "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
+      description: |
+        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
@@ -774,9 +786,12 @@ paths:
     get:
       operationId: GetHypotheek
       description: |
-          Het raadplegen van een hypotheek.
+        Het raadplegen van een hypotheek.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: hypotheekidentificatie
           description: "De unieke identificatie van de hypotheek."
@@ -824,9 +839,12 @@ paths:
     get:
       operationId: GetHypotheken
       description: |
-          Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. De hypotheekhouder kan een ingeschreven persoon zijn (gebruik hypotheekhouder__burgerservicenummer) of een kadasterpersoon (gebruik hypotheekhouder__identifictie).
+        Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. De hypotheekhouder kan een ingeschreven persoon zijn (gebruik hypotheekhouder__burgerservicenummer) of een kadasterpersoon (gebruik hypotheekhouder__identifictie).
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: query
           name: hypotheekhouder__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
@@ -875,9 +893,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
     get:
       operationId: GetBeslagenKadastraalOnroerendeZaak
-      description: "Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak."
+      description: |
+        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak."
@@ -918,9 +940,12 @@ paths:
     get:
       operationId: GetBeslag
       description: |
-          Het raadplegen van een beslag.
+        Het raadplegen van een beslag.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: beslagidentificatie
           description: "De unieke identificatie van het beslag."
@@ -968,9 +993,12 @@ paths:
     get:
       operationId: GetBeslagen
       description: |
-          Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. De beslaglegger kan een ingeschreven persoon zijn (gebruik beslaglegger__burgerservicenummer) of een kadasterpersoon (gebruik beslaglegger__identificatie).
+        Het zoeken van beslagen die door een specifieke beslaglegger zijn gelegd. De beslaglegger kan een ingeschreven persoon zijn (gebruik beslaglegger__burgerservicenummer) of een kadasterpersoon (gebruik beslaglegger__identificatie).
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: query
           name: beslaglegger__burgerservicenummer
           description: "Het burgerservicenummer van de ingeschreven persoon."
@@ -1171,6 +1199,8 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/Beslag_links"
+          _embedded:
+            $ref: "#/components/schemas/Beslag_embedded"
     BeslagHalCollectie:
       type: "object"
       properties:
@@ -1218,6 +1248,16 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         rustOpObject:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Beslag_embedded:
+      properties:
+        stukken:
+          $ref: "#/components/schemas/StukHalBasis"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/StukdeelHal"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StukdeelHal"
     ErfpachtCanon:
       type: "object"
       description: "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
@@ -1376,6 +1416,8 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/Hypotheek_links"
+          _embedded:
+            $ref: "#/components/schemas/Hypotheek_embedded"
     HypotheekHalCollectie:
       type: "object"
       properties:
@@ -1400,6 +1442,16 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/HypotheekHal"
+    Hypotheek_embedded:
+      properties:
+        stukken:
+          $ref: "#/components/schemas/StukHalBasis"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/StukdeelHal"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StukdeelHal"
     Hypotheek_links:
       type: "object"
       properties:
@@ -2008,6 +2060,8 @@ components:
       - properties:
           _links:
             $ref: "#/components/schemas/PubliekrechtelijkeBeperking_links"
+          _embedded:
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperking_embedded"
     PubliekrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
@@ -2020,6 +2074,15 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
+    PubliekrechtelijkeBeperking_embedded:
+      type: "object"
+      properties:
+        isGebaseerdOpStukdeel:
+            $ref: "#/components/schemas/StukdeelHal"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StukdeelHal"
     PubliekrechtelijkeBeperking_links:
       type: "object"
       properties:
@@ -2065,6 +2128,19 @@ components:
         redenDoorhalingTeboekstelling:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
+    StukdeelHal:
+      allOf:
+        - $ref: "#/components/schemas/Stukdeel"
+        - properties:
+            _links:
+              $ref: "#/components/schemas/Stukdeel_links"
+    Stukdeel_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stuk:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     Stuk:
       type: "object"
       description: "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
