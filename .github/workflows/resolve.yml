@@ -2,8 +2,8 @@ name: Resolve gesplitste OpenAPI yaml bestanden
 
 on:
   push:
-    # paths:
-    #   - specificatie/*.yaml
+    paths:
+      - specificatie/*.yaml
     branches:
       - '**'
 
