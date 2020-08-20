@@ -551,9 +551,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
     get:
       operationId: GetPrivaatrechtelijkeBeperkingen
-      description: "Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak."
+      description: |
+        Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
@@ -593,9 +597,13 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
     get:
       operationId: GetPrivaatrechtelijkeBeperking
-      description: "Het raadplegen van een specifieke privaatrechtelijke beperkingen."
+      description: |
+        Het raadplegen van een specifieke privaatrechtelijke beperkingen.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. "
@@ -1995,6 +2003,8 @@ components:
               description: "Het domein waartoe de identificatie behoort."
             _links:
               $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+            _embeded:
+              $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_embedded"
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
@@ -2007,6 +2017,17 @@ components:
               type: "array"
               items:
                 $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+    PrivaatrechtelijkeBeperking_embedded:
+      type: "object"
+      properties:
+        stukken:
+          $ref: "#/components/schemas/StukHalBasis"
+        isGebaseerdOpStukdeel:
+          $ref: "#/components/schemas/StukdeelHal"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StukdeelHal"
     PrivaatrechtelijkeBeperking_links:
       type: "object"
       properties:
