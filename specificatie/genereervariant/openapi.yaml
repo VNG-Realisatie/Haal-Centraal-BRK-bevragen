@@ -2018,6 +2018,680 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+    get:
+      tags:
+      - Hypotheken
+      description: |
+        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
+      operationId: GetHypothekenKadastraalOnroerendeZaak
+      parameters:
+      - name: fields
+        in: query
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+        required: false
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+        required: false
+        schema:
+          type: string
+      - name: kadastraalonroerendezaakidentificatie
+        in: path
+        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/HypotheekHalCollectie'
+        "400":
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
+                  400 Bad Request
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+        "401":
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
+                  401 Unauthorized
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+        "403":
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
+                  403 Forbidden
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+        "404":
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
+                  404 Not Found
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+        "406":
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
+                  406 Not Acceptable
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+        "410":
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
+                  410 Gone
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+        "500":
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
+                  500 Internal server error
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+        "503":
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
+                  503 Service Unavailable
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+  /hypotheken/{hypotheekidentificatie}:
+    get:
+      tags:
+      - Hypotheken
+      description: |
+        Het raadplegen van een hypotheek.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
+      operationId: GetHypotheek
+      parameters:
+      - name: fields
+        in: query
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+        required: false
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+        required: false
+        schema:
+          type: string
+      - name: hypotheekidentificatie
+        in: path
+        description: De unieke identificatie van de hypotheek.
+        required: true
+        schema:
+          type: string
+      - name: Accept-Crs
+        in: header
+        description: Gewenste CRS van de coördinaten in de response.
+        required: false
+        schema:
+          type: string
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          default: epsg:28992
+          enum:
+          - epsg:28992
+      responses:
+        "200":
+          description: Raadplegen geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/HypotheekHal'
+        "400":
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
+                  400 Bad Request
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+        "401":
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
+                  401 Unauthorized
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+        "403":
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
+                  403 Forbidden
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+        "404":
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
+                  404 Not Found
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+        "406":
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
+                  406 Not Acceptable
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+        "410":
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
+                  410 Gone
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+        "412":
+          description: Precondition failed
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.13
+                  412 Precondition Failed
+                title: Precondition Failed
+                status: 412
+                detail: The precondition given in one or more of the request-header
+                  fields evaluated to false when it was tested on the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: preconditionFailed
+        "415":
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
+                  415 Unsupported Media Type
+                title: Unsupported Media Type
+                status: 415
+                detail: The server is refusing the request because the entity of the
+                  request is in a format not supported by the requested resource for
+                  the requested method.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: unsupported
+        "500":
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
+                  500 Internal server error
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+        "503":
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
+                  503 Service Unavailable
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+  /hypotheken:
+    get:
+      tags:
+      - Hypotheken
+      description: |
+        Het zoeken van hypotheken van een specifieke hypotheekhouder die als geldverstrekker een recht van hypotheek vestigt als zekerheid voor de lening. De hypotheekhouder kan een ingeschreven persoon zijn (gebruik hypotheekhouder__burgerservicenummer) of een kadasterpersoon (gebruik hypotheekhouder__identifictie).
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
+      operationId: GetHypotheken
+      parameters:
+      - name: fields
+        in: query
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+        required: false
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+        required: false
+        schema:
+          type: string
+      - name: hypotheekhouder__burgerservicenummer
+        in: query
+        description: Het burgerservicenummer van de ingeschreven persoon.
+        required: false
+        schema:
+          maxLength: 9
+          type: string
+      - name: hypotheekhouder__identificatie
+        in: query
+        description: De identificatie van een kadaster persoon of een rechtspersoon
+          die bij het kadaster is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Pagina nummer
+        required: false
+        schema:
+          minimum: 1
+          type: integer
+          default: 1
+      - name: pageSize
+        in: query
+        required: false
+        schema:
+          maximum: 100
+          minimum: 1
+          type: integer
+          default: 20
+      responses:
+        "200":
+          description: Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/HypotheekHalPagedCollectie'
+        "400":
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
+                  400 Bad Request
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+        "401":
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
+                  401 Unauthorized
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+        "403":
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
+                  403 Forbidden
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+        "404":
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
+                  404 Not Found
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+        "406":
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
+                  406 Not Acceptable
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+        "410":
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
+                  410 Gone
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+        "500":
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
+                  500 Internal server error
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+        "503":
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
+                  503 Service Unavailable
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
 components:
   schemas:
     KadastraalOnroerendeZaakHalCollectie:
@@ -2446,6 +3120,126 @@ components:
           $ref: '#/components/schemas/HalLink'
         stuk:
           $ref: '#/components/schemas/HalLink'
+    HypotheekHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/HypotheekHalCollectie__embedded'
+    HypotheekHal:
+      allOf:
+      - $ref: '#/components/schemas/Hypotheek'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/Hypotheek_links'
+          _embedded:
+            $ref: '#/components/schemas/Hypotheek_embedded'
+    Hypotheek:
+      type: object
+      properties:
+        identificatie:
+          type: string
+        domein:
+          type: string
+          description: Het domein waartoe de identificatie behoort.
+        aandeelInBetrokkenRecht:
+          $ref: '#/components/schemas/TypeBreuk'
+        gedeeltelijkeBezwaringOudObject:
+          type: boolean
+        omschrijvingBetrokkenRecht:
+          $ref: '#/components/schemas/Waardelijst'
+        toelichtingBewaarder:
+          type: string
+          description: Toelichtende tekst van de bewaarder. De bewaarder is iemand
+            die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers
+            en de basisregistratie Kadaster conform de Kadasterwet.
+        betreftGedeelteVanPerceel:
+          type: boolean
+        aantekeningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Aantekening'
+        hypotheekhouders:
+          type: array
+          items:
+            $ref: '#/components/schemas/PersoonBeperkt'
+        stukIdentificaties:
+          type: array
+          description: Dit element is de identificatie van het Stuk. Dit kan een aangeboden
+            Stuk of een Kadasterstuk zijn.
+          items:
+            type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          type: string
+          description: De identificatie van het stukdeel (paragraaf in een akte met
+            een rechtsfeit) waarop deze hypotheek is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: array
+          description: De identificaties van de stukdelen (paragrafen in een akte
+            met een rechtsfeit) waarin deze hypotheek is vermeld
+          items:
+            type: string
+        onroerendeZaakIdentificatie:
+          type: string
+          description: identificatie van de Kadastraal onroerende zaak waar de hypotheek
+            op rust
+      description: |
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheeknemer (geldverstrekker).
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+    Hypotheek_links:
+      type: object
+      properties:
+        hypotheekhouders:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        stukken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        isGebaseerdOpStukdeel:
+          $ref: '#/components/schemas/HalLink'
+        isVermeldInStukdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        betrokkenPersonen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        rustOpObject:
+          $ref: '#/components/schemas/HalLink'
+    Hypotheek_embedded:
+      properties:
+        stukken:
+          $ref: '#/components/schemas/StukHalBasis'
+        isGebaseerdOpStukdeel:
+          $ref: '#/components/schemas/StukdeelHal'
+        isVermeldInStukdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/StukdeelHal'
+    HypotheekHalPagedCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/HypotheekHalCollectie__embedded'
+    HalPaginationLinks:
+      allOf:
+      - $ref: '#/components/schemas/HalCollectionLinks'
+      - type: object
+        properties:
+          first:
+            $ref: '#/components/schemas/HalPaginationLinks_first'
+          previous:
+            $ref: '#/components/schemas/HalPaginationLinks_previous'
+          next:
+            $ref: '#/components/schemas/HalPaginationLinks_next'
     KadastraalOnroerendeZaak:
       type: object
       properties:
@@ -3015,6 +3809,49 @@ components:
           Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
           Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+    HypotheekHalCollectie__embedded:
+      type: object
+      properties:
+        hypotheken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HypotheekHal'
+    HalPaginationLinks_first:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=1
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Eerste pagina
+      description: uri voor het opvragen van de eerste pagina van deze collectie
+    HalPaginationLinks_previous:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=3
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Vorige pagina
+      description: uri voor het opvragen van de vorige pagina van deze collectie
+    HalPaginationLinks_next:
+      type: object
+      properties:
+        href:
+          type: string
+          example: /resourcenaam?page=5
+        templated:
+          type: boolean
+        title:
+          type: string
+          example: Volgende pagina
+      description: uri voor het opvragen van de volgende pagina van deze collectie
   headers:
     api_version:
       schema:
