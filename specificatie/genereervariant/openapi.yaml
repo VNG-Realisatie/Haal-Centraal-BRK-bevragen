@@ -2022,8 +2022,10 @@ paths:
     get:
       tags:
       - Publiekrechtelijke Beperkingen
-      description: Het zoeken van de publiekrechtelijke beperkingen op een kadastraal
-        onroerende zaak of adres.
+      description: |
+        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak, adres of locatie.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       operationId: GetPubliekrechtelijkeBeperkingen
       parameters:
       - name: fields
@@ -2033,6 +2035,18 @@ paths:
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
           een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+        required: false
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -2241,7 +2255,7 @@ paths:
       tags:
       - Publiekrechtelijke Beperkingen
       description: |
-        Het raadplegen van een specifieke publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Raadplegen van een specifieke publiekrechtelijke beperking.
 
         Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       operationId: GetPubliekrechtelijkeBeperking
