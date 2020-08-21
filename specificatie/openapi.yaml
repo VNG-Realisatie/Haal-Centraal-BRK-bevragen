@@ -39,6 +39,12 @@ paths:
     $ref: "stukken.yaml#/paths/~1stukken~1{stukidentificatie}"
   /stukdelen/{stukdeelidentificatie}:
     $ref: "stukken.yaml#/paths/~1stukdelen~1{stukdeelidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen"
+  /beslagen/{beslagidentificatie}:
+    $ref: "beslagen.yaml#/paths/~1beslagen~1{beslagidentificatie}"
+  /beslagen:
+    $ref: "beslagen.yaml#/paths/~1beslagen"
 components:
   securitySchemes:
     apiKeyAuth:
