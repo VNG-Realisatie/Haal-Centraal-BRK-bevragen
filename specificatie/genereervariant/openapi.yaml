@@ -2018,14 +2018,12 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen:
+  /publiekrechtelijkebeperkingen:
     get:
       tags:
       - Publiekrechtelijke Beperkingen
-      description: |
-        Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
+      description: Het zoeken van de publiekrechtelijke beperkingen op een kadastraal
+        onroerende zaak of adres.
       operationId: GetPubliekrechtelijkeBeperkingen
       parameters:
       - name: fields
@@ -2038,24 +2036,42 @@ paths:
         required: false
         schema:
           type: string
-      - name: expand
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+        description: De unieke identificatie van een kadastraal onroerende zaak. Gezocht
+          wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak.
+        schema:
+          type: string
+      - name: nummeraanduidingIdentificatie
+        in: query
+        description: De unieke identificatie van een BAG nummeraanduiding. Gezocht
+          wordt naar publiekrechtelijke beperkingen die rusten op dit adres.
+        schema:
+          type: string
+      - name: locatie
+        in: query
+        description: Coordinaten van een locatie (punt) die gebruikt wordt om een
+          object te zoeken. Let op, explode is false dus het formaat is ?locatie=194602.722,464154.308
+        required: false
+        explode: false
+        schema:
+          maxItems: 2
+          minItems: 2
+          type: array
+          example:
+          - 196733.51
+          - 439931.89
+          items:
+            type: number
+      - name: Content-Crs
+        in: header
+        description: CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New
+          Nederlands coordinatenstelsel.
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
-        schema:
-          type: string
+          enum:
+          - epsg:28992
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -2128,23 +2144,6 @@ paths:
                   it.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: autorisation
-        "404":
-          description: Not Found
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
-                title: Opgevraagde resource bestaat niet.
-                status: 404
-                detail: The server has not found anything matching the Request-URI.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notFound
         "406":
           description: Not Acceptable
           headers:
@@ -2164,8 +2163,8 @@ paths:
                   not acceptable according to thr accept headers sent in the request
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAcceptable
-        "410":
-          description: Gone
+        "412":
+          description: Precondition failed
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -2174,14 +2173,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.13
+                  412 Precondition Failed
+                title: Precondition Failed
+                status: 412
+                detail: The precondition given in one or more of the request-header
+                  fields evaluated to false when it was tested on the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
+                code: preconditionFailed
+        "415":
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
+                  415 Unsupported Media Type
+                title: Unsupported Media Type
+                status: 415
+                detail: The server is refusing the request because the entity of the
+                  request is in a format not supported by the requested resource for
+                  the requested method.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: unsupported
         "500":
           description: Internal Server Error
           headers:
@@ -2218,8 +2236,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}
-  : get:
+  /publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
+    get:
       tags:
       - Publiekrechtelijke Beperkingen
       description: |
@@ -2248,12 +2266,6 @@ paths:
           _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
           [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
-        schema:
-          type: string
-      - name: kadastraalonroerendezaakidentificatie
-        in: path
-        description: 'De unieke identificatie van een kadastraal onroerende zaak. '
-        required: true
         schema:
           type: string
       - name: publiekrechtelijkebeperkingidentificatie
@@ -2388,6 +2400,25 @@ paths:
                   the current state of the resource
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: gone
+        "415":
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16
+                  415 Unsupported Media Type
+                title: Unsupported Media Type
+                status: 415
+                detail: The server is refusing the request because the entity of the
+                  request is in a format not supported by the requested resource for
+                  the requested method.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: unsupported
         "500":
           description: Internal Server Error
           headers:
