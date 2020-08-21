@@ -39,6 +39,10 @@ paths:
     $ref: "stukken.yaml#/paths/~1stukken~1{stukidentificatie}"
   /stukdelen/{stukdeelidentificatie}:
     $ref: "stukken.yaml#/paths/~1stukdelen~1{stukdeelidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
 components:
   securitySchemes:
     apiKeyAuth:
