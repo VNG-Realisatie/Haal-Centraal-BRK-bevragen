@@ -4,22 +4,37 @@ info:
   description: "De definitie van de Publiek rechtelijke beperkingen endpoints en components"
   version: "1.1.0"
 paths:
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen:
+  /publiekrechtelijkebeperkingen:
     get:
       operationId: GetPubliekrechtelijkeBeperkingen
-      description: |
-        Het raadplegen van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
+      description: "Het zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak of adres."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - in: path
-          name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
-          required: true
+        - in: query
+          name: kadastraalOnroerendeZaakIdentificatie
+          description: "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak."
           schema:
             type: string
+        - in: query
+          name: nummeraanduidingIdentificatie
+          description: "De unieke identificatie van een BAG nummeraanduiding. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op dit adres."
+          schema:
+            type: string
+        - in: query
+          name: locatie
+          description: Coordinaten van een locatie (punt) die gebruikt wordt om een object te zoeken. Let op, explode is false dus het formaat is ?locatie=194602.722,464154.308
+          required: false
+          explode: false
+          schema:
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              type: number
+            example:
+            - 196733.510
+            - 439931.890
+        - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
       responses:
         '200':
           description: "Zoekactie geslaagd"
@@ -38,19 +53,19 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
         '403':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
-        '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
         '406':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
-        '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Publiekrechtelijke Beperkingen
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
+  /publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
     get:
       operationId: GetPubliekrechtelijkeBeperking
       description: |
@@ -60,12 +75,6 @@ paths:
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - in: path
-          name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
-          required: true
-          schema:
-            type: string
         - in: path
           name: publiekrechtelijkebeperkingidentificatie
           description: "De unieke identificatie van een publiekrechtelijke beperking"
@@ -96,6 +105,8 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
