@@ -2943,6 +2943,12 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         beperkingsgebied:
           $ref: '#/components/schemas/Beperkingsgebied'
+        beperktOnroerendeZaakIdentificaties:
+          type: array
+          description: De identificaties van Kadastraal onroerende zaken die door
+            deze publiekrechtelijke beperking worden beperkt
+          items:
+            type: string
       description: Beperkingen op een kadastraal onroerende zaak die door de overheid
         zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een
         woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde
@@ -2979,6 +2985,8 @@ components:
       type: object
       properties:
         self:
+          $ref: '#/components/schemas/HalLink'
+        beperktOnroerendeZaken:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
