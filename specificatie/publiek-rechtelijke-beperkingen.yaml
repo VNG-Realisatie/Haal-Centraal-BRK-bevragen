@@ -7,9 +7,13 @@ paths:
   /publiekrechtelijkebeperkingen:
     get:
       operationId: GetPubliekrechtelijkeBeperkingen
-      description: "Het zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak of adres."
+      description: |
+        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak, adres of locatie.
+
+        Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: query
           name: kadastraalOnroerendeZaakIdentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak."
@@ -69,7 +73,7 @@ paths:
     get:
       operationId: GetPubliekrechtelijkeBeperking
       description: |
-        Het raadplegen van een specifieke publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Raadplegen van een specifieke publiekrechtelijke beperking.
 
         Met gebruik van de parameter expand kunnen gerelateerde stukdelen direct worden meegeladen.
       parameters:
