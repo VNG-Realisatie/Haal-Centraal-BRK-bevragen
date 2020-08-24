@@ -67,10 +67,11 @@ paths:
       - Publiekrechtelijke Beperkingen
     post:
       operationId: ZoekPubliekrechtelijkeBeperkingenBinnenContour
-      description: "Het zoeken van de publiekrechtelijke beperkingen binnen een opgegeven contour."
+      description: "Het zoeken van de publiekrechtelijke beperkingen binnen een opgegeven contour. Vindt alle publiekrechtelijke beperkingen waarvan het werkingsgebied geheel of gedeeltelijk binnen de opgegeven contour valt."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       requestBody:
         content:
           application/json:
@@ -82,6 +83,8 @@ paths:
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
             warning:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
           content:
