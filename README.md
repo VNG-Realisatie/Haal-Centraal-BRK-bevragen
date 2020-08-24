@@ -13,15 +13,30 @@ Wil je een aansluiting ontwikkelen? Dan is de [getting started](./docs/getting-s
 https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
 
 ## Documentatie
+* [Technische specificaties van de **resolved** versie](./specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](./specificatie) (Open API versie)
+* Specificaties van de actuele productie versie in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
+
+* Specificaties van de develop versie in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/develop/specificatie/genereervariant/openapi.yaml)
+
+* Specificaties van versie 1.2 in ontwikkeling in Swagger-formaat, per nieuw feature:
+  * [Stukken en stukdelen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/stukken/specificatie/genereervariant/openapi.yaml)
+  * [Hypotheken](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/hypotheken/specificatie/genereervariant/openapi.yaml)
+  * [Beslagen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/beslagen/specificatie/genereervariant/openapi.yaml)
+  * [Privaatrechtelijke beperkingen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/privaat-rechtelijke-beperkingen/specificatie/genereervariant/openapi.yaml)
+  * [Publiekrechtelijke beperkingen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/publiek-rechtelijke-beperkingen/specificatie/genereervariant/openapi.yaml)
+
+* Specificaties van versie 1.3 in ontwikkeling in Swagger-formaat, per nieuw feature:
+  * [Publiekrechtelijke beperkingen zoeken op geo locatie of contour](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/zoeken_-publiekrechtelijkebeperkingen/specificatie/openapi.yaml)
+
+
+* Ontwerpkeuzes staan in het document [Design decisions](./docs/design_decisions.md)
 * [Productvisie](./docs/productvision.md)
 * [Definition of Ready](./docs/definition_of_ready.md)
 * [Definition of Done](./docs/definition_of_done.md)
 * Hoe u kunt [bijdragen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CONTRIBUTING.md)
 * [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CODE_OF_CONDUCT.md)
 
-* BRK bevragen: [Technische specificaties van de **resolved** versie](./specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](./specificatie) (Open API versie) en ook in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
 
-* Ontwerpkeuzes staan in het document [Design decisions](./docs/design_decisions.md)
 
 ## Bronnen
 * [API strategie en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/)
