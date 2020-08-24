@@ -6,6 +6,7 @@ on:
       - specificatie/*.yaml
     branches:
       - '**'
+  workflow_dispatch:
 
 jobs:
   validate:
