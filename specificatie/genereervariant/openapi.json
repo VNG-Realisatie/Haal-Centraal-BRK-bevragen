@@ -2715,6 +2715,7 @@
           "required" : false,
           "schema" : {
             "type" : "string",
+            "default" : "epsg:28992",
             "enum" : [ "epsg:28992" ]
           }
         }, {
