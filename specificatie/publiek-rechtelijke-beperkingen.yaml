@@ -70,7 +70,7 @@ paths:
       description: "Het zoeken van de publiekrechtelijke beperkingen binnen een opgegeven contour. Vindt alle publiekrechtelijke beperkingen waarvan het werkingsgebied geheel of gedeeltelijk binnen de opgegeven contour valt."
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
+        - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       requestBody:
         content:
