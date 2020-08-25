@@ -2698,7 +2698,7 @@
       },
       "post" : {
         "tags" : [ "Publiekrechtelijke Beperkingen" ],
-        "description" : "Het zoeken van de publiekrechtelijke beperkingen binnen een opgegeven contour. Vindt alle publiekrechtelijke beperkingen waarvan het werkingsgebied geheel of gedeeltelijk binnen de opgegeven contour valt.",
+        "description" : "Vind alle publiekrechtelijke beperkingen waarvan het werkingsgebied helemaal of gedeeltelijk binnen de opgegeven contour valt.",
         "operationId" : "ZoekPubliekrechtelijkeBeperkingenBinnenContour",
         "parameters" : [ {
           "name" : "fields",
