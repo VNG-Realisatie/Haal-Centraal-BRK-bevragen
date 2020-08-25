@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen Components
   description: "De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API"
-  version: "1.1.0"
+  version: "1.1.1"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -540,4 +540,3 @@ components:
           $ref: "#/components/schemas/Tenaamstelling"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
-
