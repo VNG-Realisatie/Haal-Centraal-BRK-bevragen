@@ -72,7 +72,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/StukdeelHal'
+                $ref: '#/components/schemas/StukdeelHalBasis'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -93,7 +93,7 @@ paths:
         - Stukdelen
 components:
   schemas:
-    StukdeelHal:
+    StukdeelHalBasis:
       allOf:
         - $ref: "#/components/schemas/Stukdeel"
         - properties:
