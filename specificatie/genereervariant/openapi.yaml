@@ -2084,6 +2084,7 @@ paths:
         required: false
         schema:
           type: string
+          default: epsg:28992
           enum:
           - epsg:28992
       responses:
@@ -2941,20 +2942,47 @@ components:
             type: string
         bevoegdGezag:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        beperkingsgebied:
-          $ref: '#/components/schemas/Beperkingsgebied'
+        werkingsgebied:
+          $ref: '#/components/schemas/Werkingsgebied'
       description: Beperkingen op een kadastraal onroerende zaak die door de overheid
         zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een
         woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde
         monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet
         worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
-    Beperkingsgebied:
+    Werkingsgebied:
+      type: object
+      properties:
+        bgtObjectIdentificatie:
+          type: string
+          description: De unieke identificatie van een BGT object.
+        bagObject:
+          $ref: '#/components/schemas/BagObject'
+        kadastraalObjectIdentificatie:
+          type: array
+          description: De unieke identificatie van een kadastraal onroerende zaak.
+          items:
+            type: string
+        vrijeContour:
+          $ref: '#/components/schemas/polygonGeoJSON'
+      description: Datgene waarop de beperking van toepassing is.
+    BagObject:
       type: object
       properties:
         identificatie:
           type: string
-        werkingsgebied:
-          $ref: '#/components/schemas/Beperkingsgebied_werkingsgebied'
+          description: Unieke identificatie van het BAG object
+        domein:
+          $ref: '#/components/schemas/BagDomein_enum'
+    BagDomein_enum:
+      type: string
+      description: Aanduiding die aangeeft op welk type BAG-object de identificatie
+        betrekking heeft
+      enum:
+      - NL.IMBAG.Woonplaats
+      - NL.IMBAG.Openbareruimte
+      - NL.IMBAG.Nummeraanduiding
+      - NL.IMBAG.Verblijfsobject
+      - NL.IMBAG.Pand
     polygonGeoJSON:
       required:
       - coordinates
@@ -3555,18 +3583,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
-    Beperkingsgebied_werkingsgebied:
-      type: object
-      properties:
-        bgtObjectIdentificatie:
-          type: string
-        bagObjectIdentificatie:
-          type: string
-        kadastraalObjectIdentificatie:
-          type: string
-        vrijeContour:
-          $ref: '#/components/schemas/polygonGeoJSON'
-      description: Datgene waarop de beperking van toepassing is.
   headers:
     api_version:
       schema:
