@@ -49,8 +49,6 @@ paths:
     $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
   /publiekrechtelijkebeperkingen:
     $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen"
-  /publiekrechtelijkebeperkingen/{publiekrechtelijkebeperkingidentificatie}:
-    $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen~1{publiekrechtelijkebeperkingidentificatie}"
 components:
   securitySchemes:
     apiKeyAuth:
