@@ -10,7 +10,7 @@ info:
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
-  version: 1.1.0
+  version: 1.1.1
 servers:
 - url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
   description: BRK-Bevragen API - TEST (via API-key)
@@ -53,9 +53,9 @@ paths:
           type: string
           description: CRS van de coördinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
+          default: epsg:28992
           enum:
           - epsg:28992
-          default: epsg:28992
       - name: expand
         in: query
         description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
@@ -88,9 +88,6 @@ paths:
           - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
 
           gescheiden door een spatie
-        required: false
-        style: form
-        explode: true
         schema:
           pattern: ^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})(
             A[1-9][0-9]{0,3})?$
@@ -104,8 +101,6 @@ paths:
           worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk
           recht op heeft.
         required: false
-        style: form
-        explode: true
         schema:
           maxLength: 9
           type: string
@@ -117,8 +112,6 @@ paths:
           Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende
           Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
         required: false
-        style: form
-        explode: true
         schema:
           type: string
       - name: zakelijkGerechtigde__type
@@ -128,8 +121,6 @@ paths:
           worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust
           van het opgegeven type.
         required: false
-        style: form
-        explode: true
         schema:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
       - name: postcode
@@ -137,8 +128,6 @@ paths:
         description: De postcode van het adres van de objectlocatie van de kadastraal
           onroerende zaak
         required: false
-        style: form
-        explode: true
         schema:
           pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
           type: string
@@ -147,8 +136,6 @@ paths:
         description: Het huisnummer van het adres van de objectlocatie van de kadastraal
           onroerende zaak
         required: false
-        style: form
-        explode: true
         schema:
           maximum: 99999
           minimum: 1
@@ -158,8 +145,6 @@ paths:
         description: De huisletter van het adres van de objectlocatie van de kadastraal
           onroerende zaak
         required: false
-        style: form
-        explode: true
         schema:
           pattern: ^[a-zA-Z]$
           type: string
@@ -168,8 +153,6 @@ paths:
         description: De huisnummertoevoeging van het adres van de objectlocatie van
           de kadastraal onroerende zaak
         required: false
-        style: form
-        explode: true
         schema:
           pattern: ^([a-z,A-Z,0-9]){1,4}$
           type: string
@@ -334,8 +317,6 @@ paths:
         in: path
         description: De unieke identificatie van een kadastraal onroerende zaak.
         required: true
-        style: simple
-        explode: false
         schema:
           type: string
       - name: Accept-Crs
@@ -346,9 +327,9 @@ paths:
           type: string
           description: CRS van de coördinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
+          default: epsg:28992
           enum:
           - epsg:28992
-          default: epsg:28992
       - name: expand
         in: query
         description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
@@ -560,16 +541,12 @@ paths:
         in: path
         description: De unieke identificatie van een kadastraal onroerende zaak.
         required: true
-        style: simple
-        explode: false
         schema:
           type: string
       - name: zakelijkgerechtigdeidentificatie
         in: path
         description: De identificatie van de zakelijk gerechtigde
         required: true
-        style: simple
-        explode: false
         schema:
           type: string
       responses:
@@ -759,8 +736,6 @@ paths:
         in: path
         description: De unieke identificatie van een kadastraal onroerende zaak.
         required: true
-        style: simple
-        explode: false
         schema:
           type: string
       - name: type
@@ -768,8 +743,6 @@ paths:
         description: Het type recht dat de zakelijk gerechtigde heeft op de kadastraal
           onroerende zaak. De waarden van de typering staan in een waardelijst.
         required: false
-        style: form
-        explode: true
         schema:
           $ref: '#/components/schemas/TypeGerechtigde_enum'
       responses:
@@ -956,9 +929,8 @@ paths:
           type: string
       - name: kadasternatuurlijkpersoonidentificatie
         in: path
+        description: ""
         required: true
-        style: simple
-        explode: false
         schema:
           maxLength: 60
           type: string
@@ -1145,9 +1117,8 @@ paths:
           type: string
       - name: kadasternietnatuurlijkpersoonidentificatie
         in: path
+        description: ""
         required: true
-        style: simple
-        explode: false
         schema:
           maxLength: 60
           type: string
@@ -1339,8 +1310,6 @@ paths:
           zoeken. In deze versie kan alleen een combinatie van (het begin van) de
           geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
         required: true
-        style: form
-        explode: true
         schema:
           type: string
       responses:
@@ -1515,8 +1484,6 @@ paths:
           Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier
           voorkomen in de BRK.
         required: true
-        style: form
-        explode: true
         schema:
           type: string
       responses:
@@ -1666,212 +1633,198 @@ paths:
                 code: notAvailable
 components:
   schemas:
-    Aantekening:
+    KadastraalOnroerendeZaakHalCollectie:
       type: object
       properties:
-        identificatie:
-          type: string
-        domein:
-          type: string
-          description: Het domein waartoe de identificatie behoort.
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        omschrijving:
-          type: string
-        begrenzing:
-          $ref: '#/components/schemas/polygonGeoJSON'
-        einddatum:
-          type: string
-          format: date
-        einddatumRecht:
-          type: string
-          format: date
-        indicatieOorspronkelijkObject:
-          type: boolean
-        betreftGedeelteVanPerceel:
-          type: boolean
-      description: 'Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
-    Bedrag:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded'
+    HalCollectionLinks:
       type: object
       properties:
-        som:
-          type: number
-          description: Het bedrag. Dit is een waarde met max. 2 decimalen.
-          format: float
-        valuta:
-          $ref: '#/components/schemas/Waardelijst'
-      description: |-
-        Hoeveelheid geld in cijfers in een bepaalde valuta.
-
-        Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
-    ErfpachtCanon:
+        self:
+          $ref: '#/components/schemas/HalLink'
+    HalLink:
+      required:
+      - href
       type: object
       properties:
-        soortErfpachtCanon:
-          $ref: '#/components/schemas/Waardelijst'
-        jaarlijksBedrag:
-          $ref: '#/components/schemas/Bedrag'
-        betrefMeerOnroerendeZaken:
+        href:
+          $ref: '#/components/schemas/Href'
+        templated:
           type: boolean
-          description: Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag
-            meerdere onroerende zaken betreft.
-        einddatumAfkoop:
+        title:
           type: string
-          format: date
-        indicatieOudeOnroerendeZaakBetrokken:
-          type: boolean
-          description: Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk
-            gevestigd is bij een perceel dat later is verenigd met een ander perceel.
-      description: |-
-        Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
-
-        Waardelijst in deze component : [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
-    Geboorte:
+          description: Voor mens leesbaar label bij de link
+      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
+    Href:
+      type: string
+      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
+    KadastraalOnroerendeZaakHalCollectie_embedded:
       type: object
       properties:
-        plaats:
-          title: geboorteplaats
-          type: string
-          description: De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft
-            waar de persoon is geboren
-        datum:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        land:
-          $ref: '#/components/schemas/Waardelijst'
-      description: |-
-        Geboorte is een groep gegevens over de geboorte van een persoon.
-
-        Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
-    Geslacht_enum:
+        kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
+    KadastraalOnroerendeZaakHal:
+      allOf:
+      - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
+          _embedded:
+            $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
+    KadastraalOnroerendeZaak_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        zakelijkGerechtigden:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+    KadastraalOnroerendeZaak_embedded:
+      type: object
+      properties:
+        zakelijkGerechtigden:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
+    TypeGerechtigde_enum:
       type: string
       description: |-
-        Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
-        * `man` - Man
-        * `vrouw` - Vrouw
-        * `onbekend` - Onbekend
+        Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
+         * `beklemrechthouder` - 1 Beklemrechthouder
+         * `eigenaar` - 2 Eigenaar
+         * `erfpachter` - 3 Erfpachter
+         * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
+         * `grondrente` - 5 Grondrente gerechtigde
+         * `opstalhouder` - 7 Opstalhouder
+         * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
+         * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
+         * `vruchtgebruiker` - 12 Vruchtgebruiker
+         * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
+         * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
+         * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
+         * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
+         * `bp_recht` - 22 BP-gerechtigde
+         * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
+         * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
       enum:
-      - man
-      - vrouw
-      - onbekend
-    HeeftPartnerschap:
+      - beklemrechthouder
+      - eigenaar
+      - erfpachter
+      - gebruik_bewoning
+      - grondrente
+      - opstalhouder
+      - vaderlandsrecht
+      - stadsmeierrecht
+      - vruchtgebruiker
+      - erfpachter_opstalhouder
+      - nutsvoorzieningen
+      - twee_belastingen
+      - belasting_derde
+      - bp_recht
+      - nutsvoorzieningen_gedeelte
+      - artikel5_3b
+    BadRequestFoutbericht:
+      allOf:
+      - $ref: '#/components/schemas/Foutbericht'
+      - type: object
+        properties:
+          invalidParams:
+            type: array
+            description: Foutmelding per fout in een parameter. Alle gevonden fouten
+              worden één keer teruggemeld.
+            items:
+              $ref: '#/components/schemas/InvalidParams'
+    Foutbericht:
       type: object
       properties:
-        datumOntbinding:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        datumSluiting:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        naam:
-          $ref: '#/components/schemas/Naam'
-      description: Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus
-        van een persoon.
-    KadasterNatuurlijkPersoon:
+        type:
+          type: string
+          description: Link naar meer informatie over deze fout
+          format: uri
+        title:
+          type: string
+          description: Beschrijving van de fout
+        status:
+          type: integer
+          description: Http status code
+        detail:
+          type: string
+          description: Details over de fout
+        instance:
+          type: string
+          description: Uri van de aanroep die de fout heeft veroorzaakt
+          format: uri
+        code:
+          minLength: 1
+          type: string
+          description: Systeemcode die het type fout aangeeft
+      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
+    InvalidParams:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          example: https://www.vng.nl/realisatie/api/{major-versie}/validaties/integer
+        name:
+          type: string
+          description: Naam van de parameter
+          example: verblijfplaats__huisnummer
+        code:
+          minLength: 1
+          type: string
+          description: Systeemcode die het type fout aangeeft
+          example: integer
+        reason:
+          type: string
+          description: Beschrijving van de fout op de parameterwaarde
+          example: Waarde is geen geldige integer.
+      description: Details over fouten in opgegeven parameters
+    ZakelijkGerechtigdeHal:
       allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
+      - $ref: '#/components/schemas/ZakelijkGerechtigde'
       - properties:
-          geheimhoudingPersoonsgegevens:
-            title: indicatieGeheim
-            type: boolean
-            description: Aanduiding die aangeeft dat gegevens van een persoon wel
-              of niet verstrekt mogen worden.
-          landWaarnaarVertrokken:
-            $ref: '#/components/schemas/Waardelijst'
-          geslachtsaanduiding:
-            $ref: '#/components/schemas/Geslacht_enum'
-          heeftPartnerschap:
-            type: array
-            items:
-              $ref: '#/components/schemas/HeeftPartnerschap'
-          naam:
-            $ref: '#/components/schemas/Naam'
-          geboorte:
-            $ref: '#/components/schemas/Geboorte'
-          overlijden:
-            $ref: '#/components/schemas/Overlijden'
-        description: |-
-          Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
-
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+          _links:
+            $ref: '#/components/schemas/ZakelijkGerechtigde_links'
+    ZakelijkGerechtigde_links:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        persoon:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenPartner:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenSamenwerkingsverband:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenGorzenEnAanwassen:
+          $ref: '#/components/schemas/HalLink'
+    ZakelijkGerechtigdeHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded'
+    ZakelijkGerechtigdeHalCollectie_embedded:
+      type: object
+      properties:
+        zakelijkGerechtigden:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
     KadasterNatuurlijkPersoonHal:
       allOf:
       - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
       - properties:
           _links:
             $ref: '#/components/schemas/KadasterPersoon_links'
-    KadasterNatuurlijkPersoonHalCollectie:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded'
-    KadasterNatuurlijkPersoonHalCollectie_embedded:
-      type: object
-      properties:
-        kadasterNatuurlijkPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
-    KadasterNietNatuurlijkPersoon:
-      allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
-      - properties:
-          statutaireNaam:
-            type: string
-          statutaireZetel:
-            type: string
-          rechtsvorm:
-            $ref: '#/components/schemas/Waardelijst'
-          kvkNummer:
-            type: string
-          rsin:
-            type: string
-        description: |-
-          Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
-
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
-    KadasterNietNatuurlijkPersoonHal:
-      allOf:
-      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/KadasterPersoon_links'
-    KadasterNietNatuurlijkPersoonHalCollectie:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded'
-    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
-      type: object
-      properties:
-        kadasterNietNatuurlijkPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
-    KadasterPersoon:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          domein:
-            type: string
-            description: Het domein waartoe de identificatie behoort.
-          indicatieNietToonbareDiakriet:
-            type: boolean
-          beschikkingsbevoegdheid:
-            $ref: '#/components/schemas/Waardelijst'
-          woonadres:
-            $ref: '#/components/schemas/Adres'
-          postadres:
-            $ref: '#/components/schemas/Postadres'
-          kadastraalOnroerendeZaakIdentificaties:
-            type: array
-            items:
-              type: string
-        description: |-
-          Een in de basisregistratie kadaster geregistreerde persoon.
-
-          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     KadasterPersoon_links:
       type: object
       properties:
@@ -1889,6 +1842,40 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+    KadasterNietNatuurlijkPersoonHal:
+      allOf:
+      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/KadasterPersoon_links'
+    KadasterNatuurlijkPersoonHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded'
+    KadasterNatuurlijkPersoonHalCollectie_embedded:
+      type: object
+      properties:
+        kadasterNatuurlijkPersonen:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
+    KadasterNietNatuurlijkPersoonHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded'
+    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
+      type: object
+      properties:
+        kadasterNietNatuurlijkPersonen:
+          type: array
+          items:
+            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
     KadastraalOnroerendeZaak:
       type: object
       properties:
@@ -1944,44 +1931,89 @@ components:
         \ deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal\
         \ een appartement genoemd.\n\nWaardelijst in deze component : [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
         \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
-    KadastraalOnroerendeZaakHal:
-      allOf:
-      - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
-          _embedded:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
-    KadastraalOnroerendeZaakHalCollectie:
+    polygonGeoJSON:
+      required:
+      - coordinates
+      - type
       type: object
       properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded'
-    KadastraalOnroerendeZaakHalCollectie_embedded:
-      type: object
-      properties:
-        kadastraalOnroerendeZaken:
+        type:
+          type: string
+          enum:
+          - Polygon
+        coordinates:
           type: array
           items:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
-    KadastraalOnroerendeZaak_embedded:
+            minItems: 4
+            type: array
+            items:
+              minItems: 2
+              type: array
+              items:
+                type: number
+    pointGeoJSON:
+      required:
+      - coordinates
+      - type
       type: object
       properties:
-        zakelijkGerechtigden:
+        type:
+          type: string
+          enum:
+          - Point
+        coordinates:
+          minItems: 2
           type: array
           items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-    KadastraalOnroerendeZaak_links:
+            type: number
+    TypeKoopsom:
       type: object
       properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        zakelijkGerechtigden:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
+        koopsom:
+          type: integer
+        koopjaar:
+          type: integer
+        indicatieMetMeerObjectenVerkregen:
+          type: boolean
+    TypeKadastraalOnroerendeZaak_enum:
+      type: string
+      enum:
+      - appartementsrecht
+      - perceel
+    Waardelijst:
+      type: object
+      properties:
+        code:
+          minLength: 1
+          type: string
+        waarde:
+          type: string
+      description: Waardelijst is een samengesteld datatype voor het weergeven van
+        een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn
+        beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)
+    TypeOppervlak:
+      type: object
+      properties:
+        soortGrootte:
+          $ref: '#/components/schemas/Waardelijst'
+        waarde:
+          type: integer
+          description: Oppervlak grootte, in vierkante meters
+      description: |-
+        Oppervlakte
+
+        Waardelijst in deze component : [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
+    TypePerceelnummerVerschuiving:
+      type: object
+      properties:
+        deltax:
+          type: number
+          description: Verschuiving op de X as.
+        deltay:
+          type: number
+          description: Verschuiving op de Y as.
+      description: Verschuiving van het perceelnummer ten behoeve van visualisatie
+        op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
     LocatieKadastraalObject:
       type: object
       properties:
@@ -1990,25 +2022,132 @@ components:
         koppelingswijze:
           $ref: '#/components/schemas/Waardelijst'
       description: 'Waardelijst in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)'
-    Naam:
+    ZakelijkGerechtigde:
       type: object
       properties:
-        geslachtsnaam:
+        identificatie:
           type: string
-          description: De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels
-            en adellijke titel zijn afgesplitst.
-        voornamen:
+          description: Identificatie van de zakelijk gerechtigde.
+        type:
+          $ref: '#/components/schemas/TypeGerechtigde_enum'
+        aanvangsdatum:
           type: string
-          description: De voornamen zijn de verzameling namen die, gescheiden door
-            spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat
-            afgesplitst.
-        voorvoegsel:
-          title: voorvoegselsgeslachtsnaam
+          description: 'Datum waarop het zakelijk recht van kracht is geworden. '
+          format: date
+        erfpachtCanon:
+          $ref: '#/components/schemas/ErfpachtCanon'
+        tenaamstelling:
+          $ref: '#/components/schemas/Tenaamstelling'
+        persoon:
+          $ref: '#/components/schemas/PersoonBeperkt'
+    ErfpachtCanon:
+      type: object
+      properties:
+        soortErfpachtCanon:
+          $ref: '#/components/schemas/Waardelijst'
+        jaarlijksBedrag:
+          $ref: '#/components/schemas/Bedrag'
+        betrefMeerOnroerendeZaken:
+          type: boolean
+          description: Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag
+            meerdere onroerende zaken betreft.
+        einddatumAfkoop:
           type: string
-          description: Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam
-            dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam.
-      description: Naam is een groep gegevens met de geslachtsnaam, voorletters en
-        voornamen die men wil gebruiken bij aanschrijving.
+          format: date
+        indicatieOudeOnroerendeZaakBetrokken:
+          type: boolean
+          description: Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk
+            gevestigd is bij een perceel dat later is verenigd met een ander perceel.
+      description: |-
+        Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
+
+        Waardelijst in deze component : [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
+    Bedrag:
+      type: object
+      properties:
+        som:
+          type: number
+          description: Het bedrag. Dit is een waarde met max. 2 decimalen.
+          format: float
+        valuta:
+          $ref: '#/components/schemas/Waardelijst'
+      description: |-
+        Hoeveelheid geld in cijfers in een bepaalde valuta.
+
+        Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
+    Tenaamstelling:
+      type: object
+      properties:
+        aandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        burgerlijkeStaatTenTijdeVanVerkrijging:
+          $ref: '#/components/schemas/Waardelijst'
+        verkregenNamensSamenwerkingsverband:
+          $ref: '#/components/schemas/Waardelijst'
+        aantekeningen:
+          type: array
+          description: Een aantekening is een verwijzing naar een ter inschrijving
+            aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk
+            recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel
+            in een zakelijk recht onder opschortende voorwaarde, een beperking van
+            de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
+          items:
+            $ref: '#/components/schemas/Aantekening'
+        gezamenlijkAandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        betrokkenPartner:
+          $ref: '#/components/schemas/NatuurlijkPersoonBeperkt'
+        betrokkenSamenwerkingsverband:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        betrokkenGorzenEnAanwassen:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+      description: |-
+        Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
+
+        Waardelijst in deze component : [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
+    TypeBreuk:
+      type: object
+      properties:
+        noemer:
+          title: noemer
+          maximum: 99999999
+          minimum: 1
+          type: integer
+          description: De noemer van het deel.
+        teller:
+          title: teller
+          maximum: 99999999
+          type: integer
+          description: Het aantal delen. De teller is altijd lager dan de noemer.
+      description: Een deling van twee gehele getallen
+      example:
+        noemer: 2
+        teller: 1
+    Aantekening:
+      type: object
+      properties:
+        identificatie:
+          type: string
+        domein:
+          type: string
+          description: Het domein waartoe de identificatie behoort.
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        omschrijving:
+          type: string
+        begrenzing:
+          $ref: '#/components/schemas/polygonGeoJSON'
+        einddatum:
+          type: string
+          format: date
+        einddatumRecht:
+          type: string
+          format: date
+        indicatieOorspronkelijkObject:
+          type: boolean
+        betreftGedeelteVanPerceel:
+          type: boolean
+      description: 'Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
     NatuurlijkPersoonBeperkt:
       allOf:
       - $ref: '#/components/schemas/PersoonBasis'
@@ -2017,6 +2156,24 @@ components:
             $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
         description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
           personen (BRP)) of Kadasterpersoon zijn.
+    PersoonBasis:
+      type: object
+      properties:
+        identificatie:
+          type: string
+          description: Unieke identificatie voor de persoon. Voor een Kadasterpersoon
+            is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
+            een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor
+            een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde
+            in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie
+            is kan worden afgeleid uit het type persoon.
+        omschrijving:
+          type: string
+          description: Voor mensen leesbare, herkenbare en identificerende omschrijving
+            van de persoon (met bijvoorbeeld de naam).
+      description: Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon
+        zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon
+        zijn.
     NatuurlijkPersoonType_enum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
@@ -2038,6 +2195,72 @@ components:
       enum:
       - ingeschreven_niet_natuurlijk_persoon
       - kadaster_niet_natuurlijk_persoon
+    PersoonBeperkt:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - properties:
+          type:
+            $ref: '#/components/schemas/PersoonType_enum'
+    PersoonType_enum:
+      type: string
+      description: Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk
+        persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister
+        (KvK), dan wel vastgelegd is bij het Kadaster.
+      enum:
+      - ingeschreven_natuurlijk_persoon
+      - kadaster_natuurlijk_persoon
+      - ingeschreven_niet_natuurlijk_persoon
+      - kadaster_niet_natuurlijk_persoon
+    KadasterNatuurlijkPersoon:
+      allOf:
+      - $ref: '#/components/schemas/KadasterPersoon'
+      - properties:
+          geheimhoudingPersoonsgegevens:
+            title: indicatieGeheim
+            type: boolean
+            description: Aanduiding die aangeeft dat gegevens van een persoon wel
+              of niet verstrekt mogen worden.
+          landWaarnaarVertrokken:
+            $ref: '#/components/schemas/Waardelijst'
+          geslachtsaanduiding:
+            $ref: '#/components/schemas/Geslacht_enum'
+          heeftPartnerschap:
+            type: array
+            items:
+              $ref: '#/components/schemas/HeeftPartnerschap'
+          naam:
+            $ref: '#/components/schemas/Naam'
+          geboorte:
+            $ref: '#/components/schemas/Geboorte'
+          overlijden:
+            $ref: '#/components/schemas/Overlijden'
+        description: |-
+          Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+    KadasterPersoon:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - properties:
+          domein:
+            type: string
+            description: Het domein waartoe de identificatie behoort.
+          indicatieNietToonbareDiakriet:
+            type: boolean
+          beschikkingsbevoegdheid:
+            $ref: '#/components/schemas/Waardelijst'
+          woonadres:
+            $ref: '#/components/schemas/Adres'
+          postadres:
+            $ref: '#/components/schemas/Postadres'
+          kadastraalOnroerendeZaakIdentificaties:
+            type: array
+            items:
+              type: string
+        description: |-
+          Een in de basisregistratie kadaster geregistreerde persoon.
+
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     Adres:
       properties:
         nummeraanduidingIdentificatie:
@@ -2105,307 +2328,28 @@ components:
           woonplaats: Nootdorp
           adresregel1: Postbus 1021
           adresregel2: 1234AA Nootdorp
-    Overlijden:
+    Geslacht_enum:
+      type: string
+      description: |-
+        Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
+        * `man` - Man
+        * `vrouw` - Vrouw
+        * `onbekend` - Onbekend
+      enum:
+      - man
+      - vrouw
+      - onbekend
+    HeeftPartnerschap:
       type: object
       properties:
-        datum:
+        datumOntbinding:
           $ref: '#/components/schemas/Datum_onvolledig'
-      description: Overlijden is een groep gegevens over het overlijden van een persoon.
-    PersoonBasis:
-      type: object
-      properties:
-        identificatie:
-          type: string
-          description: Unieke identificatie voor de persoon. Voor een Kadasterpersoon
-            is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
-            een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor
-            een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde
-            in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie
-            is kan worden afgeleid uit het type persoon.
-        omschrijving:
-          type: string
-          description: Voor mensen leesbare, herkenbare en identificerende omschrijving
-            van de persoon (met bijvoorbeeld de naam).
-      description: Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon
-        zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon
-        zijn.
-    PersoonBeperkt:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - properties:
-          type:
-            $ref: '#/components/schemas/PersoonType_enum'
-    PersoonType_enum:
-      type: string
-      description: Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk
-        persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister
-        (KvK), dan wel vastgelegd is bij het Kadaster.
-      enum:
-      - ingeschreven_natuurlijk_persoon
-      - kadaster_natuurlijk_persoon
-      - ingeschreven_niet_natuurlijk_persoon
-      - kadaster_niet_natuurlijk_persoon
-    Tenaamstelling:
-      type: object
-      properties:
-        aandeel:
-          $ref: '#/components/schemas/TypeBreuk'
-        burgerlijkeStaatTenTijdeVanVerkrijging:
-          $ref: '#/components/schemas/Waardelijst'
-        verkregenNamensSamenwerkingsverband:
-          $ref: '#/components/schemas/Waardelijst'
-        aantekeningen:
-          type: array
-          description: Een aantekening is een verwijzing naar een ter inschrijving
-            aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk
-            recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel
-            in een zakelijk recht onder opschortende voorwaarde, een beperking van
-            de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
-          items:
-            $ref: '#/components/schemas/Aantekening'
-        gezamenlijkAandeel:
-          $ref: '#/components/schemas/TypeBreuk'
-        betrokkenPartner:
-          $ref: '#/components/schemas/NatuurlijkPersoonBeperkt'
-        betrokkenSamenwerkingsverband:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        betrokkenGorzenEnAanwassen:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-      description: |-
-        Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
-
-        Waardelijst in deze component : [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
-    TypeBreuk:
-      type: object
-      properties:
-        noemer:
-          title: noemer
-          maximum: 99999999
-          minimum: 1
-          type: integer
-          description: De noemer van het deel.
-        teller:
-          title: teller
-          maximum: 99999999
-          type: integer
-          description: Het aantal delen. De teller is altijd lager dan de noemer.
-      description: Een deling van twee gehele getallen
-      example:
-        noemer: 2
-        teller: 1
-    TypeGerechtigde_enum:
-      type: string
-      description: |-
-        Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
-         * `beklemrechthouder` - 1 Beklemrechthouder
-         * `eigenaar` - 2 Eigenaar
-         * `erfpachter` - 3 Erfpachter
-         * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
-         * `grondrente` - 5 Grondrente gerechtigde
-         * `opstalhouder` - 7 Opstalhouder
-         * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
-         * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
-         * `vruchtgebruiker` - 12 Vruchtgebruiker
-         * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
-         * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
-         * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
-         * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
-         * `bp_recht` - 22 BP-gerechtigde
-         * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
-         * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
-      enum:
-      - beklemrechthouder
-      - eigenaar
-      - erfpachter
-      - gebruik_bewoning
-      - grondrente
-      - opstalhouder
-      - vaderlandsrecht
-      - stadsmeierrecht
-      - vruchtgebruiker
-      - erfpachter_opstalhouder
-      - nutsvoorzieningen
-      - twee_belastingen
-      - belasting_derde
-      - bp_recht
-      - nutsvoorzieningen_gedeelte
-      - artikel5_3b
-    TypeKadastraalOnroerendeZaak_enum:
-      type: string
-      enum:
-      - appartementsrecht
-      - perceel
-    TypeKoopsom:
-      type: object
-      properties:
-        koopsom:
-          type: integer
-        koopjaar:
-          type: integer
-        indicatieMetMeerObjectenVerkregen:
-          type: boolean
-    TypeOppervlak:
-      type: object
-      properties:
-        soortGrootte:
-          $ref: '#/components/schemas/Waardelijst'
-        waarde:
-          type: integer
-          description: Oppervlak grootte, in vierkante meters
-      description: |-
-        Oppervlakte
-
-        Waardelijst in deze component : [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
-    TypePerceelnummerVerschuiving:
-      type: object
-      properties:
-        deltax:
-          type: number
-          description: Verschuiving op de X as.
-        deltay:
-          type: number
-          description: Verschuiving op de Y as.
-      description: Verschuiving van het perceelnummer ten behoeve van visualisatie
-        op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
-    Waardelijst:
-      type: object
-      properties:
-        code:
-          minLength: 1
-          type: string
-        waarde:
-          type: string
-      description: Waardelijst is een samengesteld datatype voor het weergeven van
-        een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn
-        beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)
-    ZakelijkGerechtigde:
-      type: object
-      properties:
-        identificatie:
-          type: string
-          description: Identificatie van de zakelijk gerechtigde.
-        type:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
-        aanvangsdatum:
-          type: string
-          description: 'Datum waarop het zakelijk recht van kracht is geworden. '
-          format: date
-        erfpachtCanon:
-          $ref: '#/components/schemas/ErfpachtCanon'
-        tenaamstelling:
-          $ref: '#/components/schemas/Tenaamstelling'
-        persoon:
-          $ref: '#/components/schemas/PersoonBeperkt'
-    ZakelijkGerechtigdeHal:
-      allOf:
-      - $ref: '#/components/schemas/ZakelijkGerechtigde'
-      - properties:
-          _links:
-            $ref: '#/components/schemas/ZakelijkGerechtigde_links'
-    ZakelijkGerechtigdeHalCollectie:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded'
-    ZakelijkGerechtigdeHalCollectie_embedded:
-      type: object
-      properties:
-        zakelijkGerechtigden:
-          type: array
-          items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-    ZakelijkGerechtigde_links:
-      type: object
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        persoon:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenPartner:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenSamenwerkingsverband:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenGorzenEnAanwassen:
-          $ref: '#/components/schemas/HalLink'
-    BadRequestFoutbericht:
-      allOf:
-      - $ref: '#/components/schemas/Foutbericht'
-      - type: object
-        properties:
-          invalidParams:
-            type: array
-            description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden één keer teruggemeld.
-            items:
-              $ref: '#/components/schemas/InvalidParams'
-    Foutbericht:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Link naar meer informatie over deze fout
-          format: uri
-        title:
-          type: string
-          description: Beschrijving van de fout
-        status:
-          type: integer
-          description: Http status code
-        detail:
-          type: string
-          description: Details over de fout
-        instance:
-          type: string
-          description: Uri van de aanroep die de fout heeft veroorzaakt
-          format: uri
-        code:
-          minLength: 1
-          type: string
-          description: Systeemcode die het type fout aangeeft
-      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
-    InvalidParams:
-      type: object
-      properties:
-        type:
-          type: string
-          format: uri
-          example: https://www.vng.nl/realisatie/api/{major-versie}/validaties/integer
-        name:
-          type: string
-          description: Naam van de parameter
-          example: verblijfplaats__huisnummer
-        code:
-          minLength: 1
-          type: string
-          description: Systeemcode die het type fout aangeeft
-          example: integer
-        reason:
-          type: string
-          description: Beschrijving van de fout op de parameterwaarde
-          example: Waarde is geen geldige integer.
-      description: Details over fouten in opgegeven parameters
-    polygonGeoJSON:
-      required:
-      - coordinates
-      - type
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - Polygon
-        coordinates:
-          type: array
-          items:
-            minItems: 4
-            type: array
-            items:
-              minItems: 2
-              type: array
-              items:
-                type: number
+        datumSluiting:
+          $ref: '#/components/schemas/Datum_onvolledig'
+        naam:
+          $ref: '#/components/schemas/Naam'
+      description: Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus
+        van een persoon.
     Datum_onvolledig:
       type: object
       properties:
@@ -2442,42 +2386,65 @@ components:
       description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
         de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
         datum bekend is worden alle elementen gevuld.
-    HalCollectionLinks:
+    Naam:
       type: object
       properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-    HalLink:
-      required:
-      - href
-      type: object
-      properties:
-        href:
-          $ref: '#/components/schemas/Href'
-        templated:
-          type: boolean
-        title:
+        geslachtsnaam:
           type: string
-          description: Voor mens leesbaar label bij de link
-      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
-    Href:
-      type: string
-      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-    pointGeoJSON:
-      required:
-      - coordinates
-      - type
+          description: De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels
+            en adellijke titel zijn afgesplitst.
+        voornamen:
+          type: string
+          description: De voornamen zijn de verzameling namen die, gescheiden door
+            spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat
+            afgesplitst.
+        voorvoegsel:
+          title: voorvoegselsgeslachtsnaam
+          type: string
+          description: Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam
+            dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam.
+      description: Naam is een groep gegevens met de geslachtsnaam, voorletters en
+        voornamen die men wil gebruiken bij aanschrijving.
+    Geboorte:
       type: object
       properties:
-        type:
+        plaats:
+          title: geboorteplaats
           type: string
-          enum:
-          - Point
-        coordinates:
-          minItems: 2
-          type: array
-          items:
-            type: number
+          description: De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft
+            waar de persoon is geboren
+        datum:
+          $ref: '#/components/schemas/Datum_onvolledig'
+        land:
+          $ref: '#/components/schemas/Waardelijst'
+      description: |-
+        Geboorte is een groep gegevens over de geboorte van een persoon.
+
+        Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+    Overlijden:
+      type: object
+      properties:
+        datum:
+          $ref: '#/components/schemas/Datum_onvolledig'
+      description: Overlijden is een groep gegevens over het overlijden van een persoon.
+    KadasterNietNatuurlijkPersoon:
+      allOf:
+      - $ref: '#/components/schemas/KadasterPersoon'
+      - properties:
+          statutaireNaam:
+            type: string
+          statutaireZetel:
+            type: string
+          rechtsvorm:
+            $ref: '#/components/schemas/Waardelijst'
+          kvkNummer:
+            type: string
+          rsin:
+            type: string
+        description: |-
+          Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+
+          Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
   headers:
     api_version:
       schema:
@@ -2490,9 +2457,9 @@ components:
         Nederlands coordinatenstelsel.
       schema:
         type: string
+        default: epsg:28992
         enum:
         - epsg:28992
-        default: epsg:28992
     warning:
       schema:
         type: string

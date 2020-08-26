@@ -1,0 +1,216 @@
+openapi: 3.0.0
+info:
+  title: Kadaster - BRK-Bevragen API - Kadastraal Onroerende Zaken endpoints
+  description: "De definitie van de Kadastraal Onroerende Zaken endpoints en HAL components"
+  version: "1.1.1"
+paths:
+  /kadastraalonroerendezaken:
+    get:
+      operationId: GetKadastraalOnroerendeZaken
+      description: |
+          Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+          1.  Kadastrale aanduiding
+          2.  Ingeschreven persoon als zakelijk gerechtigde
+              -  burgerservicenummer (verplicht)
+              -  typegerechtigde (optioneel)
+          3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
+              -  kadasterpersoonidentificatie (verplicht)
+              -  typegerechtigde (optioneel)
+          4.  Adres
+              -  postcode (verplicht)
+              -  huisnummer (optioneel)
+              -  huisletter (optioneel)
+              -  huisnummertoevoeging (optioneel)
+
+          Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
+
+          Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: kadastraleAanduiding
+          description: "Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+
+            - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
+
+            - sectie, 1 of 2 hoofdletters
+
+            - perceelnummer, 1 tot 5 cijfers
+
+            - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
+
+
+            gescheiden door een spatie"
+          schema:
+            type: "string"
+            pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
+            example: "'s Gravenhage C 1277 A3"
+        - in: query
+          name: burgerservicenummer
+          description: "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+        - in: query
+          name: persoon__identificatie
+          description: "De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft."
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: zakelijkGerechtigde__type
+          description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type."
+          required: false
+          schema:
+            $ref: "domain.yaml#/components/schemas/TypeGerechtigde_enum"
+        - in: query
+          name: postcode
+          description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema:
+            type: string
+            pattern: "^[1-9][0-9][0-9][0-9][A-Z][A-Z]$"
+        - in: query
+          name: huisnummer
+          description: "Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 99999
+        - in: query
+          name: huisletter
+          description: "De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema:
+            type: string
+            pattern: "^[a-zA-Z]$"
+        - in: query
+          name: huisnummertoevoeging
+          description: "De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak"
+          required: false
+          schema:
+            type: string
+            pattern: "^([a-z,A-Z,0-9]){1,4}$"
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Kadastraal Onroerende Zaken
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
+    get:
+      operationId: GetKadastraalOnroerendeZaak
+      description: |
+        Het raadplegen van een kadastrale onroerende zaak.
+
+        Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
+      parameters:
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Kadastraal Onroerende Zaken
+components:
+  schemas:
+    KadastraalOnroerendeZaakHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded"
+    KadastraalOnroerendeZaakHalCollectie_embedded:
+      type: "object"
+      properties:
+        kadastraalOnroerendeZaken:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
+    KadastraalOnroerendeZaakHal:
+      allOf:
+      - $ref: "domain.yaml#/components/schemas/KadastraalOnroerendeZaak"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaak_links"
+          _embedded:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaak_embedded"
+    KadastraalOnroerendeZaak_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigden:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    KadastraalOnroerendeZaak_embedded:
+      type: "object"
+      properties:
+        zakelijkGerechtigden:
+          type: "array"
+          items:
+            $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
