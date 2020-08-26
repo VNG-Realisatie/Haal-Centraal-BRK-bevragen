@@ -3,7 +3,7 @@
 ## Versie 1.1.1:
 
 Inhoudelijk is er in deze patch niets gewijzigd.
-De structuur van de yaml-bestanden is aangepast omdat het bestand erg groot en overzichtelijk werd.
+De structuur van de yaml-bestanden is aangepast omdat het bestand erg groot en onoverzichtelijk werd.
 Door deze opslitsing is het beheer overzichtelijker en is het werken aan toekomstige wijzigingen beter te managen.
 
 De openapi.yaml in de genereervariant is gewijzigd als gevolg van het gebruiken van een andere generator voor het resolven.
