@@ -2957,11 +2957,11 @@ components:
           description: De unieke identificatie van een BGT object.
         bagObject:
           $ref: '#/components/schemas/BagObject'
-        kadastraalObjectIdentificatie:
+        kadastraalObjectIdentificaties:
           type: array
-          description: De unieke identificatie van een kadastraal onroerende zaak.
           items:
             type: string
+            description: De unieke identificatie van een kadastraal onroerende zaak.
         vrijeContour:
           $ref: '#/components/schemas/polygonGeoJSON'
       description: Datgene waarop de beperking van toepassing is.

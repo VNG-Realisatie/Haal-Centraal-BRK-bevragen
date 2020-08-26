@@ -3597,11 +3597,11 @@
           "bagObject" : {
             "$ref" : "#/components/schemas/BagObject"
           },
-          "kadastraalObjectIdentificatie" : {
+          "kadastraalObjectIdentificaties" : {
             "type" : "array",
-            "description" : "De unieke identificatie van een kadastraal onroerende zaak.",
             "items" : {
-              "type" : "string"
+              "type" : "string",
+              "description" : "De unieke identificatie van een kadastraal onroerende zaak."
             }
           },
           "vrijeContour" : {
