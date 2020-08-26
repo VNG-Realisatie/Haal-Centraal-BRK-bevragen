@@ -39,6 +39,8 @@ paths:
     $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken"
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
     $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken~1{hypotheekidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen"
 components:
   securitySchemes:
     apiKeyAuth:
