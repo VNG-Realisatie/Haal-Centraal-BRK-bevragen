@@ -119,23 +119,39 @@ paths:
       - Publiekrechtelijke Beperkingen
 components:
   schemas:
-    Beperkingsgebied:
+    Werkingsgebied:
       type: "object"
+      description: "Datgene waarop de beperking van toepassing is."
+      properties:
+        bgtObjectIdentificatie:
+          description: "De unieke identificatie van een BGT object."
+          type: "string"
+        bagObject:
+          $ref: "#/components/schemas/BagObject"
+        kadastraalObjectIdentificatie:
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          type: "array"
+          items:
+            type: "string"
+        vrijeContour:
+          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+    BagObject:
+      type: object
       properties:
         identificatie:
-          type: "string"
-        werkingsgebied:
-          type: "object"
-          description: "Datgene waarop de beperking van toepassing is."
-          properties:
-            bgtObjectIdentificatie:
-              type: "string"
-            bagObjectIdentificatie:
-              type: "string"
-            kadastraalObjectIdentificatie:
-              type: "string"
-            vrijeContour:
-              $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+          type: string
+          description: "Unieke identificatie van het BAG object"
+        domein:
+          $ref: "#/components/schemas/BagDomein_enum"
+    BagDomein_enum:
+      type: string
+      description: "Aanduiding die aangeeft op welk type BAG-object de identificatie betrekking heeft"
+      enum:
+        - "NL.IMBAG.Woonplaats"
+        - "NL.IMBAG.Openbareruimte"
+        - "NL.IMBAG.Nummeraanduiding"
+        - "NL.IMBAG.Verblijfsobject"
+        - "NL.IMBAG.Pand"
     PubliekrechtelijkeBeperking:
       type: "object"
       description: "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging."
@@ -164,8 +180,8 @@ components:
             type: "string"
         bevoegdGezag:
           $ref: "domain.yaml#/components/schemas/NietNatuurlijkPersoonBeperkt"
-        beperkingsgebied:
-          $ref: "#/components/schemas/Beperkingsgebied"
+        werkingsgebied:
+          $ref: "#/components/schemas/Werkingsgebied"
     PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
