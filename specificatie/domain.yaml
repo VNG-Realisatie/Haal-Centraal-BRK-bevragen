@@ -17,11 +17,6 @@ components:
       description: "Waardelijst in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
       properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)"
@@ -295,7 +290,12 @@ components:
             $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
-          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
+          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          description: "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak"
           items:
             type: string
     LocatieKadastraalObject:

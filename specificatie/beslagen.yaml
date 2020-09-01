@@ -9,11 +9,8 @@ paths:
       operationId: GetBeslagenKadastraalOnroerendeZaak
       description: |
         Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak."
