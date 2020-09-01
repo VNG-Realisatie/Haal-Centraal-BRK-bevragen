@@ -310,7 +310,7 @@ paths:
       description: |
         Het raadplegen van een kadastrale onroerende zaak.
 
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
+        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
       - name: kadastraalonroerendezaakidentificatie
@@ -1637,8 +1637,6 @@ paths:
       - Hypotheken
       description: |
         Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
-
-        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -1648,18 +1646,6 @@ paths:
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
           een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -2079,8 +2065,6 @@ paths:
       - Beslagen
       description: |
         Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen gerelateerde stukken en stukdelen direct worden meegeladen.
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -2090,18 +2074,6 @@ paths:
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
           een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -3144,6 +3116,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        privaatrechtelijkeBeperkingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
     KadastraalOnroerendeZaak_embedded:
       type: object
       properties:
@@ -3151,6 +3127,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
+        privaatrechtelijkeBeperkingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
     TypeGerechtigde_enum:
       type: string
       description: |-
@@ -3612,7 +3592,13 @@ components:
         zakelijkGerechtigdeIdentificaties:
           type: array
           description: Alle personen en rechtspersonen die een zakelijk recht hebben
-            op deze kadastaraal onroerende zaak
+            op deze kadastraal onroerende zaak
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: array
+          description: Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal
+            onroerende zaak
           items:
             type: string
       description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht.\
@@ -3797,11 +3783,6 @@ components:
     Aantekening:
       type: object
       properties:
-        identificatie:
-          type: string
-        domein:
-          type: string
-          description: Het domein waartoe de identificatie behoort.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
