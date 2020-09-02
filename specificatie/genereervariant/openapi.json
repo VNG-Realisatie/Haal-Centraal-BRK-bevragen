@@ -3523,15 +3523,6 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "Content-Crs",
-          "in" : "header",
-          "description" : "CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "enum" : [ "epsg:28992" ]
-          }
         } ],
         "responses" : {
           "200" : {
