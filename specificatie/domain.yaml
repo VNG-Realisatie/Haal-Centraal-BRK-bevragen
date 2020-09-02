@@ -199,7 +199,7 @@ components:
             items:
               $ref: "#/components/schemas/HeeftPartnerschap"
           naam:
-            $ref: "#/components/schemas/Naam"
+            $ref: "#/components/schemas/NaamPersoon"
           geboorte:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
@@ -321,18 +321,22 @@ components:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
           description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
-        aanschrijfwijze:
-          type: "string"
-          description: "De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres."
-          example: "G.H I. In het Veld-van Velzen"
-        aanhef:
-          type: "string"
-          description: "De aanhef wordt gebruikt bovenaan een brief"
-          example: "Geachte mevrouw In het Veld-van Velzen"
-        gebruikInLopendeTekst:
-          type: "string"
-          description: "De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst"
-          example: "mevrouw In het Veld-van Velzen"
+    NaamPersoon:
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - properties:
+            aanschrijfwijze:
+              type: "string"
+              description: "De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres."
+              example: "G.H I. In het Veld-van Velzen"
+            aanhef:
+              type: "string"
+              description: "De aanhef wordt gebruikt bovenaan een brief"
+              example: "Geachte mevrouw In het Veld-van Velzen"
+            gebruikInLopendeTekst:
+              type: "string"
+              description: "De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst"
+              example: "mevrouw In het Veld-van Velzen"
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
@@ -552,4 +556,3 @@ components:
           $ref: "#/components/schemas/Tenaamstelling"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
-
