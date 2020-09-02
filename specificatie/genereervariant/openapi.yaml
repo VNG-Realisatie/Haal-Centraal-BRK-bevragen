@@ -3120,6 +3120,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        hypotheken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        beslagen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
     KadastraalOnroerendeZaak_embedded:
       type: object
       properties:
@@ -3358,7 +3366,7 @@ components:
           items:
             $ref: '#/components/schemas/PersoonBeperkt'
       description: |
-        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheeknemer (geldverstrekker).
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
 
         Waardelijst in deze component :
         - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
@@ -3368,10 +3376,6 @@ components:
         self:
           $ref: '#/components/schemas/HalLink'
         hypotheekhouders:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        betrokkenPersonen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3433,10 +3437,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        betrokkenPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -3453,13 +3453,7 @@ components:
     PrivaatrechtelijkeBeperking:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
-      - properties:
-          identificatie:
-            type: string
-          domein:
-            type: string
-            description: Het domein waartoe de identificatie behoort.
-        description: Een privaatrechtelijke beperking is dat iemand niet alles met
+      - description: Een privaatrechtelijke beperking is dat iemand niet alles met
           een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die
           hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens
           het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een
@@ -3470,10 +3464,6 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
-        betrokkenPersonen:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
     PubliekrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -3601,6 +3591,16 @@ components:
             onroerende zaak
           items:
             type: string
+        hypotheekIdentificaties:
+          type: array
+          description: Alle hypotheken die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+        beslagIdentificaties:
+          type: array
+          description: Alle beslagen die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
       description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht.\
         \ Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten\
         \ en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is\
@@ -3674,11 +3674,65 @@ components:
     LocatieKadastraalObject:
       type: object
       properties:
-        nummeraanduidingIdentificatie:
-          type: string
+        allOf:
+          $ref: '#/components/schemas/Adres'
         koppelingswijze:
           $ref: '#/components/schemas/Waardelijst'
       description: 'Waardelijst in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)'
+    Adres:
+      properties:
+        nummeraanduidingIdentificatie:
+          type: string
+          description: identificatie van het adres in het geval dit adres in BAG geregistreerd
+            is.
+        huisnummer:
+          type: integer
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
+        huisletter:
+          type: string
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
+          example: A
+        huisnummertoevoeging:
+          type: string
+          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
+          example: "3"
+        straat:
+          type: string
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort
+        postcode:
+          type: string
+          example: 1234AA
+        woonplaats:
+          type: string
+          example: Nootdorp
+        adresregel1:
+          type: string
+          description: Het eerste deel van een adres is een combinatie van de straat
+            en huisnummer.
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
+        adresregel2:
+          type: string
+          description: Het tweede deel van een adres is een combinatie van woonplaats
+            eventueel in combinatie met de postcode
+          example: 1234AA Nootdorp
+        adresregel3:
+          type: string
+          description: Het derde deel van een adres is optioneel een of meer geografische
+            gebieden van het adres in het buitenland
+          example: Selangor
+        land:
+          $ref: '#/components/schemas/Waardelijst'
+      description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
+      example:
+        nummeraanduidingIdentificatie: "1234207890123456"
+        huisnummer: 26
+        huisletter: A
+        huisnummertoevoeging: "3"
+        straat: Laan van de landinrichtingscommissie Duiven-Westervoort
+        postcode: 1234AA
+        woonplaats: Nootdorp
+        adresregel1: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
+        adresregel2: 1234AA Nootdorp
     ZakelijkGerechtigde:
       type: object
       properties:
@@ -3783,6 +3837,11 @@ components:
     Aantekening:
       type: object
       properties:
+        identificatie:
+          type: string
+        domein:
+          type: string
+          description: Het domein waartoe de identificatie behoort.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
@@ -3881,7 +3940,7 @@ components:
             items:
               $ref: '#/components/schemas/HeeftPartnerschap'
           naam:
-            $ref: '#/components/schemas/Naam'
+            $ref: '#/components/schemas/NaamPersoon'
           geboorte:
             $ref: '#/components/schemas/Geboorte'
           overlijden:
@@ -3913,60 +3972,6 @@ components:
           Een in de basisregistratie kadaster geregistreerde persoon.
 
           Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
-    Adres:
-      properties:
-        nummeraanduidingIdentificatie:
-          type: string
-          description: identificatie van het adres in het geval dit adres in BAG geregistreerd
-            is.
-        huisnummer:
-          type: integer
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
-        huisletter:
-          type: string
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
-          example: A
-        huisnummertoevoeging:
-          type: string
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
-          example: "3"
-        straat:
-          type: string
-          example: Laan van de landinrichtingscommissie Duiven-Westervoort
-        postcode:
-          type: string
-          example: 1234AA
-        woonplaats:
-          type: string
-          example: Nootdorp
-        adresregel1:
-          type: string
-          description: Het eerste deel van een adres is een combinatie van de straat
-            en huisnummer.
-          example: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
-        adresregel2:
-          type: string
-          description: Het tweede deel van een adres is een combinatie van woonplaats
-            eventueel in combinatie met de postcode
-          example: 1234AA Nootdorp
-        adresregel3:
-          type: string
-          description: Het derde deel van een adres is optioneel een of meer geografische
-            gebieden van het adres in het buitenland
-          example: Selangor
-        land:
-          $ref: '#/components/schemas/Waardelijst'
-      description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
-      example:
-        nummeraanduidingIdentificatie: "1234207890123456"
-        huisnummer: 26
-        huisletter: A
-        huisnummertoevoeging: "3"
-        straat: Laan van de landinrichtingscommissie Duiven-Westervoort
-        postcode: 1234AA
-        woonplaats: Nootdorp
-        adresregel1: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
-        adresregel2: 1234AA Nootdorp
     Postadres:
       allOf:
       - $ref: '#/components/schemas/Adres'
@@ -4057,6 +4062,33 @@ components:
             dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam.
       description: Naam is een groep gegevens met de geslachtsnaam, voorletters en
         voornamen die men wil gebruiken bij aanschrijving.
+    NaamPersoon:
+      allOf:
+      - $ref: '#/components/schemas/Naam'
+      - type: object
+        properties:
+          aanhef:
+            title: aanhef
+            type: string
+            description: De aanhef zoals die in een brief, gericht aan een persoon
+              gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat
+              is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)
+            example: Hooggeboren vrouwe van der Veen-van den Aedel
+          aanschrijfwijze:
+            title: aanschrijfwijze
+            type: string
+            description: Samengestelde naam zoals die in communicatie met de persoon
+              gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te
+              werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)
+            example: W. gravin van den Aedel-van der Veen
+          gebruikInLopendeTekst:
+            title: gebruikInLopendeTekst
+            type: string
+            description: De naam zoals die in lopende tekst kan worden. Hoe het samenstellen
+              van een naam in de lopendetekst te werk gaat is beschreven in de [functionele
+              specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)
+            example: mevrouw van der Veen-gravin van den Aedel
+        description: Gegevens over de naam van de persoon
     Geboorte:
       type: object
       properties:
