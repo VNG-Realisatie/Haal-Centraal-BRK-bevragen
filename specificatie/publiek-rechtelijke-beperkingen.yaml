@@ -16,7 +16,6 @@ paths:
           description: "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak."
           schema:
             type: string
-        - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/parameters/contentCrs'
       responses:
         '200':
           description: "Zoekactie geslaagd"
