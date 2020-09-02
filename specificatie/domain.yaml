@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen Components
   description: "De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API"
-  version: "1.1.1"
+  version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -199,7 +199,7 @@ components:
             items:
               $ref: "#/components/schemas/HeeftPartnerschap"
           naam:
-            $ref: "#/components/schemas/Naam"
+            $ref: "#/components/schemas/NaamPersoon"
           geboorte:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
@@ -295,7 +295,22 @@ components:
             $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
-          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
+          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          description: "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        hypotheekIdentificaties:
+          type: "array"
+          description: "Alle hypotheken die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        beslagIdentificaties:
+          type: "array"
+          description: "Alle beslagen die rusten op deze kadastraal onroerende zaak"
           items:
             type: string
     LocatieKadastraalObject:
@@ -303,8 +318,8 @@ components:
       description: "Waardelijst in deze component :
          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
       properties:
-        nummeraanduidingIdentificatie:
-          type: "string"
+        allOf:
+          $ref: "#/components/schemas/Adres"
         koppelingswijze:
           $ref: "#/components/schemas/Waardelijst"
     Naam:
@@ -321,6 +336,27 @@ components:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
           description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
+    NaamPersoon:
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - type: "object"
+          description: "Gegevens over de naam van de persoon"
+          properties:
+            aanhef:
+              type: "string"
+              title: "aanhef"
+              description: "De aanhef zoals die in een brief, gericht aan een persoon gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)"
+              example: "Hooggeboren vrouwe van der Veen-van den Aedel"
+            aanschrijfwijze:
+              type: "string"
+              title: "aanschrijfwijze"
+              description: "Samengestelde naam zoals die in communicatie met de persoon gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)"
+              example: "W. gravin van den Aedel-van der Veen"
+            gebruikInLopendeTekst:
+              type: "string"
+              title: "gebruikInLopendeTekst"
+              description: "De naam zoals die in lopende tekst kan worden. Hoe het samenstellen van een naam in de lopendetekst te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)"
+              example: "mevrouw van der Veen-gravin van den Aedel"
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
