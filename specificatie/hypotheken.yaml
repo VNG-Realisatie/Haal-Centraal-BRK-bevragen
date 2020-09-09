@@ -51,7 +51,7 @@ paths:
     get:
       operationId: GetHypotheek
       description: |
-        Het raadplegen van een hypotheek.
+        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -136,6 +136,7 @@ components:
             $ref: "domain.yaml#/components/schemas/Aantekening"
             description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak."
         hypotheekhouders:
+          description: "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
           type: array
           items:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
