@@ -44,7 +44,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente aanschrijfwijze va
   | V                     | VL VP GP-PK AT VV GN |
 
   Bij de samenstelling van de aanschrijfwijze volgens bovenstaande tabel gelden de volgende regels:
-  1. Voor adellijke titel en predicaat wordt de Waarde volgens waardelijst "AdellijkeTitelOfPredikaat" gebruikt, geschreven in kleine letters.
+  1. Voor adellijke titel en predikaat wordt de Waarde volgens waardelijst [AdellijkeTitelOfPredikaat](https://www.kadaster.nl/schemas/waardelijsten/AdellijkeTitelOfPredikaat/) gebruikt, geschreven in kleine letters.
   2. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
 
 

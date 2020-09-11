@@ -9,7 +9,6 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
   - aanduidingNaamgebruik
   - naam
     - geslachtsnaam
-    - voornamen
     - voorvoegselsgeslachtsnaam
   - geslacht
     - geslachtsaanduiding
@@ -39,20 +38,20 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
 
   Samenstelling van gebruikInLopendeTekst voor een persoon zonder adellijke titel of predikaat:
   | aanduidingNaamgebruik | gebruikInLopendeTekst |
-  | E                     | AH VV GN              |
-  | N                     | AH VV GN-VP GP        |
-  | P                     | AH VP GP              |
-  | V                     | AH VP GP-VV GN        |
+  | E                     | GA VV GN              |
+  | N                     | GA VV GN-VP GP        |
+  | P                     | GA VP GP              |
+  | V                     | GA VP GP-VV GN        |
 
   Samenstelling van gebruikInLopendeTekst voor een persoon met adellijke titel of predikaat:
   | aanduidingNaamgebruik | gebruikInLopendeTekst |
   | E                     | AP VV GN              |
   | N                     | AP VV GN-VP GP        |
-  | P                     | AH VP GP              |
-  | V                     | AH VP GP-AP VV GN     |
+  | P                     | GA VP GP              |
+  | V                     | GA VP GP-AP VV GN     |
 
   Bij de samenstelling van gebruikInLopendeTekst volgens bovenstaande tabel gelden de volgende regels:
-  1. Voor adellijke titel en predicaat wordt de Waarde volgens waardelijst "AdellijkeTitelOfPredikaat" gebruikt, geschreven in kleine letters.
+  1. Voor adellijke titel en predikaat wordt de Waarde volgens waardelijst [AdellijkeTitelOfPredikaat](https://www.kadaster.nl/schemas/waardelijsten/AdellijkeTitelOfPredikaat/) gebruikt, geschreven in kleine letters.
   2. Het voorvoegsel van de eerste geslachtsnaam in gebruikInLopendeTekst wordt met een hoofdletter geschreven.
   3. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
 

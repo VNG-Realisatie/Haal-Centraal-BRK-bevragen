@@ -6,7 +6,7 @@ Functionaliteit: Bepalen van voorletters uit de voornamen van een persoon
 	Als een voornaam begint met een dubbelklank (Th, Ph, Ch, IJ, enz.), Dan wordt deze voornaam (ook) afgekort tot één voorletter.
 	Als één of meerdere voornamen uit één letter bestaan, dan volgt er na de letter geen "." (punt).
 	Wanneer na een voorletter zonder punt (voornaam had één letter) nog een andere voorletter volgt, wordt daartussen een spatie gezet.
-	Als de rubriek Voornamen is gevuld met de standaardwaarde '.' (punt), Dan wordt geen extra (scheidings)punt toegevoegd; de inhoud van de attribuut voorletters is na afleiding Dan '.'
+	Als voornamen enkel de standaardwaarde '.' (punt) bevat, dan wordt geen extra (scheidings)punt toegevoegd; de voorletters zijn dan '.' (punt).
 
 
 	Abstract Scenario: Voorletters wordt samengesteld uit de eerste letter van de voornamen gescheiden door een punt
@@ -25,3 +25,4 @@ Functionaliteit: Bepalen van voorletters uit de voornamen van een persoon
 		| J P                  | J P         |
 		| Anton B Cornelis     | A.B C.      |
 		| A                    | A           |
+		| .                    | .           |
