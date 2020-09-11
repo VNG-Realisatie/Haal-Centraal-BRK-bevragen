@@ -4,12 +4,11 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   Attribuut "aanhef" bij een natuurlijk persoon wordt gevuld om de persoon op eenduidige wijze te kunnen aanschrijven.
   De aanhef wordt gebruikt bovenaan een brief.
 
-  Attribuut aanschrijfwijze wordt samengesteld op basis van:
+  Attribuut aanhef wordt samengesteld op basis van:
   - adellijkeTitelOfPredikaat
   - aanduidingNaamgebruik
   - naam
     - geslachtsnaam
-    - voornamen
     - voorvoegselsgeslachtsnaam
   - geslacht
     - geslachtsaanduiding
@@ -38,7 +37,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   - N	= Geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam
 
   Samenstelling van aanhef voor een persoon zonder adellijke titel of predikaat:
-  | aanduidingNaamgebruik | aanschrijfwijze |
+  | aanduidingNaamgebruik | aanhef          |
   | E                     | AH VV GN        |
   | N                     | AH VV GN-VP GP  |
   | P                     | AH VP GP        |
@@ -63,7 +62,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   | Prins                     | Hoogheid              |
   | Prinses                   | Hoogheid              |
   | Ridder                    | Hoogwelgeboren heer   |
-
+  Waardes van adellijkeTitelOfPredikaat zijn volgens de waardelijst [AdellijkeTitelOfPredikaat](https://www.kadaster.nl/schemas/waardelijsten/AdellijkeTitelOfPredikaat/)
 
   Abstract Scenario: Aanhef
     Als de kadasternatuurlijkpersoon wordt geraadpleegd
