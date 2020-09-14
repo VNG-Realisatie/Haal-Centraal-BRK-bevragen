@@ -9,7 +9,7 @@ servers:
 info:
   title: Kadaster - BRK-Bevragen API
   description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
-  version: "1.1.0"
+  version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -35,6 +35,20 @@ paths:
     $ref: "kadaster-natuurlijk-personen.yaml#/paths/~1kadasternatuurlijkpersonen"
   /kadasternietnatuurlijkpersonen:
     $ref: "kadaster-niet-natuurlijk-personen.yaml#/paths/~1kadasternietnatuurlijkpersonen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken~1{hypotheekidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen~1{beslagidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
+  /publiekrechtelijkebeperkingen:
+    $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen"
 components:
   securitySchemes:
     apiKeyAuth:

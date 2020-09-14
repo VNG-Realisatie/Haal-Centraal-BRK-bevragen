@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen Components
   description: "De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API"
-  version: "1.1.0"
+  version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -295,7 +295,22 @@ components:
             $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
-          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
+          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          description: "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        hypotheekIdentificaties:
+          type: "array"
+          description: "Alle hypotheken die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        beslagIdentificaties:
+          type: "array"
+          description: "Alle beslagen die rusten op deze kadastraal onroerende zaak"
           items:
             type: string
     LocatieKadastraalObject:
@@ -303,8 +318,8 @@ components:
       description: "Waardelijst in deze component :
          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
       properties:
-        nummeraanduidingIdentificatie:
-          type: "string"
+        allOf:
+          $ref: "#/components/schemas/Adres"
         koppelingswijze:
           $ref: "#/components/schemas/Waardelijst"
     Naam:
@@ -324,7 +339,9 @@ components:
     NaamPersoon:
       allOf:
         - $ref: "#/components/schemas/Naam"
-        - properties:
+        - type: "object"
+          description: "Gegevens over de naam van de persoon"
+          properties:
             aanschrijfwijze:
               type: "string"
               description: "De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres."
