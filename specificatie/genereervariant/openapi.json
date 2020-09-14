@@ -2192,7 +2192,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van een hypotheek.\n",
+        "description" : "Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypotheek",
         "parameters" : [ {
           "name" : "fields",
@@ -4135,6 +4135,7 @@
           },
           "hypotheekhouders" : {
             "type" : "array",
+            "description" : "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.",
             "items" : {
               "$ref" : "#/components/schemas/PersoonBeperkt"
             }
@@ -4529,16 +4530,16 @@
         "description" : "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen."
       },
       "LocatieKadastraalObject" : {
-        "type" : "object",
-        "properties" : {
-          "allOf" : {
-            "$ref" : "#/components/schemas/Adres"
-          },
-          "koppelingswijze" : {
-            "$ref" : "#/components/schemas/Waardelijst"
+        "description" : "Waardelijsten in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Adres"
+        }, {
+          "properties" : {
+            "koppelingswijze" : {
+              "$ref" : "#/components/schemas/Waardelijst"
+            }
           }
-        },
-        "description" : "Waardelijst in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
+        } ]
       },
       "Adres" : {
         "properties" : {
