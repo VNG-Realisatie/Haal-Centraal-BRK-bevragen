@@ -342,21 +342,18 @@ components:
         - type: "object"
           description: "Gegevens over de naam van de persoon"
           properties:
-            aanhef:
-              type: "string"
-              title: "aanhef"
-              description: "De aanhef zoals die in een brief, gericht aan een persoon gebruikt kan worden. Hoe het samenstellen van een aanhef te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanhef.feature)"
-              example: "Hooggeboren vrouwe van der Veen-van den Aedel"
             aanschrijfwijze:
               type: "string"
-              title: "aanschrijfwijze"
-              description: "Samengestelde naam zoals die in communicatie met de persoon gebruikt kan worden. Hoe het samenstellen van een aanschrijfwijze te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/aanschrijfwijze.feature)"
-              example: "W. gravin van den Aedel-van der Veen"
+              description: "De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres."
+              example: "G.H I. In het Veld-van Velzen"
+            aanhef:
+              type: "string"
+              description: "De aanhef wordt gebruikt bovenaan een brief"
+              example: "Geachte mevrouw In het Veld-van Velzen"
             gebruikInLopendeTekst:
               type: "string"
-              title: "gebruikInLopendeTekst"
-              description: "De naam zoals die in lopende tekst kan worden. Hoe het samenstellen van een naam in de lopendetekst te werk gaat is beschreven in de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/gebruik_in_lopende_tekst.feature)"
-              example: "mevrouw van der Veen-gravin van den Aedel"
+              description: "De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst"
+              example: "mevrouw In het Veld-van Velzen"
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
