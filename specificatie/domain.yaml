@@ -314,14 +314,13 @@ components:
           items:
             type: string
     LocatieKadastraalObject:
-      type: "object"
-      description: "Waardelijst in deze component :
-         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
-      properties:
-        allOf:
-          $ref: "#/components/schemas/Adres"
-        koppelingswijze:
-          $ref: "#/components/schemas/Waardelijst"
+      description: "Waardelijsten in deze component :
+         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+      allOf:
+        - $ref: "#/components/schemas/Adres"
+        - properties:
+            koppelingswijze:
+              $ref: "#/components/schemas/Waardelijst"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
