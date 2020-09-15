@@ -3070,9 +3070,6 @@
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
               },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
-              },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
               }
