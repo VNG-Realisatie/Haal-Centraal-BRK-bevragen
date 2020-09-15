@@ -1,0 +1,170 @@
+openapi: 3.0.0
+info:
+  title: Kadaster - BRK-Bevragen API - Hypotheken endpoints
+  description: "De definitie van de Hypotheken endpoints en components"
+  version: "1.2.0"
+paths:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+    get:
+      operationId: GetHypothekenKadastraalOnroerendeZaak
+      description: |
+        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Zoekactie geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/HypotheekHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Hypotheken
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+    get:
+      operationId: GetHypotheek
+      description: |
+        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: hypotheekidentificatie
+          description: "De unieke identificatie van de hypotheek."
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      responses:
+        '200':
+          description: "Raadplegen geslaagd"
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/HypotheekHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Hypotheken
+components:
+  schemas:
+    Hypotheek:
+      type: "object"
+      description: |
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
+        aandeelInBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
+        toelichtingBewaarder:
+          type: "string"
+          description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+        aantekeningen:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/Aantekening"
+            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak."
+        hypotheekhouders:
+          description: "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
+            description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
+    HypotheekHal:
+      allOf:
+      - $ref: "#/components/schemas/Hypotheek"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/Hypotheek_links"
+    HypotheekHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          type: "object"
+          properties:
+            hypotheken:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/HypotheekHal"
+    Hypotheek_links:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        hypotheekhouders:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"

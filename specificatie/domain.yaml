@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen Components
   description: "De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API"
-  version: "1.1.0"
+  version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -199,7 +199,7 @@ components:
             items:
               $ref: "#/components/schemas/HeeftPartnerschap"
           naam:
-            $ref: "#/components/schemas/Naam"
+            $ref: "#/components/schemas/NaamPersoon"
           geboorte:
             $ref: "#/components/schemas/Geboorte"
           overlijden:
@@ -295,18 +295,32 @@ components:
             $ref: "#/components/schemas/LocatieKadastraalObject"
         zakelijkGerechtigdeIdentificaties:
           type: "array"
-          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastaraal onroerende zaak"
+          description: "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          description: "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        hypotheekIdentificaties:
+          type: "array"
+          description: "Alle hypotheken die rusten op deze kadastraal onroerende zaak"
+          items:
+            type: string
+        beslagIdentificaties:
+          type: "array"
+          description: "Alle beslagen die rusten op deze kadastraal onroerende zaak"
           items:
             type: string
     LocatieKadastraalObject:
-      type: "object"
-      description: "Waardelijst in deze component :
-         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)"
-      properties:
-        nummeraanduidingIdentificatie:
-          type: "string"
-        koppelingswijze:
-          $ref: "#/components/schemas/Waardelijst"
+      description: "Waardelijsten in deze component :
+         [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+      allOf:
+        - $ref: "#/components/schemas/Adres"
+        - properties:
+            koppelingswijze:
+              $ref: "#/components/schemas/Waardelijst"
     Naam:
       type: "object"
       description: "Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving."
@@ -321,6 +335,24 @@ components:
           type: "string"
           title: "voorvoegselsgeslachtsnaam"
           description: "Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam."
+    NaamPersoon:
+      allOf:
+        - $ref: "#/components/schemas/Naam"
+        - type: "object"
+          description: "Gegevens over de naam van de persoon"
+          properties:
+            aanschrijfwijze:
+              type: "string"
+              description: "De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres."
+              example: "G.H I. In het Veld-van Velzen"
+            aanhef:
+              type: "string"
+              description: "De aanhef wordt gebruikt bovenaan een brief"
+              example: "Geachte mevrouw In het Veld-van Velzen"
+            gebruikInLopendeTekst:
+              type: "string"
+              description: "De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst"
+              example: "mevrouw In het Veld-van Velzen"
     NatuurlijkPersoonBeperkt:
       allOf:
         - $ref: "#/components/schemas/PersoonBasis"
@@ -540,4 +572,3 @@ components:
           $ref: "#/components/schemas/Tenaamstelling"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
-
