@@ -2984,8 +2984,6 @@ components:
     PubliekrechtelijkeBeperking_links:
       type: object
       properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
         beperktOnroerendeZaken:
           type: array
           items:
