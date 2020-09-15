@@ -1,5 +1,15 @@
 # Release notes BRK-Bevragen
 
+## Versie 1.1.1:
+
+Inhoudelijk is er in deze patch niets gewijzigd.
+De structuur van de yaml-bestanden is aangepast omdat het bestand erg groot en onoverzichtelijk werd.
+Door deze opslitsing is het beheer overzichtelijker en is het werken aan toekomstige wijzigingen beter te managen.
+
+De openapi.yaml in de genereervariant is gewijzigd als gevolg van het gebruiken van een andere generator voor het resolven.
+Deze wijzigingen betreffen hoofdzakelijk volgorde wijzigingen van schemacomponenten.
+Daarnaast zijn er enkele parameter-properties met default-waarden nu expliciet opgenomen in de genereervariant.   
+
 ## Versie 1.1.0:
 
 De repository is opgeschoond. Mappen die overbodig waren zijn verwijderd. De specificatie van de Waardelijsten API is verwijderd omdat die nog niet geïmplementeerd is.
