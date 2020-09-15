@@ -203,8 +203,6 @@ components:
     PubliekrechtelijkeBeperking_links:
       type: "object"
       properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         beperktOnroerendeZaken:
           type: "array"
           items:
