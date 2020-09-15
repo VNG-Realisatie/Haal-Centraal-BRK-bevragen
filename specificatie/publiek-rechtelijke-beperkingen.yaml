@@ -90,6 +90,11 @@ components:
           $ref: "domain.yaml#/components/schemas/NietNatuurlijkPersoonBeperkt"
         beperkingsgebied:
           $ref: "#/components/schemas/Beperkingsgebied"
+        beperktOnroerendeZaakIdentificaties:
+          type: "array"
+          description: "De identificaties van Kadastraal onroerende zaken die door deze publiekrechtelijke beperking worden beperkt"
+          items:
+            type: "string"
     PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
@@ -113,3 +118,7 @@ components:
       properties:
         bevoegdGezag:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        beperktOnroerendeZaken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
