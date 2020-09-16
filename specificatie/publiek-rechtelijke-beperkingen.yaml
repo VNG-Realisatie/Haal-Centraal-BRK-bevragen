@@ -48,26 +48,6 @@ paths:
       - Publiekrechtelijke Beperkingen
 components:
   schemas:
-    Beperkingsgebied:
-      type: "object"
-      properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: "Het domein waartoe de identificatie behoort."
-        werkingsgebied:
-          type: "object"
-          description: "Datgene waarop de beperking van toepassing is."
-          properties:
-            bgtObjectIdentificatie:
-              type: "string"
-            bagObjectIdentificatie:
-              type: "string"
-            kadastraalObjectIdentificatie:
-              type: "string"
-            vrijeContour:
-              $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
     PubliekrechtelijkeBeperking:
       type: "object"
       description: "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging."
@@ -88,8 +68,6 @@ components:
           format: "date"
         bevoegdGezag:
           $ref: "domain.yaml#/components/schemas/NietNatuurlijkPersoonBeperkt"
-        beperkingsgebied:
-          $ref: "#/components/schemas/Beperkingsgebied"
     PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
