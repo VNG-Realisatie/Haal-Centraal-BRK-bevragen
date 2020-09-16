@@ -149,7 +149,7 @@ components:
         plaats:
           type: "string"
           title: "geboorteplaats"
-          description: "De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft waar de persoon is geboren"
+          description: "Plaats of een plaatsbepaling waar de persoon is geboren"
         datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         land:
@@ -546,8 +546,6 @@ components:
           description: "Verschuiving op de Y as."
     Waardelijst:
       type: "object"
-      description: "Waardelijst is een samengesteld datatype voor het weergeven van\
-        \ een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)"
       properties:
         code:
           type: "string"
