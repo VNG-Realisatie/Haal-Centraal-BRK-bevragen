@@ -2484,12 +2484,24 @@
             }
           }
         }, {
+          "name" : "Accept-Crs",
+          "in" : "header",
+          "description" : "Gewenste CRS van de coördinaten in de response.",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
+            "default" : "epsg:28992",
+            "enum" : [ "epsg:28992" ]
+          }
+        }, {
           "name" : "Content-Crs",
           "in" : "header",
           "description" : "CRS van de meegegeven geometrie. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
           "required" : false,
           "schema" : {
             "type" : "string",
+            "default" : "epsg:28992",
             "enum" : [ "epsg:28992" ]
           }
         } ],
@@ -2499,6 +2511,9 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
+              },
+              "Content-Crs" : {
+                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
@@ -2734,6 +2749,17 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "Accept-Crs",
+          "in" : "header",
+          "description" : "Gewenste CRS van de coördinaten in de response.",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
+            "default" : "epsg:28992",
+            "enum" : [ "epsg:28992" ]
+          }
         } ],
         "responses" : {
           "200" : {
@@ -2741,6 +2767,9 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
+              },
+              "Content-Crs" : {
+                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
