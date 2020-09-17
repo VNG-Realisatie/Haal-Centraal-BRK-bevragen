@@ -3514,43 +3514,11 @@ components:
           format: date
         bevoegdGezag:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        beperkingsgebied:
-          $ref: '#/components/schemas/Beperkingsgebied'
       description: Beperkingen op een kadastraal onroerende zaak die door de overheid
         zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een
         woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde
         monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet
         worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
-    Beperkingsgebied:
-      type: object
-      properties:
-        identificatie:
-          type: string
-        domein:
-          type: string
-          description: Het domein waartoe de identificatie behoort.
-        werkingsgebied:
-          $ref: '#/components/schemas/Beperkingsgebied_werkingsgebied'
-    polygonGeoJSON:
-      required:
-      - coordinates
-      - type
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - Polygon
-        coordinates:
-          type: array
-          items:
-            minItems: 4
-            type: array
-            items:
-              minItems: 2
-              type: array
-              items:
-                type: number
     PubliekrechtelijkeBeperking_links:
       type: object
       properties:
@@ -3627,6 +3595,26 @@ components:
         \ deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal\
         \ een appartement genoemd.\n\nWaardelijst in deze component : [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
         \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
+    polygonGeoJSON:
+      required:
+      - coordinates
+      - type
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - Polygon
+        coordinates:
+          type: array
+          items:
+            minItems: 4
+            type: array
+            items:
+              minItems: 2
+              type: array
+              items:
+                type: number
     pointGeoJSON:
       required:
       - coordinates
@@ -4170,18 +4158,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
-    Beperkingsgebied_werkingsgebied:
-      type: object
-      properties:
-        bgtObjectIdentificatie:
-          type: string
-        bagObjectIdentificatie:
-          type: string
-        kadastraalObjectIdentificatie:
-          type: string
-        vrijeContour:
-          $ref: '#/components/schemas/polygonGeoJSON'
-      description: Datgene waarop de beperking van toepassing is.
   headers:
     api_version:
       schema:
