@@ -1,37 +1,34 @@
 openapi: 3.0.0
 info:
-  title: Kadaster - BRK-Bevragen API - Hypotheken endpoints
-  description: "De definitie van de Hypotheken endpoints en components"
+  title: Kadaster - BRK-Bevragen API - Beslagen endpoints
+  description: "De definitie van de Beslagen endpoints en components"
   version: "1.2.0"
 paths:
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
     get:
-      operationId: GetHypothekenKadastraalOnroerendeZaak
+      operationId: GetBeslagenKadastraalOnroerendeZaak
       description: |
-        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
           description: "Zoekactie geslaagd"
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
-            Content-Crs:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
             warning:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/HypotheekHalCollectie"
+                $ref: "#/components/schemas/BeslagHalCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -49,23 +46,23 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Hypotheken
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+      - Beslagen
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
     get:
-      operationId: GetHypotheek
+      operationId: GetBeslag
       description: |
-        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Het raadplegen van een beslag.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          description: "De unieke identificatie van een kadastraal onroerende zaak."
           required: true
           schema:
             type: string
         - in: path
-          name: hypotheekidentificatie
-          description: "De unieke identificatie van de hypotheek."
+          name: beslagidentificatie
+          description: "De unieke identificatie van het beslag."
           required: true
           schema:
             type: string
@@ -83,7 +80,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/HypotheekHal"
+                $ref: "#/components/schemas/BeslagHal"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -105,16 +102,16 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Hypotheken
+      - Beslagen
 components:
   schemas:
-    Hypotheek:
+    Beslag:
       type: "object"
       description: |
-        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
 
         Waardelijst in deze component :
-        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
       properties:
         identificatie:
           type: "string"
@@ -125,32 +122,33 @@ components:
           $ref: "domain.yaml#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
           type: "boolean"
+          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat."
         omschrijvingBetrokkenRecht:
           $ref: "domain.yaml#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
         toelichtingBewaarder:
           type: "string"
           description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
-        betreftGedeelteVanPerceel:
-          type: "boolean"
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
         aantekeningen:
           type: array
           items:
             $ref: "domain.yaml#/components/schemas/Aantekening"
-            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak."
-        hypotheekhouders:
-          description: "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
+            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor."
+        beslagleggers:
           type: array
           items:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
-            description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
-    HypotheekHal:
+            description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
+    BeslagHal:
       allOf:
-      - $ref: "#/components/schemas/Hypotheek"
+      - $ref: "#/components/schemas/Beslag"
       - properties:
           _links:
-            $ref: "#/components/schemas/Hypotheek_links"
-    HypotheekHalCollectie:
+            $ref: "#/components/schemas/Beslag_links"
+    BeslagHalCollectie:
       type: "object"
       properties:
         _links:
@@ -158,16 +156,16 @@ components:
         _embedded:
           type: "object"
           properties:
-            hypotheken:
+            beslagen:
               type: "array"
               items:
-                $ref: "#/components/schemas/HypotheekHal"
-    Hypotheek_links:
+                $ref: "#/components/schemas/BeslagHal"
+    Beslag_links:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        hypotheekhouders:
+        beslagleggers:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
