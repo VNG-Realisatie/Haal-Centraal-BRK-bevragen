@@ -1,24 +1,19 @@
 openapi: 3.0.0
 info:
-  title: Kadaster - BRK-Bevragen API - Zakelijk Gerechtigden endpoints
-  description: "De definitie van de Zakelijk Gerechtigden endpoints en HAL components"
-  version: "1.1.1"
+  title: Kadaster - BRK-Bevragen API - Hypotheken endpoints
+  description: "De definitie van de Hypotheken endpoints en components"
+  version: "1.2.0"
 paths:
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
-      operationId: GetZakelijkGerechtigde
-      description: "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      operationId: GetHypothekenKadastraalOnroerendeZaak
+      description: |
+        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
-          required: true
-          schema:
-            type: string
-        - in: path
-          name: zakelijkgerechtigdeidentificatie
-          description: "De identificatie van de zakelijk gerechtigde"
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
@@ -36,7 +31,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+                $ref: "#/components/schemas/HypotheekHalCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -54,40 +49,41 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Zakelijke Gerechtigden
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
+      - Hypotheken
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
     get:
-      operationId: GetZakelijkGerechtigden
-      description: "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      operationId: GetHypotheek
+      description: |
+        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          description: "De unieke identificatie van een kadastraal onroerende zaak. "
           required: true
           schema:
             type: string
-        - in: query
-          name: type
-          description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
-          required: false
+        - in: path
+          name: hypotheekidentificatie
+          description: "De unieke identificatie van de hypotheek."
+          required: true
           schema:
-            $ref: "domain.yaml#/components/schemas/TypeGerechtigde_enum"
+            type: string
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: "Raadplegen geslaagd"
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
-            Content-Crs:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
             warning:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie"
+                $ref: "#/components/schemas/HypotheekHal"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -100,44 +96,78 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Zakelijke Gerechtigden
+      - Hypotheken
 components:
   schemas:
-    ZakelijkGerechtigdeHal:
+    Hypotheek:
+      type: "object"
+      description: |
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
+        aandeelInBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
+        toelichtingBewaarder:
+          type: "string"
+          description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+        aantekeningen:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/Aantekening"
+            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak."
+        hypotheekhouders:
+          description: "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening."
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
+            description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
+    HypotheekHal:
       allOf:
-      - $ref: "domain.yaml#/components/schemas/ZakelijkGerechtigde"
+      - $ref: "#/components/schemas/Hypotheek"
       - properties:
           _links:
-            $ref: "#/components/schemas/ZakelijkGerechtigde_links"
-    ZakelijkGerechtigde_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        persoon:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenPartner:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenSamenwerkingsverband:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenGorzenEnAanwassen:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    ZakelijkGerechtigdeHalCollectie:
+            $ref: "#/components/schemas/Hypotheek_links"
+    HypotheekHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded"
-    ZakelijkGerechtigdeHalCollectie_embedded:
+          type: "object"
+          properties:
+            hypotheken:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/HypotheekHal"
+    Hypotheek_links:
       type: "object"
       properties:
-        zakelijkGerechtigden:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        hypotheekhouders:
           type: "array"
           items:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"

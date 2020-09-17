@@ -1,24 +1,19 @@
 openapi: 3.0.0
 info:
-  title: Kadaster - BRK-Bevragen API - Zakelijk Gerechtigden endpoints
-  description: "De definitie van de Zakelijk Gerechtigden endpoints en HAL components"
-  version: "1.1.1"
+  title: Kadaster - BRK-Bevragen API - Beslagen endpoints
+  description: "De definitie van de Beslagen endpoints en components"
+  version: "1.2.0"
 paths:
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
     get:
-      operationId: GetZakelijkGerechtigde
-      description: "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      operationId: GetBeslagenKadastraalOnroerendeZaak
+      description: |
+        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: "De unieke identificatie van een kadastraal onroerende zaak."
-          required: true
-          schema:
-            type: string
-        - in: path
-          name: zakelijkgerechtigdeidentificatie
-          description: "De identificatie van de zakelijk gerechtigde"
           required: true
           schema:
             type: string
@@ -36,7 +31,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+                $ref: "#/components/schemas/BeslagHalCollectie"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -54,11 +49,12 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Zakelijke Gerechtigden
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
+      - Beslagen
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
     get:
-      operationId: GetZakelijkGerechtigden
-      description: "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      operationId: GetBeslag
+      description: |
+        Het raadplegen van een beslag.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -67,27 +63,27 @@ paths:
           required: true
           schema:
             type: string
-        - in: query
-          name: type
-          description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
-          required: false
+        - in: path
+          name: beslagidentificatie
+          description: "De unieke identificatie van het beslag."
+          required: true
           schema:
-            $ref: "domain.yaml#/components/schemas/TypeGerechtigde_enum"
+            type: string
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: "Raadplegen geslaagd"
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/api_version"
-            Content-Crs:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
             warning:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/headers/contentCrs"
           content:
             application/hal+json:
               schema:
-                $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie"
+                $ref: "#/components/schemas/BeslagHal"
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -100,44 +96,79 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/415"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Zakelijke Gerechtigden
+      - Beslagen
 components:
   schemas:
-    ZakelijkGerechtigdeHal:
+    Beslag:
+      type: "object"
+      description: |
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
+        aandeelInBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat."
+        omschrijvingBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
+        toelichtingBewaarder:
+          type: "string"
+          description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
+        aantekeningen:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/Aantekening"
+            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor."
+        beslagleggers:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
+            description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
+    BeslagHal:
       allOf:
-      - $ref: "domain.yaml#/components/schemas/ZakelijkGerechtigde"
+      - $ref: "#/components/schemas/Beslag"
       - properties:
           _links:
-            $ref: "#/components/schemas/ZakelijkGerechtigde_links"
-    ZakelijkGerechtigde_links:
-      type: "object"
-      properties:
-        self:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        persoon:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenPartner:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenSamenwerkingsverband:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        betrokkenGorzenEnAanwassen:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    ZakelijkGerechtigdeHalCollectie:
+            $ref: "#/components/schemas/Beslag_links"
+    BeslagHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded"
-    ZakelijkGerechtigdeHalCollectie_embedded:
+          type: "object"
+          properties:
+            beslagen:
+              type: "array"
+              items:
+                $ref: "#/components/schemas/BeslagHal"
+    Beslag_links:
       type: "object"
       properties:
-        zakelijkGerechtigden:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        beslagleggers:
           type: "array"
           items:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
