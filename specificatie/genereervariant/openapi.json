@@ -4505,8 +4505,7 @@
           "waarde" : {
             "type" : "string"
           }
-        },
-        "description" : "Waardelijst is een samengesteld datatype voor het weergeven van een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)"
+        }
       },
       "TypeOppervlak" : {
         "type" : "object",
@@ -5023,7 +5022,7 @@
           "plaats" : {
             "title" : "geboorteplaats",
             "type" : "string",
-            "description" : "De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft waar de persoon is geboren"
+            "description" : "Plaats of een plaatsbepaling waar de persoon is geboren"
           },
           "datum" : {
             "$ref" : "#/components/schemas/Datum_onvolledig"
