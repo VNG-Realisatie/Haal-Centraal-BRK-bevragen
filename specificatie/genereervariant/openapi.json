@@ -27,19 +27,19 @@
     "apiKeyAuth" : [ ]
   } ],
   "tags" : [ {
+    "name" : "Kadastraal Onroerende Zaken"
+  }, {
+    "name" : "Zakelijke Gerechtigden"
+  }, {
     "name" : "Beslagen"
   }, {
     "name" : "Hypotheken"
-  }, {
-    "name" : "Kadaster (niet)Natuurlijk Personen"
-  }, {
-    "name" : "Kadastraal Onroerende Zaken"
   }, {
     "name" : "Privaatrechtelijke Beperkingen"
   }, {
     "name" : "Publiekrechtelijke Beperkingen"
   }, {
-    "name" : "Zakelijke Gerechtigden"
+    "name" : "Kadaster (niet)Natuurlijk Personen"
   } ],
   "paths" : {
     "/kadastraalonroerendezaken" : {
