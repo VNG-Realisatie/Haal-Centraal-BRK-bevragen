@@ -18,6 +18,14 @@ info:
     url: https://eupl.eu/1.2/nl/
 security:
   - apiKeyAuth: []
+tags:
+- name: Beslagen
+- name: Hypotheken
+- name: Kadaster (niet)Natuurlijk Personen
+- name: Kadastraal Onroerende Zaken
+- name: Privaatrechtelijke Beperkingen
+- name: Publiekrechtelijke Beperkingen
+- name: Zakelijke Gerechtigden
 paths:
   /kadastraalonroerendezaken:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
