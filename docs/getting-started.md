@@ -110,8 +110,8 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              |<ul><li>1x hypotheek</li><li>1x beslag</li></ul>|
 1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |22590043870000   |'s Gravenhage:881 AW 438  |2545NN 178<br/>2545NN 180<br/>2545NN 182             |<ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               ||
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li><li>1x privaatrechtelijke beperking</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x privaatrechtelijke beperking</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul>|
 2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
