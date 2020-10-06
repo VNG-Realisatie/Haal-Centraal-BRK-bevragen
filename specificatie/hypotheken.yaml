@@ -144,6 +144,9 @@ components:
           items:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
             description: "Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening."
+        bedragZekerheidsstellingHypotheek:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: "Het bedrag waarvoor hypothecaire zekerheid is gegeven. De vermelde hoofdsom is het bedrag waarvoor het recht van Hypotheek is gevestigd"
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
