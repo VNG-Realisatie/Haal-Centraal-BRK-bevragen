@@ -145,6 +145,9 @@ components:
           items:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
             description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
+        bedragVorderingsbeslag:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: "Het bedrag waarvoor beslag is gelegd. Indien bij een beslag verschillende bedragen voorkomen, dan worden deze bedragen getotaliseerd."
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
