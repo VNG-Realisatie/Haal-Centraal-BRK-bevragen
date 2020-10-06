@@ -4547,68 +4547,74 @@
         } ]
       },
       "Adres" : {
+        "description" : "Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Adres_2"
+        }, {
+          "properties" : {
+            "nummeraanduidingIdentificatie" : {
+              "type" : "string",
+              "description" : "identificatie van het adres in het geval dit adres in BAG geregistreerd is.",
+              "example" : "1234207890123456"
+            },
+            "adresregel1" : {
+              "type" : "string",
+              "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.",
+              "example" : "Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis"
+            },
+            "adresregel2" : {
+              "type" : "string",
+              "description" : "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode",
+              "example" : "6922KZ  Duiven"
+            },
+            "adresregel3" : {
+              "type" : "string",
+              "description" : "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland",
+              "example" : "Selangor"
+            },
+            "land" : {
+              "$ref" : "#/components/schemas/Waardelijst"
+            }
+          }
+        } ]
+      },
+      "Adres_2" : {
+        "type" : "object",
         "properties" : {
-          "nummeraanduidingIdentificatie" : {
+          "straat" : {
+            "title" : "openbareruimte naam",
             "type" : "string",
-            "description" : "identificatie van het adres in het geval dit adres in BAG geregistreerd is."
+            "description" : "Een naam die door de gemeente aan een openbare ruimte is gegeven.",
+            "example" : "Laan van de landinrichtingscommissie Duiven-Westervoort"
           },
           "huisnummer" : {
             "type" : "integer",
-            "description" : "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer"
+            "description" : "Een nummer dat door de gemeente aan een adresseerbaar object is gegeven.",
+            "example" : 1
           },
           "huisletter" : {
             "type" : "string",
-            "description" : "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter",
+            "description" : "Een toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.",
             "example" : "A"
           },
           "huisnummertoevoeging" : {
             "type" : "string",
-            "description" : "URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging",
-            "example" : "3"
-          },
-          "straat" : {
-            "type" : "string",
-            "example" : "Laan van de landinrichtingscommissie Duiven-Westervoort"
+            "description" : "Een toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar object is gegeven.",
+            "example" : "bis"
           },
           "postcode" : {
             "type" : "string",
-            "example" : "1234AA"
+            "description" : "De door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.",
+            "example" : "6922KZ"
           },
           "woonplaats" : {
+            "title" : "woonplaats naam",
             "type" : "string",
-            "example" : "Nootdorp"
-          },
-          "adresregel1" : {
-            "type" : "string",
-            "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.",
-            "example" : "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
-          },
-          "adresregel2" : {
-            "type" : "string",
-            "description" : "Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode",
-            "example" : "1234AA Nootdorp"
-          },
-          "adresregel3" : {
-            "type" : "string",
-            "description" : "Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland",
-            "example" : "Selangor"
-          },
-          "land" : {
-            "$ref" : "#/components/schemas/Waardelijst"
+            "description" : "Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.",
+            "example" : "Duiven"
           }
         },
-        "description" : "Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
-        "example" : {
-          "nummeraanduidingIdentificatie" : "1234207890123456",
-          "huisnummer" : 26,
-          "huisletter" : "A",
-          "huisnummertoevoeging" : "3",
-          "straat" : "Laan van de landinrichtingscommissie Duiven-Westervoort",
-          "postcode" : "1234AA",
-          "woonplaats" : "Nootdorp",
-          "adresregel1" : "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3",
-          "adresregel2" : "1234AA Nootdorp"
-        }
+        "description" : "Eigenschappen van het adres die kunnen worden hergebruikt in andere API's waarin adresgegevens worden opgenomen. "
       },
       "ZakelijkGerechtigde" : {
         "type" : "object",
