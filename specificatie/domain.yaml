@@ -37,6 +37,7 @@ components:
           format: "date"
         indicatieOorspronkelijkObject:
           type: "boolean"
+          deprecated: true
         betreftGedeelteVanPerceel:
           type: "boolean"
     Adres:
