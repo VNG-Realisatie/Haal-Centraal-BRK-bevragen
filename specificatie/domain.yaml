@@ -35,6 +35,9 @@ components:
         einddatumRecht:
           type: "string"
           format: "date"
+        indicatieOorspronkelijkObject:
+          type: "boolean"
+          deprecated: true
         betreftGedeelteVanPerceel:
           type: "boolean"
     Adres:
