@@ -10,7 +10,7 @@ Komende periode wordt de API uitgebreid met beperkingen, hypotheken, beslagen (v
 Wil je een aansluiting ontwikkelen? Dan is de [getting started](./docs/getting-started.md) een goed begin. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
 
 # Planning Haal Centraal
-https://eu-rm.roadmunk.com/publish/29a13c572a0dfc79f1d0386fc572e15383afe11f
+https://eu-rm.roadmunk.com/publish/4ac89376551785bace5e22f09c8247f307e1c061
 
 ## Documentatie
 * [Technische specificaties van de **resolved** versie](./specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](./specificatie) (Open API versie)
