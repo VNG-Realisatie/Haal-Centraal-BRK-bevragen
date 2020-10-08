@@ -2450,6 +2450,16 @@ paths:
         Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperkingen
       parameters:
+      - name: Accept-Crs
+        in: header
+        description: Gewenste CRS van de coördinaten in de response.
+        required: false
+        schema:
+          type: string
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
       - name: fields
         in: query
         description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
@@ -2474,6 +2484,8 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
           content:
             application/hal+json:
               schema:
@@ -2628,6 +2640,16 @@ paths:
         Het raadplegen van een specifieke privaatrechtelijke beperkingen.
       operationId: GetPrivaatrechtelijkeBeperking
       parameters:
+      - name: Accept-Crs
+        in: header
+        description: Gewenste CRS van de coördinaten in de response.
+        required: false
+        schema:
+          type: string
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
       - name: fields
         in: query
         description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
@@ -2658,6 +2680,8 @@ paths:
               $ref: '#/components/headers/api_version'
             warning:
               $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
           content:
             application/hal+json:
               schema:
