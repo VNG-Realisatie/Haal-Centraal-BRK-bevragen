@@ -96,23 +96,23 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 #### Onroerende Zaken
 Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheden      |                                                                    
 ----------------                                |:-------                                   |:-------                  |:-------               |:-------           |
-2 eigenaren (Kadaster Natuurlijk Persoon)       |76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |<ul><li>alle velden gevuld</li></ul> |
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |76870488070000   |Beekbergen:87 K 4880      |7361EW 27              ||
-1 eigenaar (Kadaster Natuurlijk Persoon)        |76870482670000   |Beekbergen:87 K 4826      |7361EW 25              ||
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |76870482570000   |Beekbergen:87 K 4825      |7361EW 21              |<ul><li>2 erfpachters met erfpachtcanon</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22310827210003   |'s Gravenhage:881 N 8272 3|2517GL 84              |<ul><li>appartementsrecht</li></ul> |
+2 eigenaren (Kadaster Natuurlijk Persoon)       |76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |<ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul> |
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |76870488070000   |Beekbergen:87 K 4880      |7361EW 27              |<ul><li>1x privaatrechtelijke beperking</li></ul>|
+1 eigenaar (Kadaster Natuurlijk Persoon)        |76870482670000   |Beekbergen:87 K 4826      |7361EW 25              |<ul><li>2x hypotheek</li></ul>|
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |76870482570000   |Beekbergen:87 K 4825      |7361EW 21              |<ul><li>2 erfpachters met erfpachtcanon</li><li>1x hypotheek</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22310827210003   |'s Gravenhage:881 N 8272 3|2517GL 84              |<ul><li>appartementsrecht</li><li>1x hypotheek</li><li>1x publiekrechtelijke beperking</li></ul> |
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22310827210004   |'s Gravenhage:881 N 8272 4|2517GL 85              |<ul><li>appartementsrecht</li></ul> |
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |56020234070000   |Odoorn:717 N 2340         |9573PA 3               |<ul><li>1 artikel5_3b</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |23280647970000   |Loosduinen:561 H 6479     |2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51              |<ul><li>meerdere adressen</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |56020234070000   |Odoorn:717 N 2340         |9573PA 3               |<ul><li>1 artikel5_3b</li><li>1x hypotheek</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |23280647970000   |Loosduinen:561 H 6479     |2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51              |<ul><li>meerdere adressen</li><li>1x privaatrechtelijke beperking</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |65490485370000   |Hellendoorn:395 G 4853    |7441JC 1 a             |<ul><li>bevat huisletter</li></ul>|
 2 eigenaen (Ingeschreven & Kadaster Natuurlijk Persoon)    |65490485270000   |Hellendoorn:395 G 4853    |7441JC 1               ||
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |24780711870000   |Voorschoten:1040 B 7118   |2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18              |<ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              ||
-1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |22590043870000   |'s Gravenhage:881 AW 438  |2545NN 178<br/>2545NN 180<br/>2545NN 182             |<ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              |<ul><li>1x hypotheek</li><li>1x beslag</li></ul>|
+1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |22590043870000   |'s Gravenhage:881 AW 438  |2545NN 178<br/>2545NN 180<br/>2545NN 182             |<ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul>|
 1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               ||
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li></ul>|
-1 eigenaar (Ingeschreven Natuurlijk Persoon)    |19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li></ul>|
-2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul>|
+1 eigenaar (Ingeschreven Natuurlijk Persoon)    |19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul>|
+2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
 Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheden        |
