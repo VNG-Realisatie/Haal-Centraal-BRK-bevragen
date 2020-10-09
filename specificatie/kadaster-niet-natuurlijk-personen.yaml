@@ -101,8 +101,8 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded"
-    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
+          $ref: "#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectieEmbedded"
+    KadasterNietNatuurlijkPersoonHalCollectieEmbedded:
       type: "object"
       properties:
         kadasterNietNatuurlijkPersonen:

@@ -113,22 +113,22 @@ components:
         - $ref: "#/components/schemas/PrivaatrechtelijkeBeperking"
         - properties:
             _links:
-              $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+              $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie_embedded"
-    PrivaatrechtelijkeBeperkingHalCollectie_embedded:
+          $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectieEmbedded"
+    PrivaatrechtelijkeBeperkingHalCollectieEmbedded:
       type: "object"
       properties:
         privaatrechtelijkeBeperkingen:
           type: "array"
           items:
             $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
-    PrivaatrechtelijkeBeperking_links:
+    PrivaatrechtelijkeBeperkingLinks:
       type: "object"
       properties:
         self:

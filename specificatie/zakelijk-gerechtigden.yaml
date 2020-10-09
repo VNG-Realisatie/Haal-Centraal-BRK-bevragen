@@ -113,8 +113,8 @@ components:
       - $ref: "domain.yaml#/components/schemas/ZakelijkGerechtigde"
       - properties:
           _links:
-            $ref: "#/components/schemas/ZakelijkGerechtigde_links"
-    ZakelijkGerechtigde_links:
+            $ref: "#/components/schemas/ZakelijkGerechtigdeLinks"
+    ZakelijkGerechtigdeLinks:
       type: "object"
       properties:
         self:
@@ -133,8 +133,8 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded"
-    ZakelijkGerechtigdeHalCollectie_embedded:
+            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+    ZakelijkGerechtigdeHalCollectieEmbedded:
       type: "object"
       properties:
         zakelijkGerechtigden:

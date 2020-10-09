@@ -182,8 +182,8 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded"
-    KadastraalOnroerendeZaakHalCollectie_embedded:
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectieEmbedded"
+    KadastraalOnroerendeZaakHalCollectieEmbedded:
       type: "object"
       properties:
         kadastraalOnroerendeZaken:
@@ -197,7 +197,7 @@ components:
           _links:
             $ref: "#/components/schemas/KadastraalOnroerendeZaak_links"
           _embedded:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaak_embedded"
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
     KadastraalOnroerendeZaak_links:
       type: "object"
       properties:
@@ -219,7 +219,7 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadastraalOnroerendeZaak_embedded:
+    KadastraalOnroerendeZaakEmbedded:
       type: "object"
       properties:
         zakelijkGerechtigden:
