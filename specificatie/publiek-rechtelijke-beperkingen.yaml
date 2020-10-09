@@ -79,12 +79,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            publiekrechtelijkeBeperkingen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
+          $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHalCollectie_embedded"
+    PubliekrechtelijkeBeperkingHalCollectie_embedded:
+      type: "object"
+      properties:
+        publiekrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
     PubliekrechtelijkeBeperking_links:
       type: "object"
       properties:

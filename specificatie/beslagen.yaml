@@ -157,12 +157,14 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            beslagen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/BeslagHal"
+          $ref: "#/components/schemas/BeslagHalCollectie_embedded"
+    BeslagHalCollectie_embedded:
+      type: "object"
+      properties:
+        beslagen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/BeslagHal"
     Beslag_links:
       type: "object"
       properties:
