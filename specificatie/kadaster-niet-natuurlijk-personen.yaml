@@ -94,7 +94,7 @@ components:
       - $ref: "domain.yaml#/components/schemas/KadasterNietNatuurlijkPersoon"
       - properties:
           _links:
-            $ref: "kadaster-natuurlijk-personen.yaml#/components/schemas/KadasterPersoon_links"
+            $ref: "kadaster-natuurlijk-personen.yaml#/components/schemas/KadasterPersoonLinks"
     KadasterNietNatuurlijkPersoonHalCollectie:
       type: "object"
       properties:
