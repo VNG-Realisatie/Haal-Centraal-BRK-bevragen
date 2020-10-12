@@ -2632,8 +2632,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
-    get:
+  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  : get:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
@@ -2852,24 +2852,12 @@ paths:
           wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak.
         schema:
           type: string
-      - name: Accept-Crs
-        in: header
-        description: Gewenste CRS van de coördinaten in de response.
-        required: false
-        schema:
-          type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
-            RD New Nederlands coordinatenstelsel.
-          enum:
-          - epsg:28992
       responses:
         "200":
           description: Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-            Content-Crs:
-              $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
           content:
@@ -3375,14 +3363,11 @@ components:
           $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie__embedded'
     PrivaatrechtelijkeBeperkingHal:
       allOf:
-      - $ref: '#/components/schemas/PrivaatrechtelijkeBeperking'
+      - $ref: '#/components/schemas/Aantekening'
       - properties:
           _links:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperking_links'
-    PrivaatrechtelijkeBeperking:
-      allOf:
-      - $ref: '#/components/schemas/Aantekening'
-      - description: Een privaatrechtelijke beperking is dat iemand niet alles met
+        description: Een privaatrechtelijke beperking is dat iemand niet alles met
           een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die
           hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens
           het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een
