@@ -158,7 +158,7 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           $ref: "#/components/schemas/BeslagHalCollectieEmbedded"
-    BeslagHalCollectiEmbedded:
+    BeslagHalCollectieEmbedded:
       type: "object"
       properties:
         beslagen:
