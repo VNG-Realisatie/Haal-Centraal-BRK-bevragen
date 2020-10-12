@@ -131,13 +131,13 @@ Wladyslaw Kwasniewski   |                 |Ingeschreven Natuurlijk Persoon      
 Adrianus Hendrikus Holthuizen  |          |Ingeschreven Natuurlijk Persoon      |                               |999990421            ||
 Peter-Jan Meijden  |                      |Ingeschreven Natuurlijk Persoon      |                               |999993872            ||
 Paul Man          |                       |Ingeschreven Natuurlijk Persoon      |                               |999990883            ||
-Anne Janssens        |                       |Kadaster Natuurlijk Persoon    |8000001              |            |<ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-Jan Groenen          |                       |Kadaster Natuurlijk Persoon    |8000002              |            |<ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-Susan in het Veld    |                       |Kadaster Natuurlijk Persoon    |8000003              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-Petra Anne Veldwijk  |                       |Kadaster Natuurlijk Persoon    |8000004              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-H Pieters            |                       |Kadaster Natuurlijk Persoon    |8000005              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |8000006              |            |<ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |8000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Anne Janssens        |                       |Kadaster Natuurlijk Persoon    |80000001              |            |<ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Jan Groenen          |                       |Kadaster Natuurlijk Persoon    |80000002              |            |<ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Susan in het Veld    |                       |Kadaster Natuurlijk Persoon    |80000003              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Petra Anne Veldwijk  |                       |Kadaster Natuurlijk Persoon    |80000004              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+H Pieters            |                       |Kadaster Natuurlijk Persoon    |80000005              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |80000006              |            |<ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 
 #### Niet Natuurlijke Personen
 Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden |
