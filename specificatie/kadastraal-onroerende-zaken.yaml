@@ -195,10 +195,10 @@ components:
       - $ref: "domain.yaml#/components/schemas/KadastraalOnroerendeZaak"
       - properties:
           _links:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaak_links"
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakLinks"
           _embedded:
             $ref: "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
-    KadastraalOnroerendeZaak_links:
+    KadastraalOnroerendeZaakLinks:
       type: "object"
       properties:
         self:
