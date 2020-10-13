@@ -23,7 +23,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
   - GA = geslachtsaanduiding afhankelijk van geslachtsaanduiding:
     - Als geslachtsaanduiding==1 (Man) Dan "de heer”
     - Als geslachtsaanduiding==2 (Vrouw) Dan "mevrouw"
-    - Als geslachtsaanduiding==3 (Onbekend) Dan “de heer/mevrouw"
+    - Als geslachtsaanduiding==3 (Onbekend) Dan de voorletters
   - AP = adellijkeTitelOfPredikaat
   - VV = naam.voorvoegselsgeslachtsnaam
   - GN = naam.geslachtsnaam
@@ -52,7 +52,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
 
   Bij de samenstelling van gebruikInLopendeTekst volgens bovenstaande tabel gelden de volgende regels:
   1. Voor adellijke titel en predikaat wordt de Waarde volgens waardelijst [AdellijkeTitelOfPredikaat](https://www.kadaster.nl/schemas/waardelijsten/AdellijkeTitelOfPredikaat/) gebruikt, geschreven in kleine letters.
-  2. Het voorvoegsel van de eerste geslachtsnaam in gebruikInLopendeTekst wordt met een hoofdletter geschreven.
+  2. Wanneer geslachtsaanduiding=1 (Man) of 2 (Vrouw), dan wordt het voorvoegsel van de eerste geslachtsnaam in gebruikInLopendeTekst met een hoofdletter geschreven.
   3. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
 
 
@@ -61,19 +61,19 @@ Functionaliteit: Als gemeente wil ik de juiste en consistent naamgebruik in een 
     Dan heeft de gevonden persoon naam.gebruikInLopendeTekst="<gebruikInLopendeTekst>"
 
     Voorbeelden: persoon heeft geen adellijke titel of predikaat
-      | aanduidingNaamgebruik | geslachtsaanduiding | VV     | GN       | VP     | GP       | gebruikInLopendeTekst                  |
-      | E                     | 1 (Man)             | in het | Veld     | van    | Velzen   | de heer In het Veld                    |
-      | E                     | 1 (Man)             |        | Groenen  |        |          | de heer Groenen                        |
-      | N                     | 2 (Vrouw)           | in het | Veld     | van    | Velzen   | mevrouw In het Veld-van Velzen         |
-      | N                     | 2 (Vrouw)           |        | Groenen  |        | Groenink | mevrouw Groenen-Groenink               |
-      | P                     | 2 (Vrouw)           | in het | Veld     | van    | Velzen   | mevrouw Van Velzen                     |
-      | P                     | 2 (Vrouw)           |        | Groenink |        | Groenen  | mevrouw Groenen                        |
-      | V                     | 3 (Onbekend)        | van    | Velzen   | in het | Veld     | de heer/mevrouw In het Veld-van Velzen |
+      | aanduidingNaamgebruik | geslachtsaanduiding | Voornamen | VV     | GN       | VP     | GP       | gebruikInLopendeTekst                  |
+      | E                     | 1 (Man)             | Peter     | in het | Veld     | van    | Velzen   | de heer In het Veld                    |
+      | E                     | 1 (Man)             | Jan       |        | Groenen  |        |          | de heer Groenen                        |
+      | N                     | 2 (Vrouw)           | Susan     | in het | Veld     | van    | Velzen   | mevrouw In het Veld-van Velzen         |
+      | N                     | 2 (Vrouw)           | Karin     |        | Groenen  |        | Groenink | mevrouw Groenen-Groenink               |
+      | P                     | 2 (Vrouw)           | Marja     | in het | Veld     | van    | Velzen   | mevrouw Van Velzen                     |
+      | P                     | 2 (Vrouw)           | Anja      |        | Groenink |        | Groenen  | mevrouw Groenen                        |
+      | V                     | 3 (Onbekend)        | Jo Anne   | van    | Velzen   | in het | Veld     | J.A. in het Veld-van Velzen            |
 
     Voorbeelden: persoon heeft een adellijke titel of predikaat
-      | aanduidingNaamgebruik | geslachtsaanduiding | AP | VV      | GN           | VP      | GP                  | gebruikInLopendeTekst                              |
-      | E                     | 1 (Man)             | G  | van den | Aedel        | van der | Veen                | graaf Van den Aedel                                |
-      | N                     | 2 (Vrouw)           | PS | van den | Aedel        | van der | Veen                | prinses Van den Aedel-van der Veen                 |
-      | P                     | 2 (Vrouw)           | BS | van den | Aedel        | van der | Veen                | mevrouw Van der Veen                               |
-      | V                     | 3 (Onbekend)        | GI | van den | Aedel        | van der | Veen                | de heer/mevrouw Van der Veen-gravin van den Aedel  |
-      | V                     | 2 (Vrouw)           | JV |         | Blancanieves |         | Príncipe Encantador | mevrouw Príncipe Encantador-jonkvrouw Blancanieves |
+      | aanduidingNaamgebruik | geslachtsaanduiding | AP | Voornamen | VV      | GN           | VP      | GP                  | gebruikInLopendeTekst                              |
+      | E                     | 1 (Man)             | G  | Willem    | van den | Aedel        | van der | Veen                | graaf Van den Aedel                                |
+      | N                     | 2 (Vrouw)           | PS | Josephine | van den | Aedel        | van der | Veen                | prinses Van den Aedel-van der Veen                 |
+      | P                     | 2 (Vrouw)           | BS | Catharina | van den | Aedel        | van der | Veen                | mevrouw Van der Veen                               |
+      | V                     | 3 (Onbekend)        | GI | Elisabeth | van den | Aedel        | van der | Veen                | E. van der Veen-gravin van den Aedel               |
+      | V                     | 2 (Vrouw)           | JV | Blanche   |         | Blancanieves |         | Príncipe Encantador | mevrouw Príncipe Encantador-jonkvrouw Blancanieves |

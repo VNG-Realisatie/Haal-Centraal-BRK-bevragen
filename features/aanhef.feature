@@ -23,7 +23,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   - AH = aanhef afhankelijk van geslachtsaanduiding:
     - Als geslachtsaanduiding==1 (Man) Dan “Geachte heer”
     - Als geslachtsaanduiding==2 (Vrouw) Dan “Geachte mevrouw"
-    - Als geslachtsaanduiding==3 (Onbekend) Dan “Geachte heer/mevrouw"
+    - Als geslachtsaanduiding==3 (Onbekend) Dan de voorletters
   - AP = AdellijkeTitelOfPredikaat
   - VV = naam.voorvoegselsgeslachtsnaam
   - GN = naam.geslachtsnaam
@@ -44,7 +44,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   | V                     | AH VP GP-VV GN  |
 
   Bij de samenstelling van de aanhef voor een persoon zonder adellijke titel of predikaat volgens bovenstaande tabel gelden de volgende regels:
-  1. Het voorvoegsel van de eerste geslachtsnaam in de aanhef wordt met een hoofdletter geschreven.
+  1. Wanneer geslachtsaanduiding=1 (Man) of 2 (Vrouw), dan wordt het voorvoegsel van de eerste geslachtsnaam in de aanhef met een hoofdletter geschreven.
   2. Wanneer een naamcomponent geen waarde heeft, wordt ook de spatie erna niet opgenomen.
 
   Wanneer de persoon een adellijke titel of predikaat heeft, en de persoon gebruikt de eigen naam (aanduidingNaamgebruik ongelijk aan "P"), dan wordt de aanhef gevuld volgens de volgende tabel:
@@ -69,18 +69,19 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
     Dan heeft de gevonden persoon naam.aanhef="<aanhef>"
 
     Voorbeelden: persoon heeft geen adellijke titel of predikaat
-      | aanduidingNaamgebruik | geslachtsaanduiding | VV     | GN       | VP     | GP       | aanhef                                      |
-      | E                     | 1 (Man)             | in het | Veld     | van    | Velzen   | Geachte heer In het Veld                    |
-      | E                     | 1 (Man)             |        | Groenen  |        |          | Geachte heer Groenen                        |
-      | N                     | 2 (Vrouw)           | in het | Veld     | van    | Velzen   | Geachte mevrouw In het Veld-van Velzen      |
-      | N                     | 2 (Vrouw)           |        | Groenen  |        | Groenink | Geachte mevrouw Groenen-Groenink            |
-      | P                     | 2 (Vrouw)           | in het | Veld     | van    | Velzen   | Geachte mevrouw Van Velzen                  |
-      | P                     | 2 (Vrouw)           |        | Groenink |        | Groenen  | Geachte mevrouw Groenen                     |
-      | V                     | 3 (Onbekend)        | van    | Velzen   | in het | Veld     | Geachte heer/mevrouw In het Veld-van Velzen |
+      | aanduidingNaamgebruik | geslachtsaanduiding | Voornamen | VV     | GN       | VP     | GP       | aanhef                                      |
+      | E                     | 1 (Man)             | Peter     | in het | Veld     | van    | Velzen   | Geachte heer In het Veld                    |
+      | E                     | 1 (Man)             | Jan       |        | Groenen  |        |          | Geachte heer Groenen                        |
+      | N                     | 2 (Vrouw)           | Susan     | in het | Veld     | van    | Velzen   | Geachte mevrouw In het Veld-van Velzen      |
+      | N                     | 2 (Vrouw)           | Karin     |        | Groenen  |        | Groenink | Geachte mevrouw Groenen-Groenink            |
+      | P                     | 2 (Vrouw)           | Marja     | in het | Veld     | van    | Velzen   | Geachte mevrouw Van Velzen                  |
+      | P                     | 2 (Vrouw)           | Anja      |        | Groenink |        | Groenen  | Geachte mevrouw Groenen                     |
+      | V                     | 3 (Onbekend)        | Jo Anne   | van    | Velzen   | in het | Veld     | J.A. in het Veld-van Velzen                 |
 
     Voorbeelden: persoon heeft een adellijke titel of predikaat
-      | aanduidingNaamgebruik | AP        | geslachtsaanduiding | VV      | GN          | VP      | GP       | aanhef                       |
-      | E                     | Graaf     | 1 (Man)             | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
-      | N                     | Prinses   | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Hoogheid                     |
-      | P                     | Barones   | 2 (Vrouw)           | van den | Aedel       | van der | Veen     | Geachte mevrouw Van der Veen |
-      | V                     | Jonkvrouw | 3 (Onbekend)        |         | Cenerentola | il      | Principe | Hoogwelgeboren vrouwe        |
+      | aanduidingNaamgebruik | AP        | geslachtsaanduiding | Voornamen | VV      | GN          | VP      | GP       | aanhef                       |
+      | E                     | Graaf     | 1 (Man)             | Willem    | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
+      | N                     | Prinses   | 2 (Vrouw)           | Josephine | van den | Aedel       | van der | Veen     | Hoogheid                     |
+      | P                     | Barones   | 2 (Vrouw)           | Catharina | van den | Aedel       | van der | Veen     | Geachte mevrouw Van der Veen |
+      | P                     | Gravin    | 3 (Onbekend)        | Fleur     | van den | Aedel       | van der | Veen     | F. van der Veen              |
+      | V                     | Jonkvrouw | 3 (Onbekend)        | Astrid    |         | Cenerentola | il      | Principe | Hoogwelgeboren vrouwe        |
