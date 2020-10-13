@@ -23,7 +23,7 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
   - AH = aanhef afhankelijk van geslachtsaanduiding:
     - Als geslachtsaanduiding==1 (Man) Dan “Geachte heer”
     - Als geslachtsaanduiding==2 (Vrouw) Dan “Geachte mevrouw"
-    - Als geslachtsaanduiding==3 (Onbekend) Dan de voorletters
+    - Als geslachtsaanduiding==3 (Onbekend) Dan “Geachte" plus de voorletters
   - AP = AdellijkeTitelOfPredikaat
   - VV = naam.voorvoegselsgeslachtsnaam
   - GN = naam.geslachtsnaam
@@ -76,12 +76,12 @@ Functionaliteit: Als gemeente wil ik de juiste en consistente briefaanhef in com
       | N                     | 2 (Vrouw)           | Karin     |        | Groenen  |        | Groenink | Geachte mevrouw Groenen-Groenink            |
       | P                     | 2 (Vrouw)           | Marja     | in het | Veld     | van    | Velzen   | Geachte mevrouw Van Velzen                  |
       | P                     | 2 (Vrouw)           | Anja      |        | Groenink |        | Groenen  | Geachte mevrouw Groenen                     |
-      | V                     | 3 (Onbekend)        | Jo Anne   | van    | Velzen   | in het | Veld     | J.A. in het Veld-van Velzen                 |
+      | V                     | 3 (Onbekend)        | Jo Anne   | van    | Velzen   | in het | Veld     | Geachte J.A. in het Veld-van Velzen         |
 
     Voorbeelden: persoon heeft een adellijke titel of predikaat
       | aanduidingNaamgebruik | AP        | geslachtsaanduiding | Voornamen | VV      | GN          | VP      | GP       | aanhef                       |
       | E                     | Graaf     | 1 (Man)             | Willem    | van den | Aedel       | van der | Veen     | Hooggeboren heer             |
       | N                     | Prinses   | 2 (Vrouw)           | Josephine | van den | Aedel       | van der | Veen     | Hoogheid                     |
       | P                     | Barones   | 2 (Vrouw)           | Catharina | van den | Aedel       | van der | Veen     | Geachte mevrouw Van der Veen |
-      | P                     | Gravin    | 3 (Onbekend)        | Fleur     | van den | Aedel       | van der | Veen     | F. van der Veen              |
+      | P                     | Gravin    | 3 (Onbekend)        | Fleur     | van den | Aedel       | van der | Veen     | Geachte F. van der Veen      |
       | V                     | Jonkvrouw | 3 (Onbekend)        | Astrid    |         | Cenerentola | il      | Principe | Hoogwelgeboren vrouwe        |
