@@ -105,7 +105,7 @@
           "description" : "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.",
           "required" : false,
           "schema" : {
-            "$ref" : "#/components/schemas/TypeGerechtigde_enum"
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           }
         }, {
           "name" : "postcode",
@@ -874,7 +874,7 @@
           "description" : "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.",
           "required" : false,
           "schema" : {
-            "$ref" : "#/components/schemas/TypeGerechtigde_enum"
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           }
         }, {
           "name" : "Accept-Crs",
@@ -3789,7 +3789,7 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded"
+            "$ref" : "#/components/schemas/KadastraalOnroerendeZaakHalCollectieEmbedded"
           }
         }
       },
@@ -3823,7 +3823,7 @@
         "type" : "string",
         "example" : "https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}"
       },
-      "KadastraalOnroerendeZaakHalCollectie_embedded" : {
+      "KadastraalOnroerendeZaakHalCollectieEmbedded" : {
         "type" : "object",
         "properties" : {
           "kadastraalOnroerendeZaken" : {
@@ -3840,15 +3840,15 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/KadastraalOnroerendeZaak_links"
+              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakLinks"
             },
             "_embedded" : {
-              "$ref" : "#/components/schemas/KadastraalOnroerendeZaak_embedded"
+              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
             }
           }
         } ]
       },
-      "KadastraalOnroerendeZaak_links" : {
+      "KadastraalOnroerendeZaakLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -3880,7 +3880,7 @@
           }
         }
       },
-      "KadastraalOnroerendeZaak_embedded" : {
+      "KadastraalOnroerendeZaakEmbedded" : {
         "type" : "object",
         "properties" : {
           "zakelijkGerechtigden" : {
@@ -3897,7 +3897,7 @@
           }
         }
       },
-      "TypeGerechtigde_enum" : {
+      "TypeGerechtigdeEnum" : {
         "type" : "string",
         "description" : "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n * `beklemrechthouder` - 1 Beklemrechthouder\n * `eigenaar` - 2 Eigenaar\n * `erfpachter` - 3 Erfpachter\n * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning\n * `grondrente` - 5 Grondrente gerechtigde\n * `opstalhouder` - 7 Opstalhouder\n * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht\n * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht\n * `vruchtgebruiker` - 12 Vruchtgebruiker\n * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder\n * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen\n * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen\n * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende\n * `bp_recht` - 22 BP-gerechtigde\n * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel\n * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel",
         "enum" : [ "beklemrechthouder", "eigenaar", "erfpachter", "gebruik_bewoning", "grondrente", "opstalhouder", "vaderlandsrecht", "stadsmeierrecht", "vruchtgebruiker", "erfpachter_opstalhouder", "nutsvoorzieningen", "twee_belastingen", "belasting_derde", "bp_recht", "nutsvoorzieningen_gedeelte", "artikel5_3b" ]
@@ -3984,12 +3984,12 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/ZakelijkGerechtigde_links"
+              "$ref" : "#/components/schemas/ZakelijkGerechtigdeLinks"
             }
           }
         } ]
       },
-      "ZakelijkGerechtigde_links" : {
+      "ZakelijkGerechtigdeLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -4016,11 +4016,11 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded"
+            "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
           }
         }
       },
-      "ZakelijkGerechtigdeHalCollectie_embedded" : {
+      "ZakelijkGerechtigdeHalCollectieEmbedded" : {
         "type" : "object",
         "properties" : {
           "zakelijkGerechtigden" : {
@@ -4037,12 +4037,12 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/KadasterPersoon_links"
+              "$ref" : "#/components/schemas/KadasterPersoonLinks"
             }
           }
         } ]
       },
-      "KadasterPersoon_links" : {
+      "KadasterPersoonLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -4074,7 +4074,7 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/KadasterPersoon_links"
+              "$ref" : "#/components/schemas/KadasterPersoonLinks"
             }
           }
         } ]
@@ -4086,11 +4086,11 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded"
+            "$ref" : "#/components/schemas/KadasterNatuurlijkPersoonHalCollectieEmbedded"
           }
         }
       },
-      "KadasterNatuurlijkPersoonHalCollectie_embedded" : {
+      "KadasterNatuurlijkPersoonHalCollectieEmbedded" : {
         "type" : "object",
         "properties" : {
           "kadasterNatuurlijkPersonen" : {
@@ -4108,11 +4108,11 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded"
+            "$ref" : "#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectieEmbedded"
           }
         }
       },
-      "KadasterNietNatuurlijkPersoonHalCollectie_embedded" : {
+      "KadasterNietNatuurlijkPersoonHalCollectieEmbedded" : {
         "type" : "object",
         "properties" : {
           "kadasterNietNatuurlijkPersonen" : {
@@ -4130,7 +4130,18 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/HypotheekHalCollectie__embedded"
+            "$ref" : "#/components/schemas/HypotheekHalCollectieEmbedded"
+          }
+        }
+      },
+      "HypotheekHalCollectieEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "hypotheken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HypotheekHal"
+            }
           }
         }
       },
@@ -4140,7 +4151,7 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/Hypotheek_links"
+              "$ref" : "#/components/schemas/HypotheekLinks"
             }
           }
         } ]
@@ -4187,7 +4198,7 @@
         },
         "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
       },
-      "Hypotheek_links" : {
+      "HypotheekLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -4208,7 +4219,18 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/BeslagHalCollectie__embedded"
+            "$ref" : "#/components/schemas/BeslagHalCollectieEmbedded"
+          }
+        }
+      },
+      "BeslagHalCollectieEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "beslagen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BeslagHal"
+            }
           }
         }
       },
@@ -4218,7 +4240,7 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/Beslag_links"
+              "$ref" : "#/components/schemas/BeslagLinks"
             }
           }
         } ]
@@ -4265,7 +4287,7 @@
         },
         "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
       },
-      "Beslag_links" : {
+      "BeslagLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -4286,7 +4308,18 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie__embedded"
+            "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectieEmbedded"
+          }
+        }
+      },
+      "PrivaatrechtelijkeBeperkingHalCollectieEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "privaatrechtelijkeBeperkingen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+            }
           }
         }
       },
@@ -4296,13 +4329,13 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"
             }
           },
           "description" : "Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken."
         } ]
       },
-      "PrivaatrechtelijkeBeperking_links" : {
+      "PrivaatrechtelijkeBeperkingLinks" : {
         "type" : "object",
         "properties" : {
           "self" : {
@@ -4317,7 +4350,18 @@
             "$ref" : "#/components/schemas/HalCollectionLinks"
           },
           "_embedded" : {
-            "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingHalCollectie__embedded"
+            "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingHalCollectieEmbedded"
+          }
+        }
+      },
+      "PubliekrechtelijkeBeperkingHalCollectieEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "publiekrechtelijkeBeperkingen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingHal"
+            }
           }
         }
       },
@@ -4327,7 +4371,7 @@
         }, {
           "properties" : {
             "_links" : {
-              "$ref" : "#/components/schemas/PubliekrechtelijkeBeperking_links"
+              "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingLinks"
             }
           }
         } ]
@@ -4359,7 +4403,7 @@
         },
         "description" : "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging."
       },
-      "PubliekrechtelijkeBeperking_links" : {
+      "PubliekrechtelijkeBeperkingLinks" : {
         "type" : "object",
         "properties" : {
           "bevoegdGezag" : {
@@ -4396,7 +4440,7 @@
             "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
           },
           "type" : {
-            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaak_enum"
+            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
           },
           "aardCultuurBebouwd" : {
             "$ref" : "#/components/schemas/Waardelijst"
@@ -4505,7 +4549,7 @@
           }
         }
       },
-      "TypeKadastraalOnroerendeZaak_enum" : {
+      "TypeKadastraalOnroerendeZaakEnum" : {
         "type" : "string",
         "enum" : [ "appartementsrecht", "perceel" ]
       },
@@ -4638,7 +4682,7 @@
             "description" : "Identificatie van de zakelijk gerechtigde."
           },
           "type" : {
-            "$ref" : "#/components/schemas/TypeGerechtigde_enum"
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           },
           "aanvangsdatum" : {
             "type" : "string",
@@ -4794,7 +4838,7 @@
         }, {
           "properties" : {
             "type" : {
-              "$ref" : "#/components/schemas/NatuurlijkPersoonType_enum"
+              "$ref" : "#/components/schemas/NatuurlijkPersoonTypeEnum"
             }
           },
           "description" : "Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn."
@@ -4814,7 +4858,7 @@
         },
         "description" : "Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn."
       },
-      "NatuurlijkPersoonType_enum" : {
+      "NatuurlijkPersoonTypeEnum" : {
         "type" : "string",
         "description" : "Een aanduiding die aangeeft of de persoon ingeschreven is in het BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster.",
         "enum" : [ "ingeschreven_natuurlijk_persoon", "kadaster_natuurlijk_persoon" ]
@@ -4825,13 +4869,13 @@
         }, {
           "properties" : {
             "type" : {
-              "$ref" : "#/components/schemas/NietNatuurlijkPersoonType_enum"
+              "$ref" : "#/components/schemas/NietNatuurlijkPersoonTypeEnum"
             }
           },
           "description" : "Een niet-natuurlijk persoon."
         } ]
       },
-      "NietNatuurlijkPersoonType_enum" : {
+      "NietNatuurlijkPersoonTypeEnum" : {
         "type" : "string",
         "description" : "Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.",
         "enum" : [ "ingeschreven_niet_natuurlijk_persoon", "kadaster_niet_natuurlijk_persoon" ]
@@ -4842,12 +4886,12 @@
         }, {
           "properties" : {
             "type" : {
-              "$ref" : "#/components/schemas/PersoonType_enum"
+              "$ref" : "#/components/schemas/PersoonTypeEnum"
             }
           }
         } ]
       },
-      "PersoonType_enum" : {
+      "PersoonTypeEnum" : {
         "type" : "string",
         "description" : "Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster.",
         "enum" : [ "ingeschreven_natuurlijk_persoon", "kadaster_natuurlijk_persoon", "ingeschreven_niet_natuurlijk_persoon", "kadaster_niet_natuurlijk_persoon" ]
@@ -4866,7 +4910,7 @@
               "$ref" : "#/components/schemas/Waardelijst"
             },
             "geslachtsaanduiding" : {
-              "$ref" : "#/components/schemas/Geslacht_enum"
+              "$ref" : "#/components/schemas/GeslachtEnum"
             },
             "heeftPartnerschap" : {
               "type" : "array",
@@ -4937,7 +4981,7 @@
           }
         } ]
       },
-      "Geslacht_enum" : {
+      "GeslachtEnum" : {
         "type" : "string",
         "description" : "Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:\n* `man` - Man\n* `vrouw` - Vrouw\n* `onbekend` - Onbekend",
         "enum" : [ "man", "vrouw", "onbekend" ]
@@ -4946,22 +4990,16 @@
         "type" : "object",
         "properties" : {
           "datumOntbinding" : {
-            "$ref" : "#/components/schemas/Datum_onvolledig"
+            "$ref" : "#/components/schemas/DatumOnvolledig"
           },
           "datumSluiting" : {
-            "$ref" : "#/components/schemas/Datum_onvolledig"
+            "$ref" : "#/components/schemas/DatumOnvolledig"
           },
           "naam" : {
             "$ref" : "#/components/schemas/Naam"
           }
         },
         "description" : "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon."
-      },
-      "Datum_onvolledig" : {
-        "deprecated" : true,
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/DatumOnvolledig"
-        } ]
       },
       "DatumOnvolledig" : {
         "type" : "object",
@@ -5048,7 +5086,7 @@
             "description" : "Plaats of een plaatsbepaling waar de persoon is geboren"
           },
           "datum" : {
-            "$ref" : "#/components/schemas/Datum_onvolledig"
+            "$ref" : "#/components/schemas/DatumOnvolledig"
           },
           "land" : {
             "$ref" : "#/components/schemas/Waardelijst"
@@ -5060,7 +5098,7 @@
         "type" : "object",
         "properties" : {
           "datum" : {
-            "$ref" : "#/components/schemas/Datum_onvolledig"
+            "$ref" : "#/components/schemas/DatumOnvolledig"
           }
         },
         "description" : "Overlijden is een groep gegevens over het overlijden van een persoon."
@@ -5088,50 +5126,6 @@
           },
           "description" : "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n\nWaardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)"
         } ]
-      },
-      "HypotheekHalCollectie__embedded" : {
-        "type" : "object",
-        "properties" : {
-          "hypotheken" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/HypotheekHal"
-            }
-          }
-        }
-      },
-      "BeslagHalCollectie__embedded" : {
-        "type" : "object",
-        "properties" : {
-          "beslagen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/BeslagHal"
-            }
-          }
-        }
-      },
-      "PrivaatrechtelijkeBeperkingHalCollectie__embedded" : {
-        "type" : "object",
-        "properties" : {
-          "privaatrechtelijkeBeperkingen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
-            }
-          }
-        }
-      },
-      "PubliekrechtelijkeBeperkingHalCollectie__embedded" : {
-        "type" : "object",
-        "properties" : {
-          "publiekrechtelijkeBeperkingen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingHal"
-            }
-          }
-        }
       }
     },
     "headers" : {

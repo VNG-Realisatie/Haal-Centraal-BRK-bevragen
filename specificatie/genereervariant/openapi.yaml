@@ -129,7 +129,7 @@ paths:
           van het opgegeven type.
         required: false
         schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
       - name: postcode
         in: query
         description: De postcode van het adres van de objectlocatie van de kadastraal
@@ -739,7 +739,7 @@ paths:
           onroerende zaak. De waarden van de typering staan in een waardelijst.
         required: false
         schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
       - name: Accept-Crs
         in: header
         description: Gewenste CRS van de coördinaten in de response.
@@ -2632,8 +2632,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
-    get:
+  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  : get:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
@@ -2981,7 +2981,7 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded'
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectieEmbedded'
     HalCollectionLinks:
       type: object
       properties:
@@ -3007,7 +3007,7 @@ components:
     Href:
       type: string
       example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-    KadastraalOnroerendeZaakHalCollectie_embedded:
+    KadastraalOnroerendeZaakHalCollectieEmbedded:
       type: object
       properties:
         kadastraalOnroerendeZaken:
@@ -3019,10 +3019,10 @@ components:
       - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
       - properties:
           _links:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
+            $ref: '#/components/schemas/KadastraalOnroerendeZaakLinks'
           _embedded:
-            $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
-    KadastraalOnroerendeZaak_links:
+            $ref: '#/components/schemas/KadastraalOnroerendeZaakEmbedded'
+    KadastraalOnroerendeZaakLinks:
       type: object
       properties:
         self:
@@ -3043,7 +3043,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    KadastraalOnroerendeZaak_embedded:
+    KadastraalOnroerendeZaakEmbedded:
       type: object
       properties:
         zakelijkGerechtigden:
@@ -3054,7 +3054,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
-    TypeGerechtigde_enum:
+    TypeGerechtigdeEnum:
       type: string
       description: |-
         Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
@@ -3153,8 +3153,8 @@ components:
       - $ref: '#/components/schemas/ZakelijkGerechtigde'
       - properties:
           _links:
-            $ref: '#/components/schemas/ZakelijkGerechtigde_links'
-    ZakelijkGerechtigde_links:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeLinks'
+    ZakelijkGerechtigdeLinks:
       type: object
       properties:
         self:
@@ -3173,8 +3173,8 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded'
-    ZakelijkGerechtigdeHalCollectie_embedded:
+          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded'
+    ZakelijkGerechtigdeHalCollectieEmbedded:
       type: object
       properties:
         zakelijkGerechtigden:
@@ -3186,8 +3186,8 @@ components:
       - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
       - properties:
           _links:
-            $ref: '#/components/schemas/KadasterPersoon_links'
-    KadasterPersoon_links:
+            $ref: '#/components/schemas/KadasterPersoonLinks'
+    KadasterPersoonLinks:
       type: object
       properties:
         self:
@@ -3209,15 +3209,15 @@ components:
       - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
       - properties:
           _links:
-            $ref: '#/components/schemas/KadasterPersoon_links'
+            $ref: '#/components/schemas/KadasterPersoonLinks'
     KadasterNatuurlijkPersoonHalCollectie:
       type: object
       properties:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded'
-    KadasterNatuurlijkPersoonHalCollectie_embedded:
+          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectieEmbedded'
+    KadasterNatuurlijkPersoonHalCollectieEmbedded:
       type: object
       properties:
         kadasterNatuurlijkPersonen:
@@ -3230,8 +3230,8 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded'
-    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
+          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectieEmbedded'
+    KadasterNietNatuurlijkPersoonHalCollectieEmbedded:
       type: object
       properties:
         kadasterNietNatuurlijkPersonen:
@@ -3244,13 +3244,20 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/HypotheekHalCollectie__embedded'
+          $ref: '#/components/schemas/HypotheekHalCollectieEmbedded'
+    HypotheekHalCollectieEmbedded:
+      type: object
+      properties:
+        hypotheken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HypotheekHal'
     HypotheekHal:
       allOf:
       - $ref: '#/components/schemas/Hypotheek'
       - properties:
           _links:
-            $ref: '#/components/schemas/Hypotheek_links'
+            $ref: '#/components/schemas/HypotheekLinks'
     Hypotheek:
       type: object
       properties:
@@ -3287,7 +3294,7 @@ components:
 
         Waardelijst in deze component :
         - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
-    Hypotheek_links:
+    HypotheekLinks:
       type: object
       properties:
         self:
@@ -3302,13 +3309,20 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/BeslagHalCollectie__embedded'
+          $ref: '#/components/schemas/BeslagHalCollectieEmbedded'
+    BeslagHalCollectieEmbedded:
+      type: object
+      properties:
+        beslagen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeslagHal'
     BeslagHal:
       allOf:
       - $ref: '#/components/schemas/Beslag'
       - properties:
           _links:
-            $ref: '#/components/schemas/Beslag_links'
+            $ref: '#/components/schemas/BeslagLinks'
     Beslag:
       type: object
       properties:
@@ -3345,7 +3359,7 @@ components:
 
         Waardelijst in deze component :
         - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
-    Beslag_links:
+    BeslagLinks:
       type: object
       properties:
         self:
@@ -3360,20 +3374,27 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie__embedded'
+          $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectieEmbedded'
+    PrivaatrechtelijkeBeperkingHalCollectieEmbedded:
+      type: object
+      properties:
+        privaatrechtelijkeBeperkingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
     PrivaatrechtelijkeBeperkingHal:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
       - properties:
           _links:
-            $ref: '#/components/schemas/PrivaatrechtelijkeBeperking_links'
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingLinks'
         description: Een privaatrechtelijke beperking is dat iemand niet alles met
           een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die
           hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens
           het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een
           wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster
           in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
-    PrivaatrechtelijkeBeperking_links:
+    PrivaatrechtelijkeBeperkingLinks:
       type: object
       properties:
         self:
@@ -3384,13 +3405,20 @@ components:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHalCollectie__embedded'
+          $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHalCollectieEmbedded'
+    PubliekrechtelijkeBeperkingHalCollectieEmbedded:
+      type: object
+      properties:
+        publiekrechtelijkeBeperkingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
     PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: '#/components/schemas/PubliekrechtelijkeBeperking'
       - properties:
           _links:
-            $ref: '#/components/schemas/PubliekrechtelijkeBeperking_links'
+            $ref: '#/components/schemas/PubliekrechtelijkeBeperkingLinks'
     PubliekrechtelijkeBeperking:
       type: object
       properties:
@@ -3414,7 +3442,7 @@ components:
         woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde
         monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet
         worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
-    PubliekrechtelijkeBeperking_links:
+    PubliekrechtelijkeBeperkingLinks:
       type: object
       properties:
         bevoegdGezag:
@@ -3446,7 +3474,7 @@ components:
             in in de openbare registers en de basisregistratie Kadaster conform de
             Kadasterwet.
         type:
-          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
+          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaakEnum'
         aardCultuurBebouwd:
           $ref: '#/components/schemas/Waardelijst'
         aardCultuurOnbebouwd:
@@ -3534,7 +3562,7 @@ components:
           type: integer
         indicatieMetMeerObjectenVerkregen:
           type: boolean
-    TypeKadastraalOnroerendeZaak_enum:
+    TypeKadastraalOnroerendeZaakEnum:
       type: string
       enum:
       - appartementsrecht
@@ -3648,7 +3676,7 @@ components:
           type: string
           description: Identificatie van de zakelijk gerechtigde.
         type:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         aanvangsdatum:
           type: string
           description: 'Datum waarop het zakelijk recht van kracht is geworden. '
@@ -3773,7 +3801,7 @@ components:
       - $ref: '#/components/schemas/PersoonBasis'
       - properties:
           type:
-            $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
+            $ref: '#/components/schemas/NatuurlijkPersoonTypeEnum'
         description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
           personen (BRP)) of Kadasterpersoon zijn.
     PersoonBasis:
@@ -3794,7 +3822,7 @@ components:
       description: Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon
         zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon
         zijn.
-    NatuurlijkPersoonType_enum:
+    NatuurlijkPersoonTypeEnum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
         BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster.
@@ -3806,9 +3834,9 @@ components:
       - $ref: '#/components/schemas/PersoonBasis'
       - properties:
           type:
-            $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
+            $ref: '#/components/schemas/NietNatuurlijkPersoonTypeEnum'
         description: Een niet-natuurlijk persoon.
-    NietNatuurlijkPersoonType_enum:
+    NietNatuurlijkPersoonTypeEnum:
       type: string
       description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
         Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.
@@ -3820,8 +3848,8 @@ components:
       - $ref: '#/components/schemas/PersoonBasis'
       - properties:
           type:
-            $ref: '#/components/schemas/PersoonType_enum'
-    PersoonType_enum:
+            $ref: '#/components/schemas/PersoonTypeEnum'
+    PersoonTypeEnum:
       type: string
       description: Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk
         persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister
@@ -3843,7 +3871,7 @@ components:
           landWaarnaarVertrokken:
             $ref: '#/components/schemas/Waardelijst'
           geslachtsaanduiding:
-            $ref: '#/components/schemas/Geslacht_enum'
+            $ref: '#/components/schemas/GeslachtEnum'
           heeftPartnerschap:
             type: array
             items:
@@ -3894,7 +3922,7 @@ components:
           woonplaats: Nootdorp
           adresregel1: Postbus 1021
           adresregel2: 1234AA Nootdorp
-    Geslacht_enum:
+    GeslachtEnum:
       type: string
       description: |-
         Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
@@ -3909,17 +3937,13 @@ components:
       type: object
       properties:
         datumOntbinding:
-          $ref: '#/components/schemas/Datum_onvolledig'
+          $ref: '#/components/schemas/DatumOnvolledig'
         datumSluiting:
-          $ref: '#/components/schemas/Datum_onvolledig'
+          $ref: '#/components/schemas/DatumOnvolledig'
         naam:
           $ref: '#/components/schemas/Naam'
       description: Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus
         van een persoon.
-    Datum_onvolledig:
-      deprecated: true
-      allOf:
-      - $ref: '#/components/schemas/DatumOnvolledig'
     DatumOnvolledig:
       type: object
       properties:
@@ -3998,7 +4022,7 @@ components:
           type: string
           description: Plaats of een plaatsbepaling waar de persoon is geboren
         datum:
-          $ref: '#/components/schemas/Datum_onvolledig'
+          $ref: '#/components/schemas/DatumOnvolledig'
         land:
           $ref: '#/components/schemas/Waardelijst'
       description: |-
@@ -4009,7 +4033,7 @@ components:
       type: object
       properties:
         datum:
-          $ref: '#/components/schemas/Datum_onvolledig'
+          $ref: '#/components/schemas/DatumOnvolledig'
       description: Overlijden is een groep gegevens over het overlijden van een persoon.
     KadasterNietNatuurlijkPersoon:
       allOf:
@@ -4029,34 +4053,6 @@ components:
           Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
           Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
-    HypotheekHalCollectie__embedded:
-      type: object
-      properties:
-        hypotheken:
-          type: array
-          items:
-            $ref: '#/components/schemas/HypotheekHal'
-    BeslagHalCollectie__embedded:
-      type: object
-      properties:
-        beslagen:
-          type: array
-          items:
-            $ref: '#/components/schemas/BeslagHal'
-    PrivaatrechtelijkeBeperkingHalCollectie__embedded:
-      type: object
-      properties:
-        privaatrechtelijkeBeperkingen:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
-    PubliekrechtelijkeBeperkingHalCollectie__embedded:
-      type: object
-      properties:
-        publiekrechtelijkeBeperkingen:
-          type: array
-          items:
-            $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
   headers:
     api_version:
       schema:
