@@ -72,7 +72,7 @@ paths:
           description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
           required: false
           schema:
-            $ref: "domain.yaml#/components/schemas/TypeGerechtigde_enum"
+            $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
