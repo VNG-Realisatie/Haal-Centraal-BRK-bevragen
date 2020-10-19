@@ -40,7 +40,7 @@ components:
           deprecated: true
         betreftGedeelteVanPerceel:
           type: "boolean"
-    Adres:
+    AdresUitgebreid:
       description: "Waardelijst in deze component :
           [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       allOf:
@@ -216,7 +216,7 @@ components:
               $ref: "#/components/schemas/Waardelijst"
               description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
             woonadres:
-              $ref: "#/components/schemas/Adres"
+              $ref: "#/components/schemas/AdresUitgebreid"
             postadres:
               $ref: "#/components/schemas/Postadres"
             kadastraalOnroerendeZaakIdentificaties:
@@ -291,7 +291,7 @@ components:
       description: "Waardelijsten in deze component :
          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
       allOf:
-        - $ref: "#/components/schemas/Adres"
+        - $ref: "#/components/schemas/AdresUitgebreid"
         - properties:
             koppelingswijze:
               $ref: "#/components/schemas/Waardelijst"
@@ -385,7 +385,7 @@ components:
       - "kadaster_niet_natuurlijk_persoon"
     Postadres:
       allOf:
-        - $ref: "#/components/schemas/Adres"
+        - $ref: "#/components/schemas/AdresUitgebreid"
         - type: "object"
           properties:
             postbusnummer:
