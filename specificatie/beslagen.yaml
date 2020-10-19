@@ -1,7 +1,8 @@
 openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API - Beslagen endpoints
-  description: "De definitie van de Beslagen endpoints en components"
+  description: |
+                De definitie van de Beslagen endpoints en components.
   version: "1.2.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
@@ -13,14 +14,16 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -59,20 +62,23 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
         - in: path
           name: beslagidentificatie
-          description: "De unieke identificatie van het beslag."
+          description: |
+                        De unieke identificatie van het beslag.
           required: true
           schema:
             type: string
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Raadplegen geslaagd"
+          description: |
+                        Raadplegen geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -120,31 +126,38 @@ components:
           type: "string"
         domein:
           type: "string"
-          description: "Het domein waartoe de identificatie behoort."
+          description: |
+                        Het domein waartoe de identificatie behoort.
         aandeelInBetrokkenRecht:
           $ref: "domain.yaml#/components/schemas/TypeBreuk"
         gedeeltelijkeBezwaringOudObject:
           type: "boolean"
-          description: "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat."
+          description: |
+                        Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.
         omschrijvingBetrokkenRecht:
           $ref: "domain.yaml#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
         toelichtingBewaarder:
           type: "string"
-          description: "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+          description: |
+                        Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         aard:
           $ref: "domain.yaml#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
         aantekeningen:
           type: array
           items:
             $ref: "domain.yaml#/components/schemas/Aantekening"
-            description: "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor."
+            description: |
+                          Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor.
         beslagleggers:
           type: array
           items:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
-            description: "Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen."
+            description: |
+                          Partij die beslag legt op een kadastraal onroerende zaak, waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"

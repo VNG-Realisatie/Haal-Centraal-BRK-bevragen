@@ -1,25 +1,27 @@
 openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API - Kadaster Natuurlijk Personen endpoints
-  description: "De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components"
-  version: "1.1.1"
+  description: |
+                De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components.
+  version: "1.2.0"
 paths:
   /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
     get:
       operationId: GetKadasterPersoon
-      description: "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd."
+      description: |
+                    Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadasternatuurlijkpersoonidentificatie
-          description: ""
           required: true
           schema:
             type: string
             maxLength: 60
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -50,18 +52,21 @@ paths:
   /kadasternatuurlijkpersonen:
     get:
       operationId: GetKadasterPersonen
-      description: "Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. "
+      description: |
+                    Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
-          description: "Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven."
+          description: |
+                        Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
