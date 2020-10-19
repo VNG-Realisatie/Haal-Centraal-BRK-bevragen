@@ -150,20 +150,22 @@ components:
       - $ref: "#/components/schemas/Beslag"
       - properties:
           _links:
-            $ref: "#/components/schemas/Beslag_links"
+            $ref: "#/components/schemas/BeslagLinks"
     BeslagHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            beslagen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/BeslagHal"
-    Beslag_links:
+          $ref: "#/components/schemas/BeslagHalCollectieEmbedded"
+    BeslagHalCollectieEmbedded:
+      type: "object"
+      properties:
+        beslagen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/BeslagHal"
+    BeslagLinks:
       type: "object"
       properties:
         self:

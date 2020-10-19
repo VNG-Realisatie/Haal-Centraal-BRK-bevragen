@@ -65,7 +65,7 @@ paths:
           description: "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type."
           required: false
           schema:
-            $ref: "domain.yaml#/components/schemas/TypeGerechtigde_enum"
+            $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - in: query
           name: postcode
           description: "De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak"
@@ -182,8 +182,8 @@ components:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded"
-    KadastraalOnroerendeZaakHalCollectie_embedded:
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakHalCollectieEmbedded"
+    KadastraalOnroerendeZaakHalCollectieEmbedded:
       type: "object"
       properties:
         kadastraalOnroerendeZaken:
@@ -195,10 +195,10 @@ components:
       - $ref: "domain.yaml#/components/schemas/KadastraalOnroerendeZaak"
       - properties:
           _links:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaak_links"
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakLinks"
           _embedded:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaak_embedded"
-    KadastraalOnroerendeZaak_links:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
+    KadastraalOnroerendeZaakLinks:
       type: "object"
       properties:
         self:
@@ -219,7 +219,7 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadastraalOnroerendeZaak_embedded:
+    KadastraalOnroerendeZaakEmbedded:
       type: "object"
       properties:
         zakelijkGerechtigden:

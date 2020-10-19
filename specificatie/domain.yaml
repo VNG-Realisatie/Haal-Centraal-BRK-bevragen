@@ -125,11 +125,11 @@ components:
           title: "geboorteplaats"
           description: "Plaats of een plaatsbepaling waar de persoon is geboren"
         datum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         land:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
-    Geslacht_enum:
+    GeslachtEnum:
       type: "string"
       description: "Een aanduiding die aangeeft dat de ingeschrevene een man of een\
         \ vrouw is, of dat het geslacht (nog) onbekend is:\n* `man` - Man\n* `vrouw` - Vrouw\n\
@@ -144,9 +144,9 @@ components:
         \ van een persoon."
       properties:
         datumOntbinding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         datumSluiting:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     KadasterNatuurlijkPersoon:
@@ -167,7 +167,7 @@ components:
             $ref: "#/components/schemas/Waardelijst"
             description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
           geslachtsaanduiding:
-            $ref: "#/components/schemas/Geslacht_enum"
+            $ref: "#/components/schemas/GeslachtEnum"
           heeftPartnerschap:
             type: "array"
             items:
@@ -250,7 +250,7 @@ components:
           type: "string"
           description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
         type:
-          $ref: "#/components/schemas/TypeKadastraalOnroerendeZaak_enum"
+          $ref: "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
         aardCultuurBebouwd:
           $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)"
@@ -333,8 +333,8 @@ components:
         - description: "Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn."
           properties:
             type:
-              $ref: "#/components/schemas/NatuurlijkPersoonType_enum"
-    NatuurlijkPersoonType_enum:
+              $ref: "#/components/schemas/NatuurlijkPersoonTypeEnum"
+    NatuurlijkPersoonTypeEnum:
       type: "string"
       description: "Een aanduiding die aangeeft of de persoon ingeschreven is in het BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster."
       enum:
@@ -346,8 +346,8 @@ components:
         - description: "Een niet-natuurlijk persoon."
           properties:
             type:
-              $ref: "#/components/schemas/NietNatuurlijkPersoonType_enum"
-    NietNatuurlijkPersoonType_enum:
+              $ref: "#/components/schemas/NietNatuurlijkPersoonTypeEnum"
+    NietNatuurlijkPersoonTypeEnum:
       type: "string"
       description: "Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster."
       enum:
@@ -358,7 +358,7 @@ components:
       description: "Overlijden is een groep gegevens over het overlijden van een persoon."
       properties:
         datum:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
     PersoonBasis:
       type: "object"
       description: "Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn."
@@ -374,8 +374,8 @@ components:
         - $ref: "#/components/schemas/PersoonBasis"
         - properties:
             type:
-              $ref: "#/components/schemas/PersoonType_enum"
-    PersoonType_enum:
+              $ref: "#/components/schemas/PersoonTypeEnum"
+    PersoonTypeEnum:
       type: "string"
       description: "Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster."
       enum:
@@ -444,7 +444,7 @@ components:
       example:
         noemer: 2
         teller: 1
-    TypeGerechtigde_enum:
+    TypeGerechtigdeEnum:
       type: string
       description: "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n
       * `beklemrechthouder` - 1 Beklemrechthouder\n
@@ -480,7 +480,7 @@ components:
         - "bp_recht"
         - "nutsvoorzieningen_gedeelte"
         - "artikel5_3b"
-    TypeKadastraalOnroerendeZaak_enum:
+    TypeKadastraalOnroerendeZaakEnum:
       type: "string"
       enum:
       - "appartementsrecht"
@@ -533,7 +533,7 @@ components:
           type: "string"
           description: "Identificatie van de zakelijk gerechtigde."
         type:
-          $ref: "#/components/schemas/TypeGerechtigde_enum"
+          $ref: "#/components/schemas/TypeGerechtigdeEnum"
         aanvangsdatum:
           type: "string"
           description: "Datum waarop het zakelijk recht van kracht is geworden. "

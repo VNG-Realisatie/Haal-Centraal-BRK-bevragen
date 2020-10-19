@@ -69,20 +69,22 @@ components:
       - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
       - properties:
           _links:
-            $ref: "#/components/schemas/PubliekrechtelijkeBeperking_links"
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperkingLinks"
     PubliekrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            publiekrechtelijkeBeperkingen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
-    PubliekrechtelijkeBeperking_links:
+          $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHalCollectieEmbedded"
+    PubliekrechtelijkeBeperkingHalCollectieEmbedded:
+      type: "object"
+      properties:
+        publiekrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHal"
+    PubliekrechtelijkeBeperkingLinks:
       type: "object"
       properties:
         bevoegdGezag:

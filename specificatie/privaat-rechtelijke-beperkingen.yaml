@@ -110,20 +110,22 @@ components:
         - description: "Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken."
           properties:
             _links:
-              $ref: "#/components/schemas/PrivaatrechtelijkeBeperking_links"
+              $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            privaatrechtelijkeBeperkingen:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
-    PrivaatrechtelijkeBeperking_links:
+          $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectieEmbedded"
+    PrivaatrechtelijkeBeperkingHalCollectieEmbedded:
+      type: "object"
+      properties:
+        privaatrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+    PrivaatrechtelijkeBeperkingLinks:
       type: "object"
       properties:
         self:

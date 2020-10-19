@@ -149,20 +149,22 @@ components:
       - $ref: "#/components/schemas/Hypotheek"
       - properties:
           _links:
-            $ref: "#/components/schemas/Hypotheek_links"
+            $ref: "#/components/schemas/HypotheekLinks"
     HypotheekHalCollectie:
       type: "object"
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          type: "object"
-          properties:
-            hypotheken:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/HypotheekHal"
-    Hypotheek_links:
+          $ref: "#/components/schemas/HypotheekHalCollectieEmbedded"
+    HypotheekHalCollectieEmbedded:
+      type: "object"
+      properties:
+        hypotheken:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/HypotheekHal"
+    HypotheekLinks:
       type: "object"
       properties:
         self:
