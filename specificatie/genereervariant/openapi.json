@@ -4163,6 +4163,9 @@
             "items" : {
               "$ref" : "#/components/schemas/PersoonBeperkt"
             }
+          },
+          "bedragZekerheidsstelling" : {
+            "$ref" : "#/components/schemas/Bedrag"
           }
         },
         "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
@@ -4241,6 +4244,9 @@
             "items" : {
               "$ref" : "#/components/schemas/PersoonBeperkt"
             }
+          },
+          "bedragVordering" : {
+            "$ref" : "#/components/schemas/Bedrag"
           }
         },
         "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
