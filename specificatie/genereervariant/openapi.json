@@ -4596,7 +4596,7 @@
       "LocatieKadastraalObject" : {
         "description" : "Waardelijsten in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres"
+          "$ref" : "#/components/schemas/AdresUitgebreid"
         }, {
           "properties" : {
             "koppelingswijze" : {
@@ -4605,10 +4605,10 @@
           }
         } ]
       },
-      "Adres" : {
+      "AdresUitgebreid" : {
         "description" : "Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres_2"
+          "$ref" : "#/components/schemas/Adres"
         }, {
           "properties" : {
             "nummeraanduidingIdentificatie" : {
@@ -4637,7 +4637,7 @@
           }
         } ]
       },
-      "Adres_2" : {
+      "Adres" : {
         "type" : "object",
         "properties" : {
           "straat" : {
@@ -4948,7 +4948,7 @@
               "$ref" : "#/components/schemas/Waardelijst"
             },
             "woonadres" : {
-              "$ref" : "#/components/schemas/Adres"
+              "$ref" : "#/components/schemas/AdresUitgebreid"
             },
             "postadres" : {
               "$ref" : "#/components/schemas/Postadres"
@@ -4965,7 +4965,7 @@
       },
       "Postadres" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres"
+          "$ref" : "#/components/schemas/AdresUitgebreid"
         }, {
           "type" : "object",
           "properties" : {

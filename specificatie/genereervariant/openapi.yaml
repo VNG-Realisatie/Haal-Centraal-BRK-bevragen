@@ -3603,14 +3603,14 @@ components:
       description: 'Waardelijsten in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)
         en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       allOf:
-      - $ref: '#/components/schemas/Adres'
+      - $ref: '#/components/schemas/AdresUitgebreid'
       - properties:
           koppelingswijze:
             $ref: '#/components/schemas/Waardelijst'
-    Adres:
+    AdresUitgebreid:
       description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       allOf:
-      - $ref: '#/components/schemas/Adres_2'
+      - $ref: '#/components/schemas/Adres'
       - properties:
           nummeraanduidingIdentificatie:
             type: string
@@ -3634,7 +3634,7 @@ components:
             example: Selangor
           land:
             $ref: '#/components/schemas/Waardelijst'
-    Adres_2:
+    Adres:
       type: object
       properties:
         straat:
@@ -3899,7 +3899,7 @@ components:
           beschikkingsbevoegdheid:
             $ref: '#/components/schemas/Waardelijst'
           woonadres:
-            $ref: '#/components/schemas/Adres'
+            $ref: '#/components/schemas/AdresUitgebreid'
           postadres:
             $ref: '#/components/schemas/Postadres'
           kadastraalOnroerendeZaakIdentificaties:
@@ -3912,7 +3912,7 @@ components:
           Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     Postadres:
       allOf:
-      - $ref: '#/components/schemas/Adres'
+      - $ref: '#/components/schemas/AdresUitgebreid'
       - type: object
         properties:
           postbusnummer:
