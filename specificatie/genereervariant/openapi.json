@@ -45,7 +45,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3609,6 +3609,7 @@
           "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "query",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak.",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
