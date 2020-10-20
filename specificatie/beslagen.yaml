@@ -158,7 +158,8 @@ components:
             $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
         bedragVordering:
           $ref: "domain.yaml#/components/schemas/Bedrag"
-          description: "Het bedrag waarvoor beslag is gelegd. Als een beslag bestaat uit verschillende bedragen, dan zijn die bij elkaar opgeteld."
+          description: |
+                        Het bedrag waarvoor beslag is gelegd. Als een beslag bestaat uit verschillende bedragen, dan zijn die bij elkaar opgeteld.
     BeslagHal:
       allOf:
       - $ref: "#/components/schemas/Beslag"
