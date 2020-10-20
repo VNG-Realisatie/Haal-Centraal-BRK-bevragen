@@ -110,7 +110,7 @@ components:
 
 
                     Waardelijst in deze component :
-                      [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)"
+                      [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
       properties:
         soortErfpachtCanon:
           $ref: "#/components/schemas/Waardelijst"
@@ -136,7 +136,7 @@ components:
 
 
                     Waardelijst in deze component :
-                      [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+                      [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
       properties:
         plaats:
           type: "string"
@@ -155,7 +155,7 @@ components:
                     Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
                       * `man` - Man
                       * `vrouw` - Vrouw
-                      * `onbekend` - Onbekend"
+                      * `onbekend` - Onbekend
       enum:
       - "man"
       - "vrouw"
@@ -179,7 +179,7 @@ components:
 
 
                       Waardelijst in deze component :
-                        [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+                        [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
         properties:
           geheimhoudingPersoonsgegevens:
             type: "boolean"
@@ -210,7 +210,7 @@ components:
 
 
                       Waardelijst in deze component :
-                        [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)"
+                        [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
         properties:
           statutaireNaam:
             type: "string"
@@ -232,7 +232,7 @@ components:
 
 
                         Waardelijst in deze component :
-                          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)"
+                          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
           properties:
             domein:
               type: "string"
@@ -259,7 +259,7 @@ components:
 
 
                     Waardelijst in deze component :
-                      [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
+                      [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)
       properties:
         identificatie:
           type: "string"
@@ -329,7 +329,7 @@ components:
     LocatieKadastraalObject:
       description: |
                     Waardelijsten in deze component :
-                      [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)"
+                      [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
       allOf:
         - $ref: "#/components/schemas/Adres"
         - properties:
@@ -567,7 +567,7 @@ components:
 
 
                     Waardelijst in deze component :
-                      [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)"
+                      [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
       properties:
         soortGrootte:
           $ref: "#/components/schemas/Waardelijst"
