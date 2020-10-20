@@ -1,14 +1,18 @@
 openapi: 3.0.0
 servers:
-  - description: "BRK-Bevragen API - TEST (via API-key)"
+  - description: |
+                  BRK-Bevragen API - TEST (via API-key)
     url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
-  - description: "BRK-Bevragen API - TEST (via API-key & mTLS)"
+  - description: |
+                  BRK-Bevragen API - TEST (via API-key & mTLS)
     url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
-  - description: "BRK-Bevragen API - PRODUCTIE"
+  - description: |
+                  BRK-Bevragen API - PRODUCTIE
     url: https://api.brk.kadaster.nl/esd/bevragen/v1
 info:
   title: Kadaster - BRK-Bevragen API
-  description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
+  description: |
+                D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
   version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
@@ -63,4 +67,5 @@ components:
       type: apiKey
       in: header
       name: X-Api-Key
-      description: "De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden."
+      description: |
+                    De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden.

@@ -1,7 +1,8 @@
 openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API - PrivaatrechtelijkeBeperkingen endpoints
-  description: "De definitie van de PrivaatrechtelijkeBeperkingen endpoints en components"
+  description: |
+                De definitie van de PrivaatrechtelijkeBeperkingen endpoints en components.
   version: "1.2.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
@@ -14,13 +15,15 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -60,19 +63,22 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak. "
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
         - in: path
           name: privaatrechtelijkebeperkingidentificatie
-          description: "De unieke identificatie van een privaatrechtelijke beperking"
+          description: |
+                        De unieke identificatie van een privaatrechtelijke beperking.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -107,7 +113,8 @@ components:
     PrivaatrechtelijkeBeperkingHal:
       allOf:
         - $ref: "domain.yaml#/components/schemas/Aantekening"
-        - description: "Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken."
+        - description: |
+                        Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
           properties:
             _links:
               $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"

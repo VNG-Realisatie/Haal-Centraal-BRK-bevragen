@@ -1,25 +1,27 @@
 openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API - Kadaster Niet Natuurlijk Personen endpoints
-  description: "De definitie van de Kadaster Niet Natuurlijk Personen endpoints en HAL components"
-  version: "1.1.1"
+  description: |
+                De definitie van de Kadaster Niet Natuurlijk Personen endpoints en HAL components.
+  version: "1.2.0"
 paths:
   /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
     get:
       operationId: GetKadasterNietNatuurlijkPersoon
-      description: "Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd."
+      description: |
+                    Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadasternietnatuurlijkpersoonidentificatie
-          description: ""
           required: true
           schema:
             type: string
             maxLength: 60
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -50,18 +52,21 @@ paths:
   /kadasternietnatuurlijkpersonen:
     get:
       operationId: GetKadasterNietNatuurlijkPersonen
-      description: "Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd."
+      description: |
+                    Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: q
-          description: "Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK."
+          description: |
+                        Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"

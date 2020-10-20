@@ -1,31 +1,36 @@
 openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API - Zakelijk Gerechtigden endpoints
-  description: "De definitie van de Zakelijk Gerechtigden endpoints en HAL components"
-  version: "1.1.1"
+  description: |
+                De definitie van de Zakelijk Gerechtigden endpoints en HAL components.
+  version: "1.2.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:
       operationId: GetZakelijkGerechtigde
-      description: "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      description: |
+        Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
         - in: path
           name: zakelijkgerechtigdeidentificatie
-          description: "De identificatie van de zakelijk gerechtigde"
+          description: |
+                        De identificatie van de zakelijk gerechtigde
           required: true
           schema:
             type: string
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
@@ -58,25 +63,29 @@ paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
     get:
       operationId: GetZakelijkGerechtigden
-      description: "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)"
+      description: |
+                    Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
           name: kadastraalonroerendezaakidentificatie
-          description: "De unieke identificatie van een kadastraal onroerende zaak."
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
           required: true
           schema:
             type: string
         - in: query
           name: type
-          description: "Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst."
+          description: |
+                        Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.
           required: false
           schema:
             $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
       responses:
         '200':
-          description: "Zoekactie geslaagd"
+          description: |
+                        Zoekactie geslaagd
           headers:
             api-version:
               $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
