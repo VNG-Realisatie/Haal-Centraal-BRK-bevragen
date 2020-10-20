@@ -2632,8 +2632,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
-    get:
+  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  : get:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
@@ -3492,7 +3492,8 @@ components:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
         adressen:
           type: array
-          description: Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
+          description: Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende
+            zaak
           items:
             $ref: '#/components/schemas/LocatieKadastraalObject'
         zakelijkGerechtigdeIdentificaties:
