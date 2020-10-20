@@ -3290,6 +3290,8 @@ components:
             hypotheek als zekerheid voor de lening.
           items:
             $ref: '#/components/schemas/PersoonBeperkt'
+        bedragZekerheidsstelling:
+          $ref: '#/components/schemas/Bedrag'
       description: |
         Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
 
@@ -3355,6 +3357,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PersoonBeperkt'
+        bedragVordering:
+          $ref: '#/components/schemas/Bedrag'
       description: |
         Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
 
