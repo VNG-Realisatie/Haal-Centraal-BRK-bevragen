@@ -45,7 +45,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3609,6 +3609,7 @@
           "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "query",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak.",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
@@ -4194,6 +4195,9 @@
             "items" : {
               "$ref" : "#/components/schemas/PersoonBeperkt"
             }
+          },
+          "bedragZekerheidsstelling" : {
+            "$ref" : "#/components/schemas/Bedrag"
           }
         },
         "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
@@ -4283,6 +4287,9 @@
             "items" : {
               "$ref" : "#/components/schemas/PersoonBeperkt"
             }
+          },
+          "bedragVordering" : {
+            "$ref" : "#/components/schemas/Bedrag"
           }
         },
         "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
@@ -4595,7 +4602,7 @@
       "LocatieKadastraalObject" : {
         "description" : "Waardelijsten in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres"
+          "$ref" : "#/components/schemas/AdresUitgebreid"
         }, {
           "properties" : {
             "koppelingswijze" : {
@@ -4604,10 +4611,10 @@
           }
         } ]
       },
-      "Adres" : {
+      "AdresUitgebreid" : {
         "description" : "Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)",
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres_2"
+          "$ref" : "#/components/schemas/Adres"
         }, {
           "properties" : {
             "nummeraanduidingIdentificatie" : {
@@ -4636,7 +4643,7 @@
           }
         } ]
       },
-      "Adres_2" : {
+      "Adres" : {
         "type" : "object",
         "properties" : {
           "straat" : {
@@ -4947,7 +4954,7 @@
               "$ref" : "#/components/schemas/Waardelijst"
             },
             "woonadres" : {
-              "$ref" : "#/components/schemas/Adres"
+              "$ref" : "#/components/schemas/AdresUitgebreid"
             },
             "postadres" : {
               "$ref" : "#/components/schemas/Postadres"
@@ -4964,7 +4971,7 @@
       },
       "Postadres" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Adres"
+          "$ref" : "#/components/schemas/AdresUitgebreid"
         }, {
           "type" : "object",
           "properties" : {

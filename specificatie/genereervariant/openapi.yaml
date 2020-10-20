@@ -34,7 +34,7 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
         2.  Ingeschreven persoon als zakelijk gerechtigde
             -  burgerservicenummer (verplicht)
@@ -2632,8 +2632,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
-  : get:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
+    get:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
@@ -2850,6 +2850,7 @@ paths:
         in: query
         description: De unieke identificatie van een kadastraal onroerende zaak. Gezocht
           wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak.
+        required: true
         schema:
           type: string
       responses:
@@ -3289,6 +3290,8 @@ components:
             hypotheek als zekerheid voor de lening.
           items:
             $ref: '#/components/schemas/PersoonBeperkt'
+        bedragZekerheidsstelling:
+          $ref: '#/components/schemas/Bedrag'
       description: |
         Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
 
@@ -3354,6 +3357,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PersoonBeperkt'
+        bedragVordering:
+          $ref: '#/components/schemas/Bedrag'
       description: |
         Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
 
@@ -3602,14 +3607,14 @@ components:
       description: 'Waardelijsten in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)
         en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       allOf:
-      - $ref: '#/components/schemas/Adres'
+      - $ref: '#/components/schemas/AdresUitgebreid'
       - properties:
           koppelingswijze:
             $ref: '#/components/schemas/Waardelijst'
-    Adres:
+    AdresUitgebreid:
       description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
       allOf:
-      - $ref: '#/components/schemas/Adres_2'
+      - $ref: '#/components/schemas/Adres'
       - properties:
           nummeraanduidingIdentificatie:
             type: string
@@ -3633,7 +3638,7 @@ components:
             example: Selangor
           land:
             $ref: '#/components/schemas/Waardelijst'
-    Adres_2:
+    Adres:
       type: object
       properties:
         straat:
@@ -3898,7 +3903,7 @@ components:
           beschikkingsbevoegdheid:
             $ref: '#/components/schemas/Waardelijst'
           woonadres:
-            $ref: '#/components/schemas/Adres'
+            $ref: '#/components/schemas/AdresUitgebreid'
           postadres:
             $ref: '#/components/schemas/Postadres'
           kadastraalOnroerendeZaakIdentificaties:
@@ -3911,7 +3916,7 @@ components:
           Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
     Postadres:
       allOf:
-      - $ref: '#/components/schemas/Adres'
+      - $ref: '#/components/schemas/AdresUitgebreid'
       - type: object
         properties:
           postbusnummer:
