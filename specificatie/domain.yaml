@@ -13,7 +13,7 @@ info:
 paths: {}
 components:
   schemas:
-    AantekeningBeperkt:
+    AantekeningBasis:
       type: "object"
       description: |
                     Waardelijst in deze component :
@@ -34,64 +34,26 @@ components:
         betreftGedeelteVanPerceel:
           type: "boolean"
     Aantekening:
-      type: "object"
-      description: |
-                    Waardelijst in deze component :
-                      [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
-      properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: |
-                        Het domein waartoe de identificatie behoort.
-        aard:
-          $ref: "#/components/schemas/Waardelijst"
-          description: |
-                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
-        omschrijving:
-          type: "string"
-        einddatum:
-          type: "string"
-          format: "date"
-        einddatumRecht:
-          type: "string"
-          format: "date"
-        betreftGedeelteVanPerceel:
-          type: "boolean"
+      allOf:
+        - $ref: "#/components/schemas/AantekeningBasis"
+        - properties:
+            einddatum:
+              type: "string"
+              format: "date"
+            einddatumRecht:
+              type: "string"
+              format: "date"
     AantekeningDeprecated:
-      type: "object"
-      description: |
-                    Waardelijst in deze component :
-                      [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
-      properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: |
-                        Het domein waartoe de identificatie behoort.
-        aard:
-          $ref: "#/components/schemas/Waardelijst"
-          description: |
-                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
-        omschrijving:
-          type: "string"
-        begrenzing:
-          allOf:
-            - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-            - deprecated: true
-        einddatum:
-          type: "string"
-          format: "date"
-        einddatumRecht:
-          type: "string"
-          format: "date"
-        indicatieOorspronkelijkObject:
-          type: "boolean"
-          deprecated: true
-        betreftGedeelteVanPerceel:
-          type: "boolean"
+      allOf:
+        - $ref: "#/components/schemas/Aantekening"
+        - properties:
+            begrenzing:
+              allOf:
+                - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+                - deprecated: true
+            indicatieOorspronkelijkObject:
+              type: "boolean"
+              deprecated: true
     AdresUitgebreid:
       description: |
                     Waardelijst in deze component :

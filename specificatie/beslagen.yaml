@@ -149,7 +149,7 @@ components:
         aantekeningen:
           type: array
           items:
-            $ref: "domain.yaml#/components/schemas/AantekeningBeperkt"
+            $ref: "domain.yaml#/components/schemas/AantekeningBasis"
             description: |
                           Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor.
         beslagleggers:
