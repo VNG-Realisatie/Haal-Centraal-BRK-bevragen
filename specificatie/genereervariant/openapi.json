@@ -4464,7 +4464,7 @@
           },
           "adressen" : {
             "type" : "array",
-            "description" : "Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak",
+            "description" : "Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak\n",
             "items" : {
               "$ref" : "#/components/schemas/LocatieKadastraalObject"
             }
