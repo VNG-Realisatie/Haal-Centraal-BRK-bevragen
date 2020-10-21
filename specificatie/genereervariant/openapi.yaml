@@ -3493,6 +3493,8 @@ components:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
         adressen:
           type: array
+          description: |-
+            Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
           items:
             $ref: '#/components/schemas/LocatieKadastraalObject'
         zakelijkGerechtigdeIdentificaties:
