@@ -1937,7 +1937,8 @@ components:
         perceelnummerVerschuiving:
           $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
         adressen:
-          description: Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
+          description: |-
+            Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
           items:
             $ref: '#/components/schemas/LocatieKadastraalObject'
           type: array
