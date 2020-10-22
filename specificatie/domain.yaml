@@ -13,7 +13,7 @@ info:
 paths: {}
 components:
   schemas:
-    Aantekening:
+    AantekeningBasis:
       type: "object"
       description: |
                     Waardelijst in deze component :
@@ -31,20 +31,29 @@ components:
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
         omschrijving:
           type: "string"
-        begrenzing:
-          $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-        einddatum:
-          type: "string"
-          format: "date"
-        einddatumRecht:
-          type: "string"
-          format: "date"
-        indicatieOorspronkelijkObject:
-          type: "boolean"
-          deprecated: true
         betreftGedeelteVanPerceel:
           type: "boolean"
-
+    Aantekening:
+      allOf:
+        - $ref: "#/components/schemas/AantekeningBasis"
+        - properties:
+            einddatum:
+              type: "string"
+              format: "date"
+            einddatumRecht:
+              type: "string"
+              format: "date"
+    AantekeningDeprecated:
+      allOf:
+        - $ref: "#/components/schemas/Aantekening"
+        - properties:
+            begrenzing:
+              allOf:
+                - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+                - deprecated: true
+            indicatieOorspronkelijkObject:
+              type: "boolean"
+              deprecated: true
     AdresUitgebreid:
       description: |
                     Waardelijst in deze component :
@@ -210,8 +219,9 @@ components:
                       Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
 
+                      De property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld.
                       Waardelijst in deze component :
-                        [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+                        [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
         properties:
           statutaireNaam:
             type: "string"
@@ -480,7 +490,7 @@ components:
           description: |
                         Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
           items:
-            $ref: "#/components/schemas/Aantekening"
+            $ref: "#/components/schemas/AantekeningDeprecated"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
           description: |
