@@ -4184,7 +4184,7 @@
           "aantekeningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Aantekening"
+              "$ref" : "#/components/schemas/AantekeningBasis"
             }
           },
           "hypotheekhouders" : {
@@ -4277,7 +4277,7 @@
           "aantekeningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Aantekening"
+              "$ref" : "#/components/schemas/AantekeningBasis"
             }
           },
           "beslagleggers" : {
@@ -4760,7 +4760,7 @@
             "type" : "array",
             "description" : "Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst\n",
             "items" : {
-              "$ref" : "#/components/schemas/Aantekening"
+              "$ref" : "#/components/schemas/AantekeningDeprecated"
             }
           },
           "gezamenlijkAandeel" : {
@@ -4801,7 +4801,42 @@
           "teller" : 1
         }
       },
+      "AantekeningDeprecated" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Aantekening"
+        }, {
+          "properties" : {
+            "begrenzing" : {
+              "allOf" : [ {
+                "$ref" : "#/components/schemas/polygonGeoJSON"
+              }, {
+                "deprecated" : true
+              } ]
+            },
+            "indicatieOorspronkelijkObject" : {
+              "type" : "boolean",
+              "deprecated" : true
+            }
+          }
+        } ]
+      },
       "Aantekening" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AantekeningBasis"
+        }, {
+          "properties" : {
+            "einddatum" : {
+              "type" : "string",
+              "format" : "date"
+            },
+            "einddatumRecht" : {
+              "type" : "string",
+              "format" : "date"
+            }
+          }
+        } ]
+      },
+      "AantekeningBasis" : {
         "type" : "object",
         "properties" : {
           "identificatie" : {
@@ -4816,21 +4851,6 @@
           },
           "omschrijving" : {
             "type" : "string"
-          },
-          "begrenzing" : {
-            "$ref" : "#/components/schemas/polygonGeoJSON"
-          },
-          "einddatum" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "einddatumRecht" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "indicatieOorspronkelijkObject" : {
-            "type" : "boolean",
-            "deprecated" : true
           },
           "betreftGedeelteVanPerceel" : {
             "type" : "boolean"
@@ -5130,7 +5150,7 @@
               "type" : "string"
             }
           },
-          "description" : "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n\n\nWaardelijst in deze component :\n  [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)\n"
+          "description" : "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n\n\nDe property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld.\nWaardelijst in deze component :\n  [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)\n"
         } ]
       }
     },
