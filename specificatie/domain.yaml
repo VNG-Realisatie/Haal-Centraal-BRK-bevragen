@@ -176,13 +176,13 @@ components:
                     Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
       properties:
         datumOntbinding:
+          deprecated: true
           allOf:
             - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-            - deprecated: true
         datumSluiting:
+          deprecated: true
           allOf:
             - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-            - deprecated: true
         naam:
           $ref: "#/components/schemas/Naam"
     KadasterNatuurlijkPersoon:
