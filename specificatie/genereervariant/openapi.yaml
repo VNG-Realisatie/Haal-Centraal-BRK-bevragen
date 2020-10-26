@@ -3801,9 +3801,9 @@ components:
       - $ref: '#/components/schemas/Aantekening'
       - properties:
           begrenzing:
+            deprecated: true
             allOf:
             - $ref: '#/components/schemas/polygonGeoJSON'
-            - deprecated: true
           indicatieOorspronkelijkObject:
             type: boolean
             deprecated: true

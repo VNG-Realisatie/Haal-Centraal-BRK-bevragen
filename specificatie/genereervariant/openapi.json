@@ -4807,10 +4807,9 @@
         }, {
           "properties" : {
             "begrenzing" : {
+              "deprecated" : true,
               "allOf" : [ {
                 "$ref" : "#/components/schemas/polygonGeoJSON"
-              }, {
-                "deprecated" : true
               } ]
             },
             "indicatieOorspronkelijkObject" : {
