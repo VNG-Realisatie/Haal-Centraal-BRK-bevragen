@@ -5016,10 +5016,18 @@
         "type" : "object",
         "properties" : {
           "datumOntbinding" : {
-            "$ref" : "#/components/schemas/DatumOnvolledig"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/DatumOnvolledig"
+            }, {
+              "deprecated" : true
+            } ]
           },
           "datumSluiting" : {
-            "$ref" : "#/components/schemas/DatumOnvolledig"
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/DatumOnvolledig"
+            }, {
+              "deprecated" : true
+            } ]
           },
           "naam" : {
             "$ref" : "#/components/schemas/Naam"

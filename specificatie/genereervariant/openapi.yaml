@@ -2637,8 +2637,8 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
-    get:
+  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  : get:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
@@ -3976,9 +3976,13 @@ components:
       type: object
       properties:
         datumOntbinding:
-          $ref: '#/components/schemas/DatumOnvolledig'
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
+          - deprecated: true
         datumSluiting:
-          $ref: '#/components/schemas/DatumOnvolledig'
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
+          - deprecated: true
         naam:
           $ref: '#/components/schemas/Naam'
       description: |
