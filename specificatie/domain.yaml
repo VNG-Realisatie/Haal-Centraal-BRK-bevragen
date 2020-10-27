@@ -48,9 +48,9 @@ components:
         - $ref: "#/components/schemas/Aantekening"
         - properties:
             begrenzing:
+              deprecated: true
               allOf:
                 - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-                - deprecated: true
             indicatieOorspronkelijkObject:
               type: "boolean"
               deprecated: true
@@ -176,9 +176,13 @@ components:
                     Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
       properties:
         datumOntbinding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+          deprecated: true
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         datumSluiting:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+          deprecated: true
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     KadasterNatuurlijkPersoon:
