@@ -19,12 +19,6 @@ components:
                     Waardelijst in deze component :
                       [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
       properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: |
-                        Het domein waartoe de identificatie behoort.
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: |
@@ -37,13 +31,19 @@ components:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
         - properties:
+            identificatie:
+              type: "string"
+            domein:
+              type: "string"
+              description: |
+                            Het domein waartoe de identificatie behoort.
             einddatum:
               type: "string"
               format: "date"
             einddatumRecht:
               type: "string"
               format: "date"
-    AantekeningDeprecated:
+    AantekeningTenaamstelling:
       allOf:
         - $ref: "#/components/schemas/Aantekening"
         - properties:
@@ -494,7 +494,7 @@ components:
           description: |
                         Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
           items:
-            $ref: "#/components/schemas/AantekeningDeprecated"
+            $ref: "#/components/schemas/AantekeningTenaamstelling"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
           description: |
