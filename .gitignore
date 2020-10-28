@@ -1,5 +1,5 @@
-node_modules
+node_modules/
 
-# swagger-codegen-cli
-.swagger-codegen
-.swagger-codegen-ignore
+specificatie/genereervariant/.swagger-codegen
+specificatie/genereervariant/.swagger-codegen-ignore
+specificatie/genereervariant/README.md
