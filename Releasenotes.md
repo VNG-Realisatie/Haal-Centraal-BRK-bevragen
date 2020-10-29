@@ -6,43 +6,51 @@
 
 - Algemeen
   - Diverse verbeteringen in de documentatie (descriptions) en examples.
-  - Er is hergebruik gemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
-  - De default-waarde voor de Accept-Crs headerparameter is verwijderd.
+  - Er is gebruik gemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
+  - De default-waarde voor de Accept-Crs header is verwijderd.
   - Uit alle componentnamen zijn de underscores verwijderd.
 
 
 - KadastraalOnroerendeZaak :
-  - De default-waarde voor de Accept-Crs headerparameter is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
+  - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
   - PrivaatrechtelijkeBeperkingen, hypotheken en beslagen zijn toegevoegd aan de _embedded en _links. De bijbehorende identificaties zijn opgenomen in de KadastraalOnroerendeZaak.
-  - Bij LocatieKadastraalObject wordt nu het adres meegeleverd waar dat voorheen alleen een verwijzing met een nummeraanduidingIdentificatie was.
+  - LocatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
 
 
 - Zakelijkgerechtigden
-  - Accept-Crs header parameter en content-CRS header zijn toegevoegd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie} en bij kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
+  - Accept-Crs header en content-CRS header zijn toegevoegd bij 
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
 
 - Aantekening  
   - Properties begrenzing en indicatieOorspronkelijkObject worden niet meer geleverd en zijn deprecated verklaard
 
 
 - KadasterNatuurlijkPersoon
-  - Aanschrijhfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd.
+  - Aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd.
 
 
 - Hypotheken
-  - 2 nieuwe endpoints :
-      /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken en /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}
 
 
 - Beslagen
-  - 2 nieuwe endpoints : /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen en /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}
 
 
 - Privaatrechtelijke beperkingen
-  - 2 nieuwe endpoints : /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen en /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
 
 
 - Publiekrechtelijke beperkingen:
-  - 1 nieuw endpoint :   /publiekrechtelijkebeperkingen
+  - 1 nieuw endpoint:   
+    - /publiekrechtelijkebeperkingen
 
 
 - Heeftpartnerschap
@@ -50,7 +58,7 @@
 
 ### features:
 
-De volgende features zijn toegevoegd :
+De volgende features zijn toegevoegd:
 - aanhef.features
 - aanschrijfwijze.features
 - gebruik_in_lopende_tekst.feature
