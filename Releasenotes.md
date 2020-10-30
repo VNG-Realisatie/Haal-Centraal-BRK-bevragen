@@ -6,19 +6,19 @@
 
 - Algemeen
   - Diverse verbeteringen in de documentatie (descriptions) en examples.
-  - Er is gebruik gemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
+  - Er is gebruikgemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
   - De default-waarde voor de Accept-Crs header is verwijderd.
   - Uit alle componentnamen zijn de underscores verwijderd.
 
 
-- KadastraalOnroerendeZaak :
+- KadastraalOnroerendeZaak
   - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
   - PrivaatrechtelijkeBeperkingen, hypotheken en beslagen zijn toegevoegd aan de _embedded en _links. De bijbehorende identificaties zijn opgenomen in de KadastraalOnroerendeZaak.
   - LocatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
 
 
 - Zakelijkgerechtigden
-  - Accept-Crs header en content-CRS header zijn toegevoegd bij 
+  - Accept-Crs header en Content-Crs header zijn toegevoegd bij
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
 
