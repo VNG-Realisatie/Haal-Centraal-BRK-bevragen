@@ -49,15 +49,15 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](../features/zoeken-kadasternietnatuurlijkpersoon.feature))
 
 #### Hypotheek
-- Opvragen van 1 specifieke hypotheek resource o.b.v. hypotheekidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van 1 specifiek hypotheek resource o.b.v. hypotheekidentificatie en kadastraalonroerendezaakidentificatie.
 - Opvragen van een collectie hypotheek resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
 
 #### Beslag
-- Opvragen van 1 specifieke beslag resource o.b.v. beslagidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van 1 specifiek beslag resource o.b.v. beslagidentificatie en kadastraalonroerendezaakidentificatie.
 - Opvragen van een collectie beslag resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
 
 #### PrivaatrechtelijkeBeperking
-- Opvragen van 1 specifieke privaatrechtelijkebeperking resource o.b.v. privaatrechtelijkebeperkingidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van 1 specifiek privaatrechtelijkebeperking resource o.b.v. privaatrechtelijkebeperkingidentificatie en kadastraalonroerendezaakidentificatie.
 - Opvragen van een collectie privaatrechtelijkebeperking resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
 
 #### PrubliekrechtelijkeBeperking
@@ -140,7 +140,7 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
-Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheden        |
+Naam                    |Geboortedatum    |Type                                 |KadasterPersoon-Identificatie   | Burgerservice-nummer |Bijzonderheden        |
 ----------------        |:-------         |:------                              |:------                        |:------              |:------              |
 Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |70882239      |                     |<ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul> |
 Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |50550743      |                     |<ul><li>buitenlands woonadres</li></ul> |
