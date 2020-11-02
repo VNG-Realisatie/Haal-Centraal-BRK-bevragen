@@ -5,7 +5,7 @@
 ### openapi.yaml
 
 - Algemeen
-  - Nieuwe endpoints toegevoegd voor hypotheken, beslagen, privaat- en publiekrechtijke privaatrechtelijkeBeperkingen
+  - Nieuwe endpoints toegevoegd voor hypotheken, beslagen, privaatrechtelijke- en publiekrechtelijke Beperkingen
   - Enkele properties deprecated verklaard
   - Diverse verbeteringen in de documentatie (descriptions) en examples.
   - Er is gebruikgemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
