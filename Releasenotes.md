@@ -5,6 +5,8 @@
 ### openapi.yaml
 
 - Algemeen
+  - Nieuwe endpoints toegevoegd voor hypotheken, beslagen, privaat- en publiekrechtijke privaatrechtelijkeBeperkingen
+  - Enkele properties deprecated verklaard
   - Diverse verbeteringen in de documentatie (descriptions) en examples.
   - Er is gebruikgemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
   - De default-waarde voor de Accept-Crs header is verwijderd.
