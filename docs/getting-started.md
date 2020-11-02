@@ -23,6 +23,10 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - [Zakelijk gerechtigde](#ZakelijkGerechtigde)
 - [Kadaster natuurlijk persoon](#KadasterNatuurlijkPersoon)
 - [Kadaster niet-natuurlijk persoon](#KadasterNietNatuurlijkPersoon)
+- [Hypotheek](#Hypotheek)
+- [Beslag](#Beslag)
+- [Privaatrechtelijke beperking](#PrivaatrechtelijkeBeperking)
+- [Publiekrechtelijke beperking](#PubliekrechtelijkeBeperking)
 
 #### KadastraalOnroerendeZaak
 - Opvragen van 1 specifiek kadastraalonroerendezaak resource o.b.v. een kadastraalonroerendezaakidentificatie.
@@ -44,6 +48,22 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - Opvragen van 1 specifiek kadaster nietnatuurlijk persoon resource o.b.v. kadasterpersoonidentificatie.
 - Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](../features/zoeken-kadasternietnatuurlijkpersoon.feature))
 
+#### Hypotheek
+- Opvragen van 1 specifieke hypotheek resource o.b.v. hypotheekidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie hypotheek resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### Beslag
+- Opvragen van 1 specifieke beslag resource o.b.v. beslagidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie beslag resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### PrivaatrechtelijkeBeperking
+- Opvragen van 1 specifieke privaatrechtelijkebeperking resource o.b.v. privaatrechtelijkebeperkingidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie privaatrechtelijkebeperking resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### PrubliekrechtelijkeBeperking
+- Opvragen van een collectie publiekrechtelijkebeperking resources o.b.v. een kadastraalonroerendezaakidentificatie.
+
+
 ### Algemeen
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
 - Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature))
@@ -56,6 +76,11 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 |ZakelijkGerechtigde                |identificatie, _links.self |
 |KadasterNatuurlijkPersoon          |identificatie, _links.self |
 |KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
+|Beslag                             |identificatie, _links.self |
+|hypotheek                          |identificatie, _links.self |
+|KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
+|PrivaatrechtelijkeBeperking        |identificatie, _links.self |
+|PubliekrechtelijkeBeperking        |identificatie |
 
 - Combinatie van velden die altijd verplicht worden geleverd.
 
