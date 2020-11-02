@@ -19,17 +19,6 @@ https://eu-rm.roadmunk.com/publish/4ac89376551785bace5e22f09c8247f307e1c061
 
 * Specificaties van de develop versie in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/develop/specificatie/genereervariant/openapi.yaml)
 
-* Specificaties van versie 1.2 in ontwikkeling in Swagger-formaat, per nieuw feature:
-  * [Stukken en stukdelen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/stukken/specificatie/genereervariant/openapi.yaml)
-  * [Hypotheken](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/hypotheken/specificatie/genereervariant/openapi.yaml)
-  * [Beslagen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/beslagen/specificatie/genereervariant/openapi.yaml)
-  * [Privaatrechtelijke beperkingen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/privaat-rechtelijke-beperkingen/specificatie/genereervariant/openapi.yaml)
-  * [Publiekrechtelijke beperkingen](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/publiek-rechtelijke-beperkingen/specificatie/genereervariant/openapi.yaml)
-
-* Specificaties van versie 1.3 in ontwikkeling in Swagger-formaat, per nieuw feature:
-  * [Publiekrechtelijke beperkingen zoeken op geo locatie of contour](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/feature/zoeken_-publiekrechtelijkebeperkingen/specificatie/openapi.yaml)
-
-
 * Ontwerpkeuzes staan in het document [Design decisions](./docs/design_decisions.md)
 * [Productvisie](./docs/productvision.md)
 * [Definition of Ready](./docs/definition_of_ready.md)
