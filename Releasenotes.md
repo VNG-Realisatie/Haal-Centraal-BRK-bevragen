@@ -11,49 +11,50 @@
   - Uit alle componentnamen zijn de underscores verwijderd.
 
 
-- KadastraalOnroerendeZaak
-  - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
-  - PrivaatrechtelijkeBeperkingen, hypotheken en beslagen zijn toegevoegd aan de _embedded en _links. De bijbehorende identificaties zijn opgenomen in de KadastraalOnroerendeZaak.
-  - LocatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
-
-
-- Zakelijkgerechtigden
-  - Accept-Crs header en Content-Crs header zijn toegevoegd bij
-    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}
-    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
-
-- Aantekening  
-  - Properties begrenzing en indicatieOorspronkelijkObject worden niet meer geleverd en zijn deprecated verklaard
-
-
-- KadasterNatuurlijkPersoon
-  - Aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd.
-
-
-- Hypotheken
+- hypotheken
   - 2 nieuwe endpoints:
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}
 
 
-- Beslagen
+- beslagen
   - 2 nieuwe endpoints:
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}
 
 
-- Privaatrechtelijke beperkingen
+- privaatrechtelijkeBeperkingen
   - 2 nieuwe endpoints:
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen
     - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
 
 
-- Publiekrechtelijke beperkingen:
+- publiekrechtelijkeBeperkingen
   - 1 nieuw endpoint:   
     - /publiekrechtelijkebeperkingen
 
 
-- Heeftpartnerschap
+- kadastraalOnroerendeZaken
+  - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
+  - PrivaatrechtelijkeBeperkingen is toegevoegd aan de _embedded en de _links. Hypotheken en beslagen zijn toegevoegd aan de _links. De bijbehorende identificaties zijn opgenomen in de KadastraalOnroerendeZaak.
+  - LocatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
+
+
+- zakelijkGerechtigden
+  - Accept-Crs header en Content-Crs header zijn toegevoegd bij
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
+
+
+- aantekening  
+  - Properties begrenzing en indicatieOorspronkelijkObject worden niet meer geleverd en zijn deprecated verklaard
+
+
+- kadasterNatuurlijkPersonen
+  - Aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd aan naam.
+
+
+- heeftPartnerschap
   - Properties DatumOntbinding en DatumSluiting worden niet meer geleverd en zijn deprecated verklaard
 
 ### features:
@@ -67,6 +68,10 @@ De volgende features zijn toegevoegd:
 ### issues:
 
 Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "BRK-Bevragen 1.2.0" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
+
+Known issues die voor versie 1.2.1 gepland zijn :
+ #521: bij zoeken personen worden niet alle gegevens geleverd
+ #725: bij zoeken natuurlijk personen worden aanschrijfwijze, aanhef en gebruikInLopendeTekst niet correct gevuld
 
 
 
