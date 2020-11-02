@@ -1,6 +1,6 @@
-
 # Haal Centraal BRK bevragen v1.2 IS LIVE!
 BRK bevragen bevat nu pivaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen! 
+
 BRK bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL, maar ook waterschappen, belastingsamenwerkingen en andere overheden.
 
 Meld je aan bij het kadaster om [aan te sluiten](https://formulieren.kadaster.nl/aanmelden_brk_bevragen), of voor [toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen).
@@ -15,7 +15,7 @@ https://eu-rm.roadmunk.com/publish/4ac89376551785bace5e22f09c8247f307e1c061
 
 ## Documentatie
 * [Technische specificaties van de **resolved** versie](./specificatie/genereervariant) (Open API Specificaties), [Technische specificaties van de **unresolved** versie](./specificatie) (Open API versie)
-* Specificaties van de actuele productie versie in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.1.0/specificatie/genereervariant/openapi.yaml)
+* Specificaties van de actuele productie versie in [Swagger-formaat](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui/) en in [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc/)
 
 * Specificaties van de develop versie in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/develop/specificatie/genereervariant/openapi.yaml)
 
