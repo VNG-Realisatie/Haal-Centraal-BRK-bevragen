@@ -36,8 +36,8 @@
 
 - kadastraalOnroerendeZaken
   - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
-  - PrivaatrechtelijkeBeperkingen is toegevoegd aan de _embedded en de _links. Hypotheken en beslagen zijn toegevoegd aan de _links. De bijbehorende identificaties zijn opgenomen in de KadastraalOnroerendeZaak.
-  - LocatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
+  - privaatrechtelijkeBeperkingen is toegevoegd aan de _embedded en de _links. hypotheken en beslagen zijn toegevoegd aan de _links. De bijbehorende identificaties zijn opgenomen in de kadastraalOnroerendeZaak.
+  - locatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
 
 
 - zakelijkGerechtigden
@@ -51,11 +51,11 @@
 
 
 - kadasterNatuurlijkPersonen
-  - Aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd aan naam.
+  - aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd aan naam.
 
 
 - heeftPartnerschap
-  - Properties DatumOntbinding en DatumSluiting worden niet meer geleverd en zijn deprecated verklaard
+  - Properties datumOntbinding en datumSluiting worden niet meer geleverd en zijn deprecated verklaard
 
 ### features:
 
