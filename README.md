@@ -41,12 +41,12 @@ https://eu-rm.roadmunk.com/publish/4ac89376551785bace5e22f09c8247f307e1c061
 
 ## Bronnen
 * [API strategie en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/)
-* [API Design Visie] (https://github.com/Geonovum/KP-APIs/blob/master/Werkgroep%20Design%20Visie/API%20Design%20Visie.md)
+* [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/Werkgroep%20Design%20Visie/API%20Design%20Visie.md)
 
 ## Contactpersonen:
 * Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl
 * Berichtontwerper: Johan Boer johan.boer@vng.nl
 
 ## Licentie
-Copyright &copy; VNG Realisatie, G5 gemeenten en Kadaster 2020
+Copyright &copy; VNG Realisatie 2020
 Licensed under the [EUPL](../LICENCE.md)
