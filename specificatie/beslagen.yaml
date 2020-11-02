@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  title: Kadaster - BRK-Bevragen API - Beslagen endpoints
+  description: |
+                De definitie van de Beslagen endpoints en components.
+  version: "1.2.0"
+paths:
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    get:
+      operationId: GetBeslagenKadastraalOnroerendeZaak
+      description: |
+        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      responses:
+        '200':
+          description: |
+                        Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/BeslagHalCollectie"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Beslagen
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+    get:
+      operationId: GetBeslag
+      description: |
+        Het raadplegen van een beslag.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: kadastraalonroerendezaakidentificatie
+          description: |
+                        De unieke identificatie van een kadastraal onroerende zaak.
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: beslagidentificatie
+          description: |
+                        De unieke identificatie van het beslag.
+          required: true
+          schema:
+            type: string
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      responses:
+        '200':
+          description: |
+                        Raadplegen geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+          content:
+            application/hal+json:
+              schema:
+                $ref: "#/components/schemas/BeslagHal"
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
+        '412':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/412"
+        '415':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/415"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Beslagen
+components:
+  schemas:
+    Beslag:
+      type: "object"
+      description: |
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: |
+                        Het domein waartoe de identificatie behoort.
+        aandeelInBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+          description: |
+                        Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.
+        omschrijvingBetrokkenRecht:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+        toelichtingBewaarder:
+          type: "string"
+          description: |
+                        Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+        aantekeningen:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/AantekeningBasis"
+            description: |
+                          Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor.
+        beslagleggers:
+          type: array
+          items:
+            $ref: "domain.yaml#/components/schemas/PersoonBeperkt"
+        bedragVordering:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: |
+                        Het bedrag waarvoor beslag is gelegd. Als een beslag bestaat uit verschillende bedragen, dan zijn die bij elkaar opgeteld.
+    BeslagHal:
+      allOf:
+      - $ref: "#/components/schemas/Beslag"
+      - properties:
+          _links:
+            $ref: "#/components/schemas/BeslagLinks"
+    BeslagHalCollectie:
+      type: "object"
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          $ref: "#/components/schemas/BeslagHalCollectieEmbedded"
+    BeslagHalCollectieEmbedded:
+      type: "object"
+      properties:
+        beslagen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/BeslagHal"
+    BeslagLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        beslagleggers:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"

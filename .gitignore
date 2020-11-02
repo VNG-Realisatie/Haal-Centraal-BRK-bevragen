@@ -1,0 +1,5 @@
+node_modules/
+
+specificatie/genereervariant/.swagger-codegen
+specificatie/genereervariant/.swagger-codegen-ignore
+specificatie/genereervariant/README.md

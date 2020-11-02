@@ -1,15 +1,19 @@
 openapi: 3.0.0
 servers:
-  - description: "BRK-Bevragen API - TEST (via API-key)"
+  - description: |
+                  BRK-Bevragen API - TEST (via API-key)
     url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
-  - description: "BRK-Bevragen API - TEST (via API-key & mTLS)"
+  - description: |
+                  BRK-Bevragen API - TEST (via API-key & mTLS)
     url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
-  - description: "BRK-Bevragen API - PRODUCTIE"
+  - description: |
+                  BRK-Bevragen API - PRODUCTIE
     url: https://api.brk.kadaster.nl/esd/bevragen/v1
 info:
   title: Kadaster - BRK-Bevragen API
-  description: "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie."
-  version: "1.1.1"
+  description: |
+                D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
+  version: "1.2.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -18,6 +22,14 @@ info:
     url: https://eupl.eu/1.2/nl/
 security:
   - apiKeyAuth: []
+tags:
+- name: Kadastraal Onroerende Zaken
+- name: Zakelijke Gerechtigden
+- name: Beslagen
+- name: Hypotheken
+- name: Privaatrechtelijke Beperkingen
+- name: Publiekrechtelijke Beperkingen
+- name: Kadaster (niet)Natuurlijk Personen
 paths:
   /kadastraalonroerendezaken:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
@@ -35,10 +47,25 @@ paths:
     $ref: "kadaster-natuurlijk-personen.yaml#/paths/~1kadasternatuurlijkpersonen"
   /kadasternietnatuurlijkpersonen:
     $ref: "kadaster-niet-natuurlijk-personen.yaml#/paths/~1kadasternietnatuurlijkpersonen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken~1{hypotheekidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen~1{beslagidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen"
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
+  /publiekrechtelijkebeperkingen:
+    $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen"
 components:
   securitySchemes:
     apiKeyAuth:
       type: apiKey
       in: header
       name: X-Api-Key
-      description: "De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden."
+      description: |
+                    De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden.

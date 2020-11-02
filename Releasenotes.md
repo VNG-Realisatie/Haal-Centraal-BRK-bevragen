@@ -1,6 +1,81 @@
 # Release notes BRK-Bevragen
 
-## Versie 1.1.1:
+## **Versie 1.2.0:**
+
+### openapi.yaml
+
+- Algemeen
+  - Diverse verbeteringen in de documentatie (descriptions) en examples.
+  - Er is gebruikgemaakt van Haal-Centraal-common versie 1.2.0 (was 1.0.0)
+  - De default-waarde voor de Accept-Crs header is verwijderd.
+  - Uit alle componentnamen zijn de underscores verwijderd.
+
+
+- hypotheken
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}
+
+
+- beslagen
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}
+
+
+- privaatrechtelijkeBeperkingen
+  - 2 nieuwe endpoints:
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+
+
+- publiekrechtelijkeBeperkingen
+  - 1 nieuw endpoint:   
+    - /publiekrechtelijkebeperkingen
+
+
+- kadastraalOnroerendeZaken
+  - De default-waarde voor de Accept-Crs header is verwijderd bij /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}
+  - privaatrechtelijkeBeperkingen is toegevoegd aan de _embedded en de _links. hypotheken en beslagen zijn toegevoegd aan de _links. De bijbehorende identificaties zijn opgenomen in de kadastraalOnroerendeZaak.
+  - locatieKadastraalObject levert naast nummeraanduidingIdentificatie nu ook het adres.
+
+
+- zakelijkGerechtigden
+  - Accept-Crs header en Content-Crs header zijn toegevoegd bij
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}
+    - /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden
+
+
+- aantekening  
+  - Properties begrenzing en indicatieOorspronkelijkObject worden niet meer geleverd en zijn deprecated verklaard
+
+
+- kadasterNatuurlijkPersonen
+  - aanschrijfwijze, aanhef en gebruikInLopendeTekst zijn toegevoegd aan naam.
+
+
+- heeftPartnerschap
+  - Properties datumOntbinding en datumSluiting worden niet meer geleverd en zijn deprecated verklaard
+
+### features:
+
+De volgende features zijn toegevoegd:
+- aanhef.features
+- aanschrijfwijze.features
+- gebruik_in_lopende_tekst.feature
+- voorletters.feature
+
+### issues:
+
+Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "BRK-Bevragen 1.2.0" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
+
+Known issues die voor versie 1.2.1 gepland zijn :
+ #521: bij zoeken personen worden niet alle gegevens geleverd
+ #725: bij zoeken natuurlijk personen worden aanschrijfwijze, aanhef en gebruikInLopendeTekst niet correct gevuld
+
+
+
+## **Versie 1.1.1:**
 
 Inhoudelijk is er in deze patch niets gewijzigd.
 De structuur van de yaml-bestanden is aangepast omdat het bestand erg groot en onoverzichtelijk werd.
@@ -10,7 +85,7 @@ De openapi.yaml in de genereervariant is gewijzigd als gevolg van het gebruiken 
 Deze wijzigingen betreffen hoofdzakelijk volgorde wijzigingen van schemacomponenten.
 Daarnaast zijn er enkele parameter-properties met default-waarden nu expliciet opgenomen in de genereervariant.   
 
-## Versie 1.1.0:
+## **Versie 1.1.0:**
 
 De repository is opgeschoond. Mappen die overbodig waren zijn verwijderd. De specificatie van de Waardelijsten API is verwijderd omdat die nog niet geïmplementeerd is.
 Dit heeft ook gevolgen voor de tree: Map BRK-Bevragen is komen te vervallen en openapi.yaml en de map genereervariant staan direct onder de map /specificatie).

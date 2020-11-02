@@ -3,28 +3,38 @@ info:
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
-  description: D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis
-    Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken
-    van Kadastrale Onroerende Zaak informatie.
+  description: |
+    D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
   title: Kadaster - BRK-Bevragen API
-  version: 1.1.0
+  version: 1.2.0
 servers:
-- description: BRK-Bevragen API - PRODUCTIE
-  url: https://api.brk.kadaster.nl/esd/bevragen/v1
-- description: BRK-Bevragen API - TEST (via API-key & mTLS)
-  url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
-- description: BRK-Bevragen API - TEST (via API-key)
+- description: |
+    BRK-Bevragen API - TEST (via API-key)
   url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
+- description: |
+    BRK-Bevragen API - TEST (via API-key & mTLS)
+  url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
+- description: |
+    BRK-Bevragen API - PRODUCTIE
+  url: https://api.brk.kadaster.nl/esd/bevragen/v1
 security:
 - apiKeyAuth: []
+tags:
+- name: Kadastraal Onroerende Zaken
+- name: Zakelijke Gerechtigden
+- name: Beslagen
+- name: Hypotheken
+- name: Privaatrechtelijke Beperkingen
+- name: Publiekrechtelijke Beperkingen
+- name: Kadaster (niet)Natuurlijk Personen
 paths:
   /kadastraalonroerendezaken:
     get:
       description: |
-        Het zoeken van kadastraal onroerende zaken door een of meer parameters op te geven uit de categorieën kadastrale aanduiding, ingeschreven persoon, kadasterpersoon of Adres. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
         2.  Ingeschreven persoon als zakelijk gerechtigde
             -  burgerservicenummer (verplicht)
@@ -49,7 +59,6 @@ paths:
         name: Accept-Crs
         required: false
         schema:
-          default: epsg:28992
           description: CRS van de coördinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
@@ -62,7 +71,7 @@ paths:
           die je wil ontvangen geef je op met de resource-naam gevolgd door de property
           naam, met daartussen een punt. In de definitie van het antwoord kun je bij
           _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
         explode: true
         in: query
         name: expand
@@ -74,7 +83,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -82,14 +91,19 @@ paths:
         schema:
           type: string
         style: form
-      - description: |-
+      - description: |
           Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+
           - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
+
           - sectie, 1 of 2 hoofdletters
+
           - perceelnummer, 1 tot 5 cijfers
+
           - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
 
-          gescheiden door een spatie
+
+          gescheiden door een spatie"
         explode: true
         in: query
         name: kadastraleAanduiding
@@ -100,11 +114,8 @@ paths:
             A[1-9][0-9]{0,3})?$
           type: string
         style: form
-      - description: Het burgerservicenummer van de persoon die een zakelijk recht
-          op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde
-          van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken
-          worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk
-          recht op heeft.
+      - description: |
+          Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
         explode: true
         in: query
         name: burgerservicenummer
@@ -113,11 +124,8 @@ paths:
           maxLength: 9
           type: string
         style: form
-      - description: De identificatie van de Kadasterpersoon, een niet-ingeschreven
-          persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn
-          geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende
-          Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende
-          Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
+      - description: |
+          De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
         explode: true
         in: query
         name: persoon__identificatie
@@ -125,19 +133,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: Een typering van het recht dat de zakelijkgerechtigde heeft op
-          de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter
-          worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust
-          van het opgegeven type.
+      - description: |
+          Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.
         explode: true
         in: query
         name: zakelijkGerechtigde__type
         required: false
         schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         style: form
-      - description: De postcode van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
+      - description: |
+          De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak.
         explode: true
         in: query
         name: postcode
@@ -146,8 +152,8 @@ paths:
           pattern: ^[1-9][0-9][0-9][0-9][A-Z][A-Z]$
           type: string
         style: form
-      - description: Het huisnummer van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
+      - description: |
+          Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.
         explode: true
         in: query
         name: huisnummer
@@ -157,8 +163,8 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: De huisletter van het adres van de objectlocatie van de kadastraal
-          onroerende zaak
+      - description: |
+          De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.
         explode: true
         in: query
         name: huisletter
@@ -167,8 +173,8 @@ paths:
           pattern: ^[a-zA-Z]$
           type: string
         style: form
-      - description: De huisnummertoevoeging van het adres van de objectlocatie van
-          de kadastraal onroerende zaak
+      - description: |
+          De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.
         explode: true
         in: query
         name: huisnummertoevoeging
@@ -183,7 +189,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -195,8 +202,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -218,8 +224,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -237,8 +242,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -255,8 +259,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -274,8 +277,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -292,8 +294,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -310,8 +311,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -332,10 +332,11 @@ paths:
       description: |
         Het raadplegen van een kadastrale onroerende zaak.
 
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
+        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
-      - description: De unieke identificatie van een kadastraal onroerende zaak.
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
         explode: false
         in: path
         name: kadastraalonroerendezaakidentificatie
@@ -349,7 +350,6 @@ paths:
         name: Accept-Crs
         required: false
         schema:
-          default: epsg:28992
           description: CRS van de coördinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
@@ -362,7 +362,7 @@ paths:
           die je wil ontvangen geef je op met de resource-naam gevolgd door de property
           naam, met daartussen een punt. In de definitie van het antwoord kun je bij
           _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/expand.feature).
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
         explode: true
         in: query
         name: expand
@@ -374,7 +374,7 @@ paths:
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -388,7 +388,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -400,8 +401,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -423,8 +423,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -442,8 +441,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -460,8 +458,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
                 title: Opgevraagde resource bestaat niet.
                 status: 404
                 detail: The server has not found anything matching the Request-URI.
@@ -477,8 +474,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -496,8 +492,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -514,8 +509,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -532,8 +526,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -551,18 +544,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:
-      description: Het raadplegen van een specifieke zakelijk gerechtigde van een
-        kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt
-        altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of
-        meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders
-        afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
+      description: |
+        Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
       operationId: GetZakelijkGerechtigde
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -570,7 +560,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: De unieke identificatie van een kadastraal onroerende zaak.
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
         explode: false
         in: path
         name: kadastraalonroerendezaakidentificatie
@@ -578,12 +569,25 @@ paths:
         schema:
           type: string
         style: simple
-      - description: De identificatie van de zakelijk gerechtigde
+      - description: |
+          De identificatie van de zakelijk gerechtigde
         explode: false
         in: path
         name: zakelijkgerechtigdeidentificatie
         required: true
         schema:
+          type: string
+        style: simple
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
           type: string
         style: simple
       responses:
@@ -592,18 +596,20 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
         "400":
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -625,8 +631,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -644,8 +649,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -662,8 +666,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
                 title: Opgevraagde resource bestaat niet.
                 status: 404
                 detail: The server has not found anything matching the Request-URI.
@@ -679,8 +682,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -698,8 +700,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -716,8 +717,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -734,8 +734,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -753,18 +752,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
     get:
-      description: Het zoeken van zakelijk gerechtigden van een kadastraal onroerende
-        zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie
-        met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk
-        aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het
-        gezamenlijk aandeel niet bekend is)
+      description: |
+        Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
       operationId: GetZakelijkGerechtigden
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -772,7 +768,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: De unieke identificatie van een kadastraal onroerende zaak.
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
         explode: false
         in: path
         name: kadastraalonroerendezaakidentificatie
@@ -780,33 +777,47 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Het type recht dat de zakelijk gerechtigde heeft op de kadastraal
-          onroerende zaak. De waarden van de typering staan in een waardelijst.
+      - description: |
+          Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.
         explode: true
         in: query
         name: type
         required: false
         schema:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         style: form
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
             warning:
               $ref: '#/components/headers/warning'
         "400":
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -828,8 +839,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -847,8 +857,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -865,8 +874,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
                 title: Opgevraagde resource bestaat niet.
                 status: 404
                 detail: The server has not found anything matching the Request-URI.
@@ -882,8 +890,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -901,8 +908,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -919,8 +925,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -937,8 +942,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -956,17 +960,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
     get:
-      description: Het raadplegen van een bij het kadaster geregistreerde natuurlijke
-        persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of
-        wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte).
-        Kadasternatuurlijkpersonen worden niet geactualiseerd.
+      description: |
+        Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -988,7 +990,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -998,8 +1001,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -1021,8 +1023,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -1040,8 +1041,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -1058,8 +1058,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
                 title: Opgevraagde resource bestaat niet.
                 status: 404
                 detail: The server has not found anything matching the Request-URI.
@@ -1075,8 +1074,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -1094,8 +1092,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -1112,8 +1109,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -1130,8 +1126,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -1149,16 +1144,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
     get:
-      description: Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke
-        persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen
-        worden niet geactualiseerd.
+      description: |
+        Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -1180,7 +1174,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1190,8 +1185,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -1213,8 +1207,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -1232,8 +1225,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -1250,8 +1242,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5
-                  404 Not Found
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
                 title: Opgevraagde resource bestaat niet.
                 status: 404
                 detail: The server has not found anything matching the Request-URI.
@@ -1267,8 +1258,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -1286,8 +1276,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -1304,8 +1293,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -1322,8 +1310,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -1341,17 +1328,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadasternatuurlijkpersonen:
     get:
-      description: 'Het zoeken van bij het kadaster geregistreerde natuurlijke personen
-        die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn
-        ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte).
-        Kadasternatuurlijkpersonen worden niet geactualiseerd. '
+      description: |
+        Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersonen
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -1359,9 +1344,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Free query parameter. Dit endpoint evolueert naar free query
-          zoeken. In deze versie kan alleen een combinatie van (het begin van) de
-          geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
+      - description: |
+          Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
         explode: true
         in: query
         name: q
@@ -1375,7 +1359,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1385,8 +1370,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -1408,8 +1392,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -1427,8 +1410,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -1445,8 +1427,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -1464,8 +1445,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -1482,8 +1462,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -1500,8 +1479,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -1519,16 +1497,15 @@ paths:
       x-accepts: application/hal+json,application/problem+json
   /kadasternietnatuurlijkpersonen:
     get:
-      description: Het zoeken van bij het kadaster geregistreerde niet natuurlijke
-        personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen
-        worden niet geactualiseerd.
+      description: |
+        Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
       - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
           door een door komma's gescheiden lijst van property namen op te geven. Bij
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
         explode: true
         in: query
         name: fields
@@ -1536,11 +1513,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Free query parameter. Dit endpoint evolueert naar free query
-          zoeken. In deze versie kan alleen een combinatie van (het begin van de)
-          de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op!
-          Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier
-          voorkomen in de BRK.
+      - description: |
+          Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
         explode: true
         in: query
         name: q
@@ -1554,7 +1528,8 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie'
-          description: Zoekactie geslaagd
+          description: |
+            Zoekactie geslaagd
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1564,8 +1539,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1
-                  400 Bad Request
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
                 title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
@@ -1587,8 +1561,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2
-                  401 Unauthorized
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
                 title: Niet correct geauthenticeerd.
                 status: 401
                 detail: The request requires user authentication. The response MUST
@@ -1606,8 +1579,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4
-                  403 Forbidden
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
                 title: U bent niet geautoriseerd voor deze operatie.
                 status: 403
                 detail: The server understood the request, but is refusing to fulfill
@@ -1624,8 +1596,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7
-                  406 Not Acceptable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
                 title: Gevraagde contenttype wordt niet ondersteund.
                 status: 406
                 detail: The resource identified by the request is only capable of
@@ -1643,8 +1614,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11
-                  410 Gone
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
                 title: Gone
                 status: 410
                 detail: The request could not be completed due to a conflict with
@@ -1661,8 +1631,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1
-                  500 Internal server error
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
                 title: Interne server fout.
                 status: 500
                 detail: The server encountered an unexpected condition which prevented
@@ -1679,8 +1648,7 @@ paths:
           content:
             application/problem+json:
               example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4
-                  503 Service Unavailable
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
                 title: Bronservice {bron} is tijdelijk niet beschikbaar.
                 status: 503
                 detail: The service is currently unable to handle the request due
@@ -1695,6 +1663,1449 @@ paths:
               $ref: '#/components/headers/api_version'
       tags:
       - Kadaster (niet)Natuurlijk Personen
+      x-accepts: application/hal+json,application/problem+json
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+    get:
+      description: |
+        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+      operationId: GetHypothekenKadastraalOnroerendeZaak
+      parameters:
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/HypotheekHalCollectie'
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+            warning:
+              $ref: '#/components/headers/warning'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Hypotheken
+      x-accepts: application/hal+json,application/problem+json
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+    get:
+      description: |
+        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+      operationId: GetHypotheek
+      parameters:
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |
+          De unieke identificatie van de hypotheek.
+        explode: false
+        in: path
+        name: hypotheekidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/HypotheekHal'
+          description: |
+            Raadplegen geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "412":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.13
+                title: Precondition Failed
+                status: 412
+                detail: The precondition given in one or more of the request-header
+                  fields evaluated to false when it was tested on the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: preconditionFailed
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Precondition failed
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "415":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.16
+                title: Unsupported Media Type
+                status: 415
+                detail: The server is refusing the request because the entity of the
+                  request is in a format not supported by the requested resource for
+                  the requested method.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: unsupported
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Hypotheken
+      x-accepts: application/hal+json,application/problem+json
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+    get:
+      description: |
+        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
+      operationId: GetBeslagenKadastraalOnroerendeZaak
+      parameters:
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/BeslagHalCollectie'
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+            warning:
+              $ref: '#/components/headers/warning'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Beslagen
+      x-accepts: application/hal+json,application/problem+json
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+    get:
+      description: |
+        Het raadplegen van een beslag.
+      operationId: GetBeslag
+      parameters:
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |
+          De unieke identificatie van het beslag.
+        explode: false
+        in: path
+        name: beslagidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/BeslagHal'
+          description: |
+            Raadplegen geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "412":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.13
+                title: Precondition Failed
+                status: 412
+                detail: The precondition given in one or more of the request-header
+                  fields evaluated to false when it was tested on the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: preconditionFailed
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Precondition failed
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "415":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.16
+                title: Unsupported Media Type
+                status: 415
+                detail: The server is refusing the request because the entity of the
+                  request is in a format not supported by the requested resource for
+                  the requested method.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: unsupported
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unsupported Media Type
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Beslagen
+      x-accepts: application/hal+json,application/problem+json
+  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+    get:
+      description: |
+        Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
+      operationId: GetPrivaatrechtelijkeBeperkingen
+      parameters:
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectie'
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Privaatrechtelijke Beperkingen
+      x-accepts: application/hal+json,application/problem+json
+  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  : get:
+      description: |
+        Het raadplegen van een specifieke privaatrechtelijke beperkingen.
+      operationId: GetPrivaatrechtelijkeBeperking
+      parameters:
+      - description: Gewenste CRS van de coördinaten in de response.
+        explode: false
+        in: header
+        name: Accept-Crs
+        required: false
+        schema:
+          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+            RD New Nederlands coordinatenstelsel.
+          enum:
+          - epsg:28992
+          type: string
+        style: simple
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak.
+        explode: false
+        in: path
+        name: kadastraalonroerendezaakidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |
+          De unieke identificatie van een privaatrechtelijke beperking.
+        explode: false
+        in: path
+        name: privaatrechtelijkebeperkingidentificatie
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+            Content-Crs:
+              $ref: '#/components/headers/contentCrs'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "404":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
+                title: Opgevraagde resource bestaat niet.
+                status: 404
+                detail: The server has not found anything matching the Request-URI.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notFound
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Found
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "410":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
+                title: Gone
+                status: 410
+                detail: The request could not be completed due to a conflict with
+                  the current state of the resource
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: gone
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Gone
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Privaatrechtelijke Beperkingen
+      x-accepts: application/hal+json,application/problem+json
+  /publiekrechtelijkebeperkingen:
+    get:
+      description: |
+        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+      operationId: GetPubliekrechtelijkeBeperkingen
+      parameters:
+      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
+        explode: true
+        in: query
+        name: kadastraalOnroerendeZaakIdentificatie
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHalCollectie'
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+            warning:
+              $ref: '#/components/headers/warning'
+        "400":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+                title: Ten minste één parameter moet worden opgegeven.
+                status: 400
+                detail: The request could not be understood by the server due to malformed
+                  syntax. The client SHOULD NOT repeat the request without modification.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: paramsRequired
+                invalidParams:
+                - type: https://www.vng.nl/realisatie/api/validaties/integer
+                  name: verblijfplaats__huisnummer
+                  code: integer
+                  reason: Waarde is geen geldige integer.
+              schema:
+                $ref: '#/components/schemas/BadRequestFoutbericht'
+          description: Bad Request
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "401":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
+                title: Niet correct geauthenticeerd.
+                status: 401
+                detail: The request requires user authentication. The response MUST
+                  include a WWW-Authenticate header field (section 14.47) containing
+                  a challenge applicable to the requested resource.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: authentication
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Unauthorized
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "403":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
+                title: U bent niet geautoriseerd voor deze operatie.
+                status: 403
+                detail: The server understood the request, but is refusing to fulfill
+                  it.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: autorisation
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Forbidden
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "406":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
+                title: Gevraagde contenttype wordt niet ondersteund.
+                status: 406
+                detail: The resource identified by the request is only capable of
+                  generating response entities which have content characteristics
+                  not acceptable according to thr accept headers sent in the request
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAcceptable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Not Acceptable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "500":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+                title: Interne server fout.
+                status: 500
+                detail: The server encountered an unexpected condition which prevented
+                  it from fulfilling the request.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: serverError
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Internal Server Error
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+        "503":
+          content:
+            application/problem+json:
+              example:
+                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
+                title: Bronservice {bron} is tijdelijk niet beschikbaar.
+                status: 503
+                detail: The service is currently unable to handle the request due
+                  to a temporary overloading or maintenance of the server.
+                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+                code: notAvailable
+              schema:
+                $ref: '#/components/schemas/Foutbericht'
+          description: Service Unavailable
+          headers:
+            api-version:
+              $ref: '#/components/headers/api_version'
+      tags:
+      - Publiekrechtelijke Beperkingen
       x-accepts: application/hal+json,application/problem+json
 components:
   headers:
@@ -1711,7 +3122,6 @@ components:
         Nederlands coordinatenstelsel.
       explode: false
       schema:
-        default: epsg:28992
         enum:
         - epsg:28992
         type: string
@@ -1729,250 +3139,51 @@ components:
         type: string
       style: simple
   schemas:
-    Aantekening:
-      description: 'Waardelijst in deze component : [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)'
-      properties:
-        identificatie:
-          type: string
-        domein:
-          description: Het domein waartoe de identificatie behoort.
-          type: string
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        omschrijving:
-          type: string
-        begrenzing:
-          $ref: '#/components/schemas/polygonGeoJSON'
-        einddatum:
-          format: date
-          type: string
-        einddatumRecht:
-          format: date
-          type: string
-        indicatieOorspronkelijkObject:
-          type: boolean
-        betreftGedeelteVanPerceel:
-          type: boolean
-      type: object
-    Bedrag:
-      description: |-
-        Hoeveelheid geld in cijfers in een bepaalde valuta.
-
-        Waardelijst in deze component : [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)
-      properties:
-        som:
-          description: Het bedrag. Dit is een waarde met max. 2 decimalen.
-          format: float
-          type: number
-        valuta:
-          $ref: '#/components/schemas/Waardelijst'
-      type: object
-    ErfpachtCanon:
-      description: |-
-        Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
-
-        Waardelijst in deze component : [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
-      properties:
-        soortErfpachtCanon:
-          $ref: '#/components/schemas/Waardelijst'
-        jaarlijksBedrag:
-          $ref: '#/components/schemas/Bedrag'
-        betrefMeerOnroerendeZaken:
-          description: Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag
-            meerdere onroerende zaken betreft.
-          type: boolean
-        einddatumAfkoop:
-          format: date
-          type: string
-        indicatieOudeOnroerendeZaakBetrokken:
-          description: Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk
-            gevestigd is bij een perceel dat later is verenigd met een ander perceel.
-          type: boolean
-      type: object
-    Geboorte:
-      description: |-
-        Geboorte is een groep gegevens over de geboorte van een persoon.
-
-        Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
-      properties:
-        plaats:
-          description: De geboorteplaats is de plaats of een plaatsbepaling, die aangeeft
-            waar de persoon is geboren
-          title: geboorteplaats
-          type: string
-        datum:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        land:
-          $ref: '#/components/schemas/Waardelijst'
-      type: object
-    Geslacht_enum:
-      description: |-
-        Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
-        * `man` - Man
-        * `vrouw` - Vrouw
-        * `onbekend` - Onbekend
-      enum:
-      - man
-      - vrouw
-      - onbekend
-      type: string
-    HeeftPartnerschap:
-      description: Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus
-        van een persoon.
-      properties:
-        datumOntbinding:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        datumSluiting:
-          $ref: '#/components/schemas/Datum_onvolledig'
-        naam:
-          $ref: '#/components/schemas/Naam'
-      type: object
-    KadasterNatuurlijkPersoon:
-      allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
-      - $ref: '#/components/schemas/KadasterNatuurlijkPersoon_allOf'
-    KadasterNatuurlijkPersoonHal:
-      allOf:
-      - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
-      - $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal_allOf'
-    KadasterNatuurlijkPersoonHalCollectie:
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie_embedded'
-      type: object
-    KadasterNatuurlijkPersoonHalCollectie_embedded:
-      properties:
-        kadasterNatuurlijkPersonen:
-          items:
-            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
-          type: array
-      type: object
-    KadasterNietNatuurlijkPersoon:
-      allOf:
-      - $ref: '#/components/schemas/KadasterPersoon'
-      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon_allOf'
-    KadasterNietNatuurlijkPersoonHal:
-      allOf:
-      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
-      - $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal_allOf'
-    KadasterNietNatuurlijkPersoonHalCollectie:
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectie_embedded'
-      type: object
-    KadasterNietNatuurlijkPersoonHalCollectie_embedded:
-      properties:
-        kadasterNietNatuurlijkPersonen:
-          items:
-            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
-          type: array
-      type: object
-    KadasterPersoon:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - $ref: '#/components/schemas/KadasterPersoon_allOf'
-    KadasterPersoon_links:
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        woonadres:
-          $ref: '#/components/schemas/HalLink'
-        postadres:
-          $ref: '#/components/schemas/HalLink'
-        kadastraalOnroerendeZaken:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
-        zakelijkGerechtigden:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
-      type: object
-    KadastraalOnroerendeZaak:
-      description: "Een kadastraal onroerende zaak is een perceel of een appartementsrecht.\
-        \ Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten\
-        \ en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is\
-        \ het recht dat iemand of een organisatie heeft om eigenaar te zijn van een\
-        \ deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal\
-        \ een appartement genoemd.\n\nWaardelijst in deze component : [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)\
-        \ en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) "
-      properties:
-        identificatie:
-          type: string
-        domein:
-          description: Het domein waartoe de identificatie behoort.
-          type: string
-        begrenzingPerceel:
-          $ref: '#/components/schemas/polygonGeoJSON'
-        perceelnummerRotatie:
-          description: Rotatie van het perceelnummer ten behoeve van visualisatie
-            op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal
-            perceel te passen.
-          maximum: 999
-          type: number
-        plaatscoordinaten:
-          $ref: '#/components/schemas/pointGeoJSON'
-        koopsom:
-          $ref: '#/components/schemas/TypeKoopsom'
-        toelichtingBewaarder:
-          description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
-            De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
-            in in de openbare registers en de basisregistratie Kadaster conform de
-            Kadasterwet.
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaak_enum'
-        aardCultuurBebouwd:
-          $ref: '#/components/schemas/Waardelijst'
-        aardCultuurOnbebouwd:
-          $ref: '#/components/schemas/Waardelijst'
-        kadastraleAanduiding:
-          type: string
-        kadastraleGrootte:
-          $ref: '#/components/schemas/TypeOppervlak'
-        perceelnummerVerschuiving:
-          $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
-        adressen:
-          items:
-            $ref: '#/components/schemas/LocatieKadastraalObject'
-          type: array
-        zakelijkGerechtigdeIdentificaties:
-          description: Alle personen en rechtspersonen die een zakelijk recht hebben
-            op deze kadastaraal onroerende zaak
-          items:
-            type: string
-          type: array
-      type: object
-    KadastraalOnroerendeZaakHal:
-      allOf:
-      - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
-      - $ref: '#/components/schemas/KadastraalOnroerendeZaakHal_allOf'
     KadastraalOnroerendeZaakHalCollectie:
       properties:
         _links:
           $ref: '#/components/schemas/HalCollectionLinks'
         _embedded:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie_embedded'
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectieEmbedded'
       type: object
-    KadastraalOnroerendeZaakHalCollectie_embedded:
+    HalCollectionLinks:
+      description: |
+        HalCollectionLinks bevat de self link die elke HAL Resource minimaal moet hebben in zijn _links property
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+      type: object
+    HalLink:
+      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5;
+        Deze link kan als templated link worden aangeboden. [URI-templating is hier
+        beschreven](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature).
+      properties:
+        href:
+          example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
+          type: string
+        templated:
+          type: boolean
+        title:
+          description: Voor mens leesbaar label bij de link
+          type: string
+      required:
+      - href
+      type: object
+    Href:
+      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
+      type: string
+    KadastraalOnroerendeZaakHalCollectieEmbedded:
       properties:
         kadastraalOnroerendeZaken:
           items:
             $ref: '#/components/schemas/KadastraalOnroerendeZaakHal'
           type: array
       type: object
-    KadastraalOnroerendeZaak_embedded:
-      properties:
-        zakelijkGerechtigden:
-          items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-          type: array
-      type: object
-    KadastraalOnroerendeZaak_links:
+    KadastraalOnroerendeZaakHal:
+      allOf:
+      - $ref: '#/components/schemas/KadastraalOnroerendeZaak'
+      - $ref: '#/components/schemas/KadastraalOnroerendeZaakHal_allOf'
+    KadastraalOnroerendeZaakLinks:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
@@ -1980,219 +3191,49 @@ components:
           items:
             $ref: '#/components/schemas/HalLink'
           type: array
-      type: object
-    LocatieKadastraalObject:
-      description: 'Waardelijst in deze component : [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze)'
-      properties:
-        nummeraanduidingIdentificatie:
-          type: string
-        koppelingswijze:
-          $ref: '#/components/schemas/Waardelijst'
-      type: object
-    Naam:
-      description: Naam is een groep gegevens met de geslachtsnaam, voorletters en
-        voornamen die men wil gebruiken bij aanschrijving.
-      properties:
-        geslachtsnaam:
-          description: De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels
-            en adellijke titel zijn afgesplitst.
-          type: string
-        voornamen:
-          description: De voornamen zijn de verzameling namen die, gescheiden door
-            spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat
-            afgesplitst.
-          type: string
-        voorvoegsel:
-          description: Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam
-            dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam.
-          title: voorvoegselsgeslachtsnaam
-          type: string
-      type: object
-    NatuurlijkPersoonBeperkt:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - $ref: '#/components/schemas/NatuurlijkPersoonBeperkt_allOf'
-    NatuurlijkPersoonType_enum:
-      description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
-        BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster.
-      enum:
-      - ingeschreven_natuurlijk_persoon
-      - kadaster_natuurlijk_persoon
-      type: string
-    NietNatuurlijkPersoonBeperkt:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt_allOf'
-    NietNatuurlijkPersoonType_enum:
-      description: Een aanduiding die aangeeft of de persoon ingeschreven is in het
-        Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.
-      enum:
-      - ingeschreven_niet_natuurlijk_persoon
-      - kadaster_niet_natuurlijk_persoon
-      type: string
-    Adres:
-      description: 'Waardelijst in deze component : [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)'
-      example:
-        nummeraanduidingIdentificatie: "1234207890123456"
-        huisnummer: 26
-        huisletter: A
-        huisnummertoevoeging: "3"
-        straat: Laan van de landinrichtingscommissie Duiven-Westervoort
-        postcode: 1234AA
-        woonplaats: Nootdorp
-        adresregel1: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
-        adresregel2: 1234AA Nootdorp
-      properties:
-        nummeraanduidingIdentificatie:
-          description: identificatie van het adres in het geval dit adres in BAG geregistreerd
-            is.
-          type: string
-        huisnummer:
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummer
-          type: integer
-        huisletter:
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisletter
-          example: A
-          type: string
-        huisnummertoevoeging:
-          description: URI https://bag.basisregistraties.overheid.nl/doc/begrip/Huisnummertoevoeging
-          example: "3"
-          type: string
-        straat:
-          example: Laan van de landinrichtingscommissie Duiven-Westervoort
-          type: string
-        postcode:
-          example: 1234AA
-          type: string
-        woonplaats:
-          example: Nootdorp
-          type: string
-        adresregel1:
-          description: Het eerste deel van een adres is een combinatie van de straat
-            en huisnummer.
-          example: Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3
-          type: string
-        adresregel2:
-          description: Het tweede deel van een adres is een combinatie van woonplaats
-            eventueel in combinatie met de postcode
-          example: 1234AA Nootdorp
-          type: string
-        adresregel3:
-          description: Het derde deel van een adres is optioneel een of meer geografische
-            gebieden van het adres in het buitenland
-          example: Selangor
-          type: string
-        land:
-          $ref: '#/components/schemas/Waardelijst'
-    Postadres:
-      allOf:
-      - $ref: '#/components/schemas/Adres'
-      - $ref: '#/components/schemas/Postadres_allOf'
-    Overlijden:
-      description: Overlijden is een groep gegevens over het overlijden van een persoon.
-      properties:
-        datum:
-          $ref: '#/components/schemas/Datum_onvolledig'
-      type: object
-    PersoonBasis:
-      description: Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon
-        zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon
-        zijn.
-      properties:
-        identificatie:
-          description: Unieke identificatie voor de persoon. Voor een Kadasterpersoon
-            is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor
-            een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor
-            een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde
-            in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie
-            is kan worden afgeleid uit het type persoon.
-          type: string
-        omschrijving:
-          description: Voor mensen leesbare, herkenbare en identificerende omschrijving
-            van de persoon (met bijvoorbeeld de naam).
-          type: string
-      type: object
-    PersoonBeperkt:
-      allOf:
-      - $ref: '#/components/schemas/PersoonBasis'
-      - $ref: '#/components/schemas/PersoonBeperkt_allOf'
-    PersoonType_enum:
-      description: Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk
-        persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister
-        (KvK), dan wel vastgelegd is bij het Kadaster.
-      enum:
-      - ingeschreven_natuurlijk_persoon
-      - kadaster_natuurlijk_persoon
-      - ingeschreven_niet_natuurlijk_persoon
-      - kadaster_niet_natuurlijk_persoon
-      type: string
-    Tenaamstelling:
-      description: |-
-        Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
-
-        Waardelijst in deze component : [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
-      properties:
-        aandeel:
-          $ref: '#/components/schemas/TypeBreuk'
-        burgerlijkeStaatTenTijdeVanVerkrijging:
-          $ref: '#/components/schemas/Waardelijst'
-        verkregenNamensSamenwerkingsverband:
-          $ref: '#/components/schemas/Waardelijst'
-        aantekeningen:
-          description: Een aantekening is een verwijzing naar een ter inschrijving
-            aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk
-            recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel
-            in een zakelijk recht onder opschortende voorwaarde, een beperking van
-            de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
+        privaatrechtelijkeBeperkingen:
           items:
-            $ref: '#/components/schemas/Aantekening'
+            $ref: '#/components/schemas/HalLink'
           type: array
-        gezamenlijkAandeel:
-          $ref: '#/components/schemas/TypeBreuk'
-        betrokkenPartner:
-          $ref: '#/components/schemas/NatuurlijkPersoonBeperkt'
-        betrokkenSamenwerkingsverband:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        betrokkenGorzenEnAanwassen:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        hypotheken:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+        beslagen:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
       type: object
-    TypeBreuk:
-      description: Een deling van twee gehele getallen
-      example:
-        noemer: 2
-        teller: 1
+    KadastraalOnroerendeZaakEmbedded:
       properties:
-        noemer:
-          description: De noemer van het deel.
-          maximum: 99999999
-          minimum: 1
-          title: noemer
-          type: integer
-        teller:
-          description: Het aantal delen. De teller is altijd lager dan de noemer.
-          maximum: 99999999
-          title: teller
-          type: integer
+        zakelijkGerechtigden:
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
+          type: array
+        privaatrechtelijkeBeperkingen:
+          items:
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
+          type: array
       type: object
-    TypeGerechtigde_enum:
-      description: |-
+    TypeGerechtigdeEnum:
+      description: |
         Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
-         * `beklemrechthouder` - 1 Beklemrechthouder
-         * `eigenaar` - 2 Eigenaar
-         * `erfpachter` - 3 Erfpachter
-         * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
-         * `grondrente` - 5 Grondrente gerechtigde
-         * `opstalhouder` - 7 Opstalhouder
-         * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
-         * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
-         * `vruchtgebruiker` - 12 Vruchtgebruiker
-         * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
-         * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
-         * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
-         * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
-         * `bp_recht` - 22 BP-gerechtigde
-         * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
-         * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
+          * `beklemrechthouder` - 1 Beklemrechthouder
+          * `eigenaar` - 2 Eigenaar
+          * `erfpachter` - 3 Erfpachter
+          * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
+          * `grondrente` - 5 Grondrente gerechtigde
+          * `opstalhouder` - 7 Opstalhouder
+          * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
+          * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
+          * `vruchtgebruiker` - 12 Vruchtgebruiker
+          * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
+          * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
+          * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
+          * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
+          * `bp_recht` - 22 BP-gerechtigde
+          * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
+          * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
       enum:
       - beklemrechthouder
       - eigenaar
@@ -2211,103 +3252,6 @@ components:
       - nutsvoorzieningen_gedeelte
       - artikel5_3b
       type: string
-    TypeKadastraalOnroerendeZaak_enum:
-      enum:
-      - appartementsrecht
-      - perceel
-      type: string
-    TypeKoopsom:
-      properties:
-        koopsom:
-          type: integer
-        koopjaar:
-          type: integer
-        indicatieMetMeerObjectenVerkregen:
-          type: boolean
-      type: object
-    TypeOppervlak:
-      description: |-
-        Oppervlakte
-
-        Waardelijst in deze component : [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
-      properties:
-        soortGrootte:
-          $ref: '#/components/schemas/Waardelijst'
-        waarde:
-          description: Oppervlak grootte, in vierkante meters
-          type: integer
-      type: object
-    TypePerceelnummerVerschuiving:
-      description: Verschuiving van het perceelnummer ten behoeve van visualisatie
-        op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
-      properties:
-        deltax:
-          description: Verschuiving op de X as.
-          type: number
-        deltay:
-          description: Verschuiving op de Y as.
-          type: number
-      type: object
-    Waardelijst:
-      description: Waardelijst is een samengesteld datatype voor het weergeven van
-        een gegeven binnen een extern beheerde referentielijst. De waardelijsten zijn
-        beschikbaargesteld op [deze locatie](http://www.kadaster.nl/schemas/waardelijsten/)
-      properties:
-        code:
-          minLength: 1
-          type: string
-        waarde:
-          type: string
-      type: object
-    ZakelijkGerechtigde:
-      properties:
-        identificatie:
-          description: Identificatie van de zakelijk gerechtigde.
-          type: string
-        type:
-          $ref: '#/components/schemas/TypeGerechtigde_enum'
-        aanvangsdatum:
-          description: 'Datum waarop het zakelijk recht van kracht is geworden. '
-          format: date
-          type: string
-        erfpachtCanon:
-          $ref: '#/components/schemas/ErfpachtCanon'
-        tenaamstelling:
-          $ref: '#/components/schemas/Tenaamstelling'
-        persoon:
-          $ref: '#/components/schemas/PersoonBeperkt'
-      type: object
-    ZakelijkGerechtigdeHal:
-      allOf:
-      - $ref: '#/components/schemas/ZakelijkGerechtigde'
-      - $ref: '#/components/schemas/ZakelijkGerechtigdeHal_allOf'
-    ZakelijkGerechtigdeHalCollectie:
-      properties:
-        _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
-        _embedded:
-          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectie_embedded'
-      type: object
-    ZakelijkGerechtigdeHalCollectie_embedded:
-      properties:
-        zakelijkGerechtigden:
-          items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-          type: array
-      type: object
-    ZakelijkGerechtigde_links:
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        persoon:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenPartner:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenSamenwerkingsverband:
-          $ref: '#/components/schemas/HalLink'
-        betrokkenGorzenEnAanwassen:
-          $ref: '#/components/schemas/HalLink'
-      type: object
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
@@ -2358,6 +3302,359 @@ components:
           example: Waarde is geen geldige integer.
           type: string
       type: object
+    ZakelijkGerechtigdeHal:
+      allOf:
+      - $ref: '#/components/schemas/ZakelijkGerechtigde'
+      - $ref: '#/components/schemas/ZakelijkGerechtigdeHal_allOf'
+    ZakelijkGerechtigdeLinks:
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        persoon:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenPartner:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenSamenwerkingsverband:
+          $ref: '#/components/schemas/HalLink'
+        betrokkenGorzenEnAanwassen:
+          $ref: '#/components/schemas/HalLink'
+      type: object
+    ZakelijkGerechtigdeHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded'
+      type: object
+    ZakelijkGerechtigdeHalCollectieEmbedded:
+      properties:
+        zakelijkGerechtigden:
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
+          type: array
+      type: object
+    KadasterNatuurlijkPersoonHal:
+      allOf:
+      - $ref: '#/components/schemas/KadasterNatuurlijkPersoon'
+      - $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal_allOf'
+    KadasterPersoonLinks:
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        woonadres:
+          $ref: '#/components/schemas/HalLink'
+        postadres:
+          $ref: '#/components/schemas/HalLink'
+        kadastraalOnroerendeZaken:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+        zakelijkGerechtigden:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+      type: object
+    KadasterNietNatuurlijkPersoonHal:
+      allOf:
+      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon'
+      - $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal_allOf'
+    KadasterNatuurlijkPersoonHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectieEmbedded'
+      type: object
+    KadasterNatuurlijkPersoonHalCollectieEmbedded:
+      properties:
+        kadasterNatuurlijkPersonen:
+          items:
+            $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
+          type: array
+      type: object
+    KadasterNietNatuurlijkPersoonHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHalCollectieEmbedded'
+      type: object
+    KadasterNietNatuurlijkPersoonHalCollectieEmbedded:
+      properties:
+        kadasterNietNatuurlijkPersonen:
+          items:
+            $ref: '#/components/schemas/KadasterNietNatuurlijkPersoonHal'
+          type: array
+      type: object
+    HypotheekHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/HypotheekHalCollectieEmbedded'
+      type: object
+    HypotheekHalCollectieEmbedded:
+      properties:
+        hypotheken:
+          items:
+            $ref: '#/components/schemas/HypotheekHal'
+          type: array
+      type: object
+    HypotheekHal:
+      allOf:
+      - $ref: '#/components/schemas/Hypotheek'
+      - $ref: '#/components/schemas/HypotheekHal_allOf'
+    Hypotheek:
+      description: |
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+      properties:
+        identificatie:
+          type: string
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        aandeelInBetrokkenRecht:
+          $ref: '#/components/schemas/TypeBreuk'
+        gedeeltelijkeBezwaringOudObject:
+          type: boolean
+        omschrijvingBetrokkenRecht:
+          $ref: '#/components/schemas/Waardelijst'
+        toelichtingBewaarder:
+          description: |
+            Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+          type: string
+        betreftGedeelteVanPerceel:
+          type: boolean
+        aantekeningen:
+          items:
+            $ref: '#/components/schemas/AantekeningBasis'
+          type: array
+        hypotheekhouders:
+          description: |
+            Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+          items:
+            $ref: '#/components/schemas/PersoonBeperkt'
+          type: array
+        bedragZekerheidsstelling:
+          $ref: '#/components/schemas/Bedrag'
+      type: object
+    HypotheekLinks:
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        hypotheekhouders:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+      type: object
+    BeslagHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/BeslagHalCollectieEmbedded'
+      type: object
+    BeslagHalCollectieEmbedded:
+      properties:
+        beslagen:
+          items:
+            $ref: '#/components/schemas/BeslagHal'
+          type: array
+      type: object
+    BeslagHal:
+      allOf:
+      - $ref: '#/components/schemas/Beslag'
+      - $ref: '#/components/schemas/BeslagHal_allOf'
+    Beslag:
+      description: |
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+      properties:
+        identificatie:
+          type: string
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        aandeelInBetrokkenRecht:
+          $ref: '#/components/schemas/TypeBreuk'
+        gedeeltelijkeBezwaringOudObject:
+          description: |
+            Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.
+          type: boolean
+        omschrijvingBetrokkenRecht:
+          $ref: '#/components/schemas/Waardelijst'
+        toelichtingBewaarder:
+          description: |
+            Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+          type: string
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        aantekeningen:
+          items:
+            $ref: '#/components/schemas/AantekeningBasis'
+          type: array
+        beslagleggers:
+          items:
+            $ref: '#/components/schemas/PersoonBeperkt'
+          type: array
+        bedragVordering:
+          $ref: '#/components/schemas/Bedrag'
+      type: object
+    BeslagLinks:
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        beslagleggers:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+      type: object
+    PrivaatrechtelijkeBeperkingHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalCollectieEmbedded'
+      type: object
+    PrivaatrechtelijkeBeperkingHalCollectieEmbedded:
+      properties:
+        privaatrechtelijkeBeperkingen:
+          items:
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
+          type: array
+      type: object
+    PrivaatrechtelijkeBeperkingHal:
+      allOf:
+      - $ref: '#/components/schemas/Aantekening'
+      - $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal_allOf'
+    PrivaatrechtelijkeBeperkingLinks:
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+      type: object
+    PubliekrechtelijkeBeperkingHalCollectie:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalCollectionLinks'
+        _embedded:
+          $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHalCollectieEmbedded'
+      type: object
+    PubliekrechtelijkeBeperkingHalCollectieEmbedded:
+      properties:
+        publiekrechtelijkeBeperkingen:
+          items:
+            $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
+          type: array
+      type: object
+    PubliekrechtelijkeBeperkingHal:
+      allOf:
+      - $ref: '#/components/schemas/PubliekrechtelijkeBeperking'
+      - $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal_allOf'
+    PubliekrechtelijkeBeperking:
+      description: |
+        Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
+      properties:
+        identificatie:
+          type: string
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        grondslag:
+          $ref: '#/components/schemas/Waardelijst'
+        datumInWerking:
+          format: date
+          type: string
+        datumBeeindiging:
+          format: date
+          type: string
+        bevoegdGezag:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+      type: object
+    PubliekrechtelijkeBeperkingLinks:
+      properties:
+        bevoegdGezag:
+          $ref: '#/components/schemas/HalLink'
+      type: object
+    KadastraalOnroerendeZaak:
+      description: |
+        Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.
+
+
+        Waardelijst in deze component :
+          [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)
+      properties:
+        identificatie:
+          type: string
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        begrenzingPerceel:
+          $ref: '#/components/schemas/polygonGeoJSON'
+        perceelnummerRotatie:
+          description: |
+            Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
+          maximum: 999
+          type: number
+        plaatscoordinaten:
+          $ref: '#/components/schemas/pointGeoJSON'
+        koopsom:
+          $ref: '#/components/schemas/TypeKoopsom'
+        toelichtingBewaarder:
+          description: |
+            Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaakEnum'
+        aardCultuurBebouwd:
+          $ref: '#/components/schemas/Waardelijst'
+        aardCultuurOnbebouwd:
+          $ref: '#/components/schemas/Waardelijst'
+        kadastraleAanduiding:
+          type: string
+        kadastraleGrootte:
+          $ref: '#/components/schemas/TypeOppervlak'
+        perceelnummerVerschuiving:
+          $ref: '#/components/schemas/TypePerceelnummerVerschuiving'
+        adressen:
+          description: |
+            Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
+          items:
+            $ref: '#/components/schemas/LocatieKadastraalObject'
+          type: array
+        zakelijkGerechtigdeIdentificaties:
+          description: |
+            Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak
+          items:
+            type: string
+          type: array
+        privaatrechtelijkeBeperkingIdentificaties:
+          description: |
+            Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+          type: array
+        hypotheekIdentificaties:
+          description: |
+            Alle hypotheken die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+          type: array
+        beslagIdentificaties:
+          description: |
+            Alle beslagen die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+          type: array
+      type: object
     polygonGeoJSON:
       properties:
         type:
@@ -2378,64 +3675,6 @@ components:
       - coordinates
       - type
       type: object
-    Datum_onvolledig:
-      description: Gegevens over de datums die mogelijk niet volledig zijn, maar waarvan
-        de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als de volledige
-        datum bekend is worden alle elementen gevuld.
-      properties:
-        dag:
-          description: De dag. Als de dag van de datum bekend is wordt deze hier ingevuld.
-            Ook als de volledige datum bekend is.
-          example: 3
-          maximum: 31
-          minimum: 1
-          title: dag
-          type: integer
-        datum:
-          description: De volledige datum die in de `date` definitie past. Dit element
-            wordt alleen gevuld als de volledige datum bekend is.
-          example: 1989-05-03
-          format: date
-          title: datum
-          type: string
-        jaar:
-          description: Het jaar van de datum. Als het jaar bekend is wordt dit element
-            gevuld, ook als de volledige datum bekend is.
-          example: 1989
-          maximum: 9999
-          title: jaar
-          type: integer
-        maand:
-          description: De maand. Als de maand van een datum bekend is wordt deze hier
-            ingevuld. Ook als de volledige datum is ingevuld.
-          example: 5
-          maximum: 12
-          minimum: 1
-          title: maand
-          type: integer
-      type: object
-    HalCollectionLinks:
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-      type: object
-    HalLink:
-      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
-      properties:
-        href:
-          example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-          type: string
-        templated:
-          type: boolean
-        title:
-          description: Voor mens leesbaar label bij de link
-          type: string
-      required:
-      - href
-      type: object
-    Href:
-      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-      type: string
     pointGeoJSON:
       properties:
         type:
@@ -2451,40 +3690,594 @@ components:
       - coordinates
       - type
       type: object
+    TypeKoopsom:
+      properties:
+        koopsom:
+          type: integer
+        koopjaar:
+          type: integer
+        indicatieMetMeerObjectenVerkregen:
+          type: boolean
+      type: object
+    TypeKadastraalOnroerendeZaakEnum:
+      enum:
+      - appartementsrecht
+      - perceel
+      type: string
+    Waardelijst:
+      properties:
+        code:
+          minLength: 1
+          type: string
+        waarde:
+          type: string
+      type: object
+    TypeOppervlak:
+      description: |
+        Oppervlakte
+
+
+        Waardelijst in deze component :
+          [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)
+      properties:
+        soortGrootte:
+          $ref: '#/components/schemas/Waardelijst'
+        waarde:
+          description: |
+            Oppervlak grootte, in vierkante meters
+          type: integer
+      type: object
+    TypePerceelnummerVerschuiving:
+      description: |
+        Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.
+      properties:
+        deltax:
+          description: |
+            Verschuiving op de X as.
+          type: number
+        deltay:
+          description: |
+            Verschuiving op de Y as.
+          type: number
+      type: object
+    LocatieKadastraalObject:
+      allOf:
+      - $ref: '#/components/schemas/AdresUitgebreid'
+      - $ref: '#/components/schemas/LocatieKadastraalObject_allOf'
+      description: |
+        Waardelijsten in deze component :
+          [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+    AdresUitgebreid:
+      allOf:
+      - $ref: '#/components/schemas/Adres'
+      - $ref: '#/components/schemas/AdresUitgebreid_allOf'
+      description: |
+        Waardelijst in deze component :
+          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+    Adres:
+      description: 'Eigenschappen van het adres die kunnen worden hergebruikt in andere
+        API''s waarin adresgegevens worden opgenomen. '
+      properties:
+        straat:
+          description: Een naam die door de gemeente aan een openbare ruimte is gegeven.
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort
+          title: openbareruimte naam
+          type: string
+        huisnummer:
+          description: Een nummer dat door de gemeente aan een adresseerbaar object
+            is gegeven.
+          example: 1
+          type: integer
+        huisletter:
+          description: Een toevoeging aan een huisnummer in de vorm van een letter
+            die door de gemeente aan een adresseerbaar object is gegeven.
+          example: A
+          type: string
+        huisnummertoevoeging:
+          description: Een toevoeging aan een huisnummer of een combinatie van huisnummer
+            en huisletter die door de gemeente aan een adresseerbaar object is gegeven.
+          example: bis
+          type: string
+        postcode:
+          description: De door PostNL vastgestelde code die bij een bepaalde combinatie
+            van een straatnaam en een huisnummer hoort.
+          example: 6922KZ
+          type: string
+        woonplaats:
+          description: Een woonplaats is een gedeelte van het grondgebied van de gemeente
+            met een naam.
+          example: Duiven
+          title: woonplaats naam
+          type: string
+      type: object
+    ZakelijkGerechtigde:
+      properties:
+        identificatie:
+          description: |
+            Identificatie van de zakelijk gerechtigde.
+          type: string
+        type:
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
+        aanvangsdatum:
+          description: |
+            Datum waarop het zakelijk recht van kracht is geworden.
+          format: date
+          type: string
+        erfpachtCanon:
+          $ref: '#/components/schemas/ErfpachtCanon'
+        tenaamstelling:
+          $ref: '#/components/schemas/Tenaamstelling'
+        persoon:
+          $ref: '#/components/schemas/PersoonBeperkt'
+      type: object
+    ErfpachtCanon:
+      description: |
+        Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
+
+
+        Waardelijst in deze component :
+          [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)
+      properties:
+        soortErfpachtCanon:
+          $ref: '#/components/schemas/Waardelijst'
+        jaarlijksBedrag:
+          $ref: '#/components/schemas/Bedrag'
+        betrefMeerOnroerendeZaken:
+          description: |
+            Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft.
+          type: boolean
+        einddatumAfkoop:
+          format: date
+          type: string
+        indicatieOudeOnroerendeZaakBetrokken:
+          description: |
+            Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.
+          type: boolean
+      type: object
+    Bedrag:
+      description: |
+        Hoeveelheid geld in cijfers in een bepaalde valuta.
+
+
+        Waardelijst in deze component :
+          [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)"
+      properties:
+        som:
+          description: |
+            Het bedrag. Dit is een waarde met max. 2 decimalen.
+          format: float
+          type: number
+        valuta:
+          $ref: '#/components/schemas/Waardelijst'
+      type: object
+    Tenaamstelling:
+      description: |
+        Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
+
+
+        Waardelijst in deze component :
+          [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)
+      properties:
+        aandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        burgerlijkeStaatTenTijdeVanVerkrijging:
+          $ref: '#/components/schemas/Waardelijst'
+        verkregenNamensSamenwerkingsverband:
+          $ref: '#/components/schemas/Waardelijst'
+        aantekeningen:
+          description: |
+            Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
+          items:
+            $ref: '#/components/schemas/AantekeningTenaamstelling'
+          type: array
+        gezamenlijkAandeel:
+          $ref: '#/components/schemas/TypeBreuk'
+        betrokkenPartner:
+          $ref: '#/components/schemas/NatuurlijkPersoonBeperkt'
+        betrokkenSamenwerkingsverband:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        betrokkenGorzenEnAanwassen:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+      type: object
+    TypeBreuk:
+      description: |
+        Een deling van twee gehele getallen.
+      example:
+        noemer: 2
+        teller: 1
+      properties:
+        noemer:
+          description: |
+            De noemer van het deel.
+          maximum: 99999999
+          minimum: 1
+          title: noemer
+          type: integer
+        teller:
+          description: |
+            Het aantal delen. De teller is altijd lager dan de noemer.
+          maximum: 99999999
+          title: teller
+          type: integer
+      type: object
+    AantekeningTenaamstelling:
+      allOf:
+      - $ref: '#/components/schemas/Aantekening'
+      - $ref: '#/components/schemas/AantekeningTenaamstelling_allOf'
+    Aantekening:
+      allOf:
+      - $ref: '#/components/schemas/AantekeningBasis'
+      - $ref: '#/components/schemas/Aantekening_allOf'
+    AantekeningBasis:
+      description: |
+        Waardelijst in deze component :
+          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
+      properties:
+        aard:
+          $ref: '#/components/schemas/Waardelijst'
+        omschrijving:
+          type: string
+        betreftGedeelteVanPerceel:
+          type: boolean
+      type: object
+    NatuurlijkPersoonBeperkt:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - $ref: '#/components/schemas/NatuurlijkPersoonBeperkt_allOf'
+    PersoonBasis:
+      description: |
+        Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn.
+      properties:
+        identificatie:
+          description: |
+            Unieke identificatie voor de persoon. Voor een Kadasterpersoon is dit de identificatie zoals die door het Kadaster is vastgesteld. Voor een ingeschreven natuurlijk persoon is dit het burgerservicenummer. Voor een ingeschreven niet-natuurlijk persoon is dit het RSIN. Of de waarde in identificatie een burgerservicenummer, een RSIN of een kadasterpersoonidentificatie is kan worden afgeleid uit het type persoon.
+          type: string
+        omschrijving:
+          description: |
+            Voor mensen leesbare, herkenbare en identificerende omschrijving van de persoon (met bijvoorbeeld de naam).
+          type: string
+      type: object
+    NatuurlijkPersoonTypeEnum:
+      description: |
+        Een aanduiding die aangeeft of de persoon ingeschreven is in het BRP met een burgerservicenummer, dan wel vastgelegd is bij het Kadaster.
+      enum:
+      - ingeschreven_natuurlijk_persoon
+      - kadaster_natuurlijk_persoon
+      type: string
+    NietNatuurlijkPersoonBeperkt:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt_allOf'
+    NietNatuurlijkPersoonTypeEnum:
+      description: |
+        Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.
+      enum:
+      - ingeschreven_niet_natuurlijk_persoon
+      - kadaster_niet_natuurlijk_persoon
+      type: string
+    PersoonBeperkt:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - $ref: '#/components/schemas/PersoonBeperkt_allOf'
+    PersoonTypeEnum:
+      description: |
+        Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster.
+      enum:
+      - ingeschreven_natuurlijk_persoon
+      - kadaster_natuurlijk_persoon
+      - ingeschreven_niet_natuurlijk_persoon
+      - kadaster_niet_natuurlijk_persoon
+      type: string
+    KadasterNatuurlijkPersoon:
+      allOf:
+      - $ref: '#/components/schemas/KadasterPersoon'
+      - $ref: '#/components/schemas/KadasterNatuurlijkPersoon_allOf'
+    KadasterPersoon:
+      allOf:
+      - $ref: '#/components/schemas/PersoonBasis'
+      - $ref: '#/components/schemas/KadasterPersoon_allOf'
+    Postadres:
+      allOf:
+      - $ref: '#/components/schemas/AdresUitgebreid'
+      - $ref: '#/components/schemas/Postadres_allOf'
+    GeslachtEnum:
+      description: |
+        Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:
+          * `man` - Man
+          * `vrouw` - Vrouw
+          * `onbekend` - Onbekend
+      enum:
+      - man
+      - vrouw
+      - onbekend
+      type: string
+    HeeftPartnerschap:
+      description: |
+        Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
+      properties:
+        datumOntbinding:
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
+          deprecated: true
+        datumSluiting:
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
+          deprecated: true
+        naam:
+          $ref: '#/components/schemas/Naam'
+      type: object
+    DatumOnvolledig:
+      description: Gegevens over de datums die mogelijk niet volledig zijn.
+      properties:
+        dag:
+          description: Als de dag van de datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 3
+          maximum: 31
+          minimum: 1
+          type: integer
+        datum:
+          description: Als de volledige datum bekend is wordt de datum gevuld die
+            in de date definitie past.
+          example: 1989-05-03
+          format: date
+          type: string
+        jaar:
+          description: Als het jaar van de datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 1989
+          maximum: 9999
+          type: integer
+        maand:
+          description: Als de maand van een datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 5
+          maximum: 12
+          minimum: 1
+          type: integer
+      type: object
+    Naam:
+      description: |
+        Naam is een groep gegevens met de geslachtsnaam, voorletters en voornamen die men wil gebruiken bij aanschrijving.
+      properties:
+        geslachtsnaam:
+          description: |
+            De geslachtsnaam is de (achter)naam waarvan eventuele voorvoegsels en adellijke titel zijn afgesplitst.
+          type: string
+        voornamen:
+          description: |
+            De voornamen zijn de verzameling namen die, gescheiden door spaties, aan de geslachtsnaam voorafgaat. Indien aanwezig, wordt het predikaat afgesplitst.
+          type: string
+        voorvoegsel:
+          description: |
+            Voorvoegselsgeslachtsnaam is het deel van de geslachtsnaam dat, gescheiden door een spatie, vooraf gaat aan de rest van de geslachtsnaam.
+          title: voorvoegselsgeslachtsnaam
+          type: string
+      type: object
+    NaamPersoon:
+      allOf:
+      - $ref: '#/components/schemas/Naam'
+      - $ref: '#/components/schemas/NaamPersoon_allOf'
+    Geboorte:
+      description: |
+        Geboorte is een groep gegevens over de geboorte van een persoon.
+
+
+        Waardelijst in deze component :
+          [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+      properties:
+        plaats:
+          description: |
+            Plaats of een plaatsbepaling waar de persoon is geboren.
+          title: geboorteplaats
+          type: string
+        datum:
+          $ref: '#/components/schemas/DatumOnvolledig'
+        land:
+          $ref: '#/components/schemas/Waardelijst'
+      type: object
+    Overlijden:
+      description: |
+        Overlijden is een groep gegevens over het overlijden van een persoon.
+      properties:
+        datum:
+          $ref: '#/components/schemas/DatumOnvolledig'
+      type: object
+    KadasterNietNatuurlijkPersoon:
+      allOf:
+      - $ref: '#/components/schemas/KadasterPersoon'
+      - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon_allOf'
+    KadastraalOnroerendeZaakHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakLinks'
+        _embedded:
+          $ref: '#/components/schemas/KadastraalOnroerendeZaakEmbedded'
+    BadRequestFoutbericht_allOf:
+      properties:
+        invalidParams:
+          description: Foutmelding per fout in een parameter. Alle gevonden fouten
+            worden één keer teruggemeld.
+          items:
+            $ref: '#/components/schemas/InvalidParams'
+          type: array
+    ZakelijkGerechtigdeHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/ZakelijkGerechtigdeLinks'
+    KadasterNatuurlijkPersoonHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/KadasterPersoonLinks'
+    HypotheekHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/HypotheekLinks'
+    BeslagHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/BeslagLinks'
+    PrivaatrechtelijkeBeperkingHal_allOf:
+      description: |
+        Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
+      properties:
+        _links:
+          $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingLinks'
+    PubliekrechtelijkeBeperkingHal_allOf:
+      properties:
+        _links:
+          $ref: '#/components/schemas/PubliekrechtelijkeBeperkingLinks'
+    LocatieKadastraalObject_allOf:
+      properties:
+        koppelingswijze:
+          $ref: '#/components/schemas/Waardelijst'
+    AdresUitgebreid_allOf:
+      properties:
+        nummeraanduidingIdentificatie:
+          description: |
+            Identificatie van het adres in het geval dit adres in BAG geregistreerd is.
+          example: "1234207890123456"
+          type: string
+        adresregel1:
+          description: |
+            Het eerste deel van een adres is een combinatie van de straat en huisnummer.
+          example: Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis
+          type: string
+        adresregel2:
+          description: |
+            Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode.
+          example: 6922KZ  Duiven
+          type: string
+        adresregel3:
+          description: |
+            Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland.
+          example: Selangor
+          type: string
+        land:
+          $ref: '#/components/schemas/Waardelijst'
+    AantekeningTenaamstelling_allOf:
+      properties:
+        begrenzing:
+          allOf:
+          - $ref: '#/components/schemas/polygonGeoJSON'
+          deprecated: true
+        indicatieOorspronkelijkObject:
+          deprecated: true
+          type: boolean
+    Aantekening_allOf:
+      properties:
+        identificatie:
+          type: string
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        einddatum:
+          format: date
+          type: string
+        einddatumRecht:
+          format: date
+          type: string
+    NatuurlijkPersoonBeperkt_allOf:
+      description: |
+        Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn.
+      properties:
+        type:
+          $ref: '#/components/schemas/NatuurlijkPersoonTypeEnum'
+    NietNatuurlijkPersoonBeperkt_allOf:
+      description: |
+        Een niet-natuurlijk persoon.
+      properties:
+        type:
+          $ref: '#/components/schemas/NietNatuurlijkPersoonTypeEnum'
+    PersoonBeperkt_allOf:
+      properties:
+        type:
+          $ref: '#/components/schemas/PersoonTypeEnum'
     KadasterNatuurlijkPersoon_allOf:
-      description: |-
+      description: |
         Een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven. Kadasternatuurlijkpersonen worden niet geactualiseerd.
 
-        Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+
+        Waardelijst in deze component :
+          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
       properties:
         geheimhoudingPersoonsgegevens:
-          description: Aanduiding die aangeeft dat gegevens van een persoon wel of
-            niet verstrekt mogen worden.
+          description: |
+            Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
           title: indicatieGeheim
           type: boolean
         landWaarnaarVertrokken:
           $ref: '#/components/schemas/Waardelijst'
         geslachtsaanduiding:
-          $ref: '#/components/schemas/Geslacht_enum'
+          $ref: '#/components/schemas/GeslachtEnum'
         heeftPartnerschap:
           items:
             $ref: '#/components/schemas/HeeftPartnerschap'
           type: array
         naam:
-          $ref: '#/components/schemas/Naam'
+          $ref: '#/components/schemas/NaamPersoon'
         geboorte:
           $ref: '#/components/schemas/Geboorte'
         overlijden:
           $ref: '#/components/schemas/Overlijden'
-    KadasterNatuurlijkPersoonHal_allOf:
+    KadasterPersoon_allOf:
+      description: |
+        Een in de basisregistratie kadaster geregistreerde persoon.
+
+
+        Waardelijst in deze component :
+          [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
       properties:
-        _links:
-          $ref: '#/components/schemas/KadasterPersoon_links'
+        domein:
+          description: |
+            Het domein waartoe de identificatie behoort.
+          type: string
+        indicatieNietToonbareDiakriet:
+          type: boolean
+        beschikkingsbevoegdheid:
+          $ref: '#/components/schemas/Waardelijst'
+        woonadres:
+          $ref: '#/components/schemas/AdresUitgebreid'
+        postadres:
+          $ref: '#/components/schemas/Postadres'
+        kadastraalOnroerendeZaakIdentificaties:
+          items:
+            type: string
+          type: array
+    Postadres_allOf:
+      example: '{"postbusnummer":1021,"postcode":"1234AA","woonplaats":"Nootdorp","adresregel1":"Postbus
+        1021","adresregel2":"1234AA Nootdorp"}'
+      properties:
+        postbusnummer:
+          type: integer
+    NaamPersoon_allOf:
+      description: |
+        Gegevens over de naam van de persoon
+      properties:
+        aanschrijfwijze:
+          description: |
+            De aanschrijfwijze wordt gebruikt als eerste regel in de adressering op een envelop, of links bovenaan een brief, direct boven het adres.
+          example: G.H I. In het Veld-van Velzen
+          type: string
+        aanhef:
+          description: |
+            De aanhef wordt gebruikt bovenaan een brief
+          example: Geachte mevrouw In het Veld-van Velzen
+          type: string
+        gebruikInLopendeTekst:
+          description: |
+            De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst
+          example: mevrouw In het Veld-van Velzen
+          type: string
     KadasterNietNatuurlijkPersoon_allOf:
-      description: |-
+      description: |
         Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
 
-        Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
+
+        De property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld.
+        Waardelijst in deze component :
+          [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)
       properties:
         statutaireNaam:
           type: string
@@ -2496,70 +4289,10 @@ components:
           type: string
         rsin:
           type: string
-    KadasterPersoon_allOf:
-      description: |-
-        Een in de basisregistratie kadaster geregistreerde persoon.
-
-        Waardelijst in deze component : [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/)
-      properties:
-        domein:
-          description: Het domein waartoe de identificatie behoort.
-          type: string
-        indicatieNietToonbareDiakriet:
-          type: boolean
-        beschikkingsbevoegdheid:
-          $ref: '#/components/schemas/Waardelijst'
-        woonadres:
-          $ref: '#/components/schemas/Adres'
-        postadres:
-          $ref: '#/components/schemas/Postadres'
-        kadastraalOnroerendeZaakIdentificaties:
-          items:
-            type: string
-          type: array
-    KadastraalOnroerendeZaakHal_allOf:
-      properties:
-        _links:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaak_links'
-        _embedded:
-          $ref: '#/components/schemas/KadastraalOnroerendeZaak_embedded'
-    NatuurlijkPersoonBeperkt_allOf:
-      description: Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie
-        personen (BRP)) of Kadasterpersoon zijn.
-      properties:
-        type:
-          $ref: '#/components/schemas/NatuurlijkPersoonType_enum'
-    NietNatuurlijkPersoonBeperkt_allOf:
-      description: Een niet-natuurlijk persoon.
-      properties:
-        type:
-          $ref: '#/components/schemas/NietNatuurlijkPersoonType_enum'
-    Postadres_allOf:
-      example: '{"postbusnummer":1021,"postcode":"1234AA","woonplaats":"Nootdorp","adresregel1":"Postbus
-        1021","adresregel2":"1234AA Nootdorp"}'
-      properties:
-        postbusnummer:
-          type: integer
-    PersoonBeperkt_allOf:
-      properties:
-        type:
-          $ref: '#/components/schemas/PersoonType_enum'
-    ZakelijkGerechtigdeHal_allOf:
-      properties:
-        _links:
-          $ref: '#/components/schemas/ZakelijkGerechtigde_links'
-    BadRequestFoutbericht_allOf:
-      properties:
-        invalidParams:
-          description: Foutmelding per fout in een parameter. Alle gevonden fouten
-            worden één keer teruggemeld.
-          items:
-            $ref: '#/components/schemas/InvalidParams'
-          type: array
   securitySchemes:
     apiKeyAuth:
-      description: De API-key dient bij elk request via de `X-Api-Key` request header
-        meegestuurd te worden.
+      description: |
+        De API-key dient bij elk request via de `X-Api-Key` request header meegestuurd te worden.
       in: header
       name: X-Api-Key
       type: apiKey

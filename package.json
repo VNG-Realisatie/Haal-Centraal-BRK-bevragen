@@ -1,0 +1,48 @@
+{
+  "name": "haal-centraal-brk-bevragen",
+  "version": "1.0.0",
+  "description": "BRK-bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL, maar ook waterschappen, belastingsamenwerkingen en andere overheden.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "oas:generate-client": "openapi-generator-cli generate -i ./specificatie/genereervariant/openapi.yaml --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false",
+    "oas:generate-java-client": "npm run oas:generate-client -- -o ./code/java -g java --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false",
+    "oas:generate-netcore-client": "npm run oas:generate-client -- -o ./code/netcore -g csharp-netcore --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
+    "oas:generate-net-client": "npm run oas:generate-client -- -o ./code/net -g csharp --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
+    "oas:generate-python-client": "npm run oas:generate-client -- -o ./code/python -g python --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
+    "preoas:generate-postman-collection": "mkdirp ./test",
+    "oas:generate-postman-collection": "openapi2postmanv2 -s ./specificatie/genereervariant/openapi.yaml -o ./test/BRK-Bevragen-postman-collection.json --pretty",
+    "oas:lint": "spectral lint ./specificatie/openapi.yaml",
+    "oas:lint-genereervariant": "spectral lint ./specificatie/genereervariant/openapi.yaml",
+    "preoas:resolve": "mvn-dl io.swagger.codegen.v3:swagger-codegen-cli:3.0.19 -f swagger-codegen-cli.jar",
+    "oas:resolve": "java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant && java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant",
+    "postoas:resolve": "rm swagger-codegen-cli.jar",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues"
+  },
+  "homepage": "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen#readme",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.0.3",
+    "@stoplight/spectral": "^5.6.0",
+    "husky": "^4.3.0",
+    "mkdirp": "^1.0.4",
+    "mvn-dl": "^5.1.0",
+    "openapi-to-postmanv2": "^2.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && rm ./specificatie/genereervariant/**"
+    }
+  }
+}
