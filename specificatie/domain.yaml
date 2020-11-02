@@ -19,12 +19,6 @@ components:
                     Waardelijst in deze component :
                       [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
       properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: |
-                        Het domein waartoe de identificatie behoort.
         aard:
           $ref: "#/components/schemas/Waardelijst"
           description: |
@@ -37,20 +31,26 @@ components:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
         - properties:
+            identificatie:
+              type: "string"
+            domein:
+              type: "string"
+              description: |
+                            Het domein waartoe de identificatie behoort.
             einddatum:
               type: "string"
               format: "date"
             einddatumRecht:
               type: "string"
               format: "date"
-    AantekeningDeprecated:
+    AantekeningTenaamstelling:
       allOf:
         - $ref: "#/components/schemas/Aantekening"
         - properties:
             begrenzing:
+              deprecated: true
               allOf:
                 - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-                - deprecated: true
             indicatieOorspronkelijkObject:
               type: "boolean"
               deprecated: true
@@ -176,9 +176,13 @@ components:
                     Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
       properties:
         datumOntbinding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+          deprecated: true
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         datumSluiting:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+          deprecated: true
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     KadasterNatuurlijkPersoon:
@@ -490,7 +494,7 @@ components:
           description: |
                         Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
           items:
-            $ref: "#/components/schemas/AantekeningDeprecated"
+            $ref: "#/components/schemas/AantekeningTenaamstelling"
         gezamenlijkAandeel:
           $ref: "#/components/schemas/TypeBreuk"
           description: |

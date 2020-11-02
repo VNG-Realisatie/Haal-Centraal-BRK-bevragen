@@ -3,6 +3,10 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from openapi_client.api.beslagen_api import BeslagenApi
+from openapi_client.api.hypotheken_api import HypothekenApi
 from openapi_client.api.kadaster__niet_natuurlijk_personen_api import KadasterNietNatuurlijkPersonenApi
 from openapi_client.api.kadastraal_onroerende_zaken_api import KadastraalOnroerendeZakenApi
+from openapi_client.api.privaatrechtelijke_beperkingen_api import PrivaatrechtelijkeBeperkingenApi
+from openapi_client.api.publiekrechtelijke_beperkingen_api import PubliekrechtelijkeBeperkingenApi
 from openapi_client.api.zakelijke_gerechtigden_api import ZakelijkeGerechtigdenApi

@@ -3760,7 +3760,7 @@ components:
           description: |
             Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een tenaamstelling van een zakelijk recht is meestal een beperking. Bijvoorbeeld de verkrijging van een aandeel in een zakelijk recht onder opschortende voorwaarde, een beperking van de handelingsbevoegdheid van de zakelijk gerechtigde, of een koopovereenkomst
           items:
-            $ref: '#/components/schemas/AantekeningDeprecated'
+            $ref: '#/components/schemas/AantekeningTenaamstelling'
         gezamenlijkAandeel:
           $ref: '#/components/schemas/TypeBreuk'
         betrokkenPartner:
@@ -3796,14 +3796,14 @@ components:
       example:
         noemer: 2
         teller: 1
-    AantekeningDeprecated:
+    AantekeningTenaamstelling:
       allOf:
       - $ref: '#/components/schemas/Aantekening'
       - properties:
           begrenzing:
+            deprecated: true
             allOf:
             - $ref: '#/components/schemas/polygonGeoJSON'
-            - deprecated: true
           indicatieOorspronkelijkObject:
             type: boolean
             deprecated: true
@@ -3811,6 +3811,12 @@ components:
       allOf:
       - $ref: '#/components/schemas/AantekeningBasis'
       - properties:
+          identificatie:
+            type: string
+          domein:
+            type: string
+            description: |
+              Het domein waartoe de identificatie behoort.
           einddatum:
             type: string
             format: date
@@ -3820,12 +3826,6 @@ components:
     AantekeningBasis:
       type: object
       properties:
-        identificatie:
-          type: string
-        domein:
-          type: string
-          description: |
-            Het domein waartoe de identificatie behoort.
         aard:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
@@ -3976,9 +3976,13 @@ components:
       type: object
       properties:
         datumOntbinding:
-          $ref: '#/components/schemas/DatumOnvolledig'
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
         datumSluiting:
-          $ref: '#/components/schemas/DatumOnvolledig'
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/DatumOnvolledig'
         naam:
           $ref: '#/components/schemas/Naam'
       description: |
