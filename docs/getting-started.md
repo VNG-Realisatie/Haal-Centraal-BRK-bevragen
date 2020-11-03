@@ -12,7 +12,7 @@ Om aan te sluiten kun je de volgende stappen doorlopen:
 Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
 
 ## Functionaliteit
-U kunt de Open API Specificaties (OAS3) van de API bekijken in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/V1.1.0/specificatie/genereervariant/openapi.yaml).
+U kunt de Open API Specificaties (OAS3) van de API bekijken in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/BRK-Bevragingen/v1.2.0/specificatie/genereervariant/openapi.yaml).
 
 De (resolved) OAS3 is hier te downloaden:
 [openapi.yaml](../specificatie/genereervariant/openapi.yaml).
@@ -23,6 +23,10 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - [Zakelijk gerechtigde](#ZakelijkGerechtigde)
 - [Kadaster natuurlijk persoon](#KadasterNatuurlijkPersoon)
 - [Kadaster niet-natuurlijk persoon](#KadasterNietNatuurlijkPersoon)
+- [Hypotheek](#Hypotheek)
+- [Beslag](#Beslag)
+- [Privaatrechtelijke beperking](#PrivaatrechtelijkeBeperking)
+- [Publiekrechtelijke beperking](#PubliekrechtelijkeBeperking)
 
 #### KadastraalOnroerendeZaak
 - Opvragen van 1 specifiek kadastraalonroerendezaak resource o.b.v. een kadastraalonroerendezaakidentificatie.
@@ -44,10 +48,26 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - Opvragen van 1 specifiek kadaster nietnatuurlijk persoon resource o.b.v. kadasterpersoonidentificatie.
 - Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](../features/zoeken-kadasternietnatuurlijkpersoon.feature))
 
+#### Hypotheek
+- Opvragen van 1 specifiek hypotheek resource o.b.v. hypotheekidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie hypotheek resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### Beslag
+- Opvragen van 1 specifiek beslag resource o.b.v. beslagidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie beslag resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### PrivaatrechtelijkeBeperking
+- Opvragen van 1 specifiek privaatrechtelijkebeperking resource o.b.v. privaatrechtelijkebeperkingidentificatie en kadastraalonroerendezaakidentificatie.
+- Opvragen van een collectie privaatrechtelijkebeperking resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### PrubliekrechtelijkeBeperking
+- Opvragen van een collectie publiekrechtelijkebeperking resources o.b.v. een kadastraalonroerendezaakidentificatie.
+
+
 ### Algemeen
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
-- Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature))
-- Gebruik van de expand parameter om subresources te ontsluiten. (Voor werking, zie feature [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature))
+- Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature))
+- Gebruik van de expand parameter om subresources te ontsluiten. (Voor werking, zie feature [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature))
 - Velden die altijd worden geleverd. (Voor werking, zie feature [levering velden](../features/levering-velden.feature))
 
 |Resource                           |Velden                         |
@@ -56,6 +76,11 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 |ZakelijkGerechtigde                |identificatie, _links.self |
 |KadasterNatuurlijkPersoon          |identificatie, _links.self |
 |KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
+|Beslag                             |identificatie, _links.self |
+|hypotheek                          |identificatie, _links.self |
+|KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
+|PrivaatrechtelijkeBeperking        |identificatie, _links.self |
+|PubliekrechtelijkeBeperking        |identificatie |
 
 - Combinatie van velden die altijd verplicht worden geleverd.
 
@@ -63,7 +88,7 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 |-----                              |------                         |----- |
 |KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
 
-- [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/uri-templating.feature) worden geleverd.
+- [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature) worden geleverd.
 
 ## Bouw de API
 We hebben [code](../code) voor API-clients in enkele varianten. Hiermee kan je direct aan de slag met het gebruiken van de API.
@@ -115,7 +140,7 @@ Testgeval                                       |Kadastraalobjectidentificatie  
 2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
-Naam                    |Geboortedatum    |Type                                 |KadasterPersoonIdentificatie   | Burgerservicenummer |Bijzonderheden        |
+Naam                    |Geboortedatum    |Type                                 |KadasterPersoon-Identificatie   | Burgerservice-nummer |Bijzonderheden        |
 ----------------        |:-------         |:------                              |:------                        |:------              |:------              |
 Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |70882239      |                     |<ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul> |
 Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |50550743      |                     |<ul><li>buitenlands woonadres</li></ul> |
