@@ -43,6 +43,22 @@ components:
             einddatumRecht:
               type: "string"
               format: "date"
+            stukIdentificaties:
+              type: "array"
+              description: |
+                	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
+              items:
+                type: string
+            isGebaseerdOpStukdeelIdentificatie:
+              type: "string"
+              description: |
+                            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze aantekening is gebaseerd.
+            isVermeldInStukdeelIdentificaties:
+              type: "array"
+              description: |
+                            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld
+              items:
+                type: "string"
     AantekeningTenaamstelling:
       allOf:
         - $ref: "#/components/schemas/Aantekening"
@@ -139,6 +155,16 @@ components:
           type: "boolean"
           description: |
                         Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze erfpachtcanon is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+                        De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld
+          items:
+            type: "string"
     Filiatie:
       type: "object"
       properties:
@@ -373,6 +399,12 @@ components:
           type: "string"
           description: |
                         De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+          items:
+            type: string
     LocatieKadastraalObject:
       description: |
                     Waardelijsten in deze component :
@@ -535,6 +567,16 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          items:
+            type: "string"
+            description: |
+                          De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.
     TypeBreuk:
       type: "object"
       description: |
@@ -665,3 +707,19 @@ components:
           $ref: "#/components/schemas/Tenaamstelling"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+          items:
+            type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld.
+          items:
+            type: "string"

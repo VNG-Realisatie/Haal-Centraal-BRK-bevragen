@@ -136,6 +136,18 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         betrokkenGorzenEnAanwassen:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isGebaseerdOpStukdeel:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.0.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigdeHalCollectie:
       type: "object"
       properties:
@@ -150,3 +162,11 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/ZakelijkGerechtigdeHal"
+        stukken:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/Stukdeel"

@@ -1,0 +1,290 @@
+openapi: 3.0.0
+info:
+  title: Kadaster - BRK-Bevragen API - Stukken endpoints
+  description: |
+                De definitie van de Stukken endpoints en HAL components
+  version: "1.3.0"
+paths:
+  /stukken/{stukidentificatie}:
+    get:
+      operationId: GetStuk
+      description: |
+                    Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: stukidentificatie
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: |
+                        Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/StukHalBasis'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+      - Stukken (Akte)
+  /stukdelen/{stukdeelidentificatie}:
+    get:
+      operationId: GetStukdeel
+      description: |
+                    Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
+                    Met de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: path
+          name: stukdeelidentificatie
+          required: true
+          schema:
+            type: string
+            maxLength: 60
+      responses:
+        '200':
+          description: |
+                        Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/StukdeelHal'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '410':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+        - Stukdelen
+components:
+  schemas:
+    StukdeelHal:
+      allOf:
+        - $ref: "#/components/schemas/Stukdeel"
+        - properties:
+            _links:
+              $ref: "#/components/schemas/StukdeelLinks"
+    StukdeelLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stuk:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    StukHalBasis:
+      allOf:
+        - $ref: "#/components/schemas/Stuk"
+        - properties:
+            _links:
+              $ref: "#/components/schemas/StukLinks"
+    StukLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+
+    HeeftAlsEquivalentieVerklaarder:
+      type: "object"
+      description: |
+                    De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als
+                    het stuk dat hij zelf onder zich houdt ( lentieverklaring).
+      allOf:
+        - $ref: "domain.yaml#/components/schemas/Naam"
+        -  properties:
+            standplaats:
+              type: "string"
+              description: |
+                            Adres of standplaats/plaats van vestiging van de ondertekenaar.
+    HeeftRedenVerzoek:
+      type: "object"
+      description: |
+                    De reden om een stuk niet in te schrijven of om verbetering te vragen.
+                    Waardelijst in deze component :
+                    [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
+      properties:
+        redenOmschrijving:
+          type: "string"
+          description: |
+                        De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.
+                        Bij opgave van de reden is voor _overig_ gekozen."
+        reden:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
+    Kadasterverzoek:
+      type: "object"
+      description: |
+                    Een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
+                    Waardelijst in deze component :
+                      [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
+      properties:
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                          Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
+        identificatie:
+          type: "string"
+        heeftRedenVerzoek:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/HeeftRedenVerzoek"
+    Ondertekenaar:
+      type: "object"
+      description: |
+                    De bevoegde persoon (bijvoorbeeld een notaris) die de akte heeft opgemaakt en een afschrift daarvan equivalent heeft verklaard. Dit is een verklaring dat het afschrift hetzelfde is als het stuk dat hij onder zich houdt."
+      allOf:
+        - $ref: "domain.yaml#/components/schemas/Naam"
+        - properties:
+            standplaats:
+              type: "string"
+              description: |
+                            Adres of standplaats/plaats van vestiging van de ondertekenaar."
+    Stuk:
+      type: "object"
+      description: |
+                    Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+                    Waardelijsten in deze component :
+                      [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
+                      [statusStukOpenbaarRegister](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
+      properties:
+        identificatie:
+          type: "string"
+        stukType:
+          $ref: "#/components/schemas/StukType_enum"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
+        toelichtingBewaarder:
+          type: "string"
+          description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        stukdeelidentificaties:
+          type: "array"
+          items:
+            type: "string"
+        bewaardersVerklaring:
+          type: "string"
+          description: "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+        tekeningIngeschreven:
+          type: "boolean"
+          description: "Er is sprake van een appartementstekening (splitsingstekening\
+            \ van appartementen) als bijlage bij het stuk."
+        tijdstipAanbieding:
+          type: "string"
+          format: "date-time"
+          description: "Het tijdstip dat het stuk bij het kadaster is binnengekomen."
+        tijdstipOndertekening:
+          type: "string"
+          format: "date-time"
+          description: "Het tijdstip dat het stuk is ondertekend door partijen en de notaris"
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)"
+        deelEnNummer:
+          $ref: "#/components/schemas/TypeDeelEnNummer"
+        statusStukOpenbaarRegister:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
+        heeftAlsEquivalentieVerklaarder:
+          $ref: "#/components/schemas/HeeftAlsEquivalentieVerklaarder"
+        ondertekenaar:
+          $ref: "#/components/schemas/Ondertekenaar"
+        kadasterverzoeken:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Kadasterverzoek"
+        oorspronkelijkStukIdentificatie:
+          description: "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
+          type: "string"
+    Stukdeel:
+      type: object
+      description: "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt."
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: "Het domein waartoe de identificatie behoort."
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
+        bedragTransactiesomLevering:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: "De koopsom"
+        bedragVorderingsbeslag:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: "Bedrag waarvoor beslag is gelegd op de kadastraal onroerende zaak."
+        bedragZekerheidsstellingHypotheek:
+          $ref: "domain.yaml#/components/schemas/Bedrag"
+          description: "Het bedrag waarvoor een hypotheek is ingeschreven"
+        omschrijvingGekozenWoonplaats:
+            type: "string"
+        omschrijvingKadastraleObjecten:
+            type: "string"
+        omschrijvingTopografischeMutatie:
+            type: "string"
+        redenDoorhalingTeboekstelling:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)
+    StukType_enum:
+      type: "string"
+      enum:
+      - "Kadasterstuk"
+      - "Aangebodenstuk"
+    TypeDeelEnNummer:
+      type: "object"
+      description: "Waardelijst in deze component :
+          [soortregister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) , [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/) en [reeks](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)"
+      properties:
+        soortregister:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)"
+        registercode:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)"
+        reeks:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)"
