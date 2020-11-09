@@ -139,6 +139,24 @@ components:
           type: "boolean"
           description: |
                         Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.
+    Filiatie:
+      type: "object"
+      properties:
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+        overgangsgrootte:
+          description: |
+                        De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
+          type: "integer"
+          example: 220
+        kadastraalOnroerendeZaakIdentificaties:
+          description: |
+                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+          type: "string"
+        indicatieVervallenKadastraalOnroerendeZaak:
+          description: |
+                        Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+          type: "boolean"
     Geboorte:
       type: "object"
       description: |
@@ -343,6 +361,18 @@ components:
                         Alle beslagen die rusten op deze kadastraal onroerende zaak
           items:
             type: string
+        isOvergegaanIn:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        isOntstaanUit:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        bijbehorendGrondperceel:
+          type: "string"
+          description: |
+                        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
     LocatieKadastraalObject:
       description: |
                     Waardelijsten in deze component :
