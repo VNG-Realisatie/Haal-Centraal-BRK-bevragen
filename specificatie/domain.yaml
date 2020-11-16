@@ -171,7 +171,7 @@ components:
                     De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als
                     het stuk dat hij zelf onder zich houdt ( lentieverklaring).
       allOf:
-        - $ref: "domain.yaml#/components/schemas/Naam"
+        - $ref: "#/components/schemas/Naam"
         -  properties:
             standplaats:
               type: "string"
@@ -425,7 +425,7 @@ components:
                       [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
       properties:
         aard:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
           description: |
                           Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
         RedenenVerzoek:
@@ -572,7 +572,7 @@ components:
                         De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.
                         Bij opgave van de reden is voor _overig_ gekozen."
         reden:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
           description: |
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
     Stuk:
@@ -613,10 +613,10 @@ components:
           format: "date-time"
           description: "Het tijdstip dat het stuk is ondertekend door partijen en de notaris"
         aard:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)"
         status:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
         equivalentieVerklaarder:
           $ref: "#/components/schemas/EquivalentieVerklaarder"
@@ -637,10 +637,10 @@ components:
           type: "string"
           description: "Het domein waartoe de identificatie behoort."
         aard:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
           description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
         bedragTransactiesomLevering:
-          $ref: "domain.yaml#/components/schemas/Bedrag"
+          $ref: "#/components/schemas/Bedrag"
           description: "De koopsom"
         omschrijvingKadastraleObjecten:
             type: "string"
