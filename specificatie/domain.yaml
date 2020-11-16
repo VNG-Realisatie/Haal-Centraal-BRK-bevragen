@@ -149,7 +149,7 @@ components:
                         De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
           type: "integer"
           example: 220
-        kadastraalOnroerendeZaakIdentificaties:
+        kadastraalOnroerendeZaakIdentificatie:
           description: |
                         De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
           type: "string"
@@ -305,7 +305,8 @@ components:
         perceelnummerRotatie:
           type: "number"
           description: |
-                        Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
+                        Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.
+                        Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
           maximum: 999
         plaatscoordinaten:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml"
@@ -314,7 +315,8 @@ components:
         toelichtingBewaarder:
           type: "string"
           description: |
-                        Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+                        Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.
+                        Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         type:
           $ref: "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
         aardCultuurBebouwd:
@@ -372,7 +374,13 @@ components:
         bijbehorendGrondperceel:
           type: "string"
           description: |
-                        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
+                        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+        bijbehorendeAppartementsrechten:
+          description: |
+                      De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+          type : "array"
+          items:
+            type: "string"
     LocatieKadastraalObject:
       description: |
                     Waardelijsten in deze component :
