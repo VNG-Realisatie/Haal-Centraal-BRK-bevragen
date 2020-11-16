@@ -166,6 +166,12 @@ components:
             	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
           items:
             type: string
+        omschrijvingGekozenWoonplaats:
+            type: "string"
+        redenDoorhalingTeboekstelling:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
           description: |

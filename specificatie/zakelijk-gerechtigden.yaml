@@ -169,4 +169,4 @@ components:
         stukdelen:
           type: "array"
           items:
-            $ref: "stukken.yaml#/components/schemas/Stukdeel"
+            $ref: "stukken.yaml#/components/schemas/StukdeelHalBasis"
