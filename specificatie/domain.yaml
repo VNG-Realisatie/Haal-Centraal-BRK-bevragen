@@ -371,11 +371,11 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Filiatie"
-        bijbehorendGrondperceel:
+        bijbehorendGrondperceelIdentificatie:
           type: "string"
           description: |
                         De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
-        bijbehorendeAppartementsrechten:
+        bijbehorendeAppartementsrechtIdentificaties:
           description: |
                       De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           type : "array"
