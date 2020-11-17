@@ -13,7 +13,7 @@ info:
   title: Kadaster - BRK-Bevragen API
   description: |
                 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
-  version: "1.2.0"
+  version: "1.3.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -30,6 +30,8 @@ tags:
 - name: Privaatrechtelijke Beperkingen
 - name: Publiekrechtelijke Beperkingen
 - name: Kadaster (niet)Natuurlijk Personen
+- name: Stukken (Akte)
+- name: Stukdelen
 paths:
   /kadastraalonroerendezaken:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
@@ -61,6 +63,10 @@ paths:
     $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
   /publiekrechtelijkebeperkingen:
     $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen"
+  /stukken/{stukidentificatie}:
+    $ref: "stukken.yaml#/paths/~1stukken~1{stukidentificatie}"
+  /stukdelen/{stukdeelidentificatie}:
+    $ref: "stukken.yaml#/paths/~1stukdelen~1{stukdeelidentificatie}"
 components:
   securitySchemes:
     apiKeyAuth:

@@ -1,19 +1,20 @@
 openapi: 3.0.0
 info:
-  title: Kadaster - BRK-Bevragen API - Kadaster Natuurlijk Personen endpoints
+  title: Kadaster - BRK-Bevragen API - Stukken endpoints
   description: |
-                De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components.
+                De definitie van de Stukken endpoints en HAL components
   version: "1.3.0"
 paths:
-  /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
+  /stukken/{stukidentificatie}:
     get:
-      operationId: GetKadasterPersoon
+      operationId: GetStuk
       description: |
-                    Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
       parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
-          name: kadasternatuurlijkpersoonidentificatie
+          name: stukidentificatie
           required: true
           schema:
             type: string
@@ -30,7 +31,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/KadasterNatuurlijkPersoonHal'
+                $ref: '#/components/schemas/StukHalBasis'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -48,21 +49,21 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Kadaster (niet)Natuurlijk Personen
-  /kadasternatuurlijkpersonen:
+      - Stukken (Akte)
+  /stukdelen/{stukdeelidentificatie}:
     get:
-      operationId: GetKadasterPersonen
+      operationId: GetStukdeel
       description: |
-                    Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
+                    Met de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - in: query
-          name: q
-          description: |
-                        Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.
+        - in: path
+          name: stukdeelidentificatie
           required: true
           schema:
             type: string
+            maxLength: 60
       responses:
         '200':
           description: |
@@ -75,13 +76,15 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/KadasterNatuurlijkPersoonHalCollectie'
+                $ref: '#/components/schemas/StukdeelHalBasis'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
         '403':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '404':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
         '406':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
         '410':
@@ -91,43 +94,40 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Kadaster (niet)Natuurlijk Personen
+        - Stukdelen
 components:
   schemas:
-    KadasterNatuurlijkPersoonHal:
+    StukdeelHalBasis:
       allOf:
-      - $ref: "domain.yaml#/components/schemas/KadasterNatuurlijkPersoon"
-      - properties:
-          _links:
-            $ref: "#/components/schemas/KadasterPersoonLinks"
-    KadasterPersoonLinks:
+        - $ref: "domain.yaml#/components/schemas/Stukdeel"
+        - properties:
+            _links:
+              $ref: "#/components/schemas/StukdeelLinks"
+    StukdeelLinks:
       type: "object"
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        woonadres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        postadres:
+        stuk:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadastraalOnroerendeZaken:
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigden:
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    KadasterNatuurlijkPersoonHalCollectie:
-      type: "object"
-      properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          $ref: "#/components/schemas/KadasterNatuurlijkPersoonHalCollectieEmbedded"
-    KadasterNatuurlijkPersoonHalCollectieEmbedded:
-      type: "object"
-      properties:
-        kadasterNatuurlijkPersonen:
           type: "array"
           items:
-            $ref: "#/components/schemas/KadasterNatuurlijkPersoonHal"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    StukHalBasis:
+      allOf:
+        - $ref: "domain.yaml#/components/schemas/Stuk"
+        - properties:
+            _links:
+              $ref: "#/components/schemas/StukLinks"
+    StukLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        oorspronkelijkStuk:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
