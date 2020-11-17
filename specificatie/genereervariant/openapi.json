@@ -4746,9 +4746,6 @@
           "omschrijvingGekozenWoonplaats" : {
             "type" : "string"
           },
-          "redenDoorhalingTeboekstelling" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
           "isGebaseerdOpStukdeelIdentificatie" : {
             "type" : "string",
             "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.\n"

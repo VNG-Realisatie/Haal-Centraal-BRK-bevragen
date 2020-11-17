@@ -3724,8 +3724,6 @@ components:
             type: string
         omschrijvingGekozenWoonplaats:
           type: string
-        redenDoorhalingTeboekstelling:
-          $ref: '#/components/schemas/Waardelijst'
         isGebaseerdOpStukdeelIdentificatie:
           type: string
           description: |
