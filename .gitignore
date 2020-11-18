@@ -1,4 +1,5 @@
 node_modules/
+pilot/
 
 specificatie/genereervariant/.swagger-codegen
 specificatie/genereervariant/.swagger-codegen-ignore
