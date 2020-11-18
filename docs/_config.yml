@@ -1,0 +1,3 @@
+baseurl: "/Haal-Centraal-BRK-bevragen"
+apiname: "BRK Bevragen"
+url: "http://localhost:4000"
