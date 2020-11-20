@@ -176,8 +176,9 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Susan in het Veld    |                       |Kadaster Natuurlijk Persoon    |80000003              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 |Petra Anne Veldwijk  |                       |Kadaster Natuurlijk Persoon    |80000004              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 |H Pieters            |                       |Kadaster Natuurlijk Persoon    |80000005              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-|Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |80000006              |            |<ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-|Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+|Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |80000006              |            |- diakriet in voornaam /n - kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=|
+|Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            | - adellijke titel
+- kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=|
 
 #### Niet Natuurlijke Personen
 
