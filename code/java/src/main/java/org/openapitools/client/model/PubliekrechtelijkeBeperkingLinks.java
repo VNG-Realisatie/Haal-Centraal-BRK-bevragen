@@ -26,12 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.HalLink;
-import org.openapitools.client.model.HalLink2;
 
 /**
  * PubliekrechtelijkeBeperkingLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class PubliekrechtelijkeBeperkingLinks {
   public static final String SERIALIZED_NAME_BEVOEGD_GEZAG = "bevoegdGezag";
   @SerializedName(SERIALIZED_NAME_BEVOEGD_GEZAG)
@@ -39,11 +38,11 @@ public class PubliekrechtelijkeBeperkingLinks {
 
   public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL = "isGebaseerdOpStukdeel";
   @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL)
-  private HalLink2 isGebaseerdOpStukdeel;
+  private HalLink isGebaseerdOpStukdeel;
 
   public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN = "isVermeldInStukdelen";
   @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN)
-  private List<HalLink2> isVermeldInStukdelen = null;
+  private List<HalLink> isVermeldInStukdelen = null;
 
 
   public PubliekrechtelijkeBeperkingLinks bevoegdGezag(HalLink bevoegdGezag) {
@@ -69,7 +68,7 @@ public class PubliekrechtelijkeBeperkingLinks {
   }
 
 
-  public PubliekrechtelijkeBeperkingLinks isGebaseerdOpStukdeel(HalLink2 isGebaseerdOpStukdeel) {
+  public PubliekrechtelijkeBeperkingLinks isGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
     
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
     return this;
@@ -82,23 +81,23 @@ public class PubliekrechtelijkeBeperkingLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public HalLink2 getIsGebaseerdOpStukdeel() {
+  public HalLink getIsGebaseerdOpStukdeel() {
     return isGebaseerdOpStukdeel;
   }
 
 
-  public void setIsGebaseerdOpStukdeel(HalLink2 isGebaseerdOpStukdeel) {
+  public void setIsGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
   }
 
 
-  public PubliekrechtelijkeBeperkingLinks isVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public PubliekrechtelijkeBeperkingLinks isVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     
     this.isVermeldInStukdelen = isVermeldInStukdelen;
     return this;
   }
 
-  public PubliekrechtelijkeBeperkingLinks addIsVermeldInStukdelenItem(HalLink2 isVermeldInStukdelenItem) {
+  public PubliekrechtelijkeBeperkingLinks addIsVermeldInStukdelenItem(HalLink isVermeldInStukdelenItem) {
     if (this.isVermeldInStukdelen == null) {
       this.isVermeldInStukdelen = new ArrayList<>();
     }
@@ -113,12 +112,12 @@ public class PubliekrechtelijkeBeperkingLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getIsVermeldInStukdelen() {
+  public List<HalLink> getIsVermeldInStukdelen() {
     return isVermeldInStukdelen;
   }
 
 
-  public void setIsVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public void setIsVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     this.isVermeldInStukdelen = isVermeldInStukdelen;
   }
 

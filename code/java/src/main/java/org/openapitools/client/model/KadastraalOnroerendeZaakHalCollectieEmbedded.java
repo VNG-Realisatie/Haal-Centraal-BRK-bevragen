@@ -30,7 +30,7 @@ import org.openapitools.client.model.KadastraalOnroerendeZaakHal;
 /**
  * KadastraalOnroerendeZaakHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN = "kadastraalOnroerendeZaken";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN)

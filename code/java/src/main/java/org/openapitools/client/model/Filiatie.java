@@ -28,7 +28,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * Filiatie
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class Filiatie {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
@@ -38,9 +38,9 @@ public class Filiatie {
   @SerializedName(SERIALIZED_NAME_OVERGANGSGROOTTE)
   private Integer overgangsgrootte;
 
-  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
-  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
-  private String kadastraalOnroerendeZaakIdentificaties;
+  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIE = "kadastraalOnroerendeZaakIdentificatie";
+  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIE)
+  private String kadastraalOnroerendeZaakIdentificatie;
 
   public static final String SERIALIZED_NAME_INDICATIE_VERVALLEN_KADASTRAAL_ONROERENDE_ZAAK = "indicatieVervallenKadastraalOnroerendeZaak";
   @SerializedName(SERIALIZED_NAME_INDICATIE_VERVALLEN_KADASTRAAL_ONROERENDE_ZAAK)
@@ -93,26 +93,26 @@ public class Filiatie {
   }
 
 
-  public Filiatie kadastraalOnroerendeZaakIdentificaties(String kadastraalOnroerendeZaakIdentificaties) {
+  public Filiatie kadastraalOnroerendeZaakIdentificatie(String kadastraalOnroerendeZaakIdentificatie) {
     
-    this.kadastraalOnroerendeZaakIdentificaties = kadastraalOnroerendeZaakIdentificaties;
+    this.kadastraalOnroerendeZaakIdentificatie = kadastraalOnroerendeZaakIdentificatie;
     return this;
   }
 
    /**
    * De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). 
-   * @return kadastraalOnroerendeZaakIdentificaties
+   * @return kadastraalOnroerendeZaakIdentificatie
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). ")
 
-  public String getKadastraalOnroerendeZaakIdentificaties() {
-    return kadastraalOnroerendeZaakIdentificaties;
+  public String getKadastraalOnroerendeZaakIdentificatie() {
+    return kadastraalOnroerendeZaakIdentificatie;
   }
 
 
-  public void setKadastraalOnroerendeZaakIdentificaties(String kadastraalOnroerendeZaakIdentificaties) {
-    this.kadastraalOnroerendeZaakIdentificaties = kadastraalOnroerendeZaakIdentificaties;
+  public void setKadastraalOnroerendeZaakIdentificatie(String kadastraalOnroerendeZaakIdentificatie) {
+    this.kadastraalOnroerendeZaakIdentificatie = kadastraalOnroerendeZaakIdentificatie;
   }
 
 
@@ -150,13 +150,13 @@ public class Filiatie {
     Filiatie filiatie = (Filiatie) o;
     return Objects.equals(this.aard, filiatie.aard) &&
         Objects.equals(this.overgangsgrootte, filiatie.overgangsgrootte) &&
-        Objects.equals(this.kadastraalOnroerendeZaakIdentificaties, filiatie.kadastraalOnroerendeZaakIdentificaties) &&
+        Objects.equals(this.kadastraalOnroerendeZaakIdentificatie, filiatie.kadastraalOnroerendeZaakIdentificatie) &&
         Objects.equals(this.indicatieVervallenKadastraalOnroerendeZaak, filiatie.indicatieVervallenKadastraalOnroerendeZaak);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aard, overgangsgrootte, kadastraalOnroerendeZaakIdentificaties, indicatieVervallenKadastraalOnroerendeZaak);
+    return Objects.hash(aard, overgangsgrootte, kadastraalOnroerendeZaakIdentificatie, indicatieVervallenKadastraalOnroerendeZaak);
   }
 
 
@@ -166,7 +166,7 @@ public class Filiatie {
     sb.append("class Filiatie {\n");
     sb.append("    aard: ").append(toIndentedString(aard)).append("\n");
     sb.append("    overgangsgrootte: ").append(toIndentedString(overgangsgrootte)).append("\n");
-    sb.append("    kadastraalOnroerendeZaakIdentificaties: ").append(toIndentedString(kadastraalOnroerendeZaakIdentificaties)).append("\n");
+    sb.append("    kadastraalOnroerendeZaakIdentificatie: ").append(toIndentedString(kadastraalOnroerendeZaakIdentificatie)).append("\n");
     sb.append("    indicatieVervallenKadastraalOnroerendeZaak: ").append(toIndentedString(indicatieVervallenKadastraalOnroerendeZaak)).append("\n");
     sb.append("}");
     return sb.toString();

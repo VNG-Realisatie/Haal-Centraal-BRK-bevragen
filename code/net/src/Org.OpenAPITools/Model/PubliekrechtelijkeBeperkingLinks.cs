@@ -36,7 +36,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="bevoegdGezag">bevoegdGezag.</param>
         /// <param name="isGebaseerdOpStukdeel">isGebaseerdOpStukdeel.</param>
         /// <param name="isVermeldInStukdelen">isVermeldInStukdelen.</param>
-        public PubliekrechtelijkeBeperkingLinks(HalLink bevoegdGezag = default(HalLink), HalLink2 isGebaseerdOpStukdeel = default(HalLink2), List<HalLink2> isVermeldInStukdelen = default(List<HalLink2>))
+        public PubliekrechtelijkeBeperkingLinks(HalLink bevoegdGezag = default(HalLink), HalLink isGebaseerdOpStukdeel = default(HalLink), List<HalLink> isVermeldInStukdelen = default(List<HalLink>))
         {
             this.BevoegdGezag = bevoegdGezag;
             this.IsGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
@@ -53,13 +53,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsGebaseerdOpStukdeel
         /// </summary>
         [DataMember(Name="isGebaseerdOpStukdeel", EmitDefaultValue=false)]
-        public HalLink2 IsGebaseerdOpStukdeel { get; set; }
+        public HalLink IsGebaseerdOpStukdeel { get; set; }
 
         /// <summary>
         /// Gets or Sets IsVermeldInStukdelen
         /// </summary>
         [DataMember(Name="isVermeldInStukdelen", EmitDefaultValue=false)]
-        public List<HalLink2> IsVermeldInStukdelen { get; set; }
+        public List<HalLink> IsVermeldInStukdelen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

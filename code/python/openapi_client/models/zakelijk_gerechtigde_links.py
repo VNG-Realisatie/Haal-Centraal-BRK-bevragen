@@ -38,9 +38,9 @@ class ZakelijkGerechtigdeLinks(object):
         'betrokken_partner': 'HalLink',
         'betrokken_samenwerkingsverband': 'HalLink',
         'betrokken_gorzen_en_aanwassen': 'HalLink',
-        'stukken': 'list[HalLink2]',
-        'is_gebaseerd_op_stukdeel': 'list[HalLink2]',
-        'is_vermeld_in_stukdelen': 'list[HalLink2]'
+        'stukken': 'list[HalLink]',
+        'is_gebaseerd_op_stukdeel': 'list[HalLink]',
+        'is_vermeld_in_stukdelen': 'list[HalLink]'
     }
 
     attribute_map = {
@@ -198,7 +198,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :return: The stukken of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._stukken
 
@@ -208,7 +208,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :param stukken: The stukken of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._stukken = stukken
@@ -219,7 +219,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :return: The is_gebaseerd_op_stukdeel of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._is_gebaseerd_op_stukdeel
 
@@ -229,7 +229,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :param is_gebaseerd_op_stukdeel: The is_gebaseerd_op_stukdeel of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._is_gebaseerd_op_stukdeel = is_gebaseerd_op_stukdeel
@@ -240,7 +240,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :return: The is_vermeld_in_stukdelen of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._is_vermeld_in_stukdelen
 
@@ -250,7 +250,7 @@ class ZakelijkGerechtigdeLinks(object):
 
 
         :param is_vermeld_in_stukdelen: The is_vermeld_in_stukdelen of this ZakelijkGerechtigdeLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._is_vermeld_in_stukdelen = is_vermeld_in_stukdelen

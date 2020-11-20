@@ -26,12 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.HalLink;
-import org.openapitools.client.model.HalLink2;
 
 /**
  * KadastraalOnroerendeZaakLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -49,13 +48,33 @@ public class KadastraalOnroerendeZaakLinks {
   @SerializedName(SERIALIZED_NAME_HYPOTHEKEN)
   private List<HalLink> hypotheken = null;
 
+  public static final String SERIALIZED_NAME_IS_ONTSTAAN_UIT = "isOntstaanUit";
+  @SerializedName(SERIALIZED_NAME_IS_ONTSTAAN_UIT)
+  private List<HalLink> isOntstaanUit = null;
+
+  public static final String SERIALIZED_NAME_IS_OVERGEGAAN_IN = "isOvergegaanIn";
+  @SerializedName(SERIALIZED_NAME_IS_OVERGEGAAN_IN)
+  private List<HalLink> isOvergegaanIn = null;
+
   public static final String SERIALIZED_NAME_BESLAGEN = "beslagen";
   @SerializedName(SERIALIZED_NAME_BESLAGEN)
   private List<HalLink> beslagen = null;
 
   public static final String SERIALIZED_NAME_STUKKEN = "stukken";
   @SerializedName(SERIALIZED_NAME_STUKKEN)
-  private List<HalLink2> stukken = null;
+  private List<HalLink> stukken = null;
+
+  public static final String SERIALIZED_NAME_ADRESSEN = "adressen";
+  @SerializedName(SERIALIZED_NAME_ADRESSEN)
+  private List<HalLink> adressen = null;
+
+  public static final String SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL = "bijbehorendGrondperceel";
+  @SerializedName(SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL)
+  private HalLink bijbehorendGrondperceel;
+
+  public static final String SERIALIZED_NAME_BIJBEHORENDE_APPARTEMENTSRECHTEN = "bijbehorendeAppartementsrechten";
+  @SerializedName(SERIALIZED_NAME_BIJBEHORENDE_APPARTEMENTSRECHTEN)
+  private List<HalLink> bijbehorendeAppartementsrechten = null;
 
 
   public KadastraalOnroerendeZaakLinks self(HalLink self) {
@@ -174,6 +193,68 @@ public class KadastraalOnroerendeZaakLinks {
   }
 
 
+  public KadastraalOnroerendeZaakLinks isOntstaanUit(List<HalLink> isOntstaanUit) {
+    
+    this.isOntstaanUit = isOntstaanUit;
+    return this;
+  }
+
+  public KadastraalOnroerendeZaakLinks addIsOntstaanUitItem(HalLink isOntstaanUitItem) {
+    if (this.isOntstaanUit == null) {
+      this.isOntstaanUit = new ArrayList<>();
+    }
+    this.isOntstaanUit.add(isOntstaanUitItem);
+    return this;
+  }
+
+   /**
+   * Get isOntstaanUit
+   * @return isOntstaanUit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<HalLink> getIsOntstaanUit() {
+    return isOntstaanUit;
+  }
+
+
+  public void setIsOntstaanUit(List<HalLink> isOntstaanUit) {
+    this.isOntstaanUit = isOntstaanUit;
+  }
+
+
+  public KadastraalOnroerendeZaakLinks isOvergegaanIn(List<HalLink> isOvergegaanIn) {
+    
+    this.isOvergegaanIn = isOvergegaanIn;
+    return this;
+  }
+
+  public KadastraalOnroerendeZaakLinks addIsOvergegaanInItem(HalLink isOvergegaanInItem) {
+    if (this.isOvergegaanIn == null) {
+      this.isOvergegaanIn = new ArrayList<>();
+    }
+    this.isOvergegaanIn.add(isOvergegaanInItem);
+    return this;
+  }
+
+   /**
+   * Get isOvergegaanIn
+   * @return isOvergegaanIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<HalLink> getIsOvergegaanIn() {
+    return isOvergegaanIn;
+  }
+
+
+  public void setIsOvergegaanIn(List<HalLink> isOvergegaanIn) {
+    this.isOvergegaanIn = isOvergegaanIn;
+  }
+
+
   public KadastraalOnroerendeZaakLinks beslagen(List<HalLink> beslagen) {
     
     this.beslagen = beslagen;
@@ -205,13 +286,13 @@ public class KadastraalOnroerendeZaakLinks {
   }
 
 
-  public KadastraalOnroerendeZaakLinks stukken(List<HalLink2> stukken) {
+  public KadastraalOnroerendeZaakLinks stukken(List<HalLink> stukken) {
     
     this.stukken = stukken;
     return this;
   }
 
-  public KadastraalOnroerendeZaakLinks addStukkenItem(HalLink2 stukkenItem) {
+  public KadastraalOnroerendeZaakLinks addStukkenItem(HalLink stukkenItem) {
     if (this.stukken == null) {
       this.stukken = new ArrayList<>();
     }
@@ -226,13 +307,98 @@ public class KadastraalOnroerendeZaakLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getStukken() {
+  public List<HalLink> getStukken() {
     return stukken;
   }
 
 
-  public void setStukken(List<HalLink2> stukken) {
+  public void setStukken(List<HalLink> stukken) {
     this.stukken = stukken;
+  }
+
+
+  public KadastraalOnroerendeZaakLinks adressen(List<HalLink> adressen) {
+    
+    this.adressen = adressen;
+    return this;
+  }
+
+  public KadastraalOnroerendeZaakLinks addAdressenItem(HalLink adressenItem) {
+    if (this.adressen == null) {
+      this.adressen = new ArrayList<>();
+    }
+    this.adressen.add(adressenItem);
+    return this;
+  }
+
+   /**
+   * Get adressen
+   * @return adressen
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<HalLink> getAdressen() {
+    return adressen;
+  }
+
+
+  public void setAdressen(List<HalLink> adressen) {
+    this.adressen = adressen;
+  }
+
+
+  public KadastraalOnroerendeZaakLinks bijbehorendGrondperceel(HalLink bijbehorendGrondperceel) {
+    
+    this.bijbehorendGrondperceel = bijbehorendGrondperceel;
+    return this;
+  }
+
+   /**
+   * Get bijbehorendGrondperceel
+   * @return bijbehorendGrondperceel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public HalLink getBijbehorendGrondperceel() {
+    return bijbehorendGrondperceel;
+  }
+
+
+  public void setBijbehorendGrondperceel(HalLink bijbehorendGrondperceel) {
+    this.bijbehorendGrondperceel = bijbehorendGrondperceel;
+  }
+
+
+  public KadastraalOnroerendeZaakLinks bijbehorendeAppartementsrechten(List<HalLink> bijbehorendeAppartementsrechten) {
+    
+    this.bijbehorendeAppartementsrechten = bijbehorendeAppartementsrechten;
+    return this;
+  }
+
+  public KadastraalOnroerendeZaakLinks addBijbehorendeAppartementsrechtenItem(HalLink bijbehorendeAppartementsrechtenItem) {
+    if (this.bijbehorendeAppartementsrechten == null) {
+      this.bijbehorendeAppartementsrechten = new ArrayList<>();
+    }
+    this.bijbehorendeAppartementsrechten.add(bijbehorendeAppartementsrechtenItem);
+    return this;
+  }
+
+   /**
+   * Get bijbehorendeAppartementsrechten
+   * @return bijbehorendeAppartementsrechten
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<HalLink> getBijbehorendeAppartementsrechten() {
+    return bijbehorendeAppartementsrechten;
+  }
+
+
+  public void setBijbehorendeAppartementsrechten(List<HalLink> bijbehorendeAppartementsrechten) {
+    this.bijbehorendeAppartementsrechten = bijbehorendeAppartementsrechten;
   }
 
 
@@ -249,13 +415,18 @@ public class KadastraalOnroerendeZaakLinks {
         Objects.equals(this.zakelijkGerechtigden, kadastraalOnroerendeZaakLinks.zakelijkGerechtigden) &&
         Objects.equals(this.privaatrechtelijkeBeperkingen, kadastraalOnroerendeZaakLinks.privaatrechtelijkeBeperkingen) &&
         Objects.equals(this.hypotheken, kadastraalOnroerendeZaakLinks.hypotheken) &&
+        Objects.equals(this.isOntstaanUit, kadastraalOnroerendeZaakLinks.isOntstaanUit) &&
+        Objects.equals(this.isOvergegaanIn, kadastraalOnroerendeZaakLinks.isOvergegaanIn) &&
         Objects.equals(this.beslagen, kadastraalOnroerendeZaakLinks.beslagen) &&
-        Objects.equals(this.stukken, kadastraalOnroerendeZaakLinks.stukken);
+        Objects.equals(this.stukken, kadastraalOnroerendeZaakLinks.stukken) &&
+        Objects.equals(this.adressen, kadastraalOnroerendeZaakLinks.adressen) &&
+        Objects.equals(this.bijbehorendGrondperceel, kadastraalOnroerendeZaakLinks.bijbehorendGrondperceel) &&
+        Objects.equals(this.bijbehorendeAppartementsrechten, kadastraalOnroerendeZaakLinks.bijbehorendeAppartementsrechten);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, zakelijkGerechtigden, privaatrechtelijkeBeperkingen, hypotheken, beslagen, stukken);
+    return Objects.hash(self, zakelijkGerechtigden, privaatrechtelijkeBeperkingen, hypotheken, isOntstaanUit, isOvergegaanIn, beslagen, stukken, adressen, bijbehorendGrondperceel, bijbehorendeAppartementsrechten);
   }
 
 
@@ -267,8 +438,13 @@ public class KadastraalOnroerendeZaakLinks {
     sb.append("    zakelijkGerechtigden: ").append(toIndentedString(zakelijkGerechtigden)).append("\n");
     sb.append("    privaatrechtelijkeBeperkingen: ").append(toIndentedString(privaatrechtelijkeBeperkingen)).append("\n");
     sb.append("    hypotheken: ").append(toIndentedString(hypotheken)).append("\n");
+    sb.append("    isOntstaanUit: ").append(toIndentedString(isOntstaanUit)).append("\n");
+    sb.append("    isOvergegaanIn: ").append(toIndentedString(isOvergegaanIn)).append("\n");
     sb.append("    beslagen: ").append(toIndentedString(beslagen)).append("\n");
     sb.append("    stukken: ").append(toIndentedString(stukken)).append("\n");
+    sb.append("    adressen: ").append(toIndentedString(adressen)).append("\n");
+    sb.append("    bijbehorendGrondperceel: ").append(toIndentedString(bijbehorendGrondperceel)).append("\n");
+    sb.append("    bijbehorendeAppartementsrechten: ").append(toIndentedString(bijbehorendeAppartementsrechten)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -36,13 +36,13 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="aard">aard.</param>
         /// <param name="overgangsgrootte">De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak. .</param>
-        /// <param name="kadastraalOnroerendeZaakIdentificaties">De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). .</param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). .</param>
         /// <param name="indicatieVervallenKadastraalOnroerendeZaak">Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. .</param>
-        public Filiatie(Waardelijst aard = default(Waardelijst), int overgangsgrootte = default(int), string kadastraalOnroerendeZaakIdentificaties = default(string), bool indicatieVervallenKadastraalOnroerendeZaak = default(bool))
+        public Filiatie(Waardelijst aard = default(Waardelijst), int overgangsgrootte = default(int), string kadastraalOnroerendeZaakIdentificatie = default(string), bool indicatieVervallenKadastraalOnroerendeZaak = default(bool))
         {
             this.Aard = aard;
             this.Overgangsgrootte = overgangsgrootte;
-            this.KadastraalOnroerendeZaakIdentificaties = kadastraalOnroerendeZaakIdentificaties;
+            this.KadastraalOnroerendeZaakIdentificatie = kadastraalOnroerendeZaakIdentificatie;
             this.IndicatieVervallenKadastraalOnroerendeZaak = indicatieVervallenKadastraalOnroerendeZaak;
         }
         
@@ -63,8 +63,8 @@ namespace Org.OpenAPITools.Model
         /// De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). 
         /// </summary>
         /// <value>De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). </value>
-        [DataMember(Name="kadastraalOnroerendeZaakIdentificaties", EmitDefaultValue=false)]
-        public string KadastraalOnroerendeZaakIdentificaties { get; set; }
+        [DataMember(Name="kadastraalOnroerendeZaakIdentificatie", EmitDefaultValue=false)]
+        public string KadastraalOnroerendeZaakIdentificatie { get; set; }
 
         /// <summary>
         /// Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. 
@@ -83,7 +83,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("class Filiatie {\n");
             sb.Append("  Aard: ").Append(Aard).Append("\n");
             sb.Append("  Overgangsgrootte: ").Append(Overgangsgrootte).Append("\n");
-            sb.Append("  KadastraalOnroerendeZaakIdentificaties: ").Append(KadastraalOnroerendeZaakIdentificaties).Append("\n");
+            sb.Append("  KadastraalOnroerendeZaakIdentificatie: ").Append(KadastraalOnroerendeZaakIdentificatie).Append("\n");
             sb.Append("  IndicatieVervallenKadastraalOnroerendeZaak: ").Append(IndicatieVervallenKadastraalOnroerendeZaak).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -129,9 +129,9 @@ namespace Org.OpenAPITools.Model
                     this.Overgangsgrootte.Equals(input.Overgangsgrootte)
                 ) && 
                 (
-                    this.KadastraalOnroerendeZaakIdentificaties == input.KadastraalOnroerendeZaakIdentificaties ||
-                    (this.KadastraalOnroerendeZaakIdentificaties != null &&
-                    this.KadastraalOnroerendeZaakIdentificaties.Equals(input.KadastraalOnroerendeZaakIdentificaties))
+                    this.KadastraalOnroerendeZaakIdentificatie == input.KadastraalOnroerendeZaakIdentificatie ||
+                    (this.KadastraalOnroerendeZaakIdentificatie != null &&
+                    this.KadastraalOnroerendeZaakIdentificatie.Equals(input.KadastraalOnroerendeZaakIdentificatie))
                 ) && 
                 (
                     this.IndicatieVervallenKadastraalOnroerendeZaak == input.IndicatieVervallenKadastraalOnroerendeZaak ||
@@ -151,8 +151,8 @@ namespace Org.OpenAPITools.Model
                 if (this.Aard != null)
                     hashCode = hashCode * 59 + this.Aard.GetHashCode();
                 hashCode = hashCode * 59 + this.Overgangsgrootte.GetHashCode();
-                if (this.KadastraalOnroerendeZaakIdentificaties != null)
-                    hashCode = hashCode * 59 + this.KadastraalOnroerendeZaakIdentificaties.GetHashCode();
+                if (this.KadastraalOnroerendeZaakIdentificatie != null)
+                    hashCode = hashCode * 59 + this.KadastraalOnroerendeZaakIdentificatie.GetHashCode();
                 hashCode = hashCode * 59 + this.IndicatieVervallenKadastraalOnroerendeZaak.GetHashCode();
                 return hashCode;
             }

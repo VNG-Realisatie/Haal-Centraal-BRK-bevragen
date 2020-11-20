@@ -35,18 +35,18 @@ class Filiatie(object):
     openapi_types = {
         'aard': 'Waardelijst',
         'overgangsgrootte': 'int',
-        'kadastraal_onroerende_zaak_identificaties': 'str',
+        'kadastraal_onroerende_zaak_identificatie': 'str',
         'indicatie_vervallen_kadastraal_onroerende_zaak': 'bool'
     }
 
     attribute_map = {
         'aard': 'aard',
         'overgangsgrootte': 'overgangsgrootte',
-        'kadastraal_onroerende_zaak_identificaties': 'kadastraalOnroerendeZaakIdentificaties',
+        'kadastraal_onroerende_zaak_identificatie': 'kadastraalOnroerendeZaakIdentificatie',
         'indicatie_vervallen_kadastraal_onroerende_zaak': 'indicatieVervallenKadastraalOnroerendeZaak'
     }
 
-    def __init__(self, aard=None, overgangsgrootte=None, kadastraal_onroerende_zaak_identificaties=None, indicatie_vervallen_kadastraal_onroerende_zaak=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aard=None, overgangsgrootte=None, kadastraal_onroerende_zaak_identificatie=None, indicatie_vervallen_kadastraal_onroerende_zaak=None, local_vars_configuration=None):  # noqa: E501
         """Filiatie - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,7 +54,7 @@ class Filiatie(object):
 
         self._aard = None
         self._overgangsgrootte = None
-        self._kadastraal_onroerende_zaak_identificaties = None
+        self._kadastraal_onroerende_zaak_identificatie = None
         self._indicatie_vervallen_kadastraal_onroerende_zaak = None
         self.discriminator = None
 
@@ -62,8 +62,8 @@ class Filiatie(object):
             self.aard = aard
         if overgangsgrootte is not None:
             self.overgangsgrootte = overgangsgrootte
-        if kadastraal_onroerende_zaak_identificaties is not None:
-            self.kadastraal_onroerende_zaak_identificaties = kadastraal_onroerende_zaak_identificaties
+        if kadastraal_onroerende_zaak_identificatie is not None:
+            self.kadastraal_onroerende_zaak_identificatie = kadastraal_onroerende_zaak_identificatie
         if indicatie_vervallen_kadastraal_onroerende_zaak is not None:
             self.indicatie_vervallen_kadastraal_onroerende_zaak = indicatie_vervallen_kadastraal_onroerende_zaak
 
@@ -112,27 +112,27 @@ class Filiatie(object):
         self._overgangsgrootte = overgangsgrootte
 
     @property
-    def kadastraal_onroerende_zaak_identificaties(self):
-        """Gets the kadastraal_onroerende_zaak_identificaties of this Filiatie.  # noqa: E501
+    def kadastraal_onroerende_zaak_identificatie(self):
+        """Gets the kadastraal_onroerende_zaak_identificatie of this Filiatie.  # noqa: E501
 
         De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).   # noqa: E501
 
-        :return: The kadastraal_onroerende_zaak_identificaties of this Filiatie.  # noqa: E501
+        :return: The kadastraal_onroerende_zaak_identificatie of this Filiatie.  # noqa: E501
         :rtype: str
         """
-        return self._kadastraal_onroerende_zaak_identificaties
+        return self._kadastraal_onroerende_zaak_identificatie
 
-    @kadastraal_onroerende_zaak_identificaties.setter
-    def kadastraal_onroerende_zaak_identificaties(self, kadastraal_onroerende_zaak_identificaties):
-        """Sets the kadastraal_onroerende_zaak_identificaties of this Filiatie.
+    @kadastraal_onroerende_zaak_identificatie.setter
+    def kadastraal_onroerende_zaak_identificatie(self, kadastraal_onroerende_zaak_identificatie):
+        """Sets the kadastraal_onroerende_zaak_identificatie of this Filiatie.
 
         De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).   # noqa: E501
 
-        :param kadastraal_onroerende_zaak_identificaties: The kadastraal_onroerende_zaak_identificaties of this Filiatie.  # noqa: E501
+        :param kadastraal_onroerende_zaak_identificatie: The kadastraal_onroerende_zaak_identificatie of this Filiatie.  # noqa: E501
         :type: str
         """
 
-        self._kadastraal_onroerende_zaak_identificaties = kadastraal_onroerende_zaak_identificaties
+        self._kadastraal_onroerende_zaak_identificatie = kadastraal_onroerende_zaak_identificatie
 
     @property
     def indicatie_vervallen_kadastraal_onroerende_zaak(self):

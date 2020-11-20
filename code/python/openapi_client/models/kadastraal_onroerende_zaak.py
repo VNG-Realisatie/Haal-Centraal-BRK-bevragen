@@ -53,7 +53,8 @@ class KadastraalOnroerendeZaak(object):
         'beslag_identificaties': 'list[str]',
         'is_overgegaan_in': 'list[Filiatie]',
         'is_ontstaan_uit': 'list[Filiatie]',
-        'bijbehorend_grondperceel': 'str',
+        'bijbehorend_grondperceel_identificatie': 'str',
+        'bijbehorende_appartementsrecht_identificaties': 'list[str]',
         'stuk_identificaties': 'list[str]'
     }
 
@@ -78,11 +79,12 @@ class KadastraalOnroerendeZaak(object):
         'beslag_identificaties': 'beslagIdentificaties',
         'is_overgegaan_in': 'isOvergegaanIn',
         'is_ontstaan_uit': 'isOntstaanUit',
-        'bijbehorend_grondperceel': 'bijbehorendGrondperceel',
+        'bijbehorend_grondperceel_identificatie': 'bijbehorendGrondperceelIdentificatie',
+        'bijbehorende_appartementsrecht_identificaties': 'bijbehorendeAppartementsrechtIdentificaties',
         'stuk_identificaties': 'stukIdentificaties'
     }
 
-    def __init__(self, identificatie=None, domein=None, begrenzing_perceel=None, perceelnummer_rotatie=None, plaatscoordinaten=None, koopsom=None, toelichting_bewaarder=None, type=None, aard_cultuur_bebouwd=None, aard_cultuur_onbebouwd=None, kadastrale_aanduiding=None, kadastrale_grootte=None, perceelnummer_verschuiving=None, adressen=None, zakelijk_gerechtigde_identificaties=None, privaatrechtelijke_beperking_identificaties=None, hypotheek_identificaties=None, beslag_identificaties=None, is_overgegaan_in=None, is_ontstaan_uit=None, bijbehorend_grondperceel=None, stuk_identificaties=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, identificatie=None, domein=None, begrenzing_perceel=None, perceelnummer_rotatie=None, plaatscoordinaten=None, koopsom=None, toelichting_bewaarder=None, type=None, aard_cultuur_bebouwd=None, aard_cultuur_onbebouwd=None, kadastrale_aanduiding=None, kadastrale_grootte=None, perceelnummer_verschuiving=None, adressen=None, zakelijk_gerechtigde_identificaties=None, privaatrechtelijke_beperking_identificaties=None, hypotheek_identificaties=None, beslag_identificaties=None, is_overgegaan_in=None, is_ontstaan_uit=None, bijbehorend_grondperceel_identificatie=None, bijbehorende_appartementsrecht_identificaties=None, stuk_identificaties=None, local_vars_configuration=None):  # noqa: E501
         """KadastraalOnroerendeZaak - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,7 +110,8 @@ class KadastraalOnroerendeZaak(object):
         self._beslag_identificaties = None
         self._is_overgegaan_in = None
         self._is_ontstaan_uit = None
-        self._bijbehorend_grondperceel = None
+        self._bijbehorend_grondperceel_identificatie = None
+        self._bijbehorende_appartementsrecht_identificaties = None
         self._stuk_identificaties = None
         self.discriminator = None
 
@@ -152,8 +155,10 @@ class KadastraalOnroerendeZaak(object):
             self.is_overgegaan_in = is_overgegaan_in
         if is_ontstaan_uit is not None:
             self.is_ontstaan_uit = is_ontstaan_uit
-        if bijbehorend_grondperceel is not None:
-            self.bijbehorend_grondperceel = bijbehorend_grondperceel
+        if bijbehorend_grondperceel_identificatie is not None:
+            self.bijbehorend_grondperceel_identificatie = bijbehorend_grondperceel_identificatie
+        if bijbehorende_appartementsrecht_identificaties is not None:
+            self.bijbehorende_appartementsrecht_identificaties = bijbehorende_appartementsrecht_identificaties
         if stuk_identificaties is not None:
             self.stuk_identificaties = stuk_identificaties
 
@@ -597,27 +602,50 @@ class KadastraalOnroerendeZaak(object):
         self._is_ontstaan_uit = is_ontstaan_uit
 
     @property
-    def bijbehorend_grondperceel(self):
-        """Gets the bijbehorend_grondperceel of this KadastraalOnroerendeZaak.  # noqa: E501
+    def bijbehorend_grondperceel_identificatie(self):
+        """Gets the bijbehorend_grondperceel_identificatie of this KadastraalOnroerendeZaak.  # noqa: E501
 
-        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort   # noqa: E501
+        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort   # noqa: E501
 
-        :return: The bijbehorend_grondperceel of this KadastraalOnroerendeZaak.  # noqa: E501
+        :return: The bijbehorend_grondperceel_identificatie of this KadastraalOnroerendeZaak.  # noqa: E501
         :rtype: str
         """
-        return self._bijbehorend_grondperceel
+        return self._bijbehorend_grondperceel_identificatie
 
-    @bijbehorend_grondperceel.setter
-    def bijbehorend_grondperceel(self, bijbehorend_grondperceel):
-        """Sets the bijbehorend_grondperceel of this KadastraalOnroerendeZaak.
+    @bijbehorend_grondperceel_identificatie.setter
+    def bijbehorend_grondperceel_identificatie(self, bijbehorend_grondperceel_identificatie):
+        """Sets the bijbehorend_grondperceel_identificatie of this KadastraalOnroerendeZaak.
 
-        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort   # noqa: E501
+        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort   # noqa: E501
 
-        :param bijbehorend_grondperceel: The bijbehorend_grondperceel of this KadastraalOnroerendeZaak.  # noqa: E501
+        :param bijbehorend_grondperceel_identificatie: The bijbehorend_grondperceel_identificatie of this KadastraalOnroerendeZaak.  # noqa: E501
         :type: str
         """
 
-        self._bijbehorend_grondperceel = bijbehorend_grondperceel
+        self._bijbehorend_grondperceel_identificatie = bijbehorend_grondperceel_identificatie
+
+    @property
+    def bijbehorende_appartementsrecht_identificaties(self):
+        """Gets the bijbehorende_appartementsrecht_identificaties of this KadastraalOnroerendeZaak.  # noqa: E501
+
+        De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen   # noqa: E501
+
+        :return: The bijbehorende_appartementsrecht_identificaties of this KadastraalOnroerendeZaak.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._bijbehorende_appartementsrecht_identificaties
+
+    @bijbehorende_appartementsrecht_identificaties.setter
+    def bijbehorende_appartementsrecht_identificaties(self, bijbehorende_appartementsrecht_identificaties):
+        """Sets the bijbehorende_appartementsrecht_identificaties of this KadastraalOnroerendeZaak.
+
+        De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen   # noqa: E501
+
+        :param bijbehorende_appartementsrecht_identificaties: The bijbehorende_appartementsrecht_identificaties of this KadastraalOnroerendeZaak.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._bijbehorende_appartementsrecht_identificaties = bijbehorende_appartementsrecht_identificaties
 
     @property
     def stuk_identificaties(self):

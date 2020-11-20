@@ -34,8 +34,8 @@ class PubliekrechtelijkeBeperkingLinks(object):
     """
     openapi_types = {
         'bevoegd_gezag': 'HalLink',
-        'is_gebaseerd_op_stukdeel': 'HalLink2',
-        'is_vermeld_in_stukdelen': 'list[HalLink2]'
+        'is_gebaseerd_op_stukdeel': 'HalLink',
+        'is_vermeld_in_stukdelen': 'list[HalLink]'
     }
 
     attribute_map = {
@@ -89,7 +89,7 @@ class PubliekrechtelijkeBeperkingLinks(object):
 
 
         :return: The is_gebaseerd_op_stukdeel of this PubliekrechtelijkeBeperkingLinks.  # noqa: E501
-        :rtype: HalLink2
+        :rtype: HalLink
         """
         return self._is_gebaseerd_op_stukdeel
 
@@ -99,7 +99,7 @@ class PubliekrechtelijkeBeperkingLinks(object):
 
 
         :param is_gebaseerd_op_stukdeel: The is_gebaseerd_op_stukdeel of this PubliekrechtelijkeBeperkingLinks.  # noqa: E501
-        :type: HalLink2
+        :type: HalLink
         """
 
         self._is_gebaseerd_op_stukdeel = is_gebaseerd_op_stukdeel
@@ -110,7 +110,7 @@ class PubliekrechtelijkeBeperkingLinks(object):
 
 
         :return: The is_vermeld_in_stukdelen of this PubliekrechtelijkeBeperkingLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._is_vermeld_in_stukdelen
 
@@ -120,7 +120,7 @@ class PubliekrechtelijkeBeperkingLinks(object):
 
 
         :param is_vermeld_in_stukdelen: The is_vermeld_in_stukdelen of this PubliekrechtelijkeBeperkingLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._is_vermeld_in_stukdelen = is_vermeld_in_stukdelen

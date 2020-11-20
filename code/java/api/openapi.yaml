@@ -3584,28 +3584,32 @@ components:
           items:
             $ref: '#/components/schemas/HalLink'
           type: array
+        isOntstaanUit:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+        isOvergegaanIn:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
         beslagen:
           items:
             $ref: '#/components/schemas/HalLink'
           type: array
         stukken:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
-      type: object
-    HalLink_2:
-      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
-      properties:
-        href:
-          example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-          type: string
-        templated:
-          type: boolean
-        title:
-          description: Voor mens leesbaar label bij de link
-          type: string
-      required:
-      - href
+        adressen:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
+        bijbehorendGrondperceel:
+          $ref: '#/components/schemas/HalLink'
+        bijbehorendeAppartementsrechten:
+          items:
+            $ref: '#/components/schemas/HalLink'
+          type: array
       type: object
     KadastraalOnroerendeZaakEmbedded:
       properties:
@@ -3727,15 +3731,15 @@ components:
           $ref: '#/components/schemas/HalLink'
         stukken:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
         isGebaseerdOpStukdeel:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
         isVermeldInStukdelen:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
       type: object
     ZakelijkGerechtigdeHalCollectie:
@@ -3898,13 +3902,13 @@ components:
           type: array
         stukken:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
         isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
+          $ref: '#/components/schemas/HalLink'
         isVermeldInStukdelen:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
       type: object
     BeslagHalCollectie:
@@ -4023,13 +4027,13 @@ components:
           $ref: '#/components/schemas/HalLink'
         stukken:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
         isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
+          $ref: '#/components/schemas/HalLink'
         isVermeldInStukdelen:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
       type: object
     PubliekrechtelijkeBeperkingHalCollectie:
@@ -4086,10 +4090,10 @@ components:
         bevoegdGezag:
           $ref: '#/components/schemas/HalLink'
         isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
+          $ref: '#/components/schemas/HalLink'
         isVermeldInStukdelen:
           items:
-            $ref: '#/components/schemas/HalLink_2'
+            $ref: '#/components/schemas/HalLink'
           type: array
       type: object
     StukHalBasis:
@@ -4140,7 +4144,8 @@ components:
           $ref: '#/components/schemas/polygonGeoJSON'
         perceelnummerRotatie:
           description: |
-            Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
+            Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.
+            Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
           maximum: 999
           type: number
         plaatscoordinaten:
@@ -4149,7 +4154,8 @@ components:
           $ref: '#/components/schemas/TypeKoopsom'
         toelichtingBewaarder:
           description: |
-            Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+            Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.
+            Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
           type: string
         type:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaakEnum'
@@ -4201,10 +4207,16 @@ components:
           items:
             $ref: '#/components/schemas/Filiatie'
           type: array
-        bijbehorendGrondperceel:
+        bijbehorendGrondperceelIdentificatie:
           description: |
-            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
+            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
           type: string
+        bijbehorendeAppartementsrechtIdentificaties:
+          description: |
+            De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+          items:
+            type: string
+          type: array
         stukIdentificaties:
           description: |
             Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
@@ -4356,7 +4368,7 @@ components:
             De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
           example: 220
           type: integer
-        kadastraalOnroerendeZaakIdentificaties:
+        kadastraalOnroerendeZaakIdentificatie:
           description: |
             De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
           type: string

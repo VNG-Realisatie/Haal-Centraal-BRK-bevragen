@@ -29,7 +29,7 @@ import org.openapitools.client.model.DatumOnvolledig;
  * Overlijden is een groep gegevens over het overlijden van een persoon. 
  */
 @ApiModel(description = "Overlijden is een groep gegevens over het overlijden van een persoon. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class Overlijden {
   public static final String SERIALIZED_NAME_DATUM = "datum";
   @SerializedName(SERIALIZED_NAME_DATUM)

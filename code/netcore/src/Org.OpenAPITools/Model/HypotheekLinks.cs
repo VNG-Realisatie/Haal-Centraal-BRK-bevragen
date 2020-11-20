@@ -39,7 +39,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="stukken">stukken.</param>
         /// <param name="isGebaseerdOpStukdeel">isGebaseerdOpStukdeel.</param>
         /// <param name="isVermeldInStukdelen">isVermeldInStukdelen.</param>
-        public HypotheekLinks(HalLink self = default(HalLink), List<HalLink> hypotheekhouders = default(List<HalLink>), List<HalLink2> stukken = default(List<HalLink2>), HalLink2 isGebaseerdOpStukdeel = default(HalLink2), List<HalLink2> isVermeldInStukdelen = default(List<HalLink2>))
+        public HypotheekLinks(HalLink self = default(HalLink), List<HalLink> hypotheekhouders = default(List<HalLink>), List<HalLink> stukken = default(List<HalLink>), HalLink isGebaseerdOpStukdeel = default(HalLink), List<HalLink> isVermeldInStukdelen = default(List<HalLink>))
         {
             this.Self = self;
             this.Hypotheekhouders = hypotheekhouders;
@@ -64,19 +64,19 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Stukken
         /// </summary>
         [DataMember(Name="stukken", EmitDefaultValue=false)]
-        public List<HalLink2> Stukken { get; set; }
+        public List<HalLink> Stukken { get; set; }
 
         /// <summary>
         /// Gets or Sets IsGebaseerdOpStukdeel
         /// </summary>
         [DataMember(Name="isGebaseerdOpStukdeel", EmitDefaultValue=false)]
-        public HalLink2 IsGebaseerdOpStukdeel { get; set; }
+        public HalLink IsGebaseerdOpStukdeel { get; set; }
 
         /// <summary>
         /// Gets or Sets IsVermeldInStukdelen
         /// </summary>
         [DataMember(Name="isVermeldInStukdelen", EmitDefaultValue=false)]
-        public List<HalLink2> IsVermeldInStukdelen { get; set; }
+        public List<HalLink> IsVermeldInStukdelen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

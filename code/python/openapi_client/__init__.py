@@ -63,7 +63,6 @@ from openapi_client.models.geboorte import Geboorte
 from openapi_client.models.geslacht_enum import GeslachtEnum
 from openapi_client.models.hal_collection_links import HalCollectionLinks
 from openapi_client.models.hal_link import HalLink
-from openapi_client.models.hal_link2 import HalLink2
 from openapi_client.models.heeft_partnerschap import HeeftPartnerschap
 from openapi_client.models.hypotheek import Hypotheek
 from openapi_client.models.hypotheek_hal import HypotheekHal

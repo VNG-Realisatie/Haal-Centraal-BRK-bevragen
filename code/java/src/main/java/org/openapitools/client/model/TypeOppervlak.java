@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Oppervlakte   Waardelijst in deze component :   [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/) 
  */
 @ApiModel(description = "Oppervlakte   Waardelijst in deze component :   [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class TypeOppervlak {
   public static final String SERIALIZED_NAME_SOORT_GROOTTE = "soortGrootte";
   @SerializedName(SERIALIZED_NAME_SOORT_GROOTTE)

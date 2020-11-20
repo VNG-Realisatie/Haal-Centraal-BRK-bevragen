@@ -58,9 +58,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="beslagIdentificaties">Alle beslagen die rusten op deze kadastraal onroerende zaak .</param>
         /// <param name="isOvergegaanIn">isOvergegaanIn.</param>
         /// <param name="isOntstaanUit">isOntstaanUit.</param>
-        /// <param name="bijbehorendGrondperceel">De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort .</param>
+        /// <param name="bijbehorendGrondperceelIdentificatie">De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort .</param>
+        /// <param name="bijbehorendeAppartementsrechtIdentificaties">De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen .</param>
         /// <param name="stukIdentificaties">Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. .</param>
-        public KadastraalOnroerendeZaak(string identificatie = default(string), string domein = default(string), PolygonGeoJSON begrenzingPerceel = default(PolygonGeoJSON), decimal perceelnummerRotatie = default(decimal), PointGeoJSON plaatscoordinaten = default(PointGeoJSON), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), TypeKadastraalOnroerendeZaakEnum? type = default(TypeKadastraalOnroerendeZaakEnum?), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), string kadastraleAanduiding = default(string), TypeOppervlak kadastraleGrootte = default(TypeOppervlak), TypePerceelnummerVerschuiving perceelnummerVerschuiving = default(TypePerceelnummerVerschuiving), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), List<Filiatie> isOvergegaanIn = default(List<Filiatie>), List<Filiatie> isOntstaanUit = default(List<Filiatie>), string bijbehorendGrondperceel = default(string), List<string> stukIdentificaties = default(List<string>))
+        public KadastraalOnroerendeZaak(string identificatie = default(string), string domein = default(string), PolygonGeoJSON begrenzingPerceel = default(PolygonGeoJSON), decimal perceelnummerRotatie = default(decimal), PointGeoJSON plaatscoordinaten = default(PointGeoJSON), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), TypeKadastraalOnroerendeZaakEnum? type = default(TypeKadastraalOnroerendeZaakEnum?), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), string kadastraleAanduiding = default(string), TypeOppervlak kadastraleGrootte = default(TypeOppervlak), TypePerceelnummerVerschuiving perceelnummerVerschuiving = default(TypePerceelnummerVerschuiving), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), List<Filiatie> isOvergegaanIn = default(List<Filiatie>), List<Filiatie> isOntstaanUit = default(List<Filiatie>), string bijbehorendGrondperceelIdentificatie = default(string), List<string> bijbehorendeAppartementsrechtIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>))
         {
             this.Identificatie = identificatie;
             this.Domein = domein;
@@ -82,7 +83,8 @@ namespace Org.OpenAPITools.Model
             this.BeslagIdentificaties = beslagIdentificaties;
             this.IsOvergegaanIn = isOvergegaanIn;
             this.IsOntstaanUit = isOntstaanUit;
-            this.BijbehorendGrondperceel = bijbehorendGrondperceel;
+            this.BijbehorendGrondperceelIdentificatie = bijbehorendGrondperceelIdentificatie;
+            this.BijbehorendeAppartementsrechtIdentificaties = bijbehorendeAppartementsrechtIdentificaties;
             this.StukIdentificaties = stukIdentificaties;
         }
         
@@ -210,11 +212,18 @@ namespace Org.OpenAPITools.Model
         public List<Filiatie> IsOntstaanUit { get; set; }
 
         /// <summary>
-        /// De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort 
+        /// De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort 
         /// </summary>
-        /// <value>De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort </value>
-        [DataMember(Name="bijbehorendGrondperceel", EmitDefaultValue=false)]
-        public string BijbehorendGrondperceel { get; set; }
+        /// <value>De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort </value>
+        [DataMember(Name="bijbehorendGrondperceelIdentificatie", EmitDefaultValue=false)]
+        public string BijbehorendGrondperceelIdentificatie { get; set; }
+
+        /// <summary>
+        /// De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen 
+        /// </summary>
+        /// <value>De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen </value>
+        [DataMember(Name="bijbehorendeAppartementsrechtIdentificaties", EmitDefaultValue=false)]
+        public List<string> BijbehorendeAppartementsrechtIdentificaties { get; set; }
 
         /// <summary>
         /// Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. 
@@ -251,7 +260,8 @@ namespace Org.OpenAPITools.Model
             sb.Append("  BeslagIdentificaties: ").Append(BeslagIdentificaties).Append("\n");
             sb.Append("  IsOvergegaanIn: ").Append(IsOvergegaanIn).Append("\n");
             sb.Append("  IsOntstaanUit: ").Append(IsOntstaanUit).Append("\n");
-            sb.Append("  BijbehorendGrondperceel: ").Append(BijbehorendGrondperceel).Append("\n");
+            sb.Append("  BijbehorendGrondperceelIdentificatie: ").Append(BijbehorendGrondperceelIdentificatie).Append("\n");
+            sb.Append("  BijbehorendeAppartementsrechtIdentificaties: ").Append(BijbehorendeAppartementsrechtIdentificaties).Append("\n");
             sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -395,9 +405,15 @@ namespace Org.OpenAPITools.Model
                     this.IsOntstaanUit.SequenceEqual(input.IsOntstaanUit)
                 ) && 
                 (
-                    this.BijbehorendGrondperceel == input.BijbehorendGrondperceel ||
-                    (this.BijbehorendGrondperceel != null &&
-                    this.BijbehorendGrondperceel.Equals(input.BijbehorendGrondperceel))
+                    this.BijbehorendGrondperceelIdentificatie == input.BijbehorendGrondperceelIdentificatie ||
+                    (this.BijbehorendGrondperceelIdentificatie != null &&
+                    this.BijbehorendGrondperceelIdentificatie.Equals(input.BijbehorendGrondperceelIdentificatie))
+                ) && 
+                (
+                    this.BijbehorendeAppartementsrechtIdentificaties == input.BijbehorendeAppartementsrechtIdentificaties ||
+                    this.BijbehorendeAppartementsrechtIdentificaties != null &&
+                    input.BijbehorendeAppartementsrechtIdentificaties != null &&
+                    this.BijbehorendeAppartementsrechtIdentificaties.SequenceEqual(input.BijbehorendeAppartementsrechtIdentificaties)
                 ) && 
                 (
                     this.StukIdentificaties == input.StukIdentificaties ||
@@ -456,8 +472,10 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.IsOvergegaanIn.GetHashCode();
                 if (this.IsOntstaanUit != null)
                     hashCode = hashCode * 59 + this.IsOntstaanUit.GetHashCode();
-                if (this.BijbehorendGrondperceel != null)
-                    hashCode = hashCode * 59 + this.BijbehorendGrondperceel.GetHashCode();
+                if (this.BijbehorendGrondperceelIdentificatie != null)
+                    hashCode = hashCode * 59 + this.BijbehorendGrondperceelIdentificatie.GetHashCode();
+                if (this.BijbehorendeAppartementsrechtIdentificaties != null)
+                    hashCode = hashCode * 59 + this.BijbehorendeAppartementsrechtIdentificaties.GetHashCode();
                 if (this.StukIdentificaties != null)
                     hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
                 return hashCode;

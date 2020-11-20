@@ -26,12 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.HalLink;
-import org.openapitools.client.model.HalLink2;
 
 /**
  * HypotheekLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class HypotheekLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -43,15 +42,15 @@ public class HypotheekLinks {
 
   public static final String SERIALIZED_NAME_STUKKEN = "stukken";
   @SerializedName(SERIALIZED_NAME_STUKKEN)
-  private List<HalLink2> stukken = null;
+  private List<HalLink> stukken = null;
 
   public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL = "isGebaseerdOpStukdeel";
   @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL)
-  private HalLink2 isGebaseerdOpStukdeel;
+  private HalLink isGebaseerdOpStukdeel;
 
   public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN = "isVermeldInStukdelen";
   @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN)
-  private List<HalLink2> isVermeldInStukdelen = null;
+  private List<HalLink> isVermeldInStukdelen = null;
 
 
   public HypotheekLinks self(HalLink self) {
@@ -108,13 +107,13 @@ public class HypotheekLinks {
   }
 
 
-  public HypotheekLinks stukken(List<HalLink2> stukken) {
+  public HypotheekLinks stukken(List<HalLink> stukken) {
     
     this.stukken = stukken;
     return this;
   }
 
-  public HypotheekLinks addStukkenItem(HalLink2 stukkenItem) {
+  public HypotheekLinks addStukkenItem(HalLink stukkenItem) {
     if (this.stukken == null) {
       this.stukken = new ArrayList<>();
     }
@@ -129,17 +128,17 @@ public class HypotheekLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getStukken() {
+  public List<HalLink> getStukken() {
     return stukken;
   }
 
 
-  public void setStukken(List<HalLink2> stukken) {
+  public void setStukken(List<HalLink> stukken) {
     this.stukken = stukken;
   }
 
 
-  public HypotheekLinks isGebaseerdOpStukdeel(HalLink2 isGebaseerdOpStukdeel) {
+  public HypotheekLinks isGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
     
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
     return this;
@@ -152,23 +151,23 @@ public class HypotheekLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public HalLink2 getIsGebaseerdOpStukdeel() {
+  public HalLink getIsGebaseerdOpStukdeel() {
     return isGebaseerdOpStukdeel;
   }
 
 
-  public void setIsGebaseerdOpStukdeel(HalLink2 isGebaseerdOpStukdeel) {
+  public void setIsGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
   }
 
 
-  public HypotheekLinks isVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public HypotheekLinks isVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     
     this.isVermeldInStukdelen = isVermeldInStukdelen;
     return this;
   }
 
-  public HypotheekLinks addIsVermeldInStukdelenItem(HalLink2 isVermeldInStukdelenItem) {
+  public HypotheekLinks addIsVermeldInStukdelenItem(HalLink isVermeldInStukdelenItem) {
     if (this.isVermeldInStukdelen == null) {
       this.isVermeldInStukdelen = new ArrayList<>();
     }
@@ -183,12 +182,12 @@ public class HypotheekLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getIsVermeldInStukdelen() {
+  public List<HalLink> getIsVermeldInStukdelen() {
     return isVermeldInStukdelen;
   }
 
 
-  public void setIsVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public void setIsVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     this.isVermeldInStukdelen = isVermeldInStukdelen;
   }
 

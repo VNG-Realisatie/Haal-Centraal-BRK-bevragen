@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
  - [Model.GeslachtEnum](docs/GeslachtEnum.md)
  - [Model.HalCollectionLinks](docs/HalCollectionLinks.md)
  - [Model.HalLink](docs/HalLink.md)
- - [Model.HalLink2](docs/HalLink2.md)
  - [Model.HeeftPartnerschap](docs/HeeftPartnerschap.md)
  - [Model.Hypotheek](docs/Hypotheek.md)
  - [Model.HypotheekHal](docs/HypotheekHal.md)

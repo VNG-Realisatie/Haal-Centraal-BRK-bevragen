@@ -26,12 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.HalLink;
-import org.openapitools.client.model.HalLink2;
 
 /**
  * ZakelijkGerechtigdeLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class ZakelijkGerechtigdeLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -55,15 +54,15 @@ public class ZakelijkGerechtigdeLinks {
 
   public static final String SERIALIZED_NAME_STUKKEN = "stukken";
   @SerializedName(SERIALIZED_NAME_STUKKEN)
-  private List<HalLink2> stukken = null;
+  private List<HalLink> stukken = null;
 
   public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL = "isGebaseerdOpStukdeel";
   @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL)
-  private List<HalLink2> isGebaseerdOpStukdeel = null;
+  private List<HalLink> isGebaseerdOpStukdeel = null;
 
   public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN = "isVermeldInStukdelen";
   @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN)
-  private List<HalLink2> isVermeldInStukdelen = null;
+  private List<HalLink> isVermeldInStukdelen = null;
 
 
   public ZakelijkGerechtigdeLinks self(HalLink self) {
@@ -181,13 +180,13 @@ public class ZakelijkGerechtigdeLinks {
   }
 
 
-  public ZakelijkGerechtigdeLinks stukken(List<HalLink2> stukken) {
+  public ZakelijkGerechtigdeLinks stukken(List<HalLink> stukken) {
     
     this.stukken = stukken;
     return this;
   }
 
-  public ZakelijkGerechtigdeLinks addStukkenItem(HalLink2 stukkenItem) {
+  public ZakelijkGerechtigdeLinks addStukkenItem(HalLink stukkenItem) {
     if (this.stukken == null) {
       this.stukken = new ArrayList<>();
     }
@@ -202,23 +201,23 @@ public class ZakelijkGerechtigdeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getStukken() {
+  public List<HalLink> getStukken() {
     return stukken;
   }
 
 
-  public void setStukken(List<HalLink2> stukken) {
+  public void setStukken(List<HalLink> stukken) {
     this.stukken = stukken;
   }
 
 
-  public ZakelijkGerechtigdeLinks isGebaseerdOpStukdeel(List<HalLink2> isGebaseerdOpStukdeel) {
+  public ZakelijkGerechtigdeLinks isGebaseerdOpStukdeel(List<HalLink> isGebaseerdOpStukdeel) {
     
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
     return this;
   }
 
-  public ZakelijkGerechtigdeLinks addIsGebaseerdOpStukdeelItem(HalLink2 isGebaseerdOpStukdeelItem) {
+  public ZakelijkGerechtigdeLinks addIsGebaseerdOpStukdeelItem(HalLink isGebaseerdOpStukdeelItem) {
     if (this.isGebaseerdOpStukdeel == null) {
       this.isGebaseerdOpStukdeel = new ArrayList<>();
     }
@@ -233,23 +232,23 @@ public class ZakelijkGerechtigdeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getIsGebaseerdOpStukdeel() {
+  public List<HalLink> getIsGebaseerdOpStukdeel() {
     return isGebaseerdOpStukdeel;
   }
 
 
-  public void setIsGebaseerdOpStukdeel(List<HalLink2> isGebaseerdOpStukdeel) {
+  public void setIsGebaseerdOpStukdeel(List<HalLink> isGebaseerdOpStukdeel) {
     this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
   }
 
 
-  public ZakelijkGerechtigdeLinks isVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public ZakelijkGerechtigdeLinks isVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     
     this.isVermeldInStukdelen = isVermeldInStukdelen;
     return this;
   }
 
-  public ZakelijkGerechtigdeLinks addIsVermeldInStukdelenItem(HalLink2 isVermeldInStukdelenItem) {
+  public ZakelijkGerechtigdeLinks addIsVermeldInStukdelenItem(HalLink isVermeldInStukdelenItem) {
     if (this.isVermeldInStukdelen == null) {
       this.isVermeldInStukdelen = new ArrayList<>();
     }
@@ -264,12 +263,12 @@ public class ZakelijkGerechtigdeLinks {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink2> getIsVermeldInStukdelen() {
+  public List<HalLink> getIsVermeldInStukdelen() {
     return isVermeldInStukdelen;
   }
 
 
-  public void setIsVermeldInStukdelen(List<HalLink2> isVermeldInStukdelen) {
+  public void setIsVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
     this.isVermeldInStukdelen = isVermeldInStukdelen;
   }
 

@@ -34,9 +34,9 @@ class PrivaatrechtelijkeBeperkingLinks(object):
     """
     openapi_types = {
         '_self': 'HalLink',
-        'stukken': 'list[HalLink2]',
-        'is_gebaseerd_op_stukdeel': 'HalLink2',
-        'is_vermeld_in_stukdelen': 'list[HalLink2]'
+        'stukken': 'list[HalLink]',
+        'is_gebaseerd_op_stukdeel': 'HalLink',
+        'is_vermeld_in_stukdelen': 'list[HalLink]'
     }
 
     attribute_map = {
@@ -94,7 +94,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :return: The stukken of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._stukken
 
@@ -104,7 +104,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :param stukken: The stukken of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._stukken = stukken
@@ -115,7 +115,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :return: The is_gebaseerd_op_stukdeel of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :rtype: HalLink2
+        :rtype: HalLink
         """
         return self._is_gebaseerd_op_stukdeel
 
@@ -125,7 +125,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :param is_gebaseerd_op_stukdeel: The is_gebaseerd_op_stukdeel of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :type: HalLink2
+        :type: HalLink
         """
 
         self._is_gebaseerd_op_stukdeel = is_gebaseerd_op_stukdeel
@@ -136,7 +136,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :return: The is_vermeld_in_stukdelen of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._is_vermeld_in_stukdelen
 
@@ -146,7 +146,7 @@ class PrivaatrechtelijkeBeperkingLinks(object):
 
 
         :param is_vermeld_in_stukdelen: The is_vermeld_in_stukdelen of this PrivaatrechtelijkeBeperkingLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._is_vermeld_in_stukdelen = is_vermeld_in_stukdelen

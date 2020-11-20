@@ -35,7 +35,7 @@ import org.openapitools.client.model.Waardelijst;
  * Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Waardelijsten in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en   [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\&quot; 
  */
 @ApiModel(description = "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Waardelijsten in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en   [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\" ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class Stuk {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)

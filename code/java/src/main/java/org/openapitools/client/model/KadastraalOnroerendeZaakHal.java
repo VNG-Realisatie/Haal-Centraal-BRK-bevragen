@@ -43,7 +43,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadastraalOnroerendeZaakHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T11:20:18.957Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -125,9 +125,13 @@ public class KadastraalOnroerendeZaakHal {
   @SerializedName(SERIALIZED_NAME_IS_ONTSTAAN_UIT)
   private List<Filiatie> isOntstaanUit = null;
 
-  public static final String SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL = "bijbehorendGrondperceel";
-  @SerializedName(SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL)
-  private String bijbehorendGrondperceel;
+  public static final String SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL_IDENTIFICATIE = "bijbehorendGrondperceelIdentificatie";
+  @SerializedName(SERIALIZED_NAME_BIJBEHOREND_GRONDPERCEEL_IDENTIFICATIE)
+  private String bijbehorendGrondperceelIdentificatie;
+
+  public static final String SERIALIZED_NAME_BIJBEHORENDE_APPARTEMENTSRECHT_IDENTIFICATIES = "bijbehorendeAppartementsrechtIdentificaties";
+  @SerializedName(SERIALIZED_NAME_BIJBEHORENDE_APPARTEMENTSRECHT_IDENTIFICATIES)
+  private List<String> bijbehorendeAppartementsrechtIdentificaties = null;
 
   public static final String SERIALIZED_NAME_STUK_IDENTIFICATIES = "stukIdentificaties";
   @SerializedName(SERIALIZED_NAME_STUK_IDENTIFICATIES)
@@ -659,26 +663,57 @@ public class KadastraalOnroerendeZaakHal {
   }
 
 
-  public KadastraalOnroerendeZaakHal bijbehorendGrondperceel(String bijbehorendGrondperceel) {
+  public KadastraalOnroerendeZaakHal bijbehorendGrondperceelIdentificatie(String bijbehorendGrondperceelIdentificatie) {
     
-    this.bijbehorendGrondperceel = bijbehorendGrondperceel;
+    this.bijbehorendGrondperceelIdentificatie = bijbehorendGrondperceelIdentificatie;
     return this;
   }
 
    /**
-   * De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort 
-   * @return bijbehorendGrondperceel
+   * De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort 
+   * @return bijbehorendGrondperceelIdentificatie
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort ")
+  @ApiModelProperty(value = "De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort ")
 
-  public String getBijbehorendGrondperceel() {
-    return bijbehorendGrondperceel;
+  public String getBijbehorendGrondperceelIdentificatie() {
+    return bijbehorendGrondperceelIdentificatie;
   }
 
 
-  public void setBijbehorendGrondperceel(String bijbehorendGrondperceel) {
-    this.bijbehorendGrondperceel = bijbehorendGrondperceel;
+  public void setBijbehorendGrondperceelIdentificatie(String bijbehorendGrondperceelIdentificatie) {
+    this.bijbehorendGrondperceelIdentificatie = bijbehorendGrondperceelIdentificatie;
+  }
+
+
+  public KadastraalOnroerendeZaakHal bijbehorendeAppartementsrechtIdentificaties(List<String> bijbehorendeAppartementsrechtIdentificaties) {
+    
+    this.bijbehorendeAppartementsrechtIdentificaties = bijbehorendeAppartementsrechtIdentificaties;
+    return this;
+  }
+
+  public KadastraalOnroerendeZaakHal addBijbehorendeAppartementsrechtIdentificatiesItem(String bijbehorendeAppartementsrechtIdentificatiesItem) {
+    if (this.bijbehorendeAppartementsrechtIdentificaties == null) {
+      this.bijbehorendeAppartementsrechtIdentificaties = new ArrayList<>();
+    }
+    this.bijbehorendeAppartementsrechtIdentificaties.add(bijbehorendeAppartementsrechtIdentificatiesItem);
+    return this;
+  }
+
+   /**
+   * De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen 
+   * @return bijbehorendeAppartementsrechtIdentificaties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen ")
+
+  public List<String> getBijbehorendeAppartementsrechtIdentificaties() {
+    return bijbehorendeAppartementsrechtIdentificaties;
+  }
+
+
+  public void setBijbehorendeAppartementsrechtIdentificaties(List<String> bijbehorendeAppartementsrechtIdentificaties) {
+    this.bijbehorendeAppartementsrechtIdentificaties = bijbehorendeAppartementsrechtIdentificaties;
   }
 
 
@@ -788,7 +823,8 @@ public class KadastraalOnroerendeZaakHal {
         Objects.equals(this.beslagIdentificaties, kadastraalOnroerendeZaakHal.beslagIdentificaties) &&
         Objects.equals(this.isOvergegaanIn, kadastraalOnroerendeZaakHal.isOvergegaanIn) &&
         Objects.equals(this.isOntstaanUit, kadastraalOnroerendeZaakHal.isOntstaanUit) &&
-        Objects.equals(this.bijbehorendGrondperceel, kadastraalOnroerendeZaakHal.bijbehorendGrondperceel) &&
+        Objects.equals(this.bijbehorendGrondperceelIdentificatie, kadastraalOnroerendeZaakHal.bijbehorendGrondperceelIdentificatie) &&
+        Objects.equals(this.bijbehorendeAppartementsrechtIdentificaties, kadastraalOnroerendeZaakHal.bijbehorendeAppartementsrechtIdentificaties) &&
         Objects.equals(this.stukIdentificaties, kadastraalOnroerendeZaakHal.stukIdentificaties) &&
         Objects.equals(this.links, kadastraalOnroerendeZaakHal.links) &&
         Objects.equals(this.embedded, kadastraalOnroerendeZaakHal.embedded);
@@ -796,7 +832,7 @@ public class KadastraalOnroerendeZaakHal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(identificatie, domein, begrenzingPerceel, perceelnummerRotatie, plaatscoordinaten, koopsom, toelichtingBewaarder, type, aardCultuurBebouwd, aardCultuurOnbebouwd, kadastraleAanduiding, kadastraleGrootte, perceelnummerVerschuiving, adressen, zakelijkGerechtigdeIdentificaties, privaatrechtelijkeBeperkingIdentificaties, hypotheekIdentificaties, beslagIdentificaties, isOvergegaanIn, isOntstaanUit, bijbehorendGrondperceel, stukIdentificaties, links, embedded);
+    return Objects.hash(identificatie, domein, begrenzingPerceel, perceelnummerRotatie, plaatscoordinaten, koopsom, toelichtingBewaarder, type, aardCultuurBebouwd, aardCultuurOnbebouwd, kadastraleAanduiding, kadastraleGrootte, perceelnummerVerschuiving, adressen, zakelijkGerechtigdeIdentificaties, privaatrechtelijkeBeperkingIdentificaties, hypotheekIdentificaties, beslagIdentificaties, isOvergegaanIn, isOntstaanUit, bijbehorendGrondperceelIdentificatie, bijbehorendeAppartementsrechtIdentificaties, stukIdentificaties, links, embedded);
   }
 
 
@@ -824,7 +860,8 @@ public class KadastraalOnroerendeZaakHal {
     sb.append("    beslagIdentificaties: ").append(toIndentedString(beslagIdentificaties)).append("\n");
     sb.append("    isOvergegaanIn: ").append(toIndentedString(isOvergegaanIn)).append("\n");
     sb.append("    isOntstaanUit: ").append(toIndentedString(isOntstaanUit)).append("\n");
-    sb.append("    bijbehorendGrondperceel: ").append(toIndentedString(bijbehorendGrondperceel)).append("\n");
+    sb.append("    bijbehorendGrondperceelIdentificatie: ").append(toIndentedString(bijbehorendGrondperceelIdentificatie)).append("\n");
+    sb.append("    bijbehorendeAppartementsrechtIdentificaties: ").append(toIndentedString(bijbehorendeAppartementsrechtIdentificaties)).append("\n");
     sb.append("    stukIdentificaties: ").append(toIndentedString(stukIdentificaties)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");

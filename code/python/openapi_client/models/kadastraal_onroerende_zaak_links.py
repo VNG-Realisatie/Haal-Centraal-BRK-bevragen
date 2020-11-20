@@ -37,8 +37,13 @@ class KadastraalOnroerendeZaakLinks(object):
         'zakelijk_gerechtigden': 'list[HalLink]',
         'privaatrechtelijke_beperkingen': 'list[HalLink]',
         'hypotheken': 'list[HalLink]',
+        'is_ontstaan_uit': 'list[HalLink]',
+        'is_overgegaan_in': 'list[HalLink]',
         'beslagen': 'list[HalLink]',
-        'stukken': 'list[HalLink2]'
+        'stukken': 'list[HalLink]',
+        'adressen': 'list[HalLink]',
+        'bijbehorend_grondperceel': 'HalLink',
+        'bijbehorende_appartementsrechten': 'list[HalLink]'
     }
 
     attribute_map = {
@@ -46,11 +51,16 @@ class KadastraalOnroerendeZaakLinks(object):
         'zakelijk_gerechtigden': 'zakelijkGerechtigden',
         'privaatrechtelijke_beperkingen': 'privaatrechtelijkeBeperkingen',
         'hypotheken': 'hypotheken',
+        'is_ontstaan_uit': 'isOntstaanUit',
+        'is_overgegaan_in': 'isOvergegaanIn',
         'beslagen': 'beslagen',
-        'stukken': 'stukken'
+        'stukken': 'stukken',
+        'adressen': 'adressen',
+        'bijbehorend_grondperceel': 'bijbehorendGrondperceel',
+        'bijbehorende_appartementsrechten': 'bijbehorendeAppartementsrechten'
     }
 
-    def __init__(self, _self=None, zakelijk_gerechtigden=None, privaatrechtelijke_beperkingen=None, hypotheken=None, beslagen=None, stukken=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _self=None, zakelijk_gerechtigden=None, privaatrechtelijke_beperkingen=None, hypotheken=None, is_ontstaan_uit=None, is_overgegaan_in=None, beslagen=None, stukken=None, adressen=None, bijbehorend_grondperceel=None, bijbehorende_appartementsrechten=None, local_vars_configuration=None):  # noqa: E501
         """KadastraalOnroerendeZaakLinks - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,8 +70,13 @@ class KadastraalOnroerendeZaakLinks(object):
         self._zakelijk_gerechtigden = None
         self._privaatrechtelijke_beperkingen = None
         self._hypotheken = None
+        self._is_ontstaan_uit = None
+        self._is_overgegaan_in = None
         self._beslagen = None
         self._stukken = None
+        self._adressen = None
+        self._bijbehorend_grondperceel = None
+        self._bijbehorende_appartementsrechten = None
         self.discriminator = None
 
         if _self is not None:
@@ -72,10 +87,20 @@ class KadastraalOnroerendeZaakLinks(object):
             self.privaatrechtelijke_beperkingen = privaatrechtelijke_beperkingen
         if hypotheken is not None:
             self.hypotheken = hypotheken
+        if is_ontstaan_uit is not None:
+            self.is_ontstaan_uit = is_ontstaan_uit
+        if is_overgegaan_in is not None:
+            self.is_overgegaan_in = is_overgegaan_in
         if beslagen is not None:
             self.beslagen = beslagen
         if stukken is not None:
             self.stukken = stukken
+        if adressen is not None:
+            self.adressen = adressen
+        if bijbehorend_grondperceel is not None:
+            self.bijbehorend_grondperceel = bijbehorend_grondperceel
+        if bijbehorende_appartementsrechten is not None:
+            self.bijbehorende_appartementsrechten = bijbehorende_appartementsrechten
 
     @property
     def _self(self):
@@ -162,6 +187,48 @@ class KadastraalOnroerendeZaakLinks(object):
         self._hypotheken = hypotheken
 
     @property
+    def is_ontstaan_uit(self):
+        """Gets the is_ontstaan_uit of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+
+
+        :return: The is_ontstaan_uit of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :rtype: list[HalLink]
+        """
+        return self._is_ontstaan_uit
+
+    @is_ontstaan_uit.setter
+    def is_ontstaan_uit(self, is_ontstaan_uit):
+        """Sets the is_ontstaan_uit of this KadastraalOnroerendeZaakLinks.
+
+
+        :param is_ontstaan_uit: The is_ontstaan_uit of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :type: list[HalLink]
+        """
+
+        self._is_ontstaan_uit = is_ontstaan_uit
+
+    @property
+    def is_overgegaan_in(self):
+        """Gets the is_overgegaan_in of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+
+
+        :return: The is_overgegaan_in of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :rtype: list[HalLink]
+        """
+        return self._is_overgegaan_in
+
+    @is_overgegaan_in.setter
+    def is_overgegaan_in(self, is_overgegaan_in):
+        """Sets the is_overgegaan_in of this KadastraalOnroerendeZaakLinks.
+
+
+        :param is_overgegaan_in: The is_overgegaan_in of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :type: list[HalLink]
+        """
+
+        self._is_overgegaan_in = is_overgegaan_in
+
+    @property
     def beslagen(self):
         """Gets the beslagen of this KadastraalOnroerendeZaakLinks.  # noqa: E501
 
@@ -188,7 +255,7 @@ class KadastraalOnroerendeZaakLinks(object):
 
 
         :return: The stukken of this KadastraalOnroerendeZaakLinks.  # noqa: E501
-        :rtype: list[HalLink2]
+        :rtype: list[HalLink]
         """
         return self._stukken
 
@@ -198,10 +265,73 @@ class KadastraalOnroerendeZaakLinks(object):
 
 
         :param stukken: The stukken of this KadastraalOnroerendeZaakLinks.  # noqa: E501
-        :type: list[HalLink2]
+        :type: list[HalLink]
         """
 
         self._stukken = stukken
+
+    @property
+    def adressen(self):
+        """Gets the adressen of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+
+
+        :return: The adressen of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :rtype: list[HalLink]
+        """
+        return self._adressen
+
+    @adressen.setter
+    def adressen(self, adressen):
+        """Sets the adressen of this KadastraalOnroerendeZaakLinks.
+
+
+        :param adressen: The adressen of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :type: list[HalLink]
+        """
+
+        self._adressen = adressen
+
+    @property
+    def bijbehorend_grondperceel(self):
+        """Gets the bijbehorend_grondperceel of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+
+
+        :return: The bijbehorend_grondperceel of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :rtype: HalLink
+        """
+        return self._bijbehorend_grondperceel
+
+    @bijbehorend_grondperceel.setter
+    def bijbehorend_grondperceel(self, bijbehorend_grondperceel):
+        """Sets the bijbehorend_grondperceel of this KadastraalOnroerendeZaakLinks.
+
+
+        :param bijbehorend_grondperceel: The bijbehorend_grondperceel of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :type: HalLink
+        """
+
+        self._bijbehorend_grondperceel = bijbehorend_grondperceel
+
+    @property
+    def bijbehorende_appartementsrechten(self):
+        """Gets the bijbehorende_appartementsrechten of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+
+
+        :return: The bijbehorende_appartementsrechten of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :rtype: list[HalLink]
+        """
+        return self._bijbehorende_appartementsrechten
+
+    @bijbehorende_appartementsrechten.setter
+    def bijbehorende_appartementsrechten(self, bijbehorende_appartementsrechten):
+        """Sets the bijbehorende_appartementsrechten of this KadastraalOnroerendeZaakLinks.
+
+
+        :param bijbehorende_appartementsrechten: The bijbehorende_appartementsrechten of this KadastraalOnroerendeZaakLinks.  # noqa: E501
+        :type: list[HalLink]
+        """
+
+        self._bijbehorende_appartementsrechten = bijbehorende_appartementsrechten
 
     def to_dict(self):
         """Returns the model properties as a dict"""
