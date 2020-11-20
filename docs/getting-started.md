@@ -132,6 +132,7 @@ zie hiervoor: https://www.logius.nl/diensten/pkioverheid
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving.
 
 #### Onroerende Zaken
+
 | Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheden |                                                                    
 |----------------                                |-------                                   |-------                  |-------               |-------        |
 |2 eigenaren (Kadaster Natuurlijk Persoon)       |76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |<ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul> |
@@ -153,6 +154,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
+
 |Naam                    |Geboortedatum    |Type                                 |KadasterPersoon-Identificatie   | Burgerservice-nummer |Bijzonderheden        |
 |----------------        |-------         |------                              |------                        |------              |------              |
 |Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |70882239      |                     |<ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul> |
@@ -178,6 +180,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 
 #### Niet Natuurlijke Personen
+
 |Statutaire Naam         |Zetel         |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden        |
 |----------------        |------        |------                               |------                         |------                |
 |Bankbedrijf             |ROTTERDAM     |Kadaster Niet Natuurlijk Persoon     |71291440      |<ul><li>postadres is postbus</li></ul> |
@@ -187,16 +190,11 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
 
 #### Foutscenarios
+
 |Aanvraag                                |Foutscenario   |
 |-----                                   |-------        |
 |/kadastraalonroerendezaken/122003147000 | 404 Not found |
 |/kadastraalonroerendezaken/122003157000 | 410 Gone      |
-
-|Resource                           |Velden                         | Uitleg |
-|-----                              |------                         |----- |
-|KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
-|/KadastraalOnroerendeZaak/1234           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
-
 
 ## Aansluiten op productie
 Voor de connectie met de productieomgeving van deze API is vereist:
