@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Zakelijk Gerechtigden endpoints
   description: |
                 De definitie van de Zakelijk Gerechtigden endpoints en HAL components.
-  version: "1.2.0"
+  version: "1.3.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:

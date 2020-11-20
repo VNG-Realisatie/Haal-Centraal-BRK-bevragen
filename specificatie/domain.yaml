@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen Components
   description: |
                 De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API.
-  version: "1.2.0"
+  version: "1.3.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -139,6 +139,24 @@ components:
           type: "boolean"
           description: |
                         Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.
+    Filiatie:
+      type: "object"
+      properties:
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+        overgangsgrootte:
+          description: |
+                        De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
+          type: "integer"
+          example: 220
+        kadastraalOnroerendeZaakIdentificatie:
+          description: |
+                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+          type: "string"
+        indicatieVervallenKadastraalOnroerendeZaak:
+          description: |
+                        Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+          type: "boolean"
     Geboorte:
       type: "object"
       description: |
@@ -287,7 +305,8 @@ components:
         perceelnummerRotatie:
           type: "number"
           description: |
-                        Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
+                        Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.
+                        Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
           maximum: 999
         plaatscoordinaten:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml"
@@ -296,7 +315,8 @@ components:
         toelichtingBewaarder:
           type: "string"
           description: |
-                        Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+                        Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.
+                        Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         type:
           $ref: "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
         aardCultuurBebouwd:
@@ -343,6 +363,24 @@ components:
                         Alle beslagen die rusten op deze kadastraal onroerende zaak
           items:
             type: string
+        isOvergegaanIn:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        isOntstaanUit:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        bijbehorendGrondperceelIdentificatie:
+          type: "string"
+          description: |
+                        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+        bijbehorendeAppartementsrechtIdentificaties:
+          description: |
+                      De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+          type : "array"
+          items:
+            type: "string"
     LocatieKadastraalObject:
       description: |
                     Waardelijsten in deze component :
