@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Hypotheken endpoints
   description: |
                 De definitie van de Hypotheken endpoints en components.
-  version: "1.2.0"
+  version: "1.3.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
     get:
@@ -160,6 +160,24 @@ components:
           $ref: "domain.yaml#/components/schemas/Bedrag"
           description: |
                         Het bedrag waarvoor hypothecaire zekerheid is gegeven door onderpandgever en waarvoor het recht van Hypotheek is gevestigd.
+        stukIdentificaties:
+          type: "array"
+          description: |
+            	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
+          items:
+            type: string
+        omschrijvingGekozenWoonplaats:
+            type: "string"
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+                        De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld
+          items:
+            type: "string"
     HypotheekHal:
       allOf:
       - $ref: "#/components/schemas/Hypotheek"
@@ -186,6 +204,16 @@ components:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         hypotheekhouders:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isGebaseerdOpStukdeel:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        isVermeldInStukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
