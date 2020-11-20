@@ -16,6 +16,16 @@ Om aan te sluiten kun je de volgende stappen doorlopen:
 |-----|-----|
 |iets |* item 1 * item 2|
 
+|kop1 |kop2 |
+|-----|-----|
+|iets |* item 1 
+* item 2|
+
+<table>
+    <tr><th>kop1</th><th>kop2</th></tr>
+    <tr><td>iets</td><td><ul><li>item 1</li><li>item 2</li></ul></td></tr>
+<table>
+
 
 ## Aanmelden om aan te sluiten
 Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
