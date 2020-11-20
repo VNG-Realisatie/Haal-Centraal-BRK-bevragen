@@ -4351,6 +4351,18 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "isOntstaanUit" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "isOvergegaanIn" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
           "beslagen" : {
             "type" : "array",
             "items" : {
@@ -4358,6 +4370,21 @@
             }
           },
           "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "adressen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "bijbehorendGrondperceel" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "bijbehorendeAppartementsrechten" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -5191,13 +5218,6 @@
               "$ref" : "#/components/schemas/Filiatie"
             }
           },
-          "stukIdentificaties" : {
-            "type" : "array",
-            "description" : "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
           "bijbehorendGrondperceelIdentificatie" : {
             "type" : "string",
             "description" : "De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort\n"
@@ -5205,6 +5225,13 @@
           "bijbehorendeAppartementsrechtIdentificaties" : {
             "type" : "array",
             "description" : "De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.\n",
             "items" : {
               "type" : "string"
             }
@@ -5405,7 +5432,7 @@
           },
           "kadastraalOnroerendeZaakIdentificatie" : {
             "type" : "string",
-            "description" : "De identificatie van de Kadastraal Onroerende Zaak.\n"
+            "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
           },
           "indicatieVervallenKadastraalOnroerendeZaak" : {
             "type" : "boolean",

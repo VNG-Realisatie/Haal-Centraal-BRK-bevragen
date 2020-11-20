@@ -3434,6 +3434,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        stukken:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         adressen:
           type: array
           items:
@@ -3441,10 +3445,6 @@ components:
         bijbehorendGrondperceel:
           $ref: '#/components/schemas/HalLink'
         bijbehorendeAppartementsrechten:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
-        stukken:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -4070,16 +4070,16 @@ components:
           type: string
           description: |
             De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
-        stukIdentificaties:
-          type: array
-          description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn
-          items:
-            type: string
         bijbehorendeAppartementsrechtIdentificaties:
           type: array
           description: |
             De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+          items:
+            type: string
+        stukIdentificaties:
+          type: array
+          description: |
+            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
           items:
             type: string
       description: |
