@@ -239,6 +239,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         adressen:
           type: "array"
           items:
@@ -260,3 +264,8 @@ components:
               type: "array"
               items:
                 $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+            stukken:
+              type: "array"
+              items:
+                $ref: "stukken.yaml#/components/schemas/StukHalBasis"
+
