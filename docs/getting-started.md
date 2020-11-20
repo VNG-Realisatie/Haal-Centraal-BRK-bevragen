@@ -195,7 +195,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td><ul><li>bevat huisletter</li></ul></td>
 	</tr>
 	<tr>
-		<td>2 eigenaren (Ingeschreven & Kadaster Natuurlijk Persoon)   </td>
+		<td>2 eigenaren (Ingeschreven &amp; Kadaster Natuurlijk Persoon)   </td>
 		<td>65490485270000<br/>Hellendoorn:395 G 4853   </td>
 		<td>7441JC 1              </td>
 		<td></td>
@@ -223,7 +223,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td>17500393970000<br/>IJsselmonde:459 D 3939   </td>
 		<td>3078JG 4              </td>
 		<td></td>
-	<tr>
+	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>22360467970000<br/>'s Gravenhage:881 V 4679 </td>
