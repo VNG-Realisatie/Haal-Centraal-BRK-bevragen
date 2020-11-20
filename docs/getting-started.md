@@ -195,6 +195,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Resource                           |Velden                         | Uitleg |
 |-----                              |------                         |----- |
 |KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
+|/KadastraalOnroerendeZaak/1234           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
 
 
 ## Aansluiten op productie
