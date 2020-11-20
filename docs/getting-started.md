@@ -263,18 +263,18 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 #### Ingeschreven Natuurlijke Personen
 
 <table>
-	<tr><th>Naam</th><th>Geboortedatum</th><th>Burgerservice-nummer</th><th>Bijzonderheden</th></tr>
-	<tr><td>Linda Haglund</td><td></td><td>999991905</td><td /></tr>
-	<tr><td>Lisanty do Livramento...</td><td></td><td>999990482</td><td /></tr>
-	<tr><td>Merel Kooyman</td><td></td><td>999993847</td><td /></tr>
-	<tr><td>Suzanne van der Stappen</td><td></td><td>999993653</td><td /></tr>
-	<tr><td>Mirjam Heijn</td><td></td><td>999991292</td><td /></tr>
-	<tr><td>Jael de Jager</td><td></td><td>999992740</td><td /></tr>
-	<tr><td>Wladyslaw Kwasniewski</td><td></td><td>999995017</td><td /></tr>
-	<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld</td><td></td><td>999994669</td><td /></tr>
-	<tr><td>Adrianus Hendrikus Holthuizen</td><td></td><td>999990421</td><td /></tr>
-	<tr><td>Peter-Jan Meijden</td><td></td><td>999993872</td><td /></tr>
-	<tr><td>Paul Man</td><td></td><td>999990883</td><td /></tr>
+	<tr><th>Naam</th><th>Burgerservice-nummer</th></tr>
+	<tr><td>Linda Haglund</td><td>999991905</td><td /></tr>
+	<tr><td>Lisanty do Livramento...</td><td>999990482</td><td /></tr>
+	<tr><td>Merel Kooyman</td><td>999993847</td><td /></tr>
+	<tr><td>Suzanne van der Stappen</td><td>999993653</td><td /></tr>
+	<tr><td>Mirjam Heijn</td><td>999991292</td><td /></tr>
+	<tr><td>Jael de Jager</td><td>999992740</td><td /></tr>
+	<tr><td>Wladyslaw Kwasniewski</td><td>999995017</td><td /></tr>
+	<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld</td><td>999994669</td><td /></tr>
+	<tr><td>Adrianus Hendrikus Holthuizen</td><td>999990421</td><td /></tr>
+	<tr><td>Peter-Jan Meijden</td><td>999993872</td><td /></tr>
+	<tr><td>Paul Man</td><td>999990883</td><td /></tr>
 </table>
 
 #### Niet Natuurlijke Personen
