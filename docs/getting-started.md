@@ -186,8 +186,8 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Bankbedrijf             |ROTTERDAM     |Kadaster Niet Natuurlijk Persoon     |71291440      | - postadres is postbus |
 |Bankbedrijf van vrucht  |GRAVE         |Ingeschreven Niet Natuurlijk Persoon |71291493      | - heeft niks op naam   |
 |Gasunie Test BV         |GRONINGEN     |Ingeschreven Niet Natuurlijk Persoon |440650207     |                                       |
-|Gemeente Den Testland   |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon     |71291441      |<ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul> |
-|Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
+|Gemeente Den Testland   |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon     |71291441      | * kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q= |
+|Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      | * kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q= |
 
 #### Foutscenarios
 
