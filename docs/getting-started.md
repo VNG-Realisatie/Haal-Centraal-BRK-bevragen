@@ -244,31 +244,37 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 	</tr>
 </table>
 
-#### Natuurlijke Personen
+#### Kadaster Natuurlijke Personen
 
 <table>
-	<tr><th>Naam</th><th>Geboortedatum</th><th>Type</th><th>KadasterPersoon-Identificatie</th><th>Burgerservice-nummer</th><th>Bijzonderheden</th></tr>
-	<tr><td>Willem Jansens</td><td>1971-11-01</td><td>Kadaster Natuurlijk Persoon</td><td>70882239</td><td></td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul></td></tr>
-	<tr><td>Sidonia Jansens</td><td>1950-01-01</td><td>Kadaster Natuurlijk Persoon</td><td>50550743</td><td></td><td><ul><li>buitenlands woonadres</li></ul></td></tr>
-	<tr><td>Christaan Goede</td><td>1971-11-01</td><td>Kadaster Natuurlijk Persoon</td><td>71303564</td><td></td><td><ul><li>woonadres is wel bekend in BAG</li></ul></td></tr>
-	<tr><td>Linda Haglund</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999991905</td><td /></tr>
-	<tr><td>Lisanty do Livramento...</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990482</td><td /></tr>
-	<tr><td>Merel Kooyman</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993847</td><td /></tr>
-	<tr><td>Suzanne van der Stappen</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993653</td><td /></tr>
-	<tr><td>Mirjam Heijn</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999991292</td><td /></tr>
-	<tr><td>Jael de Jager</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999992740</td><td /></tr>
-	<tr><td>Wladyslaw Kwasniewski</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999995017</td><td /></tr>
-	<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999994669</td><td /></tr>
-	<tr><td>Adrianus Hendrikus Holthuizen</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990421</td><td /></tr>
-	<tr><td>Peter-Jan Meijden</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993872</td><td /></tr>
-	<tr><td>Paul Man</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990883</td><td /></tr>
-	<tr><td>Anne Janssens</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000001</td><td></td><td><ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Jan Groenen</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000002</td><td></td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Susan in het Veld</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000003</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Petra Anne Veldwijk</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000004</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>H Pieters</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000005</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Öle Klaassen</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000006</td><td></td><td><ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Baron Jan-Jaap de Vierde</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000007</td><td></td><td><ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><th>Naam</th><th>Geboortedatum</th><th>KadasterPersoonIdentificatie</th><th>Bijzonderheden</th></tr>
+	<tr><td>Willem Jansens</td><td>1971-11-01</td><td>70882239</td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul></td></tr>
+	<tr><td>Sidonia Jansens</td><td>1950-01-01</td><td>50550743</td><td><ul><li>buitenlands woonadres</li></ul></td></tr>
+	<tr><td>Christaan Goede</td><td>1971-11-01</td><td>71303564</td><td><ul><li>woonadres is wel bekend in BAG</li></ul></td></tr>
+	<tr><td>Anne Janssens</td><td></td><td>80000001</td><td><ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Jan Groenen</td><td></td><td>80000002</td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Susan in het Veld</td><td></td><td>80000003</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Petra Anne Veldwijk</td><td></td><td>80000004</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>H Pieters</td><td></td><td>80000005</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Öle Klaassen</td><td></td><td>80000006</td><td><ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Baron Jan-Jaap de Vierde</td><td></td><td>80000007</td><td><ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+</table>
+
+#### Ingeschreven Natuurlijke Personen
+
+<table>
+	<tr><th>Naam</th><th>Geboortedatum</th><th>Burgerservice-nummer</th><th>Bijzonderheden</th></tr>
+	<tr><td>Linda Haglund</td><td></td><td>999991905</td><td /></tr>
+	<tr><td>Lisanty do Livramento...</td><td></td><td>999990482</td><td /></tr>
+	<tr><td>Merel Kooyman</td><td></td><td>999993847</td><td /></tr>
+	<tr><td>Suzanne van der Stappen</td><td></td><td>999993653</td><td /></tr>
+	<tr><td>Mirjam Heijn</td><td></td><td>999991292</td><td /></tr>
+	<tr><td>Jael de Jager</td><td></td><td>999992740</td><td /></tr>
+	<tr><td>Wladyslaw Kwasniewski</td><td></td><td>999995017</td><td /></tr>
+	<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld</td><td></td><td>999994669</td><td /></tr>
+	<tr><td>Adrianus Hendrikus Holthuizen</td><td></td><td>999990421</td><td /></tr>
+	<tr><td>Peter-Jan Meijden</td><td></td><td>999993872</td><td /></tr>
+	<tr><td>Paul Man</td><td></td><td>999990883</td><td /></tr>
 </table>
 
 #### Niet Natuurlijke Personen
