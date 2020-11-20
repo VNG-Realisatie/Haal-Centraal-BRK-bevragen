@@ -132,8 +132,8 @@ zie hiervoor: https://www.logius.nl/diensten/pkioverheid
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving.
 
 #### Onroerende Zaken
-| Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheden      |                                                                    
-|----------------                                |:-------                                   |:-------                  |:-------               |:-------           |
+| Testgeval                                       |Kadastraalobjectidentificatie              |Kadastraleaanduiding      |Postcode               |Bijzonderheden |                                                                    
+|----------------                                |-------                                   |-------                  |-------               |-------        |
 |2 eigenaren (Kadaster Natuurlijk Persoon)       |76870487970000   |Beekbergen:87 K 4879      |7361EW 29              |<ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul> |
 |1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |76870488070000   |Beekbergen:87 K 4880      |7361EW 27              |<ul><li>1x privaatrechtelijke beperking</li></ul>|
 |1 eigenaar (Kadaster Natuurlijk Persoon)        |76870482670000   |Beekbergen:87 K 4826      |7361EW 25              |<ul><li>2x hypotheek</li></ul>|
@@ -147,14 +147,14 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |1 eigenaar (Ingeschreven Natuurlijk Persoon)    |24780711870000   |Voorschoten:1040 B 7118   |2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18              |<ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul>|
 |1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17150075470000   |Hellevoetsluis:396 E 754  |3224EA 39              |<ul><li>1x hypotheek</li><li>1x beslag</li></ul>|
 |1 eigenaar (Kadaster Niet Natuurlijk Persoon)   |22590043870000   |'s Gravenhage:881 AW 438  |2545NN 178<br/>2545NN 180<br/>2545NN 182             |<ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul>|
-|1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               ||
+|1 eigenaar (Ingeschreven Natuurlijk Persoon)    |17500393970000   |IJsselmonde:459 D 3939    |3078JG 4               | |
 |1 eigenaar (Ingeschreven Natuurlijk Persoon)    |22360467970000   |'s Gravenhage:881 V 4679  |2597LD 58              |<ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul>|
 |1 eigenaar (Ingeschreven Natuurlijk Persoon)    |19560032970000   |Rotterdam:841 AF 329      |3011KD 70<br/>3011KD 72              |<ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul>|
 |2 eigenaren (Ingeschreven Natuurlijk Persoon)   |17550448670000   |Kralingen:501 C 4486      |3066VS 9               |<ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul>|
 
 #### Natuurlijke Personen
 |Naam                    |Geboortedatum    |Type                                 |KadasterPersoon-Identificatie   | Burgerservice-nummer |Bijzonderheden        |
-|----------------        |:-------         |:------                              |:------                        |:------              |:------              |
+|----------------        |-------         |------                              |------                        |------              |------              |
 |Willem Jansens          |1971-11-01       |Kadaster Natuurlijk Persoon          |70882239      |                     |<ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul> |
 |Sidonia Jansens         |1950-01-01       |Kadaster Natuurlijk Persoon          |50550743      |                     |<ul><li>buitenlands woonadres</li></ul> |
 |Christaan Goede         |1971-11-01       |Kadaster Natuurlijk Persoon          |71303564      |                     |<ul><li>woonadres is wel bekend in BAG</li></ul> |
@@ -179,7 +179,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 
 #### Niet Natuurlijke Personen
 |Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden |
-|----------------        |:------      |:------                              |:------                        |:------        |
+|----------------        |------      |------                              |------                        |------        |
 |Bankbedrijf             |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |71291440      |<ul><li>postadres is postbus</li></ul> |
 |Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |71291493      |<ul><li>heeft niks op naam</li></ul>  |
 |Gasunie Test BV         |GRONINGEN    |Ingeschreven Niet Natuurlijk Persoon |440650207     |  |
@@ -188,7 +188,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 
 #### Foutscenarios
 |Aanvraag                                                                                       | Foutscenario               |
-|----------------                                                                               | :-------                   |
+|----------------                                                                               | -------                   |
 |/kadastraalonroerendezaken/122003147000                              | 404 Not found              |
 |/kadastraalonroerendezaken/122003157000                              | 410 Gone                   |
 
