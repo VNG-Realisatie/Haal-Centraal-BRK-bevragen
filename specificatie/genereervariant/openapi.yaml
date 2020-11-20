@@ -38,7 +38,7 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door exact Ã©Ã©n van de volgende categorieÃ«n parameters op te geven. Het combineren van parameters uit verschillende categorieÃ«n is niet toegestaan.
         1.  Kadastrale aanduiding
         2.  Ingeschreven persoon als zakelijk gerechtigde
             -  burgerservicenummer (verplicht)
@@ -59,11 +59,11 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -190,7 +190,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -324,11 +324,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -380,7 +380,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -545,11 +545,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -579,7 +579,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -744,11 +744,11 @@ paths:
           $ref: '#/components/schemas/TypeGerechtigdeEnum'
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -778,7 +778,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -957,7 +957,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -1136,7 +1136,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -1316,7 +1316,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -1452,7 +1452,7 @@ paths:
       - name: q
         in: query
         description: |
-          Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
+          Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan Ã©Ã©n manier voorkomen in de BRK.
         required: true
         schema:
           type: string
@@ -1480,7 +1480,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -1622,11 +1622,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -1656,7 +1656,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -1821,11 +1821,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -1855,7 +1855,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -2048,11 +2048,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -2082,7 +2082,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -2247,11 +2247,11 @@ paths:
           type: string
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -2281,7 +2281,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -2457,11 +2457,11 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -2508,7 +2508,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -2649,11 +2649,11 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Gewenste CRS van de coördinaten in de response.
+        description: Gewenste CRS van de coÃ¶rdinaten in de response.
         required: false
         schema:
           type: string
-          description: CRS van de coördinaten in de response. epsg:28992 mapt op het
+          description: CRS van de coÃ¶rdinaten in de response. epsg:28992 mapt op het
             RD New Nederlands coordinatenstelsel.
           enum:
           - epsg:28992
@@ -2707,7 +2707,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -2887,7 +2887,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -3045,7 +3045,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -3225,7 +3225,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -3422,7 +3422,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        isOntstaanUit:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        isOvergegaanIn:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         beslagen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        adressen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
+        bijbehorendGrondperceel:
+          $ref: '#/components/schemas/HalLink'
+        bijbehorendeAppartementsrechten:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3490,7 +3508,7 @@ components:
           invalidParams:
             type: array
             description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden één keer teruggemeld.
+              worden Ã©Ã©n keer teruggemeld.
             items:
               $ref: '#/components/schemas/InvalidParams'
     Foutbericht:
@@ -3987,7 +4005,8 @@ components:
           maximum: 999
           type: number
           description: |
-            Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
+            Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.
+            Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.
         plaatscoordinaten:
           $ref: '#/components/schemas/pointGeoJSON'
         koopsom:
@@ -3995,7 +4014,8 @@ components:
         toelichtingBewaarder:
           type: string
           description: |
-            Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+            Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.
+            Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         type:
           $ref: '#/components/schemas/TypeKadastraalOnroerendeZaakEnum'
         aardCultuurBebouwd:
@@ -4046,14 +4066,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Filiatie'
-        bijbehorendGrondperceel:
+        bijbehorendGrondperceelIdentificatie:
           type: string
           description: |
-            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
+            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
         stukIdentificaties:
           type: array
           description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn
+          items:
+            type: string
+        bijbehorendeAppartementsrechtIdentificaties:
+          type: array
+          description: |
+            De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           items:
             type: string
       description: |
@@ -4231,7 +4257,7 @@ components:
           description: |
             De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
           example: 220
-        kadastraalOnroerendeZaakIdentificaties:
+        kadastraalOnroerendeZaakIdentificatie:
           type: string
           description: |
             De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
