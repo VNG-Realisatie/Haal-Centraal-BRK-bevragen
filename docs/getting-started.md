@@ -134,62 +134,170 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 #### Onroerende Zaken
 
 <table>
-<tr><th>Testgeval                                      </th><th>Kadastraalobjectidentificatie             </th><th>Kadastraleaanduiding     </th><th>Postcode              </th><th>Bijzonderheden</th></tr>                                                                    
-<tr><td>2 eigenaren (Kadaster Natuurlijk Persoon)      </td><td>76870487970000  </td><td>Beekbergen:87 K 4879     </td><td>7361EW 29             </td><td><ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul></td><td>
-<tr><td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td><td>76870488070000  </td><td>Beekbergen:87 K 4880     </td><td>7361EW 27             </td><td><ul><li>1x privaatrechtelijke beperking</li></ul></td></tr>
-<tr><td>1 eigenaar (Kadaster Natuurlijk Persoon)       </td><td>76870482670000  </td><td>Beekbergen:87 K 4826     </td><td>7361EW 25             </td><td><ul><li>2x hypotheek</li></ul></td></tr>
-<tr><td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td><td>76870482570000  </td><td>Beekbergen:87 K 4825     </td><td>7361EW 21             </td><td><ul><li>2 erfpachters met erfpachtcanon</li><li>1x hypotheek</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>22310827210003  </td><td>'s Gravenhage:881 N 8272 3</td></tr>2517GL 84             </td><td><ul><li>appartementsrecht</li><li>1x hypotheek</li><li>1x publiekrechtelijke beperking</li></ul></td><td>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>22310827210004  </td><td>'s Gravenhage:881 N 8272 4</td></tr>2517GL 85             </td><td><ul><li>appartementsrecht</li></ul></td><td>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>56020234070000  </td><td>Odoorn:717 N 2340        </td><td>9573PA 3              </td><td><ul><li>1 artikel5_3b</li><li>1x hypotheek</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>23280647970000  </td><td>Loosduinen:561 H 6479    </td><td>2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51             </td><td><ul><li>meerdere adressen</li><li>1x privaatrechtelijke beperking</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>65490485370000  </td><td>Hellendoorn:395 G 4853   </td><td>7441JC 1 a            </td><td><ul><li>bevat huisletter</li></ul></td></tr>
-<tr><td>2 eigenaen (Ingeschreven & Kadaster Natuurlijk Persoon)   </td><td>65490485270000  </td><td>Hellendoorn:395 G 4853   </td><td>7441JC 1              </td><td></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>24780711870000  </td><td>Voorschoten:1040 B 7118  </td><td>2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18             </td><td><ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>17150075470000  </td><td>Hellevoetsluis:396 E 754 </td><td>3224EA 39             </td><td><ul><li>1x hypotheek</li><li>1x beslag</li></ul></td></tr>
-<tr><td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td><td>22590043870000  </td><td>'s Gravenhage:881 AW 438 </td><td>2545NN 178<br/>2545NN 180<br/>2545NN 182            </td><td><ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>17500393970000  </td><td>IJsselmonde:459 D 3939   </td><td>3078JG 4              </td><td></td><td>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>22360467970000  </td><td>'s Gravenhage:881 V 4679 </td><td>2597LD 58             </td><td><ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul></td></tr>
-<tr><td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td><td>19560032970000  </td><td>Rotterdam:841 AF 329     </td><td>3011KD 70<br/>3011KD 72             </td><td><ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul></td></tr>
-<tr><td>2 eigenaren (Ingeschreven Natuurlijk Persoon)  </td><td>17550448670000  </td><td>Kralingen:501 C 4486     </td><td>3066VS 9              </td><td><ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul></td></tr>
+	<tr>
+		<th>Testgeval                                      </th>
+		<th>Kadastraalobjectidentificatie                     </th>
+		<th>Kadastraleaanduiding  </th
+		><th>Postcode              </th>
+		<th>Bijzonderheden</th>
+	</tr>                                                                    
+	<tr>
+		<td>2 eigenaren (Kadaster Natuurlijk Persoon)      </td>
+		<td>76870487970000  </td>
+		<td>Beekbergen:87 K 4879     </td>
+		<td>7361EW 29             </td>
+		<td><ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
+		<td>76870488070000  </td>
+		<td>Beekbergen:87 K 4880     </td>
+		<td>7361EW 27             </td>
+		<td><ul><li>1x privaatrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Kadaster Natuurlijk Persoon)       </td>
+		<td>76870482670000  </td>
+		<td>Beekbergen:87 K 4826     </td>
+		<td>7361EW 25             </td>
+		<td><ul><li>2x hypotheek</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
+		<td>76870482570000  </td>
+		<td>Beekbergen:87 K 4825     </td>
+		<td>7361EW 21             </td>
+		<td><ul><li>2 erfpachters met erfpachtcanon</li><li>1x hypotheek</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>22310827210003  </td>
+		<td>'s Gravenhage:881 N 8272 3</td>
+		<td>2517GL 84             </td>
+		<td><ul><li>appartementsrecht</li><li>1x hypotheek</li><li>1x publiekrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>22310827210004  </td>
+		<td>'s Gravenhage:881 N 8272 4</td>
+		<td>2517GL 85             </td>
+		<td><ul><li>appartementsrecht</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>56020234070000  </td>
+		<td>Odoorn:717 N 2340        </td>
+		<td>9573PA 3              </td>
+		<td><ul><li>1 artikel5_3b</li><li>1x hypotheek</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>23280647970000  </td>
+		<td>Loosduinen:561 H 6479    </td>
+		<td>2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51             </td>
+		<td><ul><li>meerdere adressen</li><li>1x privaatrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>65490485370000  </td>
+		<td>Hellendoorn:395 G 4853   </td>
+		<td>7441JC 1 a            </td>
+		<td><ul><li>bevat huisletter</li></ul></td>
+	</tr>
+	<tr>
+		<td>2 eigenaren (Ingeschreven & Kadaster Natuurlijk Persoon)   </td>
+		<td>65490485270000  </td>
+		<td>Hellendoorn:395 G 4853   </td>
+		<td>7441JC 1              </td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>24780711870000  </td>
+		<td>Voorschoten:1040 B 7118  </td>
+		<td>2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18             </td>
+		<td><ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>17150075470000  </td>
+		<td>Hellevoetsluis:396 E 754 </td>
+		<td>3224EA 39             </td>
+		<td><ul><li>1x hypotheek</li><li>1x beslag</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
+		<td>22590043870000  </td>
+		<td>'s Gravenhage:881 AW 438 </td>
+		<td>2545NN 178<br/>2545NN 180<br/>2545NN 182            </td>
+		<td><ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>17500393970000  </td>
+		<td>IJsselmonde:459 D 3939   </td>
+		<td>3078JG 4              </td>
+		<td></td>
+	<tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>22360467970000  </td>
+		<td>'s Gravenhage:881 V 4679 </td>
+		<td>2597LD 58             </td>
+		<td><ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
+		<td>19560032970000  </td>
+		<td>Rotterdam:841 AF 329     </td>
+		<td>3011KD 70<br/>3011KD 72             </td>
+		<td><ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul></td>
+	</tr>
+	<tr>
+		<td>2 eigenaren (Ingeschreven Natuurlijk Persoon)  </td>
+		<td>17550448670000  </td>
+		<td>Kralingen:501 C 4486     </td>
+		<td>3066VS 9              </td>
+		<td><ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul></td>
+	</tr>
 </table>
 
 #### Natuurlijke Personen
 
 <table>
-<tr><th>Naam                   </th><th>Geboortedatum   </th><th>Type                                </th><th>KadasterPersoon-Identificatie  </th><th> Burgerservice-nummer</th><th>Bijzonderheden       </th><th>
-<tr><td>Willem Jansens         </td><td>1971-11-01      </td><td>Kadaster Natuurlijk Persoon         </td><td>70882239     </td><td>                    </td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul></td><td>
-<tr><td>Sidonia Jansens        </td><td>1950-01-01      </td><td>Kadaster Natuurlijk Persoon         </td><td>50550743     </td><td>                    </td><td><ul><li>buitenlands woonadres</li></ul></td><td>
-<tr><td>Christaan Goede        </td><td>1971-11-01      </td><td>Kadaster Natuurlijk Persoon         </td><td>71303564     </td><td>                    </td><td><ul><li>woonadres is wel bekend in BAG</li></ul></td><td>
-<tr><td>Linda Haglund          </td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999991905           </td><td></td></tr>
-<tr><td>Lisanty do Livramento...<tr><td>               </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999990482           </td><td></td></tr>
-<tr><td>Merel Kooyman          </td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999993847           </td><td></td></tr>
-<tr><td>Suzanne van der Stappen</td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999993653           </td><td></td></tr>
-<tr><td>Mirjam Heijn           </td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999991292           </td><td></td></tr>
-<tr><td>Jael de Jager          </td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999992740           </td><td></td></tr>
-<tr><td>Wladyslaw Kwasniewski  </td><td>                </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999995017           </td><td></td></tr>
-<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld  </td><td>       </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999994669           </td><td></td></tr>
-<tr><td>Adrianus Hendrikus Holthuizen </td><td>         </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999990421           </td><td></td></tr>
-<tr><td>Peter-Jan Meijden </td><td>                     </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999993872           </td><td></td></tr>
-<tr><td>Paul Man         </td><td>                      </td><td>Ingeschreven Natuurlijk Persoon     </td><td>                              </td><td>999990883           </td><td></td></tr>
-<tr><td>Anne Janssens       </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000001             </td><td>           </td><td><ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Jan Groenen         </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000002             </td><td>           </td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Susan in het Veld   </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000003             </td><td>           </td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Petra Anne Veldwijk </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000004             </td><td>           </td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>H Pieters           </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000005             </td><td>           </td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Öle Klaassen        </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000006             </td><td>           </td><td><ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Baron Jan-Jaap de Vierde         </td><td>                      </td><td>Kadaster Natuurlijk Persoon   </td><td>80000007             </td><td>           </td><td><ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><th>Naam</th><th>Geboortedatum</th><th>Type</th><th>KadasterPersoon-Identificatie</th><th>Burgerservice-nummer</th><th>Bijzonderheden</th></tr>
+	<tr><td>Willem Jansens</td><td>1971-11-01</td><td>Kadaster Natuurlijk Persoon</td><td>70882239</td><td></td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul></td></tr>
+	<tr><td>Sidonia Jansens</td><td>1950-01-01</td><td>Kadaster Natuurlijk Persoon</td><td>50550743</td><td></td><td><ul><li>buitenlands woonadres</li></ul></td></tr>
+	<tr><td>Christaan Goede</td><td>1971-11-01</td><td>Kadaster Natuurlijk Persoon</td><td>71303564</td><td></td><td><ul><li>woonadres is wel bekend in BAG</li></ul></td></tr>
+	<tr><td>Linda Haglund</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999991905</td><td /></tr>
+	<tr><td>Lisanty do Livramento...</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990482</td><td /></tr>
+	<tr><td>Merel Kooyman</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993847</td><td /></tr>
+	<tr><td>Suzanne van der Stappen</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993653</td><td /></tr>
+	<tr><td>Mirjam Heijn</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999991292</td><td /></tr>
+	<tr><td>Jael de Jager</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999992740</td><td /></tr>
+	<tr><td>Wladyslaw Kwasniewski</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999995017</td><td /></tr>
+	<tr><td>Żáïŀëñøŕ Åłéèç Ðëļŧå Streeveld</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999994669</td><td /></tr>
+	<tr><td>Adrianus Hendrikus Holthuizen</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990421</td><td /></tr>
+	<tr><td>Peter-Jan Meijden</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999993872</td><td /></tr>
+	<tr><td>Paul Man</td><td></td><td>Ingeschreven Natuurlijk Persoon</td><td></td><td>999990883</td><td /></tr>
+	<tr><td>Anne Janssens</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000001</td><td></td><td><ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Jan Groenen</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000002</td><td></td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Susan in het Veld</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000003</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Petra Anne Veldwijk</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000004</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>H Pieters</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000005</td><td></td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Öle Klaassen</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000006</td><td></td><td><ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Baron Jan-Jaap de Vierde</td><td></td><td>Kadaster Natuurlijk Persoon</td><td>80000007</td><td></td><td><ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
 </table>
 
 #### Niet Natuurlijke Personen
 
 <table>
-<tr><th>Statutaire Naam             </th><th>Zetel        </th><th>Type                                </th><th>KadasterPersoonIdentificatie  </th><th>Bijzonderheden       </th></tr>
-<tr><td>Bankbedrijf                 </td><td>ROTTERDAM    </td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291440                      </td><td><ul><li>postadres is postbus</li></ul></td></tr>
-<tr><td>Bankbedrijf van vrucht      </td><td>GRAVE        </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>71291493                      </td><td><ul><li>heeft niks op naam</li></ul></td></tr>
-<tr><td>Gasunie Test BV             </td><td>GRONINGEN    </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>440650207                     </td><td>                                      </td></tr>
-<tr><td>Gemeente Den Testland       </td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291441                      </td><td><ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
-<tr><td>Woningstichting Den Testland</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291442                      </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><th>Statutaire Naam             </th><th>Zetel        </th><th>Type                                </th><th>KadasterPersoonIdentificatie  </th>	<th>Bijzonderheden       </th></tr>
+	<tr><td>Bankbedrijf                 </td><td>ROTTERDAM    </td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291440                      </td><td><ul><li>postadres is postbus</li></ul></td></tr>
+	<tr><td>Bankbedrijf van vrucht      </td><td>GRAVE        </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>71291493                      </td><td><ul><li>heeft niks op naam</li></ul></td></tr>
+	<tr><td>Gasunie Test BV             </td><td>GRONINGEN    </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>440650207                     </td><td>                                      </td></tr>
+	<tr><td>Gemeente Den Testland       </td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291441                      </td><td><ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Woningstichting Den Testland</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291442                      </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
 </table>
 
 #### Foutscenarios
