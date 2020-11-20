@@ -1,3 +1,8 @@
+---
+layout: page-with-side-nav
+title: Haal Centraal BRK bevragingen
+---
+
 # Release notes BRK-Bevragen
 
 ## **Versie 1.2.0:**
