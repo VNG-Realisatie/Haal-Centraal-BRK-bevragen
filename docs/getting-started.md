@@ -24,7 +24,7 @@ Om aan te sluiten kun je de volgende stappen doorlopen:
 <table>
     <tr><th>kop1</th><th>kop2</th></tr>
     <tr><td>iets</td><td><ul><li>item 1</li><li>item 2</li></ul></td></tr>
-<table>
+</table>
 
 
 ## Aanmelden om aan te sluiten
