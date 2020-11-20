@@ -14,7 +14,7 @@ API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
 
 BRK bevragen bevat nu pivaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
 
-Bekijk de [release notes](./release-notes).
+Bekijk de [release notes](./releasenotes).
 
 ## Direct aan de slag?
 
