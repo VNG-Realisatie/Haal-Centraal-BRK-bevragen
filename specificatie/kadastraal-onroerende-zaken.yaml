@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadastraal Onroerende Zaken endpoints
   description: |
                 De definitie van de Kadastraal Onroerende Zaken endpoints en HAL components.
-  version: "1.3.0"
+  version: "1.2.0"
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -227,45 +227,18 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isOntstaanUit:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isOvergegaanIn:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         beslagen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        stukken:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        adressen:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bijbehorendGrondperceel:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bijbehorendeAppartementsrechten:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaakEmbedded:
-          type: "object"
-          properties:
-            zakelijkGerechtigden:
-              type: "array"
-              items:
-                $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
-            privaatrechtelijkeBeperkingen:
-              type: "array"
-              items:
-                $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
-            stukken:
-              type: "array"
-              items:
-                $ref: "stukken.yaml#/components/schemas/StukHalBasis"
-
+      type: "object"
+      properties:
+        zakelijkGerechtigden:
+          type: "array"
+          items:
+            $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
+        privaatrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"

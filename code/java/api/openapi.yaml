@@ -9,7 +9,7 @@ info:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
   title: Kadaster - BRK-Bevragen API
-  version: 1.3.0
+  version: 1.2.0
 servers:
 - description: |
     BRK-Bevragen API - TEST (via API-key)
@@ -30,8 +30,6 @@ tags:
 - name: Privaatrechtelijke Beperkingen
 - name: Publiekrechtelijke Beperkingen
 - name: Kadaster (niet)Natuurlijk Personen
-- name: Stukken (Akte)
-- name: Stukdelen
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -3109,389 +3107,6 @@ paths:
       tags:
       - Publiekrechtelijke Beperkingen
       x-accepts: application/hal+json,application/problem+json
-  /stukken/{stukidentificatie}:
-    get:
-      description: |
-        Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
-      operationId: GetStuk
-      parameters:
-      - description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: stukidentificatie
-        required: true
-        schema:
-          maxLength: 60
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/StukHalBasis'
-          description: |
-            Zoekactie geslaagd
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-            warning:
-              $ref: '#/components/headers/warning'
-        "400":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
-                status: 400
-                detail: The request could not be understood by the server due to malformed
-                  syntax. The client SHOULD NOT repeat the request without modification.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: paramsRequired
-                invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
-              schema:
-                $ref: '#/components/schemas/BadRequestFoutbericht'
-          description: Bad Request
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "401":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
-                title: Niet correct geauthenticeerd.
-                status: 401
-                detail: The request requires user authentication. The response MUST
-                  include a WWW-Authenticate header field (section 14.47) containing
-                  a challenge applicable to the requested resource.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: authentication
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Unauthorized
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "403":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
-                title: U bent niet geautoriseerd voor deze operatie.
-                status: 403
-                detail: The server understood the request, but is refusing to fulfill
-                  it.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: autorisation
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Forbidden
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "404":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
-                title: Opgevraagde resource bestaat niet.
-                status: 404
-                detail: The server has not found anything matching the Request-URI.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notFound
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Not Found
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "406":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
-                title: Gevraagde contenttype wordt niet ondersteund.
-                status: 406
-                detail: The resource identified by the request is only capable of
-                  generating response entities which have content characteristics
-                  not acceptable according to thr accept headers sent in the request
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notAcceptable
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "500":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
-                title: Interne server fout.
-                status: 500
-                detail: The server encountered an unexpected condition which prevented
-                  it from fulfilling the request.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: serverError
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Internal Server Error
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "503":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
-                title: Bronservice {bron} is tijdelijk niet beschikbaar.
-                status: 503
-                detail: The service is currently unable to handle the request due
-                  to a temporary overloading or maintenance of the server.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notAvailable
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Service Unavailable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-      tags:
-      - Stukken (Akte)
-      x-accepts: application/hal+json,application/problem+json
-  /stukdelen/{stukdeelidentificatie}:
-    get:
-      description: |
-        Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.
-        Met de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.
-      operationId: GetStukdeel
-      parameters:
-      - description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
-          door een door komma's gescheiden lijst van property namen op te geven. Bij
-          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
-          Wanneer de fields parameter niet is opgegeven, worden alle properties met
-          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        explode: true
-        in: query
-        name: fields
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: stukdeelidentificatie
-        required: true
-        schema:
-          maxLength: 60
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/StukdeelHalBasis'
-          description: |
-            Zoekactie geslaagd
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-            warning:
-              $ref: '#/components/headers/warning'
-        "400":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
-                status: 400
-                detail: The request could not be understood by the server due to malformed
-                  syntax. The client SHOULD NOT repeat the request without modification.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: paramsRequired
-                invalidParams:
-                - type: https://www.vng.nl/realisatie/api/validaties/integer
-                  name: verblijfplaats__huisnummer
-                  code: integer
-                  reason: Waarde is geen geldige integer.
-              schema:
-                $ref: '#/components/schemas/BadRequestFoutbericht'
-          description: Bad Request
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "401":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2
-                title: Niet correct geauthenticeerd.
-                status: 401
-                detail: The request requires user authentication. The response MUST
-                  include a WWW-Authenticate header field (section 14.47) containing
-                  a challenge applicable to the requested resource.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: authentication
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Unauthorized
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "403":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4
-                title: U bent niet geautoriseerd voor deze operatie.
-                status: 403
-                detail: The server understood the request, but is refusing to fulfill
-                  it.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: autorisation
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Forbidden
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "404":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5
-                title: Opgevraagde resource bestaat niet.
-                status: 404
-                detail: The server has not found anything matching the Request-URI.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notFound
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Not Found
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "406":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7
-                title: Gevraagde contenttype wordt niet ondersteund.
-                status: 406
-                detail: The resource identified by the request is only capable of
-                  generating response entities which have content characteristics
-                  not acceptable according to thr accept headers sent in the request
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notAcceptable
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "500":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
-                title: Interne server fout.
-                status: 500
-                detail: The server encountered an unexpected condition which prevented
-                  it from fulfilling the request.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: serverError
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Internal Server Error
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "503":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4
-                title: Bronservice {bron} is tijdelijk niet beschikbaar.
-                status: 503
-                detail: The service is currently unable to handle the request due
-                  to a temporary overloading or maintenance of the server.
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: notAvailable
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Service Unavailable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-      tags:
-      - Stukdelen
-      x-accepts: application/hal+json,application/problem+json
 components:
   headers:
     api_version:
@@ -3588,24 +3203,6 @@ components:
           items:
             $ref: '#/components/schemas/HalLink'
           type: array
-        stukken:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-      type: object
-    HalLink_2:
-      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
-      properties:
-        href:
-          example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
-          type: string
-        templated:
-          type: boolean
-        title:
-          description: Voor mens leesbaar label bij de link
-          type: string
-      required:
-      - href
       type: object
     KadastraalOnroerendeZaakEmbedded:
       properties:
@@ -3616,10 +3213,6 @@ components:
         privaatrechtelijkeBeperkingen:
           items:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
-          type: array
-        stukken:
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
           type: array
       type: object
     TypeGerechtigdeEnum:
@@ -3725,18 +3318,6 @@ components:
           $ref: '#/components/schemas/HalLink'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/HalLink'
-        stukken:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-        isGebaseerdOpStukdeel:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-        isVermeldInStukdelen:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
       type: object
     ZakelijkGerechtigdeHalCollectie:
       properties:
@@ -3750,14 +3331,6 @@ components:
         zakelijkGerechtigden:
           items:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
-          type: array
-        stukken:
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
-          type: array
-        stukdelen:
-          items:
-            $ref: '#/components/schemas/StukdeelHalBasis'
           type: array
       type: object
     KadasterNatuurlijkPersoonHal:
@@ -3868,25 +3441,6 @@ components:
           type: array
         bedragZekerheidsstelling:
           $ref: '#/components/schemas/Bedrag'
-        stukIdentificaties:
-          description: "\t           Identificatie van het stuk. Een stuk is een brondocument\
-            \ dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\
-            \ Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n"
-          items:
-            type: string
-          type: array
-        omschrijvingGekozenWoonplaats:
-          type: string
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld
-          items:
-            type: string
-          type: array
       type: object
     HypotheekLinks:
       properties:
@@ -3895,16 +3449,6 @@ components:
         hypotheekhouders:
           items:
             $ref: '#/components/schemas/HalLink'
-          type: array
-        stukken:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
-        isVermeldInStukdelen:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
           type: array
       type: object
     BeslagHalCollectie:
@@ -3962,39 +3506,12 @@ components:
           type: array
         bedragVordering:
           $ref: '#/components/schemas/Bedrag'
-        stukIdentificaties:
-          description: "\t           Identificatie van het stuk. Een stuk is een brondocument\
-            \ dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\
-            \ Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n"
-          items:
-            type: string
-          type: array
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
-          items:
-            type: string
-          type: array
       type: object
     BeslagLinks:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
         beslagleggers:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
-        stukken:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
           items:
             $ref: '#/components/schemas/HalLink'
           type: array
@@ -4021,16 +3538,6 @@ components:
       properties:
         self:
           $ref: '#/components/schemas/HalLink'
-        stukken:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
-        isVermeldInStukdelen:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
       type: object
     PubliekrechtelijkeBeperkingHalCollectie:
       properties:
@@ -4070,57 +3577,11 @@ components:
           type: string
         bevoegdGezag:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld.
-          items:
-            type: string
-          type: array
       type: object
     PubliekrechtelijkeBeperkingLinks:
       properties:
         bevoegdGezag:
           $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink_2'
-        isVermeldInStukdelen:
-          items:
-            $ref: '#/components/schemas/HalLink_2'
-          type: array
-      type: object
-    StukHalBasis:
-      allOf:
-      - $ref: '#/components/schemas/Stuk'
-      - $ref: '#/components/schemas/StukHalBasis_allOf'
-    StukLinks:
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        stukdelen:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
-        oorspronkelijkStuk:
-          $ref: '#/components/schemas/HalLink'
-      type: object
-    StukdeelHalBasis:
-      allOf:
-      - $ref: '#/components/schemas/Stukdeel'
-      - $ref: '#/components/schemas/StukdeelHalBasis_allOf'
-    StukdeelLinks:
-      properties:
-        self:
-          $ref: '#/components/schemas/HalLink'
-        stuk:
-          $ref: '#/components/schemas/HalLink'
-        kadastraalOnroerendeZaken:
-          items:
-            $ref: '#/components/schemas/HalLink'
-          type: array
       type: object
     KadastraalOnroerendeZaak:
       description: |
@@ -4190,24 +3651,6 @@ components:
         beslagIdentificaties:
           description: |
             Alle beslagen die rusten op deze kadastraal onroerende zaak
-          items:
-            type: string
-          type: array
-        isOvergegaanIn:
-          items:
-            $ref: '#/components/schemas/Filiatie'
-          type: array
-        isOntstaanUit:
-          items:
-            $ref: '#/components/schemas/Filiatie'
-          type: array
-        bijbehorendGrondperceel:
-          description: |
-            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak hoort
-          type: string
-        stukIdentificaties:
-          description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
           items:
             type: string
           type: array
@@ -4347,24 +3790,6 @@ components:
           title: woonplaats naam
           type: string
       type: object
-    Filiatie:
-      properties:
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        overgangsgrootte:
-          description: |
-            De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
-          example: 220
-          type: integer
-        kadastraalOnroerendeZaakIdentificaties:
-          description: |
-            De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
-          type: string
-        indicatieVervallenKadastraalOnroerendeZaak:
-          description: |
-            Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
-          type: boolean
-      type: object
     ZakelijkGerechtigde:
       properties:
         identificatie:
@@ -4384,22 +3809,6 @@ components:
           $ref: '#/components/schemas/Tenaamstelling'
         persoon:
           $ref: '#/components/schemas/PersoonBeperkt'
-        stukIdentificaties:
-          description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
-          items:
-            type: string
-          type: array
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld.
-          items:
-            type: string
-          type: array
       type: object
     ErfpachtCanon:
       description: |
@@ -4424,16 +3833,6 @@ components:
           description: |
             Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.
           type: boolean
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze erfpachtcanon is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld
-          items:
-            type: string
-          type: array
       type: object
     Bedrag:
       description: |
@@ -4479,16 +3878,6 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          items:
-            description: |
-              De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.
-            type: string
-          type: array
       type: object
     TypeBreuk:
       description: |
@@ -4698,122 +4087,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/KadasterPersoon'
       - $ref: '#/components/schemas/KadasterNietNatuurlijkPersoon_allOf'
-    Stuk:
-      description: |
-        Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
-        Waardelijsten in deze component :
-          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
-          [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
-      properties:
-        identificatie:
-          type: string
-        stukType:
-          $ref: '#/components/schemas/StukType_enum'
-        domein:
-          description: Het domein waartoe de identificatie behoort.
-          type: string
-        toelichtingBewaarder:
-          description: Toelichtende tekst bij een onroerende zaak van de bewaarder.
-            De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken
-            in in de openbare registers en de basisregistratie Kadaster conform de
-            Kadasterwet.
-          type: string
-        stukdeelIdentificaties:
-          items:
-            type: string
-          type: array
-        bewaardersVerklaring:
-          description: Correctie in de openbare registers door de bewaarder. De bewaarder
-            is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare
-            registers en de basisregistratie Kadaster conform de Kadasterwet.
-          type: string
-        tekeningIngeschreven:
-          description: Er is sprake van een appartementstekening (splitsingstekening
-            van appartementen) als bijlage bij het stuk.
-          type: boolean
-        tijdstipAanbieding:
-          description: Het tijdstip dat het stuk bij het kadaster is binnengekomen.
-          format: date-time
-          type: string
-        tijdstipOndertekening:
-          description: Het tijdstip dat het stuk is ondertekend door partijen en de
-            notaris
-          format: date-time
-          type: string
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        status:
-          $ref: '#/components/schemas/Waardelijst'
-        equivalentieVerklaarder:
-          $ref: '#/components/schemas/EquivalentieVerklaarder'
-        kadasterverzoeken:
-          items:
-            $ref: '#/components/schemas/Kadasterverzoek'
-          type: array
-        oorspronkelijkStukIdentificatie:
-          description: Referentie naar het het aangeboden stuk waarop de correctie
-            heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een
-            aanpassing in de BasisRegistratie Kadaster
-          type: string
-      type: object
-    StukType_enum:
-      enum:
-      - Kadasterstuk
-      - Aangebodenstuk
-      type: string
-    EquivalentieVerklaarder:
-      allOf:
-      - $ref: '#/components/schemas/Naam'
-      - $ref: '#/components/schemas/EquivalentieVerklaarder_allOf'
-      description: |
-        De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als
-        het stuk dat hij zelf onder zich houdt ( equivalentieverklaring).
-      type: object
-    Kadasterverzoek:
-      description: |
-        Een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.
-        Waardelijst in deze component :
-          [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
-      properties:
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        RedenenVerzoek:
-          items:
-            $ref: '#/components/schemas/RedenVerzoek'
-          type: array
-      type: object
-    RedenVerzoek:
-      description: |
-        De reden om een stuk niet in te schrijven of om verbetering te vragen.
-        Waardelijst in deze component :
-        [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)
-      properties:
-        redenOmschrijving:
-          description: |
-            De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.
-            Bij opgave van de reden is voor _overig_ gekozen."
-          type: string
-        reden:
-          $ref: '#/components/schemas/Waardelijst'
-      type: object
-    Stukdeel:
-      description: Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd
-        wordt.
-      properties:
-        identificatie:
-          type: string
-        domein:
-          description: Het domein waartoe de identificatie behoort.
-          type: string
-        aard:
-          $ref: '#/components/schemas/Waardelijst'
-        bedragTransactiesomLevering:
-          $ref: '#/components/schemas/Bedrag'
-        omschrijvingKadastraleObjecten:
-          type: string
-        omschrijvingTopografischeMutatie:
-          type: string
-      type: object
     KadastraalOnroerendeZaakHal_allOf:
       properties:
         _links:
@@ -4854,14 +4127,6 @@ components:
       properties:
         _links:
           $ref: '#/components/schemas/PubliekrechtelijkeBeperkingLinks'
-    StukHalBasis_allOf:
-      properties:
-        _links:
-          $ref: '#/components/schemas/StukLinks'
-    StukdeelHalBasis_allOf:
-      properties:
-        _links:
-          $ref: '#/components/schemas/StukdeelLinks'
     LocatieKadastraalObject_allOf:
       properties:
         koppelingswijze:
@@ -4913,23 +4178,6 @@ components:
         einddatumRecht:
           format: date
           type: string
-        stukIdentificaties:
-          description: "\t           Identificatie van het stuk. Een stuk is een brondocument\
-            \ dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\
-            \ Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n"
-          items:
-            type: string
-          type: array
-        isGebaseerdOpStukdeelIdentificatie:
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze aantekening is gebaseerd.
-          type: string
-        isVermeldInStukdeelIdentificaties:
-          description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld
-          items:
-            type: string
-          type: array
     NatuurlijkPersoonBeperkt_allOf:
       description: |
         Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn.
@@ -5040,12 +4288,6 @@ components:
         kvkNummer:
           type: string
         rsin:
-          type: string
-    EquivalentieVerklaarder_allOf:
-      properties:
-        standplaats:
-          description: |
-            Adres of standplaats/plaats van vestiging van de ondertekenaar.
           type: string
   securitySchemes:
     apiKeyAuth:
