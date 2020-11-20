@@ -168,10 +168,6 @@ components:
             type: string
         omschrijvingGekozenWoonplaats:
             type: "string"
-        redenDoorhalingTeboekstelling:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
-          description: |
-                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
           description: |

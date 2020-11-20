@@ -169,7 +169,7 @@ components:
       type: "object"
       description: |
                     De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als
-                    het stuk dat hij zelf onder zich houdt ( lentieverklaring).
+                    het stuk dat hij zelf onder zich houdt ( equivalentieverklaring).
       allOf:
         - $ref: "#/components/schemas/Naam"
         -  properties:
