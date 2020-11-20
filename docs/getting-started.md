@@ -178,17 +178,17 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 
 #### Niet Natuurlijke Personen
-|Statutaire Naam         |Zetel        |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden |
-|----------------        |------      |------                              |------                        |------        |
-|Bankbedrijf             |ROTTERDAM    |Kadaster Niet Natuurlijk Persoon     |71291440      |<ul><li>postadres is postbus</li></ul> |
-|Bankbedrijf van vrucht  |GRAVE        |Ingeschreven Niet Natuurlijk Persoon |71291493      |<ul><li>heeft niks op naam</li></ul>  |
-|Gasunie Test BV         |GRONINGEN    |Ingeschreven Niet Natuurlijk Persoon |440650207     |  |
-|Gemeente Den Testland   |'S-GRAVENHAGE    |Kadaster Niet Natuurlijk Persoon |71291441     |<ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul> |
-|Woningstichting Den Testland |'S-GRAVENHAGE    |Kadaster Niet Natuurlijk Persoon |71291442     |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
+|Statutaire Naam         |Zetel         |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden        |
+|----------------        |------        |------                               |------                         |------                |
+|Bankbedrijf             |ROTTERDAM     |Kadaster Niet Natuurlijk Persoon     |71291440      |<ul><li>postadres is postbus</li></ul> |
+|Bankbedrijf van vrucht  |GRAVE         |Ingeschreven Niet Natuurlijk Persoon |71291493      |<ul><li>heeft niks op naam</li></ul>   |
+|Gasunie Test BV         |GRONINGEN     |Ingeschreven Niet Natuurlijk Persoon |440650207     |                                       |
+|Gemeente Den Testland   |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon     |71291441      |<ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul> |
+|Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
 
 #### Foutscenarios
-|Aanvraag                                                                                       | Foutscenario               |
-|----------------                                                                               | -------                   |
+|Aanvraag                                                             | Foutscenario               |
+|----------------                                                     | -------                    |
 |/kadastraalonroerendezaken/122003147000                              | 404 Not found              |
 |/kadastraalonroerendezaken/122003157000                              | 410 Gone                   |
 
