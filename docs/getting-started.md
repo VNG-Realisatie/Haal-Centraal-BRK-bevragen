@@ -187,10 +187,10 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>  |
 
 #### Foutscenarios
-|Aanvraag                                                             | Foutscenario               |
-|----------------                                                     | -------                    |
-|/kadastraalonroerendezaken/122003147000                              | 404 Not found              |
-|/kadastraalonroerendezaken/122003157000                              | 410 Gone                   |
+|Aanvraag                                | Foutscenario  |
+|-----                                   | -------       |
+|/kadastraalonroerendezaken/122003147000 | 404 Not found |
+|/kadastraalonroerendezaken/122003157000 | 410 Gone      |
 
 ## Aansluiten op productie
 Voor de connectie met de productieomgeving van deze API is vereist:
