@@ -9,6 +9,4 @@ from openapi_client.api.kadaster__niet_natuurlijk_personen_api import KadasterNi
 from openapi_client.api.kadastraal_onroerende_zaken_api import KadastraalOnroerendeZakenApi
 from openapi_client.api.privaatrechtelijke_beperkingen_api import PrivaatrechtelijkeBeperkingenApi
 from openapi_client.api.publiekrechtelijke_beperkingen_api import PubliekrechtelijkeBeperkingenApi
-from openapi_client.api.stukdelen_api import StukdelenApi
-from openapi_client.api.stukken__akte_api import StukkenAkteApi
 from openapi_client.api.zakelijke_gerechtigden_api import ZakelijkeGerechtigdenApi
