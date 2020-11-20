@@ -12,6 +12,11 @@ Om aan te sluiten kun je de volgende stappen doorlopen:
 4. [Probeer en test de API](#probeer-en-test-de-api)
 5. [Sluit aan op productie](#aansluiten-op-productie)
 
+|kop1 |kop2 |
+|-----|-----|
+|iets |* item 1 * item 2|
+
+
 ## Aanmelden om aan te sluiten
 Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
 
