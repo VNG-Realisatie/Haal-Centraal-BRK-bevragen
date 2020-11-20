@@ -176,19 +176,18 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 |Susan in het Veld    |                       |Kadaster Natuurlijk Persoon    |80000003              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 |Petra Anne Veldwijk  |                       |Kadaster Natuurlijk Persoon    |80000004              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 |H Pieters            |                       |Kadaster Natuurlijk Persoon    |80000005              |            |<ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
-|Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |80000006              |            |- diakriet in voornaam /n - kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=|
-|Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            | - adellijke titel
-- kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=|
+|Öle Klaassen         |                       |Kadaster Natuurlijk Persoon    |80000006              |            |<ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
+|Baron Jan-Jaap de Vierde          |                       |Kadaster Natuurlijk Persoon    |80000007              |            |<ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul>|
 
 #### Niet Natuurlijke Personen
 
 |Statutaire Naam         |Zetel         |Type                                 |KadasterPersoonIdentificatie   |Bijzonderheden        |
 |----------------        |------        |------                               |------                         |------                |
-|Bankbedrijf             |ROTTERDAM     |Kadaster Niet Natuurlijk Persoon     |71291440      | - postadres is postbus |
-|Bankbedrijf van vrucht  |GRAVE         |Ingeschreven Niet Natuurlijk Persoon |71291493      | - heeft niks op naam   |
+|Bankbedrijf             |ROTTERDAM     |Kadaster Niet Natuurlijk Persoon     |71291440      |<ul><li>postadres is postbus</li></ul>|
+|Bankbedrijf van vrucht  |GRAVE         |Ingeschreven Niet Natuurlijk Persoon |71291493      |<ul><li>heeft niks op naam</li></ul>|
 |Gasunie Test BV         |GRONINGEN     |Ingeschreven Niet Natuurlijk Persoon |440650207     |                                       |
-|Gemeente Den Testland   |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon     |71291441      | * kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q= |
-|Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      | * kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q= |
+|Gemeente Den Testland   |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon     |71291441      |<ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul>|
+|Woningstichting Den Testland |'S-GRAVENHAGE |Kadaster Niet Natuurlijk Persoon |71291442      |<ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul>|
 
 #### Foutscenarios
 
