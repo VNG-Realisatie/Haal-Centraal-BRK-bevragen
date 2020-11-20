@@ -94,7 +94,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-        - Stukdelen
+      - Stukken (Akte)
 components:
   schemas:
     StukdeelHalBasis:

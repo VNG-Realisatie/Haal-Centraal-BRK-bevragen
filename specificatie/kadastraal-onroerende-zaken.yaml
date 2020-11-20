@@ -264,8 +264,3 @@ components:
               type: "array"
               items:
                 $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
-            stukken:
-              type: "array"
-              items:
-                $ref: "stukken.yaml#/components/schemas/StukHalBasis"
-
