@@ -9,24 +9,10 @@ url: "http://localhost:4000"
 nav:
   - title: BRK Bevragen
     subnav:
-      - title: Home
+      - title: Main
         path: /
 #      - title: Goals canvas
 #        path: /getting-started
-  - title: Specificaties v. 1.1 (Live)
-    subnav:
-      - title: Getting started
-        path: /getting-started
-      - title: User stories
-        url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aopen+is%3Aissue+label%3A%22user+story%22++label%3A%22BRK+bevragen+v1.1%22+
-        path: /user-stories
-        target: blank
-      - title: Bevragen API (swagger-ui)
-        path: /swagger-ui-11
-      - title: Bevragen API (redoc)
-        path: /redoc-11
-      - title: Features
-        path: /features
   - title: Specificaties v. 1.2 (Live)
     subnav:
       - title: Getting started
