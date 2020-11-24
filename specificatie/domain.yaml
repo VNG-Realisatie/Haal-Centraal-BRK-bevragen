@@ -436,7 +436,7 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: |
                           Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)
-        RedenenVerzoek:
+        redenenVerzoek:
           type: "array"
           items:
             $ref: "#/components/schemas/RedenVerzoek"
@@ -594,38 +594,49 @@ components:
         identificatie:
           type: "string"
         stukType:
-          $ref: "#/components/schemas/StukType_enum"
+          $ref: "#/components/schemas/StukTypeEnum"
         domein:
           type: "string"
-          description: "Het domein waartoe de identificatie behoort."
+          description: |
+                        Het domein waartoe de identificatie behoort.
         toelichtingBewaarder:
           type: "string"
-          description: "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+          description: |
+                        Toelichtende tekst bij een onroerende zaak van de bewaarder.
+                        De bewaarder is iemand die bij het Kadaster werkt.
+                        Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         stukdeelIdentificaties:
           type: "array"
           items:
             type: "string"
         bewaardersVerklaring:
           type: "string"
-          description: "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+          description: |
+                        Correctie in de openbare registers door de bewaarder.
+                        De bewaarder is iemand die bij het Kadaster werkt.
+                        Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
         tekeningIngeschreven:
           type: "boolean"
-          description: "Er is sprake van een appartementstekening (splitsingstekening\
-            \ van appartementen) als bijlage bij het stuk."
+          description: |
+                        Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.
         tijdstipAanbieding:
           type: "string"
           format: "date-time"
-          description: "Het tijdstip dat het stuk bij het kadaster is binnengekomen."
+          description: |
+                        Het tijdstip dat het stuk bij het kadaster is binnengekomen.
         tijdstipOndertekening:
           type: "string"
           format: "date-time"
-          description: "Het tijdstip dat het stuk is ondertekend door partijen en de notaris"
+          description: |
+                        Het tijdstip dat het stuk is ondertekend door partijen en de notaris
         aard:
           $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/)
         status:
           $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)
         equivalentieVerklaarder:
           $ref: "#/components/schemas/EquivalentieVerklaarder"
         kadasterverzoeken:
@@ -633,28 +644,33 @@ components:
           items:
             $ref: "#/components/schemas/Kadasterverzoek"
         oorspronkelijkStukIdentificatie:
-          description: "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
+          description: |
+                        Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
           type: "string"
     Stukdeel:
       type: object
-      description: "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt."
+      description: |
+                    Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt.
       properties:
         identificatie:
           type: "string"
         domein:
           type: "string"
-          description: "Het domein waartoe de identificatie behoort."
+          description: |
+                        Het domein waartoe de identificatie behoort.
         aard:
           $ref: "#/components/schemas/Waardelijst"
-          description: "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardStukdeel/)
         bedragTransactiesomLevering:
           $ref: "#/components/schemas/Bedrag"
-          description: "De koopsom"
+          description: |
+                        De koopsom
         omschrijvingKadastraleObjecten:
             type: "string"
         omschrijvingTopografischeMutatie:
             type: "string"
-    StukType_enum:
+    StukTypeEnum:
       type: "string"
       enum:
       - "Kadasterstuk"

@@ -42,8 +42,6 @@
     "name" : "Kadaster (niet)Natuurlijk Personen"
   }, {
     "name" : "Stukken (Akte)"
-  }, {
-    "name" : "Stukdelen"
   } ],
   "paths" : {
     "/kadastraalonroerendezaken" : {
@@ -4026,7 +4024,7 @@
     },
     "/stukdelen/{stukdeelidentificatie}" : {
       "get" : {
-        "tags" : [ "Stukdelen" ],
+        "tags" : [ "Stukken (Akte)" ],
         "description" : "Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.\nMet de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.\n",
         "operationId" : "GetStukdeel",
         "parameters" : [ {
@@ -4406,12 +4404,6 @@
             "items" : {
               "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
             }
-          },
-          "stukken" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/StukHalBasis"
-            }
           }
         }
       },
@@ -4532,10 +4524,7 @@
             }
           },
           "isGebaseerdOpStukdeel" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/HalLink"
-            }
+            "$ref" : "#/components/schemas/HalLink"
           },
           "isVermeldInStukdelen" : {
             "type" : "array",
@@ -4563,18 +4552,6 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/ZakelijkGerechtigdeHal"
-            }
-          },
-          "stukken" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/StukHalBasis"
-            }
-          },
-          "stukdelen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/StukdeelHalBasis"
             }
           }
         }
@@ -5038,6 +5015,13 @@
           "bevoegdGezag" : {
             "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
           },
+          "Stukken" : {
+            "type" : "array",
+            "description" : "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "isGebaseerdOpStukdeelIdentificatie" : {
             "type" : "string",
             "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.\n"
@@ -5057,6 +5041,12 @@
         "properties" : {
           "bevoegdGezag" : {
             "$ref" : "#/components/schemas/HalLink"
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
           },
           "isGebaseerdOpStukdeel" : {
             "$ref" : "#/components/schemas/HalLink"
@@ -5983,15 +5973,15 @@
             "type" : "string"
           },
           "stukType" : {
-            "$ref" : "#/components/schemas/StukType_enum"
+            "$ref" : "#/components/schemas/StukTypeEnum"
           },
           "domein" : {
             "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort."
+            "description" : "Het domein waartoe de identificatie behoort.\n"
           },
           "toelichtingBewaarder" : {
             "type" : "string",
-            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder.\nDe bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
           },
           "stukdeelIdentificaties" : {
             "type" : "array",
@@ -6001,20 +5991,20 @@
           },
           "bewaardersVerklaring" : {
             "type" : "string",
-            "description" : "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet."
+            "description" : "Correctie in de openbare registers door de bewaarder.\nDe bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
           },
           "tekeningIngeschreven" : {
             "type" : "boolean",
-            "description" : "Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk."
+            "description" : "Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.\n"
           },
           "tijdstipAanbieding" : {
             "type" : "string",
-            "description" : "Het tijdstip dat het stuk bij het kadaster is binnengekomen.",
+            "description" : "Het tijdstip dat het stuk bij het kadaster is binnengekomen.\n",
             "format" : "date-time"
           },
           "tijdstipOndertekening" : {
             "type" : "string",
-            "description" : "Het tijdstip dat het stuk is ondertekend door partijen en de notaris",
+            "description" : "Het tijdstip dat het stuk is ondertekend door partijen en de notaris\n",
             "format" : "date-time"
           },
           "aard" : {
@@ -6034,12 +6024,12 @@
           },
           "oorspronkelijkStukIdentificatie" : {
             "type" : "string",
-            "description" : "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster"
+            "description" : "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster\n"
           }
         },
         "description" : "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"
       },
-      "StukType_enum" : {
+      "StukTypeEnum" : {
         "type" : "string",
         "enum" : [ "Kadasterstuk", "Aangebodenstuk" ]
       },
@@ -6063,7 +6053,7 @@
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
-          "RedenenVerzoek" : {
+          "redenenVerzoek" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/RedenVerzoek"
@@ -6093,7 +6083,7 @@
           },
           "domein" : {
             "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort."
+            "description" : "Het domein waartoe de identificatie behoort.\n"
           },
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
@@ -6108,7 +6098,7 @@
             "type" : "string"
           }
         },
-        "description" : "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt."
+        "description" : "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt.\n"
       }
     },
     "headers" : {

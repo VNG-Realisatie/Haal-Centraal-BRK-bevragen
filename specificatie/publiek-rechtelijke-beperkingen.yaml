@@ -71,6 +71,12 @@ components:
           format: "date"
         bevoegdGezag:
           $ref: "domain.yaml#/components/schemas/NietNatuurlijkPersoonBeperkt"
+        Stukken:
+          type: "array"
+          description: |
+                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+          items:
+            type: "string"
         isGebaseerdOpStukdeelIdentificatie:
           type: "string"
           description: |
@@ -106,6 +112,10 @@ components:
       properties:
         bevoegdGezag:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         isGebaseerdOpStukdeel:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         isVermeldInStukdelen:
