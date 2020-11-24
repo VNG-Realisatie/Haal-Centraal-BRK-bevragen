@@ -1,0 +1,4 @@
+{% for item in include.nav %}
+	{% capture pathwithextension %}{% if item.path == '/' %}{{ item.path }}{% else %}{{ item.path }}.html{% endif %}{% endcapture %}
+	<a class="nav-link{% if page.url == pathwithextension %} active{% endif %}" href="{%if item.url %}{{item.url}}{% elsif item.path %}{{ site.baseurl }}{{ item.path }}{% endif %}" target="{%if item.target == 'blank' %}_blank{% endif %}">{{ item.title }}</a>
+{% endfor %}
