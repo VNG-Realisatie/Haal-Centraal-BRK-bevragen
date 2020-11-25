@@ -12,6 +12,7 @@ paths:
         Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: |
@@ -60,6 +61,7 @@ paths:
         Het raadplegen van een beslag.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: |
@@ -114,12 +116,18 @@ paths:
       - Beslagen
 components:
   schemas:
-    BeslagHal:
+    BeslagHalBasis:
       allOf:
       - $ref: "domain.yaml#/components/schemas/Beslag"
       - properties:
           _links:
             $ref: "#/components/schemas/BeslagLinks"
+    BeslagHal:
+      allOf:
+      - $ref: "#/components/schemas/BeslagHalBasis"
+      - properties:
+          _embedded:
+            $ref: "#/components/schemas/BeslagEmbedded"
     BeslagHalCollectie:
       type: "object"
       properties:
@@ -153,3 +161,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    BeslagEmbedded:
+      type: "object"
+      properties:
+        stukken:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
