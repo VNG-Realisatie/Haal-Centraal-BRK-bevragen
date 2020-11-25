@@ -12,6 +12,7 @@ paths:
         Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: |
@@ -60,6 +61,7 @@ paths:
         Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: kadastraalonroerendezaakidentificatie
           description: |
@@ -114,12 +116,18 @@ paths:
       - Hypotheken
 components:
   schemas:
-    HypotheekHal:
+    HypotheekHalBasis:
       allOf:
       - $ref: "domain.yaml#/components/schemas/Hypotheek"
       - properties:
           _links:
             $ref: "#/components/schemas/HypotheekLinks"
+    HypotheekHal:
+      allOf:
+      - $ref: "#/components/schemas/HypotheekHalBasis"
+      - properties:
+          _embedded:
+            $ref: "#/components/schemas/HypotheekEmbedded"
     HypotheekHalCollectie:
       type: "object"
       properties:
@@ -153,3 +161,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    HypotheekEmbedded:
+      type: "object"
+      properties:
+        stukken:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
