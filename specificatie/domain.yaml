@@ -338,6 +338,16 @@ components:
           type: "string"
           description: |
                         Het domein waartoe de identificatie behoort.
+        indicatieVervallen:
+          type: "boolean"
+          description: |
+                        Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.
+                        Deze informatie is nodig om de filiatie-"boom" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.
+        einddatum:
+          type: "string"
+          description: |
+                        Datum waarop de kadastraal onroerende zaak is vervallen
+          format: "date"
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         perceelnummerRotatie:
