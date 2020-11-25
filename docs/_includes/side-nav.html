@@ -1,8 +1,0 @@
-{% for item in site.nav %}
-	<div class="header">{{ item.title }}</div>
-	<nav class="nav flex-column">
-    {% if item.subnav %}
-      {% include nav.html nav=item.subnav %}
-    {% endif %}
-  {% endfor %}
-</nav>
