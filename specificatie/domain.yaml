@@ -449,6 +449,8 @@ components:
         - properties:
             koppelingswijze:
               $ref: "#/components/schemas/Waardelijst"
+            adresseerbaarObjectIdentificatie:
+              type: "string"
     Naam:
       type: "object"
       description: |
