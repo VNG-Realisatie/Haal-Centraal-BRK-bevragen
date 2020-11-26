@@ -104,6 +104,14 @@ paths:
           schema:
             type: string
             pattern: "^([a-z,A-Z,0-9]){1,4}$"
+        - in: query
+          name: nummeraanduidingIdentificatie
+          description: |
+                        De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.
+          required: false
+          schema:
+            type: string
+            pattern: "^[0-9]{16}$"
       responses:
         '200':
           description: |
