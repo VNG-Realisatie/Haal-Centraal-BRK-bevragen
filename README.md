@@ -25,7 +25,7 @@ Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bev
 Komende periode wordt de API uitgebreid met links naar de BAG, filiatie en stukken (v1.3). We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
 
 * Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/projects)
-* Bekijk de specificaties in ontwikkeling met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-develop) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-develop)
+* Bekijk de specificaties in ontwikkeling met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-io) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-io)
 
 ## Bronnen
 
