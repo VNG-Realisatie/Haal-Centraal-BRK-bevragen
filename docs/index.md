@@ -13,7 +13,7 @@ API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
 
 ## BRK bevragen v1.2 is live!
 
-BRK bevragen bevat nu pivaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
+BRK bevragen bevat nu privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
 
 Bekijk de [release notes](./releasenotes).
 
