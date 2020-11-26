@@ -729,7 +729,7 @@ components:
           format: "date"
         bevoegdGezag:
           $ref: "#/components/schemas/NietNatuurlijkPersoonBeperkt"
-        Stukken:
+        stukIdentificaties:
           type: "array"
           description: |
                         Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
