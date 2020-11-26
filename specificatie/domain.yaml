@@ -793,7 +793,7 @@ components:
                         Correctie in de openbare registers door de bewaarder.
                         De bewaarder is iemand die bij het Kadaster werkt.
                         Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
-        tekeningIngeschreven:
+        indicatieTekeningBijgevoegd:
           type: "boolean"
           description: |
                         Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.
