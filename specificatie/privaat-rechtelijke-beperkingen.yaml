@@ -110,7 +110,7 @@ paths:
       - Privaatrechtelijke Beperkingen
 components:
   schemas:
-    PrivaatrechtelijkeBeperkingHal:
+    PrivaatrechtelijkeBeperkingHalBasis:
       allOf:
         - $ref: "domain.yaml#/components/schemas/Aantekening"
         - description: |
@@ -118,6 +118,12 @@ components:
           properties:
             _links:
               $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"
+    PrivaatrechtelijkeBeperkingHal:
+      allOf:
+        - $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis"
+        - properties:
+            _embedded:
+              $ref: "#/components/schemas/PrivaatrechtelijkeBeperkingEmbedded"
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
@@ -147,3 +153,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    PrivaatrechtelijkeBeperkingEmbedded:
+      type: "object"
+      properties:
+        stukken:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
