@@ -117,12 +117,18 @@ paths:
       - Zakelijke Gerechtigden
 components:
   schemas:
-    ZakelijkGerechtigdeHal:
+    ZakelijkGerechtigdeHalBasis:
       allOf:
       - $ref: "domain.yaml#/components/schemas/ZakelijkGerechtigde"
       - properties:
           _links:
             $ref: "#/components/schemas/ZakelijkGerechtigdeLinks"
+    ZakelijkGerechtigdeHal:
+      allOf:
+      - $ref: "#/components/schemas/ZakelijkGerechtigdeHalBasis"
+      - properties:
+          _embedded:
+            $ref: "#/components/schemas/ZakelijkGerechtigdeEmbedded"
     ZakelijkGerechtigdeLinks:
       type: "object"
       properties:
@@ -146,6 +152,13 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    ZakelijkGerechtigdeEmbedded:
+      type: "object"
+      properties:
+        stukken:
+          type: "array"
+          items:
+            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
     ZakelijkGerechtigdeHalCollectie:
       type: "object"
       properties:
