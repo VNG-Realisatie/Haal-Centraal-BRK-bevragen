@@ -46,7 +46,9 @@ components:
             stukIdentificaties:
               type: "array"
               description: |
-                	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
+                            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                            tot een wijziging van de gegevens in een basisregistratie.
+                            Dit kan een aangeboden stuk of een kadasterstuk zijn.
               items:
                 type: string
             isGebaseerdOpStukdeelIdentificatie:
@@ -178,7 +180,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
@@ -352,7 +356,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-            	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         omschrijvingGekozenWoonplaats:
@@ -559,7 +565,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
     Kadasterverzoek:
@@ -732,7 +740,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: "string"
         isGebaseerdOpStukdeelIdentificatie:
@@ -1031,7 +1041,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:

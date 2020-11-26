@@ -12,7 +12,6 @@ paths:
         Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: query
           name: kadastraalOnroerendeZaakIdentificatie
           description: |
@@ -49,18 +48,12 @@ paths:
       - Publiekrechtelijke Beperkingen
 components:
   schemas:
-    PubliekrechtelijkeBeperkingHalBasis:
+    PubliekrechtelijkeBeperkingHal:
       allOf:
       - $ref: "domain.yaml#/components/schemas/PubliekrechtelijkeBeperking"
       - properties:
           _links:
             $ref: "#/components/schemas/PubliekrechtelijkeBeperkingLinks"
-    PubliekrechtelijkeBeperkingHal:
-      allOf:
-      - $ref: "#/components/schemas/PubliekrechtelijkeBeperkingHalBasis"
-      - properties:
-          _embedded:
-            $ref: "#/components/schemas/PubliekrechtelijkeBeperkingEmbedded"
     PubliekrechtelijkeBeperkingHalCollectie:
       type: "object"
       properties:
@@ -90,10 +83,3 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    PubliekrechtelijkeBeperkingEmbedded:
-      type: "object"
-      properties:
-        stukken:
-          type: "array"
-          items:
-            $ref: "stukken.yaml#/components/schemas/StukHalBasis"

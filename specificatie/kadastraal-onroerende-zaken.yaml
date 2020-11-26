@@ -271,12 +271,8 @@ components:
         zakelijkGerechtigden:
           type: "array"
           items:
-            $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHalBasis"
+            $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
         privaatrechtelijkeBeperkingen:
           type: "array"
           items:
-            $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis"
-        stukken:
-          type: "array"
-          items:
-            $ref: "stukken.yaml#/components/schemas/StukHalBasis"
+            $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
