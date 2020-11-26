@@ -49,7 +49,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Stukken (Akte)
+      - Stukken
   /stukdelen/{stukdeelidentificatie}:
     get:
       operationId: GetStukdeel
@@ -94,7 +94,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Stukken (Akte)
+      - Stukken
 components:
   schemas:
     StukdeelHalBasis:

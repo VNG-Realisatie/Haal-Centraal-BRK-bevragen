@@ -30,7 +30,7 @@ tags:
 - name: Privaatrechtelijke Beperkingen
 - name: Publiekrechtelijke Beperkingen
 - name: Kadaster (niet)Natuurlijk Personen
-- name: Stukken (Akte)
+- name: Stukken
 paths:
   /kadastraalonroerendezaken:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
