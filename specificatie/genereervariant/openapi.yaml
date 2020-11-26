@@ -1620,18 +1620,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
         description: |
@@ -1821,18 +1809,6 @@ paths:
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
           een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -2070,18 +2046,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
       - name: kadastraalonroerendezaakidentificatie
         in: path
         description: |
@@ -2271,18 +2235,6 @@ paths:
           opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
           Wanneer de fields parameter niet is opgegeven, worden alle properties met
           een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        required: false
-        schema:
-          type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
         required: false
         schema:
           type: string
@@ -2911,18 +2863,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: expand
-        in: query
-        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
-          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
-          enkele properties geef je in de expand parameter kommagescheiden op. Properties
-          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
-          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
-          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        required: false
-        schema:
-          type: string
       - name: kadastraalOnroerendeZaakIdentificatie
         in: query
         description: |
@@ -3262,6 +3202,18 @@ paths:
         required: false
         schema:
           type: string
+      - name: expand
+        in: query
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
+        required: false
+        schema:
+          type: string
       - name: stukdeelidentificatie
         in: path
         required: true
@@ -3280,7 +3232,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/StukdeelHalBasis'
+                $ref: '#/components/schemas/StukdeelHal'
         "400":
           description: Bad Request
           headers:
@@ -3525,15 +3477,11 @@ components:
         zakelijkGerechtigden:
           type: array
           items:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeHalBasis'
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
         privaatrechtelijkeBeperkingen:
           type: array
           items:
-            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis'
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
+            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
     TypeGerechtigdeEnum:
       type: string
       description: |
@@ -3630,12 +3578,6 @@ components:
       description: Details over fouten in opgegeven parameters
     ZakelijkGerechtigdeHal:
       allOf:
-      - $ref: '#/components/schemas/ZakelijkGerechtigdeHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/ZakelijkGerechtigdeEmbedded'
-    ZakelijkGerechtigdeHalBasis:
-      allOf:
       - $ref: '#/components/schemas/ZakelijkGerechtigde'
       - properties:
           _links:
@@ -3663,13 +3605,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    ZakelijkGerechtigdeEmbedded:
-      type: object
-      properties:
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
     ZakelijkGerechtigdeHalCollectie:
       type: object
       properties:
@@ -3757,12 +3692,6 @@ components:
             $ref: '#/components/schemas/HypotheekHal'
     HypotheekHal:
       allOf:
-      - $ref: '#/components/schemas/HypotheekHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/HypotheekEmbedded'
-    HypotheekHalBasis:
-      allOf:
       - $ref: '#/components/schemas/Hypotheek'
       - properties:
           _links:
@@ -3786,13 +3715,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    HypotheekEmbedded:
-      type: object
-      properties:
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
     BeslagHalCollectie:
       type: object
       properties:
@@ -3808,12 +3730,6 @@ components:
           items:
             $ref: '#/components/schemas/BeslagHal'
     BeslagHal:
-      allOf:
-      - $ref: '#/components/schemas/BeslagHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/BeslagEmbedded'
-    BeslagHalBasis:
       allOf:
       - $ref: '#/components/schemas/Beslag'
       - properties:
@@ -3838,13 +3754,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    BeslagEmbedded:
-      type: object
-      properties:
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
     PrivaatrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -3861,18 +3770,16 @@ components:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHal'
     PrivaatrechtelijkeBeperkingHal:
       allOf:
-      - $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingEmbedded'
-    PrivaatrechtelijkeBeperkingHalBasis:
-      allOf:
       - $ref: '#/components/schemas/Aantekening'
       - properties:
           _links:
             $ref: '#/components/schemas/PrivaatrechtelijkeBeperkingLinks'
         description: |
-          Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
+          Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen.
+          Of niet alles mag doen met de rechten die hij heeft op de grond of het huis.
+          Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst.
+          Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster
+          in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.
     PrivaatrechtelijkeBeperkingLinks:
       type: object
       properties:
@@ -3888,13 +3795,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    PrivaatrechtelijkeBeperkingEmbedded:
-      type: object
-      properties:
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
     PubliekrechtelijkeBeperkingHalCollectie:
       type: object
       properties:
@@ -3910,12 +3810,6 @@ components:
           items:
             $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHal'
     PubliekrechtelijkeBeperkingHal:
-      allOf:
-      - $ref: '#/components/schemas/PubliekrechtelijkeBeperkingHalBasis'
-      - properties:
-          _embedded:
-            $ref: '#/components/schemas/PubliekrechtelijkeBeperkingEmbedded'
-    PubliekrechtelijkeBeperkingHalBasis:
       allOf:
       - $ref: '#/components/schemas/PubliekrechtelijkeBeperking'
       - properties:
@@ -3936,13 +3830,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-    PubliekrechtelijkeBeperkingEmbedded:
-      type: object
-      properties:
-        stukken:
-          type: array
-          items:
-            $ref: '#/components/schemas/StukHalBasis'
     StukHal:
       allOf:
       - $ref: '#/components/schemas/StukHalBasis'
@@ -3990,6 +3877,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+    StukdeelHal:
+      allOf:
+      - $ref: '#/components/schemas/StukdeelHalBasis'
+      - properties:
+          _embedded:
+            $ref: '#/components/schemas/StukdeelEmbedded'
+    StukdeelEmbedded:
+      type: object
+      properties:
+        stuk:
+          $ref: '#/components/schemas/StukHalBasis'
     KadastraalOnroerendeZaak:
       type: object
       properties:
@@ -4089,7 +3987,9 @@ components:
         stukIdentificaties:
           type: array
           description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
       description: |
@@ -4300,7 +4200,9 @@ components:
         stukIdentificaties:
           type: array
           description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
@@ -4452,10 +4354,10 @@ components:
             format: date
           stukIdentificaties:
             type: array
-            description: "\t           Identificatie van het stuk. Een stuk is een\
-              \ brondocument dat aanleiding geeft tot een wijziging van de gegevens\
-              \ in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk\
-              \ zijn.\n"
+            description: |
+              Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+              tot een wijziging van de gegevens in een basisregistratie.
+              Dit kan een aangeboden stuk of een kadasterstuk zijn.
             items:
               type: string
           isGebaseerdOpStukdeelIdentificatie:
@@ -4783,9 +4685,10 @@ components:
           $ref: '#/components/schemas/Bedrag'
         stukIdentificaties:
           type: array
-          description: "\t           Identificatie van het stuk. Een stuk is een brondocument\
-            \ dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\
-            \ Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n"
+          description: |
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         omschrijvingGekozenWoonplaats:
@@ -4841,7 +4744,9 @@ components:
         stukIdentificaties:
           type: array
           description: |
-            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
@@ -4881,7 +4786,9 @@ components:
         stukIdentificaties:
           type: array
           description: |
-            Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:
