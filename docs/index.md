@@ -29,7 +29,7 @@ Bekijk de [release notes](./releasenotes).
 
 Komende periode wordt de API uitgebreid met links naar de BAG, filiatie en stukken (v1.3). We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
 
-* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/projects){:target="_blank" rel="noopener"}
+* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22BRK+bevragen+v1.3%22){:target="_blank" rel="noopener"}
 * Bekijk de specificaties in ontwikkeling met [Swagger UI](./swagger-ui-io) of [Redoc](./redoc-io)
 
 ## Bronnen
