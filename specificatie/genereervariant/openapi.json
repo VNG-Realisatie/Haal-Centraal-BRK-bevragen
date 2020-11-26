@@ -41,7 +41,7 @@
   }, {
     "name" : "Kadaster (niet)Natuurlijk Personen"
   }, {
-    "name" : "Stukken (Akte)"
+    "name" : "Stukken"
   } ],
   "paths" : {
     "/kadastraalonroerendezaken" : {
@@ -144,6 +144,15 @@
           "required" : false,
           "schema" : {
             "pattern" : "^([a-z,A-Z,0-9]){1,4}$",
+            "type" : "string"
+          }
+        }, {
+          "name" : "nummeraanduidingIdentificatie",
+          "in" : "query",
+          "description" : "De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.\n",
+          "required" : false,
+          "schema" : {
+            "pattern" : "^[0-9]{16}$",
             "type" : "string"
           }
         } ],
@@ -2008,6 +2017,14 @@
             "type" : "string"
           }
         }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "kadastraalonroerendezaakidentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
@@ -2250,6 +2267,14 @@
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -2556,6 +2581,14 @@
             "type" : "string"
           }
         }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "kadastraalonroerendezaakidentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
@@ -2798,6 +2831,14 @@
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -3606,6 +3647,14 @@
             "type" : "string"
           }
         }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "query",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak\n",
@@ -3782,7 +3831,7 @@
     },
     "/stukken/{stukidentificatie}" : {
       "get" : {
-        "tags" : [ "Stukken (Akte)" ],
+        "tags" : [ "Stukken" ],
         "description" : "Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.\n",
         "operationId" : "GetStuk",
         "parameters" : [ {
@@ -3824,7 +3873,7 @@
             "content" : {
               "application/hal+json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/StukHalBasis"
+                  "$ref" : "#/components/schemas/StukHal"
                 }
               }
             }
@@ -4024,7 +4073,7 @@
     },
     "/stukdelen/{stukdeelidentificatie}" : {
       "get" : {
-        "tags" : [ "Stukken (Akte)" ],
+        "tags" : [ "Stukken" ],
         "description" : "Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.\nMet de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.\n",
         "operationId" : "GetStukdeel",
         "parameters" : [ {
@@ -4379,6 +4428,12 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "adresseerbareObjecten" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
           "bijbehorendGrondperceel" : {
             "$ref" : "#/components/schemas/HalLink"
           },
@@ -4396,13 +4451,19 @@
           "zakelijkGerechtigden" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ZakelijkGerechtigdeHal"
+              "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalBasis"
             }
           },
           "privaatrechtelijkeBeperkingen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis"
+            }
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
             }
           }
         }
@@ -4490,6 +4551,17 @@
       },
       "ZakelijkGerechtigdeHal" : {
         "allOf" : [ {
+          "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/ZakelijkGerechtigdeEmbedded"
+            }
+          }
+        } ]
+      },
+      "ZakelijkGerechtigdeHalBasis" : {
+        "allOf" : [ {
           "$ref" : "#/components/schemas/ZakelijkGerechtigde"
         }, {
           "properties" : {
@@ -4530,6 +4602,17 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
+            }
+          }
+        }
+      },
+      "ZakelijkGerechtigdeEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
             }
           }
         }
@@ -4672,6 +4755,17 @@
       },
       "HypotheekHal" : {
         "allOf" : [ {
+          "$ref" : "#/components/schemas/HypotheekHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/HypotheekEmbedded"
+            }
+          }
+        } ]
+      },
+      "HypotheekHalBasis" : {
+        "allOf" : [ {
           "$ref" : "#/components/schemas/Hypotheek"
         }, {
           "properties" : {
@@ -4680,72 +4774,6 @@
             }
           }
         } ]
-      },
-      "Hypotheek" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "aandeelInBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/TypeBreuk"
-          },
-          "gedeeltelijkeBezwaringOudObject" : {
-            "type" : "boolean"
-          },
-          "omschrijvingBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "toelichtingBewaarder" : {
-            "type" : "string",
-            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
-          },
-          "betreftGedeelteVanPerceel" : {
-            "type" : "boolean"
-          },
-          "aantekeningen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/AantekeningBasis"
-            }
-          },
-          "hypotheekhouders" : {
-            "type" : "array",
-            "description" : "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/PersoonBeperkt"
-            }
-          },
-          "bedragZekerheidsstelling" : {
-            "$ref" : "#/components/schemas/Bedrag"
-          },
-          "stukIdentificaties" : {
-            "type" : "array",
-            "description" : "\t           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "omschrijvingGekozenWoonplaats" : {
-            "type" : "string"
-          },
-          "isGebaseerdOpStukdeelIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.\n"
-          },
-          "isVermeldInStukdeelIdentificaties" : {
-            "type" : "array",
-            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld\n",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        },
-        "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
       },
       "HypotheekLinks" : {
         "type" : "object",
@@ -4776,6 +4804,17 @@
           }
         }
       },
+      "HypotheekEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
+            }
+          }
+        }
+      },
       "BeslagHalCollectie" : {
         "type" : "object",
         "properties" : {
@@ -4800,6 +4839,17 @@
       },
       "BeslagHal" : {
         "allOf" : [ {
+          "$ref" : "#/components/schemas/BeslagHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/BeslagEmbedded"
+            }
+          }
+        } ]
+      },
+      "BeslagHalBasis" : {
+        "allOf" : [ {
           "$ref" : "#/components/schemas/Beslag"
         }, {
           "properties" : {
@@ -4808,69 +4858,6 @@
             }
           }
         } ]
-      },
-      "Beslag" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "aandeelInBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/TypeBreuk"
-          },
-          "gedeeltelijkeBezwaringOudObject" : {
-            "type" : "boolean",
-            "description" : "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.\n"
-          },
-          "omschrijvingBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "toelichtingBewaarder" : {
-            "type" : "string",
-            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
-          },
-          "aard" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "aantekeningen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/AantekeningBasis"
-            }
-          },
-          "beslagleggers" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/PersoonBeperkt"
-            }
-          },
-          "bedragVordering" : {
-            "$ref" : "#/components/schemas/Bedrag"
-          },
-          "stukIdentificaties" : {
-            "type" : "array",
-            "description" : "\t           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "isGebaseerdOpStukdeelIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd.\n"
-          },
-          "isVermeldInStukdeelIdentificaties" : {
-            "type" : "array",
-            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld\n",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        },
-        "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
       },
       "BeslagLinks" : {
         "type" : "object",
@@ -4901,6 +4888,17 @@
           }
         }
       },
+      "BeslagEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
+            }
+          }
+        }
+      },
       "PrivaatrechtelijkeBeperkingHalCollectie" : {
         "type" : "object",
         "properties" : {
@@ -4924,6 +4922,17 @@
         }
       },
       "PrivaatrechtelijkeBeperkingHal" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingEmbedded"
+            }
+          }
+        } ]
+      },
+      "PrivaatrechtelijkeBeperkingHalBasis" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Aantekening"
         }, {
@@ -4958,6 +4967,17 @@
           }
         }
       },
+      "PrivaatrechtelijkeBeperkingEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
+            }
+          }
+        }
+      },
       "PubliekrechtelijkeBeperkingHalCollectie" : {
         "type" : "object",
         "properties" : {
@@ -4982,6 +5002,17 @@
       },
       "PubliekrechtelijkeBeperkingHal" : {
         "allOf" : [ {
+          "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/PubliekrechtelijkeBeperkingEmbedded"
+            }
+          }
+        } ]
+      },
+      "PubliekrechtelijkeBeperkingHalBasis" : {
+        "allOf" : [ {
           "$ref" : "#/components/schemas/PubliekrechtelijkeBeperking"
         }, {
           "properties" : {
@@ -4990,51 +5021,6 @@
             }
           }
         } ]
-      },
-      "PubliekrechtelijkeBeperking" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "grondslag" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "datumInWerking" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "datumBeeindiging" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "bevoegdGezag" : {
-            "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
-          },
-          "Stukken" : {
-            "type" : "array",
-            "description" : "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "isGebaseerdOpStukdeelIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.\n"
-          },
-          "isVermeldInStukdeelIdentificaties" : {
-            "type" : "array",
-            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld.\n",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        },
-        "description" : "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.\n"
       },
       "PubliekrechtelijkeBeperkingLinks" : {
         "type" : "object",
@@ -5058,6 +5044,28 @@
             }
           }
         }
+      },
+      "PubliekrechtelijkeBeperkingEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukHalBasis"
+            }
+          }
+        }
+      },
+      "StukHal" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/StukHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/StukEmbedded"
+            }
+          }
+        } ]
       },
       "StukHalBasis" : {
         "allOf" : [ {
@@ -5084,6 +5092,17 @@
           },
           "oorspronkelijkStuk" : {
             "$ref" : "#/components/schemas/HalLink"
+          }
+        }
+      },
+      "StukEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukdeelHalBasis"
+            }
           }
         }
       },
@@ -5124,6 +5143,15 @@
           "domein" : {
             "type" : "string",
             "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "indicatieVervallen" : {
+            "type" : "boolean",
+            "description" : "Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.\nDeze informatie is nodig om de filiatie-\"boom\" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.\n"
+          },
+          "einddatum" : {
+            "type" : "string",
+            "description" : "Datum waarop de kadastraal onroerende zaak is vervallen\n",
+            "format" : "date"
           },
           "begrenzingPerceel" : {
             "$ref" : "#/components/schemas/polygonGeoJSON"
@@ -5335,6 +5363,9 @@
           "properties" : {
             "koppelingswijze" : {
               "$ref" : "#/components/schemas/Waardelijst"
+            },
+            "adresseerbaarObjectIdentificatie" : {
+              "type" : "string"
             }
           }
         } ]
@@ -5966,6 +5997,180 @@
           "description" : "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n\n\nDe property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld.\nWaardelijst in deze component :\n  [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)\n"
         } ]
       },
+      "Hypotheek" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "aandeelInBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/TypeBreuk"
+          },
+          "gedeeltelijkeBezwaringOudObject" : {
+            "type" : "boolean"
+          },
+          "omschrijvingBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "betreftGedeelteVanPerceel" : {
+            "type" : "boolean"
+          },
+          "aantekeningen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AantekeningBasis"
+            }
+          },
+          "hypotheekhouders" : {
+            "type" : "array",
+            "description" : "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/PersoonBeperkt"
+            }
+          },
+          "bedragZekerheidsstelling" : {
+            "$ref" : "#/components/schemas/Bedrag"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "\t           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "omschrijvingGekozenWoonplaats" : {
+            "type" : "string"
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
+      },
+      "Beslag" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "aandeelInBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/TypeBreuk"
+          },
+          "gedeeltelijkeBezwaringOudObject" : {
+            "type" : "boolean",
+            "description" : "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.\n"
+          },
+          "omschrijvingBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "aantekeningen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AantekeningBasis"
+            }
+          },
+          "beslagleggers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PersoonBeperkt"
+            }
+          },
+          "bedragVordering" : {
+            "$ref" : "#/components/schemas/Bedrag"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
+      },
+      "PubliekrechtelijkeBeperking" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "grondslag" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "datumInWerking" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "datumBeeindiging" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "bevoegdGezag" : {
+            "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld.\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.\n"
+      },
       "Stuk" : {
         "type" : "object",
         "properties" : {
@@ -5993,7 +6198,7 @@
             "type" : "string",
             "description" : "Correctie in de openbare registers door de bewaarder.\nDe bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
           },
-          "tekeningIngeschreven" : {
+          "indicatieTekeningBijgevoegd" : {
             "type" : "boolean",
             "description" : "Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.\n"
           },
