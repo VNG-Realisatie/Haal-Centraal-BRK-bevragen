@@ -10,12 +10,12 @@ API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
 
 BRK bevragen bevat nu privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
 
-Bekijk de [release notes](./releasenotes).
+Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/releasenotes).
 
 ## Direct aan de slag?
 
-* Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
-* Lees de [Getting started](./getting-started)
+* Bekijk de specificaties met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc)
+* Lees de [Getting started](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/getting-started)
 * Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml)
 * Download [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/code)
 * [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen) voor toegang tot de testomgeving.
@@ -25,7 +25,7 @@ Bekijk de [release notes](./releasenotes).
 Komende periode wordt de API uitgebreid met links naar de BAG, filiatie en stukken (v1.3). We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
 
 * Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/projects)
-* Bekijk de specificaties in ontwikkeling met [Swagger UI](./swagger-ui-develop) of [Redoc](./redoc-develop)
+* Bekijk de specificaties in ontwikkeling met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-develop) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-develop)
 
 ## Bronnen
 
