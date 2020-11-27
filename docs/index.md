@@ -9,12 +9,11 @@ title: Haal Centraal BRK bevragingen
 ![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-sdks/badge.svg)
 ![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-postman-collection/badge.svg)
 
-API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
+API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
 
 ## BRK bevragen v1.2 is live!
 
-BRK bevragen bevat nu privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
-
+BRK bevragen bevat nu ook privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
 Bekijk de [release notes](./releasenotes).
 
 ## Direct aan de slag?
