@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen. 
  */
 @ApiModel(description = "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-28T18:29:08.707Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-27T09:37:24.750Z[Etc/UTC]")
 public class TypePerceelnummerVerschuiving {
   public static final String SERIALIZED_NAME_DELTAX = "deltax";
   @SerializedName(SERIALIZED_NAME_DELTAX)

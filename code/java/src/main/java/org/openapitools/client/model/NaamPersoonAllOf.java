@@ -28,7 +28,7 @@ import java.io.IOException;
  * Gegevens over de naam van de persoon 
  */
 @ApiModel(description = "Gegevens over de naam van de persoon ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-28T18:29:08.707Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-27T09:37:24.750Z[Etc/UTC]")
 public class NaamPersoonAllOf {
   public static final String SERIALIZED_NAME_AANSCHRIJFWIJZE = "aanschrijfwijze";
   @SerializedName(SERIALIZED_NAME_AANSCHRIJFWIJZE)
