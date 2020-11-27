@@ -43,7 +43,8 @@ Komende periode wordt de API uitgebreid met links naar de BAG, filiatie en stukk
 
 * Product Owner: Cathy Dingemanse, [cathy.dingemanse@denhaag.nl](mailto:cathy.dingemanse@denhaag.nl)
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
-* Customer 0: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
+* Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
+* Customer zero: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
 * Tester: Frank Samwel, [frank.samwel@denhaag.nl](mailto:frank.samwel@denhaag.nl)
 
 
