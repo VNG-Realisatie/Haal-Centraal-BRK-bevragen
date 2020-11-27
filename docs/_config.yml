@@ -37,8 +37,8 @@ nav:
         path: /swagger-ui-io
       - title: Bevragen API (redoc)
         path: /redoc-io
-      - title: Features
-        path: /features
+#      - title: Features
+#        path: /features
 plugins:
   - jekyll-redirect-from
   - jekyll-remote-theme
