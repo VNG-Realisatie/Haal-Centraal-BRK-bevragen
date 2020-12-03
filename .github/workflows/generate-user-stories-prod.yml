@@ -18,7 +18,7 @@ jobs:
         uses: lee-dohm/select-matching-issues@v1.2.0
         with:
           format: list
-          query:  label:BRK bevragen v1.2.1 label:"User Story"
+          query:  label:"BRK bevragen v1.2.1" label:"User Story"
           token: ${{ secrets.USER_TOKEN }}
           path: issues-tmp.md
           
@@ -30,7 +30,7 @@ jobs:
         uses: lee-dohm/select-matching-issues@v1.2.0
         with:
           format: list
-          query:  label:BRK bevragen v1.2 label:"User Story"
+          query:  label:"BRK bevragen v1.2" label:"User Story"
           token: ${{ secrets.USER_TOKEN }}
           path: issues-tmp.md
 
