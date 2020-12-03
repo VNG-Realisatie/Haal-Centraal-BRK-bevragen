@@ -1,5 +1,80 @@
 # Release notes BRK-Bevragen
 
+
+## **Versie 1.3.0:**
+
+### openapi.yaml
+
+- Algemeen
+  - Nieuwe endpoints toegevoegd voor stukken en stukdelen.
+  - Bestaande resources zijn (voorzover van toepassing) uitgebreid met relaties naar de betrokken stukken en stukdelen.
+
+- stukken
+  2 nieuwe endpoints:
+  - /stukken/{stukidentificatie}
+  - /stukdelen/{stukdeelidentificatie}
+
+- kadastraalOnroerendeZaken
+  - nummeraanduidingIdentificatie is toegevoegd als queryparameter aan /kadastraalonroerendezaken
+  - Properties toegevoegd:
+    - indicatieVervallenKadastraalOnroerendeZaak
+    - einddatumRecht
+    - isOvergegaanIn
+    - isOntstaanUit
+    - bijbeherendeGrondperceelIdentificatie
+    - bijbehorendeAppartementsrechtIdentificaties
+    - stukIdentificaties
+    - adresseerbaarObjectIdentificatie (bij adres)
+  - Links toegevoegd:
+    - isOntstaanUit (achterwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak)
+    - isOvergegaanIn (voorwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak)
+    - stukken
+    - adressen ([Haal-Centraal BAG-endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/) is nu in productie beschikbaar )
+    - adresseerbareObjecten, ook beschikbaar via [Haal-Centraal BAG-endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/)
+    - bijbehorendGrondperceel (link naar de betreffende gerelateerde kadastraalOnroerendeZaak)
+    - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaekn die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak.
+
+- hypotheken
+  - Properties toegevoegd:
+    - stukIdentificaties
+    - omschrijvingGekozenWoonplaats
+    - isGebaseerdOpStukdeelIdentificatie
+    - isVermeldInStukdeelIdentificaties
+  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+
+-  beslagen
+  - Properties toegevoegd:
+    - stukIdentificaties
+    - isGebaseerdOpStukdeelIdentificatie
+    - isVermeldInStukdeelIdentificaties
+  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+
+- privaatrechtelijkeBeperkingen
+  - Properties toegevoegd (overerfd uit Aantekening):
+    - stukIdentificaties
+    - isGebaseerdOpStukdeelIdentificatie
+    - isVermeldInStukdeelIdentificaties
+  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+
+- publiekrechtelijkeBeperkingen
+  - Properties toegevoegd:
+    - stukIdentificaties
+    - isGebaseerdOpStukdeelIdentificatie
+    - isVermeldInStukdeelIdentificaties
+  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+
+- zakelijkGerechtigde
+  - Properties toegevoegd:
+    - stukIdentificaties
+    - isGebaseerdOpStukdeelIdentificatie
+    - isVermeldInStukdeelIdentificaties
+    - erfpachtCanon.isGebaseerdOpStukdeelIdentificatie
+    - erfpachtCanon.isVermeldInStukdeelIdentificaties
+    - tenaamstelling.isGebaseerdOpStukdeelIdentificatie
+    - tenaamstelling.isVermeldInStukdeelIdentificaties
+  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+
+
 ## **Versie 1.2.0:**
 
 ### openapi.yaml

@@ -46,7 +46,9 @@ components:
             stukIdentificaties:
               type: "array"
               description: |
-                	           Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn.
+                            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                            tot een wijziging van de gegevens in een basisregistratie.
+                            Dit kan een aangeboden stuk of een kadasterstuk zijn.
               items:
                 type: string
             isGebaseerdOpStukdeelIdentificatie:
@@ -129,6 +131,70 @@ components:
           $ref: "#/components/schemas/Waardelijst"
           description: |
                         Waardelijst wordt gepubliceerd op http://www.kadaster.nl/schemas/waardelijsten/Valuta
+    Beslag:
+      type: "object"
+      description: |
+        Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: |
+                        Het domein waartoe de identificatie behoort.
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+          description: |
+                        Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.
+        omschrijvingBetrokkenRecht:
+          $ref: "#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+        toelichtingBewaarder:
+          type: "string"
+          description: |
+                        Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        aard:
+          $ref: "#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)
+        aantekeningen:
+          type: array
+          items:
+            $ref: "#/components/schemas/AantekeningBasis"
+            description: |
+                          Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een beslag is theoretisch mogelijk, maar komt bijna niet voor.
+        beslagleggers:
+          type: array
+          items:
+            $ref: "#/components/schemas/PersoonBeperkt"
+        bedragVordering:
+          $ref: "#/components/schemas/Bedrag"
+          description: |
+                        Het bedrag waarvoor beslag is gelegd. Als een beslag bestaat uit verschillende bedragen, dan zijn die bij elkaar opgeteld.
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+                        De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
+          items:
+            type: "string"
     ErfpachtCanon:
       type: "object"
       description: |
@@ -241,6 +307,73 @@ components:
             - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
+    Hypotheek:
+      type: "object"
+      description: |
+        Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).
+
+        Waardelijst in deze component :
+        - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: |
+                        Het domein waartoe de identificatie behoort.
+        aandeelInBetrokkenRecht:
+          $ref: "#/components/schemas/TypeBreuk"
+        gedeeltelijkeBezwaringOudObject:
+          type: "boolean"
+        omschrijvingBetrokkenRecht:
+          $ref: "#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+        toelichtingBewaarder:
+          type: "string"
+          description: |
+                        Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        betreftGedeelteVanPerceel:
+          type: "boolean"
+        aantekeningen:
+          type: array
+          items:
+            $ref: "#/components/schemas/AantekeningBasis"
+            description: |
+                          Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak.
+        hypotheekhouders:
+          description: |
+                        Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+          type: array
+          items:
+            $ref: "#/components/schemas/PersoonBeperkt"
+            description: |
+                          Geldverstrekker die een recht van hypotheek vestigt als zekerheid voor de lening.
+        bedragZekerheidsstelling:
+          $ref: "#/components/schemas/Bedrag"
+          description: |
+                        Het bedrag waarvoor hypothecaire zekerheid is gegeven door onderpandgever en waarvoor het recht van Hypotheek is gevestigd.
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
+        omschrijvingGekozenWoonplaats:
+            type: "string"
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+                        De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld
+          items:
+            type: "string"
+
     KadasterNatuurlijkPersoon:
       allOf:
       - $ref: "#/components/schemas/KadasterPersoon"
@@ -338,6 +471,16 @@ components:
           type: "string"
           description: |
                         Het domein waartoe de identificatie behoort.
+        indicatieVervallen:
+          type: "boolean"
+          description: |
+                        Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.
+                        Deze informatie is nodig om de filiatie-"boom" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.
+        einddatum:
+          type: "string"
+          description: |
+                        Datum waarop de kadastraal onroerende zaak is vervallen
+          format: "date"
         begrenzingPerceel:
           $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
         perceelnummerRotatie:
@@ -422,7 +565,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
     Kadasterverzoek:
@@ -449,6 +594,8 @@ components:
         - properties:
             koppelingswijze:
               $ref: "#/components/schemas/Waardelijst"
+            adresseerbaarObjectIdentificatie:
+              type: "string"
     Naam:
       type: "object"
       description: |
@@ -567,6 +714,47 @@ components:
             woonplaats: "Nootdorp"
             adresregel1: "Postbus 1021"
             adresregel2: "1234AA Nootdorp"
+    PubliekrechtelijkeBeperking:
+      type: "object"
+      description: |
+                    Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: |
+                        Het domein waartoe de identificatie behoort.
+        grondslag:
+          $ref: "#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
+        datumInWerking:
+          type: "string"
+          format: "date"
+        datumBeeindiging:
+          type: "string"
+          format: "date"
+        bevoegdGezag:
+          $ref: "#/components/schemas/NietNatuurlijkPersoonBeperkt"
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: "string"
+        isGebaseerdOpStukdeelIdentificatie:
+          type: "string"
+          description: |
+                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          description: |
+            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld.
+          items:
+            type: "string"
     RedenVerzoek:
       type: "object"
       description: |
@@ -615,7 +803,7 @@ components:
                         Correctie in de openbare registers door de bewaarder.
                         De bewaarder is iemand die bij het Kadaster werkt.
                         Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
-        tekeningIngeschreven:
+        indicatieTekeningBijgevoegd:
           type: "boolean"
           description: |
                         Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.
@@ -853,7 +1041,9 @@ components:
         stukIdentificaties:
           type: "array"
           description: |
-                        Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn.
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
         isGebaseerdOpStukdeelIdentificatie:

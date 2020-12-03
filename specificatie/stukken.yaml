@@ -31,7 +31,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/StukHalBasis'
+                $ref: '#/components/schemas/StukHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -49,7 +49,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Stukken (Akte)
+      - Stukken
   /stukdelen/{stukdeelidentificatie}:
     get:
       operationId: GetStukdeel
@@ -58,6 +58,7 @@ paths:
                     Met de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: path
           name: stukdeelidentificatie
           required: true
@@ -76,7 +77,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/StukdeelHalBasis'
+                $ref: '#/components/schemas/StukdeelHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -94,7 +95,7 @@ paths:
         '503':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
-      - Stukken (Akte)
+      - Stukken
 components:
   schemas:
     StukdeelHalBasis:
@@ -103,6 +104,12 @@ components:
         - properties:
             _links:
               $ref: "#/components/schemas/StukdeelLinks"
+    StukdeelHal:
+      allOf:
+        - $ref: "#/components/schemas/StukdeelHalBasis"
+        - properties:
+            _embedded:
+              $ref: "#/components/schemas/StukdeelEmbedded"
     StukdeelLinks:
       type: "object"
       properties:
@@ -114,12 +121,23 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    StukdeelEmbedded:
+      type: "object"
+      properties:
+        stuk:
+          $ref: "#/components/schemas/StukHalBasis"
     StukHalBasis:
       allOf:
         - $ref: "domain.yaml#/components/schemas/Stuk"
         - properties:
             _links:
               $ref: "#/components/schemas/StukLinks"
+    StukHal:
+      allOf:
+        - $ref: "#/components/schemas/StukHalBasis"
+        - properties:
+            _embedded:
+              $ref: "#/components/schemas/StukEmbedded"
     StukLinks:
       type: "object"
       properties:
@@ -131,3 +149,10 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         oorspronkelijkStuk:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    StukEmbedded:
+      type: "object"
+      properties:
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StukdeelHalBasis"

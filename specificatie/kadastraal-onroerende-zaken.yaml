@@ -11,19 +11,22 @@ paths:
       description: |
           Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
+              - kadastraleAanduiding
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
-              -  typegerechtigde (optioneel)
+              -  zakelijkGerechtigde__type (optioneel)
           3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
-              -  kadasterpersoonidentificatie (verplicht)
-              -  typegerechtigde (optioneel)
+              -  persoon__identificatie (verplicht)
+              -  zakelijkGerechtigde__type (optioneel)
           4.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel)
               -  huisletter (optioneel)
               -  huisnummertoevoeging (optioneel)
+          5.  Nummeraanduiding
+              - nummeraanduidingIdentificatie
 
-          Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.
+          Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       parameters:
@@ -104,6 +107,14 @@ paths:
           schema:
             type: string
             pattern: "^([a-z,A-Z,0-9]){1,4}$"
+        - in: query
+          name: nummeraanduidingIdentificatie
+          description: |
+                        De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.
+          required: false
+          schema:
+            type: string
+            pattern: "^[0-9]{16}$"
       responses:
         '200':
           description: |
@@ -247,6 +258,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adresseerbareObjecten:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         bijbehorendGrondperceel:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         bijbehorendeAppartementsrechten:
@@ -254,13 +269,13 @@ components:
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaakEmbedded:
-          type: "object"
-          properties:
-            zakelijkGerechtigden:
-              type: "array"
-              items:
-                $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
-            privaatrechtelijkeBeperkingen:
-              type: "array"
-              items:
-                $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+      type: "object"
+      properties:
+        zakelijkGerechtigden:
+          type: "array"
+          items:
+            $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
+        privaatrechtelijkeBeperkingen:
+          type: "array"
+          items:
+            $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
