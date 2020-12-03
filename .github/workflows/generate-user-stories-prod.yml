@@ -21,7 +21,6 @@ jobs:
           query:  label:"BRK bevragen v1.2.1" label:"User Story"
           token: ${{ secrets.USER_TOKEN }}
           path: issues-tmp.md
-          
       - run: |
           cat issues-tmp.md >> issues.md
           echo -e '\n' >> issues.md
@@ -33,12 +32,36 @@ jobs:
           query:  label:"BRK bevragen v1.2" label:"User Story"
           token: ${{ secrets.USER_TOKEN }}
           path: issues-tmp.md
-
       - run: |
           cat issues-tmp.md >> issues.md
           echo -e '\n' >> issues.md
+        
+      - name: List 'BRK bevragen v1.1' user stories
+        uses: lee-dohm/select-matching-issues@v1.2.0
+        with:
+          format: list
+          query:  label:"BRK bevragen v1.1" label:"User Story"
+          token: ${{ secrets.USER_TOKEN }}
+          path: issues-tmp.md
       - run: |
-          sed -i 's/)/){:target="_blank" rel="noopener"}/' issues.md
+          cat issues-tmp.md >> issues.md
+          echo -e '\n' >> issues.md
+        
+      - name: List 'BRK bevragen v1.0' user stories
+        uses: lee-dohm/select-matching-issues@v1.2.0
+        with:
+          format: list
+          query:  label:"BRK bevragen v1.0" label:"User Story"
+          token: ${{ secrets.USER_TOKEN }}
+          path: issues-tmp.md
+      - run: |
+          cat issues-tmp.md >> issues.md
+          echo -e '\n' >> issues.md
+
+      - name: target=_blank toevoegen, move naar ./docs en committen
+        run: |
+          sed -i 's/$)/){:target="_blank" rel="noopener"}/' issues.md
+
           mv issues.md ./docs/user-stories-prod.md
 
           if [ -n "$(git status ./docs/user-stories-prod.md --porcelain)" ]; then
