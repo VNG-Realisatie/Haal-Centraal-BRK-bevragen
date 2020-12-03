@@ -1036,8 +1036,13 @@ components:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
+        zakelijkRecht:
+          $ref: "#/components/schemas/ZakelijkRecht"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
+    ZakelijkRecht:
+      type: object
+      properties:
         stukIdentificaties:
           type: "array"
           description: |
@@ -1053,6 +1058,6 @@ components:
         isVermeldInStukdeelIdentificaties:
           type: "array"
           description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld.
+            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit zakelijk recht is vermeld.
           items:
             type: "string"

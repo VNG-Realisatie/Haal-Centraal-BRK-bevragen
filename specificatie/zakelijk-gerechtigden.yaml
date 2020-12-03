@@ -125,6 +125,7 @@ components:
             $ref: "#/components/schemas/ZakelijkGerechtigdeLinks"
     ZakelijkGerechtigdeLinks:
       type: "object"
+      description: "De links naar stukken en stukdelen betreffen stukken en stukdelen waar een zakelijk recht, erfpachtcanon en/of tenaamstelling op gebaseerd zijn of waar het zakelijk recht, erfpachtcanon en/of de tenaamstelling in vermeld zijn."
       properties:
         self:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -140,9 +141,7 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isGebaseerdOpStukdeel:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isVermeldInStukdelen:
+        stukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
