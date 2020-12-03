@@ -60,7 +60,7 @@ jobs:
 
       - name: target=_blank toevoegen, move naar ./docs en committen
         run: |
-          sed -i 's/$)/){:target="_blank" rel="noopener"}/' issues.md
+          sed -i 's/)$/){:target="_blank" rel="noopener"}/' issues.md
 
           mv issues.md ./docs/user-stories-prod.md
 
