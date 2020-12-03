@@ -4193,7 +4193,7 @@ components:
             type: string
             description: |
               Het eerste deel van een adres is een combinatie van de straat en huisnummer.
-            example: Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis
+            example: Ln vd l D-Westervoort 1A-bis
           adresregel2:
             type: string
             description: |
