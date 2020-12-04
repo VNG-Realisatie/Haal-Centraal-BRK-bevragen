@@ -1051,10 +1051,12 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
-        isGebaseerdOpStukdeelIdentificatie:
-          type: "string"
+        isGebaseerdOpStukdeelIdentificaties:
+          type: "array"
           description: |
                         De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd.
+          items:
+            type: "string"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           description: |
