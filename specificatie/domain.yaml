@@ -1036,8 +1036,13 @@ components:
           $ref: "#/components/schemas/ErfpachtCanon"
         tenaamstelling:
           $ref: "#/components/schemas/Tenaamstelling"
+        zakelijkRecht:
+          $ref: "#/components/schemas/ZakelijkRecht"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
+    ZakelijkRecht:
+      type: object
+      properties:
         stukIdentificaties:
           type: "array"
           description: |
@@ -1046,13 +1051,15 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
-        isGebaseerdOpStukdeelIdentificatie:
-          type: "string"
+        isGebaseerdOpStukdeelIdentificaties:
+          type: "array"
           description: |
                         De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd.
+          items:
+            type: "string"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           description: |
-            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld.
+            De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit zakelijk recht is vermeld.
           items:
             type: "string"
