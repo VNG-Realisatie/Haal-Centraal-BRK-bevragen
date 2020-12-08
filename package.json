@@ -33,16 +33,16 @@
   },
   "homepage": "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen#readme",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.0.3",
-    "@stoplight/spectral": "^5.6.0",
-    "husky": "^4.3.0",
+    "@openapitools/openapi-generator-cli": "^2.1.7",
+    "@stoplight/spectral": "^5.7.1",
+    "husky": "^4.3.5",
     "mkdirp": "^1.0.4",
     "mvn-dl": "^5.1.0",
     "openapi-to-postmanv2": "^2.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && rm ./specificatie/genereervariant/**"
+      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && git checkout ./specificatie/genereervariant/openapi.*"
     }
   }
 }
