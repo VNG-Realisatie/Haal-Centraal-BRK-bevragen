@@ -898,10 +898,12 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeelIdentificatie:
-          type: "string"
-          description: |
-                        De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
+        isGebaseerdOpStukdeelIdentificaties:
+          type: "array"
+          items:
+            type: "string"
+            description: |
+                          De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
