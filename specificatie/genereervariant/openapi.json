@@ -351,7 +351,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het raadplegen van een kadastrale onroerende zaak.\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.\n",
+        "description" : "Raadpleeg een kadastraal onroerende zaak.\n\n\nAls je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.\n",
         "operationId" : "GetKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "kadastraalonroerendezaakidentificatie",
@@ -861,7 +861,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
-        "description" : "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)\n",
+        "description" : "Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.\n",
         "operationId" : "GetZakelijkGerechtigden",
         "parameters" : [ {
           "name" : "fields",
@@ -1116,7 +1116,7 @@
     "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1350,7 +1350,7 @@
     "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1584,7 +1584,7 @@
     "/kadasternatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -1795,7 +1795,7 @@
     "/kadasternietnatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -2006,7 +2006,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypothekenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2253,7 +2253,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypotheek",
         "parameters" : [ {
           "name" : "fields",
@@ -2554,7 +2554,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslagenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2801,7 +2801,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van een beslag.\n",
+        "description" : "Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslag",
         "parameters" : [ {
           "name" : "fields",
@@ -3102,7 +3102,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperkingen",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3349,7 +3349,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van een specifieke privaatrechtelijke beperkingen.\n",
+        "description" : "Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperking",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3604,7 +3604,7 @@
     "/publiekrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Publiekrechtelijke Beperkingen" ],
-        "description" : "Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPubliekrechtelijkeBeperkingen",
         "parameters" : [ {
           "name" : "fields",
