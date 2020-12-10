@@ -150,9 +150,10 @@ paths:
     get:
       operationId: GetKadastraalOnroerendeZaak
       description: |
-        Het raadplegen van een kadastrale onroerende zaak.
+        Raadpleeg een kadastraal onroerende zaak.
 
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
+
+        Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       parameters:
         - in: path
           name: kadastraalonroerendezaakidentificatie
