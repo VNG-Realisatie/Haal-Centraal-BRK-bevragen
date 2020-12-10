@@ -320,9 +320,10 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het raadplegen van een kadastrale onroerende zaak.
+        Raadpleeg een kadastraal onroerende zaak.
 
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
+
+        Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
       - name: kadastraalonroerendezaakidentificatie
@@ -725,7 +726,7 @@ paths:
       tags:
       - Zakelijke Gerechtigden
       description: |
-        Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
+        Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.
       operationId: GetZakelijkGerechtigden
       parameters:
       - name: fields
@@ -924,7 +925,7 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
       - name: fields
@@ -1103,7 +1104,7 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
       - name: fields
@@ -1282,7 +1283,7 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersonen
       parameters:
       - name: fields
@@ -1446,7 +1447,7 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
       - name: fields
@@ -1610,7 +1611,7 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -1802,7 +1803,7 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypotheek
       parameters:
       - name: fields
@@ -2036,7 +2037,7 @@ paths:
       tags:
       - Beslagen
       description: |
-        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
+        Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -2228,7 +2229,7 @@ paths:
       tags:
       - Beslagen
       description: |
-        Het raadplegen van een beslag.
+        Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak
       operationId: GetBeslag
       parameters:
       - name: fields
@@ -2462,7 +2463,7 @@ paths:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
-        Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperkingen
       parameters:
       - name: Accept-Crs
@@ -2654,7 +2655,7 @@ paths:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
-        Het raadplegen van een specifieke privaatrechtelijke beperkingen.
+        Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperking
       parameters:
       - name: Accept-Crs
@@ -2853,7 +2854,7 @@ paths:
       tags:
       - Publiekrechtelijke Beperkingen
       description: |
-        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
       operationId: GetPubliekrechtelijkeBeperkingen
       parameters:
       - name: fields
