@@ -1,8 +1,3 @@
----
-layout: page-with-side-nav
-title: Haal Centraal BRK bevragingen
----
-
 # Release notes BRK-Bevragen
 
 
@@ -14,70 +9,84 @@ title: Haal Centraal BRK bevragingen
   - Nieuwe endpoints toegevoegd voor stukken en stukdelen.
   - Bestaande resources zijn (voorzover van toepassing) uitgebreid met relaties naar de betrokken stukken en stukdelen.
 
-- stukken
-  2 nieuwe endpoints:
+- stukken 2 nieuwe endpoints  ([622](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/622){:target="_blank"} en [624](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/624){:target="_blank"} ):
   - /stukken/{stukidentificatie}
   - /stukdelen/{stukdeelidentificatie}
 
 - kadastraalOnroerendeZaken
-  - nummeraanduidingIdentificatie is toegevoegd als queryparameter aan /kadastraalonroerendezaken
+  - nummeraanduidingIdentificatie is toegevoegd als queryparameter aan /kadastraalonroerendezaken ([41](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/41){:target="_blank"})
   - Properties toegevoegd:
-    - indicatieVervallenKadastraalOnroerendeZaak
-    - einddatumRecht
-    - isOvergegaanIn
-    - isOntstaanUit
-    - bijbeherendeGrondperceelIdentificatie
-    - bijbehorendeAppartementsrechtIdentificaties
-    - stukIdentificaties
-    - adresseerbaarObjectIdentificatie (bij adres)
+    - indicatieVervallenKadastraalOnroerendeZaak ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/22){:target="_blank"})
+    - einddatumRecht ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/22){:target="_blank"})
+    - isOvergegaanIn ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
+    - isOntstaanUit ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
+    - bijbehorendeGrondperceelIdentificatie ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeAppartementsrechtIdentificaties ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - adresseerbaarObjectIdentificatie (bij adres) ([756](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/756){:target="_blank"})
   - Links toegevoegd:
-    - isOntstaanUit (achterwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak)
-    - isOvergegaanIn (voorwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak)
-    - stukken
-    - adressen ([Haal-Centraal BAG-endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/) is nu in productie beschikbaar )
-    - adresseerbareObjecten, ook beschikbaar via [Haal-Centraal BAG-endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/)
-    - bijbehorendGrondperceel (link naar de betreffende gerelateerde kadastraalOnroerendeZaak)
-    - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaekn die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak.
+    - isOntstaanUit (achterwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak) ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
+    - isOvergegaanIn (voorwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak) ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - adressen (link naar [Haal-Centraal BAG adressen endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/) is nu in productie beschikbaar )
+    - adresseerbareObjecten (link naar [Haal-Centraal BAG adresseerbareobjecten endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/))
+    - bijbehorendGrondperceel (link naar de betreffende gerelateerde kadastraalOnroerendeZaak) ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaekn die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak. ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
 
 - hypotheken
   - Properties toegevoegd:
-    - stukIdentificaties
-    - omschrijvingGekozenWoonplaats
-    - isGebaseerdOpStukdeelIdentificatie
-    - isVermeldInStukdeelIdentificaties
-  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+    - stukIdentificaties (Nieuwe functionaliteit. Voornaamste aanleiding versie 1.3)
+    - omschrijvingGekozenWoonplaats (n.a.v. opnemen stukdeel)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - De links naar stukken en stukdelen zijn opgenomen.
 
 -  beslagen
   - Properties toegevoegd:
-    - stukIdentificaties
-    - isGebaseerdOpStukdeelIdentificatie
-    - isVermeldInStukdeelIdentificaties
-  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - De links naar stukken en stukdelen zijn opgenomen.
 
 - privaatrechtelijkeBeperkingen
   - Properties toegevoegd (overerfd uit Aantekening):
-    - stukIdentificaties
-    - isGebaseerdOpStukdeelIdentificatie
-    - isVermeldInStukdeelIdentificaties
-  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - De links naar stukken en stukdelen zijn opgenomen.
 
 - publiekrechtelijkeBeperkingen
   - Properties toegevoegd:
-    - stukIdentificaties
-    - isGebaseerdOpStukdeelIdentificatie
-    - isVermeldInStukdeelIdentificaties
-  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - De links naar stukken en stukdelen zijn opgenomen.
 
 - zakelijkGerechtigde
   - Properties toegevoegd:
-    - stukIdentificaties
-    - isGebaseerdOpStukdeelIdentificatie
-    - isVermeldInStukdeelIdentificaties
-    - erfpachtCanon.isGebaseerdOpStukdeelIdentificatie
-    - erfpachtCanon.isVermeldInStukdeelIdentificaties
-    - tenaamstelling.isGebaseerdOpStukdeelIdentificatie
-    - tenaamstelling.isVermeldInStukdeelIdentificaties
-  - De links naar stukken, isGebaseerdOpStukdeel en isVermeldInStukdelen zijn opgenomen.
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - erfpachtCanon.StukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - erfpachtCanon.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - erfpachtCanon.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - tenaamstelling.StukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - tenaamstelling.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - tenaamstelling.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - De links naar stukken en stukdelen zijn opgenomen.
+
+### issues:
+
+  Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "BRK-Bevragen 1.3.0" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
+
+
+### documentatie:
+
+  - Om het publiceren van onze specificaties met Github.Pages mogelijk te maken zijn diverse documenten verplaatst naar de /docs.
+  - N.a.v. de constructie om naar stukken en stukdelen te verwijzen vanuit meerdere properties in verschillende groepen van dezelfde resource is de feature [uri-templating](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/features/uri-templating.feature) uitgebreid.
+  - Via https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/ is de repository ook te raadplegen. Inmiddels wordt de specificatie ook met Redoc ontsloten.
 
 
 ## **Versie 1.2.0:**
