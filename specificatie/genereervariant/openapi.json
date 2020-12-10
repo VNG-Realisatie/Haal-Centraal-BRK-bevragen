@@ -4390,6 +4390,12 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
           "adressen" : {
             "type" : "array",
             "items" : {
@@ -4720,10 +4726,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4782,10 +4785,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4839,10 +4839,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4895,10 +4892,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -5111,9 +5105,16 @@
           },
           "bijbehorendeAppartementsrechtIdentificaties" : {
             "type" : "array",
-            "description" : "De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
+            "description" : "De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
             "items" : {
               "type" : "string"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.\n"
             }
           },
           "stukIdentificaties" : {
@@ -5390,6 +5391,13 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
           }
         },
         "description" : "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.\n\n\nWaardelijst in deze component :\n  [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)\n"
@@ -5439,15 +5447,25 @@
           "betrokkenGorzenEnAanwassen" : {
             "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
           },
-          "isGebaseerdOpStukdeelIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.\n"
+          "isGebaseerdOpStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.\n"
+            }
           },
           "isVermeldInStukdeelIdentificaties" : {
             "type" : "array",
             "items" : {
               "type" : "string",
               "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.\n"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
             }
           }
         },
@@ -6106,10 +6124,6 @@
             "items" : {
               "$ref" : "#/components/schemas/Kadasterverzoek"
             }
-          },
-          "oorspronkelijkStukIdentificatie" : {
-            "type" : "string",
-            "description" : "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster\n"
           }
         },
         "description" : "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"
