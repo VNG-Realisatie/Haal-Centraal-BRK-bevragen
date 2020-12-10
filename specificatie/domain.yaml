@@ -231,6 +231,14 @@ components:
                         De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld
           items:
             type: "string"
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
     EquivalentieVerklaarder:
       type: "object"
       description: |
@@ -558,10 +566,16 @@ components:
                         De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
         bijbehorendeAppartementsrechtIdentificaties:
           description: |
-                      De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+                      De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           type : "array"
           items:
             type: "string"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          items:
+            type: "string"
+            description: |
+                          De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.
         stukIdentificaties:
           type: "array"
           description: |
@@ -831,10 +845,6 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/Kadasterverzoek"
-        oorspronkelijkStukIdentificatie:
-          description: |
-                        Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
-          type: "string"
     Stukdeel:
       type: object
       description: |
@@ -910,6 +920,14 @@ components:
             type: "string"
             description: |
                           De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
     TypeBreuk:
       type: "object"
       description: |
