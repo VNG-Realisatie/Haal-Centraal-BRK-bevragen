@@ -3460,6 +3460,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        stukdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         adressen:
           type: array
           items:
@@ -3714,9 +3718,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3753,9 +3755,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3794,9 +3794,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3829,9 +3827,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3986,9 +3982,15 @@ components:
         bijbehorendeAppartementsrechtIdentificaties:
           type: array
           description: |
-            De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+            De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           items:
             type: string
+        isVermeldInStukdeelIdentificaties:
+          type: array
+          items:
+            type: string
+            description: |
+              De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.
         stukIdentificaties:
           type: array
           description: |
@@ -4232,6 +4234,14 @@ components:
             De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld
           items:
             type: string
+        stukIdentificaties:
+          type: array
+          description: |
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
       description: |
         Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
 
@@ -4277,16 +4287,26 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeelIdentificatie:
-          type: string
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
+        isGebaseerdOpStukdeelIdentificaties:
+          type: array
+          items:
+            type: string
+            description: |
+              De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
         isVermeldInStukdeelIdentificaties:
           type: array
           items:
             type: string
             description: |
               De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.
+        stukIdentificaties:
+          type: array
+          description: |
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
       description: |
         Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
 
@@ -4866,10 +4886,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Kadasterverzoek'
-        oorspronkelijkStukIdentificatie:
-          type: string
-          description: |
-            Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
       description: |
         Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
         Waardelijsten in deze component :
