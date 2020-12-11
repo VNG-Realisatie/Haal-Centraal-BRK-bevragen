@@ -9,7 +9,9 @@ paths:
     get:
       operationId: GetKadasterNietNatuurlijkPersoon
       description: |
-                    Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is
+                    ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte.
+                    Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
@@ -53,7 +55,9 @@ paths:
     get:
       operationId: GetKadasterNietNatuurlijkPersonen
       description: |
-                    Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven,
+                    of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte.
+                    Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query

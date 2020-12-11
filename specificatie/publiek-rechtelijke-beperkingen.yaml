@@ -15,7 +15,8 @@ paths:
         - in: query
           name: kadastraalOnroerendeZaakIdentificatie
           description: |
-                        De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
+                        De unieke identificatie van een kadastraal onroerende zaak.
+                        Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
           required: true
           schema:
             type: string

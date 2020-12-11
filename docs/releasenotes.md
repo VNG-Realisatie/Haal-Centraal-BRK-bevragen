@@ -89,7 +89,7 @@ title: Haal Centraal BRK bevragingen
 
 ### documentatie:
 
-  - Om het publiceren van onze specificaties met Github.Pages mogelijk te maken zijn diverse documenten verplaatst naar de /docs.
+  - Om het publiceren van onze specificaties met Github Pages mogelijk te maken zijn diverse documenten verplaatst naar de /docs.
   - N.a.v. de constructie om naar stukken en stukdelen te verwijzen vanuit meerdere properties in verschillende groepen van dezelfde resource is de feature [uri-templating](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/master/features/uri-templating.feature) uitgebreid.
   - Via https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/ is de repository ook te raadplegen. Inmiddels wordt de specificatie ook met Redoc ontsloten.
 
