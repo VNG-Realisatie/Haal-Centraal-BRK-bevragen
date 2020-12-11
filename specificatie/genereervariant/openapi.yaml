@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API
   description: |
-    D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
+    D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
+    Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -37,7 +38,8 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.
+        Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
             - kadastraleAanduiding
         2.  Ingeschreven persoon als zakelijk gerechtigde
@@ -56,7 +58,8 @@ paths:
 
         Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
-        Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
+        Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
+        Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       operationId: GetKadastraalOnroerendeZaken
       parameters:
       - name: Accept-Crs
@@ -321,8 +324,6 @@ paths:
       - Kadastraal Onroerende Zaken
       description: |
         Raadpleeg een kadastraal onroerende zaak.
-
-
         Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
@@ -925,7 +926,8 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven,
+        of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
       - name: fields
@@ -1104,7 +1106,9 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is
+        ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte.
+        Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
       - name: fields
@@ -1283,7 +1287,8 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven,
+        of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersonen
       parameters:
       - name: fields
@@ -1447,7 +1452,9 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven,
+        of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte.
+        Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
       - name: fields
@@ -1611,7 +1618,8 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).
+        Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -1803,7 +1811,8 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).
+        Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypotheek
       parameters:
       - name: fields
@@ -2870,7 +2879,8 @@ paths:
       - name: kadastraalOnroerendeZaakIdentificatie
         in: query
         description: |
-          De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
+          De unieke identificatie van een kadastraal onroerende zaak.
+          Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
         required: true
         schema:
           type: string
