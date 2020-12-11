@@ -4933,9 +4933,6 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
-          },
-          "oorspronkelijkStuk" : {
-            "$ref" : "#/components/schemas/HalLink"
           }
         }
       },
