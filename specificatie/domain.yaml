@@ -256,11 +256,6 @@ components:
       properties:
         aard:
           $ref: "#/components/schemas/Waardelijst"
-        overgangsgrootte:
-          description: |
-                        De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
-          type: "integer"
-          example: 220
         kadastraalOnroerendeZaakIdentificatie:
           description: |
                         De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
