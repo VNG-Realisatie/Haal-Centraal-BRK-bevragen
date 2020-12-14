@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   title: Kadaster - BRK-Bevragen API
   description: |
-    D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
+    D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
+    Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -37,7 +38,8 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.
+        Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
             - kadastraleAanduiding
         2.  Ingeschreven persoon als zakelijk gerechtigde
@@ -56,7 +58,8 @@ paths:
 
         Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
-        Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
+        Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
+        Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       operationId: GetKadastraalOnroerendeZaken
       parameters:
       - name: Accept-Crs
@@ -320,9 +323,8 @@ paths:
       tags:
       - Kadastraal Onroerende Zaken
       description: |
-        Het raadplegen van een kadastrale onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
+        Raadpleeg een kadastraal onroerende zaak.
+        Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
       - name: kadastraalonroerendezaakidentificatie
@@ -725,7 +727,7 @@ paths:
       tags:
       - Zakelijke Gerechtigden
       description: |
-        Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)
+        Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.
       operationId: GetZakelijkGerechtigden
       parameters:
       - name: fields
@@ -924,7 +926,8 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven,
+        of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersoon
       parameters:
       - name: fields
@@ -1103,7 +1106,9 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+        Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is
+        ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte.
+        Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersoon
       parameters:
       - name: fields
@@ -1282,7 +1287,8 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven,
+        of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterPersonen
       parameters:
       - name: fields
@@ -1446,7 +1452,9 @@ paths:
       tags:
       - Kadaster (niet)Natuurlijk Personen
       description: |
-        Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
+        Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven,
+        of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte.
+        Kadasternatuurlijkpersonen worden niet geactualiseerd.
       operationId: GetKadasterNietNatuurlijkPersonen
       parameters:
       - name: fields
@@ -1610,7 +1618,8 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).
+        Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypothekenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -1802,7 +1811,8 @@ paths:
       tags:
       - Hypotheken
       description: |
-        Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
+        Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).
+        Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.
       operationId: GetHypotheek
       parameters:
       - name: fields
@@ -2036,7 +2046,7 @@ paths:
       tags:
       - Beslagen
       description: |
-        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.
+        Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak
       operationId: GetBeslagenKadastraalOnroerendeZaak
       parameters:
       - name: fields
@@ -2228,7 +2238,7 @@ paths:
       tags:
       - Beslagen
       description: |
-        Het raadplegen van een beslag.
+        Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak
       operationId: GetBeslag
       parameters:
       - name: fields
@@ -2462,7 +2472,7 @@ paths:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
-        Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperkingen
       parameters:
       - name: Accept-Crs
@@ -2654,7 +2664,7 @@ paths:
       tags:
       - Privaatrechtelijke Beperkingen
       description: |
-        Het raadplegen van een specifieke privaatrechtelijke beperkingen.
+        Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.
       operationId: GetPrivaatrechtelijkeBeperking
       parameters:
       - name: Accept-Crs
@@ -2853,7 +2863,7 @@ paths:
       tags:
       - Publiekrechtelijke Beperkingen
       description: |
-        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
       operationId: GetPubliekrechtelijkeBeperkingen
       parameters:
       - name: fields
@@ -2869,7 +2879,8 @@ paths:
       - name: kadastraalOnroerendeZaakIdentificatie
         in: query
         description: |
-          De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
+          De unieke identificatie van een kadastraal onroerende zaak.
+          Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
         required: true
         schema:
           type: string
@@ -3460,6 +3471,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
+        stukdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         adressen:
           type: array
           items:
@@ -3714,9 +3729,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3753,9 +3766,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3794,9 +3805,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3829,9 +3838,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        isGebaseerdOpStukdeel:
-          $ref: '#/components/schemas/HalLink'
-        isVermeldInStukdelen:
+        stukdelen:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
@@ -3856,8 +3863,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        oorspronkelijkStuk:
-          $ref: '#/components/schemas/HalLink'
     StukEmbedded:
       type: object
       properties:
@@ -3986,9 +3991,15 @@ components:
         bijbehorendeAppartementsrechtIdentificaties:
           type: array
           description: |
-            De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+            De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           items:
             type: string
+        isVermeldInStukdeelIdentificaties:
+          type: array
+          items:
+            type: string
+            description: |
+              De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.
         stukIdentificaties:
           type: array
           description: |
@@ -4169,11 +4180,6 @@ components:
       properties:
         aard:
           $ref: '#/components/schemas/Waardelijst'
-        overgangsgrootte:
-          type: integer
-          description: |
-            De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.
-          example: 220
         kadastraalOnroerendeZaakIdentificatie:
           type: string
           description: |
@@ -4232,6 +4238,14 @@ components:
             De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld
           items:
             type: string
+        stukIdentificaties:
+          type: array
+          description: |
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
       description: |
         Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.
 
@@ -4277,16 +4291,26 @@ components:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
         betrokkenGorzenEnAanwassen:
           $ref: '#/components/schemas/NietNatuurlijkPersoonBeperkt'
-        isGebaseerdOpStukdeelIdentificatie:
-          type: string
-          description: |
-            De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
+        isGebaseerdOpStukdeelIdentificaties:
+          type: array
+          items:
+            type: string
+            description: |
+              De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.
         isVermeldInStukdeelIdentificaties:
           type: array
           items:
             type: string
             description: |
               De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.
+        stukIdentificaties:
+          type: array
+          description: |
+            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+            tot een wijziging van de gegevens in een basisregistratie.
+            Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
       description: |
         Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.
 
@@ -4866,10 +4890,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Kadasterverzoek'
-        oorspronkelijkStukIdentificatie:
-          type: string
-          description: |
-            Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
       description: |
         Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
         Waardelijsten in deze component :

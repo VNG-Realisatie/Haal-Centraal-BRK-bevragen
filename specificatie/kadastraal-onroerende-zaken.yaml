@@ -9,7 +9,8 @@ paths:
     get:
       operationId: GetKadastraalOnroerendeZaken
       description: |
-          Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.
+          Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.
+          Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
               - kadastraleAanduiding
           2.  Ingeschreven persoon als zakelijk gerechtigde
@@ -28,7 +29,8 @@ paths:
 
           Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
-          Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
+          Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
+          Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
@@ -150,9 +152,8 @@ paths:
     get:
       operationId: GetKadastraalOnroerendeZaak
       description: |
-        Het raadplegen van een kadastrale onroerende zaak.
-
-        Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.
+        Raadpleeg een kadastraal onroerende zaak.
+        Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       parameters:
         - in: path
           name: kadastraalonroerendezaakidentificatie
@@ -251,6 +252,10 @@ components:
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"

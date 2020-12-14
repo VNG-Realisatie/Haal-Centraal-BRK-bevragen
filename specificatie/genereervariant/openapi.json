@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Kadaster - BRK-Bevragen API",
-    "description" : "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.\n",
+    "description" : "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.\nDeze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.\n",
     "contact" : {
       "name" : "Kadaster Haal Centraal BRK-Bevragen",
       "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen"
@@ -47,7 +47,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -351,7 +351,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het raadplegen van een kadastrale onroerende zaak.\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.\n",
+        "description" : "Raadpleeg een kadastraal onroerende zaak.\nAls je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.\n",
         "operationId" : "GetKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "kadastraalonroerendezaakidentificatie",
@@ -861,7 +861,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
-        "description" : "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)\n",
+        "description" : "Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.\n",
         "operationId" : "GetZakelijkGerechtigden",
         "parameters" : [ {
           "name" : "fields",
@@ -1116,7 +1116,7 @@
     "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven,\nof wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1350,7 +1350,7 @@
     "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is\ningeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte.\nKadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1584,7 +1584,7 @@
     "/kadasternatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven,\nof wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -1795,7 +1795,7 @@
     "/kadasternietnatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven,\nof wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte.\nKadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -2006,7 +2006,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypothekenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2253,7 +2253,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypotheek",
         "parameters" : [ {
           "name" : "fields",
@@ -2554,7 +2554,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslagenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2801,7 +2801,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van een beslag.\n",
+        "description" : "Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslag",
         "parameters" : [ {
           "name" : "fields",
@@ -3102,7 +3102,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperkingen",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3349,7 +3349,7 @@
     "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van een specifieke privaatrechtelijke beperkingen.\n",
+        "description" : "Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperking",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -3604,7 +3604,7 @@
     "/publiekrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Publiekrechtelijke Beperkingen" ],
-        "description" : "Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPubliekrechtelijkeBeperkingen",
         "parameters" : [ {
           "name" : "fields",
@@ -3617,7 +3617,7 @@
         }, {
           "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "query",
-          "description" : "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak\n",
+          "description" : "De unieke identificatie van een kadastraal onroerende zaak.\nGezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak\n",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -4390,6 +4390,12 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
           "adressen" : {
             "type" : "array",
             "items" : {
@@ -4720,10 +4726,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4782,10 +4785,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4839,10 +4839,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4895,10 +4892,7 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "isGebaseerdOpStukdeel" : {
-            "$ref" : "#/components/schemas/HalLink"
-          },
-          "isVermeldInStukdelen" : {
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4939,9 +4933,6 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
-          },
-          "oorspronkelijkStuk" : {
-            "$ref" : "#/components/schemas/HalLink"
           }
         }
       },
@@ -5111,9 +5102,16 @@
           },
           "bijbehorendeAppartementsrechtIdentificaties" : {
             "type" : "array",
-            "description" : "De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
+            "description" : "De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
             "items" : {
               "type" : "string"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.\n"
             }
           },
           "stukIdentificaties" : {
@@ -5315,11 +5313,6 @@
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
-          "overgangsgrootte" : {
-            "type" : "integer",
-            "description" : "De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak.\n",
-            "example" : 220
-          },
           "kadastraalOnroerendeZaakIdentificatie" : {
             "type" : "string",
             "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
@@ -5390,6 +5383,13 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
           }
         },
         "description" : "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.\n\n\nWaardelijst in deze component :\n  [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)\n"
@@ -5439,15 +5439,25 @@
           "betrokkenGorzenEnAanwassen" : {
             "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
           },
-          "isGebaseerdOpStukdeelIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.\n"
+          "isGebaseerdOpStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.\n"
+            }
           },
           "isVermeldInStukdeelIdentificaties" : {
             "type" : "array",
             "items" : {
               "type" : "string",
               "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.\n"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
             }
           }
         },
@@ -6106,10 +6116,6 @@
             "items" : {
               "$ref" : "#/components/schemas/Kadasterverzoek"
             }
-          },
-          "oorspronkelijkStukIdentificatie" : {
-            "type" : "string",
-            "description" : "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster\n"
           }
         },
         "description" : "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"

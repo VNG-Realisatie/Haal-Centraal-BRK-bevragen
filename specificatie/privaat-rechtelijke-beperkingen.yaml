@@ -9,7 +9,7 @@ paths:
     get:
       operationId: GetPrivaatrechtelijkeBeperkingen
       description: |
-        Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
@@ -57,7 +57,7 @@ paths:
     get:
       operationId: GetPrivaatrechtelijkeBeperking
       description: |
-        Het raadplegen van een specifieke privaatrechtelijke beperkingen.
+        Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
@@ -145,9 +145,7 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isGebaseerdOpStukdeel:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        isVermeldInStukdelen:
+        stukdelen:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
