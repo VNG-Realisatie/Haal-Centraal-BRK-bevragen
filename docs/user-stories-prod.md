@@ -5,8 +5,6 @@ title: User Stories in Productie
 
 # User stories
 
-
-
 - [Als medewerker gemeente wil ik aanschrijfwijze, aanhef en referentie in lopende tekst van kadasterpersonen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/375){:target="_blank" rel="noopener"}
 - [Als beleidsaviseur wonen wil ik informatie over het aantal woningen dat in eigendom is van grote beleggers (eigenaren (op naam) met meer dan x bezittingen (de BAG-adressen met kenmerken)))](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/170){:target="_blank" rel="noopener"}
 - [Als medewerker vastgoedorganisatie wil ik weten of het eigendom is belast met publiekrechtelijke beperkingen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/133){:target="_blank" rel="noopener"}
@@ -56,6 +54,7 @@ title: User Stories in Productie
 - [Als medewerker vergunningen wil ik weten wanneer de huidige eigenaar het eigendom heeft gekregen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/37){:target="_blank" rel="noopener"}
 - [Als medewerker Vergunningen wil ik van een kadastrale onroerende zaak de x-y coördinaten van het perceel, de functie (cultuur bebouwd en cultuur onbebouwd), de oppervlakte, en of het een appartementsrecht is kunnen raadplegen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/36){:target="_blank" rel="noopener"}
 - [Als medewerker Erfpacht wil ik een parkeerplaats zoeken op BSN](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/35){:target="_blank" rel="noopener"}
+- [Wil ik inzicht in de tekening(en) van de akte(n) van uitgifte, splitsing en koop van een appartmentsrecht](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/32){:target="_blank" rel="noopener"}
 - [Als medewerker erfpacht wil ik inzicht in de grenzen van een kadastrale onroerende zaak](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/31){:target="_blank" rel="noopener"}
 - [Als medewerker Erfpacht wil ik inzicht in de erfdienstbaarheden die rusten op een kadastrale onroerende zaak](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/30){:target="_blank" rel="noopener"}
 - [Als medewerker Erfpacht wil ik weten wie het recht van erfpacht heeft van een kadastrale onroerende zaak binnen en buiten de gemeentegrenzen waarvan de gemeente het eigendom heeft](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/28){:target="_blank" rel="noopener"}

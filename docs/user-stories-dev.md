@@ -24,5 +24,6 @@ title: User Stories in Ontwikkeling
 - [Als medewerker vergunningen wil ik een of meer kadastrale onroerende zaken kunnen zoeken op basis van adres](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/38){:target="_blank" rel="noopener"}
 - [Als medewerker Erfpacht wil ik kadastrale onroerende zaken zoeken op adres ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/34){:target="_blank" rel="noopener"}
 - [Als medewerker Erfpacht wil ik inzicht in alle splitsingen en samenvoegingen die hebben plaatsgevonden tot en met de uitgifte van de grond door de gemeente en de vestiging van de erfpacht, en inzage in alle kadastrale onroerende zaken die uit dit grondperceel zijn voortgekomen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/33){:target="_blank" rel="noopener"}
+- [Wil ik inzicht in de tekening(en) van de akte(n) van uitgifte, splitsing en koop van een appartmentsrecht](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/32){:target="_blank" rel="noopener"}
 - [Als gemeente wil ik kadastrale onroerende zaken kunnen zoeken op nummeraanduiding](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/7){:target="_blank" rel="noopener"}
 
