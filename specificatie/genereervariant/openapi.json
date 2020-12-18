@@ -2024,16 +2024,6 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
         } ],
         "responses" : {
           "200" : {
@@ -2041,9 +2031,6 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
@@ -2279,16 +2266,6 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
         } ],
         "responses" : {
           "200" : {
@@ -2299,9 +2276,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -2572,16 +2546,6 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
         } ],
         "responses" : {
           "200" : {
@@ -2589,9 +2553,6 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
@@ -2827,16 +2788,6 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
         } ],
         "responses" : {
           "200" : {
@@ -2847,9 +2798,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -3105,16 +3053,6 @@
         "description" : "Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperkingen",
         "parameters" : [ {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
-        }, {
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
@@ -3140,9 +3078,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -3352,16 +3287,6 @@
         "description" : "Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperking",
         "parameters" : [ {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
-        }, {
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
@@ -3395,9 +3320,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
