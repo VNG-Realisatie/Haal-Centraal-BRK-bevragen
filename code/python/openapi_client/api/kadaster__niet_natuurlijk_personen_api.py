@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Kadaster - BRK-Bevragen API
 
@@ -10,18 +8,25 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from openapi_client.model.bad_request_foutbericht import BadRequestFoutbericht
+from openapi_client.model.foutbericht import Foutbericht
+from openapi_client.model.kadaster_natuurlijk_persoon_hal import KadasterNatuurlijkPersoonHal
+from openapi_client.model.kadaster_natuurlijk_persoon_hal_collectie import KadasterNatuurlijkPersoonHalCollectie
+from openapi_client.model.kadaster_niet_natuurlijk_persoon_hal import KadasterNietNatuurlijkPersoonHal
+from openapi_client.model.kadaster_niet_natuurlijk_persoon_hal_collectie import KadasterNietNatuurlijkPersoonHalCollectie
 
 
 class KadasterNietNatuurlijkPersonenApi(object):
@@ -36,484 +41,514 @@ class KadasterNietNatuurlijkPersonenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_kadaster_niet_natuurlijk_personen(self, q, **kwargs):  # noqa: E501
-        """get_kadaster_niet_natuurlijk_personen  # noqa: E501
+        def __get_kadaster_niet_natuurlijk_personen(
+            self,
+            q,
+            **kwargs
+        ):
+            """get_kadaster_niet_natuurlijk_personen  # noqa: E501
 
-        Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_niet_natuurlijk_personen(q, async_req=True)
-        >>> result = thread.get()
+            Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str q: Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadasterNietNatuurlijkPersoonHalCollectie
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadaster_niet_natuurlijk_personen_with_http_info(q, **kwargs)  # noqa: E501
+            >>> thread = api.get_kadaster_niet_natuurlijk_personen(q, async_req=True)
+            >>> result = thread.get()
 
-    def get_kadaster_niet_natuurlijk_personen_with_http_info(self, q, **kwargs):  # noqa: E501
-        """get_kadaster_niet_natuurlijk_personen  # noqa: E501
+            Args:
+                q (str): Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. 
 
-        Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_niet_natuurlijk_personen_with_http_info(q, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str q: Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadasterNietNatuurlijkPersoonHalCollectie, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                KadasterNietNatuurlijkPersoonHalCollectie
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['q'] = \
+                q
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'q',
-            'fields'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_kadaster_niet_natuurlijk_personen = Endpoint(
+            settings={
+                'response_type': (KadasterNietNatuurlijkPersoonHalCollectie,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadasternietnatuurlijkpersonen',
+                'operation_id': 'get_kadaster_niet_natuurlijk_personen',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'q',
+                    'fields',
+                ],
+                'required': [
+                    'q',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'q':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'q': 'q',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'q': 'query',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadaster_niet_natuurlijk_personen
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadaster_niet_natuurlijk_personen" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'q' is set
-        if self.api_client.client_side_validation and ('q' not in local_var_params or  # noqa: E501
-                                                        local_var_params['q'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `q` when calling `get_kadaster_niet_natuurlijk_personen`")  # noqa: E501
+        def __get_kadaster_niet_natuurlijk_persoon(
+            self,
+            kadasternietnatuurlijkpersoonidentificatie,
+            **kwargs
+        ):
+            """get_kadaster_niet_natuurlijk_persoon  # noqa: E501
 
-        collection_formats = {}
+            Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.get_kadaster_niet_natuurlijk_persoon(kadasternietnatuurlijkpersoonidentificatie, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
-        if 'q' in local_var_params and local_var_params['q'] is not None:  # noqa: E501
-            query_params.append(('q', local_var_params['q']))  # noqa: E501
+            Args:
+                kadasternietnatuurlijkpersoonidentificatie (str):
 
-        header_params = {}
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                KadasterNietNatuurlijkPersoonHal
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['kadasternietnatuurlijkpersoonidentificatie'] = \
+                kadasternietnatuurlijkpersoonidentificatie
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadasternietnatuurlijkpersonen', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadasterNietNatuurlijkPersoonHalCollectie',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_kadaster_niet_natuurlijk_persoon(self, kadasternietnatuurlijkpersoonidentificatie, **kwargs):  # noqa: E501
-        """get_kadaster_niet_natuurlijk_persoon  # noqa: E501
-
-        Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_niet_natuurlijk_persoon(kadasternietnatuurlijkpersoonidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadasternietnatuurlijkpersoonidentificatie: (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadasterNietNatuurlijkPersoonHal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadaster_niet_natuurlijk_persoon_with_http_info(kadasternietnatuurlijkpersoonidentificatie, **kwargs)  # noqa: E501
-
-    def get_kadaster_niet_natuurlijk_persoon_with_http_info(self, kadasternietnatuurlijkpersoonidentificatie, **kwargs):  # noqa: E501
-        """get_kadaster_niet_natuurlijk_persoon  # noqa: E501
-
-        Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_niet_natuurlijk_persoon_with_http_info(kadasternietnatuurlijkpersoonidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadasternietnatuurlijkpersoonidentificatie: (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadasterNietNatuurlijkPersoonHal, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'kadasternietnatuurlijkpersoonidentificatie',
-            'fields'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_kadaster_niet_natuurlijk_persoon = Endpoint(
+            settings={
+                'response_type': (KadasterNietNatuurlijkPersoonHal,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}',
+                'operation_id': 'get_kadaster_niet_natuurlijk_persoon',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'kadasternietnatuurlijkpersoonidentificatie',
+                    'fields',
+                ],
+                'required': [
+                    'kadasternietnatuurlijkpersoonidentificatie',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'kadasternietnatuurlijkpersoonidentificatie',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('kadasternietnatuurlijkpersoonidentificatie',): {
+                        'max_length': 60,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'kadasternietnatuurlijkpersoonidentificatie':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'kadasternietnatuurlijkpersoonidentificatie': 'kadasternietnatuurlijkpersoonidentificatie',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'kadasternietnatuurlijkpersoonidentificatie': 'path',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadaster_niet_natuurlijk_persoon
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadaster_niet_natuurlijk_persoon" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'kadasternietnatuurlijkpersoonidentificatie' is set
-        if self.api_client.client_side_validation and ('kadasternietnatuurlijkpersoonidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kadasternietnatuurlijkpersoonidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kadasternietnatuurlijkpersoonidentificatie` when calling `get_kadaster_niet_natuurlijk_persoon`")  # noqa: E501
+        def __get_kadaster_personen(
+            self,
+            q,
+            **kwargs
+        ):
+            """get_kadaster_personen  # noqa: E501
 
-        if self.api_client.client_side_validation and ('kadasternietnatuurlijkpersoonidentificatie' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['kadasternietnatuurlijkpersoonidentificatie']) > 60):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `kadasternietnatuurlijkpersoonidentificatie` when calling `get_kadaster_niet_natuurlijk_persoon`, length must be less than or equal to `60`")  # noqa: E501
-        collection_formats = {}
+            Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'kadasternietnatuurlijkpersoonidentificatie' in local_var_params:
-            path_params['kadasternietnatuurlijkpersoonidentificatie'] = local_var_params['kadasternietnatuurlijkpersoonidentificatie']  # noqa: E501
+            >>> thread = api.get_kadaster_personen(q, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
+            Args:
+                q (str): Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. 
 
-        header_params = {}
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                KadasterNatuurlijkPersoonHalCollectie
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['q'] = \
+                q
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadasterNietNatuurlijkPersoonHal',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_kadaster_personen(self, q, **kwargs):  # noqa: E501
-        """get_kadaster_personen  # noqa: E501
-
-        Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_personen(q, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str q: Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadasterNatuurlijkPersoonHalCollectie
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadaster_personen_with_http_info(q, **kwargs)  # noqa: E501
-
-    def get_kadaster_personen_with_http_info(self, q, **kwargs):  # noqa: E501
-        """get_kadaster_personen  # noqa: E501
-
-        Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_personen_with_http_info(q, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str q: Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadasterNatuurlijkPersoonHalCollectie, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'q',
-            'fields'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_kadaster_personen = Endpoint(
+            settings={
+                'response_type': (KadasterNatuurlijkPersoonHalCollectie,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadasternatuurlijkpersonen',
+                'operation_id': 'get_kadaster_personen',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'q',
+                    'fields',
+                ],
+                'required': [
+                    'q',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'q':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'q': 'q',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'q': 'query',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadaster_personen
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadaster_personen" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'q' is set
-        if self.api_client.client_side_validation and ('q' not in local_var_params or  # noqa: E501
-                                                        local_var_params['q'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `q` when calling `get_kadaster_personen`")  # noqa: E501
+        def __get_kadaster_persoon(
+            self,
+            kadasternatuurlijkpersoonidentificatie,
+            **kwargs
+        ):
+            """get_kadaster_persoon  # noqa: E501
 
-        collection_formats = {}
+            Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
+            >>> thread = api.get_kadaster_persoon(kadasternatuurlijkpersoonidentificatie, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
-        if 'q' in local_var_params and local_var_params['q'] is not None:  # noqa: E501
-            query_params.append(('q', local_var_params['q']))  # noqa: E501
+            Args:
+                kadasternatuurlijkpersoonidentificatie (str):
 
-        header_params = {}
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                KadasterNatuurlijkPersoonHal
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['kadasternatuurlijkpersoonidentificatie'] = \
+                kadasternatuurlijkpersoonidentificatie
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadasternatuurlijkpersonen', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadasterNatuurlijkPersoonHalCollectie',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_kadaster_persoon(self, kadasternatuurlijkpersoonidentificatie, **kwargs):  # noqa: E501
-        """get_kadaster_persoon  # noqa: E501
-
-        Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_persoon(kadasternatuurlijkpersoonidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadasternatuurlijkpersoonidentificatie: (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadasterNatuurlijkPersoonHal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadaster_persoon_with_http_info(kadasternatuurlijkpersoonidentificatie, **kwargs)  # noqa: E501
-
-    def get_kadaster_persoon_with_http_info(self, kadasternatuurlijkpersoonidentificatie, **kwargs):  # noqa: E501
-        """get_kadaster_persoon  # noqa: E501
-
-        Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadaster_persoon_with_http_info(kadasternatuurlijkpersoonidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadasternatuurlijkpersoonidentificatie: (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadasterNatuurlijkPersoonHal, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'kadasternatuurlijkpersoonidentificatie',
-            'fields'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_kadaster_persoon = Endpoint(
+            settings={
+                'response_type': (KadasterNatuurlijkPersoonHal,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}',
+                'operation_id': 'get_kadaster_persoon',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'kadasternatuurlijkpersoonidentificatie',
+                    'fields',
+                ],
+                'required': [
+                    'kadasternatuurlijkpersoonidentificatie',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'kadasternatuurlijkpersoonidentificatie',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('kadasternatuurlijkpersoonidentificatie',): {
+                        'max_length': 60,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'kadasternatuurlijkpersoonidentificatie':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'kadasternatuurlijkpersoonidentificatie': 'kadasternatuurlijkpersoonidentificatie',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'kadasternatuurlijkpersoonidentificatie': 'path',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadaster_persoon
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadaster_persoon" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'kadasternatuurlijkpersoonidentificatie' is set
-        if self.api_client.client_side_validation and ('kadasternatuurlijkpersoonidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kadasternatuurlijkpersoonidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kadasternatuurlijkpersoonidentificatie` when calling `get_kadaster_persoon`")  # noqa: E501
-
-        if self.api_client.client_side_validation and ('kadasternatuurlijkpersoonidentificatie' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['kadasternatuurlijkpersoonidentificatie']) > 60):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `kadasternatuurlijkpersoonidentificatie` when calling `get_kadaster_persoon`, length must be less than or equal to `60`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-        if 'kadasternatuurlijkpersoonidentificatie' in local_var_params:
-            path_params['kadasternatuurlijkpersoonidentificatie'] = local_var_params['kadasternatuurlijkpersoonidentificatie']  # noqa: E501
-
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadasterNatuurlijkPersoonHal',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -127,8 +128,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHalCollectie</returns>
-        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -139,8 +141,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo (string q, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -150,8 +153,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHal</returns>
-        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -162,8 +166,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -173,8 +178,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHalCollectie</returns>
-        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -185,8 +191,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenAsyncWithHttpInfo (string q, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -196,8 +203,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHal</returns>
-        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -208,8 +216,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonAsyncWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonWithHttpInfoAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -402,10 +411,11 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHalCollectie</returns>
-        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo(q, fields);
+             ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync(q, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -416,8 +426,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -457,7 +468,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -553,10 +564,11 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHal</returns>
-        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = await GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo(kadasternietnatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = await GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync(kadasternietnatuurlijkpersoonidentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -567,8 +579,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadasternietnatuurlijkpersoonidentificatie' is set
             if (kadasternietnatuurlijkpersoonidentificatie == null)
@@ -608,7 +621,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -704,10 +717,11 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHalCollectie</returns>
-        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterPersonenAsyncWithHttpInfo(q, fields);
+             ApiResponse<KadasterNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterPersonenWithHttpInfoAsync(q, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -718,8 +732,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenAsyncWithHttpInfo (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -759,7 +774,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -855,10 +870,11 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHal</returns>
-        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = await GetKadasterPersoonAsyncWithHttpInfo(kadasternatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = await GetKadasterPersoonWithHttpInfoAsync(kadasternatuurlijkpersoonidentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -869,8 +885,9 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonAsyncWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonWithHttpInfoAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadasternatuurlijkpersoonidentificatie' is set
             if (kadasternatuurlijkpersoonidentificatie == null)
@@ -910,7 +927,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

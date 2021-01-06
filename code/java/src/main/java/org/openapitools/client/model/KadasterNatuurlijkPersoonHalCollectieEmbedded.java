@@ -30,7 +30,7 @@ import org.openapitools.client.model.KadasterNatuurlijkPersoonHal;
 /**
  * KadasterNatuurlijkPersoonHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-27T09:37:24.750Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
 public class KadasterNatuurlijkPersoonHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_KADASTER_NATUURLIJK_PERSONEN = "kadasterNatuurlijkPersonen";
   @SerializedName(SERIALIZED_NAME_KADASTER_NATUURLIJK_PERSONEN)
@@ -69,7 +69,7 @@ public class KadasterNatuurlijkPersoonHalCollectieEmbedded {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -99,7 +99,7 @@ public class KadasterNatuurlijkPersoonHalCollectieEmbedded {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

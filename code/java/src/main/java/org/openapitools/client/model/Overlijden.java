@@ -29,7 +29,7 @@ import org.openapitools.client.model.DatumOnvolledig;
  * Overlijden is een groep gegevens over het overlijden van een persoon. 
  */
 @ApiModel(description = "Overlijden is een groep gegevens over het overlijden van een persoon. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-27T09:37:24.750Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
 public class Overlijden {
   public static final String SERIALIZED_NAME_DATUM = "datum";
   @SerializedName(SERIALIZED_NAME_DATUM)
@@ -60,7 +60,7 @@ public class Overlijden {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,7 +90,7 @@ public class Overlijden {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -89,8 +90,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="hypotheekidentificatie">De unieke identificatie van de hypotheek. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HypotheekHal</returns>
-        System.Threading.Tasks.Task<HypotheekHal> GetHypotheekAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<HypotheekHal> GetHypotheekAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -103,8 +105,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="hypotheekidentificatie">De unieke identificatie van de hypotheek. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HypotheekHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HypotheekHal>> GetHypotheekAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<ApiResponse<HypotheekHal>> GetHypotheekWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -115,8 +118,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HypotheekHalCollectie</returns>
-        System.Threading.Tasks.Task<HypotheekHalCollectie> GetHypothekenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<HypotheekHalCollectie> GetHypothekenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -128,8 +132,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HypotheekHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HypotheekHalCollectie>> GetHypothekenKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<ApiResponse<HypotheekHalCollectie>> GetHypothekenKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -333,10 +338,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hypotheekidentificatie">De unieke identificatie van de hypotheek. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HypotheekHal</returns>
-        public async System.Threading.Tasks.Task<HypotheekHal> GetHypotheekAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<HypotheekHal> GetHypotheekAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<HypotheekHal> localVarResponse = await GetHypotheekAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs);
+             ApiResponse<HypotheekHal> localVarResponse = await GetHypotheekWithHttpInfoAsync(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -349,8 +355,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="hypotheekidentificatie">De unieke identificatie van de hypotheek. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HypotheekHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HypotheekHal>> GetHypotheekAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<HypotheekHal>> GetHypotheekWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string hypotheekidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
             if (kadastraalonroerendezaakidentificatie == null)
@@ -395,7 +402,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -495,10 +502,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HypotheekHalCollectie</returns>
-        public async System.Threading.Tasks.Task<HypotheekHalCollectie> GetHypothekenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<HypotheekHalCollectie> GetHypothekenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<HypotheekHalCollectie> localVarResponse = await GetHypothekenKadastraalOnroerendeZaakAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, acceptCrs);
+             ApiResponse<HypotheekHalCollectie> localVarResponse = await GetHypothekenKadastraalOnroerendeZaakWithHttpInfoAsync(kadastraalonroerendezaakidentificatie, fields, acceptCrs, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -510,8 +518,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HypotheekHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HypotheekHalCollectie>> GetHypothekenKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<HypotheekHalCollectie>> GetHypothekenKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
             if (kadastraalonroerendezaakidentificatie == null)
@@ -552,7 +561,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

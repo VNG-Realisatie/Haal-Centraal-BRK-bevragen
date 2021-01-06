@@ -91,17 +91,18 @@ public class ZakelijkeGerechtigdenApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (acceptCrs != null) {
             localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
         }
 
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -259,6 +260,10 @@ public class ZakelijkeGerechtigdenApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
@@ -267,13 +272,10 @@ public class ZakelijkeGerechtigdenApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (acceptCrs != null) {
             localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
         }
 
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };

@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen. 
  */
 @ApiModel(description = "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-27T09:37:24.750Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
 public class TypePerceelnummerVerschuiving {
   public static final String SERIALIZED_NAME_DELTAX = "deltax";
   @SerializedName(SERIALIZED_NAME_DELTAX)
@@ -87,7 +87,7 @@ public class TypePerceelnummerVerschuiving {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -119,7 +119,7 @@ public class TypePerceelnummerVerschuiving {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

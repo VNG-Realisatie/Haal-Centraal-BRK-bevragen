@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -89,8 +90,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="privaatrechtelijkebeperkingidentificatie">De unieke identificatie van een privaatrechtelijke beperking. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PrivaatrechtelijkeBeperkingHal</returns>
-        System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHal> GetPrivaatrechtelijkeBeperkingAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHal> GetPrivaatrechtelijkeBeperkingAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -103,8 +105,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="privaatrechtelijkebeperkingidentificatie">De unieke identificatie van een privaatrechtelijke beperking. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PrivaatrechtelijkeBeperkingHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHal>> GetPrivaatrechtelijkeBeperkingAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHal>> GetPrivaatrechtelijkeBeperkingWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -115,8 +118,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PrivaatrechtelijkeBeperkingHalCollectie</returns>
-        System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHalCollectie> GetPrivaatrechtelijkeBeperkingenAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHalCollectie> GetPrivaatrechtelijkeBeperkingenAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -128,8 +132,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PrivaatrechtelijkeBeperkingHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie>> GetPrivaatrechtelijkeBeperkingenAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie>> GetPrivaatrechtelijkeBeperkingenWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -333,10 +338,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="privaatrechtelijkebeperkingidentificatie">De unieke identificatie van een privaatrechtelijke beperking. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PrivaatrechtelijkeBeperkingHal</returns>
-        public async System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHal> GetPrivaatrechtelijkeBeperkingAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHal> GetPrivaatrechtelijkeBeperkingAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PrivaatrechtelijkeBeperkingHal> localVarResponse = await GetPrivaatrechtelijkeBeperkingAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields);
+             ApiResponse<PrivaatrechtelijkeBeperkingHal> localVarResponse = await GetPrivaatrechtelijkeBeperkingWithHttpInfoAsync(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -349,8 +355,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="privaatrechtelijkebeperkingidentificatie">De unieke identificatie van een privaatrechtelijke beperking. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PrivaatrechtelijkeBeperkingHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHal>> GetPrivaatrechtelijkeBeperkingAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHal>> GetPrivaatrechtelijkeBeperkingWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string privaatrechtelijkebeperkingidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
             if (kadastraalonroerendezaakidentificatie == null)
@@ -395,7 +402,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -495,10 +502,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PrivaatrechtelijkeBeperkingHalCollectie</returns>
-        public async System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHalCollectie> GetPrivaatrechtelijkeBeperkingenAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<PrivaatrechtelijkeBeperkingHalCollectie> GetPrivaatrechtelijkeBeperkingenAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> localVarResponse = await GetPrivaatrechtelijkeBeperkingenAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, acceptCrs, fields);
+             ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> localVarResponse = await GetPrivaatrechtelijkeBeperkingenWithHttpInfoAsync(kadastraalonroerendezaakidentificatie, acceptCrs, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -510,8 +518,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PrivaatrechtelijkeBeperkingHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie>> GetPrivaatrechtelijkeBeperkingenAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie>> GetPrivaatrechtelijkeBeperkingenWithHttpInfoAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
             if (kadastraalonroerendezaakidentificatie == null)
@@ -552,7 +561,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

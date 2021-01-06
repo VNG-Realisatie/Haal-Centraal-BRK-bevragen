@@ -11,7 +11,7 @@ For more information, please visit [https://github.com/VNG-Realisatie/Haal-Centr
 
 ## Requirements.
 
-Python 2.7 and 3.4+
+Python >= 3.6
 
 ## Installation & Usage
 ### pip install
@@ -47,13 +47,15 @@ import openapi_client
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-from __future__ import print_function
 
 import time
 import openapi_client
-from openapi_client.rest import ApiException
 from pprint import pprint
-
+from openapi_client.api import beslagen_api
+from openapi_client.model.bad_request_foutbericht import BadRequestFoutbericht
+from openapi_client.model.beslag_hal import BeslagHal
+from openapi_client.model.beslag_hal_collectie import BeslagHalCollectie
+from openapi_client.model.foutbericht import Foutbericht
 # Defining the host is optional and defaults to https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
@@ -66,31 +68,26 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: apiKeyAuth
-configuration = openapi_client.Configuration(
-    host = "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
-    api_key = {
-        'X-Api-Key': 'YOUR_API_KEY'
-    }
-)
+configuration.api_key['apiKeyAuth'] = 'YOUR_API_KEY'
+
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
+# configuration.api_key_prefix['apiKeyAuth'] = 'Bearer'
 
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BeslagenApi(api_client)
-    kadastraalonroerendezaakidentificatie = 'kadastraalonroerendezaakidentificatie_example' # str | De unieke identificatie van een kadastraal onroerende zaak. 
-beslagidentificatie = 'beslagidentificatie_example' # str | De unieke identificatie van het beslag. 
-fields = 'fields_example' # str | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-accept_crs = 'accept_crs_example' # str | Gewenste CRS van de coördinaten in de response. (optional)
+    api_instance = beslagen_api.BeslagenApi(api_client)
+    kadastraalonroerendezaakidentificatie = "kadastraalonroerendezaakidentificatie_example" # str | De unieke identificatie van een kadastraal onroerende zaak. 
+beslagidentificatie = "beslagidentificatie_example" # str | De unieke identificatie van het beslag. 
+fields = "fields_example" # str | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
+accept_crs = "epsg:28992" # str | Gewenste CRS van de coördinaten in de response. (optional) (default to "epsg:28992")
 
     try:
         api_response = api_instance.get_beslag(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields=fields, accept_crs=accept_crs)
         pprint(api_response)
-    except ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling BeslagenApi->get_beslag: %s\n" % e)
-    
 ```
 
 ## Documentation for API Endpoints
@@ -232,4 +229,23 @@ Class | Method | HTTP request | Description
 
 
 
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in openapi_client.apis and openapi_client.models may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from openapi_client.api.default_api import DefaultApi`
+- `from openapi_client.model.pet import Pet`
+
+Solution 1:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import openapi_client
+from openapi_client.apis import *
+from openapi_client.models import *
+```
 

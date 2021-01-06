@@ -4101,6 +4101,7 @@ components:
           items:
             $ref: '#/components/schemas/InvalidParams'
           type: array
+      type: object
     ZakelijkGerechtigdeHal_allOf:
       properties:
         _links:
@@ -4246,11 +4247,16 @@ components:
             type: string
           type: array
     Postadres_allOf:
-      example: '{"postbusnummer":1021,"postcode":"1234AA","woonplaats":"Nootdorp","adresregel1":"Postbus
-        1021","adresregel2":"1234AA Nootdorp"}'
+      example:
+        postbusnummer: 1021
+        postcode: 1234AA
+        woonplaats: Nootdorp
+        adresregel1: Postbus 1021
+        adresregel2: 1234AA Nootdorp
       properties:
         postbusnummer:
           type: integer
+      type: object
     NaamPersoon_allOf:
       description: |
         Gegevens over de naam van de persoon
@@ -4270,6 +4276,7 @@ components:
             De gebruikInLopendeTekst wordt gebruikt om de persoon aan te duiden binnen een zin in een tekst
           example: mevrouw In het Veld-van Velzen
           type: string
+      type: object
     KadasterNietNatuurlijkPersoon_allOf:
       description: |
         Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.
