@@ -237,6 +237,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td>17500393970000<br/>IJsselmonde:459 D 3939   </td>
 		<td>3078JG 4              </td>
 		<td>0599200000316239</td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
