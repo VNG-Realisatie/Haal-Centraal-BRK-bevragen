@@ -16,6 +16,7 @@ title: User Stories in Productie
 - [Als medewerker Pandbrigade wil ik weten welke beperkingen er op het object liggen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/66){:target="_blank" rel="noopener"}
 - [Als medewerker Belastingzaken wil ik alle publiekrechtelijke en privaatrechtelijke beperkingen op een kadastraal onroerende zaak kunnen raadplegen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/48){:target="_blank" rel="noopener"}
 
+- [Als medewerker belastingzaken wil ik het buitenlandse verblijfsadres weten van een zakelijk gerechtigde](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/780){:target="_blank" rel="noopener"}
 - [Als medewerker belastingzaken wil ik weten of een zakelijk gerechtigde van een KOZ nog andere rechten heeft in de buurt van de KOZ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/457){:target="_blank" rel="noopener"}
 - [Als medewerker gebiedsontwikkeling wil ik Op basis van bepaalde kenmerken van appartements-adressen zoals bouwjaar en energielabel verenigingen van eigenaren kunnen aanschrijven](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/168){:target="_blank" rel="noopener"}
 - [Als medewerker gebiedsontwikkeling  wil ik inzicht hebben in de kadastrale perceelgrenzen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/166){:target="_blank" rel="noopener"}
