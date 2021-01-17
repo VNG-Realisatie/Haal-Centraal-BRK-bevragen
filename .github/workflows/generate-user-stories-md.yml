@@ -66,14 +66,16 @@ jobs:
           cat issues-tmp.md >> user-stories-prod.md
           echo -e '\n' >> user-stories-prod.md
 
-      - name: target=_blank toevoegen, move naar ./docs en committen
+      - name: target=_blank toevoegen aan issue link
         run: |
           sed -i 's/)$/){:target="_blank" rel="noopener"}/' user-stories-dev.md
           sed -i 's/)$/){:target="_blank" rel="noopener"}/' user-stories-prod.md
-
+      - name: move user-stories markdown bestanden naar ./docs
+        run: |
           mv user-stories-dev.md ./docs/user-stories-dev.md
           mv user-stories-prod.md ./docs/user-stories-prod.md
-
+      - name: commit & push user-stories markdown bestanden
+        run: |
           if [ -n "$(git status ./docs/user-stories-dev.md --porcelain)" ]; then
             git add ./docs/user-stories-dev.md
           fi
