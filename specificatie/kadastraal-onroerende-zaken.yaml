@@ -148,7 +148,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Kadastraal Onroerende Zaken
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}:
     get:
       operationId: GetKadastraalOnroerendeZaak
       description: |
@@ -156,7 +156,7 @@ paths:
         Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       parameters:
         - in: path
-          name: kadastraalonroerendezaakidentificatie
+          name: kadastraalOnroerendeZaakIdentificatie
           description: |
                         De unieke identificatie van een kadastraal onroerende zaak.
           required: true
