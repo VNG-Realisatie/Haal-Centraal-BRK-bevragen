@@ -348,13 +348,13 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
         "description" : "Raadpleeg een kadastraal onroerende zaak.\nAls je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.\n",
         "operationId" : "GetKadastraalOnroerendeZaak",
         "parameters" : [ {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -603,7 +603,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
         "description" : "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)\n",
@@ -617,7 +617,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -858,7 +858,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
         "description" : "Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.\n",
@@ -872,7 +872,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2003,7 +2003,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
         "description" : "Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
@@ -2017,7 +2017,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2237,7 +2237,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekidentificatie}" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
         "description" : "Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
@@ -2251,7 +2251,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2525,7 +2525,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen" : {
       "get" : {
         "tags" : [ "Beslagen" ],
         "description" : "Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak\n",
@@ -2539,7 +2539,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2759,7 +2759,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagidentificatie}" : {
       "get" : {
         "tags" : [ "Beslagen" ],
         "description" : "Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak\n",
@@ -2773,7 +2773,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -3047,7 +3047,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
         "description" : "Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
@@ -3061,7 +3061,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -3281,7 +3281,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
         "description" : "Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.\n",
@@ -3295,7 +3295,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,

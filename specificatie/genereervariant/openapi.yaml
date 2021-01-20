@@ -318,7 +318,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}:
     get:
       tags:
       - Kadastraal Onroerende Zaken
@@ -327,7 +327,7 @@ paths:
         Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -523,7 +523,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -541,7 +541,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -722,7 +722,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -740,7 +740,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -1613,7 +1613,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken:
     get:
       tags:
       - Hypotheken
@@ -1632,7 +1632,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -1794,7 +1794,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekidentificatie}:
     get:
       tags:
       - Hypotheken
@@ -1813,7 +1813,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2017,7 +2017,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen:
     get:
       tags:
       - Beslagen
@@ -2035,7 +2035,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2197,7 +2197,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagidentificatie}:
     get:
       tags:
       - Beslagen
@@ -2215,7 +2215,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2419,7 +2419,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen:
     get:
       tags:
       - Privaatrechtelijke Beperkingen
@@ -2437,7 +2437,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2599,7 +2599,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  ? /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
   : get:
       tags:
       - Privaatrechtelijke Beperkingen
@@ -2617,7 +2617,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
