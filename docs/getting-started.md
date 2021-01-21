@@ -138,108 +138,126 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<th>Testgeval                                      </th>
 		<th>Kadastraalobjectidentificatie / Kadastraleaanduiding  </th>
 		<th>Postcode              </th>
+		<th>Nummeraanduidingidentificatie</th>
 		<th>Bijzonderheden</th>
 	</tr>                                                                    
 	<tr>
 		<td>2 eigenaren (Kadaster Natuurlijk Persoon)      </td>
 		<td>76870487970000<br/>Beekbergen:87 K 4879     </td>
 		<td>7361EW 29             </td>
+		<td>0200200000003734</td>
 		<td><ul><li>alle velden gevuld</li><li>1x hypotheek</li><li>2x publiekrechtelijke beperking</li><li>1x privaatrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
 		<td>76870488070000<br/>Beekbergen:87 K 4880     </td>
 		<td>7361EW 27             </td>
+		<td>0200200000003733</td>
 		<td><ul><li>1x privaatrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Kadaster Natuurlijk Persoon)       </td>
 		<td>76870482670000<br/>Beekbergen:87 K 4826     </td>
 		<td>7361EW 25             </td>
+		<td>0200200000003732</td>
 		<td><ul><li>2x hypotheek</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
 		<td>76870482570000<br/>Beekbergen:87 K 4825     </td>
 		<td>7361EW 21             </td>
+		<td>0200200000003730</td>
 		<td><ul><li>2 erfpachters met erfpachtcanon</li><li>1x hypotheek</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>22310827210003<br/>'s Gravenhage:881 N 8272 3</td>
 		<td>2517GL 84             </td>
+		<td>0518200000842213</td>
 		<td><ul><li>appartementsrecht</li><li>1x hypotheek</li><li>1x publiekrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>22310827210004<br/>'s Gravenhage:881 N 8272 4</td>
 		<td>2517GL 85             </td>
+		<td>0518200000609763</td>
 		<td><ul><li>appartementsrecht</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>56020234070000<br/>Odoorn:717 N 2340        </td>
 		<td>9573PA 3              </td>
+		<td>1681200000000215</td>
 		<td><ul><li>1 artikel5_3b</li><li>1x hypotheek</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>23280647970000<br/>Loosduinen:561 H 6479    </td>
 		<td>2551XS 31<br/>2551XN 45<br/>2551XN 47<br/>2551XN 49<br/>2551XN 51             </td>
+		<td>0518200000781378</td>
 		<td><ul><li>meerdere adressen</li><li>1x privaatrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>65490485370000<br/>Hellendoorn:395 G 4853   </td>
 		<td>7441JC 1 a            </td>
+		<td>0163200000554956</td>
 		<td><ul><li>bevat huisletter</li></ul></td>
 	</tr>
 	<tr>
 		<td>2 eigenaren (Ingeschreven &amp; Kadaster Natuurlijk Persoon)   </td>
 		<td>65490485270000<br/>Hellendoorn:395 G 4853   </td>
 		<td>7441JC 1              </td>
+		<td>0163200000554954</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>24780711870000<br/>Voorschoten:1040 B 7118  </td>
 		<td>2252EB 14<br/>2252EB 14 B<br/>2252EB 14 C<br/>2252EB 14 D<br/>2252EB 16<br/>2252EB 18             </td>
+		<td>0626200000001232<br/>0626200000013389<br/>0626200000013390<br/>0626200000013391<br/>0626200000001233<br/>0626200000001234</td>
 		<td><ul><li>meerdere adressen</li><li>betrokkenGorzenEnAanwassen</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>17150075470000<br/>Hellevoetsluis:396 E 754 </td>
 		<td>3224EA 39             </td>
+		<td>0530200002127363</td>
 		<td><ul><li>1x hypotheek</li><li>1x beslag</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Kadaster Niet Natuurlijk Persoon)  </td>
 		<td>22590043870000<br/>'s Gravenhage:881 AW 438 </td>
 		<td>2545NN 178<br/>2545NN 180<br/>2545NN 182            </td>
+		<td>0518200000670296<br/>0518200000603608<br/>0518200000737306</td>
 		<td><ul><li>1 erfpachter</li><li>meerdere adressen</li><li>betrokkenSamenwerkingsverband</li><li>2x privaatrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>17500393970000<br/>IJsselmonde:459 D 3939   </td>
 		<td>3078JG 4              </td>
+		<td>0599200000316239</td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>22360467970000<br/>'s Gravenhage:881 V 4679 </td>
 		<td>2597LD 58             </td>
+		<td>0518200000436225</td>
 		<td><ul><li>1 erfpachter</li><li>1x publiekrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>1 eigenaar (Ingeschreven Natuurlijk Persoon)   </td>
 		<td>19560032970000<br/>Rotterdam:841 AF 329     </td>
 		<td>3011KD 70<br/>3011KD 72             </td>
+		<td>0599200001012571<br/>0599200001012572</td>
 		<td><ul><li>meerdere adressen</li><li>2x hypotheek</li><li>2x publiekrechtelijke beperking</li></ul></td>
 	</tr>
 	<tr>
 		<td>2 eigenaren (Ingeschreven Natuurlijk Persoon)  </td>
 		<td>17550448670000<br/>Kralingen:501 C 4486     </td>
 		<td>3066VS 9              </td>
+		<td>0599200000193766</td>
 		<td><ul><li>betrokkenPartner</li><li>1x hypotheek</li></ul></td>
 	</tr>
 </table>
