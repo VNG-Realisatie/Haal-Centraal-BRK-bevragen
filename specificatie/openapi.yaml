@@ -35,38 +35,38 @@ tags:
 paths:
   /kadastraalonroerendezaken:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
-    $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
-    $ref: "zakelijk-gerechtigden.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1zakelijkgerechtigden~1{zakelijkgerechtigdeidentificatie}"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
-    $ref: "zakelijk-gerechtigden.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1zakelijkgerechtigden"
-  /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
-    $ref: "kadaster-natuurlijk-personen.yaml#/paths/~1kadasternatuurlijkpersonen~1{kadasternatuurlijkpersoonidentificatie}"
-  /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
-    $ref: "kadaster-niet-natuurlijk-personen.yaml#/paths/~1kadasternietnatuurlijkpersonen~1{kadasternietnatuurlijkpersoonidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}:
+    $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}:
+    $ref: "zakelijk-gerechtigden.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1zakelijkgerechtigden~1{zakelijkGerechtigdeIdentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden:
+    $ref: "zakelijk-gerechtigden.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1zakelijkgerechtigden"
+  /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}:
+    $ref: "kadaster-natuurlijk-personen.yaml#/paths/~1kadasternatuurlijkpersonen~1{kadasterNatuurlijkPersoonIdentificatie}"
+  /kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}:
+    $ref: "kadaster-niet-natuurlijk-personen.yaml#/paths/~1kadasternietnatuurlijkpersonen~1{kadasterNietNatuurlijkPersoonIdentificatie}"
   /kadasternatuurlijkpersonen:
     $ref: "kadaster-natuurlijk-personen.yaml#/paths/~1kadasternatuurlijkpersonen"
   /kadasternietnatuurlijkpersonen:
     $ref: "kadaster-niet-natuurlijk-personen.yaml#/paths/~1kadasternietnatuurlijkpersonen"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
-    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
-    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1hypotheken~1{hypotheekidentificatie}"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
-    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
-    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1beslagen~1{beslagidentificatie}"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
-    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen"
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
-    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalonroerendezaakidentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkebeperkingidentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1hypotheken"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}:
+    $ref: "hypotheken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1hypotheken~1{hypotheekIdentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1beslagen"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}:
+    $ref: "beslagen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1beslagen~1{beslagIdentificatie}"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1privaatrechtelijkebeperkingen"
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie}:
+    $ref: "privaat-rechtelijke-beperkingen.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1privaatrechtelijkebeperkingen~1{privaatrechtelijkeBeperkingIdentificatie}"
   /publiekrechtelijkebeperkingen:
     $ref: "publiek-rechtelijke-beperkingen.yaml#/paths/~1publiekrechtelijkebeperkingen"
-  /stukken/{stukidentificatie}:
-    $ref: "stukken.yaml#/paths/~1stukken~1{stukidentificatie}"
-  /stukdelen/{stukdeelidentificatie}:
-    $ref: "stukken.yaml#/paths/~1stukdelen~1{stukdeelidentificatie}"
+  /stukken/{stukIdentificatie}:
+    $ref: "stukken.yaml#/paths/~1stukken~1{stukIdentificatie}"
+  /stukdelen/{stukdeelIdentificatie}:
+    $ref: "stukken.yaml#/paths/~1stukdelen~1{stukdeelIdentificatie}"
 components:
   securitySchemes:
     apiKeyAuth:

@@ -318,7 +318,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}:
     get:
       tags:
       - Kadastraal Onroerende Zaken
@@ -327,7 +327,7 @@ paths:
         Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.
       operationId: GetKadastraalOnroerendeZaak
       parameters:
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -523,7 +523,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -541,14 +541,14 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
         required: true
         schema:
           type: string
-      - name: zakelijkgerechtigdeidentificatie
+      - name: zakelijkGerechtigdeIdentificatie
         in: path
         description: |
           De identificatie van de zakelijk gerechtigde
@@ -722,7 +722,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden:
     get:
       tags:
       - Zakelijke Gerechtigden
@@ -740,7 +740,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -921,7 +921,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
+  /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
@@ -940,7 +940,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadasternatuurlijkpersoonidentificatie
+      - name: kadasterNatuurlijkPersoonIdentificatie
         in: path
         required: true
         schema:
@@ -1101,7 +1101,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}:
+  /kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}:
     get:
       tags:
       - Kadaster (niet)Natuurlijk Personen
@@ -1121,7 +1121,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadasternietnatuurlijkpersoonidentificatie
+      - name: kadasterNietNatuurlijkPersoonIdentificatie
         in: path
         required: true
         schema:
@@ -1613,7 +1613,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken:
     get:
       tags:
       - Hypotheken
@@ -1632,7 +1632,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -1794,7 +1794,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}:
     get:
       tags:
       - Hypotheken
@@ -1813,14 +1813,14 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
         required: true
         schema:
           type: string
-      - name: hypotheekidentificatie
+      - name: hypotheekIdentificatie
         in: path
         description: |
           De unieke identificatie van de hypotheek.
@@ -2017,7 +2017,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen:
     get:
       tags:
       - Beslagen
@@ -2035,7 +2035,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2197,7 +2197,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}:
     get:
       tags:
       - Beslagen
@@ -2215,14 +2215,14 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
         required: true
         schema:
           type: string
-      - name: beslagidentificatie
+      - name: beslagIdentificatie
         in: path
         description: |
           De unieke identificatie van het beslag.
@@ -2419,7 +2419,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen:
     get:
       tags:
       - Privaatrechtelijke Beperkingen
@@ -2437,7 +2437,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
@@ -2599,7 +2599,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  ? /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}
+  ? /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie}
   : get:
       tags:
       - Privaatrechtelijke Beperkingen
@@ -2617,14 +2617,14 @@ paths:
         required: false
         schema:
           type: string
-      - name: kadastraalonroerendezaakidentificatie
+      - name: kadastraalOnroerendeZaakIdentificatie
         in: path
         description: |
           De unieke identificatie van een kadastraal onroerende zaak.
         required: true
         schema:
           type: string
-      - name: privaatrechtelijkebeperkingidentificatie
+      - name: privaatrechtelijkeBeperkingIdentificatie
         in: path
         description: |
           De unieke identificatie van een privaatrechtelijke beperking.
@@ -2934,7 +2934,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /stukken/{stukidentificatie}:
+  /stukken/{stukIdentificatie}:
     get:
       tags:
       - Stukken
@@ -2964,7 +2964,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: stukidentificatie
+      - name: stukIdentificatie
         in: path
         required: true
         schema:
@@ -3125,7 +3125,7 @@ paths:
                   to a temporary overloading or maintenance of the server.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: notAvailable
-  /stukdelen/{stukdeelidentificatie}:
+  /stukdelen/{stukdeelIdentificatie}:
     get:
       tags:
       - Stukken
@@ -3156,7 +3156,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: stukdeelidentificatie
+      - name: stukdeelIdentificatie
         in: path
         required: true
         schema:
