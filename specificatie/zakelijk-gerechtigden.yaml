@@ -5,7 +5,7 @@ info:
                 De definitie van de Zakelijk Gerechtigden endpoints en HAL components.
   version: "1.3.0"
 paths:
-  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}:
     get:
       operationId: GetZakelijkGerechtigde
       description: |
@@ -20,7 +20,7 @@ paths:
           schema:
             type: string
         - in: path
-          name: zakelijkgerechtigdeidentificatie
+          name: zakelijkGerechtigdeIdentificatie
           description: |
                         De identificatie van de zakelijk gerechtigde
           required: true

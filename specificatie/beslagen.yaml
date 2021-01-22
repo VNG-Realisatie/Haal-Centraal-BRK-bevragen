@@ -50,7 +50,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Beslagen
-  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}:
     get:
       operationId: GetBeslag
       description: |
@@ -65,7 +65,7 @@ paths:
           schema:
             type: string
         - in: path
-          name: beslagidentificatie
+          name: beslagIdentificatie
           description: |
                         De unieke identificatie van het beslag.
           required: true

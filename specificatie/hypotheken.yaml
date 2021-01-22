@@ -51,7 +51,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Hypotheken
-  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}:
     get:
       operationId: GetHypotheek
       description: |
@@ -67,7 +67,7 @@ paths:
           schema:
             type: string
         - in: path
-          name: hypotheekidentificatie
+          name: hypotheekIdentificatie
           description: |
                         De unieke identificatie van de hypotheek.
           required: true

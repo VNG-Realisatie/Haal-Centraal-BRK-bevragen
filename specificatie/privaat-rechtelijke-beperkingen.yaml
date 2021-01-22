@@ -50,7 +50,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Privaatrechtelijke Beperkingen
-  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}:
+  /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie}:
     get:
       operationId: GetPrivaatrechtelijkeBeperking
       description: |
@@ -65,7 +65,7 @@ paths:
           schema:
             type: string
         - in: path
-          name: privaatrechtelijkebeperkingidentificatie
+          name: privaatrechtelijkeBeperkingIdentificatie
           description: |
                         De unieke identificatie van een privaatrechtelijke beperking.
           required: true
