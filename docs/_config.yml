@@ -21,7 +21,6 @@ nav:
         url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-prod
 #        https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22user+story%22+label%3A%22BRK+bevragen+v1.2%22
         path: /user-stories
-        target: blank
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui
       - title: Bevragen API (redoc)
@@ -34,7 +33,6 @@ nav:
         url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-dev
 #        https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22user+story%22+label%3A%22BRK+bevragen+v1.3%22
         path: /user-stories
-        target: blank
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui-io
       - title: Bevragen API (redoc)
