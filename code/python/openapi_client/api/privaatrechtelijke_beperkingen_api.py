@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -111,7 +111,7 @@ class PrivaatrechtelijkeBeperkingenApi(object):
                 privaatrechtelijkebeperkingidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_privaatrechtelijke_beperking = Endpoint(
+        self.get_privaatrechtelijke_beperking = _Endpoint(
             settings={
                 'response_type': (PrivaatrechtelijkeBeperkingHal,),
                 'auth': [
@@ -254,7 +254,7 @@ class PrivaatrechtelijkeBeperkingenApi(object):
                 kadastraalonroerendezaakidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_privaatrechtelijke_beperkingen = Endpoint(
+        self.get_privaatrechtelijke_beperkingen = _Endpoint(
             settings={
                 'response_type': (PrivaatrechtelijkeBeperkingHalCollectie,),
                 'auth': [

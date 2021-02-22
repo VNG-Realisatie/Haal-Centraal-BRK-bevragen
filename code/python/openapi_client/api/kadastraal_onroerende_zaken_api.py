@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -109,7 +109,7 @@ class KadastraalOnroerendeZakenApi(object):
                 kadastraalonroerendezaakidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadastraal_onroerende_zaak = Endpoint(
+        self.get_kadastraal_onroerende_zaak = _Endpoint(
             settings={
                 'response_type': (KadastraalOnroerendeZaakHal,),
                 'auth': [
@@ -255,7 +255,7 @@ class KadastraalOnroerendeZakenApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadastraal_onroerende_zaken = Endpoint(
+        self.get_kadastraal_onroerende_zaken = _Endpoint(
             settings={
                 'response_type': (KadastraalOnroerendeZaakHalCollectie,),
                 'auth': [

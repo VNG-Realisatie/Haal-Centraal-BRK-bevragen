@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -108,7 +108,7 @@ class KadasterNietNatuurlijkPersonenApi(object):
                 q
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadaster_niet_natuurlijk_personen = Endpoint(
+        self.get_kadaster_niet_natuurlijk_personen = _Endpoint(
             settings={
                 'response_type': (KadasterNietNatuurlijkPersoonHalCollectie,),
                 'auth': [
@@ -234,7 +234,7 @@ class KadasterNietNatuurlijkPersonenApi(object):
                 kadasternietnatuurlijkpersoonidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadaster_niet_natuurlijk_persoon = Endpoint(
+        self.get_kadaster_niet_natuurlijk_persoon = _Endpoint(
             settings={
                 'response_type': (KadasterNietNatuurlijkPersoonHal,),
                 'auth': [
@@ -364,7 +364,7 @@ class KadasterNietNatuurlijkPersonenApi(object):
                 q
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadaster_personen = Endpoint(
+        self.get_kadaster_personen = _Endpoint(
             settings={
                 'response_type': (KadasterNatuurlijkPersoonHalCollectie,),
                 'auth': [
@@ -490,7 +490,7 @@ class KadasterNietNatuurlijkPersonenApi(object):
                 kadasternatuurlijkpersoonidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_kadaster_persoon = Endpoint(
+        self.get_kadaster_persoon = _Endpoint(
             settings={
                 'response_type': (KadasterNatuurlijkPersoonHal,),
                 'auth': [

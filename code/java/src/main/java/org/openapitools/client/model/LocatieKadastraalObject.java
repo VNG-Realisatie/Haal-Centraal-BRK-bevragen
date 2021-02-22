@@ -31,7 +31,7 @@ import org.openapitools.client.model.Waardelijst;
  * Waardelijsten in deze component :   [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) 
  */
 @ApiModel(description = "Waardelijsten in deze component :   [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class LocatieKadastraalObject {
   public static final String SERIALIZED_NAME_STRAAT = "straat";
   @SerializedName(SERIALIZED_NAME_STRAAT)
@@ -385,7 +385,6 @@ public class LocatieKadastraalObject {
   public int hashCode() {
     return Objects.hash(straat, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaats, nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land, koppelingswijze);
   }
-
 
   @Override
   public String toString() {

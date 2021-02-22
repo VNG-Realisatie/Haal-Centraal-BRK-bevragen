@@ -29,7 +29,7 @@ import org.openapitools.client.model.KadasterNietNatuurlijkPersoonHalCollectieEm
 /**
  * KadasterNietNatuurlijkPersoonHalCollectie
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadasterNietNatuurlijkPersoonHalCollectie {
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -103,7 +103,6 @@ public class KadasterNietNatuurlijkPersoonHalCollectie {
   public int hashCode() {
     return Objects.hash(links, embedded);
   }
-
 
   @Override
   public String toString() {

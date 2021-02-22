@@ -35,16 +35,16 @@ namespace Org.OpenAPITools.Model
     public enum NatuurlijkPersoonTypeEnum
     {
         /// <summary>
-        /// Enum Ingeschrevennatuurlijkpersoon for value: ingeschreven_natuurlijk_persoon
+        /// Enum IngeschrevenNatuurlijkPersoon for value: ingeschreven_natuurlijk_persoon
         /// </summary>
         [EnumMember(Value = "ingeschreven_natuurlijk_persoon")]
-        Ingeschrevennatuurlijkpersoon = 1,
+        IngeschrevenNatuurlijkPersoon = 1,
 
         /// <summary>
-        /// Enum Kadasternatuurlijkpersoon for value: kadaster_natuurlijk_persoon
+        /// Enum KadasterNatuurlijkPersoon for value: kadaster_natuurlijk_persoon
         /// </summary>
         [EnumMember(Value = "kadaster_natuurlijk_persoon")]
-        Kadasternatuurlijkpersoon = 2
+        KadasterNatuurlijkPersoon = 2
 
     }
 

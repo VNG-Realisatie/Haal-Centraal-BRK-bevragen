@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) 
  */
 @ApiModel(description = "Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadasterPersoonAllOf {
   public static final String SERIALIZED_NAME_DOMEIN = "domein";
   @SerializedName(SERIALIZED_NAME_DOMEIN)
@@ -227,7 +227,6 @@ public class KadasterPersoonAllOf {
   public int hashCode() {
     return Objects.hash(domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties);
   }
-
 
   @Override
   public String toString() {

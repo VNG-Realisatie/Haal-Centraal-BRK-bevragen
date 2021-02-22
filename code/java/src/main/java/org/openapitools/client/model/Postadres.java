@@ -30,7 +30,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * Postadres
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class Postadres {
   public static final String SERIALIZED_NAME_STRAAT = "straat";
   @SerializedName(SERIALIZED_NAME_STRAAT)
@@ -384,7 +384,6 @@ public class Postadres {
   public int hashCode() {
     return Objects.hash(straat, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaats, nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land, postbusnummer);
   }
-
 
   @Override
   public String toString() {

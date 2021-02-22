@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -112,7 +112,7 @@ class ZakelijkeGerechtigdenApi(object):
                 zakelijkgerechtigdeidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_zakelijk_gerechtigde = Endpoint(
+        self.get_zakelijk_gerechtigde = _Endpoint(
             settings={
                 'response_type': (ZakelijkGerechtigdeHal,),
                 'auth': [
@@ -256,7 +256,7 @@ class ZakelijkeGerechtigdenApi(object):
                 kadastraalonroerendezaakidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_zakelijk_gerechtigden = Endpoint(
+        self.get_zakelijk_gerechtigden = _Endpoint(
             settings={
                 'response_type': (ZakelijkGerechtigdeHalCollectie,),
                 'auth': [

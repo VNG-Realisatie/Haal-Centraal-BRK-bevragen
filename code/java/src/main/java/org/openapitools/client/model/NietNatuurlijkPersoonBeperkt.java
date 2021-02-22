@@ -30,7 +30,7 @@ import org.openapitools.client.model.PersoonBasis;
 /**
  * NietNatuurlijkPersoonBeperkt
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class NietNatuurlijkPersoonBeperkt {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -132,7 +132,6 @@ public class NietNatuurlijkPersoonBeperkt {
   public int hashCode() {
     return Objects.hash(identificatie, omschrijving, type);
   }
-
 
   @Override
   public String toString() {

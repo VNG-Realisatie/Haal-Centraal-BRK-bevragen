@@ -28,7 +28,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * AdresUitgebreidAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class AdresUitgebreidAllOf {
   public static final String SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE = "nummeraanduidingIdentificatie";
   @SerializedName(SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE)
@@ -186,7 +186,6 @@ public class AdresUitgebreidAllOf {
   public int hashCode() {
     return Objects.hash(nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land);
   }
-
 
   @Override
   public String toString() {

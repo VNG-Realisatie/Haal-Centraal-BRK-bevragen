@@ -29,7 +29,7 @@ import org.openapitools.client.model.NatuurlijkPersoonTypeEnum;
  * Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn. 
  */
 @ApiModel(description = "Natuurlijk persoon. Kan een ingeschreven persoon (in de basisregistratie personen (BRP)) of Kadasterpersoon zijn. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class NatuurlijkPersoonBeperktAllOf {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -75,7 +75,6 @@ public class NatuurlijkPersoonBeperktAllOf {
   public int hashCode() {
     return Objects.hash(type);
   }
-
 
   @Override
   public String toString() {

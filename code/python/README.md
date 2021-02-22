@@ -239,7 +239,7 @@ Use specific imports for apis and models like:
 - `from openapi_client.api.default_api import DefaultApi`
 - `from openapi_client.model.pet import Pet`
 
-Solution 1:
+Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys

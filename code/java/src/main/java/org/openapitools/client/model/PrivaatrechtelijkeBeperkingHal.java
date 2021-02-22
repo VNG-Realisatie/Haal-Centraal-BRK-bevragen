@@ -32,7 +32,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * PrivaatrechtelijkeBeperkingHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class PrivaatrechtelijkeBeperkingHal {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
@@ -274,7 +274,6 @@ public class PrivaatrechtelijkeBeperkingHal {
   public int hashCode() {
     return Objects.hash(aard, omschrijving, betreftGedeelteVanPerceel, identificatie, domein, einddatum, einddatumRecht, links);
   }
-
 
   @Override
   public String toString() {

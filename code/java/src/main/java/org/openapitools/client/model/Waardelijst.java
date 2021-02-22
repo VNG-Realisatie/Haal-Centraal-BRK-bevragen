@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Waardelijst
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class Waardelijst {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -101,7 +101,6 @@ public class Waardelijst {
   public int hashCode() {
     return Objects.hash(code, waarde);
   }
-
 
   @Override
   public String toString() {

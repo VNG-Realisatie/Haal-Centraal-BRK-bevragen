@@ -29,7 +29,7 @@ import org.openapitools.client.model.NaamPersoonAllOf;
 /**
  * NaamPersoon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class NaamPersoon {
   public static final String SERIALIZED_NAME_GESLACHTSNAAM = "geslachtsnaam";
   @SerializedName(SERIALIZED_NAME_GESLACHTSNAAM)
@@ -215,7 +215,6 @@ public class NaamPersoon {
   public int hashCode() {
     return Objects.hash(geslachtsnaam, voornamen, voorvoegsel, aanschrijfwijze, aanhef, gebruikInLopendeTekst);
   }
-
 
   @Override
   public String toString() {

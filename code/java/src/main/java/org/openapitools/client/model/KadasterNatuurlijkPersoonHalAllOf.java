@@ -28,7 +28,7 @@ import org.openapitools.client.model.KadasterPersoonLinks;
 /**
  * KadasterNatuurlijkPersoonHalAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadasterNatuurlijkPersoonHalAllOf {
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -74,7 +74,6 @@ public class KadasterNatuurlijkPersoonHalAllOf {
   public int hashCode() {
     return Objects.hash(links);
   }
-
 
   @Override
   public String toString() {

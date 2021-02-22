@@ -30,7 +30,7 @@ import org.openapitools.client.model.HalLink;
 /**
  * KadastraalOnroerendeZaakLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -220,7 +220,6 @@ public class KadastraalOnroerendeZaakLinks {
   public int hashCode() {
     return Objects.hash(self, zakelijkGerechtigden, privaatrechtelijkeBeperkingen, hypotheken, beslagen);
   }
-
 
   @Override
   public String toString() {

@@ -40,7 +40,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadasterNatuurlijkPersoonHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadasterNatuurlijkPersoonHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -522,7 +522,6 @@ public class KadasterNatuurlijkPersoonHal {
   public int hashCode() {
     return Objects.hash(identificatie, omschrijving, domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties, geheimhoudingPersoonsgegevens, landWaarnaarVertrokken, geslachtsaanduiding, heeftPartnerschap, naam, geboorte, overlijden, links);
   }
-
 
   @Override
   public String toString() {

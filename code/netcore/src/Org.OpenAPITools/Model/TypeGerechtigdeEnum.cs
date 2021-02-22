@@ -53,10 +53,10 @@ namespace Org.OpenAPITools.Model
         Erfpachter = 3,
 
         /// <summary>
-        /// Enum Gebruikbewoning for value: gebruik_bewoning
+        /// Enum GebruikBewoning for value: gebruik_bewoning
         /// </summary>
         [EnumMember(Value = "gebruik_bewoning")]
-        Gebruikbewoning = 4,
+        GebruikBewoning = 4,
 
         /// <summary>
         /// Enum Grondrente for value: grondrente
@@ -89,10 +89,10 @@ namespace Org.OpenAPITools.Model
         Vruchtgebruiker = 9,
 
         /// <summary>
-        /// Enum Erfpachteropstalhouder for value: erfpachter_opstalhouder
+        /// Enum ErfpachterOpstalhouder for value: erfpachter_opstalhouder
         /// </summary>
         [EnumMember(Value = "erfpachter_opstalhouder")]
-        Erfpachteropstalhouder = 10,
+        ErfpachterOpstalhouder = 10,
 
         /// <summary>
         /// Enum Nutsvoorzieningen for value: nutsvoorzieningen
@@ -101,28 +101,28 @@ namespace Org.OpenAPITools.Model
         Nutsvoorzieningen = 11,
 
         /// <summary>
-        /// Enum Tweebelastingen for value: twee_belastingen
+        /// Enum TweeBelastingen for value: twee_belastingen
         /// </summary>
         [EnumMember(Value = "twee_belastingen")]
-        Tweebelastingen = 12,
+        TweeBelastingen = 12,
 
         /// <summary>
-        /// Enum Belastingderde for value: belasting_derde
+        /// Enum BelastingDerde for value: belasting_derde
         /// </summary>
         [EnumMember(Value = "belasting_derde")]
-        Belastingderde = 13,
+        BelastingDerde = 13,
 
         /// <summary>
-        /// Enum Bprecht for value: bp_recht
+        /// Enum BpRecht for value: bp_recht
         /// </summary>
         [EnumMember(Value = "bp_recht")]
-        Bprecht = 14,
+        BpRecht = 14,
 
         /// <summary>
-        /// Enum Nutsvoorzieningengedeelte for value: nutsvoorzieningen_gedeelte
+        /// Enum NutsvoorzieningenGedeelte for value: nutsvoorzieningen_gedeelte
         /// </summary>
         [EnumMember(Value = "nutsvoorzieningen_gedeelte")]
-        Nutsvoorzieningengedeelte = 15,
+        NutsvoorzieningenGedeelte = 15,
 
         /// <summary>
         /// Enum Artikel53b for value: artikel5_3b

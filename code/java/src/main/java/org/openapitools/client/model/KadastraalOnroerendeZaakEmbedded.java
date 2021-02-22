@@ -31,7 +31,7 @@ import org.openapitools.client.model.ZakelijkGerechtigdeHal;
 /**
  * KadastraalOnroerendeZaakEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakEmbedded {
   public static final String SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN = "zakelijkGerechtigden";
   @SerializedName(SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN)
@@ -121,7 +121,6 @@ public class KadastraalOnroerendeZaakEmbedded {
   public int hashCode() {
     return Objects.hash(zakelijkGerechtigden, privaatrechtelijkeBeperkingen);
   }
-
 
   @Override
   public String toString() {

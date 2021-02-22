@@ -28,7 +28,7 @@ import java.io.IOException;
  * Gegevens over de naam van de persoon 
  */
 @ApiModel(description = "Gegevens over de naam van de persoon ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class NaamPersoonAllOf {
   public static final String SERIALIZED_NAME_AANSCHRIJFWIJZE = "aanschrijfwijze";
   @SerializedName(SERIALIZED_NAME_AANSCHRIJFWIJZE)
@@ -130,7 +130,6 @@ public class NaamPersoonAllOf {
   public int hashCode() {
     return Objects.hash(aanschrijfwijze, aanhef, gebruikInLopendeTekst);
   }
-
 
   @Override
   public String toString() {

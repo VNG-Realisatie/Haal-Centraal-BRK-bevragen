@@ -37,7 +37,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * HypotheekHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class HypotheekHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -379,7 +379,6 @@ public class HypotheekHal {
   public int hashCode() {
     return Objects.hash(identificatie, domein, aandeelInBetrokkenRecht, gedeeltelijkeBezwaringOudObject, omschrijvingBetrokkenRecht, toelichtingBewaarder, betreftGedeelteVanPerceel, aantekeningen, hypotheekhouders, bedragZekerheidsstelling, links);
   }
-
 
   @Override
   public String toString() {

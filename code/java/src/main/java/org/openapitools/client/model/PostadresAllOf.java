@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PostadresAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class PostadresAllOf {
   public static final String SERIALIZED_NAME_POSTBUSNUMMER = "postbusnummer";
   @SerializedName(SERIALIZED_NAME_POSTBUSNUMMER)
@@ -73,7 +73,6 @@ public class PostadresAllOf {
   public int hashCode() {
     return Objects.hash(postbusnummer);
   }
-
 
   @Override
   public String toString() {

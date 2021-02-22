@@ -28,7 +28,7 @@ import org.openapitools.client.model.HalLink;
 /**
  * PrivaatrechtelijkeBeperkingLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class PrivaatrechtelijkeBeperkingLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -74,7 +74,6 @@ public class PrivaatrechtelijkeBeperkingLinks {
   public int hashCode() {
     return Objects.hash(self);
   }
-
 
   @Override
   public String toString() {

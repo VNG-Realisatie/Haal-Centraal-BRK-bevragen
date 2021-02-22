@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   De property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld. Waardelijst in deze component :   [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/) 
  */
 @ApiModel(description = "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.   De property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld. Waardelijst in deze component :   [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class KadasterNietNatuurlijkPersoonAllOf {
   public static final String SERIALIZED_NAME_STATUTAIRE_NAAM = "statutaireNaam";
   @SerializedName(SERIALIZED_NAME_STATUTAIRE_NAAM)
@@ -187,7 +187,6 @@ public class KadasterNietNatuurlijkPersoonAllOf {
   public int hashCode() {
     return Objects.hash(statutaireNaam, statutaireZetel, rechtsvorm, kvkNummer, rsin);
   }
-
 
   @Override
   public String toString() {

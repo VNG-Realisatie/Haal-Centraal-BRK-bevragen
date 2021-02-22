@@ -28,7 +28,7 @@ import java.io.IOException;
  * Een deling van twee gehele getallen. 
  */
 @ApiModel(description = "Een deling van twee gehele getallen. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class TypeBreuk {
   public static final String SERIALIZED_NAME_NOEMER = "noemer";
   @SerializedName(SERIALIZED_NAME_NOEMER)
@@ -105,7 +105,6 @@ public class TypeBreuk {
   public int hashCode() {
     return Objects.hash(noemer, teller);
   }
-
 
   @Override
   public String toString() {

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -111,7 +111,7 @@ class HypothekenApi(object):
                 hypotheekidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_hypotheek = Endpoint(
+        self.get_hypotheek = _Endpoint(
             settings={
                 'response_type': (HypotheekHal,),
                 'auth': [
@@ -254,7 +254,7 @@ class HypothekenApi(object):
                 kadastraalonroerendezaakidentificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_hypotheken_kadastraal_onroerende_zaak = Endpoint(
+        self.get_hypotheken_kadastraal_onroerende_zaak = _Endpoint(
             settings={
                 'response_type': (HypotheekHalCollectie,),
                 'auth': [

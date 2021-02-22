@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * TypeKoopsom
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class TypeKoopsom {
   public static final String SERIALIZED_NAME_KOOPSOM = "koopsom";
   @SerializedName(SERIALIZED_NAME_KOOPSOM)
@@ -129,7 +129,6 @@ public class TypeKoopsom {
   public int hashCode() {
     return Objects.hash(koopsom, koopjaar, indicatieMetMeerObjectenVerkregen);
   }
-
 
   @Override
   public String toString() {

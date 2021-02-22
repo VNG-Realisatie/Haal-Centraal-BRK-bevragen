@@ -29,7 +29,7 @@ import java.time.LocalDate;
  * Gegevens over de datums die mogelijk niet volledig zijn.
  */
 @ApiModel(description = "Gegevens over de datums die mogelijk niet volledig zijn.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class DatumOnvolledig {
   public static final String SERIALIZED_NAME_DAG = "dag";
   @SerializedName(SERIALIZED_NAME_DAG)
@@ -164,7 +164,6 @@ public class DatumOnvolledig {
   public int hashCode() {
     return Objects.hash(dag, datum, jaar, maand);
   }
-
 
   @Override
   public String toString() {

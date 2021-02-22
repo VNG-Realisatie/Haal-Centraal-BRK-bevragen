@@ -30,7 +30,7 @@ import org.openapitools.client.model.Waardelijst;
  * Geboorte is een groep gegevens over de geboorte van een persoon.   Waardelijst in deze component :   [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) 
  */
 @ApiModel(description = "Geboorte is een groep gegevens over de geboorte van een persoon.   Waardelijst in deze component :   [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-01-06T09:03:38.510Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
 public class Geboorte {
   public static final String SERIALIZED_NAME_PLAATS = "plaats";
   @SerializedName(SERIALIZED_NAME_PLAATS)
@@ -132,7 +132,6 @@ public class Geboorte {
   public int hashCode() {
     return Objects.hash(plaats, datum, land);
   }
-
 
   @Override
   public String toString() {
