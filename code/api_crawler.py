@@ -27,13 +27,13 @@ import sys
 import os.path
 
 
-SOURCE_YAML = '../specificatie/openapi.yaml'
+SOURCE_YAML = '../specificatie/genereervariant/openapi.yaml'
 SHEET_FOLDER = '../test/cases/'
 TESTCASES_FILENAME = '../test/cases/testcases.json'
 SEPERATOR = ";"
 MAX_LEVELS = 6
-BASE_URL = "https://api.test.kadaster.nl/esd/gemeenten/brk/esd/gemeenten/brk"
-APIKEY_HEADER = "apikey"
+BASE_URL = "https://api.brk.acceptatie.kadaster.nl/esd/bevragen/v1"
+APIKEY_HEADER = "X-API-KEY"
 
 
 
@@ -54,21 +54,62 @@ def getOperationId(uri):
             return operationId
 
 
+def getValuesByPath(propertyName, propertyList, valueSource):
+    if debug==True:
+        print "getValuesByPath:", propertyName, propertyList
+
+    value = valueSource.get(propertyName)
+
+    if debug==True:
+        print "~~~> value:", value
+
+    if propertyList.index(propertyName)<(len(propertyList)-1):
+        nextProperty = propertyList[propertyList.index(propertyName)+1]
+    else:
+        nextProperty = None
+
+    if value is None:
+        return []
+    elif type(value)==type([]):
+        valueList = []
+        for valueItem in value:
+            if nextProperty is not None:
+                valueList.extend(getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], valueItem))
+            else:
+                valueList.append(valueItem)
+
+        return valueList
+    else:
+        if nextProperty is not None:
+            return getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], value)
+        else:
+            return value
+
+
+
 def expandTemplatedUri(uri, response):
     if debug==True:
         print "expandTemplatedUri:", uri
+
+    propertyValue=response
     while (uri.find('{')>-1):
-        idProperty = uri[uri.find('{')+1:uri.find('}')]
-        #print "---expand:", uri, idProperty
-        idValue=response.get(idProperty) # assumes templated property is at highest level of response
-        if type(idValue)==type([]):
-            for value in idValue:
+        propertyPath = uri[uri.find('{')+1:uri.find('}')]
+        propertyList = propertyPath.split(".")
+        propertyValue = getValuesByPath(propertyList[0], propertyList, response)
+
+        if type(propertyValue)==type([]):
+            if len(propertyValue)==0:
+                return None
+
+            for valueItem in propertyValue:
                 if debug==True:
-                    print "-- templated array:", uri, value
-                addNewLink(uri.replace('{' + idProperty + '}', value), response)
-            uri = uri.replace('{' + idProperty + '}', value)
+                    print "-- templated array:", uri, valueItem
+
+                addNewLink(uri.replace('{' + propertyPath + '}', valueItem), response)
+
+            uri = uri.replace('{' + propertyPath + '}', valueItem)
         else:
-            uri = uri.replace('{' + idProperty + '}', idValue)
+            uri = uri.replace('{' + propertyPath + '}', propertyValue)
 
     return uri
 
@@ -79,7 +120,7 @@ def addNewLink(uri, response):
     if (uri.find('{')>-1):
         uri = expandTemplatedUri(uri, response)
 
-    if uri not in links:
+    if uri not in links and uri is not None:
         links.append(uri)
         if debug==True:
             print "-- Nieuw testgeval:", uri
@@ -198,8 +239,6 @@ def getApiResponse(uri):
         if debug==True:
             print uri, operationId
         sheets[operationId] = setResponseValues(sheets[operationId], response, operationId, uri.split('/')[-1])
-
-
 
 
 debug = False
