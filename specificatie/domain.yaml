@@ -27,9 +27,17 @@ components:
           type: "string"
         betreftGedeelteVanPerceel:
           type: "boolean"
-    Aantekening:
+          deprecated: true
+    AantekeningHypotheek:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
+        - properties:
+            betreftGedeelteVanPerceel:
+              type: "boolean"
+              deprecated: false
+    Aantekening:
+      allOf:
+        - $ref: "#/components/schemas/AantekeningHypotheek"
         - properties:
             identificatie:
               type: "string"
@@ -341,7 +349,7 @@ components:
         aantekeningen:
           type: array
           items:
-            $ref: "#/components/schemas/AantekeningBasis"
+            $ref: "#/components/schemas/AantekeningHypotheek"
             description: |
                           Een aantekening is een verwijzing naar een ter inschrijving aangeboden stuk. Een aantekening op een hypotheek is bijvoorbeeld een rangwisseling hypotheek, waarbij een hypotheek voorrang heeft boven eerder ingeschreven hypotheken of rechten op dezelfde kadastraal onroerende zaak.
         hypotheekhouders:

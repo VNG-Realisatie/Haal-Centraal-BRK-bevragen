@@ -54,6 +54,7 @@ title: Haal Centraal BRK bevragingen
     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
   - De links naar stukken en stukdelen zijn opgenomen.
+  - Property betreftGedeelteVanPerceel is deprecated verklaard. 
 
 - privaatrechtelijkeBeperkingen
   - Properties toegevoegd (overerfd uit Aantekening):
