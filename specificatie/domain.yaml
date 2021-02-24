@@ -390,6 +390,7 @@ components:
           geheimhoudingPersoonsgegevens:
             type: "boolean"
             title: "indicatieGeheim"
+            deprecated: true
             description: |
                           Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
           landWaarnaarVertrokken:

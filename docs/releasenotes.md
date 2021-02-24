@@ -13,6 +13,7 @@ title: Haal Centraal BRK bevragingen
 - Algemeen
   - Nieuwe endpoints toegevoegd voor stukken en stukdelen.
   - Bestaande resources zijn (voorzover van toepassing) uitgebreid met relaties naar de betrokken stukken en stukdelen.
+  - Path parameters zijn aangepast naar camelcase
 
 - stukken 2 nieuwe endpoints  ([622](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/622){:target="_blank"} en [624](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/624){:target="_blank"} ):
   - /stukken/{stukidentificatie}
@@ -81,6 +82,9 @@ title: Haal Centraal BRK bevragingen
     - tenaamstelling.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - tenaamstelling.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
   - De links naar stukken en stukdelen zijn opgenomen.
+
+- KadasterNatuurlijkPersoon
+  - Property geheimhoudingPersoonsgegevens is deprecated verklaard. 
 
 ### issues:
 
