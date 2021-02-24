@@ -4279,7 +4279,7 @@ components:
             deprecated: true
     Aantekening:
       allOf:
-      - $ref: '#/components/schemas/AantekeningBasis'
+      - $ref: '#/components/schemas/AantekeningHypotheek'
       - properties:
           identificatie:
             type: string
@@ -4311,6 +4311,13 @@ components:
               De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld
             items:
               type: string
+    AantekeningHypotheek:
+      allOf:
+      - $ref: '#/components/schemas/AantekeningBasis'
+      - properties:
+          betreftGedeelteVanPerceel:
+            type: boolean
+            deprecated: false
     AantekeningBasis:
       type: object
       properties:
@@ -4320,6 +4327,7 @@ components:
           type: string
         betreftGedeelteVanPerceel:
           type: boolean
+          deprecated: true
       description: |
         Waardelijst in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
@@ -4638,7 +4646,7 @@ components:
         aantekeningen:
           type: array
           items:
-            $ref: '#/components/schemas/AantekeningBasis'
+            $ref: '#/components/schemas/AantekeningHypotheek'
         hypotheekhouders:
           type: array
           description: |
