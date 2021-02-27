@@ -44,7 +44,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated"
+      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated",
+      "post-commit": "npm run rollback-generated"
     }
   }
 }
