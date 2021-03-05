@@ -20,6 +20,8 @@
     "preoas:resolve": "mvn-dl io.swagger.codegen.v3:swagger-codegen-cli:3.0.19 -f swagger-codegen-cli.jar",
     "oas:resolve": "java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant && java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant",
     "postoas:resolve": "rm swagger-codegen-cli.jar",
+    "unstage-generated": "git reset HEAD ./specificatie/genereervariant/openapi.* ./test/BRK-Bevragen-postman-collection.json ./code/**",
+    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRK-Bevragen-postman-collection.json ./code/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -42,7 +44,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant"
+      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated",
+      "post-commit": "npm run rollback-generated"
     }
   }
 }
