@@ -565,6 +565,14 @@ components:
           type : "array"
           items:
             type: "string"
+        bijbehorendeErfpachters:
+          description: |
+                      Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
+          type : "array"
+          items:
+            type: "string"
+            format: "uri"
+            example: "/kadastraalonroerendezaken/76870482570000/zakelijkgerechtigden/20170717"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
