@@ -1,0 +1,15 @@
+;;;;;;30336965;30336966;91104907;91074411;91074412;
+aard{};;;;;;X;X;X;X;X;
+betreftGedeelteVanPerceel;;;;;;;;;X;;
+omschrijving;;;;;;;;;X;;
+domein;;;;;;X;X;X;X;X;
+einddatum;;;;;;;;;X;;
+einddatumRecht;;;;;;;;;X;;
+identificatie;;;;;;X;X;X;X;X;
+isGebaseerdOpStukdeelIdentificatie;;;;;;X;X;X;X;X;
+isVermeldInStukdeelIdentificaties[];;;;;;;;;;;
+stukIdentificaties[];;;;;;1;1;1;1;1;
+_links{};;;;;;X;X;X;X;X;
+;self{};;;;;X;X;X;X;X;
+;stukdelen[];;;;;1;1;1;1;1;
+;stukken[];;;;;1;1;1;1;1;

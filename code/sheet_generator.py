@@ -24,6 +24,10 @@ IGNORELIST = {
     'GetZakelijkGerechtigden',
     'GetKadasterPersonen',
     'GetKadasterNietNatuurlijkPersonen',
+    'GetBeslagenKadastraalOnroerendeZaak',
+    'GetHypothekenKadastraalOnroerendeZaak',
+    'GetPrivaatrechtelijkeBeperkingen',
+    'GetPubliekrechtelijkeBeperkingen',
     '#/components/schemas/Datum_onvolledig',
     '#/components/schemas/Waardetabel',
     '#/components/schemas/Waardelijst',
@@ -83,7 +87,7 @@ def writeProperty(f, level, property, propertyDef):
     if propertyDef.get('type') == "object":
         f.write ("{}")
     if "$ref" in propertyDef:
-        if propertyDef.get('$ref').find('_enum')>0:
+        if propertyDef.get('$ref').find('Enum')>0:
             f.write ("()")
         else:
             f.write ("{}")

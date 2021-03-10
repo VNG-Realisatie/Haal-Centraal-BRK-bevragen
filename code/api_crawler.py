@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function # nodig voor print functie die werkt in Python 3 en in Python 2
 
 """
 Met dit script worden csv bestanden (die eerder zijn gemaakt met
@@ -27,13 +28,13 @@ import sys
 import os.path
 
 
-SOURCE_YAML = '../specificatie/openapi.yaml'
+SOURCE_YAML = '../specificatie/genereervariant/openapi.yaml'
 SHEET_FOLDER = '../test/cases/'
 TESTCASES_FILENAME = '../test/cases/testcases.json'
 SEPERATOR = ";"
 MAX_LEVELS = 6
-BASE_URL = "https://api.test.kadaster.nl/esd/gemeenten/brk/esd/gemeenten/brk"
-APIKEY_HEADER = "apikey"
+BASE_URL = "https://api.brk.acceptatie.kadaster.nl/esd/bevragen/v1"
+APIKEY_HEADER = "X-API-KEY"
 
 
 
@@ -44,8 +45,8 @@ def callApi(uri):
     if response.status_code == 200:
         return response.json()
     else:
-        print "ERROR: request failed"
-        print uri, response.status_code, response.text
+        print ("ERROR: request failed")
+        print (uri, response.status_code, response.text)
 
 
 def getOperationId(uri):
@@ -54,44 +55,85 @@ def getOperationId(uri):
             return operationId
 
 
+def getValuesByPath(propertyName, propertyList, valueSource):
+    if debug==True:
+        print ("getValuesByPath:", propertyName, propertyList)
+
+    value = valueSource.get(propertyName)
+
+    if debug==True:
+        print ("~~~> value:", value)
+
+    if propertyList.index(propertyName)<(len(propertyList)-1):
+        nextProperty = propertyList[propertyList.index(propertyName)+1]
+    else:
+        nextProperty = None
+
+    if value is None:
+        return []
+    elif type(value)==type([]):
+        valueList = []
+        for valueItem in value:
+            if nextProperty is not None:
+                valueList.extend(getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], valueItem))
+            else:
+                valueList.append(valueItem)
+
+        return valueList
+    else:
+        if nextProperty is not None:
+            return getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], value)
+        else:
+            return value
+
+
+
 def expandTemplatedUri(uri, response):
     if debug==True:
-        print "expandTemplatedUri:", uri
+        print ("expandTemplatedUri:", uri)
+
+    propertyValue=response
     while (uri.find('{')>-1):
-        idProperty = uri[uri.find('{')+1:uri.find('}')]
-        #print "---expand:", uri, idProperty
-        idValue=response.get(idProperty) # assumes templated property is at highest level of response
-        if type(idValue)==type([]):
-            for value in idValue:
+        propertyPath = uri[uri.find('{')+1:uri.find('}')]
+        propertyList = propertyPath.split(".")
+        propertyValue = getValuesByPath(propertyList[0], propertyList, response)
+
+        if type(propertyValue)==type([]):
+            if len(propertyValue)==0:
+                return None
+
+            for valueItem in propertyValue:
                 if debug==True:
-                    print "-- templated array:", uri, value
-                addNewLink(uri.replace('{' + idProperty + '}', value), response)
-            uri = uri.replace('{' + idProperty + '}', value)
+                    print ("-- templated array:", uri, valueItem)
+
+                addNewLink(uri.replace('{' + propertyPath + '}', valueItem), response)
+
+            uri = uri.replace('{' + propertyPath + '}', valueItem)
         else:
-            uri = uri.replace('{' + idProperty + '}', idValue)
+            uri = uri.replace('{' + propertyPath + '}', propertyValue)
 
     return uri
 
 
 def addNewLink(uri, response):
     if debug==True:
-        print "addNewLink", uri
+        print ("addNewLink", uri)
     if (uri.find('{')>-1):
         uri = expandTemplatedUri(uri, response)
 
-    if uri not in links:
+    if uri not in links and uri is not None and not uri.startswith("http"):
         links.append(uri)
         if debug==True:
-            print "-- Nieuw testgeval:", uri
+            print ("-- Nieuw testgeval:", uri)
     #else:
-    #    print "------",expandedUri, "bestaat al"
+    #    print ("------",expandedUri, "bestaat al")
 
 
 def addLinks(propertyName, propertyValue, response):
     if propertyValue is None:
-        print propertyName,'has no value'
+        print (propertyName,'has no value')
         return
-    #print "--", propertyName, propertyValue
+    #print ("--", propertyName, propertyValue)
 
     if type(propertyValue)==type([]):
         for link in propertyValue:
@@ -131,7 +173,7 @@ def getResponsePart(response, level, stack):
     responsePart = response
     if level>0:
         for l in range (0, level):
-            #print l, stack[l]
+            #print (l, stack[l])
             responsePart = responsePart.get(stack[l])
             if responsePart is None:
                 break
@@ -152,7 +194,7 @@ def setResponseValues(sheet, response, operationId, title):
 
     for i, line in enumerate(sheet):
         if debug==True:
-            print line
+            print (line)
         level = len(line) - len(line.lstrip(';'))
         if i==0:
             #skip title row
@@ -196,10 +238,8 @@ def getApiResponse(uri):
     response = callApi(uri)
     if response is not None:
         if debug==True:
-            print uri, operationId
+            print (uri, operationId)
         sheets[operationId] = setResponseValues(sheets[operationId], response, operationId, uri.split('/')[-1])
-
-
 
 
 debug = False
@@ -208,10 +248,10 @@ for argument in sys.argv:
     if (argument=="--debug" or argument=="-d"):
         debug = True
     elif (argument=="--help" or argument=="-h"):
-        print 'Command line arguments:'
-        print ' --debug   -d    toon debug info'
-        print ' --help    -h    toon help op command line arguments'
-        print ' --apikey  -k    geef de api key (verplicht), bijvoorbeeld -k9a8d9a8s7d98a7sd sets apikey="9a8d9a8s7d98a7sd"'
+        print ('Command line arguments:')
+        print (' --debug   -d    toon debug info')
+        print (' --help    -h    toon help op command line arguments')
+        print (' --apikey  -k    geef de api key (verplicht), bijvoorbeeld -k9a8d9a8s7d98a7sd sets apikey="9a8d9a8s7d98a7sd"')
         sys.exit()
     elif (argument[:8]=="--apikey"):
         apikey = argument[8:]
@@ -219,7 +259,7 @@ for argument in sys.argv:
         apikey = argument[2:]
 
 if (apikey is None):
-    print "Geef de API-key op met argument -k of --apikey gevolgd door de te gebruiken key"
+    print ("Geef de API-key op met argument -k of --apikey gevolgd door de te gebruiken key")
     sys.exit()
 
 REQUEST_HEADERS = { APIKEY_HEADER : apikey }
