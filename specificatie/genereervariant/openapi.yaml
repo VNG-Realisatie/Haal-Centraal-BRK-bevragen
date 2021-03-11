@@ -3419,6 +3419,8 @@ components:
             $ref: '#/components/schemas/HalLink'
         bijbehorendeErfpachters:
           type: array
+          description: |
+            Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
           items:
             $ref: '#/components/schemas/HalLink'
     KadastraalOnroerendeZaakEmbedded:
@@ -3426,6 +3428,12 @@ components:
       properties:
         zakelijkGerechtigden:
           type: array
+          items:
+            $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
+        bijbehorendeErfpachters:
+          type: array
+          description: |
+            Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
           items:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
         privaatrechtelijkeBeperkingen:
@@ -3926,13 +3934,6 @@ components:
             De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           items:
             type: string
-        bijbehorendeErfpachters:
-          type: array
-          description: |
-            Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
-          items:
-            type: string
-            example: /kadastraalonroerendezaken/76870482570000/zakelijkgerechtigden/20170717
         isVermeldInStukdeelIdentificaties:
           type: array
           items:
