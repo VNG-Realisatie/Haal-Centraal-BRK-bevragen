@@ -4338,6 +4338,12 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
+          },
+          "bijbehorendeErfpachters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
           }
         }
       },
@@ -5027,6 +5033,14 @@
             "description" : "De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
             "items" : {
               "type" : "string"
+            }
+          },
+          "bijbehorendeErfpachters" : {
+            "type" : "array",
+            "description" : "Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.\n",
+            "items" : {
+              "type" : "string",
+              "example" : "/kadastraalonroerendezaken/76870482570000/zakelijkgerechtigden/20170717"
             }
           },
           "isVermeldInStukdeelIdentificaties" : {
