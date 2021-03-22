@@ -4888,12 +4888,6 @@
           },
           "stuk" : {
             "$ref" : "#/components/schemas/HalLink"
-          },
-          "kadastraalOnroerendeZaken" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/HalLink"
-            }
           }
         }
       },
