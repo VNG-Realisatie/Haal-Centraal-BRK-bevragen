@@ -15,6 +15,7 @@ veld (property) voor in de betreffende resource.
 
 Command line arguments:
 --debug   -d    toon debug info
+--info    -i    toon voortgang info
 --help    -h    toon help op command line arguments
 --apikey  -k    geef de api key (required).
                 Bijvoorbeeld -k9a8d9a8s7d98a7sd voor apikey="9a8d9a8s7d98a7sd"
@@ -239,17 +240,22 @@ def getApiResponse(uri):
     if response is not None:
         if debug==True:
             print (uri, operationId)
-        sheets[operationId] = setResponseValues(sheets[operationId], response, operationId, uri.split('/')[-1])
+        sheets[operationId] = setResponseValues(sheets[operationId], response, operationId, '/'.join(uri.split('/')[2::2]))
 
 
 debug = False
+info = False
 apikey = None
 for argument in sys.argv:
     if (argument=="--debug" or argument=="-d"):
         debug = True
+        info = True
+    elif (argument=="--info" or argument=="-i"):
+        info = True
     elif (argument=="--help" or argument=="-h"):
         print ('Command line arguments:')
         print (' --debug   -d    toon debug info')
+        print (' --info    -i    toon voortgangs info')
         print (' --help    -h    toon help op command line arguments')
         print (' --apikey  -k    geef de api key (verplicht), bijvoorbeeld -k9a8d9a8s7d98a7sd sets apikey="9a8d9a8s7d98a7sd"')
         sys.exit()
@@ -285,4 +291,6 @@ with open(TESTCASES_FILENAME) as testuri_file:
     links = json.load(testuri_file)
 
 for uri in links:
+    if info==True:
+        print (uri)
     getApiResponse(uri)

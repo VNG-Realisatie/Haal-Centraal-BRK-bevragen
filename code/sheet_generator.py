@@ -3,6 +3,7 @@
 """
 Command line arguments:
 --debug   -d    toon debug info
+--info    -i    toon voortgang info
 --help    -h    toon help op command line arguments
 --source  -s    geef pad naar API specificaties yaml bestand.
                 Bijvoorbeeld -s"../specificatie/openapi.yaml"
@@ -120,14 +121,19 @@ def writeProperty(f, level, property, propertyDef):
 
 # read command line arguments
 debug = False
+info = False
 source = "openapi.yaml"
 target = ""
 
 for argument in sys.argv:
     if (argument=="--debug" or argument=="-d"):
         debug = True
+        info = True
+    elif (argument=="--info" or argument=="-i"):
+        info = True
     elif (argument=="--help" or argument=="-h"):
         print 'Command line arguments:'
+        print ' --info    -i    toon voortgangs info'
         print ' --debug   -d    toon debug info'
         print ' --help    -h    toon help op command line arguments'
         print ' --source  -s    geef pad naar API specificaties yaml bestand. Bijvoorbeeld -s"../specificatie/openapi.yaml"'
@@ -164,10 +170,12 @@ SWAGGER = yaml.full_load(open(SOURCE_YAML))
 #read all paths in de API specifications
 for path, pathDefinition in SWAGGER.get("paths").items():
     for method, method_definition in pathDefinition.items():
-        if debug==True:
-            print method_definition.get("operationId")
         if method_definition.get("operationId") in IGNORELIST:
             continue
+
+        if info==True:
+            print method_definition.get("operationId")
+
         f = open (TARGET_FOLDER + method_definition.get("operationId") + ".csv", "w")
         f.write(';'*MAX_LEVELS + "\n")
         writeComponent (
