@@ -4888,12 +4888,6 @@
           },
           "stuk" : {
             "$ref" : "#/components/schemas/HalLink"
-          },
-          "kadastraalOnroerendeZaken" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/HalLink"
-            }
           }
         }
       },
@@ -6080,7 +6074,7 @@
         "properties" : {
           "redenOmschrijving" : {
             "type" : "string",
-            "description" : "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.\nBij opgave van de reden is voor _overig_ gekozen.\"\n"
+            "description" : "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.\nBij opgave van de reden is voor _overig_ gekozen.\n"
           },
           "reden" : {
             "$ref" : "#/components/schemas/Waardelijst"

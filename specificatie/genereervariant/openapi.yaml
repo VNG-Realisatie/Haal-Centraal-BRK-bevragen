@@ -3811,10 +3811,6 @@ components:
           $ref: '#/components/schemas/HalLink'
         stuk:
           $ref: '#/components/schemas/HalLink'
-        kadastraalOnroerendeZaken:
-          type: array
-          items:
-            $ref: '#/components/schemas/HalLink'
     StukdeelHal:
       allOf:
       - $ref: '#/components/schemas/StukdeelHalBasis'
@@ -4860,7 +4856,7 @@ components:
           type: string
           description: |
             De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.
-            Bij opgave van de reden is voor _overig_ gekozen."
+            Bij opgave van de reden is voor _overig_ gekozen.
         reden:
           $ref: '#/components/schemas/Waardelijst'
       description: |
