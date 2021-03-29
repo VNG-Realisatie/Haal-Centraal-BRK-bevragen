@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function # nodig voor print functie die werkt in Python 3 en in Python 2
+from functools import reduce
 
 """
 Met dit script worden csv bestanden (die eerder zijn gemaakt met
@@ -180,9 +181,18 @@ def getResponsePart(response, level, stack):
                 break
 
             if type(responsePart)==type([]):
-                responsePart = responsePart[0] # only first item in arrays is used
+                responsePart = reduce(minimal_existing, responsePart)
 
     return responsePart
+
+
+def minimal_existing (a0, a1):
+    #if the first item doesn't have a property, but the second item does, then add this property to the first item
+    for attr, value in a1.items():
+        if not a0.has_key(attr):
+            a0[attr] = value
+    
+    return a0
 
 
 def setResponseValues(sheet, response, operationId, title):
