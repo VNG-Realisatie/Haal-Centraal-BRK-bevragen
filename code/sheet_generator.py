@@ -37,7 +37,7 @@ IGNORELIST = {
     '#/components/schemas/Href',
     '_embedded' }
 
-MAX_LEVELS = 6
+MAX_LEVELS = 3
 SEPERATOR = ";"
 FOLDER_SEPERATOR = "/" #for Linux and Mac. Would be "\" for Windows?
 
