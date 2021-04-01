@@ -275,7 +275,7 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         bijbehorendeErfpachters:
           description: |
-                      Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
+                      Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht. Dit zijn de erfpachters van het perceel OF de eigenaren van een appartementsrecht op het perceel.
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
@@ -288,7 +288,7 @@ components:
             $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
         bijbehorendeErfpachters:
           description: |
-                      Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht.
+                      Zakelijk gerechtigden die erfpachter zijn, omdat hun zakelijk recht is ontstaan uit een grondperceel belast met erfpacht. Dit zijn de erfpachters van het perceel OF de eigenaren van een appartementsrecht op het perceel.
           type: "array"
           items:
             $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
