@@ -559,8 +559,8 @@ components:
           description: |
                       De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
           type: "array"
-            items:
-              type: "string"
+          items:
+            type: "string"
         bijbehorendeAppartementsrechtIdentificaties:
           description: |
                       De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
