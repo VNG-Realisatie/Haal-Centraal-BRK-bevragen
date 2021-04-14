@@ -4409,6 +4409,7 @@ components:
             type: boolean
             description: |
               Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
+            deprecated: true
           landWaarnaarVertrokken:
             $ref: '#/components/schemas/Waardelijst'
           geslachtsaanduiding:
