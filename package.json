@@ -21,8 +21,7 @@
     "oas:resolve": "java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant && java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant",
     "postoas:resolve": "rm swagger-codegen-cli.jar",
     "unstage-generated": "git reset HEAD ./specificatie/genereervariant/openapi.* ./test/BRK-Bevragen-postman-collection.json ./code/**",
-    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRK-Bevragen-postman-collection.json ./code/**",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRK-Bevragen-postman-collection.json ./code/**"
   },
   "repository": {
     "type": "git",
