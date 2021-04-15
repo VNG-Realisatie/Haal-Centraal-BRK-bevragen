@@ -556,10 +556,12 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Filiatie"
-        bijbehorendGrondperceelIdentificatie:
-          type: "string"
+        bijbehorendeGrondperceelIdentificaties:
           description: |
-                        De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+                      De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+          type: "array"
+          items:
+            type: "string"
         bijbehorendeAppartementsrechtIdentificaties:
           description: |
                       De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen

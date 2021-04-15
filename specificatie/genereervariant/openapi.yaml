@@ -3411,8 +3411,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HalLink'
-        bijbehorendGrondperceel:
-          $ref: '#/components/schemas/HalLink'
+        bijbehorendeGrondpercelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         bijbehorendeAppartementsrechten:
           type: array
           items:
@@ -3908,10 +3910,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Filiatie'
-        bijbehorendGrondperceelIdentificatie:
-          type: string
+        bijbehorendeGrondperceelIdentificaties:
+          type: array
           description: |
-            De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+            De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+          items:
+            type: string
         bijbehorendeAppartementsrechtIdentificaties:
           type: array
           description: |
