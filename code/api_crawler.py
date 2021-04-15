@@ -33,6 +33,7 @@ import os.path
 SOURCE_YAML = '../specificatie/genereervariant/openapi.yaml'
 SHEET_FOLDER = '../test/cases/'
 TESTCASES_FILENAME = '../test/cases/testcases.json'
+CRAWLERLOGFILE = 'api_crawler.log'
 SEPERATOR = ";"
 MAX_LEVELS = 6
 BASE_URL = "https://api.brk.acceptatie.kadaster.nl/esd/bevragen/v1"
@@ -41,14 +42,19 @@ APIKEY_HEADER = "X-API-KEY"
 
 
 
+def logLine(*logItems):  
+    print (" ".join([str(item) for item in logItems]))
+    logfile.write(" ".join([str(item) for item in logItems]) + '\n')
+
+
 def callApi(uri):
     response = requests.get(BASE_URL + uri, headers=REQUEST_HEADERS)
 
     if response.status_code == 200:
         return response.json()
     else:
-        print ("ERROR: request failed")
-        print (uri, response.status_code, response.text)
+        logLine ("ERROR: request failed")
+        logLine (uri, response.status_code, response.text)
 
 
 def getOperationId(uri):
@@ -58,13 +64,10 @@ def getOperationId(uri):
 
 
 def getValuesByPath(propertyName, propertyList, valueSource):
-    if debug==True:
-        print ("getValuesByPath:", propertyName, propertyList)
-
     value = valueSource.get(propertyName)
 
     if debug==True:
-        print ("~~~> value:", value)
+        logLine ("getValuesByPath:", propertyName, propertyList, "~~~> value:", value)
 
     if propertyList.index(propertyName)<(len(propertyList)-1):
         nextProperty = propertyList[propertyList.index(propertyName)+1]
@@ -77,7 +80,12 @@ def getValuesByPath(propertyName, propertyList, valueSource):
         valueList = []
         for valueItem in value:
             if nextProperty is not None:
-                valueList.extend(getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], valueItem))
+                theValue = getValuesByPath(nextProperty, propertyList[propertyList.index(nextProperty):], valueItem)
+                
+                if type(theValue)==type([]):
+                    valueList.extend(theValue)
+                else:
+                    valueList.append(theValue)
             else:
                 valueList.append(valueItem)
 
@@ -89,10 +97,9 @@ def getValuesByPath(propertyName, propertyList, valueSource):
             return value
 
 
-
 def expandTemplatedUri(uri, response):
     if debug==True:
-        print ("expandTemplatedUri:", uri)
+        logLine ("expandTemplatedUri:", uri)
 
     propertyValue=response
     while (uri.find('{')>-1):
@@ -106,7 +113,7 @@ def expandTemplatedUri(uri, response):
 
             for valueItem in propertyValue:
                 if debug==True:
-                    print ("-- templated array:", uri, valueItem)
+                    logLine ("-- templated array:", uri, valueItem)
 
                 addNewLink(uri.replace('{' + propertyPath + '}', valueItem), response)
 
@@ -119,23 +126,24 @@ def expandTemplatedUri(uri, response):
 
 def addNewLink(uri, response):
     if debug==True:
-        print ("addNewLink", uri)
+        logLine ("addNewLink", uri)
+
     if (uri.find('{')>-1):
         uri = expandTemplatedUri(uri, response)
 
     if uri not in links and uri is not None and not uri.startswith("http"):
         links.append(uri)
-        if debug==True:
-            print ("-- Nieuw testgeval:", uri)
+        if info==True:
+            logLine ("-- Nieuw testgeval:", uri)
     #else:
-    #    print ("------",expandedUri, "bestaat al")
+    #    logLine ("------",expandedUri, "bestaat al")
 
 
 def addLinks(propertyName, propertyValue, response):
     if propertyValue is None:
-        print (propertyName,'has no value')
+        logLine (propertyName,'has no value')
         return
-    #print ("--", propertyName, propertyValue)
+    #logLine ("--", propertyName, propertyValue)
 
     if type(propertyValue)==type([]):
         for link in propertyValue:
@@ -175,7 +183,7 @@ def getResponsePart(response, level, stack):
     responsePart = response
     if level>0:
         for l in range (0, level):
-            #print (l, stack[l])
+            #logLine (l, stack[l])
             responsePart = responsePart.get(stack[l])
             if responsePart is None:
                 break
@@ -205,7 +213,8 @@ def setResponseValues(sheet, response, operationId, title):
 
     for i, line in enumerate(sheet):
         if debug==True:
-            print (line)
+            logLine (line)
+
         level = len(line) - len(line.lstrip(';'))
         if i==0:
             #skip title row
@@ -249,7 +258,8 @@ def getApiResponse(uri):
     response = callApi(uri)
     if response is not None:
         if debug==True:
-            print (uri, operationId)
+            logLine (uri, operationId)
+
         sheets[operationId] = setResponseValues(sheets[operationId], response, operationId, '/'.join(uri.split('/')[2::2]))
 
 
@@ -280,6 +290,8 @@ if (apikey is None):
 
 REQUEST_HEADERS = { APIKEY_HEADER : apikey }
 
+logfile = open(CRAWLERLOGFILE, "w")
+
 # read path templates and sheets
 templates = {}
 sheets = {}
@@ -302,5 +314,8 @@ with open(TESTCASES_FILENAME) as testuri_file:
 
 for uri in links:
     if info==True:
-        print (uri)
+        logLine (uri)
+
     getApiResponse(uri)
+
+logfile.close()
