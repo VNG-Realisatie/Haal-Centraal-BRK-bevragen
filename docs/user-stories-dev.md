@@ -5,6 +5,7 @@ title: User Stories in Ontwikkeling
 
 # User stories
 
+- [Als medewerker Erfpacht wil ik de kadastraal onroerende zaak of zaken kunnen zien zoals deze was/waren voorafgaand aan een splitsing of samenvoeging](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/832){:target="_blank" rel="noopener"}
 - [Als medewerker belastingzaken wil ik van iedere kadastraal onroerende zaak weten welke kadastraal onroerende zaken in deze kadastraal onroerende zaak zijn overgegaan](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/538){:target="_blank" rel="noopener"}
 - [Als medewerker Belastingzaken wil ik van iedere kadastraal onroerende zaak weten uit welke KOZ(zen) hij is ontstaan ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/537){:target="_blank" rel="noopener"}
 - [Als medewerker belastingzaken wil ik weten welk grondperceel bij het appartementsrecht behoort](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/200){:target="_blank" rel="noopener"}
