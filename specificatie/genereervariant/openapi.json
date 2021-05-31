@@ -4341,8 +4341,31 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
+          },
+          "erfpachtersDoorAppartementsrechtSplitsing" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink_2"
+            }
           }
         }
+      },
+      "HalLink_2" : {
+        "required" : [ "href" ],
+        "type" : "object",
+        "properties" : {
+          "href" : {
+            "$ref" : "#/components/schemas/Href"
+          },
+          "templated" : {
+            "type" : "boolean"
+          },
+          "title" : {
+            "type" : "string",
+            "description" : "Voor mens leesbaar label bij de link"
+          }
+        },
+        "description" : "De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5; Deze link kan als templated link worden aangeboden. [URI-templating is hier beschreven](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature)."
       },
       "KadastraalOnroerendeZaakEmbedded" : {
         "type" : "object",
@@ -5029,6 +5052,13 @@
               "type" : "string"
             }
           },
+          "erfpachtersDoorAppartementsrechtSplitsing" : {
+            "type" : "array",
+            "description" : "De eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan\n",
+            "items" : {
+              "$ref" : "#/components/schemas/ErfpachtersDoorAppartementsrechtSplitsing"
+            }
+          },
           "isVermeldInStukdeelIdentificaties" : {
             "type" : "array",
             "items" : {
@@ -5244,6 +5274,18 @@
             "description" : "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.\n"
           }
         }
+      },
+      "ErfpachtersDoorAppartementsrechtSplitsing" : {
+        "type" : "object",
+        "properties" : {
+          "kadastraalOnroerendeZaakIdentificatie" : {
+            "type" : "string"
+          },
+          "zakelijkGerechtigdeIdentificatie" : {
+            "type" : "string"
+          }
+        },
+        "description" : "De identificaties van de eigenaren van de appartementsrechten die uit erfpacht ontstaan zijn.\n"
       },
       "ZakelijkGerechtigde" : {
         "type" : "object",
