@@ -4355,6 +4355,7 @@
           },
           "andereErfpachters" : {
             "type" : "array",
+            "description" : "De eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan\n",
             "items" : {
               "$ref" : "#/components/schemas/ZakelijkGerechtigdeHal"
             }

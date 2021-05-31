@@ -3428,6 +3428,8 @@ components:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
         andereErfpachters:
           type: array
+          description: |
+            De eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan
           items:
             $ref: '#/components/schemas/ZakelijkGerechtigdeHal'
         privaatrechtelijkeBeperkingen:
