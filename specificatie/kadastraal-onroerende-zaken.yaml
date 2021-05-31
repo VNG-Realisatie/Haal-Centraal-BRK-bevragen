@@ -275,6 +275,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        erfpachtersDoorAppartementsrechtSplitsing:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaakEmbedded:
       type: "object"
       properties:
