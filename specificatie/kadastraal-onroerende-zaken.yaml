@@ -284,6 +284,8 @@ components:
             $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
         andereErfpachters:
           type: "array"
+          description: |
+                        De eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan
           items:
             $ref: "zakelijk-gerechtigden.yaml#/components/schemas/ZakelijkGerechtigdeHal"
         privaatrechtelijkeBeperkingen:
