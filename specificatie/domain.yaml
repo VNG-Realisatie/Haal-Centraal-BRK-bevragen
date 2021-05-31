@@ -251,7 +251,7 @@ components:
               type: "string"
               description: |
                             Adres of standplaats/plaats van vestiging van de ondertekenaar.
-    ErfpachtersDoorAppartementsrechtsplitsing:
+    ErfpachtersDoorAppartementsrechtSplitsing:
       type: "object"
       description: |
                     De identificaties van de eigenaren van de appartementsrechten die uit erfpacht ontstaan zijn.
