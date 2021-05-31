@@ -251,15 +251,6 @@ components:
               type: "string"
               description: |
                             Adres of standplaats/plaats van vestiging van de ondertekenaar.
-    ErfpachtersDoorAppartementsrechtSplitsing:
-      type: "object"
-      description: |
-                    De identificaties van de eigenaren van de appartementsrechten die uit erfpacht ontstaan zijn.
-      properties:
-        kadastraalOnroerendeZaakIdentificatie:
-          type: string
-        zakelijkGerechtigdeIdentificatie:
-          type: string
     Filiatie:
       type: "object"
       properties:
@@ -577,12 +568,6 @@ components:
           type : "array"
           items:
             type: "string"
-        erfpachtersDoorAppartementsrechtSplitsing:
-          description: |
-                      De eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan
-          type : "array"
-          items:
-            $ref: "#/components/schemas/ErfpachtersDoorAppartementsrechtSplitsing"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
