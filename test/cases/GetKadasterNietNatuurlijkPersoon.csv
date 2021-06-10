@@ -3,7 +3,7 @@ identificatie;;;X;X;X;X;X;X;X;X;X;
 omschrijving;;;X;X;X;X;X;X;X;X;X;
 beschikkingsbevoegdheid{};;;;;;;;;;;;
 domein;;;X;X;X;X;X;X;X;X;X;
-indicatieNietToonbareDiakriet;;;;;;;;;;;X;
+indicatieNietToonbareDiakriet(?);;;;;;;;;;;True;
 kadastraalOnroerendeZaakIdentificaties[];;;;1;2;3;2;;;;1;
 postadres{};;;X;X;;X;;X;X;;X;
 ;huisletter;;;;;;;X;;;X;

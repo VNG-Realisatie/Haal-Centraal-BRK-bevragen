@@ -2,51 +2,26 @@
 
 """
 Command line arguments:
+--config        bestand van projectspecifieke configuratie json bestand
 --debug   -d    toon debug info
 --info    -i    toon voortgang info
 --help    -h    toon help op command line arguments
---source  -s    geef pad naar API specificaties yaml bestand.
-                Bijvoorbeeld -s"../specificatie/openapi.yaml"
---target  -t    Geef pad van map waar gegenereerde csv bestanden geplaatst moeten worden.
-                Bij voorbeeld -t"../test/cases/"
 
-Gebruik dit door bijvoorbeeld: python sheet_generator.py -s"../specificatie/genereervariant/openapi.yaml" -t"../test/cases"
+Gebruik dit door bijvoorbeeld: python sheet_generator.py --config"settings.json"
 """
 
 
-import yaml
+import yaml, json
 from collections import OrderedDict
 import sys
 import os.path
-
-
-IGNORELIST = {
-    'GetKadastraalOnroerendeZaken',
-    'GetZakelijkGerechtigden',
-    'GetKadasterPersonen',
-    'GetKadasterNietNatuurlijkPersonen',
-    'GetBeslagenKadastraalOnroerendeZaak',
-    'GetHypothekenKadastraalOnroerendeZaak',
-    'GetPrivaatrechtelijkeBeperkingen',
-    'GetPubliekrechtelijkeBeperkingen',
-    '#/components/schemas/Datum_onvolledig',
-    '#/components/schemas/Waardetabel',
-    '#/components/schemas/Waardelijst',
-    '#/components/schemas/HalCollectionLinks',
-    '#/components/schemas/HalLink',
-    '#/components/schemas/Href',
-    '_embedded' }
-
-MAX_LEVELS = 3
-SEPERATOR = ";"
-FOLDER_SEPERATOR = "/" #for Linux and Mac. Would be "\" for Windows?
-
+import config
 
 
 
 def writeComponent (f, level, ref):
     if debug==True:
-        print "-- " + ref
+        print ("-- " + ref)
     refList = ref.split("/")
     component =  SWAGGER
     for refPart in refList:
@@ -70,23 +45,25 @@ def writeComponent (f, level, ref):
 
 
 def writeProperty(f, level, property, propertyDef):
-    if property in IGNORELIST:
+    if property in SETTINGS["ignoreList"]:
         return
 
     if level > 0:
         for i in range (0, level):
-            f.write (SEPERATOR)
+            f.write (config.CSV_SEPERATOR)
     f.write (property)
     if propertyDef.get('type') == "array":
         if (
                 "$ref" in propertyDef.get('items')
-                and propertyDef.get('items').get("$ref") not in IGNORELIST
-                and property not in IGNORELIST ):
+                and propertyDef.get('items').get("$ref") not in SETTINGS["ignoreList"]
+                and property not in SETTINGS["ignoreList"] ):
             f.write ("[{}]")
         else:
             f.write ("[]")
     if propertyDef.get('type') == "object":
         f.write ("{}")
+    if propertyDef.get('type') == "boolean":
+        f.write ("(?)")
     if "$ref" in propertyDef:
         if propertyDef.get('$ref').find('Enum')>0:
             f.write ("()")
@@ -94,14 +71,14 @@ def writeProperty(f, level, property, propertyDef):
             f.write ("{}")
     if "enum" in propertyDef:
         f.write ("()")
-    for i in range (0, MAX_LEVELS - level):
-        f.write (SEPERATOR)
+    for i in range (0, SETTINGS.get("maxLevels") - level):
+        f.write (config.CSV_SEPERATOR)
     f.write ("\n")
 
     if (
             "$ref" in propertyDef
-            and propertyDef.get("$ref") not in IGNORELIST
-            and property not in IGNORELIST ):
+            and propertyDef.get("$ref") not in SETTINGS["ignoreList"]
+            and property not in SETTINGS["ignoreList"] ):
         writeComponent (f, level+1, propertyDef.get("$ref"))
 
     if "properties" in propertyDef:
@@ -113,71 +90,72 @@ def writeProperty(f, level, property, propertyDef):
     if propertyDef.get('type') == "array":
         if (
                 "$ref" in propertyDef.get('items')
-                and propertyDef.get('items').get("$ref") not in IGNORELIST
-                and property not in IGNORELIST ):
+                and propertyDef.get('items').get("$ref") not in SETTINGS["ignoreList"]
+                and property not in SETTINGS["ignoreList"] ):
             writeComponent (f, level+1, propertyDef.get("items").get("$ref"))
+
 
 
 
 # read command line arguments
 debug = False
 info = False
-source = "openapi.yaml"
-target = ""
+settingsFileName = ""
 
 for argument in sys.argv:
+    if (argument[:8]=="--config"):
+        settingsFileName = argument[8:]
     if (argument=="--debug" or argument=="-d"):
         debug = True
         info = True
     elif (argument=="--info" or argument=="-i"):
         info = True
     elif (argument=="--help" or argument=="-h"):
-        print 'Command line arguments:'
-        print ' --info    -i    toon voortgangs info'
-        print ' --debug   -d    toon debug info'
-        print ' --help    -h    toon help op command line arguments'
-        print ' --source  -s    geef pad naar API specificaties yaml bestand. Bijvoorbeeld -s"../specificatie/openapi.yaml"'
-        print ' --target  -t    geef pad van map waar gegenereerde csv bestanden geplaatst moeten worden, bijvoorbeeld -t"../test/cases"'
+        print ('Command line arguments:')
+        print ('--config         bestand van projectspecifieke configuratie json bestand')
+        print (' --info    -i    toon voortgangs info')
+        print (' --debug   -d    toon debug info')
+        print (' --help    -h    toon help op command line arguments')
         sys.exit()
-    elif (argument[:8]=="--source"):
-        source = argument[8:]
-    elif (argument[:2]=="-s"):
-        source = argument[2:]
-    elif (argument[:8]=="--target"):
-        target = argument[8:]
-    elif (argument[:2]=="-t"):
-        target = argument[2:]
 
-if (target[-1:])!=FOLDER_SEPERATOR:
-    target += FOLDER_SEPERATOR
 
-if (not os.path.isfile(source)):
-    print "Geef een correcte locatie op voor de API specificaties. Opgegeven of default bestand", source,"is niet gevonden."
-    print "Gebruik --source of -s gevolgd door het pad naar het bestand."
+if settingsFileName!="":
+    with open(settingsFileName) as settingsFile:
+        SETTINGS = json.load(settingsFile)
+else:
+    print ("Geef het gewenste config bestand op met parameter --config.")
     sys.exit()
 
-if (not os.path.isdir(target)):
-    print "Geef een correcte locatie op waar de gegenereerde bestanden geplaatst moeten worden. Opgegeven of default bestand", source,"is niet gevonden."
-    print "Gebruik --target of -t gevolgd door het pad naar de map."
+if (not os.path.isdir(SETTINGS.get("projectFolder"))):
+    print ("Geef een correcte projectFolder in het config bestand.")
     sys.exit()
 
-SOURCE_YAML = source
-TARGET_FOLDER = target
+if (not os.path.isfile(SETTINGS.get("projectFolder") + SETTINGS.get("sourceYaml"))):
+    print ("Geef een correcte locatie op voor de API specificaties in sourceYaml.")
+    sys.exit()
+
+if (not os.path.isdir(SETTINGS.get("projectFolder") + SETTINGS.get("sheetFolder"))):
+    print ("Geef een correcte locatie op voor de te genereren sheets in sheetFolder.")
+    print (SETTINGS.get("projectFolder") + SETTINGS.get("sheetFolder"))
+    sys.exit()
+
+
+
 
 #read source API specifications file into a Dict
-SWAGGER = yaml.full_load(open(SOURCE_YAML))
+SWAGGER = yaml.full_load(open(SETTINGS.get("projectFolder") + SETTINGS.get("sourceYaml")))
 
 #read all paths in de API specifications
 for path, pathDefinition in SWAGGER.get("paths").items():
     for method, method_definition in pathDefinition.items():
-        if method_definition.get("operationId") in IGNORELIST:
+        if method_definition.get("operationId") in SETTINGS["ignoreList"]:
             continue
 
         if info==True:
-            print method_definition.get("operationId")
+            print (method_definition.get("operationId"))
 
-        f = open (TARGET_FOLDER + method_definition.get("operationId") + ".csv", "w")
-        f.write(';'*MAX_LEVELS + "\n")
+        f = open (SETTINGS.get("projectFolder") + SETTINGS.get("sheetFolder") + method_definition.get("operationId") + ".csv", "w")
+        f.write(';'*SETTINGS.get("maxLevels") + "\n")
         writeComponent (
             f,
             0,
