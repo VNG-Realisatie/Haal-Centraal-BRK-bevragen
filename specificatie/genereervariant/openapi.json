@@ -5428,7 +5428,7 @@
       },
       "Aantekening" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/AantekeningBasis"
+          "$ref" : "#/components/schemas/AantekeningHypotheek"
         }, {
           "properties" : {
             "identificatie" : {
@@ -5467,6 +5467,18 @@
           }
         } ]
       },
+      "AantekeningHypotheek" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AantekeningBasis"
+        }, {
+          "properties" : {
+            "betreftGedeelteVanPerceel" : {
+              "type" : "boolean",
+              "deprecated" : false
+            }
+          }
+        } ]
+      },
       "AantekeningBasis" : {
         "type" : "object",
         "properties" : {
@@ -5477,7 +5489,8 @@
             "type" : "string"
           },
           "betreftGedeelteVanPerceel" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "deprecated" : true
           }
         },
         "description" : "Waardelijst in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)\n"
@@ -5838,7 +5851,7 @@
           "aantekeningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AantekeningBasis"
+              "$ref" : "#/components/schemas/AantekeningHypotheek"
             }
           },
           "hypotheekhouders" : {
