@@ -4279,7 +4279,7 @@ components:
             deprecated: true
     Aantekening:
       allOf:
-      - $ref: '#/components/schemas/AantekeningHypotheek'
+      - $ref: '#/components/schemas/AantekeningBasis'
       - properties:
           identificatie:
             type: string
@@ -4311,13 +4311,6 @@ components:
               De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld
             items:
               type: string
-    AantekeningHypotheek:
-      allOf:
-      - $ref: '#/components/schemas/AantekeningBasis'
-      - properties:
-          betreftGedeelteVanPerceel:
-            type: boolean
-            deprecated: false
     AantekeningBasis:
       type: object
       properties:
@@ -4680,6 +4673,13 @@ components:
 
         Waardelijst in deze component :
         - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+    AantekeningHypotheek:
+      allOf:
+      - $ref: '#/components/schemas/AantekeningBasis'
+      - properties:
+          betreftGedeelteVanPerceel:
+            type: boolean
+            deprecated: false
     Beslag:
       type: object
       properties:

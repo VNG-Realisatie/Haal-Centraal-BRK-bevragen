@@ -5428,7 +5428,7 @@
       },
       "Aantekening" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/AantekeningHypotheek"
+          "$ref" : "#/components/schemas/AantekeningBasis"
         }, {
           "properties" : {
             "identificatie" : {
@@ -5463,18 +5463,6 @@
               "items" : {
                 "type" : "string"
               }
-            }
-          }
-        } ]
-      },
-      "AantekeningHypotheek" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AantekeningBasis"
-        }, {
-          "properties" : {
-            "betreftGedeelteVanPerceel" : {
-              "type" : "boolean",
-              "deprecated" : false
             }
           }
         } ]
@@ -5887,6 +5875,18 @@
           }
         },
         "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
+      },
+      "AantekeningHypotheek" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AantekeningBasis"
+        }, {
+          "properties" : {
+            "betreftGedeelteVanPerceel" : {
+              "type" : "boolean",
+              "deprecated" : false
+            }
+          }
+        } ]
       },
       "Beslag" : {
         "type" : "object",
