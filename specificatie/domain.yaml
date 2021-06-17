@@ -37,7 +37,7 @@ components:
               deprecated: false
     Aantekening:
       allOf:
-        - $ref: "#/components/schemas/AantekeningHypotheek"
+        - $ref: "#/components/schemas/AantekeningBasis"
         - properties:
             identificatie:
               type: "string"
