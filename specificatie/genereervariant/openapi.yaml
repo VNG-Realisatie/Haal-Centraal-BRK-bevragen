@@ -4286,6 +4286,7 @@ components:
           type: string
         betreftGedeelteVanPerceel:
           type: boolean
+          deprecated: true
       description: |
         Waardelijst in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
@@ -4605,7 +4606,7 @@ components:
         aantekeningen:
           type: array
           items:
-            $ref: '#/components/schemas/AantekeningBasis'
+            $ref: '#/components/schemas/AantekeningHypotheek'
         hypotheekhouders:
           type: array
           description: |
@@ -4639,6 +4640,13 @@ components:
 
         Waardelijst in deze component :
         - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)
+    AantekeningHypotheek:
+      allOf:
+      - $ref: '#/components/schemas/AantekeningBasis'
+      - properties:
+          betreftGedeelteVanPerceel:
+            type: boolean
+            deprecated: false
     Beslag:
       type: object
       properties:
