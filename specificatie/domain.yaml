@@ -203,6 +203,15 @@ components:
                         De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
           items:
             type: "string"
+    BijbehorendeAppartementsrechten:
+      type: "object"
+      description: |
+                    De appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+      properties:
+        kadastraalOnroerendeZaakIdentificatie:
+          type: "string"
+        appartementsrechtVolgnummer:
+          type: "string"
     ErfpachtCanon:
       type: "object"
       description: |
@@ -564,12 +573,12 @@ components:
           type: "array"
           items:
             type: "string"
-        bijbehorendeAppartementsrechtIdentificaties:
+        bijbehorendeAppartementsrechten:
           description: |
-                      De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+                      De verwijzingen naar de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           type : "array"
           items:
-            type: "string"
+            $ref: "#/components/schemas/BijbehorendeAppartementsrechten"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
@@ -584,7 +593,7 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
-    KadastraalOroerendeZaakFiliatie:
+    KadastraalOnroerendeZaakFiliatie:
       type: "object"
       description: |
                     De eigenschappen van de kadastraalOnroerendeZaak die gerelateerd is.
