@@ -203,7 +203,7 @@ components:
                         De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
           items:
             type: "string"
-    BijbehorendeAppartementsrechten:
+    BijbehorendAppartementsrecht:
       type: "object"
       description: |
                     De appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
@@ -578,7 +578,7 @@ components:
                       De verwijzingen naar de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           type : "array"
           items:
-            $ref: "#/components/schemas/BijbehorendeAppartementsrechten"
+            $ref: "#/components/schemas/BijbehorendAppartementsrecht"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
@@ -600,7 +600,7 @@ components:
       properties:
         identificatie:
           description: |
-                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+                        De identificaties van de Kadastraal Onroerende Za(a)k(en).
           type: "string"
         indicatieVervallen:
           description: |
