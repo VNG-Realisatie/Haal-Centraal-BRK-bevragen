@@ -600,14 +600,12 @@ components:
       properties:
         identificatie:
           description: |
-                        De identificaties van de Kadastraal Onroerende Za(a)k(en).
+                        De identificatie van de Kadastraal Onroerende Zaak.
           type: "string"
         indicatieVervallen:
           description: |
                         Geeft aan of de er verwezen wordt een vervallen kadastraal onroerende zaak.
           type: "boolean"
-        appartementsrechtVolgnummer:
-          type: "string"
     Kadasterverzoek:
       type: "object"
       description: |
