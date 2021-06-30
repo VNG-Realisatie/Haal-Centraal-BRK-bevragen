@@ -230,7 +230,7 @@ components:
           description: |
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
           $ref: "#/components/schemas/Waardelijst"
-        soortRegstier:
+        soortRegister:
           description: |
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
           $ref: "#/components/schemas/Waardelijst"
