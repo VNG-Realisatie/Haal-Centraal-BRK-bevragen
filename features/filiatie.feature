@@ -47,22 +47,26 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "20",
                             "waarde": "Splitsen perceel"
                         },
-                        "identificatie": "P2"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P2"
+                        }
                     },
                     {
                         "aard": {
                             "code": "20",
                             "waarde": "Splitsen perceel"
                         },
-                        "identificatie": "P3"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P3"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "indicatieVervallen": true
             En bevat het antwoord property "einddatum" met een waarde
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: Opvragen perceel uit splitsing
             Als "/kadastraalonroerendezaken/P2" wordt gevraagd
@@ -74,16 +78,18 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "20",
                             "waarde": "Splitsen perceel"
                         },
-                        "identificatie": "P1"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P1"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
     
     Rule: Na vereniging van percelen wordt filiatie getoond bij de vervallen percelen en bij het nieuwe perceel
         Scenario: Opvragen vervallen perceel na vereniging
@@ -100,15 +106,17 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "19",
                             "waarde": "Verenigen percelen"
                         },
-                        "identificatie": "P6"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P6"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "indicatieVervallen": true
             En bevat het antwoord property "einddatum" met een waarde
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: Opvragen perceel uit vereniging
             Gegeven Percelen met identificatie "P4" en "P5" zijn verenigd naar perceel "P6"
@@ -124,163 +132,180 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "19",
                             "waarde": "Verenigen percelen"
                         },
-                        "identificatie": "P4"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P4"
+                        }
                     },
                     {
                         "aard": {
                             "code": "19",
                             "waarde": "Verenigen percelen"
                         },
-                        "identificatie": "P5"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P5"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
     Rule: Splitsing in appartementsrechten van een perceel toont verwijzingen van het grondperceel naar de appartementsrechten en vice versa
         Scenario: Opvragen van het grondperceel na splitsing in appartementsrechten
             Gegeven Perceel met identificatie "P7" is gesplitst naar appartementsrechten "A1" en "A2"
             En Perceel met identificatie "P7" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A1" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A1" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A1" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A2" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A2" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A2" heeft "volgnummer"= 2
             Als "/kadastraalonroerendezaken/P7" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "A1"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A1"
+                        }
                     },
                     {
-                        "identificatie": "A2"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A2"
+                        }
                     }
                 ]
                 """
-            En bevat het antwoord "bijbehorendeAppartementsrechtIdentificaties" met waarde:    
+            En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
                 [
                     {
                         "identificatie": "A1",
-                        "appartementsrechtVolgnummer": 1
+                        "volgnummer": 1
                     },
                     {
                         "identificatie": "A2",
-                        "appartementsrechtVolgnummer": 1
+                        "volgnummer": 2
                     }
                 ]
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
-            En bevat het antwoord geen property "appartementsrechtVolgnummer"
+            En is de kadastraal onroerende zaak niet sluimerend
+            En bevat het antwoord geen property "volgnummer"
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
 
         Scenario: Opvragen appartementsrecht uit splitsing
             Gegeven Perceel met identificatie "P7" is gesplitst naar appartementsrechten "A1" en "A2"
             En Perceel met identificatie "P7" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A1" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A1" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A1" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A2" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A2" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A2" heeft "volgnummer"= 2
             Als "/kadastraalonroerendezaken/A1" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P7"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P7"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P7" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 1
+            En bevat het antwoord "volgnummer": 1
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: Opvragen appartementsrecht met meerdere bijbehorende grondpercelen
             Gegeven Percelen met identificatie "P8" en "P9" zijn gesplitst naar appartementsrechten "A3" en "A4"
             En Perceel met identificatie "P8" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Perceel met identificatie "P9" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A3" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A3" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A3" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A4" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A4" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A4" heeft "volgnummer"= 2
             Als "/kadastraalonroerendezaken/A3" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P8"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P8"
+                        }
                     },
                     {
-                        "identificatie": "P9"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P9"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P8", "P9" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 1
+            En bevat het antwoord "volgnummer": 1
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
-    Rule: Bij ondersplitsing van een appartementsrecht worden alle bijbehorende appartementsrechten getoond bij het perceel en wordt indicatieSluimerend getoond bij het sluimerende appartementsrecht
+    Rule: Bij ondersplitsing van een appartementsrecht worden alle bijbehorende appartementsrechten getoond bij het perceel
         Scenario: Opvragen van het grondperceel na splitsing in appartementsrechten en ondersplitsing van een appartementsrecht
             Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
             En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A5" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
-            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A6" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "volgnummer"= 4
             Als "/kadastraalonroerendezaken/P10" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:
                 """
                 [
                     {
-                        "identificatie": "A5"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A5"
+                        }
                     },
                     {
-                        "identificatie": "A6"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A6"
+                        }
                     }
                 ]
                 """
-            En bevat het antwoord "bijbehorendeAppartementsrechtIdentificaties" met waarde:    
+            En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
                 [
                     {
                         "identificatie": "A5",
-                        "appartementsrechtVolgnummer": 1
+                        "volgnummer": 1
                     },
                     {
                         "identificatie": "A6",
-                        "appartementsrechtVolgnummer": 2,
-                        "indicatieSluimerend": true
+                        "volgnummer": 2
                     },
                     {
                         "identificatie": "A7",
-                        "appartementsrechtVolgnummer": 3
+                        "volgnummer": 3
                     },
                     {
                         "identificatie": "A8",
-                        "appartementsrechtVolgnummer": 4
+                        "volgnummer": 4
                     }
                 ]
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
-            En bevat het antwoord geen property "appartementsrechtVolgnummer"
+            En is de kadastraal onroerende zaak niet sluimerend
+            En bevat het antwoord geen property "volgnummer"
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
 
     Rule: Na ondersplitsing van een appartementsrecht toont de filiatie één stap omhoog of omlaag, plus het bijbehorende grondperceel
@@ -288,17 +313,19 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
             En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A5" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
-            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A6" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "volgnummer"= 4
             Als "/kadastraalonroerendezaken/A6" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P10"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P10"
+                        }
                     }
                 ]
                 """
@@ -306,98 +333,108 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "identificatie": "A7"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A7"
+                        }
                     },
                     {
-                        "identificatie": "A8"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A8"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P10" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 2
+            En bevat het antwoord "volgnummer": 2
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord "indicatieSluimerend": true
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En is de kadastraal onroerende zaak sluimerend
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: Opvragen appartementsrecht uit ondersplitsing
             Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
             En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
             En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A5" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
-            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A6" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "volgnummer"= 4
             Als "/kadastraalonroerendezaken/A7" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "A6"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A6"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P10" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 3
+            En bevat het antwoord "volgnummer": 3
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
     Rule: Een vervallen (verenigd of gesplitst) perceel wordt niet getoond als bijbehorend grondperceel 
         Scenario: Opvragen appartementsrecht met grondperceel uit splitsing
             Gegeven Perceel met identificatie "P11" is gesplitst naar percelen "P12" en "P13"
             En Perceel met identificatie "P12" is gesplitst naar appartementsrechten "A9" en "A10"
             En Appartementsrecht met identificatie "A9" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A9" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A9" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A10" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A10" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A10" heeft "volgnummer"= 2
             Als "/kadastraalonroerendezaken/A9" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P12"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P12"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P12" ]
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P11"
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P13"
-            En bevat het antwoord "appartementsrechtVolgnummer": 1
+            En bevat het antwoord "volgnummer": 1
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: Opvragen appartementsrecht met grondperceel uit vereniging
             Gegeven Percelen met identificatie "P14" en "P15" zijn verenigd naar perceel "P16"
             En Perceel met identificatie "P16" is gesplitst naar appartementsrechten "A11" en "A12"
             En Appartementsrecht met identificatie "A11" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A11" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A11" heeft "volgnummer"= 1
             En Appartementsrecht met identificatie "A12" is niet verder gesplitst of verenigd
-            En Appartementsrecht met identificatie "A12" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A12" heeft "volgnummer"= 2
             Als "/kadastraalonroerendezaken/A11" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P16"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P16"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P16" ]
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P14"
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P15"
-            En bevat het antwoord "appartementsrechtVolgnummer": 1
+            En bevat het antwoord "volgnummer": 1
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
     
     Rule: Na een wijzigingssplitsing van een appartementsrecht worden de vervallen appartementsrechten niet getoond en wordt de filiatie uit het oude appartementsrecht overgenomen in de nieuwe appartementsrechten
         Scenario: Opvragen van het grondperceel na wijzigingssplitsing van appartementsrechten
@@ -410,56 +447,61 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
-            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
-            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
-            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
-            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A13" heeft "volgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P17" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "A13"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A13"
+                        }
                     },
                     {
-                        "identificatie": "A14"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A14"
+                        }
                     },
                     {
-                        "identificatie": "A16"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A16"
+                        }
                     }
                 ]
                 """
-            En bevat het antwoord "bijbehorendeAppartementsrechtIdentificaties" met waarde:    
+            En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
                 [
                     {
                         "identificatie": "A13",
-                        "appartementsrechtVolgnummer": 1
+                        "volgnummer": 1
                     },
                     {
                         "identificatie": "A14",
-                        "appartementsrechtVolgnummer": 2,
-                        "indicatieSluimerend": true
+                        "volgnummer": 2
                     },
                     {
                         "identificatie": "A16",
-                        "appartementsrechtVolgnummer": 4
+                        "volgnummer": 4
                     },
                     {
                         "identificatie": "A18",
-                        "appartementsrechtVolgnummer": 6
+                        "volgnummer": 6
                     }
                 ]
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
-            En bevat het antwoord geen property "appartementsrechtVolgnummer"
+            En is de kadastraal onroerende zaak niet sluimerend
+            En bevat het antwoord geen property "volgnummer"
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
 
         Scenario: Opvragen van een vervallen appartementsrecht
@@ -472,14 +514,14 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
-            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
-            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
-            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
-            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A13" heeft "volgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A15" wordt gevraagd
             Dan geeft het antwoord http statuscode 410
@@ -495,34 +537,38 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
-            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
-            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
-            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
-            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A13" heeft "volgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A18" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "A14",
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A14"
+                        }
                     },
                     {
-                        "identificatie": "P17"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P17"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P17" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 6
+            En bevat het antwoord "volgnummer": 6
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord geen property "indicatieSluimerend"
+            En is de kadastraal onroerende zaak niet sluimerend
             En bevat het antwoord geen property "isOvergegaanIn"
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
 
         Scenario: opvragen van sluimerend appartementsrecht na wijzigingssplitsing in gesplitst perceel
             Gegeven Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
@@ -534,21 +580,23 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
-            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
-            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
-            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
-            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
-            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
-            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A13" heeft "volgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "volgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "volgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A14" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
                 [
                     {
-                        "identificatie": "P17"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "P17"
+                        }
                     }
                 ]
                 """
@@ -556,13 +604,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "identificatie": "A16"
+                        "kadastraalOnroerendeZaak": {
+                            "identificatie": "A16"
+                        }
                     }
                 ]
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P17" ]
-            En bevat het antwoord "appartementsrechtVolgnummer": 2
+            En bevat het antwoord "volgnummer": 2
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
-            En bevat het antwoord "indicatieSluimerend": true
-            En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
+            En is de kadastraal onroerende zaak sluimerend
+            En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
