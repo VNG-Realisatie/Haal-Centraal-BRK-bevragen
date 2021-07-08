@@ -1,6 +1,34 @@
 # language: nl
 
 Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroerende zaken
+    Zodat ik inzicht heb in de splitsingen en samenvoegingen waarbij de kadastraal onroerende zaak betrokken is geweest.
+    En zodat ik inzicht heb in alle splitsingen en samenvoegingen die hebben plaatsgevonden tot en met de uitgifte van de grond door de gemeente.
+
+    Filiatie is de relatie naar de kadastraal onroerende zaken waaruit betreffende onroerende zaak is ontstaan en/of waarin de kadastraal onroerende zaak is overgegaan.
+    
+    Er zijn twee soorten kadastraal onroerende zaken, een perceel en een appartementsrecht. Een perceel is een begrensd deel van het Nederlands grondgebied. Een appartementsrecht omvat de bevoegdheid tot het gebruik van bepaalde gedeelten van een gebouw die blijkens hun inrichting bestemd zijn of worden om als afzonderlijk geheel te worden gebruikt. 
+    
+    De filiatie van een perceel wordt op een andere manier geregistreerd en daardoor ook op een andere manier in de API getoond dan een appartementsrecht.
+
+    Een perceel kan worden gesplitst in meerdere nieuwe percelen. Een perceel kan ook worden samengevoegd met één of meerdere andere percelen. 
+    Wanneer een perceel wordt gesplitst of samengevoegd vervallen de oude kadastraal onroerende zaken en ontstaan er nieuwe kadastraal onroerende zaken. De vervallen kadastraal onroerende zaken (percelen) zijn dan nog wel raadpleegbaar.
+
+    Een perceel kan worden gesplitst in meerdere appartementsrechten. Zowel het perceel als de daaruit gesplitste appartementsrechten zijn kadastraal onroerende zaken. Bij splitsing van een perceel in appartementsrechten blijft de kadastraal onroerende zaak van het "grondperceel" actueel, het is dan niet vervallen.
+
+    Een appartementsrecht kan worden gesplitst in meerdere nieuwe appartementsrechten. Dit heet "ondersplitsing" van het appartementsrecht. In dat geval wordt de oude kadastraal onroerende zaak (het oude appartementsrecht) "sluimerend". Dat oude appartementsrecht is dan dus niet vervallen en blijft ook raadpleegbaar.
+
+    Wanneer een appartementsrechtsplitsing moet worden gewijzigd, bijvoorbeeld wanneer appartementsrechten worden samengevoegd, dan vervallen de oude kadastraal onroerende zaken (appartementsrechten). De oude kadastraal onroerende zaken (appartementsrechten) vervallen dan en zijn niet meer raadpleegbaar. De filiatie van de oude kadastraal onroerende zaken (vervallen appartementsrechten) wordt dan overgenomen in de nieuwe kadastraal onroerende zaken (appartementsrechten).
+
+    In een overzicht:
+    | gebeurtenis                               | status oude kadastraal onroerende zaak/zaken | oude kadastraal onroerende zaak/zaken raadpleegbaar |
+    | splitsen van perceel in nieuwe percelen   | vervallen                                    | ja                                                  |
+    | samenvoegen van percelen                  | vervallen                                    | ja                                                  |
+    | splitsen perceel in appartementsrechten   | actueel                                      | ja                                                  |
+    | ondersplitsing van appartementsrecht      | sluimerend                                   | ja                                                  |
+    | wijzigingssplitsing van appartementsrecht | vervallen                                    | nee                                                 |
+
+
+    Naast de filiatie worden relaties naar de grondpercelen waaruit het appartementsrecht is ontstaan of naar de appartementsrechten horend bij het perceel geleverd, zodat direct de bijbehorende grondpercelen dan wel bijbehorende appartementsrechten kunnen worden opgehaald, zonder eerst via eventuele sluimerende appartementsrechten de filiatie af te hoeven lopen.
 
     #TODO: invullen onroerende zaak identificaties
 
