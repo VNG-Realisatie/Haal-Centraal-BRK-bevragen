@@ -4,77 +4,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     #TODO: invullen onroerende zaak identificaties
 
-    Achtergrond:
-        Gegeven Perceel met identificatie "P1" is gesplitst naar percelen "P2" en "P3"
-        En Perceel met identificatie "P1" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Perceel met identificatie "P2" is niet verder gesplitst of verenigd
-        En Perceel met identificatie "P3" is niet verder gesplitst of verenigd
-
-        En Percelen met identificatie "P4" en "P5" zijn verenigd naar perceel "P6"
-        En Perceel met identificatie "P4" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Perceel met identificatie "P5" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Perceel met identificatie "P6" is niet verder gesplitst of verenigd
-
-        En Perceel met identificatie "P7" is gesplitst naar appartementsrechten "A1" en "A2"
-        En Perceel met identificatie "P7" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Appartementsrecht met identificatie "A1" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A1" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A2" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A2" heeft "appartementsrechtVolgnummer"= 2
-
-        En Percelen met identificatie "P8" en "P9" zijn gesplitst naar appartementsrechten "A3" en "A4"
-        En Perceel met identificatie "P8" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Perceel met identificatie "P9" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Appartementsrecht met identificatie "A3" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A3" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A4" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A4" heeft "appartementsrechtVolgnummer"= 2
-
-        En Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
-        En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
-        En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
-        En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
-        En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
-
-        En Perceel met identificatie "P11" is gesplitst naar percelen "P12" en "P13"
-        En Perceel met identificatie "P12" is gesplitst naar appartementsrechten "A9" en "A10"
-        En Appartementsrecht met identificatie "A9" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A9" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A10" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A10" heeft "appartementsrechtVolgnummer"= 2
-
-        En Percelen met identificatie "P14" en "P15" zijn verenigd naar perceel "P16"
-        En Perceel met identificatie "P16" is gesplitst naar appartementsrechten "A11" en "A12"
-        En Appartementsrecht met identificatie "A11" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A11" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A12" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A12" heeft "appartementsrechtVolgnummer"= 2
-
-        En Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
-        En Perceel met identificatie "P17" is niet ontstaan uit splitsing of vereniging van een ander perceel
-        En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
-        En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
-        En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
-        En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
-        En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
-        En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
-        En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
-        En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
-        En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
-        En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
-        En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
-        En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
-        En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
-        En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
-        En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
-        En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
-
-
-    Rule: Na splitsing van een perceel wordt filiatie getoond bij het vervallen perceel en bij de nieuwe percelen
+    Rule: Na splitsing van een perceel wordt filiatie opgenomen bij het vervallen perceel en bij de nieuwe percelen
         Scenario: Opvragen van een vervallen perceel na splitsing
+            Gegeven Perceel met identificatie "P1" is gesplitst naar percelen "P2" en "P3"
+            En Perceel met identificatie "P1" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P2" is niet verder gesplitst of verenigd
+            En Perceel met identificatie "P3" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P1" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
@@ -124,6 +59,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
     
     Rule: Na vereniging van percelen wordt filiatie getoond bij de vervallen percelen en bij het nieuwe perceel
         Scenario: Opvragen vervallen perceel na vereniging
+            Gegeven Percelen met identificatie "P4" en "P5" zijn verenigd naar perceel "P6"
+            En Perceel met identificatie "P4" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P5" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P6" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P4" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
@@ -144,6 +83,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
 
         Scenario: Opvragen perceel uit vereniging
+            Gegeven Percelen met identificatie "P4" en "P5" zijn verenigd naar perceel "P6"
+            En Perceel met identificatie "P4" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P5" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P6" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P6" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -173,6 +116,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     Rule: Splitsing in appartementsrechten van een perceel toont verwijzingen van het grondperceel naar de appartementsrechten en vice versa
         Scenario: Opvragen van het grondperceel na splitsing in appartementsrechten
+            Gegeven Perceel met identificatie "P7" is gesplitst naar appartementsrechten "A1" en "A2"
+            En Perceel met identificatie "P7" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A1" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A1" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A2" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A2" heeft "appartementsrechtVolgnummer"= 2
             Als "/kadastraalonroerendezaken/P7" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
@@ -205,6 +154,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
 
         Scenario: Opvragen appartementsrecht uit splitsing
+            Gegeven Perceel met identificatie "P7" is gesplitst naar appartementsrechten "A1" en "A2"
+            En Perceel met identificatie "P7" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A1" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A1" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A2" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A2" heeft "appartementsrechtVolgnummer"= 2
             Als "/kadastraalonroerendezaken/A1" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -223,6 +178,13 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
 
         Scenario: Opvragen appartementsrecht met meerdere bijbehorende grondpercelen
+            Gegeven Percelen met identificatie "P8" en "P9" zijn gesplitst naar appartementsrechten "A3" en "A4"
+            En Perceel met identificatie "P8" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Perceel met identificatie "P9" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A3" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A3" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A4" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A4" heeft "appartementsrechtVolgnummer"= 2
             Als "/kadastraalonroerendezaken/A3" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -245,8 +207,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     Rule: Bij ondersplitsing van een appartementsrecht worden alle bijbehorende appartementsrechten getoond bij het perceel en wordt indicatieSluimerend getoond bij het sluimerende appartementsrecht
         Scenario: Opvragen van het grondperceel na splitsing in appartementsrechten en ondersplitsing van een appartementsrecht
+            Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
+            En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
+            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
             Als "/kadastraalonroerendezaken/P10" wordt gevraagd
-            Dan bevat het antwoord "isOvergegaanIn" met waarde:    
+            Dan bevat het antwoord "isOvergegaanIn" met waarde:
                 """
                 [
                     {
@@ -287,6 +257,14 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     Rule: Na ondersplitsing van een appartementsrecht toont de filiatie één stap omhoog of omlaag, plus het bijbehorende grondperceel
         Scenario: Opvragen sluimerend appartementsrecht na ondersplitsing
+            Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
+            En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
+            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
             Als "/kadastraalonroerendezaken/A6" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -315,6 +293,14 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
 
         Scenario: Opvragen appartementsrecht uit ondersplitsing
+            Gegeven Perceel met identificatie "P10" is gesplitst naar appartementsrechten "A5" en "A6"
+            En Perceel met identificatie "P10" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A5" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A5" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A6" is ondergesplitst in appartementsrechten "A7" en "A8"
+            En Appartementsrecht met identificatie "A6" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A7" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A8" heeft "appartementsrechtVolgnummer"= 4
             Als "/kadastraalonroerendezaken/A7" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -334,6 +320,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     Rule: Een vervallen (verenigd of gesplitst) perceel wordt niet getoond als bijbehorend grondperceel 
         Scenario: Opvragen appartementsrecht met grondperceel uit splitsing
+            Gegeven Perceel met identificatie "P11" is gesplitst naar percelen "P12" en "P13"
+            En Perceel met identificatie "P12" is gesplitst naar appartementsrechten "A9" en "A10"
+            En Appartementsrecht met identificatie "A9" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A9" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A10" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A10" heeft "appartementsrechtVolgnummer"= 2
             Als "/kadastraalonroerendezaken/A9" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -354,6 +346,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
 
         Scenario: Opvragen appartementsrecht met grondperceel uit vereniging
+            Gegeven Percelen met identificatie "P14" en "P15" zijn verenigd naar perceel "P16"
+            En Perceel met identificatie "P16" is gesplitst naar appartementsrechten "A11" en "A12"
+            En Appartementsrecht met identificatie "A11" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A11" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A12" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A12" heeft "appartementsrechtVolgnummer"= 2
             Als "/kadastraalonroerendezaken/A11" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -375,6 +373,24 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
     
     Rule: Na een wijzigingssplitsing van een appartementsrecht worden de vervallen appartementsrechten niet getoond en wordt de filiatie uit het oude appartementsrecht overgenomen in de nieuwe appartementsrechten
         Scenario: Opvragen van het grondperceel na wijzigingssplitsing van appartementsrechten
+            Gegeven Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
+            En Perceel met identificatie "P17" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
+            En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
+            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
+            En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
+            En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
+            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P17" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
@@ -419,11 +435,47 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeGrondperceelIdentificaties"
 
         Scenario: Opvragen van een vervallen appartementsrecht
+            Gegeven Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
+            En Perceel met identificatie "P17" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
+            En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
+            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
+            En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
+            En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
+            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A15" wordt gevraagd
             Dan geeft het antwoord http statuscode 410
             En bevat het antwoord "detail": "Dit appartementsrecht is vervallen en is overgegaan in appartementsrecht A18"
 
         Scenario: opvragen van appartementsrecht na wijzigingssplitsing
+            Gegeven Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
+            En Perceel met identificatie "P17" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
+            En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
+            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
+            En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
+            En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
+            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A18" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
@@ -445,6 +497,24 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "bijbehorendeAppartementsrechtIdentificaties"
 
         Scenario: opvragen van sluimerend appartementsrecht na wijzigingssplitsing in gesplitst perceel
+            Gegeven Perceel met identificatie "P17" is gesplitst naar appartementsrechten "A13", "A14" en "A15"
+            En Perceel met identificatie "P17" is niet ontstaan uit splitsing of vereniging van een ander perceel
+            En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
+            En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
+            En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
+            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
+            En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
+            En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
+            En Appartementsrecht met identificatie "A13" heeft "appartementsrechtVolgnummer"= 1
+            En Appartementsrecht met identificatie "A14" heeft "appartementsrechtVolgnummer"= 2
+            En Appartementsrecht met identificatie "A15" heeft "appartementsrechtVolgnummer"= 3
+            En Appartementsrecht met identificatie "A16" heeft "appartementsrechtVolgnummer"= 4
+            En Appartementsrecht met identificatie "A17" heeft "appartementsrechtVolgnummer"= 5
+            En Appartementsrecht met identificatie "A18" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A20" heeft "appartementsrechtVolgnummer"= 6
+            En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A14" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
