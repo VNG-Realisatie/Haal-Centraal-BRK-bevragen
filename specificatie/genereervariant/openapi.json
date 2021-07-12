@@ -4228,15 +4228,192 @@
         }
       },
       "KadastraalOnroerendeZaakHal" : {
+        "required" : [ "type" ],
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+          },
+          "kadastraleAanduiding" : {
+            "type" : "string"
+          },
+          "koopsom" : {
+            "$ref" : "#/components/schemas/TypeKoopsom"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "aardCultuurBebouwd" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "aardCultuurOnbebouwd" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "adressen" : {
+            "type" : "array",
+            "description" : "Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak\n",
+            "items" : {
+              "$ref" : "#/components/schemas/LocatieKadastraalObject"
+            }
+          },
+          "zakelijkGerechtigdeIdentificaties" : {
+            "type" : "array",
+            "description" : "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "privaatrechtelijkeBeperkingIdentificaties" : {
+            "type" : "array",
+            "description" : "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "hypotheekIdentificaties" : {
+            "type" : "array",
+            "description" : "Alle hypotheken die rusten op deze kadastraal onroerende zaak\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "beslagIdentificaties" : {
+            "type" : "array",
+            "description" : "Alle beslagen die rusten op deze kadastraal onroerende zaak\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isOvergegaanIn" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Filiatie"
+            }
+          },
+          "isOntstaanUit" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Filiatie"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.\n"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "_embedded" : {
+            "$ref" : "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
+          }
+        },
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "appartementsrecht" : "#/components/schemas/AppartementsrechtHal",
+            "perceel" : "#/components/schemas/PerceelHal"
+          }
+        }
+      },
+      "Filiatie" : {
+        "type" : "object",
+        "properties" : {
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "kadastraalOnroerendeZaak" : {
+            "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+          }
+        }
+      },
+      "KadastraalOnroerendeZaakFiliatie" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string",
+            "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
+          },
+          "indicatieVervallen" : {
+            "type" : "boolean",
+            "description" : "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.\n"
+          }
+        }
+      },
+      "KadastraalOnroerendeZaakEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "zakelijkGerechtigden" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ZakelijkGerechtigdeHal"
+            }
+          },
+          "privaatrechtelijkeBeperkingen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+            }
+          }
+        }
+      },
+      "AppartementsrechtHal" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/KadastraalOnroerendeZaak"
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakHal"
         }, {
           "properties" : {
-            "_links" : {
-              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakLinks"
+            "indicatieSluimerend" : {
+              "type" : "boolean"
             },
-            "_embedded" : {
-              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
+            "volgnummer" : {
+              "type" : "integer"
+            },
+            "bijbehorendeGrondpercelen" : {
+              "$ref" : "#/components/schemas/PerceelBasis"
+            },
+            "_links" : {
+              "$ref" : "#/components/schemas/AppartementsrechtLinks"
+            }
+          }
+        } ]
+      },
+      "PerceelBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        } ]
+      },
+      "KadastraalOnroerendeZaakBasis" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AppartementsrechtLinks" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakLinks"
+        }, {
+          "properties" : {
+            "bijbehorendeGrondpercelen" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/HalLink"
+              }
             }
           }
         } ]
@@ -4306,37 +4483,103 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
-          },
-          "bijbehorendeGrondpercelen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/HalLink"
+          }
+        }
+      },
+      "PerceelHal" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakHal"
+        }, {
+          "properties" : {
+            "indicatieVervallen" : {
+              "type" : "boolean"
+            },
+            "bijbehorendeAppartementsrechten" : {
+              "$ref" : "#/components/schemas/AppartementsrechtBasis"
+            },
+            "begrenzing" : {
+              "$ref" : "#/components/schemas/polygonGeoJSON"
+            },
+            "plaatscoordinaten" : {
+              "$ref" : "#/components/schemas/pointGeoJSON"
+            },
+            "kadastraleGrootte" : {
+              "$ref" : "#/components/schemas/TypeOppervlak"
+            },
+            "perceelnummerVerschuiving" : {
+              "$ref" : "#/components/schemas/TypePerceelnummerVerschuiving"
+            },
+            "_links" : {
+              "$ref" : "#/components/schemas/PerceelLinks"
             }
+          }
+        } ]
+      },
+      "AppartementsrechtBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        }, {
+          "properties" : {
+            "volgnummer" : {
+              "type" : "integer"
+            }
+          }
+        } ]
+      },
+      "polygonGeoJSON" : {
+        "required" : [ "coordinates", "type" ],
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string",
+            "enum" : [ "Polygon" ]
           },
-          "bijbehorendeAppartementsrechten" : {
+          "coordinates" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/HalLink"
+              "minItems" : 4,
+              "type" : "array",
+              "items" : {
+                "minItems" : 2,
+                "type" : "array",
+                "items" : {
+                  "type" : "number"
+                }
+              }
             }
           }
         }
       },
-      "KadastraalOnroerendeZaakEmbedded" : {
+      "pointGeoJSON" : {
+        "required" : [ "coordinates", "type" ],
         "type" : "object",
         "properties" : {
-          "zakelijkGerechtigden" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/ZakelijkGerechtigdeHal"
-            }
+          "type" : {
+            "type" : "string",
+            "enum" : [ "Point" ]
           },
-          "privaatrechtelijkeBeperkingen" : {
+          "coordinates" : {
+            "minItems" : 2,
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+              "type" : "number"
             }
           }
         }
+      },
+      "PerceelLinks" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakLinks"
+        }, {
+          "properties" : {
+            "bijbehorendeAppartementsrechten" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/HalLink"
+              }
+            }
+          }
+        } ]
       },
       "TypeGerechtigdeEnum" : {
         "type" : "string",
@@ -4890,179 +5133,9 @@
           }
         }
       },
-      "KadastraalOnroerendeZaak" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "indicatieVervallen" : {
-            "type" : "boolean",
-            "description" : "Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.\nDeze informatie is nodig om de filiatie-\"boom\" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.\n"
-          },
-          "einddatum" : {
-            "type" : "string",
-            "description" : "Datum waarop de kadastraal onroerende zaak is vervallen\n",
-            "format" : "date"
-          },
-          "begrenzingPerceel" : {
-            "$ref" : "#/components/schemas/polygonGeoJSON"
-          },
-          "perceelnummerRotatie" : {
-            "maximum" : 999,
-            "type" : "number",
-            "description" : "Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.\nPerceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.\n"
-          },
-          "plaatscoordinaten" : {
-            "$ref" : "#/components/schemas/pointGeoJSON"
-          },
-          "koopsom" : {
-            "$ref" : "#/components/schemas/TypeKoopsom"
-          },
-          "toelichtingBewaarder" : {
-            "type" : "string",
-            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
-          },
-          "type" : {
-            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
-          },
-          "aardCultuurBebouwd" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "aardCultuurOnbebouwd" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "kadastraleAanduiding" : {
-            "type" : "string"
-          },
-          "kadastraleGrootte" : {
-            "$ref" : "#/components/schemas/TypeOppervlak"
-          },
-          "perceelnummerVerschuiving" : {
-            "$ref" : "#/components/schemas/TypePerceelnummerVerschuiving"
-          },
-          "adressen" : {
-            "type" : "array",
-            "description" : "Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak\n",
-            "items" : {
-              "$ref" : "#/components/schemas/LocatieKadastraalObject"
-            }
-          },
-          "zakelijkGerechtigdeIdentificaties" : {
-            "type" : "array",
-            "description" : "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "privaatrechtelijkeBeperkingIdentificaties" : {
-            "type" : "array",
-            "description" : "Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "hypotheekIdentificaties" : {
-            "type" : "array",
-            "description" : "Alle hypotheken die rusten op deze kadastraal onroerende zaak\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "beslagIdentificaties" : {
-            "type" : "array",
-            "description" : "Alle beslagen die rusten op deze kadastraal onroerende zaak\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "isOvergegaanIn" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Filiatie"
-            }
-          },
-          "isOntstaanUit" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Filiatie"
-            }
-          },
-          "bijbehorendeGrondperceelIdentificaties" : {
-            "type" : "array",
-            "description" : "De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "bijbehorendeAppartementsrechtIdentificaties" : {
-            "type" : "array",
-            "description" : "De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
-            "items" : {
-              "type" : "string"
-            }
-          },
-          "isVermeldInStukdeelIdentificaties" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.\n"
-            }
-          },
-          "stukIdentificaties" : {
-            "type" : "array",
-            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        },
-        "description" : "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.\n\n\nWaardelijst in deze component :\n  [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)\n"
-      },
-      "polygonGeoJSON" : {
-        "required" : [ "coordinates", "type" ],
-        "type" : "object",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "Polygon" ]
-          },
-          "coordinates" : {
-            "type" : "array",
-            "items" : {
-              "minItems" : 4,
-              "type" : "array",
-              "items" : {
-                "minItems" : 2,
-                "type" : "array",
-                "items" : {
-                  "type" : "number"
-                }
-              }
-            }
-          }
-        }
-      },
-      "pointGeoJSON" : {
-        "required" : [ "coordinates", "type" ],
-        "type" : "object",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "Point" ]
-          },
-          "coordinates" : {
-            "minItems" : 2,
-            "type" : "array",
-            "items" : {
-              "type" : "number"
-            }
-          }
-        }
+      "TypeKadastraalOnroerendeZaakEnum" : {
+        "type" : "string",
+        "enum" : [ "appartementsrecht", "perceel" ]
       },
       "TypeKoopsom" : {
         "type" : "object",
@@ -5078,10 +5151,6 @@
           }
         }
       },
-      "TypeKadastraalOnroerendeZaakEnum" : {
-        "type" : "string",
-        "enum" : [ "appartementsrecht", "perceel" ]
-      },
       "Waardelijst" : {
         "type" : "object",
         "properties" : {
@@ -5093,33 +5162,6 @@
             "type" : "string"
           }
         }
-      },
-      "TypeOppervlak" : {
-        "type" : "object",
-        "properties" : {
-          "soortGrootte" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "waarde" : {
-            "type" : "integer",
-            "description" : "Oppervlak grootte, in vierkante meters\n"
-          }
-        },
-        "description" : "Oppervlakte\n\n\nWaardelijst in deze component :\n  [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)\n"
-      },
-      "TypePerceelnummerVerschuiving" : {
-        "type" : "object",
-        "properties" : {
-          "deltax" : {
-            "type" : "number",
-            "description" : "Verschuiving op de X as.\n"
-          },
-          "deltay" : {
-            "type" : "number",
-            "description" : "Verschuiving op de Y as.\n"
-          }
-        },
-        "description" : "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.\n"
       },
       "LocatieKadastraalObject" : {
         "description" : "Waardelijsten in deze component :\n  [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)\n",
@@ -5206,21 +5248,32 @@
         },
         "description" : "Eigenschappen van het adres die kunnen worden hergebruikt in andere API's waarin adresgegevens worden opgenomen. "
       },
-      "Filiatie" : {
+      "TypeOppervlak" : {
         "type" : "object",
         "properties" : {
-          "aard" : {
+          "soortGrootte" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
-          "kadastraalOnroerendeZaakIdentificatie" : {
-            "type" : "string",
-            "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
-          },
-          "indicatieVervallenKadastraalOnroerendeZaak" : {
-            "type" : "boolean",
-            "description" : "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.\n"
+          "waarde" : {
+            "type" : "integer",
+            "description" : "Oppervlak grootte, in vierkante meters\n"
           }
-        }
+        },
+        "description" : "Oppervlakte\n\n\nWaardelijst in deze component :\n  [soortGrootte](http://www.kadaster.nl/schemas/waardelijsten/SoortGrootte/)\n"
+      },
+      "TypePerceelnummerVerschuiving" : {
+        "type" : "object",
+        "properties" : {
+          "deltax" : {
+            "type" : "number",
+            "description" : "Verschuiving op de X as.\n"
+          },
+          "deltay" : {
+            "type" : "number",
+            "description" : "Verschuiving op de Y as.\n"
+          }
+        },
+        "description" : "Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.\n"
       },
       "ZakelijkGerechtigde" : {
         "type" : "object",
