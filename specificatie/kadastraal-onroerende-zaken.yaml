@@ -213,13 +213,94 @@ components:
           items:
             $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
     KadastraalOnroerendeZaakHal:
-      allOf:
-      - $ref: "domain.yaml#/components/schemas/KadastraalOnroerendeZaak"
-      - properties:
-          _links:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaakLinks"
-          _embedded:
-            $ref: "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+        domein:
+          type: "string"
+          description: |
+                        Het domein waartoe de identificatie behoort.
+        type:
+          $ref: "domain.yaml#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+        kadastraleAanduiding:
+          type: "string"
+        koopsom:
+          $ref: "domain.yaml#/components/schemas/TypeKoopsom"
+        toelichtingBewaarder:
+          type: "string"
+          description: |
+                        Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.
+                        Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        aardCultuurBebouwd:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/)
+        aardCultuurOnbebouwd:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)
+        adressen:
+          type: "array"
+          description: |
+                        Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
+          items:
+            $ref: "domain.yaml#/components/schemas/LocatieKadastraalObject"
+        zakelijkGerechtigdeIdentificaties:
+          type: "array"
+          description: |
+                        Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak
+          items:
+            type: string
+        privaatrechtelijkeBeperkingIdentificaties:
+          type: "array"
+          description: |
+                        Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+        hypotheekIdentificaties:
+          type: "array"
+          description: |
+                        Alle hypotheken die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+        beslagIdentificaties:
+          type: "array"
+          description: |
+                        Alle beslagen die rusten op deze kadastraal onroerende zaak
+          items:
+            type: string
+        isOvergegaanIn:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        isOntstaanUit:
+          type: array
+          items:
+            $ref: "#/components/schemas/Filiatie"
+        isVermeldInStukdeelIdentificaties:
+          type: "array"
+          items:
+            type: "string"
+            description: |
+                          De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.
+        stukIdentificaties:
+          type: "array"
+          description: |
+                        Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft
+                        tot een wijziging van de gegevens in een basisregistratie.
+                        Dit kan een aangeboden stuk of een kadasterstuk zijn.
+          items:
+            type: string
+        _embedded:
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakEmbedded"
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          appartementsrecht: "#/components/schemas/AppartementsrechtHal"
+          perceel: "#/components/schemas/PerceelHal"
     KadastraalOnroerendeZaakLinks:
       type: "object"
       properties:
@@ -265,14 +346,22 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bijbehorendeGrondpercelen:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        bijbehorendeAppartementsrechten:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    AppartementsrechtLinks:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakLinks"
+        - properties:
+            bijbehorendeGrondpercelen:
+              type: "array"
+              items:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    PerceelLinks:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakLinks"
+        - properties:
+            bijbehorendeAppartementsrechten:
+              type: "array"
+              items:
+                $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     KadastraalOnroerendeZaakEmbedded:
       type: "object"
       properties:
@@ -284,3 +373,67 @@ components:
           type: "array"
           items:
             $ref: "privaat-rechtelijke-beperkingen.yaml#/components/schemas/PrivaatrechtelijkeBeperkingHal"
+    AppartementsrechtHal:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
+        - properties:
+            indicatieSluimerend:
+              type: boolean
+            volgnummer:
+              type: integer
+            bijbehorendeGrondpercelen:
+              $ref: "#/components/schemas/PerceelBasis"
+            _links:
+              $ref: "#/components/schemas/AppartementsrechtLinks"
+    PerceelHal:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakHal"
+        - properties:
+            indicatieVervallen:
+              type: boolean
+            bijbehorendeAppartementsrechten:
+              $ref: "#/components/schemas/AppartementsrechtBasis"
+            begrenzing:
+              $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
+            plaatscoordinaten:
+              $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/pointGeoJSON.yaml"
+            kadastraleGrootte:
+              $ref: "domain.yaml#/components/schemas/TypeOppervlak"
+            perceelnummerVerschuiving:
+              $ref: "domain.yaml#/components/schemas/TypePerceelnummerVerschuiving"
+            _links:
+              $ref: "#/components/schemas/PerceelLinks"
+    KadastraalOnroerendeZaakBasis:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+    AppartementsrechtBasis:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        - properties:
+            volgnummer:
+              type: integer
+    PerceelBasis:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
+    Filiatie:
+      type: "object"
+      properties:
+        aard:
+          $ref: "domain.yaml#/components/schemas/Waardelijst"
+        kadastraalOnroerendeZaak:
+          $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+    KadastraalOnroerendeZaakFiliatie:
+      type: "object"
+      properties:
+        identificatie:
+          description: |
+                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+          type: "string"
+        indicatieVervallen:
+          description: |
+                        Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+          type: "boolean"
+        
+
