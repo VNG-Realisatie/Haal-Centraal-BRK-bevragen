@@ -4293,16 +4293,10 @@
             }
           },
           "isOvergegaanIn" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Filiatie"
-            }
+            "$ref" : "#/components/schemas/Filiatie"
           },
           "isOntstaanUit" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Filiatie"
-            }
+            "$ref" : "#/components/schemas/Filiatie"
           },
           "isVermeldInStukdeelIdentificaties" : {
             "type" : "array",
@@ -4336,8 +4330,11 @@
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
-          "kadastraalOnroerendeZaak" : {
-            "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+          "kadastraalOnroerendeZaken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+            }
           }
         }
       },
