@@ -3434,16 +3434,35 @@ components:
         kadastraalOnroerendeZaak:
           $ref: '#/components/schemas/KadastraalOnroerendeZaakFiliatie'
     KadastraalOnroerendeZaakFiliatie:
+      required:
+      - type
       type: object
       properties:
         identificatie:
           type: string
           description: |
             De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
-        indicatieVervallen:
-          type: boolean
-          description: |
-            Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+        type:
+          $ref: '#/components/schemas/TypeKadastraalOnroerendeZaakEnum'
+      discriminator:
+        propertyName: type
+        mapping:
+          appartementsrecht: '#/components/schemas/AppartementsrechtFiliatie'
+          perceel: '#/components/schemas/PerceelFiliatie'
+    AppartementsrechtFiliatie:
+      allOf:
+      - $ref: '#/components/schemas/KadastraalOnroerendeZaakFiliatie'
+      - properties:
+          indicatieSluimerend:
+            type: boolean
+    PerceelFiliatie:
+      allOf:
+      - $ref: '#/components/schemas/KadastraalOnroerendeZaakFiliatie'
+      - properties:
+          indicatieVervallen:
+            type: boolean
+            description: |
+              Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
     KadastraalOnroerendeZaakEmbedded:
       type: object
       properties:
