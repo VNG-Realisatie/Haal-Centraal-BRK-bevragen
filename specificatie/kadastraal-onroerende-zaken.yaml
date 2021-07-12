@@ -431,9 +431,26 @@ components:
           description: |
                         De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
           type: "string"
-        indicatieVervallen:
-          description: |
-                        Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
-          type: "boolean"
-        
-
+        type:
+          $ref: "domain.yaml#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          appartementsrecht: "#/components/schemas/AppartementsrechtFiliatie"
+          perceel: "#/components/schemas/PerceelFiliatie"
+    AppartementsrechtFiliatie:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        - properties:
+            indicatieSluimerend:
+              type: boolean
+    PerceelFiliatie:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        - properties:
+            indicatieVervallen:
+              description: |
+                            Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+              type: "boolean"
