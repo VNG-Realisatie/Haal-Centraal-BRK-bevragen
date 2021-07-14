@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -34,32 +34,16 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="ZakelijkGerechtigdeHalCollectieEmbedded" /> class.
         /// </summary>
         /// <param name="zakelijkGerechtigden">zakelijkGerechtigden.</param>
-        /// <param name="stukken">stukken.</param>
-        /// <param name="stukdelen">stukdelen.</param>
-        public ZakelijkGerechtigdeHalCollectieEmbedded(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden = default(List<ZakelijkGerechtigdeHal>), List<StukHalBasis> stukken = default(List<StukHalBasis>), List<StukdeelHalBasis> stukdelen = default(List<StukdeelHalBasis>))
+        public ZakelijkGerechtigdeHalCollectieEmbedded(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden = default(List<ZakelijkGerechtigdeHal>))
         {
             this.ZakelijkGerechtigden = zakelijkGerechtigden;
-            this.Stukken = stukken;
-            this.Stukdelen = stukdelen;
         }
-        
+
         /// <summary>
         /// Gets or Sets ZakelijkGerechtigden
         /// </summary>
         [DataMember(Name="zakelijkGerechtigden", EmitDefaultValue=false)]
         public List<ZakelijkGerechtigdeHal> ZakelijkGerechtigden { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Stukken
-        /// </summary>
-        [DataMember(Name="stukken", EmitDefaultValue=false)]
-        public List<StukHalBasis> Stukken { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Stukdelen
-        /// </summary>
-        [DataMember(Name="stukdelen", EmitDefaultValue=false)]
-        public List<StukdeelHalBasis> Stukdelen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,19 +54,17 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class ZakelijkGerechtigdeHalCollectieEmbedded {\n");
             sb.Append("  ZakelijkGerechtigden: ").Append(ZakelijkGerechtigden).Append("\n");
-            sb.Append("  Stukken: ").Append(Stukken).Append("\n");
-            sb.Append("  Stukdelen: ").Append(Stukdelen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -111,18 +93,6 @@ namespace Org.OpenAPITools.Model
                     this.ZakelijkGerechtigden != null &&
                     input.ZakelijkGerechtigden != null &&
                     this.ZakelijkGerechtigden.SequenceEqual(input.ZakelijkGerechtigden)
-                ) && 
-                (
-                    this.Stukken == input.Stukken ||
-                    this.Stukken != null &&
-                    input.Stukken != null &&
-                    this.Stukken.SequenceEqual(input.Stukken)
-                ) && 
-                (
-                    this.Stukdelen == input.Stukdelen ||
-                    this.Stukdelen != null &&
-                    input.Stukdelen != null &&
-                    this.Stukdelen.SequenceEqual(input.Stukdelen)
                 );
         }
 
@@ -137,10 +107,6 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.ZakelijkGerechtigden != null)
                     hashCode = hashCode * 59 + this.ZakelijkGerechtigden.GetHashCode();
-                if (this.Stukken != null)
-                    hashCode = hashCode * 59 + this.Stukken.GetHashCode();
-                if (this.Stukdelen != null)
-                    hashCode = hashCode * 59 + this.Stukdelen.GetHashCode();
                 return hashCode;
             }
         }

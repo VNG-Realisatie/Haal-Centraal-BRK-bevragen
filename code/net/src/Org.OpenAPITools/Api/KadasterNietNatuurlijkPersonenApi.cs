@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -28,7 +29,7 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
@@ -40,7 +41,7 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
@@ -51,30 +52,30 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadasterNietNatuurlijkPersoonHal</returns>
-        KadasterNietNatuurlijkPersoonHal GetKadasterNietNatuurlijkPersoon (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        KadasterNietNatuurlijkPersoonHal GetKadasterNietNatuurlijkPersoon (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadasterNietNatuurlijkPersoonHal</returns>
-        ApiResponse<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        ApiResponse<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonWithHttpInfo (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
@@ -86,7 +87,7 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
@@ -97,119 +98,127 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadasterNatuurlijkPersoonHal</returns>
-        KadasterNatuurlijkPersoonHal GetKadasterPersoon (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        KadasterNatuurlijkPersoonHal GetKadasterPersoon (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadasterNatuurlijkPersoonHal</returns>
-        ApiResponse<KadasterNatuurlijkPersoonHal> GetKadasterPersoonWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        ApiResponse<KadasterNatuurlijkPersoonHal> GetKadasterPersoonWithHttpInfo (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHalCollectie</returns>
-        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo (string q, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHal</returns>
-        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHalCollectie</returns>
-        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenAsyncWithHttpInfo (string q, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHal</returns>
-        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        /// Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonAsyncWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonWithHttpInfoAsync (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -322,7 +331,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
@@ -335,7 +344,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
@@ -397,27 +406,29 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHalCollectie</returns>
-        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHalCollectie> GetKadasterNietNatuurlijkPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo(q, fields);
+             ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync(q, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenAsyncWithHttpInfo (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHalCollectie>> GetKadasterNietNatuurlijkPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -457,7 +468,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -473,32 +484,32 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadasterNietNatuurlijkPersoonHal</returns>
-        public KadasterNietNatuurlijkPersoonHal GetKadasterNietNatuurlijkPersoon (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public KadasterNietNatuurlijkPersoonHal GetKadasterNietNatuurlijkPersoon (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string))
         {
-             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = GetKadasterNietNatuurlijkPersoonWithHttpInfo(kadasternietnatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = GetKadasterNietNatuurlijkPersoonWithHttpInfo(kadasterNietNatuurlijkPersoonIdentificatie, fields);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadasterNietNatuurlijkPersoonHal</returns>
-        public ApiResponse<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public ApiResponse<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonWithHttpInfo (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string))
         {
-            // verify the required parameter 'kadasternietnatuurlijkpersoonidentificatie' is set
-            if (kadasternietnatuurlijkpersoonidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadasternietnatuurlijkpersoonidentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterNietNatuurlijkPersoon");
+            // verify the required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' is set
+            if (kadasterNietNatuurlijkPersoonIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterNietNatuurlijkPersoon");
 
-            var localVarPath = "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}";
+            var localVarPath = "/kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -520,7 +531,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadasternietnatuurlijkpersoonidentificatie != null) localVarPathParams.Add("kadasternietnatuurlijkpersoonidentificatie", this.Configuration.ApiClient.ParameterToString(kadasternietnatuurlijkpersoonidentificatie)); // path parameter
+            if (kadasterNietNatuurlijkPersoonIdentificatie != null) localVarPathParams.Add("kadasterNietNatuurlijkPersoonIdentificatie", this.Configuration.ApiClient.ParameterToString(kadasterNietNatuurlijkPersoonIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
 
             // authentication (apiKeyAuth) required
@@ -548,33 +559,35 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNietNatuurlijkPersoonHal</returns>
-        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNietNatuurlijkPersoonHal> GetKadasterNietNatuurlijkPersoonAsync (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = await GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo(kadasternietnatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResponse = await GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync(kadasterNietNatuurlijkPersoonIdentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternietnatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNietNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNietNatuurlijkPersoonHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonAsyncWithHttpInfo (string kadasternietnatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNietNatuurlijkPersoonHal>> GetKadasterNietNatuurlijkPersoonWithHttpInfoAsync (string kadasterNietNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'kadasternietnatuurlijkpersoonidentificatie' is set
-            if (kadasternietnatuurlijkpersoonidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadasternietnatuurlijkpersoonidentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterNietNatuurlijkPersoon");
+            // verify the required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' is set
+            if (kadasterNietNatuurlijkPersoonIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterNietNatuurlijkPersoon");
 
-            var localVarPath = "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}";
+            var localVarPath = "/kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -596,7 +609,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadasternietnatuurlijkpersoonidentificatie != null) localVarPathParams.Add("kadasternietnatuurlijkpersoonidentificatie", this.Configuration.ApiClient.ParameterToString(kadasternietnatuurlijkpersoonidentificatie)); // path parameter
+            if (kadasterNietNatuurlijkPersoonIdentificatie != null) localVarPathParams.Add("kadasterNietNatuurlijkPersoonIdentificatie", this.Configuration.ApiClient.ParameterToString(kadasterNietNatuurlijkPersoonIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
 
             // authentication (apiKeyAuth) required
@@ -608,7 +621,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -624,7 +637,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
@@ -637,7 +650,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
@@ -699,27 +712,29 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHalCollectie</returns>
-        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHalCollectie> GetKadasterPersonenAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterPersonenAsyncWithHttpInfo(q, fields);
+             ApiResponse<KadasterNatuurlijkPersoonHalCollectie> localVarResponse = await GetKadasterPersonenWithHttpInfoAsync(q, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenAsyncWithHttpInfo (string q, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHalCollectie>> GetKadasterPersonenWithHttpInfoAsync (string q, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -759,7 +774,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -775,32 +790,32 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadasterNatuurlijkPersoonHal</returns>
-        public KadasterNatuurlijkPersoonHal GetKadasterPersoon (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public KadasterNatuurlijkPersoonHal GetKadasterPersoon (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string))
         {
-             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = GetKadasterPersoonWithHttpInfo(kadasternatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = GetKadasterPersoonWithHttpInfo(kadasterNatuurlijkPersoonIdentificatie, fields);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadasterNatuurlijkPersoonHal</returns>
-        public ApiResponse<KadasterNatuurlijkPersoonHal> GetKadasterPersoonWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public ApiResponse<KadasterNatuurlijkPersoonHal> GetKadasterPersoonWithHttpInfo (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string))
         {
-            // verify the required parameter 'kadasternatuurlijkpersoonidentificatie' is set
-            if (kadasternatuurlijkpersoonidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadasternatuurlijkpersoonidentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterPersoon");
+            // verify the required parameter 'kadasterNatuurlijkPersoonIdentificatie' is set
+            if (kadasterNatuurlijkPersoonIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadasterNatuurlijkPersoonIdentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterPersoon");
 
-            var localVarPath = "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}";
+            var localVarPath = "/kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -822,7 +837,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadasternatuurlijkpersoonidentificatie != null) localVarPathParams.Add("kadasternatuurlijkpersoonidentificatie", this.Configuration.ApiClient.ParameterToString(kadasternatuurlijkpersoonidentificatie)); // path parameter
+            if (kadasterNatuurlijkPersoonIdentificatie != null) localVarPathParams.Add("kadasterNatuurlijkPersoonIdentificatie", this.Configuration.ApiClient.ParameterToString(kadasterNatuurlijkPersoonIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
 
             // authentication (apiKeyAuth) required
@@ -850,33 +865,35 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadasterNatuurlijkPersoonHal</returns>
-        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<KadasterNatuurlijkPersoonHal> GetKadasterPersoonAsync (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = await GetKadasterPersoonAsyncWithHttpInfo(kadasternatuurlijkpersoonidentificatie, fields);
+             ApiResponse<KadasterNatuurlijkPersoonHal> localVarResponse = await GetKadasterPersoonWithHttpInfoAsync(kadasterNatuurlijkPersoonIdentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+        ///  Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadasternatuurlijkpersoonidentificatie"></param>
+        /// <param name="kadasterNatuurlijkPersoonIdentificatie"></param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadasterNatuurlijkPersoonHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonAsyncWithHttpInfo (string kadasternatuurlijkpersoonidentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadasterNatuurlijkPersoonHal>> GetKadasterPersoonWithHttpInfoAsync (string kadasterNatuurlijkPersoonIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'kadasternatuurlijkpersoonidentificatie' is set
-            if (kadasternatuurlijkpersoonidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadasternatuurlijkpersoonidentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterPersoon");
+            // verify the required parameter 'kadasterNatuurlijkPersoonIdentificatie' is set
+            if (kadasterNatuurlijkPersoonIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadasterNatuurlijkPersoonIdentificatie' when calling KadasterNietNatuurlijkPersonenApi->GetKadasterPersoon");
 
-            var localVarPath = "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}";
+            var localVarPath = "/kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -898,7 +915,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadasternatuurlijkpersoonidentificatie != null) localVarPathParams.Add("kadasternatuurlijkpersoonidentificatie", this.Configuration.ApiClient.ParameterToString(kadasternatuurlijkpersoonidentificatie)); // path parameter
+            if (kadasterNatuurlijkPersoonIdentificatie != null) localVarPathParams.Add("kadasterNatuurlijkPersoonIdentificatie", this.Configuration.ApiClient.ParameterToString(kadasterNatuurlijkPersoonIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
 
             // authentication (apiKeyAuth) required
@@ -910,7 +927,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

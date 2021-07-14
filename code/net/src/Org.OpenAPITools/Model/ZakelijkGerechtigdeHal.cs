@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -43,25 +43,21 @@ namespace Org.OpenAPITools.Model
         /// <param name="aanvangsdatum">Datum waarop het zakelijk recht van kracht is geworden. .</param>
         /// <param name="erfpachtCanon">erfpachtCanon.</param>
         /// <param name="tenaamstelling">tenaamstelling.</param>
+        /// <param name="zakelijkRecht">zakelijkRecht.</param>
         /// <param name="persoon">persoon.</param>
-        /// <param name="stukIdentificaties">Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. .</param>
-        /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd. .</param>
-        /// <param name="isVermeldInStukdeelIdentificaties">De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld. .</param>
         /// <param name="links">links.</param>
-        public ZakelijkGerechtigdeHal(string identificatie = default(string), TypeGerechtigdeEnum? type = default(TypeGerechtigdeEnum?), DateTime aanvangsdatum = default(DateTime), ErfpachtCanon erfpachtCanon = default(ErfpachtCanon), Tenaamstelling tenaamstelling = default(Tenaamstelling), PersoonBeperkt persoon = default(PersoonBeperkt), List<string> stukIdentificaties = default(List<string>), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), ZakelijkGerechtigdeLinks links = default(ZakelijkGerechtigdeLinks))
+        public ZakelijkGerechtigdeHal(string identificatie = default(string), TypeGerechtigdeEnum? type = default(TypeGerechtigdeEnum?), DateTime aanvangsdatum = default(DateTime), ErfpachtCanon erfpachtCanon = default(ErfpachtCanon), Tenaamstelling tenaamstelling = default(Tenaamstelling), ZakelijkRecht zakelijkRecht = default(ZakelijkRecht), PersoonBeperkt persoon = default(PersoonBeperkt), ZakelijkGerechtigdeLinks links = default(ZakelijkGerechtigdeLinks))
         {
             this.Identificatie = identificatie;
             this.Type = type;
             this.Aanvangsdatum = aanvangsdatum;
             this.ErfpachtCanon = erfpachtCanon;
             this.Tenaamstelling = tenaamstelling;
+            this.ZakelijkRecht = zakelijkRecht;
             this.Persoon = persoon;
-            this.StukIdentificaties = stukIdentificaties;
-            this.IsGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
-            this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
             this.Links = links;
         }
-        
+
         /// <summary>
         /// Identificatie van de zakelijk gerechtigde. 
         /// </summary>
@@ -91,31 +87,16 @@ namespace Org.OpenAPITools.Model
         public Tenaamstelling Tenaamstelling { get; set; }
 
         /// <summary>
+        /// Gets or Sets ZakelijkRecht
+        /// </summary>
+        [DataMember(Name="zakelijkRecht", EmitDefaultValue=false)]
+        public ZakelijkRecht ZakelijkRecht { get; set; }
+
+        /// <summary>
         /// Gets or Sets Persoon
         /// </summary>
         [DataMember(Name="persoon", EmitDefaultValue=false)]
         public PersoonBeperkt Persoon { get; set; }
-
-        /// <summary>
-        /// Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. 
-        /// </summary>
-        /// <value>Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. </value>
-        [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
-        public List<string> StukIdentificaties { get; set; }
-
-        /// <summary>
-        /// De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd. 
-        /// </summary>
-        /// <value>De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd. </value>
-        [DataMember(Name="isGebaseerdOpStukdeelIdentificatie", EmitDefaultValue=false)]
-        public string IsGebaseerdOpStukdeelIdentificatie { get; set; }
-
-        /// <summary>
-        /// De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld. 
-        /// </summary>
-        /// <value>De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld. </value>
-        [DataMember(Name="isVermeldInStukdeelIdentificaties", EmitDefaultValue=false)]
-        public List<string> IsVermeldInStukdeelIdentificaties { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -136,22 +117,20 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Aanvangsdatum: ").Append(Aanvangsdatum).Append("\n");
             sb.Append("  ErfpachtCanon: ").Append(ErfpachtCanon).Append("\n");
             sb.Append("  Tenaamstelling: ").Append(Tenaamstelling).Append("\n");
+            sb.Append("  ZakelijkRecht: ").Append(ZakelijkRecht).Append("\n");
             sb.Append("  Persoon: ").Append(Persoon).Append("\n");
-            sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
-            sb.Append("  IsGebaseerdOpStukdeelIdentificatie: ").Append(IsGebaseerdOpStukdeelIdentificatie).Append("\n");
-            sb.Append("  IsVermeldInStukdeelIdentificaties: ").Append(IsVermeldInStukdeelIdentificaties).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -201,26 +180,14 @@ namespace Org.OpenAPITools.Model
                     this.Tenaamstelling.Equals(input.Tenaamstelling))
                 ) && 
                 (
+                    this.ZakelijkRecht == input.ZakelijkRecht ||
+                    (this.ZakelijkRecht != null &&
+                    this.ZakelijkRecht.Equals(input.ZakelijkRecht))
+                ) && 
+                (
                     this.Persoon == input.Persoon ||
                     (this.Persoon != null &&
                     this.Persoon.Equals(input.Persoon))
-                ) && 
-                (
-                    this.StukIdentificaties == input.StukIdentificaties ||
-                    this.StukIdentificaties != null &&
-                    input.StukIdentificaties != null &&
-                    this.StukIdentificaties.SequenceEqual(input.StukIdentificaties)
-                ) && 
-                (
-                    this.IsGebaseerdOpStukdeelIdentificatie == input.IsGebaseerdOpStukdeelIdentificatie ||
-                    (this.IsGebaseerdOpStukdeelIdentificatie != null &&
-                    this.IsGebaseerdOpStukdeelIdentificatie.Equals(input.IsGebaseerdOpStukdeelIdentificatie))
-                ) && 
-                (
-                    this.IsVermeldInStukdeelIdentificaties == input.IsVermeldInStukdeelIdentificaties ||
-                    this.IsVermeldInStukdeelIdentificaties != null &&
-                    input.IsVermeldInStukdeelIdentificaties != null &&
-                    this.IsVermeldInStukdeelIdentificaties.SequenceEqual(input.IsVermeldInStukdeelIdentificaties)
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -248,14 +215,10 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ErfpachtCanon.GetHashCode();
                 if (this.Tenaamstelling != null)
                     hashCode = hashCode * 59 + this.Tenaamstelling.GetHashCode();
+                if (this.ZakelijkRecht != null)
+                    hashCode = hashCode * 59 + this.ZakelijkRecht.GetHashCode();
                 if (this.Persoon != null)
                     hashCode = hashCode * 59 + this.Persoon.GetHashCode();
-                if (this.StukIdentificaties != null)
-                    hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
-                if (this.IsGebaseerdOpStukdeelIdentificatie != null)
-                    hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeelIdentificatie.GetHashCode();
-                if (this.IsVermeldInStukdeelIdentificaties != null)
-                    hashCode = hashCode * 59 + this.IsVermeldInStukdeelIdentificaties.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;

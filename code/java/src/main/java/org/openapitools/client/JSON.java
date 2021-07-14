@@ -50,8 +50,79 @@ public class JSON {
     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
     private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
+    @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+                .registerTypeSelector(AppartementsrechtFiliatie.class, new TypeSelector<AppartementsrechtFiliatie>() {
+                    @Override
+                    public Class<? extends AppartementsrechtFiliatie> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtFiliatie.class);
+                        classByDiscriminatorValue.put("perceel", PerceelFiliatie.class);
+                        classByDiscriminatorValue.put("AppartementsrechtFiliatie", AppartementsrechtFiliatie.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(AppartementsrechtHal.class, new TypeSelector<AppartementsrechtHal>() {
+                    @Override
+                    public Class<? extends AppartementsrechtHal> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtHal.class);
+                        classByDiscriminatorValue.put("perceel", PerceelHal.class);
+                        classByDiscriminatorValue.put("AppartementsrechtHal", AppartementsrechtHal.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(KadastraalOnroerendeZaakFiliatie.class, new TypeSelector<KadastraalOnroerendeZaakFiliatie>() {
+                    @Override
+                    public Class<? extends KadastraalOnroerendeZaakFiliatie> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("AppartementsrechtFiliatie", AppartementsrechtFiliatie.class);
+                        classByDiscriminatorValue.put("PerceelFiliatie", PerceelFiliatie.class);
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtFiliatie.class);
+                        classByDiscriminatorValue.put("perceel", PerceelFiliatie.class);
+                        classByDiscriminatorValue.put("KadastraalOnroerendeZaakFiliatie", KadastraalOnroerendeZaakFiliatie.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(KadastraalOnroerendeZaakHal.class, new TypeSelector<KadastraalOnroerendeZaakHal>() {
+                    @Override
+                    public Class<? extends KadastraalOnroerendeZaakHal> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("AppartementsrechtHal", AppartementsrechtHal.class);
+                        classByDiscriminatorValue.put("PerceelHal", PerceelHal.class);
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtHal.class);
+                        classByDiscriminatorValue.put("perceel", PerceelHal.class);
+                        classByDiscriminatorValue.put("KadastraalOnroerendeZaakHal", KadastraalOnroerendeZaakHal.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(PerceelFiliatie.class, new TypeSelector<PerceelFiliatie>() {
+                    @Override
+                    public Class<? extends PerceelFiliatie> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtFiliatie.class);
+                        classByDiscriminatorValue.put("perceel", PerceelFiliatie.class);
+                        classByDiscriminatorValue.put("PerceelFiliatie", PerceelFiliatie.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(PerceelHal.class, new TypeSelector<PerceelHal>() {
+                    @Override
+                    public Class<? extends PerceelHal> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("appartementsrecht", AppartementsrechtHal.class);
+                        classByDiscriminatorValue.put("perceel", PerceelHal.class);
+                        classByDiscriminatorValue.put("PerceelHal", PerceelHal.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
         ;
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;

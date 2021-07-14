@@ -83,6 +83,10 @@ public class PubliekrechtelijkeBeperkingenApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
@@ -91,9 +95,6 @@ public class PubliekrechtelijkeBeperkingenApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("kadastraalOnroerendeZaakIdentificatie", kadastraalOnroerendeZaakIdentificatie));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -128,7 +129,7 @@ public class PubliekrechtelijkeBeperkingenApi {
 
     /**
      * 
-     * Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
      * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return PubliekrechtelijkeBeperkingHalCollectie
@@ -152,7 +153,7 @@ public class PubliekrechtelijkeBeperkingenApi {
 
     /**
      * 
-     * Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
      * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;PubliekrechtelijkeBeperkingHalCollectie&gt;
@@ -177,7 +178,7 @@ public class PubliekrechtelijkeBeperkingenApi {
 
     /**
      *  (asynchronously)
-     * Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
      * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes

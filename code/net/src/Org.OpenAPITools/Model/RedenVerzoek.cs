@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -33,18 +33,18 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RedenVerzoek" /> class.
         /// </summary>
-        /// <param name="redenOmschrijving">De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen.\&quot; .</param>
+        /// <param name="redenOmschrijving">De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen. .</param>
         /// <param name="reden">reden.</param>
         public RedenVerzoek(string redenOmschrijving = default(string), Waardelijst reden = default(Waardelijst))
         {
             this.RedenOmschrijving = redenOmschrijving;
             this.Reden = reden;
         }
-        
+
         /// <summary>
-        /// De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen.\&quot; 
+        /// De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen. 
         /// </summary>
-        /// <value>De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen.\&quot; </value>
+        /// <value>De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen. </value>
         [DataMember(Name="redenOmschrijving", EmitDefaultValue=false)]
         public string RedenOmschrijving { get; set; }
 
@@ -67,14 +67,14 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

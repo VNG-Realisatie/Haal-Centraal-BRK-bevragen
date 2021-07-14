@@ -28,11 +28,15 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * LocatieKadastraalObjectAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class LocatieKadastraalObjectAllOf {
   public static final String SERIALIZED_NAME_KOPPELINGSWIJZE = "koppelingswijze";
   @SerializedName(SERIALIZED_NAME_KOPPELINGSWIJZE)
   private Waardelijst koppelingswijze;
+
+  public static final String SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE = "adresseerbaarObjectIdentificatie";
+  @SerializedName(SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE)
+  private String adresseerbaarObjectIdentificatie;
 
 
   public LocatieKadastraalObjectAllOf koppelingswijze(Waardelijst koppelingswijze) {
@@ -58,8 +62,31 @@ public class LocatieKadastraalObjectAllOf {
   }
 
 
+  public LocatieKadastraalObjectAllOf adresseerbaarObjectIdentificatie(String adresseerbaarObjectIdentificatie) {
+    
+    this.adresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
+    return this;
+  }
+
+   /**
+   * Get adresseerbaarObjectIdentificatie
+   * @return adresseerbaarObjectIdentificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAdresseerbaarObjectIdentificatie() {
+    return adresseerbaarObjectIdentificatie;
+  }
+
+
+  public void setAdresseerbaarObjectIdentificatie(String adresseerbaarObjectIdentificatie) {
+    this.adresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -67,20 +94,21 @@ public class LocatieKadastraalObjectAllOf {
       return false;
     }
     LocatieKadastraalObjectAllOf locatieKadastraalObjectAllOf = (LocatieKadastraalObjectAllOf) o;
-    return Objects.equals(this.koppelingswijze, locatieKadastraalObjectAllOf.koppelingswijze);
+    return Objects.equals(this.koppelingswijze, locatieKadastraalObjectAllOf.koppelingswijze) &&
+        Objects.equals(this.adresseerbaarObjectIdentificatie, locatieKadastraalObjectAllOf.adresseerbaarObjectIdentificatie);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(koppelingswijze);
+    return Objects.hash(koppelingswijze, adresseerbaarObjectIdentificatie);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LocatieKadastraalObjectAllOf {\n");
     sb.append("    koppelingswijze: ").append(toIndentedString(koppelingswijze)).append("\n");
+    sb.append("    adresseerbaarObjectIdentificatie: ").append(toIndentedString(adresseerbaarObjectIdentificatie)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -89,7 +117,7 @@ public class LocatieKadastraalObjectAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

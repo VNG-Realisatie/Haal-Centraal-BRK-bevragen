@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -41,10 +41,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="isOvergegaanIn">isOvergegaanIn.</param>
         /// <param name="beslagen">beslagen.</param>
         /// <param name="stukken">stukken.</param>
+        /// <param name="stukdelen">stukdelen.</param>
         /// <param name="adressen">adressen.</param>
-        /// <param name="bijbehorendGrondperceel">bijbehorendGrondperceel.</param>
-        /// <param name="bijbehorendeAppartementsrechten">bijbehorendeAppartementsrechten.</param>
-        public KadastraalOnroerendeZaakLinks(HalLink self = default(HalLink), List<HalLink> zakelijkGerechtigden = default(List<HalLink>), List<HalLink> privaatrechtelijkeBeperkingen = default(List<HalLink>), List<HalLink> hypotheken = default(List<HalLink>), List<HalLink> isOntstaanUit = default(List<HalLink>), List<HalLink> isOvergegaanIn = default(List<HalLink>), List<HalLink> beslagen = default(List<HalLink>), List<HalLink> stukken = default(List<HalLink>), List<HalLink> adressen = default(List<HalLink>), HalLink bijbehorendGrondperceel = default(HalLink), List<HalLink> bijbehorendeAppartementsrechten = default(List<HalLink>))
+        /// <param name="adresseerbareObjecten">adresseerbareObjecten.</param>
+        public KadastraalOnroerendeZaakLinks(HalLink self = default(HalLink), List<HalLink> zakelijkGerechtigden = default(List<HalLink>), List<HalLink> privaatrechtelijkeBeperkingen = default(List<HalLink>), List<HalLink> hypotheken = default(List<HalLink>), List<HalLink> isOntstaanUit = default(List<HalLink>), List<HalLink> isOvergegaanIn = default(List<HalLink>), List<HalLink> beslagen = default(List<HalLink>), List<HalLink> stukken = default(List<HalLink>), List<HalLink> stukdelen = default(List<HalLink>), List<HalLink> adressen = default(List<HalLink>), List<HalLink> adresseerbareObjecten = default(List<HalLink>))
         {
             this.Self = self;
             this.ZakelijkGerechtigden = zakelijkGerechtigden;
@@ -54,11 +54,11 @@ namespace Org.OpenAPITools.Model
             this.IsOvergegaanIn = isOvergegaanIn;
             this.Beslagen = beslagen;
             this.Stukken = stukken;
+            this.Stukdelen = stukdelen;
             this.Adressen = adressen;
-            this.BijbehorendGrondperceel = bijbehorendGrondperceel;
-            this.BijbehorendeAppartementsrechten = bijbehorendeAppartementsrechten;
+            this.AdresseerbareObjecten = adresseerbareObjecten;
         }
-        
+
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
@@ -108,22 +108,22 @@ namespace Org.OpenAPITools.Model
         public List<HalLink> Stukken { get; set; }
 
         /// <summary>
+        /// Gets or Sets Stukdelen
+        /// </summary>
+        [DataMember(Name="stukdelen", EmitDefaultValue=false)]
+        public List<HalLink> Stukdelen { get; set; }
+
+        /// <summary>
         /// Gets or Sets Adressen
         /// </summary>
         [DataMember(Name="adressen", EmitDefaultValue=false)]
         public List<HalLink> Adressen { get; set; }
 
         /// <summary>
-        /// Gets or Sets BijbehorendGrondperceel
+        /// Gets or Sets AdresseerbareObjecten
         /// </summary>
-        [DataMember(Name="bijbehorendGrondperceel", EmitDefaultValue=false)]
-        public HalLink BijbehorendGrondperceel { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BijbehorendeAppartementsrechten
-        /// </summary>
-        [DataMember(Name="bijbehorendeAppartementsrechten", EmitDefaultValue=false)]
-        public List<HalLink> BijbehorendeAppartementsrechten { get; set; }
+        [DataMember(Name="adresseerbareObjecten", EmitDefaultValue=false)]
+        public List<HalLink> AdresseerbareObjecten { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,20 +141,20 @@ namespace Org.OpenAPITools.Model
             sb.Append("  IsOvergegaanIn: ").Append(IsOvergegaanIn).Append("\n");
             sb.Append("  Beslagen: ").Append(Beslagen).Append("\n");
             sb.Append("  Stukken: ").Append(Stukken).Append("\n");
+            sb.Append("  Stukdelen: ").Append(Stukdelen).Append("\n");
             sb.Append("  Adressen: ").Append(Adressen).Append("\n");
-            sb.Append("  BijbehorendGrondperceel: ").Append(BijbehorendGrondperceel).Append("\n");
-            sb.Append("  BijbehorendeAppartementsrechten: ").Append(BijbehorendeAppartementsrechten).Append("\n");
+            sb.Append("  AdresseerbareObjecten: ").Append(AdresseerbareObjecten).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -226,21 +226,22 @@ namespace Org.OpenAPITools.Model
                     this.Stukken.SequenceEqual(input.Stukken)
                 ) && 
                 (
+                    this.Stukdelen == input.Stukdelen ||
+                    this.Stukdelen != null &&
+                    input.Stukdelen != null &&
+                    this.Stukdelen.SequenceEqual(input.Stukdelen)
+                ) && 
+                (
                     this.Adressen == input.Adressen ||
                     this.Adressen != null &&
                     input.Adressen != null &&
                     this.Adressen.SequenceEqual(input.Adressen)
                 ) && 
                 (
-                    this.BijbehorendGrondperceel == input.BijbehorendGrondperceel ||
-                    (this.BijbehorendGrondperceel != null &&
-                    this.BijbehorendGrondperceel.Equals(input.BijbehorendGrondperceel))
-                ) && 
-                (
-                    this.BijbehorendeAppartementsrechten == input.BijbehorendeAppartementsrechten ||
-                    this.BijbehorendeAppartementsrechten != null &&
-                    input.BijbehorendeAppartementsrechten != null &&
-                    this.BijbehorendeAppartementsrechten.SequenceEqual(input.BijbehorendeAppartementsrechten)
+                    this.AdresseerbareObjecten == input.AdresseerbareObjecten ||
+                    this.AdresseerbareObjecten != null &&
+                    input.AdresseerbareObjecten != null &&
+                    this.AdresseerbareObjecten.SequenceEqual(input.AdresseerbareObjecten)
                 );
         }
 
@@ -269,12 +270,12 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Beslagen.GetHashCode();
                 if (this.Stukken != null)
                     hashCode = hashCode * 59 + this.Stukken.GetHashCode();
+                if (this.Stukdelen != null)
+                    hashCode = hashCode * 59 + this.Stukdelen.GetHashCode();
                 if (this.Adressen != null)
                     hashCode = hashCode * 59 + this.Adressen.GetHashCode();
-                if (this.BijbehorendGrondperceel != null)
-                    hashCode = hashCode * 59 + this.BijbehorendGrondperceel.GetHashCode();
-                if (this.BijbehorendeAppartementsrechten != null)
-                    hashCode = hashCode * 59 + this.BijbehorendeAppartementsrechten.GetHashCode();
+                if (this.AdresseerbareObjecten != null)
+                    hashCode = hashCode * 59 + this.AdresseerbareObjecten.GetHashCode();
                 return hashCode;
             }
         }

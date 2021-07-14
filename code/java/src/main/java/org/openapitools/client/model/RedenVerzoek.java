@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * De reden om een stuk niet in te schrijven of om verbetering te vragen. Waardelijst in deze component : [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/) 
  */
 @ApiModel(description = "De reden om een stuk niet in te schrijven of om verbetering te vragen. Waardelijst in deze component : [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class RedenVerzoek {
   public static final String SERIALIZED_NAME_REDEN_OMSCHRIJVING = "redenOmschrijving";
   @SerializedName(SERIALIZED_NAME_REDEN_OMSCHRIJVING)
@@ -47,11 +47,11 @@ public class RedenVerzoek {
   }
 
    /**
-   * De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen.\&quot; 
+   * De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen. 
    * @return redenOmschrijving
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen.\" ")
+  @ApiModelProperty(value = "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven. Bij opgave van de reden is voor _overig_ gekozen. ")
 
   public String getRedenOmschrijving() {
     return redenOmschrijving;
@@ -87,7 +87,7 @@ public class RedenVerzoek {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -104,7 +104,6 @@ public class RedenVerzoek {
     return Objects.hash(redenOmschrijving, reden);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -119,7 +118,7 @@ public class RedenVerzoek {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

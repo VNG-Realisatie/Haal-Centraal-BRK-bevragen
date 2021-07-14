@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -28,34 +29,34 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        /// Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadastraalOnroerendeZaakHal</returns>
-        KadastraalOnroerendeZaakHal GetKadastraalOnroerendeZaak (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
+        KadastraalOnroerendeZaakHal GetKadastraalOnroerendeZaak (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        /// Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadastraalOnroerendeZaakHal</returns>
-        ApiResponse<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
+        ApiResponse<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -69,14 +70,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
         /// <returns>KadastraalOnroerendeZaakHalCollectie</returns>
-        KadastraalOnroerendeZaakHalCollectie GetKadastraalOnroerendeZaken (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string));
+        KadastraalOnroerendeZaakHalCollectie GetKadastraalOnroerendeZaken (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -90,42 +92,45 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
         /// <returns>ApiResponse of KadastraalOnroerendeZaakHalCollectie</returns>
-        ApiResponse<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string));
+        ApiResponse<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        /// Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadastraalOnroerendeZaakHal</returns>
-        System.Threading.Tasks.Task<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakAsync (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        /// Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadastraalOnroerendeZaakHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHal>> GetKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHal>> GetKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -139,14 +144,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadastraalOnroerendeZaakHalCollectie</returns>
-        System.Threading.Tasks.Task<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string));
+        System.Threading.Tasks.Task<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        /// Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -160,8 +167,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadastraalOnroerendeZaakHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHalCollectie>> GetKadastraalOnroerendeZakenAsyncWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string));
+        System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHalCollectie>> GetKadastraalOnroerendeZakenWithHttpInfoAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -274,36 +283,36 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        ///  Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>KadastraalOnroerendeZaakHal</returns>
-        public KadastraalOnroerendeZaakHal GetKadastraalOnroerendeZaak (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
+        public KadastraalOnroerendeZaakHal GetKadastraalOnroerendeZaak (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
         {
-             ApiResponse<KadastraalOnroerendeZaakHal> localVarResponse = GetKadastraalOnroerendeZaakWithHttpInfo(kadastraalonroerendezaakidentificatie, acceptCrs, expand, fields);
+             ApiResponse<KadastraalOnroerendeZaakHal> localVarResponse = GetKadastraalOnroerendeZaakWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, acceptCrs, expand, fields);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        ///  Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
         /// <returns>ApiResponse of KadastraalOnroerendeZaakHal</returns>
-        public ApiResponse<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
+        public ApiResponse<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling KadastraalOnroerendeZakenApi->GetKadastraalOnroerendeZaak");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling KadastraalOnroerendeZakenApi->GetKadastraalOnroerendeZaak");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -325,7 +334,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "expand", expand)); // query parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
             if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
@@ -355,37 +364,39 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        ///  Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadastraalOnroerendeZaakHal</returns>
-        public async System.Threading.Tasks.Task<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<KadastraalOnroerendeZaakHal> GetKadastraalOnroerendeZaakAsync (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadastraalOnroerendeZaakHal> localVarResponse = await GetKadastraalOnroerendeZaakAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, acceptCrs, expand, fields);
+             ApiResponse<KadastraalOnroerendeZaakHal> localVarResponse = await GetKadastraalOnroerendeZaakWithHttpInfoAsync(kadastraalOnroerendeZaakIdentificatie, acceptCrs, expand, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden &amp; privaatrechtelijkebeperkingen direct worden meegeladen. 
+        ///  Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <param name="expand">Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature). (optional)</param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadastraalOnroerendeZaakHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHal>> GetKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHal>> GetKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string acceptCrs = default(string), string expand = default(string), string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling KadastraalOnroerendeZakenApi->GetKadastraalOnroerendeZaak");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling KadastraalOnroerendeZakenApi->GetKadastraalOnroerendeZaak");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -407,7 +418,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
             if (expand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "expand", expand)); // query parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
             if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
@@ -421,7 +432,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -437,7 +448,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -451,15 +462,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
         /// <returns>KadastraalOnroerendeZaakHalCollectie</returns>
-        public KadastraalOnroerendeZaakHalCollectie GetKadastraalOnroerendeZaken (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string))
+        public KadastraalOnroerendeZaakHalCollectie GetKadastraalOnroerendeZaken (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string))
         {
-             ApiResponse<KadastraalOnroerendeZaakHalCollectie> localVarResponse = GetKadastraalOnroerendeZakenWithHttpInfo(acceptCrs, expand, fields, kadastraleAanduiding, burgerservicenummer, persoonIdentificatie, zakelijkGerechtigdeType, postcode, huisnummer, huisletter, huisnummertoevoeging);
+             ApiResponse<KadastraalOnroerendeZaakHalCollectie> localVarResponse = GetKadastraalOnroerendeZakenWithHttpInfo(acceptCrs, expand, fields, kadastraleAanduiding, burgerservicenummer, persoonIdentificatie, zakelijkGerechtigdeType, postcode, huisnummer, huisletter, huisnummertoevoeging, nummeraanduidingIdentificatie);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -473,8 +485,9 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
         /// <returns>ApiResponse of KadastraalOnroerendeZaakHalCollectie</returns>
-        public ApiResponse<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string))
+        public ApiResponse<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string))
         {
 
             var localVarPath = "/kadastraalonroerendezaken";
@@ -509,6 +522,7 @@ namespace Org.OpenAPITools.Api
             if (huisnummer != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisnummer", huisnummer)); // query parameter
             if (huisletter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisletter", huisletter)); // query parameter
             if (huisnummertoevoeging != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisnummertoevoeging", huisnummertoevoeging)); // query parameter
+            if (nummeraanduidingIdentificatie != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "nummeraanduidingIdentificatie", nummeraanduidingIdentificatie)); // query parameter
             if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
@@ -536,7 +550,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -550,16 +564,18 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of KadastraalOnroerendeZaakHalCollectie</returns>
-        public async System.Threading.Tasks.Task<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string))
+        public async System.Threading.Tasks.Task<KadastraalOnroerendeZaakHalCollectie> GetKadastraalOnroerendeZakenAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<KadastraalOnroerendeZaakHalCollectie> localVarResponse = await GetKadastraalOnroerendeZakenAsyncWithHttpInfo(acceptCrs, expand, fields, kadastraleAanduiding, burgerservicenummer, persoonIdentificatie, zakelijkGerechtigdeType, postcode, huisnummer, huisletter, huisnummertoevoeging);
+             ApiResponse<KadastraalOnroerendeZaakHalCollectie> localVarResponse = await GetKadastraalOnroerendeZakenWithHttpInfoAsync(acceptCrs, expand, fields, kadastraleAanduiding, burgerservicenummer, persoonIdentificatie, zakelijkGerechtigdeType, postcode, huisnummer, huisletter, huisnummertoevoeging, nummeraanduidingIdentificatie, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
+        ///  Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
@@ -573,8 +589,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="huisnummer">Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisletter">De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
         /// <param name="huisnummertoevoeging">De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="nummeraanduidingIdentificatie">De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.  (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (KadastraalOnroerendeZaakHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHalCollectie>> GetKadastraalOnroerendeZakenAsyncWithHttpInfo (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<KadastraalOnroerendeZaakHalCollectie>> GetKadastraalOnroerendeZakenWithHttpInfoAsync (string acceptCrs = default(string), string expand = default(string), string fields = default(string), string kadastraleAanduiding = default(string), string burgerservicenummer = default(string), string persoonIdentificatie = default(string), TypeGerechtigdeEnum? zakelijkGerechtigdeType = default(TypeGerechtigdeEnum?), string postcode = default(string), int? huisnummer = default(int?), string huisletter = default(string), string huisnummertoevoeging = default(string), string nummeraanduidingIdentificatie = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/kadastraalonroerendezaken";
@@ -609,6 +627,7 @@ namespace Org.OpenAPITools.Api
             if (huisnummer != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisnummer", huisnummer)); // query parameter
             if (huisletter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisletter", huisletter)); // query parameter
             if (huisnummertoevoeging != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "huisnummertoevoeging", huisnummertoevoeging)); // query parameter
+            if (nummeraanduidingIdentificatie != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "nummeraanduidingIdentificatie", nummeraanduidingIdentificatie)); // query parameter
             if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
@@ -620,7 +639,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

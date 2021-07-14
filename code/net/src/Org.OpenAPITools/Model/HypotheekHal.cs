@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -43,12 +43,12 @@ namespace Org.OpenAPITools.Model
         /// <param name="aantekeningen">aantekeningen.</param>
         /// <param name="hypotheekhouders">Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. .</param>
         /// <param name="bedragZekerheidsstelling">bedragZekerheidsstelling.</param>
-        /// <param name="stukIdentificaties">            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. .</param>
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
         /// <param name="omschrijvingGekozenWoonplaats">omschrijvingGekozenWoonplaats.</param>
         /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd. .</param>
         /// <param name="isVermeldInStukdeelIdentificaties">De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld .</param>
         /// <param name="links">links.</param>
-        public HypotheekHal(string identificatie = default(string), string domein = default(string), TypeBreuk aandeelInBetrokkenRecht = default(TypeBreuk), bool gedeeltelijkeBezwaringOudObject = default(bool), Waardelijst omschrijvingBetrokkenRecht = default(Waardelijst), string toelichtingBewaarder = default(string), bool betreftGedeelteVanPerceel = default(bool), List<AantekeningBasis> aantekeningen = default(List<AantekeningBasis>), List<PersoonBeperkt> hypotheekhouders = default(List<PersoonBeperkt>), Bedrag bedragZekerheidsstelling = default(Bedrag), List<string> stukIdentificaties = default(List<string>), string omschrijvingGekozenWoonplaats = default(string), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), HypotheekLinks links = default(HypotheekLinks))
+        public HypotheekHal(string identificatie = default(string), string domein = default(string), TypeBreuk aandeelInBetrokkenRecht = default(TypeBreuk), bool gedeeltelijkeBezwaringOudObject = default(bool), Waardelijst omschrijvingBetrokkenRecht = default(Waardelijst), string toelichtingBewaarder = default(string), bool betreftGedeelteVanPerceel = default(bool), List<AantekeningHypotheek> aantekeningen = default(List<AantekeningHypotheek>), List<PersoonBeperkt> hypotheekhouders = default(List<PersoonBeperkt>), Bedrag bedragZekerheidsstelling = default(Bedrag), List<string> stukIdentificaties = default(List<string>), string omschrijvingGekozenWoonplaats = default(string), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), HypotheekLinks links = default(HypotheekLinks))
         {
             this.Identificatie = identificatie;
             this.Domein = domein;
@@ -66,7 +66,7 @@ namespace Org.OpenAPITools.Model
             this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
             this.Links = links;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
@@ -115,7 +115,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Aantekeningen
         /// </summary>
         [DataMember(Name="aantekeningen", EmitDefaultValue=false)]
-        public List<AantekeningBasis> Aantekeningen { get; set; }
+        public List<AantekeningHypotheek> Aantekeningen { get; set; }
 
         /// <summary>
         /// Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
@@ -131,9 +131,9 @@ namespace Org.OpenAPITools.Model
         public Bedrag BedragZekerheidsstelling { get; set; }
 
         /// <summary>
-        ///             Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. 
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
         /// </summary>
-        /// <value>            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. </value>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
         [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
         public List<string> StukIdentificaties { get; set; }
 
@@ -189,14 +189,14 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

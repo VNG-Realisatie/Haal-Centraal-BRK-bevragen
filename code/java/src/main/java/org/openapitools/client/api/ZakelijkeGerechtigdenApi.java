@@ -60,8 +60,8 @@ public class ZakelijkeGerechtigdenApi {
 
     /**
      * Build call for getZakelijkGerechtigde
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param zakelijkgerechtigdeidentificatie De identificatie van de zakelijk gerechtigde  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param zakelijkGerechtigdeIdentificatie De identificatie van de zakelijk gerechtigde  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback Callback for upload/download progress
@@ -81,27 +81,28 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getZakelijkGerechtigdeCall(String kadastraalonroerendezaakidentificatie, String zakelijkgerechtigdeidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getZakelijkGerechtigdeCall(String kadastraalOnroerendeZaakIdentificatie, String zakelijkGerechtigdeIdentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()))
-            .replaceAll("\\{" + "zakelijkgerechtigdeidentificatie" + "\\}", localVarApiClient.escapeString(zakelijkgerechtigdeidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()))
+            .replaceAll("\\{" + "zakelijkGerechtigdeIdentificatie" + "\\}", localVarApiClient.escapeString(zakelijkGerechtigdeIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (acceptCrs != null) {
             localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
         }
 
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -121,20 +122,20 @@ public class ZakelijkeGerechtigdenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getZakelijkGerechtigdeValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String zakelijkgerechtigdeidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getZakelijkGerechtigdeValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String zakelijkGerechtigdeIdentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getZakelijkGerechtigde(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getZakelijkGerechtigde(Async)");
         }
         
-        // verify the required parameter 'zakelijkgerechtigdeidentificatie' is set
-        if (zakelijkgerechtigdeidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'zakelijkgerechtigdeidentificatie' when calling getZakelijkGerechtigde(Async)");
+        // verify the required parameter 'zakelijkGerechtigdeIdentificatie' is set
+        if (zakelijkGerechtigdeIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'zakelijkGerechtigdeIdentificatie' when calling getZakelijkGerechtigde(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getZakelijkGerechtigdeCall(kadastraalonroerendezaakidentificatie, zakelijkgerechtigdeidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getZakelijkGerechtigdeCall(kadastraalOnroerendeZaakIdentificatie, zakelijkGerechtigdeIdentificatie, fields, acceptCrs, _callback);
         return localVarCall;
 
     }
@@ -142,8 +143,8 @@ public class ZakelijkeGerechtigdenApi {
     /**
      * 
      * Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param zakelijkgerechtigdeidentificatie De identificatie van de zakelijk gerechtigde  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param zakelijkGerechtigdeIdentificatie De identificatie van de zakelijk gerechtigde  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ZakelijkGerechtigdeHal
@@ -162,16 +163,16 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ZakelijkGerechtigdeHal getZakelijkGerechtigde(String kadastraalonroerendezaakidentificatie, String zakelijkgerechtigdeidentificatie, String fields, String acceptCrs) throws ApiException {
-        ApiResponse<ZakelijkGerechtigdeHal> localVarResp = getZakelijkGerechtigdeWithHttpInfo(kadastraalonroerendezaakidentificatie, zakelijkgerechtigdeidentificatie, fields, acceptCrs);
+    public ZakelijkGerechtigdeHal getZakelijkGerechtigde(String kadastraalOnroerendeZaakIdentificatie, String zakelijkGerechtigdeIdentificatie, String fields, String acceptCrs) throws ApiException {
+        ApiResponse<ZakelijkGerechtigdeHal> localVarResp = getZakelijkGerechtigdeWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, zakelijkGerechtigdeIdentificatie, fields, acceptCrs);
         return localVarResp.getData();
     }
 
     /**
      * 
      * Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param zakelijkgerechtigdeidentificatie De identificatie van de zakelijk gerechtigde  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param zakelijkGerechtigdeIdentificatie De identificatie van de zakelijk gerechtigde  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ApiResponse&lt;ZakelijkGerechtigdeHal&gt;
@@ -190,8 +191,8 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<ZakelijkGerechtigdeHal> getZakelijkGerechtigdeWithHttpInfo(String kadastraalonroerendezaakidentificatie, String zakelijkgerechtigdeidentificatie, String fields, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getZakelijkGerechtigdeValidateBeforeCall(kadastraalonroerendezaakidentificatie, zakelijkgerechtigdeidentificatie, fields, acceptCrs, null);
+    public ApiResponse<ZakelijkGerechtigdeHal> getZakelijkGerechtigdeWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String zakelijkGerechtigdeIdentificatie, String fields, String acceptCrs) throws ApiException {
+        okhttp3.Call localVarCall = getZakelijkGerechtigdeValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, zakelijkGerechtigdeIdentificatie, fields, acceptCrs, null);
         Type localVarReturnType = new TypeToken<ZakelijkGerechtigdeHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -199,8 +200,8 @@ public class ZakelijkeGerechtigdenApi {
     /**
      *  (asynchronously)
      * Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param zakelijkgerechtigdeidentificatie De identificatie van de zakelijk gerechtigde  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param zakelijkGerechtigdeIdentificatie De identificatie van de zakelijk gerechtigde  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -220,16 +221,16 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getZakelijkGerechtigdeAsync(String kadastraalonroerendezaakidentificatie, String zakelijkgerechtigdeidentificatie, String fields, String acceptCrs, final ApiCallback<ZakelijkGerechtigdeHal> _callback) throws ApiException {
+    public okhttp3.Call getZakelijkGerechtigdeAsync(String kadastraalOnroerendeZaakIdentificatie, String zakelijkGerechtigdeIdentificatie, String fields, String acceptCrs, final ApiCallback<ZakelijkGerechtigdeHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getZakelijkGerechtigdeValidateBeforeCall(kadastraalonroerendezaakidentificatie, zakelijkgerechtigdeidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getZakelijkGerechtigdeValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, zakelijkGerechtigdeIdentificatie, fields, acceptCrs, _callback);
         Type localVarReturnType = new TypeToken<ZakelijkGerechtigdeHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getZakelijkGerechtigden
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param type Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.  (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
@@ -250,15 +251,19 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getZakelijkGerechtigdenCall(String kadastraalonroerendezaakidentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getZakelijkGerechtigdenCall(String kadastraalOnroerendeZaakIdentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
@@ -267,13 +272,10 @@ public class ZakelijkeGerechtigdenApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (acceptCrs != null) {
             localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
         }
 
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -293,23 +295,23 @@ public class ZakelijkeGerechtigdenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getZakelijkGerechtigdenValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getZakelijkGerechtigdenValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getZakelijkGerechtigden(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getZakelijkGerechtigden(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getZakelijkGerechtigdenCall(kadastraalonroerendezaakidentificatie, fields, type, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getZakelijkGerechtigdenCall(kadastraalOnroerendeZaakIdentificatie, fields, type, acceptCrs, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param type Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.  (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
@@ -329,15 +331,15 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ZakelijkGerechtigdeHalCollectie getZakelijkGerechtigden(String kadastraalonroerendezaakidentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs) throws ApiException {
-        ApiResponse<ZakelijkGerechtigdeHalCollectie> localVarResp = getZakelijkGerechtigdenWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, type, acceptCrs);
+    public ZakelijkGerechtigdeHalCollectie getZakelijkGerechtigden(String kadastraalOnroerendeZaakIdentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs) throws ApiException {
+        ApiResponse<ZakelijkGerechtigdeHalCollectie> localVarResp = getZakelijkGerechtigdenWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields, type, acceptCrs);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param type Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.  (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
@@ -357,16 +359,16 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<ZakelijkGerechtigdeHalCollectie> getZakelijkGerechtigdenWithHttpInfo(String kadastraalonroerendezaakidentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getZakelijkGerechtigdenValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, type, acceptCrs, null);
+    public ApiResponse<ZakelijkGerechtigdeHalCollectie> getZakelijkGerechtigdenWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs) throws ApiException {
+        okhttp3.Call localVarCall = getZakelijkGerechtigdenValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, type, acceptCrs, null);
         Type localVarReturnType = new TypeToken<ZakelijkGerechtigdeHalCollectie>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is) 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param type Het type recht dat de zakelijk gerechtigde heeft op de kadastraal onroerende zaak. De waarden van de typering staan in een waardelijst.  (optional)
      * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
@@ -387,9 +389,9 @@ public class ZakelijkeGerechtigdenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getZakelijkGerechtigdenAsync(String kadastraalonroerendezaakidentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback<ZakelijkGerechtigdeHalCollectie> _callback) throws ApiException {
+    public okhttp3.Call getZakelijkGerechtigdenAsync(String kadastraalOnroerendeZaakIdentificatie, String fields, TypeGerechtigdeEnum type, String acceptCrs, final ApiCallback<ZakelijkGerechtigdeHalCollectie> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getZakelijkGerechtigdenValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, type, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getZakelijkGerechtigdenValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, type, acceptCrs, _callback);
         Type localVarReturnType = new TypeToken<ZakelijkGerechtigdeHalCollectie>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -34,7 +34,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * PrivaatrechtelijkeBeperkingHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class PrivaatrechtelijkeBeperkingHal {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
@@ -257,11 +257,11 @@ public class PrivaatrechtelijkeBeperkingHal {
   }
 
    /**
-   *             Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. 
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
    * @return stukIdentificaties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. ")
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
 
   public List<String> getStukIdentificaties() {
     return stukIdentificaties;
@@ -351,7 +351,7 @@ public class PrivaatrechtelijkeBeperkingHal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -377,7 +377,6 @@ public class PrivaatrechtelijkeBeperkingHal {
     return Objects.hash(aard, omschrijving, betreftGedeelteVanPerceel, identificatie, domein, einddatum, einddatumRecht, stukIdentificaties, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, links);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -401,7 +400,7 @@ public class PrivaatrechtelijkeBeperkingHal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

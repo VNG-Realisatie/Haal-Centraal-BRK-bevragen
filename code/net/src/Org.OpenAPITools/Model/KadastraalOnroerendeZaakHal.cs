@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 
@@ -28,29 +29,32 @@ namespace Org.OpenAPITools.Model
     /// KadastraalOnroerendeZaakHal
     /// </summary>
     [DataContract]
+    [JsonConverter(typeof(JsonSubtypes), "type")]
+    [JsonSubtypes.KnownSubType(typeof(AppartementsrechtHal), "AppartementsrechtHal")]
+    [JsonSubtypes.KnownSubType(typeof(PerceelHal), "PerceelHal")]
     public partial class KadastraalOnroerendeZaakHal :  IEquatable<KadastraalOnroerendeZaakHal>, IValidatableObject
     {
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeKadastraalOnroerendeZaakEnum? Type { get; set; }
+        [DataMember(Name="type", EmitDefaultValue=true)]
+        public TypeKadastraalOnroerendeZaakEnum Type { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="KadastraalOnroerendeZaakHal" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected KadastraalOnroerendeZaakHal() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="KadastraalOnroerendeZaakHal" /> class.
         /// </summary>
         /// <param name="identificatie">identificatie.</param>
         /// <param name="domein">Het domein waartoe de identificatie behoort. .</param>
-        /// <param name="begrenzingPerceel">begrenzingPerceel.</param>
-        /// <param name="perceelnummerRotatie">Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen. .</param>
-        /// <param name="plaatscoordinaten">plaatscoordinaten.</param>
+        /// <param name="type">type (required).</param>
+        /// <param name="kadastraleAanduiding">kadastraleAanduiding.</param>
         /// <param name="koopsom">koopsom.</param>
         /// <param name="toelichtingBewaarder">Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. .</param>
-        /// <param name="type">type.</param>
         /// <param name="aardCultuurBebouwd">aardCultuurBebouwd.</param>
         /// <param name="aardCultuurOnbebouwd">aardCultuurOnbebouwd.</param>
-        /// <param name="kadastraleAanduiding">kadastraleAanduiding.</param>
-        /// <param name="kadastraleGrootte">kadastraleGrootte.</param>
-        /// <param name="perceelnummerVerschuiving">perceelnummerVerschuiving.</param>
         /// <param name="adressen">Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak .</param>
         /// <param name="zakelijkGerechtigdeIdentificaties">Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak .</param>
         /// <param name="privaatrechtelijkeBeperkingIdentificaties">Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak .</param>
@@ -58,26 +62,28 @@ namespace Org.OpenAPITools.Model
         /// <param name="beslagIdentificaties">Alle beslagen die rusten op deze kadastraal onroerende zaak .</param>
         /// <param name="isOvergegaanIn">isOvergegaanIn.</param>
         /// <param name="isOntstaanUit">isOntstaanUit.</param>
-        /// <param name="bijbehorendGrondperceelIdentificatie">De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort .</param>
-        /// <param name="bijbehorendeAppartementsrechtIdentificaties">De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen .</param>
-        /// <param name="stukIdentificaties">Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. .</param>
-        /// <param name="links">links.</param>
+        /// <param name="isVermeldInStukdeelIdentificaties">isVermeldInStukdeelIdentificaties.</param>
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
         /// <param name="embedded">embedded.</param>
-        public KadastraalOnroerendeZaakHal(string identificatie = default(string), string domein = default(string), PolygonGeoJSON begrenzingPerceel = default(PolygonGeoJSON), decimal perceelnummerRotatie = default(decimal), PointGeoJSON plaatscoordinaten = default(PointGeoJSON), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), TypeKadastraalOnroerendeZaakEnum? type = default(TypeKadastraalOnroerendeZaakEnum?), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), string kadastraleAanduiding = default(string), TypeOppervlak kadastraleGrootte = default(TypeOppervlak), TypePerceelnummerVerschuiving perceelnummerVerschuiving = default(TypePerceelnummerVerschuiving), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), List<Filiatie> isOvergegaanIn = default(List<Filiatie>), List<Filiatie> isOntstaanUit = default(List<Filiatie>), string bijbehorendGrondperceelIdentificatie = default(string), List<string> bijbehorendeAppartementsrechtIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>), KadastraalOnroerendeZaakLinks links = default(KadastraalOnroerendeZaakLinks), KadastraalOnroerendeZaakEmbedded embedded = default(KadastraalOnroerendeZaakEmbedded))
+        public KadastraalOnroerendeZaakHal(string identificatie = default(string), string domein = default(string), TypeKadastraalOnroerendeZaakEnum type = default(TypeKadastraalOnroerendeZaakEnum), string kadastraleAanduiding = default(string), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), Filiatie isOvergegaanIn = default(Filiatie), Filiatie isOntstaanUit = default(Filiatie), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>), KadastraalOnroerendeZaakEmbedded embedded = default(KadastraalOnroerendeZaakEmbedded))
         {
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new InvalidDataException("type is a required property for KadastraalOnroerendeZaakHal and cannot be null");
+            }
+            else
+            {
+                this.Type = type;
+            }
+
             this.Identificatie = identificatie;
             this.Domein = domein;
-            this.BegrenzingPerceel = begrenzingPerceel;
-            this.PerceelnummerRotatie = perceelnummerRotatie;
-            this.Plaatscoordinaten = plaatscoordinaten;
+            this.KadastraleAanduiding = kadastraleAanduiding;
             this.Koopsom = koopsom;
             this.ToelichtingBewaarder = toelichtingBewaarder;
-            this.Type = type;
             this.AardCultuurBebouwd = aardCultuurBebouwd;
             this.AardCultuurOnbebouwd = aardCultuurOnbebouwd;
-            this.KadastraleAanduiding = kadastraleAanduiding;
-            this.KadastraleGrootte = kadastraleGrootte;
-            this.PerceelnummerVerschuiving = perceelnummerVerschuiving;
             this.Adressen = adressen;
             this.ZakelijkGerechtigdeIdentificaties = zakelijkGerechtigdeIdentificaties;
             this.PrivaatrechtelijkeBeperkingIdentificaties = privaatrechtelijkeBeperkingIdentificaties;
@@ -85,13 +91,11 @@ namespace Org.OpenAPITools.Model
             this.BeslagIdentificaties = beslagIdentificaties;
             this.IsOvergegaanIn = isOvergegaanIn;
             this.IsOntstaanUit = isOntstaanUit;
-            this.BijbehorendGrondperceelIdentificatie = bijbehorendGrondperceelIdentificatie;
-            this.BijbehorendeAppartementsrechtIdentificaties = bijbehorendeAppartementsrechtIdentificaties;
+            this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
             this.StukIdentificaties = stukIdentificaties;
-            this.Links = links;
             this.Embedded = embedded;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
@@ -105,24 +109,12 @@ namespace Org.OpenAPITools.Model
         [DataMember(Name="domein", EmitDefaultValue=false)]
         public string Domein { get; set; }
 
-        /// <summary>
-        /// Gets or Sets BegrenzingPerceel
-        /// </summary>
-        [DataMember(Name="begrenzingPerceel", EmitDefaultValue=false)]
-        public PolygonGeoJSON BegrenzingPerceel { get; set; }
 
         /// <summary>
-        /// Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen. 
+        /// Gets or Sets KadastraleAanduiding
         /// </summary>
-        /// <value>Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen. </value>
-        [DataMember(Name="perceelnummerRotatie", EmitDefaultValue=false)]
-        public decimal PerceelnummerRotatie { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Plaatscoordinaten
-        /// </summary>
-        [DataMember(Name="plaatscoordinaten", EmitDefaultValue=false)]
-        public PointGeoJSON Plaatscoordinaten { get; set; }
+        [DataMember(Name="kadastraleAanduiding", EmitDefaultValue=false)]
+        public string KadastraleAanduiding { get; set; }
 
         /// <summary>
         /// Gets or Sets Koopsom
@@ -137,7 +129,6 @@ namespace Org.OpenAPITools.Model
         [DataMember(Name="toelichtingBewaarder", EmitDefaultValue=false)]
         public string ToelichtingBewaarder { get; set; }
 
-
         /// <summary>
         /// Gets or Sets AardCultuurBebouwd
         /// </summary>
@@ -149,24 +140,6 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [DataMember(Name="aardCultuurOnbebouwd", EmitDefaultValue=false)]
         public Waardelijst AardCultuurOnbebouwd { get; set; }
-
-        /// <summary>
-        /// Gets or Sets KadastraleAanduiding
-        /// </summary>
-        [DataMember(Name="kadastraleAanduiding", EmitDefaultValue=false)]
-        public string KadastraleAanduiding { get; set; }
-
-        /// <summary>
-        /// Gets or Sets KadastraleGrootte
-        /// </summary>
-        [DataMember(Name="kadastraleGrootte", EmitDefaultValue=false)]
-        public TypeOppervlak KadastraleGrootte { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PerceelnummerVerschuiving
-        /// </summary>
-        [DataMember(Name="perceelnummerVerschuiving", EmitDefaultValue=false)]
-        public TypePerceelnummerVerschuiving PerceelnummerVerschuiving { get; set; }
 
         /// <summary>
         /// Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak 
@@ -207,40 +180,26 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsOvergegaanIn
         /// </summary>
         [DataMember(Name="isOvergegaanIn", EmitDefaultValue=false)]
-        public List<Filiatie> IsOvergegaanIn { get; set; }
+        public Filiatie IsOvergegaanIn { get; set; }
 
         /// <summary>
         /// Gets or Sets IsOntstaanUit
         /// </summary>
         [DataMember(Name="isOntstaanUit", EmitDefaultValue=false)]
-        public List<Filiatie> IsOntstaanUit { get; set; }
+        public Filiatie IsOntstaanUit { get; set; }
 
         /// <summary>
-        /// De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort 
+        /// Gets or Sets IsVermeldInStukdeelIdentificaties
         /// </summary>
-        /// <value>De kadastraalOnroerendeZaakIdentificatie van het grondperceel dat bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort </value>
-        [DataMember(Name="bijbehorendGrondperceelIdentificatie", EmitDefaultValue=false)]
-        public string BijbehorendGrondperceelIdentificatie { get; set; }
+        [DataMember(Name="isVermeldInStukdeelIdentificaties", EmitDefaultValue=false)]
+        public List<string> IsVermeldInStukdeelIdentificaties { get; set; }
 
         /// <summary>
-        /// De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen 
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
         /// </summary>
-        /// <value>De kadstraaOnroerendeZaakidentificaties van de appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen </value>
-        [DataMember(Name="bijbehorendeAppartementsrechtIdentificaties", EmitDefaultValue=false)]
-        public List<string> BijbehorendeAppartementsrechtIdentificaties { get; set; }
-
-        /// <summary>
-        /// Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. 
-        /// </summary>
-        /// <value>Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. </value>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
         [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
         public List<string> StukIdentificaties { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Links
-        /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public KadastraalOnroerendeZaakLinks Links { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
@@ -258,17 +217,12 @@ namespace Org.OpenAPITools.Model
             sb.Append("class KadastraalOnroerendeZaakHal {\n");
             sb.Append("  Identificatie: ").Append(Identificatie).Append("\n");
             sb.Append("  Domein: ").Append(Domein).Append("\n");
-            sb.Append("  BegrenzingPerceel: ").Append(BegrenzingPerceel).Append("\n");
-            sb.Append("  PerceelnummerRotatie: ").Append(PerceelnummerRotatie).Append("\n");
-            sb.Append("  Plaatscoordinaten: ").Append(Plaatscoordinaten).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  KadastraleAanduiding: ").Append(KadastraleAanduiding).Append("\n");
             sb.Append("  Koopsom: ").Append(Koopsom).Append("\n");
             sb.Append("  ToelichtingBewaarder: ").Append(ToelichtingBewaarder).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AardCultuurBebouwd: ").Append(AardCultuurBebouwd).Append("\n");
             sb.Append("  AardCultuurOnbebouwd: ").Append(AardCultuurOnbebouwd).Append("\n");
-            sb.Append("  KadastraleAanduiding: ").Append(KadastraleAanduiding).Append("\n");
-            sb.Append("  KadastraleGrootte: ").Append(KadastraleGrootte).Append("\n");
-            sb.Append("  PerceelnummerVerschuiving: ").Append(PerceelnummerVerschuiving).Append("\n");
             sb.Append("  Adressen: ").Append(Adressen).Append("\n");
             sb.Append("  ZakelijkGerechtigdeIdentificaties: ").Append(ZakelijkGerechtigdeIdentificaties).Append("\n");
             sb.Append("  PrivaatrechtelijkeBeperkingIdentificaties: ").Append(PrivaatrechtelijkeBeperkingIdentificaties).Append("\n");
@@ -276,22 +230,20 @@ namespace Org.OpenAPITools.Model
             sb.Append("  BeslagIdentificaties: ").Append(BeslagIdentificaties).Append("\n");
             sb.Append("  IsOvergegaanIn: ").Append(IsOvergegaanIn).Append("\n");
             sb.Append("  IsOntstaanUit: ").Append(IsOntstaanUit).Append("\n");
-            sb.Append("  BijbehorendGrondperceelIdentificatie: ").Append(BijbehorendGrondperceelIdentificatie).Append("\n");
-            sb.Append("  BijbehorendeAppartementsrechtIdentificaties: ").Append(BijbehorendeAppartementsrechtIdentificaties).Append("\n");
+            sb.Append("  IsVermeldInStukdeelIdentificaties: ").Append(IsVermeldInStukdeelIdentificaties).Append("\n");
             sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -326,19 +278,14 @@ namespace Org.OpenAPITools.Model
                     this.Domein.Equals(input.Domein))
                 ) && 
                 (
-                    this.BegrenzingPerceel == input.BegrenzingPerceel ||
-                    (this.BegrenzingPerceel != null &&
-                    this.BegrenzingPerceel.Equals(input.BegrenzingPerceel))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.PerceelnummerRotatie == input.PerceelnummerRotatie ||
-                    (this.PerceelnummerRotatie != null &&
-                    this.PerceelnummerRotatie.Equals(input.PerceelnummerRotatie))
-                ) && 
-                (
-                    this.Plaatscoordinaten == input.Plaatscoordinaten ||
-                    (this.Plaatscoordinaten != null &&
-                    this.Plaatscoordinaten.Equals(input.Plaatscoordinaten))
+                    this.KadastraleAanduiding == input.KadastraleAanduiding ||
+                    (this.KadastraleAanduiding != null &&
+                    this.KadastraleAanduiding.Equals(input.KadastraleAanduiding))
                 ) && 
                 (
                     this.Koopsom == input.Koopsom ||
@@ -351,11 +298,6 @@ namespace Org.OpenAPITools.Model
                     this.ToelichtingBewaarder.Equals(input.ToelichtingBewaarder))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
                     this.AardCultuurBebouwd == input.AardCultuurBebouwd ||
                     (this.AardCultuurBebouwd != null &&
                     this.AardCultuurBebouwd.Equals(input.AardCultuurBebouwd))
@@ -364,21 +306,6 @@ namespace Org.OpenAPITools.Model
                     this.AardCultuurOnbebouwd == input.AardCultuurOnbebouwd ||
                     (this.AardCultuurOnbebouwd != null &&
                     this.AardCultuurOnbebouwd.Equals(input.AardCultuurOnbebouwd))
-                ) && 
-                (
-                    this.KadastraleAanduiding == input.KadastraleAanduiding ||
-                    (this.KadastraleAanduiding != null &&
-                    this.KadastraleAanduiding.Equals(input.KadastraleAanduiding))
-                ) && 
-                (
-                    this.KadastraleGrootte == input.KadastraleGrootte ||
-                    (this.KadastraleGrootte != null &&
-                    this.KadastraleGrootte.Equals(input.KadastraleGrootte))
-                ) && 
-                (
-                    this.PerceelnummerVerschuiving == input.PerceelnummerVerschuiving ||
-                    (this.PerceelnummerVerschuiving != null &&
-                    this.PerceelnummerVerschuiving.Equals(input.PerceelnummerVerschuiving))
                 ) && 
                 (
                     this.Adressen == input.Adressen ||
@@ -412,37 +339,25 @@ namespace Org.OpenAPITools.Model
                 ) && 
                 (
                     this.IsOvergegaanIn == input.IsOvergegaanIn ||
-                    this.IsOvergegaanIn != null &&
-                    input.IsOvergegaanIn != null &&
-                    this.IsOvergegaanIn.SequenceEqual(input.IsOvergegaanIn)
+                    (this.IsOvergegaanIn != null &&
+                    this.IsOvergegaanIn.Equals(input.IsOvergegaanIn))
                 ) && 
                 (
                     this.IsOntstaanUit == input.IsOntstaanUit ||
-                    this.IsOntstaanUit != null &&
-                    input.IsOntstaanUit != null &&
-                    this.IsOntstaanUit.SequenceEqual(input.IsOntstaanUit)
+                    (this.IsOntstaanUit != null &&
+                    this.IsOntstaanUit.Equals(input.IsOntstaanUit))
                 ) && 
                 (
-                    this.BijbehorendGrondperceelIdentificatie == input.BijbehorendGrondperceelIdentificatie ||
-                    (this.BijbehorendGrondperceelIdentificatie != null &&
-                    this.BijbehorendGrondperceelIdentificatie.Equals(input.BijbehorendGrondperceelIdentificatie))
-                ) && 
-                (
-                    this.BijbehorendeAppartementsrechtIdentificaties == input.BijbehorendeAppartementsrechtIdentificaties ||
-                    this.BijbehorendeAppartementsrechtIdentificaties != null &&
-                    input.BijbehorendeAppartementsrechtIdentificaties != null &&
-                    this.BijbehorendeAppartementsrechtIdentificaties.SequenceEqual(input.BijbehorendeAppartementsrechtIdentificaties)
+                    this.IsVermeldInStukdeelIdentificaties == input.IsVermeldInStukdeelIdentificaties ||
+                    this.IsVermeldInStukdeelIdentificaties != null &&
+                    input.IsVermeldInStukdeelIdentificaties != null &&
+                    this.IsVermeldInStukdeelIdentificaties.SequenceEqual(input.IsVermeldInStukdeelIdentificaties)
                 ) && 
                 (
                     this.StukIdentificaties == input.StukIdentificaties ||
                     this.StukIdentificaties != null &&
                     input.StukIdentificaties != null &&
                     this.StukIdentificaties.SequenceEqual(input.StukIdentificaties)
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    (this.Links != null &&
-                    this.Links.Equals(input.Links))
                 ) && 
                 (
                     this.Embedded == input.Embedded ||
@@ -464,28 +379,18 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Identificatie.GetHashCode();
                 if (this.Domein != null)
                     hashCode = hashCode * 59 + this.Domein.GetHashCode();
-                if (this.BegrenzingPerceel != null)
-                    hashCode = hashCode * 59 + this.BegrenzingPerceel.GetHashCode();
-                if (this.PerceelnummerRotatie != null)
-                    hashCode = hashCode * 59 + this.PerceelnummerRotatie.GetHashCode();
-                if (this.Plaatscoordinaten != null)
-                    hashCode = hashCode * 59 + this.Plaatscoordinaten.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.KadastraleAanduiding != null)
+                    hashCode = hashCode * 59 + this.KadastraleAanduiding.GetHashCode();
                 if (this.Koopsom != null)
                     hashCode = hashCode * 59 + this.Koopsom.GetHashCode();
                 if (this.ToelichtingBewaarder != null)
                     hashCode = hashCode * 59 + this.ToelichtingBewaarder.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.AardCultuurBebouwd != null)
                     hashCode = hashCode * 59 + this.AardCultuurBebouwd.GetHashCode();
                 if (this.AardCultuurOnbebouwd != null)
                     hashCode = hashCode * 59 + this.AardCultuurOnbebouwd.GetHashCode();
-                if (this.KadastraleAanduiding != null)
-                    hashCode = hashCode * 59 + this.KadastraleAanduiding.GetHashCode();
-                if (this.KadastraleGrootte != null)
-                    hashCode = hashCode * 59 + this.KadastraleGrootte.GetHashCode();
-                if (this.PerceelnummerVerschuiving != null)
-                    hashCode = hashCode * 59 + this.PerceelnummerVerschuiving.GetHashCode();
                 if (this.Adressen != null)
                     hashCode = hashCode * 59 + this.Adressen.GetHashCode();
                 if (this.ZakelijkGerechtigdeIdentificaties != null)
@@ -500,14 +405,10 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.IsOvergegaanIn.GetHashCode();
                 if (this.IsOntstaanUit != null)
                     hashCode = hashCode * 59 + this.IsOntstaanUit.GetHashCode();
-                if (this.BijbehorendGrondperceelIdentificatie != null)
-                    hashCode = hashCode * 59 + this.BijbehorendGrondperceelIdentificatie.GetHashCode();
-                if (this.BijbehorendeAppartementsrechtIdentificaties != null)
-                    hashCode = hashCode * 59 + this.BijbehorendeAppartementsrechtIdentificaties.GetHashCode();
+                if (this.IsVermeldInStukdeelIdentificaties != null)
+                    hashCode = hashCode * 59 + this.IsVermeldInStukdeelIdentificaties.GetHashCode();
                 if (this.StukIdentificaties != null)
                     hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
-                if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
                 if (this.Embedded != null)
                     hashCode = hashCode * 59 + this.Embedded.GetHashCode();
                 return hashCode;
@@ -521,14 +422,16 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
 
-            
-            // PerceelnummerRotatie (decimal) maximum
-            if(this.PerceelnummerRotatie > (decimal)999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PerceelnummerRotatie, must be a value less than or equal to 999.", new [] { "PerceelnummerRotatie" });
-            }
-
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

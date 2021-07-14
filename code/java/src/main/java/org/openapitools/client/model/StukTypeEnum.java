@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets StukType_enum
+ * Gets or Sets StukTypeEnum
  */
 @JsonAdapter(StukTypeEnum.Adapter.class)
 public enum StukTypeEnum {

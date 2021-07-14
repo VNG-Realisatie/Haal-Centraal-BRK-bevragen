@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -40,7 +40,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="domein">Het domein waartoe de identificatie behoort. .</param>
         /// <param name="einddatum">einddatum.</param>
         /// <param name="einddatumRecht">einddatumRecht.</param>
-        /// <param name="stukIdentificaties">            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. .</param>
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
         /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze aantekening is gebaseerd. .</param>
         /// <param name="isVermeldInStukdeelIdentificaties">De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld .</param>
         public Aantekening(Waardelijst aard = default(Waardelijst), string omschrijving = default(string), bool betreftGedeelteVanPerceel = default(bool), string identificatie = default(string), string domein = default(string), DateTime einddatum = default(DateTime), DateTime einddatumRecht = default(DateTime), List<string> stukIdentificaties = default(List<string>), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>))
@@ -56,7 +56,7 @@ namespace Org.OpenAPITools.Model
             this.IsGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
             this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
         }
-        
+
         /// <summary>
         /// Gets or Sets Aard
         /// </summary>
@@ -103,9 +103,9 @@ namespace Org.OpenAPITools.Model
         public DateTime EinddatumRecht { get; set; }
 
         /// <summary>
-        ///             Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. 
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
         /// </summary>
-        /// <value>            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. </value>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
         [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
         public List<string> StukIdentificaties { get; set; }
 
@@ -144,14 +144,14 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

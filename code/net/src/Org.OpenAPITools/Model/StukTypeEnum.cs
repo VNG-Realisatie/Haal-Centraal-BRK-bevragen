@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// Defines StukType_enum
+    /// Defines StukTypeEnum
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]

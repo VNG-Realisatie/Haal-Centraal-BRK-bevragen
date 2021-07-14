@@ -35,7 +35,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * PubliekrechtelijkeBeperkingHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class PubliekrechtelijkeBeperkingHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -59,7 +59,11 @@ public class PubliekrechtelijkeBeperkingHal {
 
   public static final String SERIALIZED_NAME_BEVOEGD_GEZAG = "bevoegdGezag";
   @SerializedName(SERIALIZED_NAME_BEVOEGD_GEZAG)
-  private NietNatuurlijkPersoonBeperkt bevoegdGezag = null;
+  private NietNatuurlijkPersoonBeperkt bevoegdGezag;
+
+  public static final String SERIALIZED_NAME_STUK_IDENTIFICATIES = "stukIdentificaties";
+  @SerializedName(SERIALIZED_NAME_STUK_IDENTIFICATIES)
+  private List<String> stukIdentificaties = null;
 
   public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE = "isGebaseerdOpStukdeelIdentificatie";
   @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE)
@@ -212,6 +216,37 @@ public class PubliekrechtelijkeBeperkingHal {
   }
 
 
+  public PubliekrechtelijkeBeperkingHal stukIdentificaties(List<String> stukIdentificaties) {
+    
+    this.stukIdentificaties = stukIdentificaties;
+    return this;
+  }
+
+  public PubliekrechtelijkeBeperkingHal addStukIdentificatiesItem(String stukIdentificatiesItem) {
+    if (this.stukIdentificaties == null) {
+      this.stukIdentificaties = new ArrayList<>();
+    }
+    this.stukIdentificaties.add(stukIdentificatiesItem);
+    return this;
+  }
+
+   /**
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+   * @return stukIdentificaties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
+
+  public List<String> getStukIdentificaties() {
+    return stukIdentificaties;
+  }
+
+
+  public void setStukIdentificaties(List<String> stukIdentificaties) {
+    this.stukIdentificaties = stukIdentificaties;
+  }
+
+
   public PubliekrechtelijkeBeperkingHal isGebaseerdOpStukdeelIdentificatie(String isGebaseerdOpStukdeelIdentificatie) {
     
     this.isGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
@@ -290,7 +325,7 @@ public class PubliekrechtelijkeBeperkingHal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -304,6 +339,7 @@ public class PubliekrechtelijkeBeperkingHal {
         Objects.equals(this.datumInWerking, publiekrechtelijkeBeperkingHal.datumInWerking) &&
         Objects.equals(this.datumBeeindiging, publiekrechtelijkeBeperkingHal.datumBeeindiging) &&
         Objects.equals(this.bevoegdGezag, publiekrechtelijkeBeperkingHal.bevoegdGezag) &&
+        Objects.equals(this.stukIdentificaties, publiekrechtelijkeBeperkingHal.stukIdentificaties) &&
         Objects.equals(this.isGebaseerdOpStukdeelIdentificatie, publiekrechtelijkeBeperkingHal.isGebaseerdOpStukdeelIdentificatie) &&
         Objects.equals(this.isVermeldInStukdeelIdentificaties, publiekrechtelijkeBeperkingHal.isVermeldInStukdeelIdentificaties) &&
         Objects.equals(this.links, publiekrechtelijkeBeperkingHal.links);
@@ -311,9 +347,8 @@ public class PubliekrechtelijkeBeperkingHal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(identificatie, domein, grondslag, datumInWerking, datumBeeindiging, bevoegdGezag, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, links);
+    return Objects.hash(identificatie, domein, grondslag, datumInWerking, datumBeeindiging, bevoegdGezag, stukIdentificaties, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, links);
   }
-
 
   @Override
   public String toString() {
@@ -325,6 +360,7 @@ public class PubliekrechtelijkeBeperkingHal {
     sb.append("    datumInWerking: ").append(toIndentedString(datumInWerking)).append("\n");
     sb.append("    datumBeeindiging: ").append(toIndentedString(datumBeeindiging)).append("\n");
     sb.append("    bevoegdGezag: ").append(toIndentedString(bevoegdGezag)).append("\n");
+    sb.append("    stukIdentificaties: ").append(toIndentedString(stukIdentificaties)).append("\n");
     sb.append("    isGebaseerdOpStukdeelIdentificatie: ").append(toIndentedString(isGebaseerdOpStukdeelIdentificatie)).append("\n");
     sb.append("    isVermeldInStukdeelIdentificaties: ").append(toIndentedString(isVermeldInStukdeelIdentificaties)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
@@ -336,7 +372,7 @@ public class PubliekrechtelijkeBeperkingHal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

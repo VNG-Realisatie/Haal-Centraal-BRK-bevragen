@@ -25,26 +25,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.StukHalBasis;
-import org.openapitools.client.model.StukdeelHalBasis;
 import org.openapitools.client.model.ZakelijkGerechtigdeHal;
 
 /**
  * ZakelijkGerechtigdeHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class ZakelijkGerechtigdeHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN = "zakelijkGerechtigden";
   @SerializedName(SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN)
   private List<ZakelijkGerechtigdeHal> zakelijkGerechtigden = null;
-
-  public static final String SERIALIZED_NAME_STUKKEN = "stukken";
-  @SerializedName(SERIALIZED_NAME_STUKKEN)
-  private List<StukHalBasis> stukken = null;
-
-  public static final String SERIALIZED_NAME_STUKDELEN = "stukdelen";
-  @SerializedName(SERIALIZED_NAME_STUKDELEN)
-  private List<StukdeelHalBasis> stukdelen = null;
 
 
   public ZakelijkGerechtigdeHalCollectieEmbedded zakelijkGerechtigden(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden) {
@@ -78,70 +68,8 @@ public class ZakelijkGerechtigdeHalCollectieEmbedded {
   }
 
 
-  public ZakelijkGerechtigdeHalCollectieEmbedded stukken(List<StukHalBasis> stukken) {
-    
-    this.stukken = stukken;
-    return this;
-  }
-
-  public ZakelijkGerechtigdeHalCollectieEmbedded addStukkenItem(StukHalBasis stukkenItem) {
-    if (this.stukken == null) {
-      this.stukken = new ArrayList<>();
-    }
-    this.stukken.add(stukkenItem);
-    return this;
-  }
-
-   /**
-   * Get stukken
-   * @return stukken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<StukHalBasis> getStukken() {
-    return stukken;
-  }
-
-
-  public void setStukken(List<StukHalBasis> stukken) {
-    this.stukken = stukken;
-  }
-
-
-  public ZakelijkGerechtigdeHalCollectieEmbedded stukdelen(List<StukdeelHalBasis> stukdelen) {
-    
-    this.stukdelen = stukdelen;
-    return this;
-  }
-
-  public ZakelijkGerechtigdeHalCollectieEmbedded addStukdelenItem(StukdeelHalBasis stukdelenItem) {
-    if (this.stukdelen == null) {
-      this.stukdelen = new ArrayList<>();
-    }
-    this.stukdelen.add(stukdelenItem);
-    return this;
-  }
-
-   /**
-   * Get stukdelen
-   * @return stukdelen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<StukdeelHalBasis> getStukdelen() {
-    return stukdelen;
-  }
-
-
-  public void setStukdelen(List<StukdeelHalBasis> stukdelen) {
-    this.stukdelen = stukdelen;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -149,24 +77,19 @@ public class ZakelijkGerechtigdeHalCollectieEmbedded {
       return false;
     }
     ZakelijkGerechtigdeHalCollectieEmbedded zakelijkGerechtigdeHalCollectieEmbedded = (ZakelijkGerechtigdeHalCollectieEmbedded) o;
-    return Objects.equals(this.zakelijkGerechtigden, zakelijkGerechtigdeHalCollectieEmbedded.zakelijkGerechtigden) &&
-        Objects.equals(this.stukken, zakelijkGerechtigdeHalCollectieEmbedded.stukken) &&
-        Objects.equals(this.stukdelen, zakelijkGerechtigdeHalCollectieEmbedded.stukdelen);
+    return Objects.equals(this.zakelijkGerechtigden, zakelijkGerechtigdeHalCollectieEmbedded.zakelijkGerechtigden);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zakelijkGerechtigden, stukken, stukdelen);
+    return Objects.hash(zakelijkGerechtigden);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ZakelijkGerechtigdeHalCollectieEmbedded {\n");
     sb.append("    zakelijkGerechtigden: ").append(toIndentedString(zakelijkGerechtigden)).append("\n");
-    sb.append("    stukken: ").append(toIndentedString(stukken)).append("\n");
-    sb.append("    stukdelen: ").append(toIndentedString(stukdelen)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -175,7 +98,7 @@ public class ZakelijkGerechtigdeHalCollectieEmbedded {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

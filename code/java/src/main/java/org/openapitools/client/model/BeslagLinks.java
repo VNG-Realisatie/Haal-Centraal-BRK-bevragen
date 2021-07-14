@@ -30,7 +30,7 @@ import org.openapitools.client.model.HalLink;
 /**
  * BeslagLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class BeslagLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -44,13 +44,9 @@ public class BeslagLinks {
   @SerializedName(SERIALIZED_NAME_STUKKEN)
   private List<HalLink> stukken = null;
 
-  public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL = "isGebaseerdOpStukdeel";
-  @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL)
-  private HalLink isGebaseerdOpStukdeel;
-
-  public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN = "isVermeldInStukdelen";
-  @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN)
-  private List<HalLink> isVermeldInStukdelen = null;
+  public static final String SERIALIZED_NAME_STUKDELEN = "stukdelen";
+  @SerializedName(SERIALIZED_NAME_STUKDELEN)
+  private List<HalLink> stukdelen = null;
 
 
   public BeslagLinks self(HalLink self) {
@@ -138,62 +134,39 @@ public class BeslagLinks {
   }
 
 
-  public BeslagLinks isGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
+  public BeslagLinks stukdelen(List<HalLink> stukdelen) {
     
-    this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
+    this.stukdelen = stukdelen;
     return this;
   }
 
-   /**
-   * Get isGebaseerdOpStukdeel
-   * @return isGebaseerdOpStukdeel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public HalLink getIsGebaseerdOpStukdeel() {
-    return isGebaseerdOpStukdeel;
-  }
-
-
-  public void setIsGebaseerdOpStukdeel(HalLink isGebaseerdOpStukdeel) {
-    this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
-  }
-
-
-  public BeslagLinks isVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
-    
-    this.isVermeldInStukdelen = isVermeldInStukdelen;
-    return this;
-  }
-
-  public BeslagLinks addIsVermeldInStukdelenItem(HalLink isVermeldInStukdelenItem) {
-    if (this.isVermeldInStukdelen == null) {
-      this.isVermeldInStukdelen = new ArrayList<>();
+  public BeslagLinks addStukdelenItem(HalLink stukdelenItem) {
+    if (this.stukdelen == null) {
+      this.stukdelen = new ArrayList<>();
     }
-    this.isVermeldInStukdelen.add(isVermeldInStukdelenItem);
+    this.stukdelen.add(stukdelenItem);
     return this;
   }
 
    /**
-   * Get isVermeldInStukdelen
-   * @return isVermeldInStukdelen
+   * Get stukdelen
+   * @return stukdelen
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink> getIsVermeldInStukdelen() {
-    return isVermeldInStukdelen;
+  public List<HalLink> getStukdelen() {
+    return stukdelen;
   }
 
 
-  public void setIsVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
-    this.isVermeldInStukdelen = isVermeldInStukdelen;
+  public void setStukdelen(List<HalLink> stukdelen) {
+    this.stukdelen = stukdelen;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -204,15 +177,13 @@ public class BeslagLinks {
     return Objects.equals(this.self, beslagLinks.self) &&
         Objects.equals(this.beslagleggers, beslagLinks.beslagleggers) &&
         Objects.equals(this.stukken, beslagLinks.stukken) &&
-        Objects.equals(this.isGebaseerdOpStukdeel, beslagLinks.isGebaseerdOpStukdeel) &&
-        Objects.equals(this.isVermeldInStukdelen, beslagLinks.isVermeldInStukdelen);
+        Objects.equals(this.stukdelen, beslagLinks.stukdelen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, beslagleggers, stukken, isGebaseerdOpStukdeel, isVermeldInStukdelen);
+    return Objects.hash(self, beslagleggers, stukken, stukdelen);
   }
-
 
   @Override
   public String toString() {
@@ -221,8 +192,7 @@ public class BeslagLinks {
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    beslagleggers: ").append(toIndentedString(beslagleggers)).append("\n");
     sb.append("    stukken: ").append(toIndentedString(stukken)).append("\n");
-    sb.append("    isGebaseerdOpStukdeel: ").append(toIndentedString(isGebaseerdOpStukdeel)).append("\n");
-    sb.append("    isVermeldInStukdelen: ").append(toIndentedString(isVermeldInStukdelen)).append("\n");
+    sb.append("    stukdelen: ").append(toIndentedString(stukdelen)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -231,7 +201,7 @@ public class BeslagLinks {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

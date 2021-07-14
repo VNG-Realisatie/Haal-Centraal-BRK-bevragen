@@ -59,17 +59,16 @@ public class HypothekenApi {
 
     /**
      * Build call for getHypotheek
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param hypotheekidentificatie De unieke identificatie van de hypotheek.  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param hypotheekIdentificatie De unieke identificatie van de hypotheek.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -82,27 +81,24 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getHypotheekCall(String kadastraalonroerendezaakidentificatie, String hypotheekidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getHypotheekCall(String kadastraalOnroerendeZaakIdentificatie, String hypotheekIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()))
-            .replaceAll("\\{" + "hypotheekidentificatie" + "\\}", localVarApiClient.escapeString(hypotheekidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()))
+            .replaceAll("\\{" + "hypotheekIdentificatie" + "\\}", localVarApiClient.escapeString(hypotheekIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -122,37 +118,36 @@ public class HypothekenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getHypotheekValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String hypotheekidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getHypotheekValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String hypotheekIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getHypotheek(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getHypotheek(Async)");
         }
         
-        // verify the required parameter 'hypotheekidentificatie' is set
-        if (hypotheekidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'hypotheekidentificatie' when calling getHypotheek(Async)");
+        // verify the required parameter 'hypotheekIdentificatie' is set
+        if (hypotheekIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'hypotheekIdentificatie' when calling getHypotheek(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getHypotheekCall(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getHypotheekCall(kadastraalOnroerendeZaakIdentificatie, hypotheekIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param hypotheekidentificatie De unieke identificatie van de hypotheek.  (required)
+     * Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param hypotheekIdentificatie De unieke identificatie van de hypotheek.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return HypotheekHal
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -165,24 +160,23 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public HypotheekHal getHypotheek(String kadastraalonroerendezaakidentificatie, String hypotheekidentificatie, String fields, String acceptCrs) throws ApiException {
-        ApiResponse<HypotheekHal> localVarResp = getHypotheekWithHttpInfo(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs);
+    public HypotheekHal getHypotheek(String kadastraalOnroerendeZaakIdentificatie, String hypotheekIdentificatie, String fields) throws ApiException {
+        ApiResponse<HypotheekHal> localVarResp = getHypotheekWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, hypotheekIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param hypotheekidentificatie De unieke identificatie van de hypotheek.  (required)
+     * Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param hypotheekIdentificatie De unieke identificatie van de hypotheek.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ApiResponse&lt;HypotheekHal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -195,26 +189,25 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<HypotheekHal> getHypotheekWithHttpInfo(String kadastraalonroerendezaakidentificatie, String hypotheekidentificatie, String fields, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getHypotheekValidateBeforeCall(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs, null);
+    public ApiResponse<HypotheekHal> getHypotheekWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String hypotheekIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getHypotheekValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, hypotheekIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<HypotheekHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param hypotheekidentificatie De unieke identificatie van de hypotheek.  (required)
+     * Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param hypotheekIdentificatie De unieke identificatie van de hypotheek.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -227,25 +220,24 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getHypotheekAsync(String kadastraalonroerendezaakidentificatie, String hypotheekidentificatie, String fields, String acceptCrs, final ApiCallback<HypotheekHal> _callback) throws ApiException {
+    public okhttp3.Call getHypotheekAsync(String kadastraalOnroerendeZaakIdentificatie, String hypotheekIdentificatie, String fields, final ApiCallback<HypotheekHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getHypotheekValidateBeforeCall(kadastraalonroerendezaakidentificatie, hypotheekidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getHypotheekValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, hypotheekIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<HypotheekHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getHypothekenKadastraalOnroerendeZaak
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -256,26 +248,23 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getHypothekenKadastraalOnroerendeZaakCall(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getHypothekenKadastraalOnroerendeZaakCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -295,31 +284,30 @@ public class HypothekenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getHypothekenKadastraalOnroerendeZaak(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getHypothekenKadastraalOnroerendeZaak(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return HypotheekHalCollectie
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -330,23 +318,22 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public HypotheekHalCollectie getHypothekenKadastraalOnroerendeZaak(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs) throws ApiException {
-        ApiResponse<HypotheekHalCollectie> localVarResp = getHypothekenKadastraalOnroerendeZaakWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, acceptCrs);
+    public HypotheekHalCollectie getHypothekenKadastraalOnroerendeZaak(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        ApiResponse<HypotheekHalCollectie> localVarResp = getHypothekenKadastraalOnroerendeZaakWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ApiResponse&lt;HypotheekHalCollectie&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -357,25 +344,24 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<HypotheekHalCollectie> getHypothekenKadastraalOnroerendeZaakWithHttpInfo(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, null);
+    public ApiResponse<HypotheekHalCollectie> getHypothekenKadastraalOnroerendeZaakWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<HypotheekHalCollectie>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -386,9 +372,9 @@ public class HypothekenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getHypothekenKadastraalOnroerendeZaakAsync(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback<HypotheekHalCollectie> _callback) throws ApiException {
+    public okhttp3.Call getHypothekenKadastraalOnroerendeZaakAsync(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback<HypotheekHalCollectie> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getHypothekenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<HypotheekHalCollectie>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

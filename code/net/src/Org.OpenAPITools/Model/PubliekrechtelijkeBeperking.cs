@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -39,9 +39,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="datumInWerking">datumInWerking.</param>
         /// <param name="datumBeeindiging">datumBeeindiging.</param>
         /// <param name="bevoegdGezag">bevoegdGezag.</param>
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
         /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd. .</param>
         /// <param name="isVermeldInStukdeelIdentificaties">De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld. .</param>
-        public PubliekrechtelijkeBeperking(string identificatie = default(string), string domein = default(string), Waardelijst grondslag = default(Waardelijst), DateTime datumInWerking = default(DateTime), DateTime datumBeeindiging = default(DateTime), NietNatuurlijkPersoonBeperkt bevoegdGezag = default(NietNatuurlijkPersoonBeperkt), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>))
+        public PubliekrechtelijkeBeperking(string identificatie = default(string), string domein = default(string), Waardelijst grondslag = default(Waardelijst), DateTime datumInWerking = default(DateTime), DateTime datumBeeindiging = default(DateTime), NietNatuurlijkPersoonBeperkt bevoegdGezag = default(NietNatuurlijkPersoonBeperkt), List<string> stukIdentificaties = default(List<string>), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>))
         {
             this.Identificatie = identificatie;
             this.Domein = domein;
@@ -49,10 +50,11 @@ namespace Org.OpenAPITools.Model
             this.DatumInWerking = datumInWerking;
             this.DatumBeeindiging = datumBeeindiging;
             this.BevoegdGezag = bevoegdGezag;
+            this.StukIdentificaties = stukIdentificaties;
             this.IsGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
             this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
@@ -93,6 +95,13 @@ namespace Org.OpenAPITools.Model
         public NietNatuurlijkPersoonBeperkt BevoegdGezag { get; set; }
 
         /// <summary>
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+        /// </summary>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
+        [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
+        public List<string> StukIdentificaties { get; set; }
+
+        /// <summary>
         /// De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd. 
         /// </summary>
         /// <value>De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd. </value>
@@ -120,19 +129,20 @@ namespace Org.OpenAPITools.Model
             sb.Append("  DatumInWerking: ").Append(DatumInWerking).Append("\n");
             sb.Append("  DatumBeeindiging: ").Append(DatumBeeindiging).Append("\n");
             sb.Append("  BevoegdGezag: ").Append(BevoegdGezag).Append("\n");
+            sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
             sb.Append("  IsGebaseerdOpStukdeelIdentificatie: ").Append(IsGebaseerdOpStukdeelIdentificatie).Append("\n");
             sb.Append("  IsVermeldInStukdeelIdentificaties: ").Append(IsVermeldInStukdeelIdentificaties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -187,6 +197,12 @@ namespace Org.OpenAPITools.Model
                     this.BevoegdGezag.Equals(input.BevoegdGezag))
                 ) && 
                 (
+                    this.StukIdentificaties == input.StukIdentificaties ||
+                    this.StukIdentificaties != null &&
+                    input.StukIdentificaties != null &&
+                    this.StukIdentificaties.SequenceEqual(input.StukIdentificaties)
+                ) && 
+                (
                     this.IsGebaseerdOpStukdeelIdentificatie == input.IsGebaseerdOpStukdeelIdentificatie ||
                     (this.IsGebaseerdOpStukdeelIdentificatie != null &&
                     this.IsGebaseerdOpStukdeelIdentificatie.Equals(input.IsGebaseerdOpStukdeelIdentificatie))
@@ -220,6 +236,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.DatumBeeindiging.GetHashCode();
                 if (this.BevoegdGezag != null)
                     hashCode = hashCode * 59 + this.BevoegdGezag.GetHashCode();
+                if (this.StukIdentificaties != null)
+                    hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
                 if (this.IsGebaseerdOpStukdeelIdentificatie != null)
                     hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeelIdentificatie.GetHashCode();
                 if (this.IsVermeldInStukdeelIdentificaties != null)

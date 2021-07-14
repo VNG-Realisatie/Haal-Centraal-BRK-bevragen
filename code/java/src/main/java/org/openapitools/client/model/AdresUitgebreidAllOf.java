@@ -28,7 +28,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * AdresUitgebreidAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class AdresUitgebreidAllOf {
   public static final String SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE = "nummeraanduidingIdentificatie";
   @SerializedName(SERIALIZED_NAME_NUMMERAANDUIDING_IDENTIFICATIE)
@@ -85,7 +85,7 @@ public class AdresUitgebreidAllOf {
    * @return adresregel1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis", value = "Het eerste deel van een adres is een combinatie van de straat en huisnummer. ")
+  @ApiModelProperty(example = "Ln vd l D-Westervoort 1A-bis", value = "Het eerste deel van een adres is een combinatie van de straat en huisnummer. ")
 
   public String getAdresregel1() {
     return adresregel1;
@@ -167,7 +167,7 @@ public class AdresUitgebreidAllOf {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +187,6 @@ public class AdresUitgebreidAllOf {
     return Objects.hash(nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -205,7 +204,7 @@ public class AdresUitgebreidAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

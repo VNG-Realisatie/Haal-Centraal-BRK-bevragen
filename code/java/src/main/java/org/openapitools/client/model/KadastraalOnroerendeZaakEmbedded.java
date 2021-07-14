@@ -26,13 +26,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.PrivaatrechtelijkeBeperkingHal;
-import org.openapitools.client.model.StukHalBasis;
 import org.openapitools.client.model.ZakelijkGerechtigdeHal;
 
 /**
  * KadastraalOnroerendeZaakEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakEmbedded {
   public static final String SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN = "zakelijkGerechtigden";
   @SerializedName(SERIALIZED_NAME_ZAKELIJK_GERECHTIGDEN)
@@ -41,10 +40,6 @@ public class KadastraalOnroerendeZaakEmbedded {
   public static final String SERIALIZED_NAME_PRIVAATRECHTELIJKE_BEPERKINGEN = "privaatrechtelijkeBeperkingen";
   @SerializedName(SERIALIZED_NAME_PRIVAATRECHTELIJKE_BEPERKINGEN)
   private List<PrivaatrechtelijkeBeperkingHal> privaatrechtelijkeBeperkingen = null;
-
-  public static final String SERIALIZED_NAME_STUKKEN = "stukken";
-  @SerializedName(SERIALIZED_NAME_STUKKEN)
-  private List<StukHalBasis> stukken = null;
 
 
   public KadastraalOnroerendeZaakEmbedded zakelijkGerechtigden(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden) {
@@ -109,39 +104,8 @@ public class KadastraalOnroerendeZaakEmbedded {
   }
 
 
-  public KadastraalOnroerendeZaakEmbedded stukken(List<StukHalBasis> stukken) {
-    
-    this.stukken = stukken;
-    return this;
-  }
-
-  public KadastraalOnroerendeZaakEmbedded addStukkenItem(StukHalBasis stukkenItem) {
-    if (this.stukken == null) {
-      this.stukken = new ArrayList<>();
-    }
-    this.stukken.add(stukkenItem);
-    return this;
-  }
-
-   /**
-   * Get stukken
-   * @return stukken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<StukHalBasis> getStukken() {
-    return stukken;
-  }
-
-
-  public void setStukken(List<StukHalBasis> stukken) {
-    this.stukken = stukken;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -150,15 +114,13 @@ public class KadastraalOnroerendeZaakEmbedded {
     }
     KadastraalOnroerendeZaakEmbedded kadastraalOnroerendeZaakEmbedded = (KadastraalOnroerendeZaakEmbedded) o;
     return Objects.equals(this.zakelijkGerechtigden, kadastraalOnroerendeZaakEmbedded.zakelijkGerechtigden) &&
-        Objects.equals(this.privaatrechtelijkeBeperkingen, kadastraalOnroerendeZaakEmbedded.privaatrechtelijkeBeperkingen) &&
-        Objects.equals(this.stukken, kadastraalOnroerendeZaakEmbedded.stukken);
+        Objects.equals(this.privaatrechtelijkeBeperkingen, kadastraalOnroerendeZaakEmbedded.privaatrechtelijkeBeperkingen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zakelijkGerechtigden, privaatrechtelijkeBeperkingen, stukken);
+    return Objects.hash(zakelijkGerechtigden, privaatrechtelijkeBeperkingen);
   }
-
 
   @Override
   public String toString() {
@@ -166,7 +128,6 @@ public class KadastraalOnroerendeZaakEmbedded {
     sb.append("class KadastraalOnroerendeZaakEmbedded {\n");
     sb.append("    zakelijkGerechtigden: ").append(toIndentedString(zakelijkGerechtigden)).append("\n");
     sb.append("    privaatrechtelijkeBeperkingen: ").append(toIndentedString(privaatrechtelijkeBeperkingen)).append("\n");
-    sb.append("    stukken: ").append(toIndentedString(stukken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -175,7 +136,7 @@ public class KadastraalOnroerendeZaakEmbedded {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -34,15 +34,15 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="PubliekrechtelijkeBeperkingLinks" /> class.
         /// </summary>
         /// <param name="bevoegdGezag">bevoegdGezag.</param>
-        /// <param name="isGebaseerdOpStukdeel">isGebaseerdOpStukdeel.</param>
-        /// <param name="isVermeldInStukdelen">isVermeldInStukdelen.</param>
-        public PubliekrechtelijkeBeperkingLinks(HalLink bevoegdGezag = default(HalLink), HalLink isGebaseerdOpStukdeel = default(HalLink), List<HalLink> isVermeldInStukdelen = default(List<HalLink>))
+        /// <param name="stukken">stukken.</param>
+        /// <param name="stukdelen">stukdelen.</param>
+        public PubliekrechtelijkeBeperkingLinks(HalLink bevoegdGezag = default(HalLink), List<HalLink> stukken = default(List<HalLink>), List<HalLink> stukdelen = default(List<HalLink>))
         {
             this.BevoegdGezag = bevoegdGezag;
-            this.IsGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
-            this.IsVermeldInStukdelen = isVermeldInStukdelen;
+            this.Stukken = stukken;
+            this.Stukdelen = stukdelen;
         }
-        
+
         /// <summary>
         /// Gets or Sets BevoegdGezag
         /// </summary>
@@ -50,16 +50,16 @@ namespace Org.OpenAPITools.Model
         public HalLink BevoegdGezag { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsGebaseerdOpStukdeel
+        /// Gets or Sets Stukken
         /// </summary>
-        [DataMember(Name="isGebaseerdOpStukdeel", EmitDefaultValue=false)]
-        public HalLink IsGebaseerdOpStukdeel { get; set; }
+        [DataMember(Name="stukken", EmitDefaultValue=false)]
+        public List<HalLink> Stukken { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsVermeldInStukdelen
+        /// Gets or Sets Stukdelen
         /// </summary>
-        [DataMember(Name="isVermeldInStukdelen", EmitDefaultValue=false)]
-        public List<HalLink> IsVermeldInStukdelen { get; set; }
+        [DataMember(Name="stukdelen", EmitDefaultValue=false)]
+        public List<HalLink> Stukdelen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,19 +70,19 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class PubliekrechtelijkeBeperkingLinks {\n");
             sb.Append("  BevoegdGezag: ").Append(BevoegdGezag).Append("\n");
-            sb.Append("  IsGebaseerdOpStukdeel: ").Append(IsGebaseerdOpStukdeel).Append("\n");
-            sb.Append("  IsVermeldInStukdelen: ").Append(IsVermeldInStukdelen).Append("\n");
+            sb.Append("  Stukken: ").Append(Stukken).Append("\n");
+            sb.Append("  Stukdelen: ").Append(Stukdelen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -112,15 +112,16 @@ namespace Org.OpenAPITools.Model
                     this.BevoegdGezag.Equals(input.BevoegdGezag))
                 ) && 
                 (
-                    this.IsGebaseerdOpStukdeel == input.IsGebaseerdOpStukdeel ||
-                    (this.IsGebaseerdOpStukdeel != null &&
-                    this.IsGebaseerdOpStukdeel.Equals(input.IsGebaseerdOpStukdeel))
+                    this.Stukken == input.Stukken ||
+                    this.Stukken != null &&
+                    input.Stukken != null &&
+                    this.Stukken.SequenceEqual(input.Stukken)
                 ) && 
                 (
-                    this.IsVermeldInStukdelen == input.IsVermeldInStukdelen ||
-                    this.IsVermeldInStukdelen != null &&
-                    input.IsVermeldInStukdelen != null &&
-                    this.IsVermeldInStukdelen.SequenceEqual(input.IsVermeldInStukdelen)
+                    this.Stukdelen == input.Stukdelen ||
+                    this.Stukdelen != null &&
+                    input.Stukdelen != null &&
+                    this.Stukdelen.SequenceEqual(input.Stukdelen)
                 );
         }
 
@@ -135,10 +136,10 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.BevoegdGezag != null)
                     hashCode = hashCode * 59 + this.BevoegdGezag.GetHashCode();
-                if (this.IsGebaseerdOpStukdeel != null)
-                    hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeel.GetHashCode();
-                if (this.IsVermeldInStukdelen != null)
-                    hashCode = hashCode * 59 + this.IsVermeldInStukdelen.GetHashCode();
+                if (this.Stukken != null)
+                    hashCode = hashCode * 59 + this.Stukken.GetHashCode();
+                if (this.Stukdelen != null)
+                    hashCode = hashCode * 59 + this.Stukdelen.GetHashCode();
                 return hashCode;
             }
         }

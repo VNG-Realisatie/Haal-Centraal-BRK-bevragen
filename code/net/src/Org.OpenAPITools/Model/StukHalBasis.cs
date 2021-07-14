@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -31,24 +31,28 @@ namespace Org.OpenAPITools.Model
     public partial class StukHalBasis :  IEquatable<StukHalBasis>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets StukType
+        /// </summary>
+        [DataMember(Name="stukType", EmitDefaultValue=false)]
+        public StukTypeEnum? StukType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="StukHalBasis" /> class.
         /// </summary>
         /// <param name="identificatie">identificatie.</param>
         /// <param name="stukType">stukType.</param>
-        /// <param name="domein">Het domein waartoe de identificatie behoort..</param>
-        /// <param name="toelichtingBewaarder">Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet..</param>
+        /// <param name="domein">Het domein waartoe de identificatie behoort. .</param>
+        /// <param name="toelichtingBewaarder">Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. .</param>
         /// <param name="stukdeelIdentificaties">stukdeelIdentificaties.</param>
-        /// <param name="bewaardersVerklaring">Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet..</param>
-        /// <param name="tekeningIngeschreven">Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk..</param>
-        /// <param name="tijdstipAanbieding">Het tijdstip dat het stuk bij het kadaster is binnengekomen..</param>
-        /// <param name="tijdstipOndertekening">Het tijdstip dat het stuk is ondertekend door partijen en de notaris.</param>
+        /// <param name="bewaardersVerklaring">Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. .</param>
+        /// <param name="indicatieTekeningBijgevoegd">Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. .</param>
+        /// <param name="tijdstipAanbieding">Het tijdstip dat het stuk bij het kadaster is binnengekomen. .</param>
+        /// <param name="tijdstipOndertekening">Het tijdstip dat het stuk is ondertekend door partijen en de notaris .</param>
         /// <param name="aard">aard.</param>
         /// <param name="status">status.</param>
         /// <param name="equivalentieVerklaarder">equivalentieVerklaarder.</param>
         /// <param name="kadasterverzoeken">kadasterverzoeken.</param>
-        /// <param name="oorspronkelijkStukIdentificatie">Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster.</param>
         /// <param name="links">links.</param>
-        public StukHalBasis(string identificatie = default(string), StukTypeEnum stukType = default(StukTypeEnum), string domein = default(string), string toelichtingBewaarder = default(string), List<string> stukdeelIdentificaties = default(List<string>), string bewaardersVerklaring = default(string), bool tekeningIngeschreven = default(bool), DateTime tijdstipAanbieding = default(DateTime), DateTime tijdstipOndertekening = default(DateTime), Waardelijst aard = default(Waardelijst), Waardelijst status = default(Waardelijst), EquivalentieVerklaarder equivalentieVerklaarder = default(EquivalentieVerklaarder), List<Kadasterverzoek> kadasterverzoeken = default(List<Kadasterverzoek>), string oorspronkelijkStukIdentificatie = default(string), StukLinks links = default(StukLinks))
+        public StukHalBasis(string identificatie = default(string), StukTypeEnum? stukType = default(StukTypeEnum?), string domein = default(string), string toelichtingBewaarder = default(string), List<string> stukdeelIdentificaties = default(List<string>), string bewaardersVerklaring = default(string), bool indicatieTekeningBijgevoegd = default(bool), DateTime tijdstipAanbieding = default(DateTime), DateTime tijdstipOndertekening = default(DateTime), Waardelijst aard = default(Waardelijst), Waardelijst status = default(Waardelijst), EquivalentieVerklaarder equivalentieVerklaarder = default(EquivalentieVerklaarder), List<Kadasterverzoek> kadasterverzoeken = default(List<Kadasterverzoek>), StukLinks links = default(StukLinks))
         {
             this.Identificatie = identificatie;
             this.StukType = stukType;
@@ -56,40 +60,34 @@ namespace Org.OpenAPITools.Model
             this.ToelichtingBewaarder = toelichtingBewaarder;
             this.StukdeelIdentificaties = stukdeelIdentificaties;
             this.BewaardersVerklaring = bewaardersVerklaring;
-            this.TekeningIngeschreven = tekeningIngeschreven;
+            this.IndicatieTekeningBijgevoegd = indicatieTekeningBijgevoegd;
             this.TijdstipAanbieding = tijdstipAanbieding;
             this.TijdstipOndertekening = tijdstipOndertekening;
             this.Aard = aard;
             this.Status = status;
             this.EquivalentieVerklaarder = equivalentieVerklaarder;
             this.Kadasterverzoeken = kadasterverzoeken;
-            this.OorspronkelijkStukIdentificatie = oorspronkelijkStukIdentificatie;
             this.Links = links;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
         [DataMember(Name="identificatie", EmitDefaultValue=false)]
         public string Identificatie { get; set; }
 
-        /// <summary>
-        /// Gets or Sets StukType
-        /// </summary>
-        [DataMember(Name="stukType", EmitDefaultValue=false)]
-        public StukTypeEnum StukType { get; set; }
 
         /// <summary>
-        /// Het domein waartoe de identificatie behoort.
+        /// Het domein waartoe de identificatie behoort. 
         /// </summary>
-        /// <value>Het domein waartoe de identificatie behoort.</value>
+        /// <value>Het domein waartoe de identificatie behoort. </value>
         [DataMember(Name="domein", EmitDefaultValue=false)]
         public string Domein { get; set; }
 
         /// <summary>
-        /// Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        /// Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. 
         /// </summary>
-        /// <value>Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.</value>
+        /// <value>Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. </value>
         [DataMember(Name="toelichtingBewaarder", EmitDefaultValue=false)]
         public string ToelichtingBewaarder { get; set; }
 
@@ -100,30 +98,30 @@ namespace Org.OpenAPITools.Model
         public List<string> StukdeelIdentificaties { get; set; }
 
         /// <summary>
-        /// Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+        /// Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. 
         /// </summary>
-        /// <value>Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.</value>
+        /// <value>Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. </value>
         [DataMember(Name="bewaardersVerklaring", EmitDefaultValue=false)]
         public string BewaardersVerklaring { get; set; }
 
         /// <summary>
-        /// Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk.
+        /// Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. 
         /// </summary>
-        /// <value>Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk.</value>
-        [DataMember(Name="tekeningIngeschreven", EmitDefaultValue=false)]
-        public bool TekeningIngeschreven { get; set; }
+        /// <value>Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. </value>
+        [DataMember(Name="indicatieTekeningBijgevoegd", EmitDefaultValue=false)]
+        public bool IndicatieTekeningBijgevoegd { get; set; }
 
         /// <summary>
-        /// Het tijdstip dat het stuk bij het kadaster is binnengekomen.
+        /// Het tijdstip dat het stuk bij het kadaster is binnengekomen. 
         /// </summary>
-        /// <value>Het tijdstip dat het stuk bij het kadaster is binnengekomen.</value>
+        /// <value>Het tijdstip dat het stuk bij het kadaster is binnengekomen. </value>
         [DataMember(Name="tijdstipAanbieding", EmitDefaultValue=false)]
         public DateTime TijdstipAanbieding { get; set; }
 
         /// <summary>
-        /// Het tijdstip dat het stuk is ondertekend door partijen en de notaris
+        /// Het tijdstip dat het stuk is ondertekend door partijen en de notaris 
         /// </summary>
-        /// <value>Het tijdstip dat het stuk is ondertekend door partijen en de notaris</value>
+        /// <value>Het tijdstip dat het stuk is ondertekend door partijen en de notaris </value>
         [DataMember(Name="tijdstipOndertekening", EmitDefaultValue=false)]
         public DateTime TijdstipOndertekening { get; set; }
 
@@ -152,13 +150,6 @@ namespace Org.OpenAPITools.Model
         public List<Kadasterverzoek> Kadasterverzoeken { get; set; }
 
         /// <summary>
-        /// Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
-        /// </summary>
-        /// <value>Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster</value>
-        [DataMember(Name="oorspronkelijkStukIdentificatie", EmitDefaultValue=false)]
-        public string OorspronkelijkStukIdentificatie { get; set; }
-
-        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
@@ -178,26 +169,25 @@ namespace Org.OpenAPITools.Model
             sb.Append("  ToelichtingBewaarder: ").Append(ToelichtingBewaarder).Append("\n");
             sb.Append("  StukdeelIdentificaties: ").Append(StukdeelIdentificaties).Append("\n");
             sb.Append("  BewaardersVerklaring: ").Append(BewaardersVerklaring).Append("\n");
-            sb.Append("  TekeningIngeschreven: ").Append(TekeningIngeschreven).Append("\n");
+            sb.Append("  IndicatieTekeningBijgevoegd: ").Append(IndicatieTekeningBijgevoegd).Append("\n");
             sb.Append("  TijdstipAanbieding: ").Append(TijdstipAanbieding).Append("\n");
             sb.Append("  TijdstipOndertekening: ").Append(TijdstipOndertekening).Append("\n");
             sb.Append("  Aard: ").Append(Aard).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EquivalentieVerklaarder: ").Append(EquivalentieVerklaarder).Append("\n");
             sb.Append("  Kadasterverzoeken: ").Append(Kadasterverzoeken).Append("\n");
-            sb.Append("  OorspronkelijkStukIdentificatie: ").Append(OorspronkelijkStukIdentificatie).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -253,9 +243,9 @@ namespace Org.OpenAPITools.Model
                     this.BewaardersVerklaring.Equals(input.BewaardersVerklaring))
                 ) && 
                 (
-                    this.TekeningIngeschreven == input.TekeningIngeschreven ||
-                    (this.TekeningIngeschreven != null &&
-                    this.TekeningIngeschreven.Equals(input.TekeningIngeschreven))
+                    this.IndicatieTekeningBijgevoegd == input.IndicatieTekeningBijgevoegd ||
+                    (this.IndicatieTekeningBijgevoegd != null &&
+                    this.IndicatieTekeningBijgevoegd.Equals(input.IndicatieTekeningBijgevoegd))
                 ) && 
                 (
                     this.TijdstipAanbieding == input.TijdstipAanbieding ||
@@ -289,11 +279,6 @@ namespace Org.OpenAPITools.Model
                     this.Kadasterverzoeken.SequenceEqual(input.Kadasterverzoeken)
                 ) && 
                 (
-                    this.OorspronkelijkStukIdentificatie == input.OorspronkelijkStukIdentificatie ||
-                    (this.OorspronkelijkStukIdentificatie != null &&
-                    this.OorspronkelijkStukIdentificatie.Equals(input.OorspronkelijkStukIdentificatie))
-                ) && 
-                (
                     this.Links == input.Links ||
                     (this.Links != null &&
                     this.Links.Equals(input.Links))
@@ -321,8 +306,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.StukdeelIdentificaties.GetHashCode();
                 if (this.BewaardersVerklaring != null)
                     hashCode = hashCode * 59 + this.BewaardersVerklaring.GetHashCode();
-                if (this.TekeningIngeschreven != null)
-                    hashCode = hashCode * 59 + this.TekeningIngeschreven.GetHashCode();
+                if (this.IndicatieTekeningBijgevoegd != null)
+                    hashCode = hashCode * 59 + this.IndicatieTekeningBijgevoegd.GetHashCode();
                 if (this.TijdstipAanbieding != null)
                     hashCode = hashCode * 59 + this.TijdstipAanbieding.GetHashCode();
                 if (this.TijdstipOndertekening != null)
@@ -335,8 +320,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.EquivalentieVerklaarder.GetHashCode();
                 if (this.Kadasterverzoeken != null)
                     hashCode = hashCode * 59 + this.Kadasterverzoeken.GetHashCode();
-                if (this.OorspronkelijkStukIdentificatie != null)
-                    hashCode = hashCode * 59 + this.OorspronkelijkStukIdentificatie.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;

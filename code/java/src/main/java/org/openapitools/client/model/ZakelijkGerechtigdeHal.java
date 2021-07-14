@@ -24,8 +24,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.client.model.ErfpachtCanon;
 import org.openapitools.client.model.PersoonBeperkt;
 import org.openapitools.client.model.Tenaamstelling;
@@ -33,11 +31,12 @@ import org.openapitools.client.model.TypeGerechtigdeEnum;
 import org.openapitools.client.model.ZakelijkGerechtigde;
 import org.openapitools.client.model.ZakelijkGerechtigdeHalAllOf;
 import org.openapitools.client.model.ZakelijkGerechtigdeLinks;
+import org.openapitools.client.model.ZakelijkRecht;
 
 /**
  * ZakelijkGerechtigdeHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class ZakelijkGerechtigdeHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -59,21 +58,13 @@ public class ZakelijkGerechtigdeHal {
   @SerializedName(SERIALIZED_NAME_TENAAMSTELLING)
   private Tenaamstelling tenaamstelling;
 
+  public static final String SERIALIZED_NAME_ZAKELIJK_RECHT = "zakelijkRecht";
+  @SerializedName(SERIALIZED_NAME_ZAKELIJK_RECHT)
+  private ZakelijkRecht zakelijkRecht;
+
   public static final String SERIALIZED_NAME_PERSOON = "persoon";
   @SerializedName(SERIALIZED_NAME_PERSOON)
-  private PersoonBeperkt persoon = null;
-
-  public static final String SERIALIZED_NAME_STUK_IDENTIFICATIES = "stukIdentificaties";
-  @SerializedName(SERIALIZED_NAME_STUK_IDENTIFICATIES)
-  private List<String> stukIdentificaties = null;
-
-  public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE = "isGebaseerdOpStukdeelIdentificatie";
-  @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE)
-  private String isGebaseerdOpStukdeelIdentificatie;
-
-  public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES = "isVermeldInStukdeelIdentificaties";
-  @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES)
-  private List<String> isVermeldInStukdeelIdentificaties = null;
+  private PersoonBeperkt persoon;
 
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -195,6 +186,29 @@ public class ZakelijkGerechtigdeHal {
   }
 
 
+  public ZakelijkGerechtigdeHal zakelijkRecht(ZakelijkRecht zakelijkRecht) {
+    
+    this.zakelijkRecht = zakelijkRecht;
+    return this;
+  }
+
+   /**
+   * Get zakelijkRecht
+   * @return zakelijkRecht
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ZakelijkRecht getZakelijkRecht() {
+    return zakelijkRecht;
+  }
+
+
+  public void setZakelijkRecht(ZakelijkRecht zakelijkRecht) {
+    this.zakelijkRecht = zakelijkRecht;
+  }
+
+
   public ZakelijkGerechtigdeHal persoon(PersoonBeperkt persoon) {
     
     this.persoon = persoon;
@@ -215,91 +229,6 @@ public class ZakelijkGerechtigdeHal {
 
   public void setPersoon(PersoonBeperkt persoon) {
     this.persoon = persoon;
-  }
-
-
-  public ZakelijkGerechtigdeHal stukIdentificaties(List<String> stukIdentificaties) {
-    
-    this.stukIdentificaties = stukIdentificaties;
-    return this;
-  }
-
-  public ZakelijkGerechtigdeHal addStukIdentificatiesItem(String stukIdentificatiesItem) {
-    if (this.stukIdentificaties == null) {
-      this.stukIdentificaties = new ArrayList<>();
-    }
-    this.stukIdentificaties.add(stukIdentificatiesItem);
-    return this;
-  }
-
-   /**
-   * Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. 
-   * @return stukIdentificaties
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dit element is de identificatie van het Stuk. Dit kan een aangeboden Stuk of een Kadasterstuk zijn. ")
-
-  public List<String> getStukIdentificaties() {
-    return stukIdentificaties;
-  }
-
-
-  public void setStukIdentificaties(List<String> stukIdentificaties) {
-    this.stukIdentificaties = stukIdentificaties;
-  }
-
-
-  public ZakelijkGerechtigdeHal isGebaseerdOpStukdeelIdentificatie(String isGebaseerdOpStukdeelIdentificatie) {
-    
-    this.isGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
-    return this;
-  }
-
-   /**
-   * De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd. 
-   * @return isGebaseerdOpStukdeelIdentificatie
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd. ")
-
-  public String getIsGebaseerdOpStukdeelIdentificatie() {
-    return isGebaseerdOpStukdeelIdentificatie;
-  }
-
-
-  public void setIsGebaseerdOpStukdeelIdentificatie(String isGebaseerdOpStukdeelIdentificatie) {
-    this.isGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
-  }
-
-
-  public ZakelijkGerechtigdeHal isVermeldInStukdeelIdentificaties(List<String> isVermeldInStukdeelIdentificaties) {
-    
-    this.isVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
-    return this;
-  }
-
-  public ZakelijkGerechtigdeHal addIsVermeldInStukdeelIdentificatiesItem(String isVermeldInStukdeelIdentificatiesItem) {
-    if (this.isVermeldInStukdeelIdentificaties == null) {
-      this.isVermeldInStukdeelIdentificaties = new ArrayList<>();
-    }
-    this.isVermeldInStukdeelIdentificaties.add(isVermeldInStukdeelIdentificatiesItem);
-    return this;
-  }
-
-   /**
-   * De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld. 
-   * @return isVermeldInStukdeelIdentificaties
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze zakelijk gerechtigde is vermeld. ")
-
-  public List<String> getIsVermeldInStukdeelIdentificaties() {
-    return isVermeldInStukdeelIdentificaties;
-  }
-
-
-  public void setIsVermeldInStukdeelIdentificaties(List<String> isVermeldInStukdeelIdentificaties) {
-    this.isVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
   }
 
 
@@ -327,7 +256,7 @@ public class ZakelijkGerechtigdeHal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -340,18 +269,15 @@ public class ZakelijkGerechtigdeHal {
         Objects.equals(this.aanvangsdatum, zakelijkGerechtigdeHal.aanvangsdatum) &&
         Objects.equals(this.erfpachtCanon, zakelijkGerechtigdeHal.erfpachtCanon) &&
         Objects.equals(this.tenaamstelling, zakelijkGerechtigdeHal.tenaamstelling) &&
+        Objects.equals(this.zakelijkRecht, zakelijkGerechtigdeHal.zakelijkRecht) &&
         Objects.equals(this.persoon, zakelijkGerechtigdeHal.persoon) &&
-        Objects.equals(this.stukIdentificaties, zakelijkGerechtigdeHal.stukIdentificaties) &&
-        Objects.equals(this.isGebaseerdOpStukdeelIdentificatie, zakelijkGerechtigdeHal.isGebaseerdOpStukdeelIdentificatie) &&
-        Objects.equals(this.isVermeldInStukdeelIdentificaties, zakelijkGerechtigdeHal.isVermeldInStukdeelIdentificaties) &&
         Objects.equals(this.links, zakelijkGerechtigdeHal.links);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identificatie, type, aanvangsdatum, erfpachtCanon, tenaamstelling, persoon, stukIdentificaties, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, links);
+    return Objects.hash(identificatie, type, aanvangsdatum, erfpachtCanon, tenaamstelling, zakelijkRecht, persoon, links);
   }
-
 
   @Override
   public String toString() {
@@ -362,10 +288,8 @@ public class ZakelijkGerechtigdeHal {
     sb.append("    aanvangsdatum: ").append(toIndentedString(aanvangsdatum)).append("\n");
     sb.append("    erfpachtCanon: ").append(toIndentedString(erfpachtCanon)).append("\n");
     sb.append("    tenaamstelling: ").append(toIndentedString(tenaamstelling)).append("\n");
+    sb.append("    zakelijkRecht: ").append(toIndentedString(zakelijkRecht)).append("\n");
     sb.append("    persoon: ").append(toIndentedString(persoon)).append("\n");
-    sb.append("    stukIdentificaties: ").append(toIndentedString(stukIdentificaties)).append("\n");
-    sb.append("    isGebaseerdOpStukdeelIdentificatie: ").append(toIndentedString(isGebaseerdOpStukdeelIdentificatie)).append("\n");
-    sb.append("    isVermeldInStukdeelIdentificaties: ").append(toIndentedString(isVermeldInStukdeelIdentificaties)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -375,7 +299,7 @@ public class ZakelijkGerechtigdeHal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

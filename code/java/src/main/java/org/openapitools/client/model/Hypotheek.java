@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.AantekeningBasis;
+import org.openapitools.client.model.AantekeningHypotheek;
 import org.openapitools.client.model.Bedrag;
 import org.openapitools.client.model.PersoonBeperkt;
 import org.openapitools.client.model.TypeBreuk;
@@ -35,7 +35,7 @@ import org.openapitools.client.model.Waardelijst;
  * Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).  Waardelijst in deze component : - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) 
  */
 @ApiModel(description = "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).  Waardelijst in deze component : - [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class Hypotheek {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -67,7 +67,7 @@ public class Hypotheek {
 
   public static final String SERIALIZED_NAME_AANTEKENINGEN = "aantekeningen";
   @SerializedName(SERIALIZED_NAME_AANTEKENINGEN)
-  private List<AantekeningBasis> aantekeningen = null;
+  private List<AantekeningHypotheek> aantekeningen = null;
 
   public static final String SERIALIZED_NAME_HYPOTHEEKHOUDERS = "hypotheekhouders";
   @SerializedName(SERIALIZED_NAME_HYPOTHEEKHOUDERS)
@@ -255,13 +255,13 @@ public class Hypotheek {
   }
 
 
-  public Hypotheek aantekeningen(List<AantekeningBasis> aantekeningen) {
+  public Hypotheek aantekeningen(List<AantekeningHypotheek> aantekeningen) {
     
     this.aantekeningen = aantekeningen;
     return this;
   }
 
-  public Hypotheek addAantekeningenItem(AantekeningBasis aantekeningenItem) {
+  public Hypotheek addAantekeningenItem(AantekeningHypotheek aantekeningenItem) {
     if (this.aantekeningen == null) {
       this.aantekeningen = new ArrayList<>();
     }
@@ -276,12 +276,12 @@ public class Hypotheek {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<AantekeningBasis> getAantekeningen() {
+  public List<AantekeningHypotheek> getAantekeningen() {
     return aantekeningen;
   }
 
 
-  public void setAantekeningen(List<AantekeningBasis> aantekeningen) {
+  public void setAantekeningen(List<AantekeningHypotheek> aantekeningen) {
     this.aantekeningen = aantekeningen;
   }
 
@@ -355,11 +355,11 @@ public class Hypotheek {
   }
 
    /**
-   *             Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. 
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
    * @return stukIdentificaties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. ")
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
 
   public List<String> getStukIdentificaties() {
     return stukIdentificaties;
@@ -449,7 +449,7 @@ public class Hypotheek {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -478,7 +478,6 @@ public class Hypotheek {
     return Objects.hash(identificatie, domein, aandeelInBetrokkenRecht, gedeeltelijkeBezwaringOudObject, omschrijvingBetrokkenRecht, toelichtingBewaarder, betreftGedeelteVanPerceel, aantekeningen, hypotheekhouders, bedragZekerheidsstelling, stukIdentificaties, omschrijvingGekozenWoonplaats, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -505,7 +504,7 @@ public class Hypotheek {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

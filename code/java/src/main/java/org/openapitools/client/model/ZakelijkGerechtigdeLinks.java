@@ -28,9 +28,10 @@ import java.util.List;
 import org.openapitools.client.model.HalLink;
 
 /**
- * ZakelijkGerechtigdeLinks
+ * De links naar stukken en stukdelen betreffen stukken en stukdelen waar een zakelijk recht, erfpachtcanon en/of tenaamstelling op gebaseerd zijn of waar het zakelijk recht, erfpachtcanon en/of de tenaamstelling in vermeld zijn.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@ApiModel(description = "De links naar stukken en stukdelen betreffen stukken en stukdelen waar een zakelijk recht, erfpachtcanon en/of tenaamstelling op gebaseerd zijn of waar het zakelijk recht, erfpachtcanon en/of de tenaamstelling in vermeld zijn.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:58:19.624161Z[Etc/UTC]")
 public class ZakelijkGerechtigdeLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -56,13 +57,9 @@ public class ZakelijkGerechtigdeLinks {
   @SerializedName(SERIALIZED_NAME_STUKKEN)
   private List<HalLink> stukken = null;
 
-  public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL = "isGebaseerdOpStukdeel";
-  @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL)
-  private List<HalLink> isGebaseerdOpStukdeel = null;
-
-  public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN = "isVermeldInStukdelen";
-  @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDELEN)
-  private List<HalLink> isVermeldInStukdelen = null;
+  public static final String SERIALIZED_NAME_STUKDELEN = "stukdelen";
+  @SerializedName(SERIALIZED_NAME_STUKDELEN)
+  private List<HalLink> stukdelen = null;
 
 
   public ZakelijkGerechtigdeLinks self(HalLink self) {
@@ -211,70 +208,39 @@ public class ZakelijkGerechtigdeLinks {
   }
 
 
-  public ZakelijkGerechtigdeLinks isGebaseerdOpStukdeel(List<HalLink> isGebaseerdOpStukdeel) {
+  public ZakelijkGerechtigdeLinks stukdelen(List<HalLink> stukdelen) {
     
-    this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
+    this.stukdelen = stukdelen;
     return this;
   }
 
-  public ZakelijkGerechtigdeLinks addIsGebaseerdOpStukdeelItem(HalLink isGebaseerdOpStukdeelItem) {
-    if (this.isGebaseerdOpStukdeel == null) {
-      this.isGebaseerdOpStukdeel = new ArrayList<>();
+  public ZakelijkGerechtigdeLinks addStukdelenItem(HalLink stukdelenItem) {
+    if (this.stukdelen == null) {
+      this.stukdelen = new ArrayList<>();
     }
-    this.isGebaseerdOpStukdeel.add(isGebaseerdOpStukdeelItem);
+    this.stukdelen.add(stukdelenItem);
     return this;
   }
 
    /**
-   * Get isGebaseerdOpStukdeel
-   * @return isGebaseerdOpStukdeel
+   * Get stukdelen
+   * @return stukdelen
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<HalLink> getIsGebaseerdOpStukdeel() {
-    return isGebaseerdOpStukdeel;
+  public List<HalLink> getStukdelen() {
+    return stukdelen;
   }
 
 
-  public void setIsGebaseerdOpStukdeel(List<HalLink> isGebaseerdOpStukdeel) {
-    this.isGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
-  }
-
-
-  public ZakelijkGerechtigdeLinks isVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
-    
-    this.isVermeldInStukdelen = isVermeldInStukdelen;
-    return this;
-  }
-
-  public ZakelijkGerechtigdeLinks addIsVermeldInStukdelenItem(HalLink isVermeldInStukdelenItem) {
-    if (this.isVermeldInStukdelen == null) {
-      this.isVermeldInStukdelen = new ArrayList<>();
-    }
-    this.isVermeldInStukdelen.add(isVermeldInStukdelenItem);
-    return this;
-  }
-
-   /**
-   * Get isVermeldInStukdelen
-   * @return isVermeldInStukdelen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<HalLink> getIsVermeldInStukdelen() {
-    return isVermeldInStukdelen;
-  }
-
-
-  public void setIsVermeldInStukdelen(List<HalLink> isVermeldInStukdelen) {
-    this.isVermeldInStukdelen = isVermeldInStukdelen;
+  public void setStukdelen(List<HalLink> stukdelen) {
+    this.stukdelen = stukdelen;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -288,15 +254,13 @@ public class ZakelijkGerechtigdeLinks {
         Objects.equals(this.betrokkenSamenwerkingsverband, zakelijkGerechtigdeLinks.betrokkenSamenwerkingsverband) &&
         Objects.equals(this.betrokkenGorzenEnAanwassen, zakelijkGerechtigdeLinks.betrokkenGorzenEnAanwassen) &&
         Objects.equals(this.stukken, zakelijkGerechtigdeLinks.stukken) &&
-        Objects.equals(this.isGebaseerdOpStukdeel, zakelijkGerechtigdeLinks.isGebaseerdOpStukdeel) &&
-        Objects.equals(this.isVermeldInStukdelen, zakelijkGerechtigdeLinks.isVermeldInStukdelen);
+        Objects.equals(this.stukdelen, zakelijkGerechtigdeLinks.stukdelen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, persoon, betrokkenPartner, betrokkenSamenwerkingsverband, betrokkenGorzenEnAanwassen, stukken, isGebaseerdOpStukdeel, isVermeldInStukdelen);
+    return Objects.hash(self, persoon, betrokkenPartner, betrokkenSamenwerkingsverband, betrokkenGorzenEnAanwassen, stukken, stukdelen);
   }
-
 
   @Override
   public String toString() {
@@ -308,8 +272,7 @@ public class ZakelijkGerechtigdeLinks {
     sb.append("    betrokkenSamenwerkingsverband: ").append(toIndentedString(betrokkenSamenwerkingsverband)).append("\n");
     sb.append("    betrokkenGorzenEnAanwassen: ").append(toIndentedString(betrokkenGorzenEnAanwassen)).append("\n");
     sb.append("    stukken: ").append(toIndentedString(stukken)).append("\n");
-    sb.append("    isGebaseerdOpStukdeel: ").append(toIndentedString(isGebaseerdOpStukdeel)).append("\n");
-    sb.append("    isVermeldInStukdelen: ").append(toIndentedString(isVermeldInStukdelen)).append("\n");
+    sb.append("    stukdelen: ").append(toIndentedString(stukdelen)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,7 +281,7 @@ public class ZakelijkGerechtigdeLinks {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
