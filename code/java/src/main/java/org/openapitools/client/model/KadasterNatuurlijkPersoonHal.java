@@ -40,7 +40,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadasterNatuurlijkPersoonHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class KadasterNatuurlijkPersoonHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -64,11 +64,11 @@ public class KadasterNatuurlijkPersoonHal {
 
   public static final String SERIALIZED_NAME_WOONADRES = "woonadres";
   @SerializedName(SERIALIZED_NAME_WOONADRES)
-  private AdresUitgebreid woonadres = null;
+  private AdresUitgebreid woonadres;
 
   public static final String SERIALIZED_NAME_POSTADRES = "postadres";
   @SerializedName(SERIALIZED_NAME_POSTADRES)
-  private Postadres postadres = null;
+  private Postadres postadres;
 
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
@@ -92,7 +92,7 @@ public class KadasterNatuurlijkPersoonHal {
 
   public static final String SERIALIZED_NAME_NAAM = "naam";
   @SerializedName(SERIALIZED_NAME_NAAM)
-  private NaamPersoon naam = null;
+  private NaamPersoon naam;
 
   public static final String SERIALIZED_NAME_GEBOORTE = "geboorte";
   @SerializedName(SERIALIZED_NAME_GEBOORTE)

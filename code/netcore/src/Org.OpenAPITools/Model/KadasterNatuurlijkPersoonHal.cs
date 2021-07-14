@@ -31,6 +31,7 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "KadasterNatuurlijkPersoonHal")]
     public partial class KadasterNatuurlijkPersoonHal : IEquatable<KadasterNatuurlijkPersoonHal>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Geslachtsaanduiding
         /// </summary>
@@ -99,7 +100,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets IndicatieNietToonbareDiakriet
         /// </summary>
-        [DataMember(Name = "indicatieNietToonbareDiakriet", EmitDefaultValue = false)]
+        [DataMember(Name = "indicatieNietToonbareDiakriet", EmitDefaultValue = true)]
         public bool IndicatieNietToonbareDiakriet { get; set; }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace Org.OpenAPITools.Model
         /// Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. 
         /// </summary>
         /// <value>Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. </value>
-        [DataMember(Name = "geheimhoudingPersoonsgegevens", EmitDefaultValue = false)]
+        [DataMember(Name = "geheimhoudingPersoonsgegevens", EmitDefaultValue = true)]
         public bool GeheimhoudingPersoonsgegevens { get; set; }
 
         /// <summary>

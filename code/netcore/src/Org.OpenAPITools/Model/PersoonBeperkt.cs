@@ -31,6 +31,7 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "PersoonBeperkt")]
     public partial class PersoonBeperkt : IEquatable<PersoonBeperkt>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>

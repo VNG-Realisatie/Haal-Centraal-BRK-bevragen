@@ -117,7 +117,6 @@ openapi_client/model/zakelijk_gerechtigde_hal_collectie_embedded.py
 openapi_client/model/zakelijk_gerechtigde_links.py
 openapi_client/model_utils.py
 openapi_client/models/__init__.py
-openapi_client/models/__init__.py
 openapi_client/rest.py
 requirements.txt
 setup.cfg

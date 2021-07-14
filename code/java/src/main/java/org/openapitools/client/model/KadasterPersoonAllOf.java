@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) 
  */
 @ApiModel(description = "Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class KadasterPersoonAllOf {
   public static final String SERIALIZED_NAME_DOMEIN = "domein";
   @SerializedName(SERIALIZED_NAME_DOMEIN)
@@ -49,11 +49,11 @@ public class KadasterPersoonAllOf {
 
   public static final String SERIALIZED_NAME_WOONADRES = "woonadres";
   @SerializedName(SERIALIZED_NAME_WOONADRES)
-  private AdresUitgebreid woonadres = null;
+  private AdresUitgebreid woonadres;
 
   public static final String SERIALIZED_NAME_POSTADRES = "postadres";
   @SerializedName(SERIALIZED_NAME_POSTADRES)
-  private Postadres postadres = null;
+  private Postadres postadres;
 
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)

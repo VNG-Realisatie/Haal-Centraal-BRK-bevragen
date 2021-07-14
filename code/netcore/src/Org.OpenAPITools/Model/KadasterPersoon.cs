@@ -78,7 +78,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets IndicatieNietToonbareDiakriet
         /// </summary>
-        [DataMember(Name = "indicatieNietToonbareDiakriet", EmitDefaultValue = false)]
+        [DataMember(Name = "indicatieNietToonbareDiakriet", EmitDefaultValue = true)]
         public bool IndicatieNietToonbareDiakriet { get; set; }
 
         /// <summary>

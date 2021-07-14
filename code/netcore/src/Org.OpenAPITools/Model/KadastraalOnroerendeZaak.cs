@@ -31,6 +31,7 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "KadastraalOnroerendeZaak")]
     public partial class KadastraalOnroerendeZaak : IEquatable<KadastraalOnroerendeZaak>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>

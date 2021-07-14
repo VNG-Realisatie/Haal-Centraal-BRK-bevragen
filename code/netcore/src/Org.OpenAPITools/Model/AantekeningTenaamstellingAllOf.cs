@@ -51,7 +51,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets IndicatieOorspronkelijkObject
         /// </summary>
-        [DataMember(Name = "indicatieOorspronkelijkObject", EmitDefaultValue = false)]
+        [DataMember(Name = "indicatieOorspronkelijkObject", EmitDefaultValue = true)]
         public bool IndicatieOorspronkelijkObject { get; set; }
 
         /// <summary>

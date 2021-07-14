@@ -82,7 +82,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets GedeeltelijkeBezwaringOudObject
         /// </summary>
-        [DataMember(Name = "gedeeltelijkeBezwaringOudObject", EmitDefaultValue = false)]
+        [DataMember(Name = "gedeeltelijkeBezwaringOudObject", EmitDefaultValue = true)]
         public bool GedeeltelijkeBezwaringOudObject { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets BetreftGedeelteVanPerceel
         /// </summary>
-        [DataMember(Name = "betreftGedeelteVanPerceel", EmitDefaultValue = false)]
+        [DataMember(Name = "betreftGedeelteVanPerceel", EmitDefaultValue = true)]
         public bool BetreftGedeelteVanPerceel { get; set; }
 
         /// <summary>

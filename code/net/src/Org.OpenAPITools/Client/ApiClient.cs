@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -499,7 +499,7 @@ namespace Org.OpenAPITools.Client
         }
 
         /// <summary>
-        /// Convert params to key/value pairs. 
+        /// Convert params to key/value pairs.
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
         /// <param name="collectionFormat">Collection format.</param>

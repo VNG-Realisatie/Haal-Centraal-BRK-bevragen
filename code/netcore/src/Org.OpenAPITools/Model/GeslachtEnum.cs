@@ -29,9 +29,7 @@ namespace Org.OpenAPITools.Model
     /// Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:   * &#x60;man&#x60; - Man   * &#x60;vrouw&#x60; - Vrouw   * &#x60;onbekend&#x60; - Onbekend 
     /// </summary>
     /// <value>Een aanduiding die aangeeft dat de ingeschrevene een man of een vrouw is, of dat het geslacht (nog) onbekend is:   * &#x60;man&#x60; - Man   * &#x60;vrouw&#x60; - Vrouw   * &#x60;onbekend&#x60; - Onbekend </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum GeslachtEnum
     {
         /// <summary>

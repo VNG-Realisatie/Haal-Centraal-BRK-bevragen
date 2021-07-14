@@ -31,6 +31,7 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "NietNatuurlijkPersoonBeperkt_allOf")]
     public partial class NietNatuurlijkPersoonBeperktAllOf : IEquatable<NietNatuurlijkPersoonBeperktAllOf>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>

@@ -64,7 +64,7 @@ namespace Org.OpenAPITools.Model
         /// Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft. 
         /// </summary>
         /// <value>Indicatie waarmee wordt aangegeven dat het jaarlijks bedrag meerdere onroerende zaken betreft. </value>
-        [DataMember(Name = "betrefMeerOnroerendeZaken", EmitDefaultValue = false)]
+        [DataMember(Name = "betrefMeerOnroerendeZaken", EmitDefaultValue = true)]
         public bool BetrefMeerOnroerendeZaken { get; set; }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Org.OpenAPITools.Model
         /// Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel. 
         /// </summary>
         /// <value>Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel. </value>
-        [DataMember(Name = "indicatieOudeOnroerendeZaakBetrokken", EmitDefaultValue = false)]
+        [DataMember(Name = "indicatieOudeOnroerendeZaakBetrokken", EmitDefaultValue = true)]
         public bool IndicatieOudeOnroerendeZaakBetrokken { get; set; }
 
         /// <summary>

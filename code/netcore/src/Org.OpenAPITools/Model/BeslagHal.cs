@@ -83,7 +83,7 @@ namespace Org.OpenAPITools.Model
         /// Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat. 
         /// </summary>
         /// <value>Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat. </value>
-        [DataMember(Name = "gedeeltelijkeBezwaringOudObject", EmitDefaultValue = false)]
+        [DataMember(Name = "gedeeltelijkeBezwaringOudObject", EmitDefaultValue = true)]
         public bool GedeeltelijkeBezwaringOudObject { get; set; }
 
         /// <summary>

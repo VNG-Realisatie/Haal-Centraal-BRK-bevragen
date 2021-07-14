@@ -28,7 +28,7 @@ import java.io.IOException;
  * Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn. 
  */
 @ApiModel(description = "Een persoon kan een natuurlijk persoon of een niet-natuurlijk persoon zijn. Kan zowel een ingeschreven persoon (in resp. BRP of KvK) of Kadasterpersoon zijn. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class PersoonBasis {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)

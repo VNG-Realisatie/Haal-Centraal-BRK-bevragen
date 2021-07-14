@@ -28,9 +28,7 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// Defines TypeKadastraalOnroerendeZaakEnum
     /// </summary>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum TypeKadastraalOnroerendeZaakEnum
     {
         /// <summary>

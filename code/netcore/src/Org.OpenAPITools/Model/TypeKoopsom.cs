@@ -59,7 +59,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets IndicatieMetMeerObjectenVerkregen
         /// </summary>
-        [DataMember(Name = "indicatieMetMeerObjectenVerkregen", EmitDefaultValue = false)]
+        [DataMember(Name = "indicatieMetMeerObjectenVerkregen", EmitDefaultValue = true)]
         public bool IndicatieMetMeerObjectenVerkregen { get; set; }
 
         /// <summary>

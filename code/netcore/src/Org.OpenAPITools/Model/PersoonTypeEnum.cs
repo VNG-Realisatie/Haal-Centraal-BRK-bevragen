@@ -29,9 +29,7 @@ namespace Org.OpenAPITools.Model
     /// Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster. 
     /// </summary>
     /// <value>Een aanduiding die aangeeft of het een natuurlijk dan wel niet-natuurlijk persoon betreft en of de persoon ingeschreven is in het BRP of Handelsregister (KvK), dan wel vastgelegd is bij het Kadaster. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum PersoonTypeEnum
     {
         /// <summary>

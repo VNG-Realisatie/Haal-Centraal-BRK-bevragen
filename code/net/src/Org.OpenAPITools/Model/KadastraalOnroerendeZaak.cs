@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -77,7 +77,7 @@ namespace Org.OpenAPITools.Model
             this.HypotheekIdentificaties = hypotheekIdentificaties;
             this.BeslagIdentificaties = beslagIdentificaties;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
@@ -218,7 +218,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -403,7 +403,7 @@ namespace Org.OpenAPITools.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
-            
+ 
             // PerceelnummerRotatie (decimal) maximum
             if(this.PerceelnummerRotatie > (decimal)999)
             {

@@ -25,6 +25,9 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from openapi_client.exceptions import ApiAttributeError
+
 
 def lazy_import():
     from openapi_client.model.locatie_kadastraal_object import LocatieKadastraalObject
@@ -78,7 +81,14 @@ class KadastraalOnroerendeZaak(ModelNormal):
         },
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -140,7 +150,101 @@ class KadastraalOnroerendeZaak(ModelNormal):
         'beslag_identificaties': 'beslagIdentificaties',  # noqa: E501
     }
 
+    read_only_vars = {
+    }
+
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """KadastraalOnroerendeZaak - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            identificatie (str): [optional]  # noqa: E501
+            domein (str): Het domein waartoe de identificatie behoort. . [optional]  # noqa: E501
+            begrenzing_perceel (PolygonGeoJSON): [optional]  # noqa: E501
+            perceelnummer_rotatie (float): Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen. . [optional]  # noqa: E501
+            plaatscoordinaten (PointGeoJSON): [optional]  # noqa: E501
+            koopsom (TypeKoopsom): [optional]  # noqa: E501
+            toelichting_bewaarder (str): Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
+            type (TypeKadastraalOnroerendeZaakEnum): [optional]  # noqa: E501
+            aard_cultuur_bebouwd (Waardelijst): [optional]  # noqa: E501
+            aard_cultuur_onbebouwd (Waardelijst): [optional]  # noqa: E501
+            kadastrale_aanduiding (str): [optional]  # noqa: E501
+            kadastrale_grootte (TypeOppervlak): [optional]  # noqa: E501
+            perceelnummer_verschuiving (TypePerceelnummerVerschuiving): [optional]  # noqa: E501
+            adressen ([LocatieKadastraalObject]): Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            zakelijk_gerechtigde_identificaties ([str]): Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            privaatrechtelijke_beperking_identificaties ([str]): Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            hypotheek_identificaties ([str]): Alle hypotheken die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            beslag_identificaties ([str]): Alle beslagen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -237,3 +341,6 @@ class KadastraalOnroerendeZaak(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")

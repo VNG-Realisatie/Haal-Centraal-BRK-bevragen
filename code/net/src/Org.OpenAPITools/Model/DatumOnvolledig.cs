@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -44,7 +44,7 @@ namespace Org.OpenAPITools.Model
             this.Jaar = jaar;
             this.Maand = maand;
         }
-        
+
         /// <summary>
         /// Als de dag van de datum bekend is wordt dit element gevuld, ook als de volledige datum bekend is.
         /// </summary>
@@ -89,7 +89,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
@@ -171,7 +171,7 @@ namespace Org.OpenAPITools.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
-            
+ 
             // Dag (int) maximum
             if(this.Dag > (int)31)
             {
@@ -185,7 +185,7 @@ namespace Org.OpenAPITools.Model
             }
 
 
-            
+ 
             // Jaar (int) maximum
             if(this.Jaar > (int)9999)
             {
@@ -193,7 +193,7 @@ namespace Org.OpenAPITools.Model
             }
 
 
-            
+ 
             // Maand (int) maximum
             if(this.Maand > (int)12)
             {

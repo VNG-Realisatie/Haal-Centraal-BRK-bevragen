@@ -28,11 +28,11 @@ import org.openapitools.client.model.PolygonGeoJSON;
 /**
  * AantekeningTenaamstellingAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class AantekeningTenaamstellingAllOf {
   public static final String SERIALIZED_NAME_BEGRENZING = "begrenzing";
   @SerializedName(SERIALIZED_NAME_BEGRENZING)
-  private PolygonGeoJSON begrenzing = null;
+  private PolygonGeoJSON begrenzing;
 
   public static final String SERIALIZED_NAME_INDICATIE_OORSPRONKELIJK_OBJECT = "indicatieOorspronkelijkObject";
   @SerializedName(SERIALIZED_NAME_INDICATIE_OORSPRONKELIJK_OBJECT)

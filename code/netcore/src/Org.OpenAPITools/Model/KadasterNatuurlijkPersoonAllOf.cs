@@ -31,6 +31,7 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "KadasterNatuurlijkPersoon_allOf")]
     public partial class KadasterNatuurlijkPersoonAllOf : IEquatable<KadasterNatuurlijkPersoonAllOf>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Geslachtsaanduiding
         /// </summary>
@@ -61,7 +62,7 @@ namespace Org.OpenAPITools.Model
         /// Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. 
         /// </summary>
         /// <value>Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. </value>
-        [DataMember(Name = "geheimhoudingPersoonsgegevens", EmitDefaultValue = false)]
+        [DataMember(Name = "geheimhoudingPersoonsgegevens", EmitDefaultValue = true)]
         public bool GeheimhoudingPersoonsgegevens { get; set; }
 
         /// <summary>

@@ -30,7 +30,7 @@ import org.openapitools.client.model.KadasterNatuurlijkPersoonHal;
 /**
  * KadasterNatuurlijkPersoonHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class KadasterNatuurlijkPersoonHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_KADASTER_NATUURLIJK_PERSONEN = "kadasterNatuurlijkPersonen";
   @SerializedName(SERIALIZED_NAME_KADASTER_NATUURLIJK_PERSONEN)

@@ -35,7 +35,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.   Waardelijst in deze component :   [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/) 
  */
 @ApiModel(description = "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.   Waardelijst in deze component :   [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T09:44:54.145Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-14T09:03:43.376348Z[Etc/UTC]")
 public class Tenaamstelling {
   public static final String SERIALIZED_NAME_AANDEEL = "aandeel";
   @SerializedName(SERIALIZED_NAME_AANDEEL)
@@ -59,15 +59,15 @@ public class Tenaamstelling {
 
   public static final String SERIALIZED_NAME_BETROKKEN_PARTNER = "betrokkenPartner";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_PARTNER)
-  private NatuurlijkPersoonBeperkt betrokkenPartner = null;
+  private NatuurlijkPersoonBeperkt betrokkenPartner;
 
   public static final String SERIALIZED_NAME_BETROKKEN_SAMENWERKINGSVERBAND = "betrokkenSamenwerkingsverband";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_SAMENWERKINGSVERBAND)
-  private NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband = null;
+  private NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband;
 
   public static final String SERIALIZED_NAME_BETROKKEN_GORZEN_EN_AANWASSEN = "betrokkenGorzenEnAanwassen";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_GORZEN_EN_AANWASSEN)
-  private NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen = null;
+  private NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen;
 
 
   public Tenaamstelling aandeel(TypeBreuk aandeel) {

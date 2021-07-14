@@ -25,6 +25,9 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from openapi_client.exceptions import ApiAttributeError
+
 
 def lazy_import():
     from openapi_client.model.kadastraal_onroerende_zaak import KadastraalOnroerendeZaak
@@ -159,6 +162,117 @@ class KadastraalOnroerendeZaakHal(ModelComposed):
         'embedded': '_embedded',  # noqa: E501
     }
 
+    read_only_vars = {
+    }
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """KadastraalOnroerendeZaakHal - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            identificatie (str): [optional]  # noqa: E501
+            domein (str): Het domein waartoe de identificatie behoort. . [optional]  # noqa: E501
+            begrenzing_perceel (PolygonGeoJSON): [optional]  # noqa: E501
+            perceelnummer_rotatie (float): Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen. . [optional]  # noqa: E501
+            plaatscoordinaten (PointGeoJSON): [optional]  # noqa: E501
+            koopsom (TypeKoopsom): [optional]  # noqa: E501
+            toelichting_bewaarder (str): Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
+            type (TypeKadastraalOnroerendeZaakEnum): [optional]  # noqa: E501
+            aard_cultuur_bebouwd (Waardelijst): [optional]  # noqa: E501
+            aard_cultuur_onbebouwd (Waardelijst): [optional]  # noqa: E501
+            kadastrale_aanduiding (str): [optional]  # noqa: E501
+            kadastrale_grootte (TypeOppervlak): [optional]  # noqa: E501
+            perceelnummer_verschuiving (TypePerceelnummerVerschuiving): [optional]  # noqa: E501
+            adressen ([LocatieKadastraalObject]): Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            zakelijk_gerechtigde_identificaties ([str]): Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            privaatrechtelijke_beperking_identificaties ([str]): Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            hypotheek_identificaties ([str]): Alle hypotheken die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            beslag_identificaties ([str]): Alle beslagen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
+            links (KadastraalOnroerendeZaakLinks): [optional]  # noqa: E501
+            embedded (KadastraalOnroerendeZaakEmbedded): [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        constant_args = {
+            '_check_type': _check_type,
+            '_path_to_item': _path_to_item,
+            '_spec_property_naming': _spec_property_naming,
+            '_configuration': _configuration,
+            '_visited_composed_classes': self._visited_composed_classes,
+        }
+        composed_info = validate_get_composed_info(
+            constant_args, kwargs, self)
+        self._composed_instances = composed_info[0]
+        self._var_name_to_model_instances = composed_info[1]
+        self._additional_properties_model_instances = composed_info[2]
+        discarded_args = composed_info[3]
+
+        for var_name, var_value in kwargs.items():
+            if var_name in discarded_args and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self._additional_properties_model_instances:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+
+        return self
+
     required_properties = set([
         '_data_store',
         '_check_type',
@@ -258,28 +372,24 @@ class KadastraalOnroerendeZaakHal(ModelComposed):
             '_configuration': _configuration,
             '_visited_composed_classes': self._visited_composed_classes,
         }
-        required_args = {
-        }
-        model_args = {}
-        model_args.update(required_args)
-        model_args.update(kwargs)
         composed_info = validate_get_composed_info(
-            constant_args, model_args, self)
+            constant_args, kwargs, self)
         self._composed_instances = composed_info[0]
         self._var_name_to_model_instances = composed_info[1]
         self._additional_properties_model_instances = composed_info[2]
-        unused_args = composed_info[3]
+        discarded_args = composed_info[3]
 
-        for var_name, var_value in required_args.items():
-            setattr(self, var_name, var_value)
         for var_name, var_value in kwargs.items():
-            if var_name in unused_args and \
+            if var_name in discarded_args and \
                         self._configuration is not None and \
                         self._configuration.discard_unknown_keys and \
-                        not self._additional_properties_model_instances:
+                        self._additional_properties_model_instances:
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")
 
     @cached_property
     def _composed_schemas():

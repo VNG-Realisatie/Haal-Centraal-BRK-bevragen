@@ -29,9 +29,7 @@ namespace Org.OpenAPITools.Model
     /// Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster. 
     /// </summary>
     /// <value>Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster. </value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum NietNatuurlijkPersoonTypeEnum
     {
         /// <summary>
