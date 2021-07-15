@@ -206,7 +206,7 @@ components:
     DeelEnNummer:
       type: "object"
       description: |
-                    Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vier gegevenselementen.
+                    Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen.
                     Waardelijst in deze component :
                       [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
                       [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
