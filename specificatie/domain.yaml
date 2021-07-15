@@ -608,7 +608,7 @@ components:
       properties:
         identificatie:
           description: |
-                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+            De identificatie van de Kadastraal Onroerende Zaak.
           type: "string"
         type:
           $ref: "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
