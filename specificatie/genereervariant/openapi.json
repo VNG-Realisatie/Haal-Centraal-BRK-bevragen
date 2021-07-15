@@ -4992,18 +4992,18 @@
               "$ref" : "#/components/schemas/Filiatie"
             }
           },
-          "bijbehorendeGrondperceelIdentificaties" : {
+          "bijbehorendeGrondpercelen" : {
             "type" : "array",
-            "description" : "De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort\n",
+            "description" : "De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort\n",
             "items" : {
-              "type" : "string"
+              "$ref" : "#/components/schemas/PerceelBasis"
             }
           },
-          "bijbehorendeAppartementsrechtIdentificaties" : {
+          "bijbehorendeAppartementsrechten" : {
             "type" : "array",
-            "description" : "De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
+            "description" : "De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
             "items" : {
-              "type" : "string"
+              "$ref" : "#/components/schemas/AppartementsrechtBasis"
             }
           },
           "isVermeldInStukdeelIdentificaties" : {
@@ -5212,15 +5212,80 @@
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
-          "kadastraalOnroerendeZaakIdentificatie" : {
+          "kadastraalOnroerendeZaken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+            }
+          }
+        }
+      },
+      "KadastraalOnroerendeZaakFiliatie" : {
+        "required" : [ "type" ],
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
             "type" : "string",
             "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
           },
-          "indicatieVervallenKadastraalOnroerendeZaak" : {
-            "type" : "boolean",
-            "description" : "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.\n"
+          "type" : {
+            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+          }
+        },
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "appartementsrecht" : "#/components/schemas/AppartementsrechtFiliatie",
+            "perceel" : "#/components/schemas/PerceelFiliatie"
           }
         }
+      },
+      "AppartementsrechtFiliatie" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        }, {
+          "properties" : {
+            "indicatieSluimerend" : {
+              "type" : "boolean"
+            }
+          }
+        } ]
+      },
+      "PerceelFiliatie" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        }, {
+          "properties" : {
+            "indicatieVervallen" : {
+              "type" : "boolean",
+              "description" : "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.\n"
+            }
+          }
+        } ]
+      },
+      "PerceelBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        } ]
+      },
+      "KadastraalOnroerendeZaakBasis" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AppartementsrechtBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        }, {
+          "properties" : {
+            "volgnummer" : {
+              "type" : "integer"
+            }
+          }
+        } ]
       },
       "ZakelijkGerechtigde" : {
         "type" : "object",
