@@ -5226,7 +5226,7 @@
         "properties" : {
           "identificatie" : {
             "type" : "string",
-            "description" : "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).\n"
+            "description" : "De identificatie van de Kadastraal Onroerende Zaak.\n"
           },
           "type" : {
             "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
