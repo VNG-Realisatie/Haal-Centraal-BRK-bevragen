@@ -121,6 +121,18 @@ components:
           #  land:
           #    code: "Maleisië"
           #    waarde: "7026"
+    AppartementsrechtBasis:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        - properties:
+            volgnummer:
+              type: integer
+    AppartementsrechtFiliatie:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        - properties:
+            indicatieSluimerend:
+              type: boolean
     Bedrag:
       type: "object"
       description: |
@@ -264,14 +276,10 @@ components:
       properties:
         aard:
           $ref: "#/components/schemas/Waardelijst"
-        kadastraalOnroerendeZaakIdentificatie:
-          description: |
-                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
-          type: "string"
-        indicatieVervallenKadastraalOnroerendeZaak:
-          description: |
-                        Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
-          type: "boolean"
+        kadastraalOnroerendeZaken:
+          type: array
+          items:
+            $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
     Geboorte:
       type: "object"
       description: |
@@ -564,18 +572,18 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Filiatie"
-        bijbehorendeGrondperceelIdentificaties:
+        bijbehorendeGrondpercelen:
           description: |
-                      De kadastraalOnroerendeZaakIdentificaties van de grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
+            De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
           type: "array"
           items:
-            type: "string"
-        bijbehorendeAppartementsrechtIdentificaties:
+            $ref: "#/components/schemas/PerceelBasis"
+        bijbehorendeAppartementsrechten:
           description: |
-                      De kadstraalOnroerendeZaakidentificaties van de actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
+            De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen
           type : "array"
           items:
-            type: "string"
+            $ref: "#/components/schemas/AppartementsrechtBasis"
         isVermeldInStukdeelIdentificaties:
           type: "array"
           items:
@@ -590,6 +598,27 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
+    KadastraalOnroerendeZaakBasis:
+      type: "object"
+      properties:
+        identificatie:
+          type: "string"
+    KadastraalOnroerendeZaakFiliatie:
+      type: "object"
+      properties:
+        identificatie:
+          description: |
+                        De identificatie(s) van de Kadastraal Onroerende Za(a)k(en).
+          type: "string"
+        type:
+          $ref: "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          appartementsrecht: "#/components/schemas/AppartementsrechtFiliatie"
+          perceel: "#/components/schemas/PerceelFiliatie"
     Kadasterverzoek:
       type: "object"
       description: |
@@ -693,6 +722,17 @@ components:
       properties:
         datum:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+    PerceelBasis:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
+    PerceelFiliatie:
+      allOf:
+        - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        - properties:
+            indicatieVervallen:
+              description: |
+                Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
+              type: "boolean"
     PersoonBasis:
       type: "object"
       description: |
