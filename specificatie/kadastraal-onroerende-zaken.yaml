@@ -378,7 +378,9 @@ components:
             volgnummer:
               type: integer
             bijbehorendeGrondpercelen:
-              $ref: "#/components/schemas/PerceelBasis"
+              type: array
+              items:
+                $ref: "#/components/schemas/PerceelBasis"
             _links:
               $ref: "#/components/schemas/AppartementsrechtLinks"
     PerceelHal:
@@ -388,7 +390,9 @@ components:
             indicatieVervallen:
               type: boolean
             bijbehorendeAppartementsrechten:
-              $ref: "#/components/schemas/AppartementsrechtBasis"
+              type: array
+              items:
+                $ref: "#/components/schemas/AppartementsrechtBasis"
             begrenzing:
               $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
             plaatscoordinaten:
