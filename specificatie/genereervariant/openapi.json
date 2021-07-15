@@ -4410,7 +4410,10 @@
               "type" : "integer"
             },
             "bijbehorendeGrondpercelen" : {
-              "$ref" : "#/components/schemas/PerceelBasis"
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/PerceelBasis"
+              }
             },
             "_links" : {
               "$ref" : "#/components/schemas/AppartementsrechtLinks"
@@ -4522,7 +4525,10 @@
               "type" : "boolean"
             },
             "bijbehorendeAppartementsrechten" : {
-              "$ref" : "#/components/schemas/AppartementsrechtBasis"
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/AppartementsrechtBasis"
+              }
             },
             "begrenzing" : {
               "$ref" : "#/components/schemas/polygonGeoJSON"
