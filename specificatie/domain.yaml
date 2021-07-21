@@ -203,6 +203,37 @@ components:
                         De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
           items:
             type: "string"
+    DeelEnNummer:
+      type: "object"
+      description: |
+                    Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen.
+                    Waardelijst in deze component :
+                      [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+                      [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+                      [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+      properties:
+        deel:
+          description: |
+                        Identificatie van het stuk binnen zijn soort.
+          type: "string"
+        nummer:
+          description: |
+                        Volgnummer van het stuk.
+          type: "string"
+        reeks:
+          type: "array"
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+          items:
+            $ref: "#/components/schemas/Waardelijst"
+        registercode:
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+          $ref: "#/components/schemas/Waardelijst"
+        soortRegister:
+          description: |
+                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
+          $ref: "#/components/schemas/Waardelijst"
     ErfpachtCanon:
       type: "object"
       description: |
@@ -796,6 +827,8 @@ components:
       properties:
         identificatie:
           type: "string"
+        deelEnNummer:
+          $ref: "#/components/schemas/DeelEnNummer"
         stukType:
           $ref: "#/components/schemas/StukTypeEnum"
         domein:
