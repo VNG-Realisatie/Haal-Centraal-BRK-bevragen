@@ -34,7 +34,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadasterNietNatuurlijkPersoon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class KadasterNietNatuurlijkPersoon {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -58,11 +58,11 @@ public class KadasterNietNatuurlijkPersoon {
 
   public static final String SERIALIZED_NAME_WOONADRES = "woonadres";
   @SerializedName(SERIALIZED_NAME_WOONADRES)
-  private AdresUitgebreid woonadres = null;
+  private AdresUitgebreid woonadres;
 
   public static final String SERIALIZED_NAME_POSTADRES = "postadres";
   @SerializedName(SERIALIZED_NAME_POSTADRES)
-  private Postadres postadres = null;
+  private Postadres postadres;
 
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
@@ -397,7 +397,7 @@ public class KadasterNietNatuurlijkPersoon {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -425,7 +425,6 @@ public class KadasterNietNatuurlijkPersoon {
     return Objects.hash(identificatie, omschrijving, domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties, statutaireNaam, statutaireZetel, rechtsvorm, kvkNummer, rsin);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -451,7 +450,7 @@ public class KadasterNietNatuurlijkPersoon {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

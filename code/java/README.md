@@ -1,10 +1,12 @@
 # openapi-java-client
 
 Kadaster - BRK-Bevragen API
-- API version: 1.1.0
-  - Build date: 2020-07-16T15:31:15.936+02:00[Europe/Amsterdam]
+- API version: 1.3.0
+  - Build date: 2021-07-21T07:24:37.064592Z[Etc/UTC]
 
-D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
+D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
+Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
+
 
   For more information, please visit [https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen)
 
@@ -41,7 +43,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.1.0</version>
+  <version>1.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +53,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.1.0"
+compile "org.openapitools:openapi-java-client:1.3.0"
 ```
 
 ### Others
@@ -64,7 +66,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.1.0.jar`
+* `target/openapi-java-client-1.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -79,12 +81,12 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.auth.*;
 import org.openapitools.client.models.*;
-import org.openapitools.client.api.KadasterNietNatuurlijkPersonenApi;
+import org.openapitools.client.api.BeslagenApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.brk.kadaster.nl/esd/bevragen/v1");
+    defaultClient.setBasePath("https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1");
     
     // Configure API key authorization: apiKeyAuth
     ApiKeyAuth apiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("apiKeyAuth");
@@ -92,14 +94,15 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //apiKeyAuth.setApiKeyPrefix("Token");
 
-    KadasterNietNatuurlijkPersonenApi apiInstance = new KadasterNietNatuurlijkPersonenApi(defaultClient);
-    String q = "q_example"; // String | Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.
-    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.0.0/features/fields.feature)
+    BeslagenApi apiInstance = new BeslagenApi(defaultClient);
+    String kadastraalOnroerendeZaakIdentificatie = "kadastraalOnroerendeZaakIdentificatie_example"; // String | De unieke identificatie van een kadastraal onroerende zaak. 
+    String beslagIdentificatie = "beslagIdentificatie_example"; // String | De unieke identificatie van het beslag. 
+    String fields = "fields_example"; // String | Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
     try {
-      KadasterNietNatuurlijkPersoonHalCollectie result = apiInstance.getKadasterNietNatuurlijkPersonen(q, fields);
+      BeslagHal result = apiInstance.getBeslag(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling KadasterNietNatuurlijkPersonenApi#getKadasterNietNatuurlijkPersonen");
+      System.err.println("Exception when calling BeslagenApi#getBeslag");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -112,35 +115,72 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.brk.kadaster.nl/esd/bevragen/v1*
+All URIs are relative to *https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BeslagenApi* | [**getBeslag**](docs/BeslagenApi.md#getBeslag) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie} | 
+*BeslagenApi* | [**getBeslagenKadastraalOnroerendeZaak**](docs/BeslagenApi.md#getBeslagenKadastraalOnroerendeZaak) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen | 
+*HypothekenApi* | [**getHypotheek**](docs/HypothekenApi.md#getHypotheek) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie} | 
+*HypothekenApi* | [**getHypothekenKadastraalOnroerendeZaak**](docs/HypothekenApi.md#getHypothekenKadastraalOnroerendeZaak) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken | 
 *KadasterNietNatuurlijkPersonenApi* | [**getKadasterNietNatuurlijkPersonen**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterNietNatuurlijkPersonen) | **GET** /kadasternietnatuurlijkpersonen | 
-*KadasterNietNatuurlijkPersonenApi* | [**getKadasterNietNatuurlijkPersoon**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterNietNatuurlijkPersoon) | **GET** /kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie} | 
+*KadasterNietNatuurlijkPersonenApi* | [**getKadasterNietNatuurlijkPersoon**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterNietNatuurlijkPersoon) | **GET** /kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie} | 
 *KadasterNietNatuurlijkPersonenApi* | [**getKadasterPersonen**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterPersonen) | **GET** /kadasternatuurlijkpersonen | 
-*KadasterNietNatuurlijkPersonenApi* | [**getKadasterPersoon**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterPersoon) | **GET** /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie} | 
-*KadastraalOnroerendeZakenApi* | [**getKadastraalOnroerendeZaak**](docs/KadastraalOnroerendeZakenApi.md#getKadastraalOnroerendeZaak) | **GET** /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie} | 
+*KadasterNietNatuurlijkPersonenApi* | [**getKadasterPersoon**](docs/KadasterNietNatuurlijkPersonenApi.md#getKadasterPersoon) | **GET** /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie} | 
+*KadastraalOnroerendeZakenApi* | [**getKadastraalOnroerendeZaak**](docs/KadastraalOnroerendeZakenApi.md#getKadastraalOnroerendeZaak) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie} | 
 *KadastraalOnroerendeZakenApi* | [**getKadastraalOnroerendeZaken**](docs/KadastraalOnroerendeZakenApi.md#getKadastraalOnroerendeZaken) | **GET** /kadastraalonroerendezaken | 
-*ZakelijkeGerechtigdenApi* | [**getZakelijkGerechtigde**](docs/ZakelijkeGerechtigdenApi.md#getZakelijkGerechtigde) | **GET** /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie} | 
-*ZakelijkeGerechtigdenApi* | [**getZakelijkGerechtigden**](docs/ZakelijkeGerechtigdenApi.md#getZakelijkGerechtigden) | **GET** /kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden | 
+*PrivaatrechtelijkeBeperkingenApi* | [**getPrivaatrechtelijkeBeperking**](docs/PrivaatrechtelijkeBeperkingenApi.md#getPrivaatrechtelijkeBeperking) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie} | 
+*PrivaatrechtelijkeBeperkingenApi* | [**getPrivaatrechtelijkeBeperkingen**](docs/PrivaatrechtelijkeBeperkingenApi.md#getPrivaatrechtelijkeBeperkingen) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen | 
+*PubliekrechtelijkeBeperkingenApi* | [**getPubliekrechtelijkeBeperkingen**](docs/PubliekrechtelijkeBeperkingenApi.md#getPubliekrechtelijkeBeperkingen) | **GET** /publiekrechtelijkebeperkingen | 
+*StukkenApi* | [**getStuk**](docs/StukkenApi.md#getStuk) | **GET** /stukken/{stukIdentificatie} | 
+*StukkenApi* | [**getStukdeel**](docs/StukkenApi.md#getStukdeel) | **GET** /stukdelen/{stukdeelIdentificatie} | 
+*ZakelijkeGerechtigdenApi* | [**getZakelijkGerechtigde**](docs/ZakelijkeGerechtigdenApi.md#getZakelijkGerechtigde) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie} | 
+*ZakelijkeGerechtigdenApi* | [**getZakelijkGerechtigden**](docs/ZakelijkeGerechtigdenApi.md#getZakelijkGerechtigden) | **GET** /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden | 
 
 
 ## Documentation for Models
 
  - [Aantekening](docs/Aantekening.md)
+ - [AantekeningAllOf](docs/AantekeningAllOf.md)
+ - [AantekeningBasis](docs/AantekeningBasis.md)
+ - [AantekeningHypotheek](docs/AantekeningHypotheek.md)
+ - [AantekeningHypotheekAllOf](docs/AantekeningHypotheekAllOf.md)
+ - [AantekeningTenaamstelling](docs/AantekeningTenaamstelling.md)
+ - [AantekeningTenaamstellingAllOf](docs/AantekeningTenaamstellingAllOf.md)
  - [Adres](docs/Adres.md)
+ - [AdresUitgebreid](docs/AdresUitgebreid.md)
+ - [AdresUitgebreidAllOf](docs/AdresUitgebreidAllOf.md)
+ - [AppartementsrechtBasis](docs/AppartementsrechtBasis.md)
+ - [AppartementsrechtBasisAllOf](docs/AppartementsrechtBasisAllOf.md)
+ - [AppartementsrechtFiliatie](docs/AppartementsrechtFiliatie.md)
+ - [AppartementsrechtFiliatieAllOf](docs/AppartementsrechtFiliatieAllOf.md)
  - [BadRequestFoutbericht](docs/BadRequestFoutbericht.md)
  - [BadRequestFoutberichtAllOf](docs/BadRequestFoutberichtAllOf.md)
  - [Bedrag](docs/Bedrag.md)
+ - [Beslag](docs/Beslag.md)
+ - [BeslagHal](docs/BeslagHal.md)
+ - [BeslagHalAllOf](docs/BeslagHalAllOf.md)
+ - [BeslagHalCollectie](docs/BeslagHalCollectie.md)
+ - [BeslagHalCollectieEmbedded](docs/BeslagHalCollectieEmbedded.md)
+ - [BeslagLinks](docs/BeslagLinks.md)
  - [DatumOnvolledig](docs/DatumOnvolledig.md)
+ - [DeelEnNummer](docs/DeelEnNummer.md)
+ - [EquivalentieVerklaarder](docs/EquivalentieVerklaarder.md)
+ - [EquivalentieVerklaarderAllOf](docs/EquivalentieVerklaarderAllOf.md)
  - [ErfpachtCanon](docs/ErfpachtCanon.md)
+ - [Filiatie](docs/Filiatie.md)
  - [Foutbericht](docs/Foutbericht.md)
  - [Geboorte](docs/Geboorte.md)
  - [GeslachtEnum](docs/GeslachtEnum.md)
  - [HalCollectionLinks](docs/HalCollectionLinks.md)
  - [HalLink](docs/HalLink.md)
  - [HeeftPartnerschap](docs/HeeftPartnerschap.md)
+ - [Hypotheek](docs/Hypotheek.md)
+ - [HypotheekHal](docs/HypotheekHal.md)
+ - [HypotheekHalAllOf](docs/HypotheekHalAllOf.md)
+ - [HypotheekHalCollectie](docs/HypotheekHalCollectie.md)
+ - [HypotheekHalCollectieEmbedded](docs/HypotheekHalCollectieEmbedded.md)
+ - [HypotheekLinks](docs/HypotheekLinks.md)
  - [InvalidParams](docs/InvalidParams.md)
  - [KadasterNatuurlijkPersoon](docs/KadasterNatuurlijkPersoon.md)
  - [KadasterNatuurlijkPersoonAllOf](docs/KadasterNatuurlijkPersoonAllOf.md)
@@ -156,15 +196,21 @@ Class | Method | HTTP request | Description
  - [KadasterPersoon](docs/KadasterPersoon.md)
  - [KadasterPersoonAllOf](docs/KadasterPersoonAllOf.md)
  - [KadasterPersoonLinks](docs/KadasterPersoonLinks.md)
+ - [Kadasterverzoek](docs/Kadasterverzoek.md)
  - [KadastraalOnroerendeZaak](docs/KadastraalOnroerendeZaak.md)
+ - [KadastraalOnroerendeZaakBasis](docs/KadastraalOnroerendeZaakBasis.md)
  - [KadastraalOnroerendeZaakEmbedded](docs/KadastraalOnroerendeZaakEmbedded.md)
+ - [KadastraalOnroerendeZaakFiliatie](docs/KadastraalOnroerendeZaakFiliatie.md)
  - [KadastraalOnroerendeZaakHal](docs/KadastraalOnroerendeZaakHal.md)
  - [KadastraalOnroerendeZaakHalAllOf](docs/KadastraalOnroerendeZaakHalAllOf.md)
  - [KadastraalOnroerendeZaakHalCollectie](docs/KadastraalOnroerendeZaakHalCollectie.md)
  - [KadastraalOnroerendeZaakHalCollectieEmbedded](docs/KadastraalOnroerendeZaakHalCollectieEmbedded.md)
  - [KadastraalOnroerendeZaakLinks](docs/KadastraalOnroerendeZaakLinks.md)
  - [LocatieKadastraalObject](docs/LocatieKadastraalObject.md)
+ - [LocatieKadastraalObjectAllOf](docs/LocatieKadastraalObjectAllOf.md)
  - [Naam](docs/Naam.md)
+ - [NaamPersoon](docs/NaamPersoon.md)
+ - [NaamPersoonAllOf](docs/NaamPersoonAllOf.md)
  - [NatuurlijkPersoonBeperkt](docs/NatuurlijkPersoonBeperkt.md)
  - [NatuurlijkPersoonBeperktAllOf](docs/NatuurlijkPersoonBeperktAllOf.md)
  - [NatuurlijkPersoonTypeEnum](docs/NatuurlijkPersoonTypeEnum.md)
@@ -172,6 +218,9 @@ Class | Method | HTTP request | Description
  - [NietNatuurlijkPersoonBeperktAllOf](docs/NietNatuurlijkPersoonBeperktAllOf.md)
  - [NietNatuurlijkPersoonTypeEnum](docs/NietNatuurlijkPersoonTypeEnum.md)
  - [Overlijden](docs/Overlijden.md)
+ - [PerceelBasis](docs/PerceelBasis.md)
+ - [PerceelFiliatie](docs/PerceelFiliatie.md)
+ - [PerceelFiliatieAllOf](docs/PerceelFiliatieAllOf.md)
  - [PersoonBasis](docs/PersoonBasis.md)
  - [PersoonBeperkt](docs/PersoonBeperkt.md)
  - [PersoonBeperktAllOf](docs/PersoonBeperktAllOf.md)
@@ -180,6 +229,33 @@ Class | Method | HTTP request | Description
  - [PolygonGeoJSON](docs/PolygonGeoJSON.md)
  - [Postadres](docs/Postadres.md)
  - [PostadresAllOf](docs/PostadresAllOf.md)
+ - [PrivaatrechtelijkeBeperkingHal](docs/PrivaatrechtelijkeBeperkingHal.md)
+ - [PrivaatrechtelijkeBeperkingHalAllOf](docs/PrivaatrechtelijkeBeperkingHalAllOf.md)
+ - [PrivaatrechtelijkeBeperkingHalCollectie](docs/PrivaatrechtelijkeBeperkingHalCollectie.md)
+ - [PrivaatrechtelijkeBeperkingHalCollectieEmbedded](docs/PrivaatrechtelijkeBeperkingHalCollectieEmbedded.md)
+ - [PrivaatrechtelijkeBeperkingLinks](docs/PrivaatrechtelijkeBeperkingLinks.md)
+ - [PubliekrechtelijkeBeperking](docs/PubliekrechtelijkeBeperking.md)
+ - [PubliekrechtelijkeBeperkingHal](docs/PubliekrechtelijkeBeperkingHal.md)
+ - [PubliekrechtelijkeBeperkingHalAllOf](docs/PubliekrechtelijkeBeperkingHalAllOf.md)
+ - [PubliekrechtelijkeBeperkingHalCollectie](docs/PubliekrechtelijkeBeperkingHalCollectie.md)
+ - [PubliekrechtelijkeBeperkingHalCollectieEmbedded](docs/PubliekrechtelijkeBeperkingHalCollectieEmbedded.md)
+ - [PubliekrechtelijkeBeperkingLinks](docs/PubliekrechtelijkeBeperkingLinks.md)
+ - [RedenVerzoek](docs/RedenVerzoek.md)
+ - [Stuk](docs/Stuk.md)
+ - [StukEmbedded](docs/StukEmbedded.md)
+ - [StukHal](docs/StukHal.md)
+ - [StukHalAllOf](docs/StukHalAllOf.md)
+ - [StukHalBasis](docs/StukHalBasis.md)
+ - [StukHalBasisAllOf](docs/StukHalBasisAllOf.md)
+ - [StukLinks](docs/StukLinks.md)
+ - [StukTypeEnum](docs/StukTypeEnum.md)
+ - [Stukdeel](docs/Stukdeel.md)
+ - [StukdeelEmbedded](docs/StukdeelEmbedded.md)
+ - [StukdeelHal](docs/StukdeelHal.md)
+ - [StukdeelHalAllOf](docs/StukdeelHalAllOf.md)
+ - [StukdeelHalBasis](docs/StukdeelHalBasis.md)
+ - [StukdeelHalBasisAllOf](docs/StukdeelHalBasisAllOf.md)
+ - [StukdeelLinks](docs/StukdeelLinks.md)
  - [Tenaamstelling](docs/Tenaamstelling.md)
  - [TypeBreuk](docs/TypeBreuk.md)
  - [TypeGerechtigdeEnum](docs/TypeGerechtigdeEnum.md)
@@ -194,6 +270,7 @@ Class | Method | HTTP request | Description
  - [ZakelijkGerechtigdeHalCollectie](docs/ZakelijkGerechtigdeHalCollectie.md)
  - [ZakelijkGerechtigdeHalCollectieEmbedded](docs/ZakelijkGerechtigdeHalCollectieEmbedded.md)
  - [ZakelijkGerechtigdeLinks](docs/ZakelijkGerechtigdeLinks.md)
+ - [ZakelijkRecht](docs/ZakelijkRecht.md)
 
 
 ## Documentation for Authorization

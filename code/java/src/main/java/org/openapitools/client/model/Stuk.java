@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.DeelEnNummer;
 import org.openapitools.client.model.EquivalentieVerklaarder;
 import org.openapitools.client.model.Kadasterverzoek;
 import org.openapitools.client.model.StukTypeEnum;
@@ -35,11 +36,15 @@ import org.openapitools.client.model.Waardelijst;
  * Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Waardelijsten in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en   [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\&quot; 
  */
 @ApiModel(description = "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Waardelijsten in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en   [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\" ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class Stuk {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
   private String identificatie;
+
+  public static final String SERIALIZED_NAME_DEEL_EN_NUMMER = "deelEnNummer";
+  @SerializedName(SERIALIZED_NAME_DEEL_EN_NUMMER)
+  private DeelEnNummer deelEnNummer;
 
   public static final String SERIALIZED_NAME_STUK_TYPE = "stukType";
   @SerializedName(SERIALIZED_NAME_STUK_TYPE)
@@ -61,9 +66,9 @@ public class Stuk {
   @SerializedName(SERIALIZED_NAME_BEWAARDERS_VERKLARING)
   private String bewaardersVerklaring;
 
-  public static final String SERIALIZED_NAME_TEKENING_INGESCHREVEN = "tekeningIngeschreven";
-  @SerializedName(SERIALIZED_NAME_TEKENING_INGESCHREVEN)
-  private Boolean tekeningIngeschreven;
+  public static final String SERIALIZED_NAME_INDICATIE_TEKENING_BIJGEVOEGD = "indicatieTekeningBijgevoegd";
+  @SerializedName(SERIALIZED_NAME_INDICATIE_TEKENING_BIJGEVOEGD)
+  private Boolean indicatieTekeningBijgevoegd;
 
   public static final String SERIALIZED_NAME_TIJDSTIP_AANBIEDING = "tijdstipAanbieding";
   @SerializedName(SERIALIZED_NAME_TIJDSTIP_AANBIEDING)
@@ -89,10 +94,6 @@ public class Stuk {
   @SerializedName(SERIALIZED_NAME_KADASTERVERZOEKEN)
   private List<Kadasterverzoek> kadasterverzoeken = null;
 
-  public static final String SERIALIZED_NAME_OORSPRONKELIJK_STUK_IDENTIFICATIE = "oorspronkelijkStukIdentificatie";
-  @SerializedName(SERIALIZED_NAME_OORSPRONKELIJK_STUK_IDENTIFICATIE)
-  private String oorspronkelijkStukIdentificatie;
-
 
   public Stuk identificatie(String identificatie) {
     
@@ -114,6 +115,29 @@ public class Stuk {
 
   public void setIdentificatie(String identificatie) {
     this.identificatie = identificatie;
+  }
+
+
+  public Stuk deelEnNummer(DeelEnNummer deelEnNummer) {
+    
+    this.deelEnNummer = deelEnNummer;
+    return this;
+  }
+
+   /**
+   * Get deelEnNummer
+   * @return deelEnNummer
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public DeelEnNummer getDeelEnNummer() {
+    return deelEnNummer;
+  }
+
+
+  public void setDeelEnNummer(DeelEnNummer deelEnNummer) {
+    this.deelEnNummer = deelEnNummer;
   }
 
 
@@ -147,11 +171,11 @@ public class Stuk {
   }
 
    /**
-   * Het domein waartoe de identificatie behoort.
+   * Het domein waartoe de identificatie behoort. 
    * @return domein
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Het domein waartoe de identificatie behoort.")
+  @ApiModelProperty(value = "Het domein waartoe de identificatie behoort. ")
 
   public String getDomein() {
     return domein;
@@ -170,11 +194,11 @@ public class Stuk {
   }
 
    /**
-   * Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+   * Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. 
    * @return toelichtingBewaarder
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.")
+  @ApiModelProperty(value = "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. ")
 
   public String getToelichtingBewaarder() {
     return toelichtingBewaarder;
@@ -224,11 +248,11 @@ public class Stuk {
   }
 
    /**
-   * Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.
+   * Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. 
    * @return bewaardersVerklaring
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.")
+  @ApiModelProperty(value = "Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. ")
 
   public String getBewaardersVerklaring() {
     return bewaardersVerklaring;
@@ -240,26 +264,26 @@ public class Stuk {
   }
 
 
-  public Stuk tekeningIngeschreven(Boolean tekeningIngeschreven) {
+  public Stuk indicatieTekeningBijgevoegd(Boolean indicatieTekeningBijgevoegd) {
     
-    this.tekeningIngeschreven = tekeningIngeschreven;
+    this.indicatieTekeningBijgevoegd = indicatieTekeningBijgevoegd;
     return this;
   }
 
    /**
-   * Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk.
-   * @return tekeningIngeschreven
+   * Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. 
+   * @return indicatieTekeningBijgevoegd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Er is sprake van een appartementstekening (splitsingstekening van appartementen) als bijlage bij het stuk.")
+  @ApiModelProperty(value = "Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. ")
 
-  public Boolean getTekeningIngeschreven() {
-    return tekeningIngeschreven;
+  public Boolean getIndicatieTekeningBijgevoegd() {
+    return indicatieTekeningBijgevoegd;
   }
 
 
-  public void setTekeningIngeschreven(Boolean tekeningIngeschreven) {
-    this.tekeningIngeschreven = tekeningIngeschreven;
+  public void setIndicatieTekeningBijgevoegd(Boolean indicatieTekeningBijgevoegd) {
+    this.indicatieTekeningBijgevoegd = indicatieTekeningBijgevoegd;
   }
 
 
@@ -270,11 +294,11 @@ public class Stuk {
   }
 
    /**
-   * Het tijdstip dat het stuk bij het kadaster is binnengekomen.
+   * Het tijdstip dat het stuk bij het kadaster is binnengekomen. 
    * @return tijdstipAanbieding
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Het tijdstip dat het stuk bij het kadaster is binnengekomen.")
+  @ApiModelProperty(value = "Het tijdstip dat het stuk bij het kadaster is binnengekomen. ")
 
   public OffsetDateTime getTijdstipAanbieding() {
     return tijdstipAanbieding;
@@ -293,11 +317,11 @@ public class Stuk {
   }
 
    /**
-   * Het tijdstip dat het stuk is ondertekend door partijen en de notaris
+   * Het tijdstip dat het stuk is ondertekend door partijen en de notaris 
    * @return tijdstipOndertekening
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Het tijdstip dat het stuk is ondertekend door partijen en de notaris")
+  @ApiModelProperty(value = "Het tijdstip dat het stuk is ondertekend door partijen en de notaris ")
 
   public OffsetDateTime getTijdstipOndertekening() {
     return tijdstipOndertekening;
@@ -409,31 +433,8 @@ public class Stuk {
   }
 
 
-  public Stuk oorspronkelijkStukIdentificatie(String oorspronkelijkStukIdentificatie) {
-    
-    this.oorspronkelijkStukIdentificatie = oorspronkelijkStukIdentificatie;
-    return this;
-  }
-
-   /**
-   * Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster
-   * @return oorspronkelijkStukIdentificatie
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Referentie naar het het aangeboden stuk waarop de correctie heeft plaatsgevonden die middels dit Kadasterstuk heeft geleid tot een aanpassing in de BasisRegistratie Kadaster")
-
-  public String getOorspronkelijkStukIdentificatie() {
-    return oorspronkelijkStukIdentificatie;
-  }
-
-
-  public void setOorspronkelijkStukIdentificatie(String oorspronkelijkStukIdentificatie) {
-    this.oorspronkelijkStukIdentificatie = oorspronkelijkStukIdentificatie;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -442,45 +443,44 @@ public class Stuk {
     }
     Stuk stuk = (Stuk) o;
     return Objects.equals(this.identificatie, stuk.identificatie) &&
+        Objects.equals(this.deelEnNummer, stuk.deelEnNummer) &&
         Objects.equals(this.stukType, stuk.stukType) &&
         Objects.equals(this.domein, stuk.domein) &&
         Objects.equals(this.toelichtingBewaarder, stuk.toelichtingBewaarder) &&
         Objects.equals(this.stukdeelIdentificaties, stuk.stukdeelIdentificaties) &&
         Objects.equals(this.bewaardersVerklaring, stuk.bewaardersVerklaring) &&
-        Objects.equals(this.tekeningIngeschreven, stuk.tekeningIngeschreven) &&
+        Objects.equals(this.indicatieTekeningBijgevoegd, stuk.indicatieTekeningBijgevoegd) &&
         Objects.equals(this.tijdstipAanbieding, stuk.tijdstipAanbieding) &&
         Objects.equals(this.tijdstipOndertekening, stuk.tijdstipOndertekening) &&
         Objects.equals(this.aard, stuk.aard) &&
         Objects.equals(this.status, stuk.status) &&
         Objects.equals(this.equivalentieVerklaarder, stuk.equivalentieVerklaarder) &&
-        Objects.equals(this.kadasterverzoeken, stuk.kadasterverzoeken) &&
-        Objects.equals(this.oorspronkelijkStukIdentificatie, stuk.oorspronkelijkStukIdentificatie);
+        Objects.equals(this.kadasterverzoeken, stuk.kadasterverzoeken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identificatie, stukType, domein, toelichtingBewaarder, stukdeelIdentificaties, bewaardersVerklaring, tekeningIngeschreven, tijdstipAanbieding, tijdstipOndertekening, aard, status, equivalentieVerklaarder, kadasterverzoeken, oorspronkelijkStukIdentificatie);
+    return Objects.hash(identificatie, deelEnNummer, stukType, domein, toelichtingBewaarder, stukdeelIdentificaties, bewaardersVerklaring, indicatieTekeningBijgevoegd, tijdstipAanbieding, tijdstipOndertekening, aard, status, equivalentieVerklaarder, kadasterverzoeken);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Stuk {\n");
     sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
+    sb.append("    deelEnNummer: ").append(toIndentedString(deelEnNummer)).append("\n");
     sb.append("    stukType: ").append(toIndentedString(stukType)).append("\n");
     sb.append("    domein: ").append(toIndentedString(domein)).append("\n");
     sb.append("    toelichtingBewaarder: ").append(toIndentedString(toelichtingBewaarder)).append("\n");
     sb.append("    stukdeelIdentificaties: ").append(toIndentedString(stukdeelIdentificaties)).append("\n");
     sb.append("    bewaardersVerklaring: ").append(toIndentedString(bewaardersVerklaring)).append("\n");
-    sb.append("    tekeningIngeschreven: ").append(toIndentedString(tekeningIngeschreven)).append("\n");
+    sb.append("    indicatieTekeningBijgevoegd: ").append(toIndentedString(indicatieTekeningBijgevoegd)).append("\n");
     sb.append("    tijdstipAanbieding: ").append(toIndentedString(tijdstipAanbieding)).append("\n");
     sb.append("    tijdstipOndertekening: ").append(toIndentedString(tijdstipOndertekening)).append("\n");
     sb.append("    aard: ").append(toIndentedString(aard)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    equivalentieVerklaarder: ").append(toIndentedString(equivalentieVerklaarder)).append("\n");
     sb.append("    kadasterverzoeken: ").append(toIndentedString(kadasterverzoeken)).append("\n");
-    sb.append("    oorspronkelijkStukIdentificatie: ").append(toIndentedString(oorspronkelijkStukIdentificatie)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -489,7 +489,7 @@ public class Stuk {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

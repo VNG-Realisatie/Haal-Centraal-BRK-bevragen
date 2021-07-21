@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -28,108 +29,104 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een beslag. 
+        /// Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>BeslagHal</returns>
-        BeslagHal GetBeslag (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string));
+        BeslagHal GetBeslag (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een beslag. 
+        /// Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>ApiResponse of BeslagHal</returns>
-        ApiResponse<BeslagHal> GetBeslagWithHttpInfo (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string));
+        ApiResponse<BeslagHal> GetBeslagWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        /// Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>BeslagHalCollectie</returns>
-        BeslagHalCollectie GetBeslagenKadastraalOnroerendeZaak (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        BeslagHalCollectie GetBeslagenKadastraalOnroerendeZaak (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        /// Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>ApiResponse of BeslagHalCollectie</returns>
-        ApiResponse<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        ApiResponse<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een beslag. 
+        /// Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BeslagHal</returns>
-        System.Threading.Tasks.Task<BeslagHal> GetBeslagAsync (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<BeslagHal> GetBeslagAsync (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van een beslag. 
+        /// Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BeslagHal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BeslagHal>> GetBeslagAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<ApiResponse<BeslagHal>> GetBeslagWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        /// Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BeslagHalCollectie</returns>
-        System.Threading.Tasks.Task<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        /// Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BeslagHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BeslagHalCollectie>> GetBeslagenKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string));
+        System.Threading.Tasks.Task<ApiResponse<BeslagHalCollectie>> GetBeslagenKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -242,39 +239,37 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een beslag. 
+        ///  Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>BeslagHal</returns>
-        public BeslagHal GetBeslag (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public BeslagHal GetBeslag (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string))
         {
-             ApiResponse<BeslagHal> localVarResponse = GetBeslagWithHttpInfo(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs);
+             ApiResponse<BeslagHal> localVarResponse = GetBeslagWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het raadplegen van een beslag. 
+        ///  Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>ApiResponse of BeslagHal</returns>
-        public ApiResponse<BeslagHal> GetBeslagWithHttpInfo (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public ApiResponse<BeslagHal> GetBeslagWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling BeslagenApi->GetBeslag");
-            // verify the required parameter 'beslagidentificatie' is set
-            if (beslagidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'beslagidentificatie' when calling BeslagenApi->GetBeslag");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling BeslagenApi->GetBeslag");
+            // verify the required parameter 'beslagIdentificatie' is set
+            if (beslagIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'beslagIdentificatie' when calling BeslagenApi->GetBeslag");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -296,10 +291,9 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
-            if (beslagidentificatie != null) localVarPathParams.Add("beslagidentificatie", this.Configuration.ApiClient.ParameterToString(beslagidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
+            if (beslagIdentificatie != null) localVarPathParams.Add("beslagIdentificatie", this.Configuration.ApiClient.ParameterToString(beslagIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
-            if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-Api-Key")))
@@ -326,40 +320,40 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van een beslag. 
+        ///  Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BeslagHal</returns>
-        public async System.Threading.Tasks.Task<BeslagHal> GetBeslagAsync (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<BeslagHal> GetBeslagAsync (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<BeslagHal> localVarResponse = await GetBeslagAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs);
+             ApiResponse<BeslagHal> localVarResponse = await GetBeslagWithHttpInfoAsync(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het raadplegen van een beslag. 
+        ///  Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
-        /// <param name="beslagidentificatie">De unieke identificatie van het beslag. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="beslagIdentificatie">De unieke identificatie van het beslag. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BeslagHal)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BeslagHal>> GetBeslagAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string beslagidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<BeslagHal>> GetBeslagWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string beslagIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling BeslagenApi->GetBeslag");
-            // verify the required parameter 'beslagidentificatie' is set
-            if (beslagidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'beslagidentificatie' when calling BeslagenApi->GetBeslag");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling BeslagenApi->GetBeslag");
+            // verify the required parameter 'beslagIdentificatie' is set
+            if (beslagIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'beslagIdentificatie' when calling BeslagenApi->GetBeslag");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -381,10 +375,9 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
-            if (beslagidentificatie != null) localVarPathParams.Add("beslagidentificatie", this.Configuration.ApiClient.ParameterToString(beslagidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
+            if (beslagIdentificatie != null) localVarPathParams.Add("beslagIdentificatie", this.Configuration.ApiClient.ParameterToString(beslagIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
-            if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-Api-Key")))
@@ -395,7 +388,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -411,34 +404,32 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        ///  Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>BeslagHalCollectie</returns>
-        public BeslagHalCollectie GetBeslagenKadastraalOnroerendeZaak (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public BeslagHalCollectie GetBeslagenKadastraalOnroerendeZaak (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string))
         {
-             ApiResponse<BeslagHalCollectie> localVarResponse = GetBeslagenKadastraalOnroerendeZaakWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, acceptCrs);
+             ApiResponse<BeslagHalCollectie> localVarResponse = GetBeslagenKadastraalOnroerendeZaakWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        ///  Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        ///  Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
         /// <returns>ApiResponse of BeslagHalCollectie</returns>
-        public ApiResponse<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public ApiResponse<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling BeslagenApi->GetBeslagenKadastraalOnroerendeZaak");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling BeslagenApi->GetBeslagenKadastraalOnroerendeZaak");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -460,9 +451,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
-            if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-Api-Key")))
@@ -489,35 +479,35 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        ///  Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of BeslagHalCollectie</returns>
-        public async System.Threading.Tasks.Task<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakAsync (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<BeslagHalCollectie> GetBeslagenKadastraalOnroerendeZaakAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<BeslagHalCollectie> localVarResponse = await GetBeslagenKadastraalOnroerendeZaakAsyncWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, acceptCrs);
+             ApiResponse<BeslagHalCollectie> localVarResponse = await GetBeslagenKadastraalOnroerendeZaakWithHttpInfoAsync(kadastraalOnroerendeZaakIdentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
+        ///  Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="kadastraalonroerendezaakidentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
+        /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
-        /// <param name="acceptCrs">Gewenste CRS van de coördinaten in de response. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BeslagHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BeslagHalCollectie>> GetBeslagenKadastraalOnroerendeZaakAsyncWithHttpInfo (string kadastraalonroerendezaakidentificatie, string fields = default(string), string acceptCrs = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<BeslagHalCollectie>> GetBeslagenKadastraalOnroerendeZaakWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-            if (kadastraalonroerendezaakidentificatie == null)
-                throw new ApiException(400, "Missing required parameter 'kadastraalonroerendezaakidentificatie' when calling BeslagenApi->GetBeslagenKadastraalOnroerendeZaak");
+            // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+            if (kadastraalOnroerendeZaakIdentificatie == null)
+                throw new ApiException(400, "Missing required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling BeslagenApi->GetBeslagenKadastraalOnroerendeZaak");
 
-            var localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen";
+            var localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -539,9 +529,8 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (kadastraalonroerendezaakidentificatie != null) localVarPathParams.Add("kadastraalonroerendezaakidentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalonroerendezaakidentificatie)); // path parameter
+            if (kadastraalOnroerendeZaakIdentificatie != null) localVarPathParams.Add("kadastraalOnroerendeZaakIdentificatie", this.Configuration.ApiClient.ParameterToString(kadastraalOnroerendeZaakIdentificatie)); // path parameter
             if (fields != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fields", fields)); // query parameter
-            if (acceptCrs != null) localVarHeaderParams.Add("Accept-Crs", this.Configuration.ApiClient.ParameterToString(acceptCrs)); // header parameter
 
             // authentication (apiKeyAuth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-Api-Key")))
@@ -552,7 +541,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

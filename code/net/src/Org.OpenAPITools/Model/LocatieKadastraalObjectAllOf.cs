@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -34,16 +34,24 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="LocatieKadastraalObjectAllOf" /> class.
         /// </summary>
         /// <param name="koppelingswijze">koppelingswijze.</param>
-        public LocatieKadastraalObjectAllOf(Waardelijst koppelingswijze = default(Waardelijst))
+        /// <param name="adresseerbaarObjectIdentificatie">adresseerbaarObjectIdentificatie.</param>
+        public LocatieKadastraalObjectAllOf(Waardelijst koppelingswijze = default(Waardelijst), string adresseerbaarObjectIdentificatie = default(string))
         {
             this.Koppelingswijze = koppelingswijze;
+            this.AdresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
         }
-        
+
         /// <summary>
         /// Gets or Sets Koppelingswijze
         /// </summary>
         [DataMember(Name="koppelingswijze", EmitDefaultValue=false)]
         public Waardelijst Koppelingswijze { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdresseerbaarObjectIdentificatie
+        /// </summary>
+        [DataMember(Name="adresseerbaarObjectIdentificatie", EmitDefaultValue=false)]
+        public string AdresseerbaarObjectIdentificatie { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,17 +62,18 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class LocatieKadastraalObjectAllOf {\n");
             sb.Append("  Koppelingswijze: ").Append(Koppelingswijze).Append("\n");
+            sb.Append("  AdresseerbaarObjectIdentificatie: ").Append(AdresseerbaarObjectIdentificatie).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -92,6 +101,11 @@ namespace Org.OpenAPITools.Model
                     this.Koppelingswijze == input.Koppelingswijze ||
                     (this.Koppelingswijze != null &&
                     this.Koppelingswijze.Equals(input.Koppelingswijze))
+                ) && 
+                (
+                    this.AdresseerbaarObjectIdentificatie == input.AdresseerbaarObjectIdentificatie ||
+                    (this.AdresseerbaarObjectIdentificatie != null &&
+                    this.AdresseerbaarObjectIdentificatie.Equals(input.AdresseerbaarObjectIdentificatie))
                 );
         }
 
@@ -106,6 +120,8 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Koppelingswijze != null)
                     hashCode = hashCode * 59 + this.Koppelingswijze.GetHashCode();
+                if (this.AdresseerbaarObjectIdentificatie != null)
+                    hashCode = hashCode * 59 + this.AdresseerbaarObjectIdentificatie.GetHashCode();
                 return hashCode;
             }
         }

@@ -30,7 +30,7 @@ import org.openapitools.client.model.HalLink;
 /**
  * StukLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class StukLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -39,10 +39,6 @@ public class StukLinks {
   public static final String SERIALIZED_NAME_STUKDELEN = "stukdelen";
   @SerializedName(SERIALIZED_NAME_STUKDELEN)
   private List<HalLink> stukdelen = null;
-
-  public static final String SERIALIZED_NAME_OORSPRONKELIJK_STUK = "oorspronkelijkStuk";
-  @SerializedName(SERIALIZED_NAME_OORSPRONKELIJK_STUK)
-  private HalLink oorspronkelijkStuk;
 
 
   public StukLinks self(HalLink self) {
@@ -99,31 +95,8 @@ public class StukLinks {
   }
 
 
-  public StukLinks oorspronkelijkStuk(HalLink oorspronkelijkStuk) {
-    
-    this.oorspronkelijkStuk = oorspronkelijkStuk;
-    return this;
-  }
-
-   /**
-   * Get oorspronkelijkStuk
-   * @return oorspronkelijkStuk
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public HalLink getOorspronkelijkStuk() {
-    return oorspronkelijkStuk;
-  }
-
-
-  public void setOorspronkelijkStuk(HalLink oorspronkelijkStuk) {
-    this.oorspronkelijkStuk = oorspronkelijkStuk;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -132,15 +105,13 @@ public class StukLinks {
     }
     StukLinks stukLinks = (StukLinks) o;
     return Objects.equals(this.self, stukLinks.self) &&
-        Objects.equals(this.stukdelen, stukLinks.stukdelen) &&
-        Objects.equals(this.oorspronkelijkStuk, stukLinks.oorspronkelijkStuk);
+        Objects.equals(this.stukdelen, stukLinks.stukdelen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, stukdelen, oorspronkelijkStuk);
+    return Objects.hash(self, stukdelen);
   }
-
 
   @Override
   public String toString() {
@@ -148,7 +119,6 @@ public class StukLinks {
     sb.append("class StukLinks {\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    stukdelen: ").append(toIndentedString(stukdelen)).append("\n");
-    sb.append("    oorspronkelijkStuk: ").append(toIndentedString(oorspronkelijkStuk)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -157,7 +127,7 @@ public class StukLinks {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

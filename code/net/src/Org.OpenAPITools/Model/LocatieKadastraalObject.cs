@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -45,7 +45,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="adresregel3">Het derde deel van een adres is optioneel een of meer geografische gebieden van het adres in het buitenland. .</param>
         /// <param name="land">land.</param>
         /// <param name="koppelingswijze">koppelingswijze.</param>
-        public LocatieKadastraalObject(string straat = default(string), int huisnummer = default(int), string huisletter = default(string), string huisnummertoevoeging = default(string), string postcode = default(string), string woonplaats = default(string), string nummeraanduidingIdentificatie = default(string), string adresregel1 = default(string), string adresregel2 = default(string), string adresregel3 = default(string), Waardelijst land = default(Waardelijst), Waardelijst koppelingswijze = default(Waardelijst))
+        /// <param name="adresseerbaarObjectIdentificatie">adresseerbaarObjectIdentificatie.</param>
+        public LocatieKadastraalObject(string straat = default(string), int huisnummer = default(int), string huisletter = default(string), string huisnummertoevoeging = default(string), string postcode = default(string), string woonplaats = default(string), string nummeraanduidingIdentificatie = default(string), string adresregel1 = default(string), string adresregel2 = default(string), string adresregel3 = default(string), Waardelijst land = default(Waardelijst), Waardelijst koppelingswijze = default(Waardelijst), string adresseerbaarObjectIdentificatie = default(string))
         {
             this.Straat = straat;
             this.Huisnummer = huisnummer;
@@ -59,8 +60,9 @@ namespace Org.OpenAPITools.Model
             this.Adresregel3 = adresregel3;
             this.Land = land;
             this.Koppelingswijze = koppelingswijze;
+            this.AdresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
         }
-        
+
         /// <summary>
         /// Een naam die door de gemeente aan een openbare ruimte is gegeven.
         /// </summary>
@@ -144,6 +146,12 @@ namespace Org.OpenAPITools.Model
         public Waardelijst Koppelingswijze { get; set; }
 
         /// <summary>
+        /// Gets or Sets AdresseerbaarObjectIdentificatie
+        /// </summary>
+        [DataMember(Name="adresseerbaarObjectIdentificatie", EmitDefaultValue=false)]
+        public string AdresseerbaarObjectIdentificatie { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,17 +171,18 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Adresregel3: ").Append(Adresregel3).Append("\n");
             sb.Append("  Land: ").Append(Land).Append("\n");
             sb.Append("  Koppelingswijze: ").Append(Koppelingswijze).Append("\n");
+            sb.Append("  AdresseerbaarObjectIdentificatie: ").Append(AdresseerbaarObjectIdentificatie).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -256,6 +265,11 @@ namespace Org.OpenAPITools.Model
                     this.Koppelingswijze == input.Koppelingswijze ||
                     (this.Koppelingswijze != null &&
                     this.Koppelingswijze.Equals(input.Koppelingswijze))
+                ) && 
+                (
+                    this.AdresseerbaarObjectIdentificatie == input.AdresseerbaarObjectIdentificatie ||
+                    (this.AdresseerbaarObjectIdentificatie != null &&
+                    this.AdresseerbaarObjectIdentificatie.Equals(input.AdresseerbaarObjectIdentificatie))
                 );
         }
 
@@ -292,6 +306,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Land.GetHashCode();
                 if (this.Koppelingswijze != null)
                     hashCode = hashCode * 59 + this.Koppelingswijze.GetHashCode();
+                if (this.AdresseerbaarObjectIdentificatie != null)
+                    hashCode = hashCode * 59 + this.AdresseerbaarObjectIdentificatie.GetHashCode();
                 return hashCode;
             }
         }

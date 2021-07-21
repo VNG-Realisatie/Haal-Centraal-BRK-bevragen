@@ -23,28 +23,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.KadastraalOnroerendeZaakFiliatie;
 import org.openapitools.client.model.Waardelijst;
 
 /**
  * Filiatie
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class Filiatie {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
   private Waardelijst aard;
 
-  public static final String SERIALIZED_NAME_OVERGANGSGROOTTE = "overgangsgrootte";
-  @SerializedName(SERIALIZED_NAME_OVERGANGSGROOTTE)
-  private Integer overgangsgrootte;
-
-  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIE = "kadastraalOnroerendeZaakIdentificatie";
-  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIE)
-  private String kadastraalOnroerendeZaakIdentificatie;
-
-  public static final String SERIALIZED_NAME_INDICATIE_VERVALLEN_KADASTRAAL_ONROERENDE_ZAAK = "indicatieVervallenKadastraalOnroerendeZaak";
-  @SerializedName(SERIALIZED_NAME_INDICATIE_VERVALLEN_KADASTRAAL_ONROERENDE_ZAAK)
-  private Boolean indicatieVervallenKadastraalOnroerendeZaak;
+  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN = "kadastraalOnroerendeZaken";
+  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN)
+  private List<KadastraalOnroerendeZaakFiliatie> kadastraalOnroerendeZaken = null;
 
 
   public Filiatie aard(Waardelijst aard) {
@@ -70,77 +65,39 @@ public class Filiatie {
   }
 
 
-  public Filiatie overgangsgrootte(Integer overgangsgrootte) {
+  public Filiatie kadastraalOnroerendeZaken(List<KadastraalOnroerendeZaakFiliatie> kadastraalOnroerendeZaken) {
     
-    this.overgangsgrootte = overgangsgrootte;
+    this.kadastraalOnroerendeZaken = kadastraalOnroerendeZaken;
+    return this;
+  }
+
+  public Filiatie addKadastraalOnroerendeZakenItem(KadastraalOnroerendeZaakFiliatie kadastraalOnroerendeZakenItem) {
+    if (this.kadastraalOnroerendeZaken == null) {
+      this.kadastraalOnroerendeZaken = new ArrayList<>();
+    }
+    this.kadastraalOnroerendeZaken.add(kadastraalOnroerendeZakenItem);
     return this;
   }
 
    /**
-   * De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak. 
-   * @return overgangsgrootte
+   * Get kadastraalOnroerendeZaken
+   * @return kadastraalOnroerendeZaken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "220", value = "De oppervlakte van het gedeelte van het oude perceel dat is opgegaan in de nieuwe Onroerende zaak. ")
+  @ApiModelProperty(value = "")
 
-  public Integer getOvergangsgrootte() {
-    return overgangsgrootte;
+  public List<KadastraalOnroerendeZaakFiliatie> getKadastraalOnroerendeZaken() {
+    return kadastraalOnroerendeZaken;
   }
 
 
-  public void setOvergangsgrootte(Integer overgangsgrootte) {
-    this.overgangsgrootte = overgangsgrootte;
-  }
-
-
-  public Filiatie kadastraalOnroerendeZaakIdentificatie(String kadastraalOnroerendeZaakIdentificatie) {
-    
-    this.kadastraalOnroerendeZaakIdentificatie = kadastraalOnroerendeZaakIdentificatie;
-    return this;
-  }
-
-   /**
-   * De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). 
-   * @return kadastraalOnroerendeZaakIdentificatie
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "De identificatie(s) van de Kadastraal Onroerende Za(a)k(en). ")
-
-  public String getKadastraalOnroerendeZaakIdentificatie() {
-    return kadastraalOnroerendeZaakIdentificatie;
-  }
-
-
-  public void setKadastraalOnroerendeZaakIdentificatie(String kadastraalOnroerendeZaakIdentificatie) {
-    this.kadastraalOnroerendeZaakIdentificatie = kadastraalOnroerendeZaakIdentificatie;
-  }
-
-
-  public Filiatie indicatieVervallenKadastraalOnroerendeZaak(Boolean indicatieVervallenKadastraalOnroerendeZaak) {
-    
-    this.indicatieVervallenKadastraalOnroerendeZaak = indicatieVervallenKadastraalOnroerendeZaak;
-    return this;
-  }
-
-   /**
-   * Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. 
-   * @return indicatieVervallenKadastraalOnroerendeZaak
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. ")
-
-  public Boolean getIndicatieVervallenKadastraalOnroerendeZaak() {
-    return indicatieVervallenKadastraalOnroerendeZaak;
-  }
-
-
-  public void setIndicatieVervallenKadastraalOnroerendeZaak(Boolean indicatieVervallenKadastraalOnroerendeZaak) {
-    this.indicatieVervallenKadastraalOnroerendeZaak = indicatieVervallenKadastraalOnroerendeZaak;
+  public void setKadastraalOnroerendeZaken(List<KadastraalOnroerendeZaakFiliatie> kadastraalOnroerendeZaken) {
+    this.kadastraalOnroerendeZaken = kadastraalOnroerendeZaken;
   }
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -149,25 +106,20 @@ public class Filiatie {
     }
     Filiatie filiatie = (Filiatie) o;
     return Objects.equals(this.aard, filiatie.aard) &&
-        Objects.equals(this.overgangsgrootte, filiatie.overgangsgrootte) &&
-        Objects.equals(this.kadastraalOnroerendeZaakIdentificatie, filiatie.kadastraalOnroerendeZaakIdentificatie) &&
-        Objects.equals(this.indicatieVervallenKadastraalOnroerendeZaak, filiatie.indicatieVervallenKadastraalOnroerendeZaak);
+        Objects.equals(this.kadastraalOnroerendeZaken, filiatie.kadastraalOnroerendeZaken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aard, overgangsgrootte, kadastraalOnroerendeZaakIdentificatie, indicatieVervallenKadastraalOnroerendeZaak);
+    return Objects.hash(aard, kadastraalOnroerendeZaken);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Filiatie {\n");
     sb.append("    aard: ").append(toIndentedString(aard)).append("\n");
-    sb.append("    overgangsgrootte: ").append(toIndentedString(overgangsgrootte)).append("\n");
-    sb.append("    kadastraalOnroerendeZaakIdentificatie: ").append(toIndentedString(kadastraalOnroerendeZaakIdentificatie)).append("\n");
-    sb.append("    indicatieVervallenKadastraalOnroerendeZaak: ").append(toIndentedString(indicatieVervallenKadastraalOnroerendeZaak)).append("\n");
+    sb.append("    kadastraalOnroerendeZaken: ").append(toIndentedString(kadastraalOnroerendeZaken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,7 +128,7 @@ public class Filiatie {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

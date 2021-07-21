@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// ZakelijkGerechtigdeLinks
+    /// De links naar stukken en stukdelen betreffen stukken en stukdelen waar een zakelijk recht, erfpachtcanon en/of tenaamstelling op gebaseerd zijn of waar het zakelijk recht, erfpachtcanon en/of de tenaamstelling in vermeld zijn.
     /// </summary>
     [DataContract]
     public partial class ZakelijkGerechtigdeLinks :  IEquatable<ZakelijkGerechtigdeLinks>, IValidatableObject
@@ -39,9 +39,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="betrokkenSamenwerkingsverband">betrokkenSamenwerkingsverband.</param>
         /// <param name="betrokkenGorzenEnAanwassen">betrokkenGorzenEnAanwassen.</param>
         /// <param name="stukken">stukken.</param>
-        /// <param name="isGebaseerdOpStukdeel">isGebaseerdOpStukdeel.</param>
-        /// <param name="isVermeldInStukdelen">isVermeldInStukdelen.</param>
-        public ZakelijkGerechtigdeLinks(HalLink self = default(HalLink), HalLink persoon = default(HalLink), HalLink betrokkenPartner = default(HalLink), HalLink betrokkenSamenwerkingsverband = default(HalLink), HalLink betrokkenGorzenEnAanwassen = default(HalLink), List<HalLink> stukken = default(List<HalLink>), List<HalLink> isGebaseerdOpStukdeel = default(List<HalLink>), List<HalLink> isVermeldInStukdelen = default(List<HalLink>))
+        /// <param name="stukdelen">stukdelen.</param>
+        public ZakelijkGerechtigdeLinks(HalLink self = default(HalLink), HalLink persoon = default(HalLink), HalLink betrokkenPartner = default(HalLink), HalLink betrokkenSamenwerkingsverband = default(HalLink), HalLink betrokkenGorzenEnAanwassen = default(HalLink), List<HalLink> stukken = default(List<HalLink>), List<HalLink> stukdelen = default(List<HalLink>))
         {
             this.Self = self;
             this.Persoon = persoon;
@@ -49,10 +48,9 @@ namespace Org.OpenAPITools.Model
             this.BetrokkenSamenwerkingsverband = betrokkenSamenwerkingsverband;
             this.BetrokkenGorzenEnAanwassen = betrokkenGorzenEnAanwassen;
             this.Stukken = stukken;
-            this.IsGebaseerdOpStukdeel = isGebaseerdOpStukdeel;
-            this.IsVermeldInStukdelen = isVermeldInStukdelen;
+            this.Stukdelen = stukdelen;
         }
-        
+
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
@@ -90,16 +88,10 @@ namespace Org.OpenAPITools.Model
         public List<HalLink> Stukken { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsGebaseerdOpStukdeel
+        /// Gets or Sets Stukdelen
         /// </summary>
-        [DataMember(Name="isGebaseerdOpStukdeel", EmitDefaultValue=false)]
-        public List<HalLink> IsGebaseerdOpStukdeel { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsVermeldInStukdelen
-        /// </summary>
-        [DataMember(Name="isVermeldInStukdelen", EmitDefaultValue=false)]
-        public List<HalLink> IsVermeldInStukdelen { get; set; }
+        [DataMember(Name="stukdelen", EmitDefaultValue=false)]
+        public List<HalLink> Stukdelen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,19 +107,18 @@ namespace Org.OpenAPITools.Model
             sb.Append("  BetrokkenSamenwerkingsverband: ").Append(BetrokkenSamenwerkingsverband).Append("\n");
             sb.Append("  BetrokkenGorzenEnAanwassen: ").Append(BetrokkenGorzenEnAanwassen).Append("\n");
             sb.Append("  Stukken: ").Append(Stukken).Append("\n");
-            sb.Append("  IsGebaseerdOpStukdeel: ").Append(IsGebaseerdOpStukdeel).Append("\n");
-            sb.Append("  IsVermeldInStukdelen: ").Append(IsVermeldInStukdelen).Append("\n");
+            sb.Append("  Stukdelen: ").Append(Stukdelen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -183,16 +174,10 @@ namespace Org.OpenAPITools.Model
                     this.Stukken.SequenceEqual(input.Stukken)
                 ) && 
                 (
-                    this.IsGebaseerdOpStukdeel == input.IsGebaseerdOpStukdeel ||
-                    this.IsGebaseerdOpStukdeel != null &&
-                    input.IsGebaseerdOpStukdeel != null &&
-                    this.IsGebaseerdOpStukdeel.SequenceEqual(input.IsGebaseerdOpStukdeel)
-                ) && 
-                (
-                    this.IsVermeldInStukdelen == input.IsVermeldInStukdelen ||
-                    this.IsVermeldInStukdelen != null &&
-                    input.IsVermeldInStukdelen != null &&
-                    this.IsVermeldInStukdelen.SequenceEqual(input.IsVermeldInStukdelen)
+                    this.Stukdelen == input.Stukdelen ||
+                    this.Stukdelen != null &&
+                    input.Stukdelen != null &&
+                    this.Stukdelen.SequenceEqual(input.Stukdelen)
                 );
         }
 
@@ -217,10 +202,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.BetrokkenGorzenEnAanwassen.GetHashCode();
                 if (this.Stukken != null)
                     hashCode = hashCode * 59 + this.Stukken.GetHashCode();
-                if (this.IsGebaseerdOpStukdeel != null)
-                    hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeel.GetHashCode();
-                if (this.IsVermeldInStukdelen != null)
-                    hashCode = hashCode * 59 + this.IsVermeldInStukdelen.GetHashCode();
+                if (this.Stukdelen != null)
+                    hashCode = hashCode * 59 + this.Stukdelen.GetHashCode();
                 return hashCode;
             }
         }

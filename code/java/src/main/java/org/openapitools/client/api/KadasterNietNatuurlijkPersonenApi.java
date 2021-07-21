@@ -87,6 +87,10 @@ public class KadasterNietNatuurlijkPersonenApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
@@ -95,9 +99,6 @@ public class KadasterNietNatuurlijkPersonenApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("q", q));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -132,7 +133,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      * 
-     * Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return KadasterNietNatuurlijkPersoonHalCollectie
@@ -157,7 +158,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      * 
-     * Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;KadasterNietNatuurlijkPersoonHalCollectie&gt;
@@ -183,7 +184,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      *  (asynchronously)
-     * Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van de) de statutaire naam en zetel (vestigingsplaats) worden opgegeven. Let op! Een niet natuurlijk persoon kan meerdere keren, en op meer dan één manier voorkomen in de BRK.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -211,7 +212,7 @@ public class KadasterNietNatuurlijkPersonenApi {
     }
     /**
      * Build call for getKadasterNietNatuurlijkPersoon
-     * @param kadasternietnatuurlijkpersoonidentificatie  (required)
+     * @param kadasterNietNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -230,22 +231,23 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getKadasterNietNatuurlijkPersoonCall(String kadasternietnatuurlijkpersoonidentificatie, String fields, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getKadasterNietNatuurlijkPersoonCall(String kadasterNietNatuurlijkPersoonIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}"
-            .replaceAll("\\{" + "kadasternietnatuurlijkpersoonidentificatie" + "\\}", localVarApiClient.escapeString(kadasternietnatuurlijkpersoonidentificatie.toString()));
+        String localVarPath = "/kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}"
+            .replaceAll("\\{" + "kadasterNietNatuurlijkPersoonIdentificatie" + "\\}", localVarApiClient.escapeString(kadasterNietNatuurlijkPersoonIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -265,23 +267,23 @@ public class KadasterNietNatuurlijkPersonenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getKadasterNietNatuurlijkPersoonValidateBeforeCall(String kadasternietnatuurlijkpersoonidentificatie, String fields, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getKadasterNietNatuurlijkPersoonValidateBeforeCall(String kadasterNietNatuurlijkPersoonIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadasternietnatuurlijkpersoonidentificatie' is set
-        if (kadasternietnatuurlijkpersoonidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadasternietnatuurlijkpersoonidentificatie' when calling getKadasterNietNatuurlijkPersoon(Async)");
+        // verify the required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' is set
+        if (kadasterNietNatuurlijkPersoonIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadasterNietNatuurlijkPersoonIdentificatie' when calling getKadasterNietNatuurlijkPersoon(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonCall(kadasternietnatuurlijkpersoonidentificatie, fields, _callback);
+        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonCall(kadasterNietNatuurlijkPersoonIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternietnatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNietNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return KadasterNietNatuurlijkPersoonHal
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -299,15 +301,15 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public KadasterNietNatuurlijkPersoonHal getKadasterNietNatuurlijkPersoon(String kadasternietnatuurlijkpersoonidentificatie, String fields) throws ApiException {
-        ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResp = getKadasterNietNatuurlijkPersoonWithHttpInfo(kadasternietnatuurlijkpersoonidentificatie, fields);
+    public KadasterNietNatuurlijkPersoonHal getKadasterNietNatuurlijkPersoon(String kadasterNietNatuurlijkPersoonIdentificatie, String fields) throws ApiException {
+        ApiResponse<KadasterNietNatuurlijkPersoonHal> localVarResp = getKadasterNietNatuurlijkPersoonWithHttpInfo(kadasterNietNatuurlijkPersoonIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternietnatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNietNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;KadasterNietNatuurlijkPersoonHal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -325,16 +327,16 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<KadasterNietNatuurlijkPersoonHal> getKadasterNietNatuurlijkPersoonWithHttpInfo(String kadasternietnatuurlijkpersoonidentificatie, String fields) throws ApiException {
-        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonValidateBeforeCall(kadasternietnatuurlijkpersoonidentificatie, fields, null);
+    public ApiResponse<KadasterNietNatuurlijkPersoonHal> getKadasterNietNatuurlijkPersoonWithHttpInfo(String kadasterNietNatuurlijkPersoonIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonValidateBeforeCall(kadasterNietNatuurlijkPersoonIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<KadasterNietNatuurlijkPersoonHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternietnatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNietNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -353,9 +355,9 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getKadasterNietNatuurlijkPersoonAsync(String kadasternietnatuurlijkpersoonidentificatie, String fields, final ApiCallback<KadasterNietNatuurlijkPersoonHal> _callback) throws ApiException {
+    public okhttp3.Call getKadasterNietNatuurlijkPersoonAsync(String kadasterNietNatuurlijkPersoonIdentificatie, String fields, final ApiCallback<KadasterNietNatuurlijkPersoonHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonValidateBeforeCall(kadasternietnatuurlijkpersoonidentificatie, fields, _callback);
+        okhttp3.Call localVarCall = getKadasterNietNatuurlijkPersoonValidateBeforeCall(kadasterNietNatuurlijkPersoonIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<KadasterNietNatuurlijkPersoonHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -388,6 +390,10 @@ public class KadasterNietNatuurlijkPersonenApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
@@ -396,9 +402,6 @@ public class KadasterNietNatuurlijkPersonenApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("q", q));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -433,7 +436,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      * 
-     * Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return KadasterNatuurlijkPersoonHalCollectie
@@ -458,7 +461,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      * 
-     * Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;KadasterNatuurlijkPersoonHalCollectie&gt;
@@ -484,7 +487,7 @@ public class KadasterNietNatuurlijkPersonenApi {
 
     /**
      *  (asynchronously)
-     * Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven, of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
      * @param q Free query parameter. Dit endpoint evolueert naar free query zoeken. In deze versie kan alleen een combinatie van (het begin van) de geslachtsnaam en geboortedatum [YYYY-mm-dd] worden opgegeven.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -512,7 +515,7 @@ public class KadasterNietNatuurlijkPersonenApi {
     }
     /**
      * Build call for getKadasterPersoon
-     * @param kadasternatuurlijkpersoonidentificatie  (required)
+     * @param kadasterNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -531,22 +534,23 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getKadasterPersoonCall(String kadasternatuurlijkpersoonidentificatie, String fields, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getKadasterPersoonCall(String kadasterNatuurlijkPersoonIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}"
-            .replaceAll("\\{" + "kadasternatuurlijkpersoonidentificatie" + "\\}", localVarApiClient.escapeString(kadasternatuurlijkpersoonidentificatie.toString()));
+        String localVarPath = "/kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}"
+            .replaceAll("\\{" + "kadasterNatuurlijkPersoonIdentificatie" + "\\}", localVarApiClient.escapeString(kadasterNatuurlijkPersoonIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -566,23 +570,23 @@ public class KadasterNietNatuurlijkPersonenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getKadasterPersoonValidateBeforeCall(String kadasternatuurlijkpersoonidentificatie, String fields, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getKadasterPersoonValidateBeforeCall(String kadasterNatuurlijkPersoonIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadasternatuurlijkpersoonidentificatie' is set
-        if (kadasternatuurlijkpersoonidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadasternatuurlijkpersoonidentificatie' when calling getKadasterPersoon(Async)");
+        // verify the required parameter 'kadasterNatuurlijkPersoonIdentificatie' is set
+        if (kadasterNatuurlijkPersoonIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadasterNatuurlijkPersoonIdentificatie' when calling getKadasterPersoon(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getKadasterPersoonCall(kadasternatuurlijkpersoonidentificatie, fields, _callback);
+        okhttp3.Call localVarCall = getKadasterPersoonCall(kadasterNatuurlijkPersoonIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return KadasterNatuurlijkPersoonHal
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -600,15 +604,15 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public KadasterNatuurlijkPersoonHal getKadasterPersoon(String kadasternatuurlijkpersoonidentificatie, String fields) throws ApiException {
-        ApiResponse<KadasterNatuurlijkPersoonHal> localVarResp = getKadasterPersoonWithHttpInfo(kadasternatuurlijkpersoonidentificatie, fields);
+    public KadasterNatuurlijkPersoonHal getKadasterPersoon(String kadasterNatuurlijkPersoonIdentificatie, String fields) throws ApiException {
+        ApiResponse<KadasterNatuurlijkPersoonHal> localVarResp = getKadasterPersoonWithHttpInfo(kadasterNatuurlijkPersoonIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;KadasterNatuurlijkPersoonHal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -626,16 +630,16 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<KadasterNatuurlijkPersoonHal> getKadasterPersoonWithHttpInfo(String kadasternatuurlijkpersoonidentificatie, String fields) throws ApiException {
-        okhttp3.Call localVarCall = getKadasterPersoonValidateBeforeCall(kadasternatuurlijkpersoonidentificatie, fields, null);
+    public ApiResponse<KadasterNatuurlijkPersoonHal> getKadasterPersoonWithHttpInfo(String kadasterNatuurlijkPersoonIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getKadasterPersoonValidateBeforeCall(kadasterNatuurlijkPersoonIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<KadasterNatuurlijkPersoonHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd. 
-     * @param kadasternatuurlijkpersoonidentificatie  (required)
+     * Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd. 
+     * @param kadasterNatuurlijkPersoonIdentificatie  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -654,9 +658,9 @@ public class KadasterNietNatuurlijkPersonenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getKadasterPersoonAsync(String kadasternatuurlijkpersoonidentificatie, String fields, final ApiCallback<KadasterNatuurlijkPersoonHal> _callback) throws ApiException {
+    public okhttp3.Call getKadasterPersoonAsync(String kadasterNatuurlijkPersoonIdentificatie, String fields, final ApiCallback<KadasterNatuurlijkPersoonHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getKadasterPersoonValidateBeforeCall(kadasternatuurlijkpersoonidentificatie, fields, _callback);
+        okhttp3.Call localVarCall = getKadasterPersoonValidateBeforeCall(kadasterNatuurlijkPersoonIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<KadasterNatuurlijkPersoonHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

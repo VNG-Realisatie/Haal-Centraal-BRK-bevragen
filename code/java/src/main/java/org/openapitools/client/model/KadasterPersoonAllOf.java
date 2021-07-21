@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) 
  */
 @ApiModel(description = "Een in de basisregistratie kadaster geregistreerde persoon.   Waardelijst in deze component :   [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class KadasterPersoonAllOf {
   public static final String SERIALIZED_NAME_DOMEIN = "domein";
   @SerializedName(SERIALIZED_NAME_DOMEIN)
@@ -49,11 +49,11 @@ public class KadasterPersoonAllOf {
 
   public static final String SERIALIZED_NAME_WOONADRES = "woonadres";
   @SerializedName(SERIALIZED_NAME_WOONADRES)
-  private AdresUitgebreid woonadres = null;
+  private AdresUitgebreid woonadres;
 
   public static final String SERIALIZED_NAME_POSTADRES = "postadres";
   @SerializedName(SERIALIZED_NAME_POSTADRES)
-  private Postadres postadres = null;
+  private Postadres postadres;
 
   public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES = "kadastraalOnroerendeZaakIdentificaties";
   @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAAK_IDENTIFICATIES)
@@ -207,7 +207,7 @@ public class KadasterPersoonAllOf {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -228,7 +228,6 @@ public class KadasterPersoonAllOf {
     return Objects.hash(domein, indicatieNietToonbareDiakriet, beschikkingsbevoegdheid, woonadres, postadres, kadastraalOnroerendeZaakIdentificaties);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -247,7 +246,7 @@ public class KadasterPersoonAllOf {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -35,7 +35,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.   Waardelijst in deze component :   [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/) 
  */
 @ApiModel(description = "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.   Waardelijst in deze component :   [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class Tenaamstelling {
   public static final String SERIALIZED_NAME_AANDEEL = "aandeel";
   @SerializedName(SERIALIZED_NAME_AANDEEL)
@@ -59,23 +59,27 @@ public class Tenaamstelling {
 
   public static final String SERIALIZED_NAME_BETROKKEN_PARTNER = "betrokkenPartner";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_PARTNER)
-  private NatuurlijkPersoonBeperkt betrokkenPartner = null;
+  private NatuurlijkPersoonBeperkt betrokkenPartner;
 
   public static final String SERIALIZED_NAME_BETROKKEN_SAMENWERKINGSVERBAND = "betrokkenSamenwerkingsverband";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_SAMENWERKINGSVERBAND)
-  private NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband = null;
+  private NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband;
 
   public static final String SERIALIZED_NAME_BETROKKEN_GORZEN_EN_AANWASSEN = "betrokkenGorzenEnAanwassen";
   @SerializedName(SERIALIZED_NAME_BETROKKEN_GORZEN_EN_AANWASSEN)
-  private NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen = null;
+  private NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen;
 
-  public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE = "isGebaseerdOpStukdeelIdentificatie";
-  @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIE)
-  private String isGebaseerdOpStukdeelIdentificatie;
+  public static final String SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIES = "isGebaseerdOpStukdeelIdentificaties";
+  @SerializedName(SERIALIZED_NAME_IS_GEBASEERD_OP_STUKDEEL_IDENTIFICATIES)
+  private List<String> isGebaseerdOpStukdeelIdentificaties = null;
 
   public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES = "isVermeldInStukdeelIdentificaties";
   @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES)
   private List<String> isVermeldInStukdeelIdentificaties = null;
+
+  public static final String SERIALIZED_NAME_STUK_IDENTIFICATIES = "stukIdentificaties";
+  @SerializedName(SERIALIZED_NAME_STUK_IDENTIFICATIES)
+  private List<String> stukIdentificaties = null;
 
 
   public Tenaamstelling aandeel(TypeBreuk aandeel) {
@@ -270,26 +274,34 @@ public class Tenaamstelling {
   }
 
 
-  public Tenaamstelling isGebaseerdOpStukdeelIdentificatie(String isGebaseerdOpStukdeelIdentificatie) {
+  public Tenaamstelling isGebaseerdOpStukdeelIdentificaties(List<String> isGebaseerdOpStukdeelIdentificaties) {
     
-    this.isGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
+    this.isGebaseerdOpStukdeelIdentificaties = isGebaseerdOpStukdeelIdentificaties;
+    return this;
+  }
+
+  public Tenaamstelling addIsGebaseerdOpStukdeelIdentificatiesItem(String isGebaseerdOpStukdeelIdentificatiesItem) {
+    if (this.isGebaseerdOpStukdeelIdentificaties == null) {
+      this.isGebaseerdOpStukdeelIdentificaties = new ArrayList<>();
+    }
+    this.isGebaseerdOpStukdeelIdentificaties.add(isGebaseerdOpStukdeelIdentificatiesItem);
     return this;
   }
 
    /**
-   * De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd. 
-   * @return isGebaseerdOpStukdeelIdentificatie
+   * Get isGebaseerdOpStukdeelIdentificaties
+   * @return isGebaseerdOpStukdeelIdentificaties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd. ")
+  @ApiModelProperty(value = "")
 
-  public String getIsGebaseerdOpStukdeelIdentificatie() {
-    return isGebaseerdOpStukdeelIdentificatie;
+  public List<String> getIsGebaseerdOpStukdeelIdentificaties() {
+    return isGebaseerdOpStukdeelIdentificaties;
   }
 
 
-  public void setIsGebaseerdOpStukdeelIdentificatie(String isGebaseerdOpStukdeelIdentificatie) {
-    this.isGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
+  public void setIsGebaseerdOpStukdeelIdentificaties(List<String> isGebaseerdOpStukdeelIdentificaties) {
+    this.isGebaseerdOpStukdeelIdentificaties = isGebaseerdOpStukdeelIdentificaties;
   }
 
 
@@ -324,8 +336,39 @@ public class Tenaamstelling {
   }
 
 
+  public Tenaamstelling stukIdentificaties(List<String> stukIdentificaties) {
+    
+    this.stukIdentificaties = stukIdentificaties;
+    return this;
+  }
+
+  public Tenaamstelling addStukIdentificatiesItem(String stukIdentificatiesItem) {
+    if (this.stukIdentificaties == null) {
+      this.stukIdentificaties = new ArrayList<>();
+    }
+    this.stukIdentificaties.add(stukIdentificatiesItem);
+    return this;
+  }
+
+   /**
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+   * @return stukIdentificaties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
+
+  public List<String> getStukIdentificaties() {
+    return stukIdentificaties;
+  }
+
+
+  public void setStukIdentificaties(List<String> stukIdentificaties) {
+    this.stukIdentificaties = stukIdentificaties;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -341,15 +384,15 @@ public class Tenaamstelling {
         Objects.equals(this.betrokkenPartner, tenaamstelling.betrokkenPartner) &&
         Objects.equals(this.betrokkenSamenwerkingsverband, tenaamstelling.betrokkenSamenwerkingsverband) &&
         Objects.equals(this.betrokkenGorzenEnAanwassen, tenaamstelling.betrokkenGorzenEnAanwassen) &&
-        Objects.equals(this.isGebaseerdOpStukdeelIdentificatie, tenaamstelling.isGebaseerdOpStukdeelIdentificatie) &&
-        Objects.equals(this.isVermeldInStukdeelIdentificaties, tenaamstelling.isVermeldInStukdeelIdentificaties);
+        Objects.equals(this.isGebaseerdOpStukdeelIdentificaties, tenaamstelling.isGebaseerdOpStukdeelIdentificaties) &&
+        Objects.equals(this.isVermeldInStukdeelIdentificaties, tenaamstelling.isVermeldInStukdeelIdentificaties) &&
+        Objects.equals(this.stukIdentificaties, tenaamstelling.stukIdentificaties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aandeel, burgerlijkeStaatTenTijdeVanVerkrijging, verkregenNamensSamenwerkingsverband, aantekeningen, gezamenlijkAandeel, betrokkenPartner, betrokkenSamenwerkingsverband, betrokkenGorzenEnAanwassen, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties);
+    return Objects.hash(aandeel, burgerlijkeStaatTenTijdeVanVerkrijging, verkregenNamensSamenwerkingsverband, aantekeningen, gezamenlijkAandeel, betrokkenPartner, betrokkenSamenwerkingsverband, betrokkenGorzenEnAanwassen, isGebaseerdOpStukdeelIdentificaties, isVermeldInStukdeelIdentificaties, stukIdentificaties);
   }
-
 
   @Override
   public String toString() {
@@ -363,8 +406,9 @@ public class Tenaamstelling {
     sb.append("    betrokkenPartner: ").append(toIndentedString(betrokkenPartner)).append("\n");
     sb.append("    betrokkenSamenwerkingsverband: ").append(toIndentedString(betrokkenSamenwerkingsverband)).append("\n");
     sb.append("    betrokkenGorzenEnAanwassen: ").append(toIndentedString(betrokkenGorzenEnAanwassen)).append("\n");
-    sb.append("    isGebaseerdOpStukdeelIdentificatie: ").append(toIndentedString(isGebaseerdOpStukdeelIdentificatie)).append("\n");
+    sb.append("    isGebaseerdOpStukdeelIdentificaties: ").append(toIndentedString(isGebaseerdOpStukdeelIdentificaties)).append("\n");
     sb.append("    isVermeldInStukdeelIdentificaties: ").append(toIndentedString(isVermeldInStukdeelIdentificaties)).append("\n");
+    sb.append("    stukIdentificaties: ").append(toIndentedString(stukIdentificaties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -373,7 +417,7 @@ public class Tenaamstelling {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

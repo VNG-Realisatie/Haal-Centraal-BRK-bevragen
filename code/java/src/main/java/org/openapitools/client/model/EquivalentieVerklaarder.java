@@ -30,7 +30,7 @@ import org.openapitools.client.model.Naam;
  * De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als het stuk dat hij zelf onder zich houdt ( equivalentieverklaring). 
  */
 @ApiModel(description = "De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als het stuk dat hij zelf onder zich houdt ( equivalentieverklaring). ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class EquivalentieVerklaarder {
   public static final String SERIALIZED_NAME_GESLACHTSNAAM = "geslachtsnaam";
   @SerializedName(SERIALIZED_NAME_GESLACHTSNAAM)
@@ -142,7 +142,7 @@ public class EquivalentieVerklaarder {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -161,7 +161,6 @@ public class EquivalentieVerklaarder {
     return Objects.hash(geslachtsnaam, voornamen, voorvoegsel, standplaats);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -178,7 +177,7 @@ public class EquivalentieVerklaarder {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

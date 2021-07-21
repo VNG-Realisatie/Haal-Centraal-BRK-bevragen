@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Kadaster - BRK-Bevragen API
 
@@ -10,18 +8,23 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from openapi_client.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from openapi_client.model.bad_request_foutbericht import BadRequestFoutbericht
+from openapi_client.model.beslag_hal import BeslagHal
+from openapi_client.model.beslag_hal_collectie import BeslagHalCollectie
+from openapi_client.model.foutbericht import Foutbericht
 
 
 class BeslagenApi(object):
@@ -36,259 +39,264 @@ class BeslagenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_beslag(self, kadastraalonroerendezaakidentificatie, beslagidentificatie, **kwargs):  # noqa: E501
-        """get_beslag  # noqa: E501
+        def __get_beslag(
+            self,
+            kadastraal_onroerende_zaak_identificatie,
+            beslag_identificatie,
+            **kwargs
+        ):
+            """get_beslag  # noqa: E501
 
-        Het raadplegen van een beslag.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_beslag(kadastraalonroerendezaakidentificatie, beslagidentificatie, async_req=True)
-        >>> result = thread.get()
+            Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str beslagidentificatie: De unieke identificatie van het beslag.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: BeslagHal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_beslag_with_http_info(kadastraalonroerendezaakidentificatie, beslagidentificatie, **kwargs)  # noqa: E501
+            >>> thread = api.get_beslag(kadastraal_onroerende_zaak_identificatie, beslag_identificatie, async_req=True)
+            >>> result = thread.get()
 
-    def get_beslag_with_http_info(self, kadastraalonroerendezaakidentificatie, beslagidentificatie, **kwargs):  # noqa: E501
-        """get_beslag  # noqa: E501
+            Args:
+                kadastraal_onroerende_zaak_identificatie (str): De unieke identificatie van een kadastraal onroerende zaak. 
+                beslag_identificatie (str): De unieke identificatie van het beslag. 
 
-        Het raadplegen van een beslag.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_beslag_with_http_info(kadastraalonroerendezaakidentificatie, beslagidentificatie, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str beslagidentificatie: De unieke identificatie van het beslag.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(BeslagHal, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                BeslagHal
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['kadastraal_onroerende_zaak_identificatie'] = \
+                kadastraal_onroerende_zaak_identificatie
+            kwargs['beslag_identificatie'] = \
+                beslag_identificatie
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
-
-        all_params = [
-            'kadastraalonroerendezaakidentificatie',
-            'beslagidentificatie',
-            'fields',
-            'accept_crs'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_beslag = _Endpoint(
+            settings={
+                'response_type': (BeslagHal,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}',
+                'operation_id': 'get_beslag',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                    'beslag_identificatie',
+                    'fields',
+                ],
+                'required': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                    'beslag_identificatie',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'kadastraal_onroerende_zaak_identificatie':
+                        (str,),
+                    'beslag_identificatie':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'kadastraalOnroerendeZaakIdentificatie',
+                    'beslag_identificatie': 'beslagIdentificatie',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'path',
+                    'beslag_identificatie': 'path',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_beslag
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_beslag" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if self.api_client.client_side_validation and ('kadastraalonroerendezaakidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kadastraalonroerendezaakidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kadastraalonroerendezaakidentificatie` when calling `get_beslag`")  # noqa: E501
-        # verify the required parameter 'beslagidentificatie' is set
-        if self.api_client.client_side_validation and ('beslagidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['beslagidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `beslagidentificatie` when calling `get_beslag`")  # noqa: E501
+        def __get_beslagen_kadastraal_onroerende_zaak(
+            self,
+            kadastraal_onroerende_zaak_identificatie,
+            **kwargs
+        ):
+            """get_beslagen_kadastraal_onroerende_zaak  # noqa: E501
 
-        collection_formats = {}
+            Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'kadastraalonroerendezaakidentificatie' in local_var_params:
-            path_params['kadastraalonroerendezaakidentificatie'] = local_var_params['kadastraalonroerendezaakidentificatie']  # noqa: E501
-        if 'beslagidentificatie' in local_var_params:
-            path_params['beslagidentificatie'] = local_var_params['beslagidentificatie']  # noqa: E501
+            >>> thread = api.get_beslagen_kadastraal_onroerende_zaak(kadastraal_onroerende_zaak_identificatie, async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
+            Args:
+                kadastraal_onroerende_zaak_identificatie (str): De unieke identificatie van een kadastraal onroerende zaak. 
 
-        header_params = {}
-        if 'accept_crs' in local_var_params:
-            header_params['Accept-Crs'] = local_var_params['accept_crs']  # noqa: E501
+            Keyword Args:
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                BeslagHalCollectie
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['kadastraal_onroerende_zaak_identificatie'] = \
+                kadastraal_onroerende_zaak_identificatie
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BeslagHal',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_beslagen_kadastraal_onroerende_zaak(self, kadastraalonroerendezaakidentificatie, **kwargs):  # noqa: E501
-        """get_beslagen_kadastraal_onroerende_zaak  # noqa: E501
-
-        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_beslagen_kadastraal_onroerende_zaak(kadastraalonroerendezaakidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: BeslagHalCollectie
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_beslagen_kadastraal_onroerende_zaak_with_http_info(kadastraalonroerendezaakidentificatie, **kwargs)  # noqa: E501
-
-    def get_beslagen_kadastraal_onroerende_zaak_with_http_info(self, kadastraalonroerendezaakidentificatie, **kwargs):  # noqa: E501
-        """get_beslagen_kadastraal_onroerende_zaak  # noqa: E501
-
-        Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_beslagen_kadastraal_onroerende_zaak_with_http_info(kadastraalonroerendezaakidentificatie, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(BeslagHalCollectie, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'kadastraalonroerendezaakidentificatie',
-            'fields',
-            'accept_crs'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+        self.get_beslagen_kadastraal_onroerende_zaak = _Endpoint(
+            settings={
+                'response_type': (BeslagHalCollectie,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen',
+                'operation_id': 'get_beslagen_kadastraal_onroerende_zaak',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                    'fields',
+                ],
+                'required': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'kadastraal_onroerende_zaak_identificatie':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'kadastraalOnroerendeZaakIdentificatie',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'path',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_beslagen_kadastraal_onroerende_zaak
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_beslagen_kadastraal_onroerende_zaak" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if self.api_client.client_side_validation and ('kadastraalonroerendezaakidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kadastraalonroerendezaakidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kadastraalonroerendezaakidentificatie` when calling `get_beslagen_kadastraal_onroerende_zaak`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'kadastraalonroerendezaakidentificatie' in local_var_params:
-            path_params['kadastraalonroerendezaakidentificatie'] = local_var_params['kadastraalonroerendezaakidentificatie']  # noqa: E501
-
-        query_params = []
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
-
-        header_params = {}
-        if 'accept_crs' in local_var_params:
-            header_params['Accept-Crs'] = local_var_params['accept_crs']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BeslagHalCollectie',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

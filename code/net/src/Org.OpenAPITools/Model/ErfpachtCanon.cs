@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -40,7 +40,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="indicatieOudeOnroerendeZaakBetrokken">Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel. .</param>
         /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze erfpachtcanon is gebaseerd. .</param>
         /// <param name="isVermeldInStukdeelIdentificaties">De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld .</param>
-        public ErfpachtCanon(Waardelijst soortErfpachtCanon = default(Waardelijst), Bedrag jaarlijksBedrag = default(Bedrag), bool betrefMeerOnroerendeZaken = default(bool), DateTime einddatumAfkoop = default(DateTime), bool indicatieOudeOnroerendeZaakBetrokken = default(bool), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>))
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
+        public ErfpachtCanon(Waardelijst soortErfpachtCanon = default(Waardelijst), Bedrag jaarlijksBedrag = default(Bedrag), bool betrefMeerOnroerendeZaken = default(bool), DateTime einddatumAfkoop = default(DateTime), bool indicatieOudeOnroerendeZaakBetrokken = default(bool), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>))
         {
             this.SoortErfpachtCanon = soortErfpachtCanon;
             this.JaarlijksBedrag = jaarlijksBedrag;
@@ -49,8 +50,9 @@ namespace Org.OpenAPITools.Model
             this.IndicatieOudeOnroerendeZaakBetrokken = indicatieOudeOnroerendeZaakBetrokken;
             this.IsGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
             this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
+            this.StukIdentificaties = stukIdentificaties;
         }
-        
+
         /// <summary>
         /// Gets or Sets SoortErfpachtCanon
         /// </summary>
@@ -99,6 +101,13 @@ namespace Org.OpenAPITools.Model
         public List<string> IsVermeldInStukdeelIdentificaties { get; set; }
 
         /// <summary>
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+        /// </summary>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
+        [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
+        public List<string> StukIdentificaties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,17 +122,18 @@ namespace Org.OpenAPITools.Model
             sb.Append("  IndicatieOudeOnroerendeZaakBetrokken: ").Append(IndicatieOudeOnroerendeZaakBetrokken).Append("\n");
             sb.Append("  IsGebaseerdOpStukdeelIdentificatie: ").Append(IsGebaseerdOpStukdeelIdentificatie).Append("\n");
             sb.Append("  IsVermeldInStukdeelIdentificaties: ").Append(IsVermeldInStukdeelIdentificaties).Append("\n");
+            sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -182,6 +192,12 @@ namespace Org.OpenAPITools.Model
                     this.IsVermeldInStukdeelIdentificaties != null &&
                     input.IsVermeldInStukdeelIdentificaties != null &&
                     this.IsVermeldInStukdeelIdentificaties.SequenceEqual(input.IsVermeldInStukdeelIdentificaties)
+                ) && 
+                (
+                    this.StukIdentificaties == input.StukIdentificaties ||
+                    this.StukIdentificaties != null &&
+                    input.StukIdentificaties != null &&
+                    this.StukIdentificaties.SequenceEqual(input.StukIdentificaties)
                 );
         }
 
@@ -208,6 +224,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeelIdentificatie.GetHashCode();
                 if (this.IsVermeldInStukdeelIdentificaties != null)
                     hashCode = hashCode * 59 + this.IsVermeldInStukdeelIdentificaties.GetHashCode();
+                if (this.StukIdentificaties != null)
+                    hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
                 return hashCode;
             }
         }

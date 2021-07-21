@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Hoeveelheid geld in cijfers in een bepaalde valuta.   Waardelijst in deze component :   [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)\&quot; 
  */
 @ApiModel(description = "Hoeveelheid geld in cijfers in een bepaalde valuta.   Waardelijst in deze component :   [Valuta](http://www.kadaster.nl/schemas/waardelijsten/Valuta/)\" ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class Bedrag {
   public static final String SERIALIZED_NAME_SOM = "som";
   @SerializedName(SERIALIZED_NAME_SOM)
@@ -87,7 +87,7 @@ public class Bedrag {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -104,7 +104,6 @@ public class Bedrag {
     return Objects.hash(som, valuta);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -119,7 +118,7 @@ public class Bedrag {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

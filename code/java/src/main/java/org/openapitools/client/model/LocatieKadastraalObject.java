@@ -31,7 +31,7 @@ import org.openapitools.client.model.Waardelijst;
  * Waardelijsten in deze component :   [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) 
  */
 @ApiModel(description = "Waardelijsten in deze component :   [koppelingswijze](http://www.kadaster.nl/schemas/waardelijsten/Koppelingswijze) en [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class LocatieKadastraalObject {
   public static final String SERIALIZED_NAME_STRAAT = "straat";
   @SerializedName(SERIALIZED_NAME_STRAAT)
@@ -80,6 +80,10 @@ public class LocatieKadastraalObject {
   public static final String SERIALIZED_NAME_KOPPELINGSWIJZE = "koppelingswijze";
   @SerializedName(SERIALIZED_NAME_KOPPELINGSWIJZE)
   private Waardelijst koppelingswijze;
+
+  public static final String SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE = "adresseerbaarObjectIdentificatie";
+  @SerializedName(SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE)
+  private String adresseerbaarObjectIdentificatie;
 
 
   public LocatieKadastraalObject straat(String straat) {
@@ -254,7 +258,7 @@ public class LocatieKadastraalObject {
    * @return adresregel1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis", value = "Het eerste deel van een adres is een combinatie van de straat en huisnummer. ")
+  @ApiModelProperty(example = "Ln vd l D-Westervoort 1A-bis", value = "Het eerste deel van een adres is een combinatie van de straat en huisnummer. ")
 
   public String getAdresregel1() {
     return adresregel1;
@@ -358,8 +362,31 @@ public class LocatieKadastraalObject {
   }
 
 
+  public LocatieKadastraalObject adresseerbaarObjectIdentificatie(String adresseerbaarObjectIdentificatie) {
+    
+    this.adresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
+    return this;
+  }
+
+   /**
+   * Get adresseerbaarObjectIdentificatie
+   * @return adresseerbaarObjectIdentificatie
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAdresseerbaarObjectIdentificatie() {
+    return adresseerbaarObjectIdentificatie;
+  }
+
+
+  public void setAdresseerbaarObjectIdentificatie(String adresseerbaarObjectIdentificatie) {
+    this.adresseerbaarObjectIdentificatie = adresseerbaarObjectIdentificatie;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -378,14 +405,14 @@ public class LocatieKadastraalObject {
         Objects.equals(this.adresregel2, locatieKadastraalObject.adresregel2) &&
         Objects.equals(this.adresregel3, locatieKadastraalObject.adresregel3) &&
         Objects.equals(this.land, locatieKadastraalObject.land) &&
-        Objects.equals(this.koppelingswijze, locatieKadastraalObject.koppelingswijze);
+        Objects.equals(this.koppelingswijze, locatieKadastraalObject.koppelingswijze) &&
+        Objects.equals(this.adresseerbaarObjectIdentificatie, locatieKadastraalObject.adresseerbaarObjectIdentificatie);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(straat, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaats, nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land, koppelingswijze);
+    return Objects.hash(straat, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaats, nummeraanduidingIdentificatie, adresregel1, adresregel2, adresregel3, land, koppelingswijze, adresseerbaarObjectIdentificatie);
   }
-
 
   @Override
   public String toString() {
@@ -403,6 +430,7 @@ public class LocatieKadastraalObject {
     sb.append("    adresregel3: ").append(toIndentedString(adresregel3)).append("\n");
     sb.append("    land: ").append(toIndentedString(land)).append("\n");
     sb.append("    koppelingswijze: ").append(toIndentedString(koppelingswijze)).append("\n");
+    sb.append("    adresseerbaarObjectIdentificatie: ").append(toIndentedString(adresseerbaarObjectIdentificatie)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -411,7 +439,7 @@ public class LocatieKadastraalObject {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -59,9 +59,8 @@ public class PrivaatrechtelijkeBeperkingenApi {
 
     /**
      * Build call for getPrivaatrechtelijkeBeperking
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param privaatrechtelijkebeperkingidentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param privaatrechtelijkeBeperkingIdentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -69,7 +68,7 @@ public class PrivaatrechtelijkeBeperkingenApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -80,27 +79,24 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPrivaatrechtelijkeBeperkingCall(String kadastraalonroerendezaakidentificatie, String privaatrechtelijkebeperkingidentificatie, String acceptCrs, String fields, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPrivaatrechtelijkeBeperkingCall(String kadastraalOnroerendeZaakIdentificatie, String privaatrechtelijkeBeperkingIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()))
-            .replaceAll("\\{" + "privaatrechtelijkebeperkingidentificatie" + "\\}", localVarApiClient.escapeString(privaatrechtelijkebeperkingidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie}"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()))
+            .replaceAll("\\{" + "privaatrechtelijkeBeperkingIdentificatie" + "\\}", localVarApiClient.escapeString(privaatrechtelijkeBeperkingIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -120,37 +116,36 @@ public class PrivaatrechtelijkeBeperkingenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPrivaatrechtelijkeBeperkingValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String privaatrechtelijkebeperkingidentificatie, String acceptCrs, String fields, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPrivaatrechtelijkeBeperkingValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String privaatrechtelijkeBeperkingIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getPrivaatrechtelijkeBeperking(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getPrivaatrechtelijkeBeperking(Async)");
         }
         
-        // verify the required parameter 'privaatrechtelijkebeperkingidentificatie' is set
-        if (privaatrechtelijkebeperkingidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'privaatrechtelijkebeperkingidentificatie' when calling getPrivaatrechtelijkeBeperking(Async)");
+        // verify the required parameter 'privaatrechtelijkeBeperkingIdentificatie' is set
+        if (privaatrechtelijkeBeperkingIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'privaatrechtelijkeBeperkingIdentificatie' when calling getPrivaatrechtelijkeBeperking(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingCall(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields, _callback);
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingCall(kadastraalOnroerendeZaakIdentificatie, privaatrechtelijkeBeperkingIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van een specifieke privaatrechtelijke beperkingen. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param privaatrechtelijkebeperkingidentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param privaatrechtelijkeBeperkingIdentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return PrivaatrechtelijkeBeperkingHal
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -161,24 +156,23 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public PrivaatrechtelijkeBeperkingHal getPrivaatrechtelijkeBeperking(String kadastraalonroerendezaakidentificatie, String privaatrechtelijkebeperkingidentificatie, String acceptCrs, String fields) throws ApiException {
-        ApiResponse<PrivaatrechtelijkeBeperkingHal> localVarResp = getPrivaatrechtelijkeBeperkingWithHttpInfo(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields);
+    public PrivaatrechtelijkeBeperkingHal getPrivaatrechtelijkeBeperking(String kadastraalOnroerendeZaakIdentificatie, String privaatrechtelijkeBeperkingIdentificatie, String fields) throws ApiException {
+        ApiResponse<PrivaatrechtelijkeBeperkingHal> localVarResp = getPrivaatrechtelijkeBeperkingWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, privaatrechtelijkeBeperkingIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van een specifieke privaatrechtelijke beperkingen. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param privaatrechtelijkebeperkingidentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param privaatrechtelijkeBeperkingIdentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;PrivaatrechtelijkeBeperkingHal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -189,18 +183,17 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<PrivaatrechtelijkeBeperkingHal> getPrivaatrechtelijkeBeperkingWithHttpInfo(String kadastraalonroerendezaakidentificatie, String privaatrechtelijkebeperkingidentificatie, String acceptCrs, String fields) throws ApiException {
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingValidateBeforeCall(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields, null);
+    public ApiResponse<PrivaatrechtelijkeBeperkingHal> getPrivaatrechtelijkeBeperkingWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String privaatrechtelijkeBeperkingIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, privaatrechtelijkeBeperkingIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<PrivaatrechtelijkeBeperkingHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van een specifieke privaatrechtelijke beperkingen. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param privaatrechtelijkebeperkingidentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param privaatrechtelijkeBeperkingIdentificatie De unieke identificatie van een privaatrechtelijke beperking.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -208,7 +201,7 @@ public class PrivaatrechtelijkeBeperkingenApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -219,17 +212,16 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPrivaatrechtelijkeBeperkingAsync(String kadastraalonroerendezaakidentificatie, String privaatrechtelijkebeperkingidentificatie, String acceptCrs, String fields, final ApiCallback<PrivaatrechtelijkeBeperkingHal> _callback) throws ApiException {
+    public okhttp3.Call getPrivaatrechtelijkeBeperkingAsync(String kadastraalOnroerendeZaakIdentificatie, String privaatrechtelijkeBeperkingIdentificatie, String fields, final ApiCallback<PrivaatrechtelijkeBeperkingHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingValidateBeforeCall(kadastraalonroerendezaakidentificatie, privaatrechtelijkebeperkingidentificatie, acceptCrs, fields, _callback);
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, privaatrechtelijkeBeperkingIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<PrivaatrechtelijkeBeperkingHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPrivaatrechtelijkeBeperkingen
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -237,7 +229,7 @@ public class PrivaatrechtelijkeBeperkingenApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -248,26 +240,23 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPrivaatrechtelijkeBeperkingenCall(String kadastraalonroerendezaakidentificatie, String acceptCrs, String fields, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPrivaatrechtelijkeBeperkingenCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -287,31 +276,30 @@ public class PrivaatrechtelijkeBeperkingenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPrivaatrechtelijkeBeperkingenValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String acceptCrs, String fields, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPrivaatrechtelijkeBeperkingenValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getPrivaatrechtelijkeBeperkingen(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getPrivaatrechtelijkeBeperkingen(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenCall(kadastraalonroerendezaakidentificatie, acceptCrs, fields, _callback);
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return PrivaatrechtelijkeBeperkingHalCollectie
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -322,23 +310,22 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public PrivaatrechtelijkeBeperkingHalCollectie getPrivaatrechtelijkeBeperkingen(String kadastraalonroerendezaakidentificatie, String acceptCrs, String fields) throws ApiException {
-        ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> localVarResp = getPrivaatrechtelijkeBeperkingenWithHttpInfo(kadastraalonroerendezaakidentificatie, acceptCrs, fields);
+    public PrivaatrechtelijkeBeperkingHalCollectie getPrivaatrechtelijkeBeperkingen(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> localVarResp = getPrivaatrechtelijkeBeperkingenWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @return ApiResponse&lt;PrivaatrechtelijkeBeperkingHalCollectie&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -349,17 +336,16 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> getPrivaatrechtelijkeBeperkingenWithHttpInfo(String kadastraalonroerendezaakidentificatie, String acceptCrs, String fields) throws ApiException {
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenValidateBeforeCall(kadastraalonroerendezaakidentificatie, acceptCrs, fields, null);
+    public ApiResponse<PrivaatrechtelijkeBeperkingHalCollectie> getPrivaatrechtelijkeBeperkingenWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<PrivaatrechtelijkeBeperkingHalCollectie>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
+     * Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak. 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -367,7 +353,7 @@ public class PrivaatrechtelijkeBeperkingenApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -378,9 +364,9 @@ public class PrivaatrechtelijkeBeperkingenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPrivaatrechtelijkeBeperkingenAsync(String kadastraalonroerendezaakidentificatie, String acceptCrs, String fields, final ApiCallback<PrivaatrechtelijkeBeperkingHalCollectie> _callback) throws ApiException {
+    public okhttp3.Call getPrivaatrechtelijkeBeperkingenAsync(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback<PrivaatrechtelijkeBeperkingHalCollectie> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenValidateBeforeCall(kadastraalonroerendezaakidentificatie, acceptCrs, fields, _callback);
+        okhttp3.Call localVarCall = getPrivaatrechtelijkeBeperkingenValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<PrivaatrechtelijkeBeperkingHalCollectie>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

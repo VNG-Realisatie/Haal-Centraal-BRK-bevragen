@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Kadaster - BRK-Bevragen API
 
@@ -10,18 +8,24 @@
 """
 
 
-from __future__ import absolute_import
-
 import re  # noqa: F401
+import sys  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
-from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from openapi_client.model_utils import (  # noqa: F401
+    check_allowed_values,
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    none_type,
+    validate_and_convert_types
 )
+from openapi_client.model.bad_request_foutbericht import BadRequestFoutbericht
+from openapi_client.model.foutbericht import Foutbericht
+from openapi_client.model.kadastraal_onroerende_zaak_hal import KadastraalOnroerendeZaakHal
+from openapi_client.model.kadastraal_onroerende_zaak_hal_collectie import KadastraalOnroerendeZaakHalCollectie
+from openapi_client.model.type_gerechtigde_enum import TypeGerechtigdeEnum
 
 
 class KadastraalOnroerendeZakenApi(object):
@@ -36,306 +40,375 @@ class KadastraalOnroerendeZakenApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_kadastraal_onroerende_zaak(self, kadastraalonroerendezaakidentificatie, **kwargs):  # noqa: E501
-        """get_kadastraal_onroerende_zaak  # noqa: E501
+        def __get_kadastraal_onroerende_zaak(
+            self,
+            kadastraal_onroerende_zaak_identificatie,
+            **kwargs
+        ):
+            """get_kadastraal_onroerende_zaak  # noqa: E501
 
-        Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadastraal_onroerende_zaak(kadastraalonroerendezaakidentificatie, async_req=True)
-        >>> result = thread.get()
+            Raadpleeg een kadastraal onroerende zaak. Als je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param str expand: Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadastraalOnroerendeZaakHal
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadastraal_onroerende_zaak_with_http_info(kadastraalonroerendezaakidentificatie, **kwargs)  # noqa: E501
+            >>> thread = api.get_kadastraal_onroerende_zaak(kadastraal_onroerende_zaak_identificatie, async_req=True)
+            >>> result = thread.get()
 
-    def get_kadastraal_onroerende_zaak_with_http_info(self, kadastraalonroerendezaakidentificatie, **kwargs):  # noqa: E501
-        """get_kadastraal_onroerende_zaak  # noqa: E501
+            Args:
+                kadastraal_onroerende_zaak_identificatie (str): De unieke identificatie van een kadastraal onroerende zaak. 
 
-        Het raadplegen van een kadastrale onroerende zaak.  Met gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadastraal_onroerende_zaak_with_http_info(kadastraalonroerendezaakidentificatie, async_req=True)
-        >>> result = thread.get()
+            Keyword Args:
+                accept_crs (str): Gewenste CRS van de coördinaten in de response.. [optional] if omitted the server will use the default value of "epsg:28992"
+                expand (str): Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).. [optional]
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        :param async_req bool: execute request asynchronously
-        :param str kadastraalonroerendezaakidentificatie: De unieke identificatie van een kadastraal onroerende zaak.  (required)
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param str expand: Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadastraalOnroerendeZaakHal, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+            Returns:
+                KadastraalOnroerendeZaakHal
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['kadastraal_onroerende_zaak_identificatie'] = \
+                kadastraal_onroerende_zaak_identificatie
+            return self.call_with_http_info(**kwargs)
 
-        local_var_params = locals()
+        self.get_kadastraal_onroerende_zaak = _Endpoint(
+            settings={
+                'response_type': (KadastraalOnroerendeZaakHal,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}',
+                'operation_id': 'get_kadastraal_onroerende_zaak',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                    'accept_crs',
+                    'expand',
+                    'fields',
+                ],
+                'required': [
+                    'kadastraal_onroerende_zaak_identificatie',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'accept_crs',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('accept_crs',): {
 
-        all_params = [
-            'kadastraalonroerendezaakidentificatie',
-            'accept_crs',
-            'expand',
-            'fields'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "EPSG:28992": "epsg:28992"
+                    },
+                },
+                'openapi_types': {
+                    'kadastraal_onroerende_zaak_identificatie':
+                        (str,),
+                    'accept_crs':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'fields':
+                        (str,),
+                },
+                'attribute_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'kadastraalOnroerendeZaakIdentificatie',
+                    'accept_crs': 'Accept-Crs',
+                    'expand': 'expand',
+                    'fields': 'fields',
+                },
+                'location_map': {
+                    'kadastraal_onroerende_zaak_identificatie': 'path',
+                    'accept_crs': 'header',
+                    'expand': 'query',
+                    'fields': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadastraal_onroerende_zaak
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadastraal_onroerende_zaak" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if self.api_client.client_side_validation and ('kadastraalonroerendezaakidentificatie' not in local_var_params or  # noqa: E501
-                                                        local_var_params['kadastraalonroerendezaakidentificatie'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `kadastraalonroerendezaakidentificatie` when calling `get_kadastraal_onroerende_zaak`")  # noqa: E501
+        def __get_kadastraal_onroerende_zaken(
+            self,
+            **kwargs
+        ):
+            """get_kadastraal_onroerende_zaken  # noqa: E501
 
-        collection_formats = {}
+            Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding     - kadastraleAanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  zakelijkGerechtigde__type (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  persoon__identificatie (verplicht)     -  zakelijkGerechtigde__type (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel) 5.  Nummeraanduiding     - nummeraanduidingIdentificatie  Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.   # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
 
-        path_params = {}
-        if 'kadastraalonroerendezaakidentificatie' in local_var_params:
-            path_params['kadastraalonroerendezaakidentificatie'] = local_var_params['kadastraalonroerendezaakidentificatie']  # noqa: E501
+            >>> thread = api.get_kadastraal_onroerende_zaken(async_req=True)
+            >>> result = thread.get()
 
-        query_params = []
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
 
-        header_params = {}
-        if 'accept_crs' in local_var_params:
-            header_params['Accept-Crs'] = local_var_params['accept_crs']  # noqa: E501
+            Keyword Args:
+                accept_crs (str): Gewenste CRS van de coördinaten in de response.. [optional] if omitted the server will use the default value of "epsg:28992"
+                expand (str): Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).. [optional]
+                fields (str): Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature). [optional]
+                kadastrale_aanduiding (str): Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is  - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).  - sectie, 1 of 2 hoofdletters  - perceelnummer, 1 tot 5 cijfers  - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)   gescheiden door een spatie\" . [optional]
+                burgerservicenummer (str): Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. . [optional]
+                persoon__identificatie (str): De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. . [optional]
+                zakelijk_gerechtigde__type (TypeGerechtigdeEnum): Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. . [optional]
+                postcode (str): De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak. . [optional]
+                huisnummer (int): Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak. . [optional]
+                huisletter (str): De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak. . [optional]
+                huisnummertoevoeging (str): De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak. . [optional]
+                nummeraanduiding_identificatie (str): De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak. . [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (int/float/tuple): timeout setting for this request. If
+                    one number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
 
-        form_params = []
-        local_var_files = {}
+            Returns:
+                KadastraalOnroerendeZaakHalCollectie
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            return self.call_with_http_info(**kwargs)
 
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
+        self.get_kadastraal_onroerende_zaken = _Endpoint(
+            settings={
+                'response_type': (KadastraalOnroerendeZaakHalCollectie,),
+                'auth': [
+                    'apiKeyAuth'
+                ],
+                'endpoint_path': '/kadastraalonroerendezaken',
+                'operation_id': 'get_kadastraal_onroerende_zaken',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'accept_crs',
+                    'expand',
+                    'fields',
+                    'kadastrale_aanduiding',
+                    'burgerservicenummer',
+                    'persoon__identificatie',
+                    'zakelijk_gerechtigde__type',
+                    'postcode',
+                    'huisnummer',
+                    'huisletter',
+                    'huisnummertoevoeging',
+                    'nummeraanduiding_identificatie',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'accept_crs',
+                ],
+                'validation': [
+                    'kadastrale_aanduiding',
+                    'burgerservicenummer',
+                    'postcode',
+                    'huisnummer',
+                    'huisletter',
+                    'huisnummertoevoeging',
+                    'nummeraanduiding_identificatie',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('kadastrale_aanduiding',): {
 
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
+                        'regex': {
+                            'pattern': r'^([a-zA-Z0-9\'][a-zA-Z0-9\' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$',  # noqa: E501
+                        },
+                    },
+                    ('burgerservicenummer',): {
+                        'max_length': 9,
+                    },
+                    ('postcode',): {
 
-        return self.api_client.call_api(
-            '/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadastraalOnroerendeZaakHal',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
+                        'regex': {
+                            'pattern': r'^[1-9][0-9][0-9][0-9][A-Z][A-Z]$',  # noqa: E501
+                        },
+                    },
+                    ('huisnummer',): {
 
-    def get_kadastraal_onroerende_zaken(self, **kwargs):  # noqa: E501
-        """get_kadastraal_onroerende_zaken  # noqa: E501
+                        'inclusive_maximum': 99999,
+                        'inclusive_minimum': 1,
+                    },
+                    ('huisletter',): {
 
-        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadastraal_onroerende_zaken(async_req=True)
-        >>> result = thread.get()
+                        'regex': {
+                            'pattern': r'^[a-zA-Z]$',  # noqa: E501
+                        },
+                    },
+                    ('huisnummertoevoeging',): {
 
-        :param async_req bool: execute request asynchronously
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param str expand: Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str kadastrale_aanduiding: Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is  - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).  - sectie, 1 of 2 hoofdletters  - perceelnummer, 1 tot 5 cijfers  - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)   gescheiden door een spatie\" 
-        :param str burgerservicenummer: Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. 
-        :param str persoon__identificatie: De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. 
-        :param TypeGerechtigdeEnum zakelijk_gerechtigde__type: Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. 
-        :param str postcode: De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param int huisnummer: Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param str huisletter: De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param str huisnummertoevoeging: De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: KadastraalOnroerendeZaakHalCollectie
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_kadastraal_onroerende_zaken_with_http_info(**kwargs)  # noqa: E501
+                        'regex': {
+                            'pattern': r'^([a-z,A-Z,0-9]){1,4}$',  # noqa: E501
+                        },
+                    },
+                    ('nummeraanduiding_identificatie',): {
 
-    def get_kadastraal_onroerende_zaken_with_http_info(self, **kwargs):  # noqa: E501
-        """get_kadastraal_onroerende_zaken  # noqa: E501
+                        'regex': {
+                            'pattern': r'^[0-9]{16}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                    ('accept_crs',): {
 
-        Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan. 1.  Kadastrale aanduiding 2.  Ingeschreven persoon als zakelijk gerechtigde     -  burgerservicenummer (verplicht)     -  typegerechtigde (optioneel) 3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde     -  kadasterpersoonidentificatie (verplicht)     -  typegerechtigde (optioneel) 4.  Adres     -  postcode (verplicht)     -  huisnummer (optioneel)     -  huisletter (optioneel)     -  huisnummertoevoeging (optioneel)  Met gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.  Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_kadastraal_onroerende_zaken_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str accept_crs: Gewenste CRS van de coördinaten in de response.
-        :param str expand: Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).
-        :param str fields: Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
-        :param str kadastrale_aanduiding: Kadastrale aanduiding is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is  - [Kadastrale gemeente](http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).  - sectie, 1 of 2 hoofdletters  - perceelnummer, 1 tot 5 cijfers  - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)   gescheiden door een spatie\" 
-        :param str burgerservicenummer: Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. 
-        :param str persoon__identificatie: De identificatie van de Kadasterpersoon, een niet-ingeschreven persoon of een rechtspersoon waarvan de gegevens door het kadaster zijn geregistreerd. Deze persoon is zakelijk gerechtigde van de Kadastraal Onroerende Zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft. 
-        :param TypeGerechtigdeEnum zakelijk_gerechtigde__type: Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type. 
-        :param str postcode: De postcode van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param int huisnummer: Het huisnummer van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param str huisletter: De huisletter van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param str huisnummertoevoeging: De huisnummertoevoeging van het adres van de objectlocatie van de kadastraal onroerende zaak. 
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(KadastraalOnroerendeZaakHalCollectie, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'accept_crs',
-            'expand',
-            'fields',
-            'kadastrale_aanduiding',
-            'burgerservicenummer',
-            'persoon__identificatie',
-            'zakelijk_gerechtigde__type',
-            'postcode',
-            'huisnummer',
-            'huisletter',
-            'huisnummertoevoeging'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
+                        "EPSG:28992": "epsg:28992"
+                    },
+                },
+                'openapi_types': {
+                    'accept_crs':
+                        (str,),
+                    'expand':
+                        (str,),
+                    'fields':
+                        (str,),
+                    'kadastrale_aanduiding':
+                        (str,),
+                    'burgerservicenummer':
+                        (str,),
+                    'persoon__identificatie':
+                        (str,),
+                    'zakelijk_gerechtigde__type':
+                        (TypeGerechtigdeEnum,),
+                    'postcode':
+                        (str,),
+                    'huisnummer':
+                        (int,),
+                    'huisletter':
+                        (str,),
+                    'huisnummertoevoeging':
+                        (str,),
+                    'nummeraanduiding_identificatie':
+                        (str,),
+                },
+                'attribute_map': {
+                    'accept_crs': 'Accept-Crs',
+                    'expand': 'expand',
+                    'fields': 'fields',
+                    'kadastrale_aanduiding': 'kadastraleAanduiding',
+                    'burgerservicenummer': 'burgerservicenummer',
+                    'persoon__identificatie': 'persoon__identificatie',
+                    'zakelijk_gerechtigde__type': 'zakelijkGerechtigde__type',
+                    'postcode': 'postcode',
+                    'huisnummer': 'huisnummer',
+                    'huisletter': 'huisletter',
+                    'huisnummertoevoeging': 'huisnummertoevoeging',
+                    'nummeraanduiding_identificatie': 'nummeraanduidingIdentificatie',
+                },
+                'location_map': {
+                    'accept_crs': 'header',
+                    'expand': 'query',
+                    'fields': 'query',
+                    'kadastrale_aanduiding': 'query',
+                    'burgerservicenummer': 'query',
+                    'persoon__identificatie': 'query',
+                    'zakelijk_gerechtigde__type': 'query',
+                    'postcode': 'query',
+                    'huisnummer': 'query',
+                    'huisletter': 'query',
+                    'huisnummertoevoeging': 'query',
+                    'nummeraanduiding_identificatie': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/hal+json',
+                    'application/problem+json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__get_kadastraal_onroerende_zaken
         )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_kadastraal_onroerende_zaken" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        if self.api_client.client_side_validation and 'kadastrale_aanduiding' in local_var_params and not re.search(r'^([a-zA-Z0-9\'][a-zA-Z0-9\' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$', local_var_params['kadastrale_aanduiding']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `kadastrale_aanduiding` when calling `get_kadastraal_onroerende_zaken`, must conform to the pattern `/^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$/`")  # noqa: E501
-        if self.api_client.client_side_validation and ('burgerservicenummer' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['burgerservicenummer']) > 9):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `burgerservicenummer` when calling `get_kadastraal_onroerende_zaken`, length must be less than or equal to `9`")  # noqa: E501
-        if self.api_client.client_side_validation and 'postcode' in local_var_params and not re.search(r'^[1-9][0-9][0-9][0-9][A-Z][A-Z]$', local_var_params['postcode']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `postcode` when calling `get_kadastraal_onroerende_zaken`, must conform to the pattern `/^[1-9][0-9][0-9][0-9][A-Z][A-Z]$/`")  # noqa: E501
-        if self.api_client.client_side_validation and 'huisnummer' in local_var_params and local_var_params['huisnummer'] > 99999:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `huisnummer` when calling `get_kadastraal_onroerende_zaken`, must be a value less than or equal to `99999`")  # noqa: E501
-        if self.api_client.client_side_validation and 'huisnummer' in local_var_params and local_var_params['huisnummer'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `huisnummer` when calling `get_kadastraal_onroerende_zaken`, must be a value greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'huisletter' in local_var_params and not re.search(r'^[a-zA-Z]$', local_var_params['huisletter']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `huisletter` when calling `get_kadastraal_onroerende_zaken`, must conform to the pattern `/^[a-zA-Z]$/`")  # noqa: E501
-        if self.api_client.client_side_validation and 'huisnummertoevoeging' in local_var_params and not re.search(r'^([a-z,A-Z,0-9]){1,4}$', local_var_params['huisnummertoevoeging']):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `huisnummertoevoeging` when calling `get_kadastraal_onroerende_zaken`, must conform to the pattern `/^([a-z,A-Z,0-9]){1,4}$/`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'expand' in local_var_params and local_var_params['expand'] is not None:  # noqa: E501
-            query_params.append(('expand', local_var_params['expand']))  # noqa: E501
-        if 'fields' in local_var_params and local_var_params['fields'] is not None:  # noqa: E501
-            query_params.append(('fields', local_var_params['fields']))  # noqa: E501
-        if 'kadastrale_aanduiding' in local_var_params and local_var_params['kadastrale_aanduiding'] is not None:  # noqa: E501
-            query_params.append(('kadastraleAanduiding', local_var_params['kadastrale_aanduiding']))  # noqa: E501
-        if 'burgerservicenummer' in local_var_params and local_var_params['burgerservicenummer'] is not None:  # noqa: E501
-            query_params.append(('burgerservicenummer', local_var_params['burgerservicenummer']))  # noqa: E501
-        if 'persoon__identificatie' in local_var_params and local_var_params['persoon__identificatie'] is not None:  # noqa: E501
-            query_params.append(('persoon__identificatie', local_var_params['persoon__identificatie']))  # noqa: E501
-        if 'zakelijk_gerechtigde__type' in local_var_params and local_var_params['zakelijk_gerechtigde__type'] is not None:  # noqa: E501
-            query_params.append(('zakelijkGerechtigde__type', local_var_params['zakelijk_gerechtigde__type']))  # noqa: E501
-        if 'postcode' in local_var_params and local_var_params['postcode'] is not None:  # noqa: E501
-            query_params.append(('postcode', local_var_params['postcode']))  # noqa: E501
-        if 'huisnummer' in local_var_params and local_var_params['huisnummer'] is not None:  # noqa: E501
-            query_params.append(('huisnummer', local_var_params['huisnummer']))  # noqa: E501
-        if 'huisletter' in local_var_params and local_var_params['huisletter'] is not None:  # noqa: E501
-            query_params.append(('huisletter', local_var_params['huisletter']))  # noqa: E501
-        if 'huisnummertoevoeging' in local_var_params and local_var_params['huisnummertoevoeging'] is not None:  # noqa: E501
-            query_params.append(('huisnummertoevoeging', local_var_params['huisnummertoevoeging']))  # noqa: E501
-
-        header_params = {}
-        if 'accept_crs' in local_var_params:
-            header_params['Accept-Crs'] = local_var_params['accept_crs']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/hal+json', 'application/problem+json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['apiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/kadastraalonroerendezaken', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='KadastraalOnroerendeZaakHalCollectie',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)

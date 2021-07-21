@@ -23,14 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.client.model.HalLink;
 
 /**
  * StukdeelLinks
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class StukdeelLinks {
   public static final String SERIALIZED_NAME_SELF = "self";
   @SerializedName(SERIALIZED_NAME_SELF)
@@ -39,10 +37,6 @@ public class StukdeelLinks {
   public static final String SERIALIZED_NAME_STUK = "stuk";
   @SerializedName(SERIALIZED_NAME_STUK)
   private HalLink stuk;
-
-  public static final String SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN = "kadastraalOnroerendeZaken";
-  @SerializedName(SERIALIZED_NAME_KADASTRAAL_ONROERENDE_ZAKEN)
-  private List<HalLink> kadastraalOnroerendeZaken = null;
 
 
   public StukdeelLinks self(HalLink self) {
@@ -91,39 +85,8 @@ public class StukdeelLinks {
   }
 
 
-  public StukdeelLinks kadastraalOnroerendeZaken(List<HalLink> kadastraalOnroerendeZaken) {
-    
-    this.kadastraalOnroerendeZaken = kadastraalOnroerendeZaken;
-    return this;
-  }
-
-  public StukdeelLinks addKadastraalOnroerendeZakenItem(HalLink kadastraalOnroerendeZakenItem) {
-    if (this.kadastraalOnroerendeZaken == null) {
-      this.kadastraalOnroerendeZaken = new ArrayList<>();
-    }
-    this.kadastraalOnroerendeZaken.add(kadastraalOnroerendeZakenItem);
-    return this;
-  }
-
-   /**
-   * Get kadastraalOnroerendeZaken
-   * @return kadastraalOnroerendeZaken
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<HalLink> getKadastraalOnroerendeZaken() {
-    return kadastraalOnroerendeZaken;
-  }
-
-
-  public void setKadastraalOnroerendeZaken(List<HalLink> kadastraalOnroerendeZaken) {
-    this.kadastraalOnroerendeZaken = kadastraalOnroerendeZaken;
-  }
-
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -132,15 +95,13 @@ public class StukdeelLinks {
     }
     StukdeelLinks stukdeelLinks = (StukdeelLinks) o;
     return Objects.equals(this.self, stukdeelLinks.self) &&
-        Objects.equals(this.stuk, stukdeelLinks.stuk) &&
-        Objects.equals(this.kadastraalOnroerendeZaken, stukdeelLinks.kadastraalOnroerendeZaken);
+        Objects.equals(this.stuk, stukdeelLinks.stuk);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(self, stuk, kadastraalOnroerendeZaken);
+    return Objects.hash(self, stuk);
   }
-
 
   @Override
   public String toString() {
@@ -148,7 +109,6 @@ public class StukdeelLinks {
     sb.append("class StukdeelLinks {\n");
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    stuk: ").append(toIndentedString(stuk)).append("\n");
-    sb.append("    kadastraalOnroerendeZaken: ").append(toIndentedString(kadastraalOnroerendeZaken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -157,7 +117,7 @@ public class StukdeelLinks {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

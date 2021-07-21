@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -41,9 +41,10 @@ namespace Org.OpenAPITools.Model
         /// <param name="betrokkenPartner">betrokkenPartner.</param>
         /// <param name="betrokkenSamenwerkingsverband">betrokkenSamenwerkingsverband.</param>
         /// <param name="betrokkenGorzenEnAanwassen">betrokkenGorzenEnAanwassen.</param>
-        /// <param name="isGebaseerdOpStukdeelIdentificatie">De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd. .</param>
+        /// <param name="isGebaseerdOpStukdeelIdentificaties">isGebaseerdOpStukdeelIdentificaties.</param>
         /// <param name="isVermeldInStukdeelIdentificaties">isVermeldInStukdeelIdentificaties.</param>
-        public Tenaamstelling(TypeBreuk aandeel = default(TypeBreuk), Waardelijst burgerlijkeStaatTenTijdeVanVerkrijging = default(Waardelijst), Waardelijst verkregenNamensSamenwerkingsverband = default(Waardelijst), List<AantekeningTenaamstelling> aantekeningen = default(List<AantekeningTenaamstelling>), TypeBreuk gezamenlijkAandeel = default(TypeBreuk), NatuurlijkPersoonBeperkt betrokkenPartner = default(NatuurlijkPersoonBeperkt), NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband = default(NietNatuurlijkPersoonBeperkt), NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen = default(NietNatuurlijkPersoonBeperkt), string isGebaseerdOpStukdeelIdentificatie = default(string), List<string> isVermeldInStukdeelIdentificaties = default(List<string>))
+        /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
+        public Tenaamstelling(TypeBreuk aandeel = default(TypeBreuk), Waardelijst burgerlijkeStaatTenTijdeVanVerkrijging = default(Waardelijst), Waardelijst verkregenNamensSamenwerkingsverband = default(Waardelijst), List<AantekeningTenaamstelling> aantekeningen = default(List<AantekeningTenaamstelling>), TypeBreuk gezamenlijkAandeel = default(TypeBreuk), NatuurlijkPersoonBeperkt betrokkenPartner = default(NatuurlijkPersoonBeperkt), NietNatuurlijkPersoonBeperkt betrokkenSamenwerkingsverband = default(NietNatuurlijkPersoonBeperkt), NietNatuurlijkPersoonBeperkt betrokkenGorzenEnAanwassen = default(NietNatuurlijkPersoonBeperkt), List<string> isGebaseerdOpStukdeelIdentificaties = default(List<string>), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>))
         {
             this.Aandeel = aandeel;
             this.BurgerlijkeStaatTenTijdeVanVerkrijging = burgerlijkeStaatTenTijdeVanVerkrijging;
@@ -53,10 +54,11 @@ namespace Org.OpenAPITools.Model
             this.BetrokkenPartner = betrokkenPartner;
             this.BetrokkenSamenwerkingsverband = betrokkenSamenwerkingsverband;
             this.BetrokkenGorzenEnAanwassen = betrokkenGorzenEnAanwassen;
-            this.IsGebaseerdOpStukdeelIdentificatie = isGebaseerdOpStukdeelIdentificatie;
+            this.IsGebaseerdOpStukdeelIdentificaties = isGebaseerdOpStukdeelIdentificaties;
             this.IsVermeldInStukdeelIdentificaties = isVermeldInStukdeelIdentificaties;
+            this.StukIdentificaties = stukIdentificaties;
         }
-        
+
         /// <summary>
         /// Gets or Sets Aandeel
         /// </summary>
@@ -107,17 +109,23 @@ namespace Org.OpenAPITools.Model
         public NietNatuurlijkPersoonBeperkt BetrokkenGorzenEnAanwassen { get; set; }
 
         /// <summary>
-        /// De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd. 
+        /// Gets or Sets IsGebaseerdOpStukdeelIdentificaties
         /// </summary>
-        /// <value>De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd. </value>
-        [DataMember(Name="isGebaseerdOpStukdeelIdentificatie", EmitDefaultValue=false)]
-        public string IsGebaseerdOpStukdeelIdentificatie { get; set; }
+        [DataMember(Name="isGebaseerdOpStukdeelIdentificaties", EmitDefaultValue=false)]
+        public List<string> IsGebaseerdOpStukdeelIdentificaties { get; set; }
 
         /// <summary>
         /// Gets or Sets IsVermeldInStukdeelIdentificaties
         /// </summary>
         [DataMember(Name="isVermeldInStukdeelIdentificaties", EmitDefaultValue=false)]
         public List<string> IsVermeldInStukdeelIdentificaties { get; set; }
+
+        /// <summary>
+        /// Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+        /// </summary>
+        /// <value>Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. </value>
+        [DataMember(Name="stukIdentificaties", EmitDefaultValue=false)]
+        public List<string> StukIdentificaties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,19 +143,20 @@ namespace Org.OpenAPITools.Model
             sb.Append("  BetrokkenPartner: ").Append(BetrokkenPartner).Append("\n");
             sb.Append("  BetrokkenSamenwerkingsverband: ").Append(BetrokkenSamenwerkingsverband).Append("\n");
             sb.Append("  BetrokkenGorzenEnAanwassen: ").Append(BetrokkenGorzenEnAanwassen).Append("\n");
-            sb.Append("  IsGebaseerdOpStukdeelIdentificatie: ").Append(IsGebaseerdOpStukdeelIdentificatie).Append("\n");
+            sb.Append("  IsGebaseerdOpStukdeelIdentificaties: ").Append(IsGebaseerdOpStukdeelIdentificaties).Append("\n");
             sb.Append("  IsVermeldInStukdeelIdentificaties: ").Append(IsVermeldInStukdeelIdentificaties).Append("\n");
+            sb.Append("  StukIdentificaties: ").Append(StukIdentificaties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -213,15 +222,22 @@ namespace Org.OpenAPITools.Model
                     this.BetrokkenGorzenEnAanwassen.Equals(input.BetrokkenGorzenEnAanwassen))
                 ) && 
                 (
-                    this.IsGebaseerdOpStukdeelIdentificatie == input.IsGebaseerdOpStukdeelIdentificatie ||
-                    (this.IsGebaseerdOpStukdeelIdentificatie != null &&
-                    this.IsGebaseerdOpStukdeelIdentificatie.Equals(input.IsGebaseerdOpStukdeelIdentificatie))
+                    this.IsGebaseerdOpStukdeelIdentificaties == input.IsGebaseerdOpStukdeelIdentificaties ||
+                    this.IsGebaseerdOpStukdeelIdentificaties != null &&
+                    input.IsGebaseerdOpStukdeelIdentificaties != null &&
+                    this.IsGebaseerdOpStukdeelIdentificaties.SequenceEqual(input.IsGebaseerdOpStukdeelIdentificaties)
                 ) && 
                 (
                     this.IsVermeldInStukdeelIdentificaties == input.IsVermeldInStukdeelIdentificaties ||
                     this.IsVermeldInStukdeelIdentificaties != null &&
                     input.IsVermeldInStukdeelIdentificaties != null &&
                     this.IsVermeldInStukdeelIdentificaties.SequenceEqual(input.IsVermeldInStukdeelIdentificaties)
+                ) && 
+                (
+                    this.StukIdentificaties == input.StukIdentificaties ||
+                    this.StukIdentificaties != null &&
+                    input.StukIdentificaties != null &&
+                    this.StukIdentificaties.SequenceEqual(input.StukIdentificaties)
                 );
         }
 
@@ -250,10 +266,12 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.BetrokkenSamenwerkingsverband.GetHashCode();
                 if (this.BetrokkenGorzenEnAanwassen != null)
                     hashCode = hashCode * 59 + this.BetrokkenGorzenEnAanwassen.GetHashCode();
-                if (this.IsGebaseerdOpStukdeelIdentificatie != null)
-                    hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeelIdentificatie.GetHashCode();
+                if (this.IsGebaseerdOpStukdeelIdentificaties != null)
+                    hashCode = hashCode * 59 + this.IsGebaseerdOpStukdeelIdentificaties.GetHashCode();
                 if (this.IsVermeldInStukdeelIdentificaties != null)
                     hashCode = hashCode * 59 + this.IsVermeldInStukdeelIdentificaties.GetHashCode();
+                if (this.StukIdentificaties != null)
+                    hashCode = hashCode * 59 + this.StukIdentificaties.GetHashCode();
                 return hashCode;
             }
         }

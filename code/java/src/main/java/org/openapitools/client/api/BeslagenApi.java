@@ -59,17 +59,16 @@ public class BeslagenApi {
 
     /**
      * Build call for getBeslag
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param beslagidentificatie De unieke identificatie van het beslag.  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param beslagIdentificatie De unieke identificatie van het beslag.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -82,27 +81,24 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getBeslagCall(String kadastraalonroerendezaakidentificatie, String beslagidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBeslagCall(String kadastraalOnroerendeZaakIdentificatie, String beslagIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()))
-            .replaceAll("\\{" + "beslagidentificatie" + "\\}", localVarApiClient.escapeString(beslagidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()))
+            .replaceAll("\\{" + "beslagIdentificatie" + "\\}", localVarApiClient.escapeString(beslagIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -122,37 +118,36 @@ public class BeslagenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBeslagValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String beslagidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBeslagValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String beslagIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getBeslag(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getBeslag(Async)");
         }
         
-        // verify the required parameter 'beslagidentificatie' is set
-        if (beslagidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'beslagidentificatie' when calling getBeslag(Async)");
+        // verify the required parameter 'beslagIdentificatie' is set
+        if (beslagIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'beslagIdentificatie' when calling getBeslag(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getBeslagCall(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getBeslagCall(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van een beslag. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param beslagidentificatie De unieke identificatie van het beslag.  (required)
+     * Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param beslagIdentificatie De unieke identificatie van het beslag.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return BeslagHal
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -165,24 +160,23 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public BeslagHal getBeslag(String kadastraalonroerendezaakidentificatie, String beslagidentificatie, String fields, String acceptCrs) throws ApiException {
-        ApiResponse<BeslagHal> localVarResp = getBeslagWithHttpInfo(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs);
+    public BeslagHal getBeslag(String kadastraalOnroerendeZaakIdentificatie, String beslagIdentificatie, String fields) throws ApiException {
+        ApiResponse<BeslagHal> localVarResp = getBeslagWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van een beslag. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param beslagidentificatie De unieke identificatie van het beslag.  (required)
+     * Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param beslagIdentificatie De unieke identificatie van het beslag.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ApiResponse&lt;BeslagHal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -195,26 +189,25 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<BeslagHal> getBeslagWithHttpInfo(String kadastraalonroerendezaakidentificatie, String beslagidentificatie, String fields, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getBeslagValidateBeforeCall(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs, null);
+    public ApiResponse<BeslagHal> getBeslagWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String beslagIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getBeslagValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<BeslagHal>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van een beslag. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
-     * @param beslagidentificatie De unieke identificatie van het beslag.  (required)
+     * Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param beslagIdentificatie De unieke identificatie van het beslag.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  * Content-Crs -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Raadplegen geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -227,25 +220,24 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getBeslagAsync(String kadastraalonroerendezaakidentificatie, String beslagidentificatie, String fields, String acceptCrs, final ApiCallback<BeslagHal> _callback) throws ApiException {
+    public okhttp3.Call getBeslagAsync(String kadastraalOnroerendeZaakIdentificatie, String beslagIdentificatie, String fields, final ApiCallback<BeslagHal> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBeslagValidateBeforeCall(kadastraalonroerendezaakidentificatie, beslagidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getBeslagValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, beslagIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<BeslagHal>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getBeslagenKadastraalOnroerendeZaak
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -256,26 +248,23 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getBeslagenKadastraalOnroerendeZaakCall(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBeslagenKadastraalOnroerendeZaakCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen"
-            .replaceAll("\\{" + "kadastraalonroerendezaakidentificatie" + "\\}", localVarApiClient.escapeString(kadastraalonroerendezaakidentificatie.toString()));
+        String localVarPath = "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen"
+            .replaceAll("\\{" + "kadastraalOnroerendeZaakIdentificatie" + "\\}", localVarApiClient.escapeString(kadastraalOnroerendeZaakIdentificatie.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (fields != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fields", fields));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (acceptCrs != null) {
-            localVarHeaderParams.put("Accept-Crs", localVarApiClient.parameterToString(acceptCrs));
-        }
-
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/hal+json", "application/problem+json"
         };
@@ -295,31 +284,30 @@ public class BeslagenApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'kadastraalonroerendezaakidentificatie' is set
-        if (kadastraalonroerendezaakidentificatie == null) {
-            throw new ApiException("Missing the required parameter 'kadastraalonroerendezaakidentificatie' when calling getBeslagenKadastraalOnroerendeZaak(Async)");
+        // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
+        if (kadastraalOnroerendeZaakIdentificatie == null) {
+            throw new ApiException("Missing the required parameter 'kadastraalOnroerendeZaakIdentificatie' when calling getBeslagenKadastraalOnroerendeZaak(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         return localVarCall;
 
     }
 
     /**
      * 
-     * Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return BeslagHalCollectie
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -330,23 +318,22 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public BeslagHalCollectie getBeslagenKadastraalOnroerendeZaak(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs) throws ApiException {
-        ApiResponse<BeslagHalCollectie> localVarResp = getBeslagenKadastraalOnroerendeZaakWithHttpInfo(kadastraalonroerendezaakidentificatie, fields, acceptCrs);
+    public BeslagHalCollectie getBeslagenKadastraalOnroerendeZaak(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        ApiResponse<BeslagHalCollectie> localVarResp = getBeslagenKadastraalOnroerendeZaakWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @return ApiResponse&lt;BeslagHalCollectie&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -357,25 +344,24 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public ApiResponse<BeslagHalCollectie> getBeslagenKadastraalOnroerendeZaakWithHttpInfo(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs) throws ApiException {
-        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, null);
+    public ApiResponse<BeslagHalCollectie> getBeslagenKadastraalOnroerendeZaakWithHttpInfo(String kadastraalOnroerendeZaakIdentificatie, String fields) throws ApiException {
+        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, null);
         Type localVarReturnType = new TypeToken<BeslagHalCollectie>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
-     * Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak. 
-     * @param kadastraalonroerendezaakidentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
+     * Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak 
+     * @param kadastraalOnroerendeZaakIdentificatie De unieke identificatie van een kadastraal onroerende zaak.  (required)
      * @param fields Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)
-     * @param acceptCrs Gewenste CRS van de coördinaten in de response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * Content-Crs -  <br>  * warning -  <br>  </td></tr>
+        <tr><td> 200 </td><td> Zoekactie geslaagd  </td><td>  * api-version -  <br>  * warning -  <br>  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
@@ -386,9 +372,9 @@ public class BeslagenApi {
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getBeslagenKadastraalOnroerendeZaakAsync(String kadastraalonroerendezaakidentificatie, String fields, String acceptCrs, final ApiCallback<BeslagHalCollectie> _callback) throws ApiException {
+    public okhttp3.Call getBeslagenKadastraalOnroerendeZaakAsync(String kadastraalOnroerendeZaakIdentificatie, String fields, final ApiCallback<BeslagHalCollectie> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalonroerendezaakidentificatie, fields, acceptCrs, _callback);
+        okhttp3.Call localVarCall = getBeslagenKadastraalOnroerendeZaakValidateBeforeCall(kadastraalOnroerendeZaakIdentificatie, fields, _callback);
         Type localVarReturnType = new TypeToken<BeslagHalCollectie>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

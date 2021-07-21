@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt.
+    /// Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt. 
     /// </summary>
     [DataContract]
     public partial class Stukdeel :  IEquatable<Stukdeel>, IValidatableObject
@@ -34,7 +34,7 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Stukdeel" /> class.
         /// </summary>
         /// <param name="identificatie">identificatie.</param>
-        /// <param name="domein">Het domein waartoe de identificatie behoort..</param>
+        /// <param name="domein">Het domein waartoe de identificatie behoort. .</param>
         /// <param name="aard">aard.</param>
         /// <param name="bedragTransactiesomLevering">bedragTransactiesomLevering.</param>
         /// <param name="omschrijvingKadastraleObjecten">omschrijvingKadastraleObjecten.</param>
@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Model
             this.OmschrijvingKadastraleObjecten = omschrijvingKadastraleObjecten;
             this.OmschrijvingTopografischeMutatie = omschrijvingTopografischeMutatie;
         }
-        
+
         /// <summary>
         /// Gets or Sets Identificatie
         /// </summary>
@@ -56,9 +56,9 @@ namespace Org.OpenAPITools.Model
         public string Identificatie { get; set; }
 
         /// <summary>
-        /// Het domein waartoe de identificatie behoort.
+        /// Het domein waartoe de identificatie behoort. 
         /// </summary>
-        /// <value>Het domein waartoe de identificatie behoort.</value>
+        /// <value>Het domein waartoe de identificatie behoort. </value>
         [DataMember(Name="domein", EmitDefaultValue=false)]
         public string Domein { get; set; }
 
@@ -103,14 +103,14 @@ namespace Org.OpenAPITools.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

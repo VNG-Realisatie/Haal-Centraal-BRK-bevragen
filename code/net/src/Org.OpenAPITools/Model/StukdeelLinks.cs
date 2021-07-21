@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -35,14 +35,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="self">self.</param>
         /// <param name="stuk">stuk.</param>
-        /// <param name="kadastraalOnroerendeZaken">kadastraalOnroerendeZaken.</param>
-        public StukdeelLinks(HalLink self = default(HalLink), HalLink stuk = default(HalLink), List<HalLink> kadastraalOnroerendeZaken = default(List<HalLink>))
+        public StukdeelLinks(HalLink self = default(HalLink), HalLink stuk = default(HalLink))
         {
             this.Self = self;
             this.Stuk = stuk;
-            this.KadastraalOnroerendeZaken = kadastraalOnroerendeZaken;
         }
-        
+
         /// <summary>
         /// Gets or Sets Self
         /// </summary>
@@ -56,12 +54,6 @@ namespace Org.OpenAPITools.Model
         public HalLink Stuk { get; set; }
 
         /// <summary>
-        /// Gets or Sets KadastraalOnroerendeZaken
-        /// </summary>
-        [DataMember(Name="kadastraalOnroerendeZaken", EmitDefaultValue=false)]
-        public List<HalLink> KadastraalOnroerendeZaken { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,18 +63,17 @@ namespace Org.OpenAPITools.Model
             sb.Append("class StukdeelLinks {\n");
             sb.Append("  Self: ").Append(Self).Append("\n");
             sb.Append("  Stuk: ").Append(Stuk).Append("\n");
-            sb.Append("  KadastraalOnroerendeZaken: ").Append(KadastraalOnroerendeZaken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -115,12 +106,6 @@ namespace Org.OpenAPITools.Model
                     this.Stuk == input.Stuk ||
                     (this.Stuk != null &&
                     this.Stuk.Equals(input.Stuk))
-                ) && 
-                (
-                    this.KadastraalOnroerendeZaken == input.KadastraalOnroerendeZaken ||
-                    this.KadastraalOnroerendeZaken != null &&
-                    input.KadastraalOnroerendeZaken != null &&
-                    this.KadastraalOnroerendeZaken.SequenceEqual(input.KadastraalOnroerendeZaken)
                 );
         }
 
@@ -137,8 +122,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Self.GetHashCode();
                 if (this.Stuk != null)
                     hashCode = hashCode * 59 + this.Stuk.GetHashCode();
-                if (this.KadastraalOnroerendeZaken != null)
-                    hashCode = hashCode * 59 + this.KadastraalOnroerendeZaken.GetHashCode();
                 return hashCode;
             }
         }

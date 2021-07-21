@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
@@ -28,7 +29,7 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        /// Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
@@ -40,7 +41,7 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        /// Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
@@ -53,25 +54,27 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </summary>
         /// <remarks>
-        /// Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        /// Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PubliekrechtelijkeBeperkingHalCollectie</returns>
-        System.Threading.Tasks.Task<PubliekrechtelijkeBeperkingHalCollectie> GetPubliekrechtelijkeBeperkingenAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<PubliekrechtelijkeBeperkingHalCollectie> GetPubliekrechtelijkeBeperkingenAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
-        /// Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        /// Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PubliekrechtelijkeBeperkingHalCollectie)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PubliekrechtelijkeBeperkingHalCollectie>> GetPubliekrechtelijkeBeperkingenAsyncWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string));
+        System.Threading.Tasks.Task<ApiResponse<PubliekrechtelijkeBeperkingHalCollectie>> GetPubliekrechtelijkeBeperkingenWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -184,7 +187,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        ///  Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
@@ -197,7 +200,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        ///  Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
@@ -259,27 +262,29 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///  Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        ///  Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PubliekrechtelijkeBeperkingHalCollectie</returns>
-        public async System.Threading.Tasks.Task<PubliekrechtelijkeBeperkingHalCollectie> GetPubliekrechtelijkeBeperkingenAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<PubliekrechtelijkeBeperkingHalCollectie> GetPubliekrechtelijkeBeperkingenAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PubliekrechtelijkeBeperkingHalCollectie> localVarResponse = await GetPubliekrechtelijkeBeperkingenAsyncWithHttpInfo(kadastraalOnroerendeZaakIdentificatie, fields);
+             ApiResponse<PubliekrechtelijkeBeperkingHalCollectie> localVarResponse = await GetPubliekrechtelijkeBeperkingenWithHttpInfoAsync(kadastraalOnroerendeZaakIdentificatie, fields, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        ///  Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
+        ///  Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak. 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="kadastraalOnroerendeZaakIdentificatie">De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak </param>
         /// <param name="fields">Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma&#39;s gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PubliekrechtelijkeBeperkingHalCollectie)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PubliekrechtelijkeBeperkingHalCollectie>> GetPubliekrechtelijkeBeperkingenAsyncWithHttpInfo (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<PubliekrechtelijkeBeperkingHalCollectie>> GetPubliekrechtelijkeBeperkingenWithHttpInfoAsync (string kadastraalOnroerendeZaakIdentificatie, string fields = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'kadastraalOnroerendeZaakIdentificatie' is set
             if (kadastraalOnroerendeZaakIdentificatie == null)
@@ -319,7 +324,7 @@ namespace Org.OpenAPITools.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 

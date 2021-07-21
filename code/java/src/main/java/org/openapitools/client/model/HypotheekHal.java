@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.AantekeningBasis;
+import org.openapitools.client.model.AantekeningHypotheek;
 import org.openapitools.client.model.Bedrag;
 import org.openapitools.client.model.Hypotheek;
 import org.openapitools.client.model.HypotheekHalAllOf;
@@ -37,7 +37,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * HypotheekHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class HypotheekHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -69,7 +69,7 @@ public class HypotheekHal {
 
   public static final String SERIALIZED_NAME_AANTEKENINGEN = "aantekeningen";
   @SerializedName(SERIALIZED_NAME_AANTEKENINGEN)
-  private List<AantekeningBasis> aantekeningen = null;
+  private List<AantekeningHypotheek> aantekeningen = null;
 
   public static final String SERIALIZED_NAME_HYPOTHEEKHOUDERS = "hypotheekhouders";
   @SerializedName(SERIALIZED_NAME_HYPOTHEEKHOUDERS)
@@ -261,13 +261,13 @@ public class HypotheekHal {
   }
 
 
-  public HypotheekHal aantekeningen(List<AantekeningBasis> aantekeningen) {
+  public HypotheekHal aantekeningen(List<AantekeningHypotheek> aantekeningen) {
     
     this.aantekeningen = aantekeningen;
     return this;
   }
 
-  public HypotheekHal addAantekeningenItem(AantekeningBasis aantekeningenItem) {
+  public HypotheekHal addAantekeningenItem(AantekeningHypotheek aantekeningenItem) {
     if (this.aantekeningen == null) {
       this.aantekeningen = new ArrayList<>();
     }
@@ -282,12 +282,12 @@ public class HypotheekHal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<AantekeningBasis> getAantekeningen() {
+  public List<AantekeningHypotheek> getAantekeningen() {
     return aantekeningen;
   }
 
 
-  public void setAantekeningen(List<AantekeningBasis> aantekeningen) {
+  public void setAantekeningen(List<AantekeningHypotheek> aantekeningen) {
     this.aantekeningen = aantekeningen;
   }
 
@@ -361,11 +361,11 @@ public class HypotheekHal {
   }
 
    /**
-   *             Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. 
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
    * @return stukIdentificaties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "            Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een Kadasterstuk zijn. ")
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
 
   public List<String> getStukIdentificaties() {
     return stukIdentificaties;
@@ -478,7 +478,7 @@ public class HypotheekHal {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -508,7 +508,6 @@ public class HypotheekHal {
     return Objects.hash(identificatie, domein, aandeelInBetrokkenRecht, gedeeltelijkeBezwaringOudObject, omschrijvingBetrokkenRecht, toelichtingBewaarder, betreftGedeelteVanPerceel, aantekeningen, hypotheekhouders, bedragZekerheidsstelling, stukIdentificaties, omschrijvingGekozenWoonplaats, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, links);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -536,7 +535,7 @@ public class HypotheekHal {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

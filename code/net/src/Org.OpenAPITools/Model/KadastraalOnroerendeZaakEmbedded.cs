@@ -1,4 +1,4 @@
-/* 
+/*
  * Kadaster - BRK-Bevragen API
  *
  * D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie. 
@@ -35,14 +35,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="zakelijkGerechtigden">zakelijkGerechtigden.</param>
         /// <param name="privaatrechtelijkeBeperkingen">privaatrechtelijkeBeperkingen.</param>
-        /// <param name="stukken">stukken.</param>
-        public KadastraalOnroerendeZaakEmbedded(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden = default(List<ZakelijkGerechtigdeHal>), List<PrivaatrechtelijkeBeperkingHal> privaatrechtelijkeBeperkingen = default(List<PrivaatrechtelijkeBeperkingHal>), List<StukHalBasis> stukken = default(List<StukHalBasis>))
+        public KadastraalOnroerendeZaakEmbedded(List<ZakelijkGerechtigdeHal> zakelijkGerechtigden = default(List<ZakelijkGerechtigdeHal>), List<PrivaatrechtelijkeBeperkingHal> privaatrechtelijkeBeperkingen = default(List<PrivaatrechtelijkeBeperkingHal>))
         {
             this.ZakelijkGerechtigden = zakelijkGerechtigden;
             this.PrivaatrechtelijkeBeperkingen = privaatrechtelijkeBeperkingen;
-            this.Stukken = stukken;
         }
-        
+
         /// <summary>
         /// Gets or Sets ZakelijkGerechtigden
         /// </summary>
@@ -56,12 +54,6 @@ namespace Org.OpenAPITools.Model
         public List<PrivaatrechtelijkeBeperkingHal> PrivaatrechtelijkeBeperkingen { get; set; }
 
         /// <summary>
-        /// Gets or Sets Stukken
-        /// </summary>
-        [DataMember(Name="stukken", EmitDefaultValue=false)]
-        public List<StukHalBasis> Stukken { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,18 +63,17 @@ namespace Org.OpenAPITools.Model
             sb.Append("class KadastraalOnroerendeZaakEmbedded {\n");
             sb.Append("  ZakelijkGerechtigden: ").Append(ZakelijkGerechtigden).Append("\n");
             sb.Append("  PrivaatrechtelijkeBeperkingen: ").Append(PrivaatrechtelijkeBeperkingen).Append("\n");
-            sb.Append("  Stukken: ").Append(Stukken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -117,12 +108,6 @@ namespace Org.OpenAPITools.Model
                     this.PrivaatrechtelijkeBeperkingen != null &&
                     input.PrivaatrechtelijkeBeperkingen != null &&
                     this.PrivaatrechtelijkeBeperkingen.SequenceEqual(input.PrivaatrechtelijkeBeperkingen)
-                ) && 
-                (
-                    this.Stukken == input.Stukken ||
-                    this.Stukken != null &&
-                    input.Stukken != null &&
-                    this.Stukken.SequenceEqual(input.Stukken)
                 );
         }
 
@@ -139,8 +124,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ZakelijkGerechtigden.GetHashCode();
                 if (this.PrivaatrechtelijkeBeperkingen != null)
                     hashCode = hashCode * 59 + this.PrivaatrechtelijkeBeperkingen.GetHashCode();
-                if (this.Stukken != null)
-                    hashCode = hashCode * 59 + this.Stukken.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardelijst;
  * Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.   Waardelijst in deze component :   [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/) 
  */
 @ApiModel(description = "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.   Waardelijst in deze component :   [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-11-20T16:12:03.834Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
 public class ErfpachtCanon {
   public static final String SERIALIZED_NAME_SOORT_ERFPACHT_CANON = "soortErfpachtCanon";
   @SerializedName(SERIALIZED_NAME_SOORT_ERFPACHT_CANON)
@@ -62,6 +62,10 @@ public class ErfpachtCanon {
   public static final String SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES = "isVermeldInStukdeelIdentificaties";
   @SerializedName(SERIALIZED_NAME_IS_VERMELD_IN_STUKDEEL_IDENTIFICATIES)
   private List<String> isVermeldInStukdeelIdentificaties = null;
+
+  public static final String SERIALIZED_NAME_STUK_IDENTIFICATIES = "stukIdentificaties";
+  @SerializedName(SERIALIZED_NAME_STUK_IDENTIFICATIES)
+  private List<String> stukIdentificaties = null;
 
 
   public ErfpachtCanon soortErfpachtCanon(Waardelijst soortErfpachtCanon) {
@@ -233,8 +237,39 @@ public class ErfpachtCanon {
   }
 
 
+  public ErfpachtCanon stukIdentificaties(List<String> stukIdentificaties) {
+    
+    this.stukIdentificaties = stukIdentificaties;
+    return this;
+  }
+
+  public ErfpachtCanon addStukIdentificatiesItem(String stukIdentificatiesItem) {
+    if (this.stukIdentificaties == null) {
+      this.stukIdentificaties = new ArrayList<>();
+    }
+    this.stukIdentificaties.add(stukIdentificatiesItem);
+    return this;
+  }
+
+   /**
+   * Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. 
+   * @return stukIdentificaties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. ")
+
+  public List<String> getStukIdentificaties() {
+    return stukIdentificaties;
+  }
+
+
+  public void setStukIdentificaties(List<String> stukIdentificaties) {
+    this.stukIdentificaties = stukIdentificaties;
+  }
+
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -248,14 +283,14 @@ public class ErfpachtCanon {
         Objects.equals(this.einddatumAfkoop, erfpachtCanon.einddatumAfkoop) &&
         Objects.equals(this.indicatieOudeOnroerendeZaakBetrokken, erfpachtCanon.indicatieOudeOnroerendeZaakBetrokken) &&
         Objects.equals(this.isGebaseerdOpStukdeelIdentificatie, erfpachtCanon.isGebaseerdOpStukdeelIdentificatie) &&
-        Objects.equals(this.isVermeldInStukdeelIdentificaties, erfpachtCanon.isVermeldInStukdeelIdentificaties);
+        Objects.equals(this.isVermeldInStukdeelIdentificaties, erfpachtCanon.isVermeldInStukdeelIdentificaties) &&
+        Objects.equals(this.stukIdentificaties, erfpachtCanon.stukIdentificaties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(soortErfpachtCanon, jaarlijksBedrag, betrefMeerOnroerendeZaken, einddatumAfkoop, indicatieOudeOnroerendeZaakBetrokken, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties);
+    return Objects.hash(soortErfpachtCanon, jaarlijksBedrag, betrefMeerOnroerendeZaken, einddatumAfkoop, indicatieOudeOnroerendeZaakBetrokken, isGebaseerdOpStukdeelIdentificatie, isVermeldInStukdeelIdentificaties, stukIdentificaties);
   }
-
 
   @Override
   public String toString() {
@@ -268,6 +303,7 @@ public class ErfpachtCanon {
     sb.append("    indicatieOudeOnroerendeZaakBetrokken: ").append(toIndentedString(indicatieOudeOnroerendeZaakBetrokken)).append("\n");
     sb.append("    isGebaseerdOpStukdeelIdentificatie: ").append(toIndentedString(isGebaseerdOpStukdeelIdentificatie)).append("\n");
     sb.append("    isVermeldInStukdeelIdentificaties: ").append(toIndentedString(isVermeldInStukdeelIdentificaties)).append("\n");
+    sb.append("    stukIdentificaties: ").append(toIndentedString(stukIdentificaties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -276,7 +312,7 @@ public class ErfpachtCanon {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
