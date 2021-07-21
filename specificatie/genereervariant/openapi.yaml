@@ -3821,11 +3821,6 @@ components:
           description: |
             Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.
             Deze informatie is nodig om de filiatie-"boom" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.
-        einddatum:
-          type: string
-          description: |
-            Datum waarop de kadastraal onroerende zaak is vervallen
-          format: date
         begrenzingPerceel:
           $ref: '#/components/schemas/polygonGeoJSON'
         perceelnummerRotatie:
@@ -4804,6 +4799,8 @@ components:
       properties:
         identificatie:
           type: string
+        deelEnNummer:
+          $ref: '#/components/schemas/DeelEnNummer'
         stukType:
           $ref: '#/components/schemas/StukTypeEnum'
         domein:
@@ -4855,6 +4852,33 @@ components:
         Waardelijsten in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
           [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
+    DeelEnNummer:
+      type: object
+      properties:
+        deel:
+          type: string
+          description: |
+            Identificatie van het stuk binnen zijn soort.
+        nummer:
+          type: string
+          description: |
+            Volgnummer van het stuk.
+        reeks:
+          type: array
+          description: |
+            Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+          items:
+            $ref: '#/components/schemas/Waardelijst'
+        registercode:
+          $ref: '#/components/schemas/Waardelijst'
+        soortRegister:
+          $ref: '#/components/schemas/Waardelijst'
+      description: |
+        Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen.
+        Waardelijst in deze component :
+          [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
+          [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
+          [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
     StukTypeEnum:
       type: string
       enum:
