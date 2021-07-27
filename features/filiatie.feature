@@ -6,12 +6,12 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
 
     Filiatie is de relatie naar de kadastraal onroerende zaken waaruit betreffende onroerende zaak is ontstaan en/of waarin de kadastraal onroerende zaak is overgegaan.
     
-    Er zijn twee soorten kadastraal onroerende zaken, een perceel en een appartementsrecht. Een perceel is een begrensd deel van het Nederlands grondgebied. Een appartementsrecht omvat de bevoegdheid tot het gebruik van bepaalde gedeelten van een gebouw die blijkens hun inrichting bestemd zijn of worden om als afzonderlijk geheel te worden gebruikt. 
+    Er zijn twee soorten kadastraal onroerende zaken, perceel en appartementsrecht. Een perceel is een begrensd deel van het Nederlands grondgebied. Een appartementsrecht omvat de bevoegdheid tot het gebruik van bepaalde gedeelten van een gebouw die blijkens hun inrichting bestemd zijn of worden om als afzonderlijk geheel te worden gebruikt. 
     
     De filiatie van een perceel wordt op een andere manier geregistreerd en daardoor ook op een andere manier in de API getoond dan een appartementsrecht.
 
     Een perceel kan worden gesplitst in meerdere nieuwe percelen. Een perceel kan ook worden samengevoegd met één of meerdere andere percelen. 
-    Wanneer een perceel wordt gesplitst of samengevoegd vervallen de oude kadastraal onroerende zaken en ontstaan er nieuwe kadastraal onroerende zaken. De vervallen kadastraal onroerende zaken (percelen) zijn dan nog wel raadpleegbaar.
+    Wanneer een perceel wordt gesplitst of samengevoegd vervallen de oude kadastraal onroerende zaken (percelen) en ontstaan er nieuwe kadastraal onroerende zaken (percelen). De vervallen kadastraal onroerende zaken (percelen) zijn dan nog wel raadpleegbaar.
 
     Een perceel kan worden gesplitst in meerdere appartementsrechten. Zowel het perceel als de daaruit gesplitste appartementsrechten zijn kadastraal onroerende zaken. Bij splitsing van een perceel in appartementsrechten blijft de kadastraal onroerende zaak van het "grondperceel" actueel, het is dan niet vervallen.
 
@@ -47,18 +47,13 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "20",
                             "waarde": "Splitsen perceel"
                         },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P2"
-                        }
-                    },
-                    {
-                        "aard": {
-                            "code": "20",
-                            "waarde": "Splitsen perceel"
-                        },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P3"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P2",
+                            "type": "perceel"
+                        }, {
+                            "identificatie": "P3",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -78,9 +73,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "20",
                             "waarde": "Splitsen perceel"
                         },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P1"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P1",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -106,9 +102,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "19",
                             "waarde": "Verenigen percelen"
                         },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P6"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P6",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -132,18 +129,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                             "code": "19",
                             "waarde": "Verenigen percelen"
                         },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P4"
-                        }
-                    },
-                    {
-                        "aard": {
-                            "code": "19",
-                            "waarde": "Verenigen percelen"
-                        },
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P5"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "P4",
+                                "type": "perceel"
+                            }, {
+                                "identificatie": "P5",
+                                "type": "perceel"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -167,14 +161,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A1"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A2"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "A1",
+                                "type": "appartementsrecht"
+                            }, 
+                                "identificatie": "A2",
+                                "type": "appartementsrecht"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -209,9 +204,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P7"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P7",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -236,14 +232,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P8"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P9"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "P8",
+                                "type": "perceel"
+                            }, {
+                                "identificatie": "P9",
+                                "type": "perceel"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -270,14 +267,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A5"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A6"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "A5",
+                                "type": "appartementsrecht"
+                            }, {
+                                "identificatie": "A6",
+                                "type": "appartementsrecht"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -323,9 +321,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P10"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P10",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -333,14 +332,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A7"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A8"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "A7",
+                                "type": "appartementsrecht"
+                            }, {
+                                "identificatie": "A8",
+                                "type": "appartementsrecht"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -365,9 +365,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A6"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "A6",
+                            "type": "appartementsrecht"
+                        }]
                     }
                 ]
                 """
@@ -392,9 +393,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P12"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P12",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -420,9 +422,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P16"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P16",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -453,27 +456,26 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
             En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
             En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 7
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 8
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/P17" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A13"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A14"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A16"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "A13",
+                                "type": "appartementsrecht"
+                            }, {
+                                "identificatie": "A14",
+                                "type": "appartementsrecht"
+                            }, {
+                                "identificatie": "A16",
+                                "type": "appartementsrecht"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -533,7 +535,7 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
             En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
             En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
-            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En door de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
@@ -551,14 +553,15 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A14"
-                        }
-                    },
-                    {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P17"
-                        }
+                        "kadastraalOnroerendeZaken": [
+                            {
+                                "identificatie": "A14",
+                                "type": "appartementsrecht"
+                            }, {
+                                "identificatie": "P17",
+                                "type": "perceel"
+                            }
+                        ]
                     }
                 ]
                 """
@@ -594,9 +597,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "P17"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "P17",
+                            "type": "perceel"
+                        }]
                     }
                 ]
                 """
@@ -604,9 +608,10 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
                 """
                 [
                     {
-                        "kadastraalOnroerendeZaak": {
-                            "identificatie": "A16"
-                        }
+                        "kadastraalOnroerendeZaken": [{
+                            "identificatie": "A16",
+                            "type": "appartementsrecht"
+                        }]
                     }
                 ]
                 """
@@ -616,3 +621,4 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En bevat het antwoord geen property "einddatum"
             En is de kadastraal onroerende zaak sluimerend
             En bevat het antwoord geen property "bijbehorendeAppartementsrechten"
+            
