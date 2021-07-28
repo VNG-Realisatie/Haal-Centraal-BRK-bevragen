@@ -41,21 +41,19 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P1" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "aard": {
-                            "code": "20",
-                            "waarde": "Splitsen perceel"
-                        },
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P2",
-                            "type": "perceel"
-                        }, {
-                            "identificatie": "P3",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "20",
+                        "waarde": "Splitsen perceel"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P2",
+                        "type": "perceel"
+                    }, {
+                        "identificatie": "P3",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "indicatieVervallen": true
             En bevat het antwoord property "einddatum" met een waarde
@@ -67,18 +65,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P2" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "aard": {
-                            "code": "20",
-                            "waarde": "Splitsen perceel"
-                        },
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P1",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "20",
+                        "waarde": "Splitsen perceel"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P1",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
@@ -96,18 +92,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P4" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "aard": {
-                            "code": "19",
-                            "waarde": "Verenigen percelen"
-                        },
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P6",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "19",
+                        "waarde": "Verenigen percelen"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P6",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "indicatieVervallen": true
             En bevat het antwoord property "einddatum" met een waarde
@@ -123,23 +117,21 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P6" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "aard": {
-                            "code": "19",
-                            "waarde": "Verenigen percelen"
-                        },
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "P4",
-                                "type": "perceel"
-                            }, {
-                                "identificatie": "P5",
-                                "type": "perceel"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "19",
+                        "waarde": "Verenigen percelen"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "P4",
+                            "type": "perceel"
+                        }, {
+                            "identificatie": "P5",
+                            "type": "perceel"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
@@ -159,32 +151,32 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P7" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "A1",
-                                "type": "appartementsrecht"
-                            }, 
-                                "identificatie": "A2",
-                                "type": "appartementsrecht"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "A1",
+                            "type": "appartementsrecht"
+                        }, 
+                            "identificatie": "A2",
+                            "type": "appartementsrecht"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
-                [
-                    {
-                        "identificatie": "A1",
-                        "volgnummer": 1
-                    },
-                    {
-                        "identificatie": "A2",
-                        "volgnummer": 2
-                    }
-                ]
+                {
+                    "identificatie": "A1",
+                    "volgnummer": 1
+                },
+                {
+                    "identificatie": "A2",
+                    "volgnummer": 2
+                }
                 """
             En bevat het antwoord geen property "indicatieVervallen"
             En bevat het antwoord geen property "einddatum"
@@ -202,14 +194,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A1" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P7",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P7",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P7" ]
             En bevat het antwoord "volgnummer": 1
@@ -230,19 +224,21 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A3" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "P8",
-                                "type": "perceel"
-                            }, {
-                                "identificatie": "P9",
-                                "type": "perceel"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "P8",
+                            "type": "perceel"
+                        }, {
+                            "identificatie": "P9",
+                            "type": "perceel"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P8", "P9" ]
             En bevat het antwoord "volgnummer": 1
@@ -265,19 +261,21 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P10" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "A5",
-                                "type": "appartementsrecht"
-                            }, {
-                                "identificatie": "A6",
-                                "type": "appartementsrecht"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "A5",
+                            "type": "appartementsrecht"
+                        }, {
+                            "identificatie": "A6",
+                            "type": "appartementsrecht"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
@@ -319,30 +317,34 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A6" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P10",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P10",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "A7",
-                                "type": "appartementsrecht"
-                            }, {
-                                "identificatie": "A8",
-                                "type": "appartementsrecht"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "26",
+                        "waarde": "Ondersplitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "A7",
+                            "type": "appartementsrecht"
+                        }, {
+                            "identificatie": "A8",
+                            "type": "appartementsrecht"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P10" ]
             En bevat het antwoord "volgnummer": 2
@@ -363,14 +365,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A7" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "A6",
-                            "type": "appartementsrecht"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "26",
+                        "waarde": "Ondersplitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "A6",
+                        "type": "appartementsrecht"
+                    }]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P10" ]
             En bevat het antwoord "volgnummer": 3
@@ -391,14 +395,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A9" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P12",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P12",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P12" ]
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P11"
@@ -420,14 +426,16 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/A11" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P16",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P16",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P16" ]
             En bevat het antwoord in "bijbehorendeGrondperceelIdentificaties" geen waarde "P14"
@@ -446,7 +454,7 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
             En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
             En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
-            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En door de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
@@ -462,22 +470,24 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             Als "/kadastraalonroerendezaken/P17" wordt gevraagd
             Dan bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "A13",
-                                "type": "appartementsrecht"
-                            }, {
-                                "identificatie": "A14",
-                                "type": "appartementsrecht"
-                            }, {
-                                "identificatie": "A16",
-                                "type": "appartementsrecht"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "A13",
+                            "type": "appartementsrecht"
+                        }, {
+                            "identificatie": "A14",
+                            "type": "appartementsrecht"
+                        }, {
+                            "identificatie": "A16",
+                            "type": "appartementsrecht"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeAppartementsrechten" met waarde:    
                 """
@@ -512,7 +522,7 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
             En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
             En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
-            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En door de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
@@ -522,8 +532,8 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
             En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
             En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 7
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 8
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A15" wordt gevraagd
             Dan geeft het antwoord http statuscode 410
@@ -545,25 +555,27 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
             En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
             En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 7
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 8
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A18" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [
-                            {
-                                "identificatie": "A14",
-                                "type": "appartementsrecht"
-                            }, {
-                                "identificatie": "P17",
-                                "type": "perceel"
-                            }
-                        ]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "28",
+                        "waarde": "Wijziging ondersplitsing m.b.t. appartementindices"
+                    },
+                    "kadastraalOnroerendeZaken": [
+                        {
+                            "identificatie": "A14",
+                            "type": "appartementsrecht"
+                        }, {
+                            "identificatie": "P17",
+                            "type": "perceel"
+                        }
+                    ]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P17" ]
             En bevat het antwoord "volgnummer": 6
@@ -579,7 +591,7 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A13" is niet verder gesplitst of verenigd
             En Appartementsrecht met identificatie "A14" is ondergesplitst in appartementsrechten "A16" en "A17"
             En Appertementsrechten met identificatie "A15" en "A17" zijn samengevoegd (via wijzigingssplitsing)
-            En voor de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
+            En door de wijzigingssplitsing zijn appartementsrechten "A13", "A14", "A15", "A16" en "A17" vervallen
             En is appartementsrecht "A13" nieuw appartementsrecht "A18" geworden
             En is appartementsrecht "A16" nieuw appartementsrecht "A19" geworden
             En zijn appartementsrechten "A15" en "A17" nieuw appartementsrecht "A20" geworden
@@ -589,31 +601,35 @@ Functionaliteit: Als gemeente wil ik inzicht in de filiatie van Kadastraal onroe
             En Appartementsrecht met identificatie "A16" heeft "volgnummer"= 4
             En Appartementsrecht met identificatie "A17" heeft "volgnummer"= 5
             En Appartementsrecht met identificatie "A18" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 6
-            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 6
+            En Appartementsrecht met identificatie "A19" heeft "volgnummer"= 7
+            En Appartementsrecht met identificatie "A20" heeft "volgnummer"= 8
             En Appartementsrecht met identificatie "A18" is niet verder gesplitst of verenigd
             Als "/kadastraalonroerendezaken/A14" wordt gevraagd
             Dan bevat het antwoord "isOntstaanUit" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "P17",
-                            "type": "perceel"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "25",
+                        "waarde": "Splitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "P17",
+                        "type": "perceel"
+                    }]
+                }
                 """
             En bevat het antwoord "isOvergegaanIn" met waarde:    
                 """
-                [
-                    {
-                        "kadastraalOnroerendeZaken": [{
-                            "identificatie": "A16",
-                            "type": "appartementsrecht"
-                        }]
-                    }
-                ]
+                {
+                    "aard": {
+                        "code": "26",
+                        "waarde": "Ondersplitsing in appartementsrechten"
+                    },
+                    "kadastraalOnroerendeZaken": [{
+                        "identificatie": "A16",
+                        "type": "appartementsrecht"
+                    }]
+                }
                 """
             En bevat het antwoord "bijbehorendeGrondperceelIdentificaties": [ "P17" ]
             En bevat het antwoord "volgnummer": 2
