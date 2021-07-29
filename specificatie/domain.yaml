@@ -591,13 +591,9 @@ components:
           items:
             type: string
         isOvergegaanIn:
-          type: array
-          items:
-            $ref: "#/components/schemas/Filiatie"
+          $ref: "#/components/schemas/Filiatie"
         isOntstaanUit:
-          type: array
-          items:
-            $ref: "#/components/schemas/Filiatie"
+          $ref: "#/components/schemas/Filiatie"
         bijbehorendeGrondpercelen:
           description: |
             De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
