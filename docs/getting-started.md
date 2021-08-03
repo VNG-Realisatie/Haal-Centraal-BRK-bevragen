@@ -316,6 +316,28 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td> </td>
 		<td> </td>
 	</tr>
+	<tr>
+		<td>Filiatie</td>
+		<td>59020001970000<br/>Groningen P 19</td>
+		<td> </td>
+		<td> </td>
+		<td>vervallen perceel</td>
+	</tr>
+	<tr>
+		<td>Filiatie</td>
+		<td>59020001870000<br/>Groningen P 18</td>
+		<td> </td>
+		<td> </td>
+		<td>vervallen perceel</td>
+	</tr>
+	<tr>
+		<td>Filiatie</td>
+		<td>59020001770000<br/>Groningen P 17</td>
+		<td> </td>
+		<td> </td>
+		<td>vervallen perceel</td>
+	</tr>
+
 </table>
 
 #### Kadaster Natuurlijke Personen
@@ -363,15 +385,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 	<tr><td>Gemeente Den Testland       </td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291441                      </td><td><ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
 	<tr><td>Woningstichting Den Testland</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291442                      </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
 	<tr><td>Vereniging van eigenaars hoofdsplitsing</td><td>GRONINGEN</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>419941781                     </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Vereniging van eigenaars ondersplitsing</td><td>GRONINGEN</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>552056080                     </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
 </table>
-
-#### Foutscenarios
-
-|Aanvraag                                |Foutscenario   |
-|-----                                   |-------        |
-|/kadastraalonroerendezaken/122003147000 | 404 Not found |
-|/kadastraalonroerendezaken/122003157000 | 410 Gone      |
 
 ## Aansluiten op productie
 Voor de connectie met de productieomgeving van deze API is vereist:
