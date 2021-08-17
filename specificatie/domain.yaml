@@ -750,11 +750,6 @@ components:
     PerceelFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
-        - properties:
-            indicatieVervallen:
-              description: |
-                Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
-              type: "boolean"
     PersoonBasis:
       type: "object"
       description: |
