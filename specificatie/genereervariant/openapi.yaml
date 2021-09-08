@@ -4792,8 +4792,6 @@ components:
           type: string
         deelEnNummer:
           $ref: '#/components/schemas/DeelEnNummer'
-        stukType:
-          $ref: '#/components/schemas/StukTypeEnum'
         domein:
           type: string
           description: |
@@ -4818,16 +4816,6 @@ components:
           type: boolean
           description: |
             Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.
-        tijdstipAanbieding:
-          type: string
-          description: |
-            Het tijdstip dat het stuk bij het kadaster is binnengekomen.
-          format: date-time
-        tijdstipOndertekening:
-          type: string
-          description: |
-            Het tijdstip dat het stuk is ondertekend door partijen en de notaris
-          format: date-time
         aard:
           $ref: '#/components/schemas/Waardelijst'
         status:
@@ -4839,7 +4827,7 @@ components:
           items:
             $ref: '#/components/schemas/Kadasterverzoek'
       description: |
-        Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+        Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
         Waardelijsten in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
           [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
@@ -4870,11 +4858,6 @@ components:
           [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
           [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
           [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)
-    StukTypeEnum:
-      type: string
-      enum:
-      - Kadasterstuk
-      - Aangebodenstuk
     EquivalentieVerklaarder:
       type: object
       description: |

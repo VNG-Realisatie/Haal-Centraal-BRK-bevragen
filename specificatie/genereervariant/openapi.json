@@ -6030,9 +6030,6 @@
           "deelEnNummer" : {
             "$ref" : "#/components/schemas/DeelEnNummer"
           },
-          "stukType" : {
-            "$ref" : "#/components/schemas/StukTypeEnum"
-          },
           "domein" : {
             "type" : "string",
             "description" : "Het domein waartoe de identificatie behoort.\n"
@@ -6055,16 +6052,6 @@
             "type" : "boolean",
             "description" : "Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.\n"
           },
-          "tijdstipAanbieding" : {
-            "type" : "string",
-            "description" : "Het tijdstip dat het stuk bij het kadaster is binnengekomen.\n",
-            "format" : "date-time"
-          },
-          "tijdstipOndertekening" : {
-            "type" : "string",
-            "description" : "Het tijdstip dat het stuk is ondertekend door partijen en de notaris\n",
-            "format" : "date-time"
-          },
           "aard" : {
             "$ref" : "#/components/schemas/Waardelijst"
           },
@@ -6081,7 +6068,7 @@
             }
           }
         },
-        "description" : "Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"
+        "description" : "Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"
       },
       "DeelEnNummer" : {
         "type" : "object",
@@ -6109,10 +6096,6 @@
           }
         },
         "description" : "Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen.\nWaardelijst in deze component :\n  [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)\n  [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)\n  [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)\n"
-      },
-      "StukTypeEnum" : {
-        "type" : "string",
-        "enum" : [ "Kadasterstuk", "Aangebodenstuk" ]
       },
       "EquivalentieVerklaarder" : {
         "type" : "object",
