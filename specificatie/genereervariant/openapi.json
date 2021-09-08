@@ -508,29 +508,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -759,29 +736,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -1018,29 +972,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1248,29 +1179,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -1486,29 +1394,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1697,29 +1582,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1904,29 +1766,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -2138,29 +1977,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -2380,29 +2196,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -2664,29 +2457,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -2902,29 +2672,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -3186,29 +2933,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -3424,29 +3148,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
@@ -3858,29 +3559,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -4096,29 +3774,6 @@
                   "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
                   "code" : "notAcceptable"
-                }
-              }
-            }
-          },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
                 }
               }
             }
