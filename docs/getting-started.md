@@ -30,10 +30,13 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - [Beslag](#beslag)
 - [Privaatrechtelijke beperking](#privaatrechtelijkebeperking)
 - [Publiekrechtelijke beperking](#publiekrechtelijkebeperking)
+- [Stuk](#stuk)
+- [Stukdeel](#stukdeel)
 
 #### KadastraalOnroerendeZaak
 - Opvragen van 1 specifiek kadastraalonroerendezaak resource o.b.v. een kadastraalonroerendezaakidentificatie.
 - Opvragen van 1 specifiek kadastraalonroerendezaak resource o.b.v. een kadastraleaanduiding.
+- Opvragen van 1 specifiek kadastraalonroerendezaak resource o.b.v. een nummeraanduidingIdentificatie.
 - Opvragen van een collectie kadastraalonroerendezaak resources o.b.v. een adres (postcode, huisnummer, huisletter, huisnummertoevoeging).
 - Opvragen van een collectie kadastraalonroerendezaak resources, waarbij een kadaster natuurlijk persoon rechthebbende is, o.b.v. een kadasterpersoonidentificatie.
 - Opvragen van een collectie kadastraalonroerendezaak resources, waarbij een kadaster nietnatuurlijk persoon rechthebbende is, o.b.v. een kadasterpersoonidentificatie.
@@ -63,8 +66,14 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 - Opvragen van 1 specifiek privaatrechtelijkebeperking resource o.b.v. privaatrechtelijkebeperkingidentificatie en kadastraalonroerendezaakidentificatie.
 - Opvragen van een collectie privaatrechtelijkebeperking resources behorende bij een kadastraal onroerende zaak o.b.v. een kadastraalonroerendezaakidentificatie.
 
-#### PrubliekrechtelijkeBeperking
+#### PubliekrechtelijkeBeperking
 - Opvragen van een collectie publiekrechtelijkebeperking resources o.b.v. een kadastraalonroerendezaakidentificatie.
+
+#### Stuk
+- Opvragen van 1 specifiek stuk resource o.b.v. stukidentificatie.
+
+#### Stukdeel
+- Opvragen van 1 specifiek stukdeel resource o.b.v. stukdeelidentificatie.
 
 
 ### Algemeen
@@ -75,15 +84,17 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 
 |Resource                           |Velden                         |
 |-----                              |------                         |
-|KadastraalOnroerendeZaak           |identificatie, type, _links.self |
-|ZakelijkGerechtigde                |identificatie, _links.self |
-|KadasterNatuurlijkPersoon          |identificatie, _links.self |
-|KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
-|Beslag                             |identificatie, _links.self |
-|hypotheek                          |identificatie, _links.self |
-|KadasterNietNatuurlijkPersoon      |identificatie, _links.self |
-|PrivaatrechtelijkeBeperking        |identificatie, _links.self |
-|PubliekrechtelijkeBeperking        |identificatie |
+|KadastraalOnroerendeZaak           |identificatie, _links.self, type, domein |
+|ZakelijkGerechtigde                |identificatie, _links.self, domein |
+|KadasterNatuurlijkPersoon          |identificatie, _links.self, domein |
+|KadasterNietNatuurlijkPersoon      |identificatie, _links.self, domein |
+|Beslag                             |identificatie, _links.self, domein |
+|hypotheek                          |identificatie, _links.self, domein |
+|KadasterNietNatuurlijkPersoon      |identificatie, _links.self, domein |
+|PrivaatrechtelijkeBeperking        |identificatie, _links.self, domein |
+|PubliekrechtelijkeBeperking        |identificatie, domein |
+|Stuk                               |identificatie, _links.self, domein |
+|Stukdeel                           |identificatie, _links.self, domein |
 
 - Combinatie van velden die altijd verplicht worden geleverd.
 
@@ -344,18 +355,19 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 
 <table>
 	<tr><th>Naam</th><th>Geboortedatum</th><th>KadasterPersoonIdentificatie</th><th>Bijzonderheden</th></tr>
-	<tr><td>Willem Jansens</td><td>1971-11-01</td><td>70882239</td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li></ul></td></tr>
-	<tr><td>Sidonia Jansens</td><td>1950-01-01</td><td>50550743</td><td><ul><li>buitenlands woonadres</li></ul></td></tr>
+	<tr><td>Willem Jansens</td><td>1971-11-01</td><td>70882239</td><td><ul><li>alle velden gevuld</li><li>woonadres is niet bekend in BAG</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Jansens</li></ul></td></tr>
+	<tr><td>Sidonia Jansens-Jan</td><td>1950-01-01</td><td>50550743</td><td><ul><li>buitenlands woonadres</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Jansens-Jan</li></ul></td></tr>
 	<tr><td>Christaan Goede</td><td>1971-11-01</td><td>71303564</td><td><ul><li>woonadres is wel bekend in BAG</li></ul></td></tr>
-	<tr><td>Anne Janssens</td><td></td><td>80000001</td><td><ul><li>geslacht onbekend</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Jan Groenen</td><td></td><td>80000002</td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Susan in het Veld</td><td></td><td>80000003</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Petra Anne Veldwijk</td><td></td><td>80000004</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>H Pieters</td><td></td><td>80000005</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Öle Klaassen</td><td></td><td>80000006</td><td><ul><li>diakriet in voornaam</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Baron Jan-Jaap de Vierde</td><td></td><td>80000007</td><td><ul><li>adellijke titel</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Harry Pier</td><td></td><td>70882250</td><td><ul><li>overleden</li><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Bep Jansen</td><td></td><td>46299338</td><td><ul><li>kan niet op gezocht worden via /kadasternatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Anne Janssens</td><td></td><td>80000001</td><td><ul><li>geslacht onbekend</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Janssens</li></ul></td></tr>
+	<tr><td>Jan Groenen</td><td></td><td>80000002</td><td><ul><li>aanduiding: eigen geslachtsnaam</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Groenen</li></ul></td></tr>
+	<tr><td>Susan in het Veld</td><td></td><td>80000003</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner na eigen geslachtsnaam</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Veld</li></ul></td></tr>
+	<tr><td>Petra Anne Veldwijk</td><td></td><td>80000004</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Veldwijk</li></ul></td></tr>
+	<tr><td>H Pieters</td><td></td><td>80000005</td><td><ul><li>aanduiding: geslachtsnaam echtgenoot/geregistreerd partner voor eigen geslachtsnaam</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Pieters</li></ul></td></tr>
+	<tr><td>Öle Klaassen</td><td></td><td>80000006</td><td><ul><li>diakriet in voornaam</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Klaassen</li></ul></td></tr>
+	<tr><td>Baron Jan-Jaap de Vierde</td><td></td><td>80000007</td><td><ul><li>adellijke titel</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Vierde</li></ul></td></tr>
+	<tr><td>Piet Wielen</td><td></td><td>80000008</td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Wielen</li></ul></td></tr>
+	<tr><td>Harry Pier</td><td></td><td>70882250</td><td><ul><li>overleden</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Pier</li></ul></td></tr>
+	<tr><td>Bep Jansen</td><td></td><td>46299338</td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternatuurlijkpersonen?q=Jansen</li></ul></td></tr>
 </table>
 
 #### Ingeschreven Natuurlijke Personen
@@ -379,12 +391,15 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 
 <table>
 	<tr><th>Statutaire Naam             </th><th>Zetel        </th><th>Type                                </th><th>KadasterPersoonIdentificatie  </th>	<th>Bijzonderheden       </th></tr>
-	<tr><td>Bankbedrijf                 </td><td>ROTTERDAM    </td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291440                      </td><td><ul><li>postadres is postbus</li></ul></td></tr>
-	<tr><td>Bankbedrijf van vrucht      </td><td>GRAVE        </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>71291493                      </td><td><ul><li>heeft niks op naam</li></ul></td></tr>
-	<tr><td>Gasunie Test BV             </td><td>GRONINGEN    </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>440650207                     </td><td>                                      </td></tr>
-	<tr><td>Gemeente Den Testland       </td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291441                      </td><td><ul><li>kan niet op gezocht worden via /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Woningstichting Den Testland</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291442                      </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
-	<tr><td>Vereniging van eigenaars hoofdsplitsing</td><td>GRONINGEN</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>419941781                     </td><td><ul><li>kan niet op gezocht worden /kadasternietnatuurlijkpersonen?q=</li></ul></td></tr>
+	<tr><td>Bankbedrijf                 </td><td>ROTTERDAM    </td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291440                      </td><td><ul><li>postadres is postbus</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Bankbedrijf</li></ul></td></tr>
+	<tr><td>Bankbedrijf van vrucht      </td><td>GRAVE        </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>71291493                      </td><td><ul><li>heeft niks op naam</li><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Bankbedrijf van vrucht</li></ul></td></tr>
+	<tr><td>Gassie Test B.V.             </td><td>GRONINGEN    </td><td>Ingeschreven Niet Natuurlijk Persoon</td><td>440650207                     </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Gassie Test B.V.</li></ul></td></tr>
+	<tr><td>Gemeente Den Testland       </td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291441                      </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Gemeente Den Testland</li></ul></td></tr>
+	<tr><td>Woningstichting Den Testland</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291442                      </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Woningstichting Den Testland</li></ul></td></tr>
+	<tr><td>De TestStaat</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>71291443                      </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=De TestStaat</li></ul></td></tr>
+	<tr><td>NederlandscheBanck N.V.</td><td>'S-GRAVENHAGE</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>24268006                      </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=NederlandscheBanck N.V.</li></ul></td></tr>
+	<tr><td>Vereniging van eigenaars hoofdsplitsing</td><td>GRONINGEN</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>419941781                     </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Vereniging van eigenaars hoofdsplitsing</li></ul></td></tr>
+	<tr><td>Vereniging van eigenaars ondersplitsing</td><td>GRONINGEN</td><td>Kadaster Niet Natuurlijk Persoon    </td><td>552056080                     </td><td><ul><li>kan in de testomgeving alleen op gezocht worden via /kadasternietnatuurlijkpersonen?q=Vereniging van eigenaars ondersplitsing</li></ul></td></tr>
 </table>
 
 ## Aansluiten op productie

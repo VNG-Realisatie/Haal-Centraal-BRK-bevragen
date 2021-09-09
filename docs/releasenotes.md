@@ -14,23 +14,24 @@ title: Haal Centraal BRK bevragingen
   - Nieuwe endpoints toegevoegd voor stukken en stukdelen.
   - Bestaande resources zijn (voorzover van toepassing) uitgebreid met relaties naar de betrokken stukken en stukdelen.
   - Path parameters zijn aangepast naar camelcase
+  - Response code 410 verwijderd bij de endpoints
+
 
 - stukken 2 nieuwe endpoints  ([622](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/622){:target="_blank"} en [624](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/624){:target="_blank"} ):
   - /stukken/{stukidentificatie}
   - /stukdelen/{stukdeelidentificatie}
 
+
 - kadastraalOnroerendeZaken
   - nummeraanduidingIdentificatie is toegevoegd als queryparameter aan /kadastraalonroerendezaken ([41](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/41){:target="_blank"})
   - Properties toegevoegd:
-    - indicatieVervallenKadastraalOnroerendeZaak ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/22){:target="_blank"})
-    - einddatumRecht ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/22){:target="_blank"})
+    - indicatieVervallen ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/22){:target="_blank"})
     - isOvergegaanIn ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
     - isOntstaanUit ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
-    - bijbehorendeGrondperceelIdentificatie ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
-    - bijbehorendeAppartementsrechtIdentificaties ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeGrondpercelen ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeAppartementsrechten ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
     - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - adresseerbaarObjectIdentificatie (bij adres) ([756](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/756){:target="_blank"})
   - Links toegevoegd:
     - isOntstaanUit (achterwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak) ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
     - isOvergegaanIn (voorwaartse filiatie naar gerelateerde kadastraalOnroerendeZaak) ([42](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/42){:target="_blank"} , [537](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/537){:target="_blank"} , [538](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/538){:target="_blank"})
@@ -38,8 +39,9 @@ title: Haal Centraal BRK bevragingen
     - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - adressen (link naar [Haal-Centraal BAG adressen endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/) is nu in productie beschikbaar )
     - adresseerbareObjecten (link naar [Haal-Centraal BAG adresseerbareobjecten endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/))
-    - bijbehorendGrondperceel (link naar de betreffende gerelateerde kadastraalOnroerendeZaak) ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
-    - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaekn die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak. ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeGrondpercelen (link naar gerelateerde kadastraalOnroerendeZaken) ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+    - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaken die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak. ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/issues/200){:target="_blank"})
+ 
 
 - hypotheken
   - Properties toegevoegd:
@@ -47,45 +49,103 @@ title: Haal Centraal BRK bevragingen
     - omschrijvingGekozenWoonplaats (n.a.v. opnemen stukdeel)
     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - De links naar stukken en stukdelen zijn opgenomen.
+  - Links toegevoegd:
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - Accept-Crs header en Content-Crs header zijn verwijderd bij: 
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}
+
 
 -  beslagen
   - Properties toegevoegd:
     - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - De links naar stukken en stukdelen zijn opgenomen.
+  - Links toegevoegd:
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
   - Property betreftGedeelteVanPerceel is deprecated verklaard. 
+  - Accept-Crs header en Content-Crs header zijn verwijderd bij:
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}
+
 
 - privaatrechtelijkeBeperkingen
   - Properties toegevoegd (overerfd uit Aantekening):
     - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - De links naar stukken en stukdelen zijn opgenomen.
+  - Links toegevoegd:
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+  - Accept-Crs header en Content-Crs header zijn verwijderd bij:
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen
+    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingIdentificatie}
+
 
 - publiekrechtelijkeBeperkingen
   - Properties toegevoegd:
     - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - De links naar stukken en stukdelen zijn opgenomen.
+  - Links toegevoegd:
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+
 
 - zakelijkGerechtigde
+  - zakelijkRecht toegevoegd
   - Properties toegevoegd:
-    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - zakelijkRecht.stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - zakelijkRecht.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - zakelijkRecht.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - erfpachtCanon.StukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - erfpachtCanon.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - erfpachtCanon.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - tenaamstelling.StukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - tenaamstelling.isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - tenaamstelling.isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - De links naar stukken en stukdelen zijn opgenomen.
+  - Links toegevoegd:
+    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+
 
 - KadasterNatuurlijkPersoon
   - Property geheimhoudingPersoonsgegevens is deprecated verklaard. 
+  
+
+- LocatieKadastraalObject
+  - Property adresseerbaarObjectIdentificatie toegevoegd
+
+
+- AantekeningBasis
+  - Property betreftGedeelteVanPerceel is deprecated verklaard.
+ 
+
+- Aantekening
+  - Properties toegevoegd:
+    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+
+
+- Nieuwe componenten toegevoegd:
+  - Filiatie
+  - KadastraalOnroerendeZaakFiliatie
+  - AppartementsrechtFiliatie
+  - PerceelFiliatie
+  - PerceelBasis
+  - KadastraalOnroerendeZaakBasis
+  - AppartementsrechtBasis
+  - ZakelijkRecht  
+  - Stuk
+  - DeelEnNummer
+  - EquivalentieVerklaarder 
+  - Kadasterverzoek
+  - RedenVerzoek
+  - Stukdeel  
+  - AantekeningHypotheek
 
 ### issues:
 
