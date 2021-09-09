@@ -58,17 +58,17 @@ title: Haal Centraal BRK bevragingen
 
 
 -  beslagen
-  - Properties toegevoegd:
-    - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - Links toegevoegd:
-    - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-    - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - Property betreftGedeelteVanPerceel is deprecated verklaard. 
-  - Accept-Crs header en Content-Crs header zijn verwijderd bij:
-    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen
-    - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}
+   - Properties toegevoegd:
+     - stukIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+     - isGebaseerdOpStukdeelIdentificatie (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+     - isVermeldInStukdeelIdentificaties (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+   - Links toegevoegd:
+     - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+     - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
+   - Property betreftGedeelteVanPerceel is deprecated verklaard. 
+   - Accept-Crs header en Content-Crs header zijn verwijderd bij:
+     - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen
+     - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}
 
 
 - privaatrechtelijkeBeperkingen
