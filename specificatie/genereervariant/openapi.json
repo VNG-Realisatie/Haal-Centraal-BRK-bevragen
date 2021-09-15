@@ -5737,11 +5737,7 @@
             "description" : "Volgnummer van het stuk.\n"
           },
           "reeks" : {
-            "type" : "array",
-            "description" : "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)\n",
-            "items" : {
-              "$ref" : "#/components/schemas/Waardelijst"
-            }
+            "$ref" : "#/components/schemas/Waardelijst"
           },
           "registercode" : {
             "$ref" : "#/components/schemas/Waardelijst"
