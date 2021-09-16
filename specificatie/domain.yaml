@@ -233,11 +233,9 @@ components:
                         Volgnummer van het stuk.
           type: "string"
         reeks:
-          type: "array"
           description: |
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
-          items:
-            $ref: "#/components/schemas/Waardelijst"
+          $ref: "#/components/schemas/Waardelijst"
         registercode:
           description: |
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)
