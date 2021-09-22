@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen. Waardelijst in deze component :   [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)   [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)   [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) 
  */
 @ApiModel(description = "Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen. Waardelijst in deze component :   [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)   [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)   [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T10:30:56.069820Z[Etc/UTC]")
 public class DeelEnNummer {
   public static final String SERIALIZED_NAME_DEEL = "deel";
   @SerializedName(SERIALIZED_NAME_DEEL)

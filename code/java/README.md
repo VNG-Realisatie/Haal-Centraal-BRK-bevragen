@@ -2,7 +2,7 @@
 
 Kadaster - BRK-Bevragen API
 - API version: 1.3.0
-  - Build date: 2021-09-22T08:28:41.072015Z[Etc/UTC]
+  - Build date: 2021-09-22T10:30:56.069820Z[Etc/UTC]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
 Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
