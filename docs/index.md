@@ -13,7 +13,12 @@ API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster 
 
 ## BRK bevragen v1.3 is live!
 
-BRK bevragen bevat nu ook privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
+Naast zoeken op nummeraanduiding, levert BRK bevragen nu ook:
+* de complete filiatie
+* bij ieder perceel de bijbehorende appartementsrechten
+* bij ieder appartementsrecht het bijbehorend perceel
+* de metadata van alle stukken en stukdelen, eventueel op te halen via KIK Inzage
+
 Bekijk de [release notes](./releasenotes).
 
 ## Direct aan de slag?
@@ -26,8 +31,8 @@ Bekijk de [release notes](./releasenotes).
 
 ## Doorontwikkeling van de BRK bevragen API
 
-Komende periode wordt de API uitgebreid met links naar de BAG, filiatie en stukken (v1.3). 
-* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22BRK+bevragen+v1.3%22){:target="_blank" rel="noopener"}
+Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan (v1.4). 
+* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22BRK+bevragen+v1.4%22){:target="_blank" rel="noopener"}
 * Bekijk de specificaties in ontwikkeling met [Swagger UI](./swagger-ui-io) of [Redoc](./redoc-io)
 
 ## Bronnen
