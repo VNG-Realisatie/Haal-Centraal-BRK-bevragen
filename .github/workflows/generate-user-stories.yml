@@ -1,6 +1,8 @@
 name: publish 'in productie' en 'in ontwikkeling' user stories
 
 on:
+  schedule:
+    - cron: '0 9,11,12,14,16,17 * * *'
   workflow_dispatch:
 
 jobs:
@@ -47,7 +49,7 @@ jobs:
         with:
           format: list
           query:  label:"v1.2" label:"User Story"
-          token: ${{ secrets.USER_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: issues-tmp.md
       - run: |
           cat issues-tmp.md >> user-stories-prod.md
@@ -58,7 +60,7 @@ jobs:
         with:
           format: list
           query:  label:"v1.1" label:"User Story"
-          token: ${{ secrets.USER_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: issues-tmp.md
       - run: |
           cat issues-tmp.md >> user-stories-prod.md
@@ -69,20 +71,22 @@ jobs:
         with:
           format: list
           query:  label:"v1.0" label:"User Story"
-          token: ${{ secrets.USER_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: issues-tmp.md
       - run: |
           cat issues-tmp.md >> user-stories-prod.md
           echo -e '\n' >> user-stories-prod.md
 
-      - name: target=_blank toevoegen, move naar ./docs en committen
+      - name: target=_blank toevoegen aan issue link
         run: |
           sed -i 's/)$/){:target="_blank" rel="noopener"}/' user-stories-dev.md
           sed -i 's/)$/){:target="_blank" rel="noopener"}/' user-stories-prod.md
-
+      - name: move user-stories markdown bestanden naar ./docs
+        run: |
           mv user-stories-dev.md ./docs/user-stories-dev.md
           mv user-stories-prod.md ./docs/user-stories-prod.md
-
+      - name: commit & push user-stories markdown bestanden
+        run: |
           if [ -n "$(git status ./docs/user-stories-dev.md --porcelain)" ]; then
             git add ./docs/user-stories-dev.md
           fi
@@ -94,5 +98,6 @@ jobs:
             git config user.name "$GITHUB_ACTOR"
             git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
             git commit -m "commit user stories artifacts"
+            git pull --ff
             git push
           fi

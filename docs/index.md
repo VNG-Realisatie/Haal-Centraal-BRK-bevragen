@@ -18,6 +18,7 @@ Naast zoeken op nummeraanduiding, levert BRK bevragen nu ook:
 * bij ieder perceel de bijbehorende appartementsrechten
 * bij ieder appartementsrecht het bijbehorend perceel
 * de metadata van alle stukken en stukdelen, eventueel op te halen via KIK Inzage
+
 Bekijk de [release notes](./releasenotes).
 
 ## Direct aan de slag?
@@ -40,6 +41,7 @@ Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eige
 * [API Design Visie](https://github.com/Geonovum/KP-APIs/tree/master/Werkgroep%20Design%20Visie){:target="_blank" rel="noopener"}
 * [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/){:target="_blank" rel="noopener"}
 * [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/){:target="_blank" rel="noopener"}
+* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/BRK/){:target="_blank" rel="noopener"}
 
 ## Contact
 

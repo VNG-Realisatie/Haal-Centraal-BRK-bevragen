@@ -5,7 +5,7 @@ title: Goals canvas
 
 # Goals canvas BRK bevragen
 
-## Zoek met persoon
+## Zoek persoon
 
 | PRIO|   |WHATS|HOWS|INPUT|OUTPUT|GOALS|STORIES|
 |---  |---|---  |--- |---  |---   |---  |---    |
