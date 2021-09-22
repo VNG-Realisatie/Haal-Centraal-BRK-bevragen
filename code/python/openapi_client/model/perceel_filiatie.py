@@ -33,12 +33,10 @@ def lazy_import():
     from openapi_client.model.appartementsrecht_filiatie import AppartementsrechtFiliatie
     from openapi_client.model.kadastraal_onroerende_zaak_filiatie import KadastraalOnroerendeZaakFiliatie
     from openapi_client.model.perceel_filiatie import PerceelFiliatie
-    from openapi_client.model.perceel_filiatie_all_of import PerceelFiliatieAllOf
     from openapi_client.model.type_kadastraal_onroerende_zaak_enum import TypeKadastraalOnroerendeZaakEnum
     globals()['AppartementsrechtFiliatie'] = AppartementsrechtFiliatie
     globals()['KadastraalOnroerendeZaakFiliatie'] = KadastraalOnroerendeZaakFiliatie
     globals()['PerceelFiliatie'] = PerceelFiliatie
-    globals()['PerceelFiliatieAllOf'] = PerceelFiliatieAllOf
     globals()['TypeKadastraalOnroerendeZaakEnum'] = TypeKadastraalOnroerendeZaakEnum
 
 
@@ -96,7 +94,6 @@ class PerceelFiliatie(ModelComposed):
         lazy_import()
         return {
             'type': (TypeKadastraalOnroerendeZaakEnum,),  # noqa: E501
-            'indicatie_vervallen': (bool,),  # noqa: E501
             'identificatie': (str,),  # noqa: E501
         }
 
@@ -113,7 +110,6 @@ class PerceelFiliatie(ModelComposed):
 
     attribute_map = {
         'type': 'type',  # noqa: E501
-        'indicatie_vervallen': 'indicatieVervallen',  # noqa: E501
         'identificatie': 'identificatie',  # noqa: E501
     }
 
@@ -157,7 +153,6 @@ class PerceelFiliatie(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            indicatie_vervallen (bool): Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. . [optional]  # noqa: E501
             identificatie (str): De identificatie van de Kadastraal Onroerende Zaak. . [optional]  # noqa: E501
         """
 
@@ -259,7 +254,6 @@ class PerceelFiliatie(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            indicatie_vervallen (bool): Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. . [optional]  # noqa: E501
             identificatie (str): De identificatie van de Kadastraal Onroerende Zaak. . [optional]  # noqa: E501
         """
 
@@ -327,7 +321,6 @@ class PerceelFiliatie(ModelComposed):
           ],
           'allOf': [
               KadastraalOnroerendeZaakFiliatie,
-              PerceelFiliatieAllOf,
           ],
           'oneOf': [
           ],

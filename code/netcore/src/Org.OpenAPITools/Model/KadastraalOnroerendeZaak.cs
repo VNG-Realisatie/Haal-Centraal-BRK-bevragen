@@ -65,7 +65,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="bijbehorendeAppartementsrechten">De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen .</param>
         /// <param name="isVermeldInStukdeelIdentificaties">isVermeldInStukdeelIdentificaties.</param>
         /// <param name="stukIdentificaties">Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Dit kan een aangeboden stuk of een kadasterstuk zijn. .</param>
-        public KadastraalOnroerendeZaak(string identificatie = default(string), string domein = default(string), bool indicatieVervallen = default(bool), PolygonGeoJSON begrenzingPerceel = default(PolygonGeoJSON), decimal perceelnummerRotatie = default(decimal), PointGeoJSON plaatscoordinaten = default(PointGeoJSON), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), TypeKadastraalOnroerendeZaakEnum? type = default(TypeKadastraalOnroerendeZaakEnum?), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), string kadastraleAanduiding = default(string), TypeOppervlak kadastraleGrootte = default(TypeOppervlak), TypePerceelnummerVerschuiving perceelnummerVerschuiving = default(TypePerceelnummerVerschuiving), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), List<Filiatie> isOvergegaanIn = default(List<Filiatie>), List<Filiatie> isOntstaanUit = default(List<Filiatie>), List<PerceelBasis> bijbehorendeGrondpercelen = default(List<PerceelBasis>), List<AppartementsrechtBasis> bijbehorendeAppartementsrechten = default(List<AppartementsrechtBasis>), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>))
+        public KadastraalOnroerendeZaak(string identificatie = default(string), string domein = default(string), bool indicatieVervallen = default(bool), PolygonGeoJSON begrenzingPerceel = default(PolygonGeoJSON), decimal perceelnummerRotatie = default(decimal), PointGeoJSON plaatscoordinaten = default(PointGeoJSON), TypeKoopsom koopsom = default(TypeKoopsom), string toelichtingBewaarder = default(string), TypeKadastraalOnroerendeZaakEnum? type = default(TypeKadastraalOnroerendeZaakEnum?), Waardelijst aardCultuurBebouwd = default(Waardelijst), Waardelijst aardCultuurOnbebouwd = default(Waardelijst), string kadastraleAanduiding = default(string), TypeOppervlak kadastraleGrootte = default(TypeOppervlak), TypePerceelnummerVerschuiving perceelnummerVerschuiving = default(TypePerceelnummerVerschuiving), List<LocatieKadastraalObject> adressen = default(List<LocatieKadastraalObject>), List<string> zakelijkGerechtigdeIdentificaties = default(List<string>), List<string> privaatrechtelijkeBeperkingIdentificaties = default(List<string>), List<string> hypotheekIdentificaties = default(List<string>), List<string> beslagIdentificaties = default(List<string>), Filiatie isOvergegaanIn = default(Filiatie), Filiatie isOntstaanUit = default(Filiatie), List<PerceelBasis> bijbehorendeGrondpercelen = default(List<PerceelBasis>), List<AppartementsrechtBasis> bijbehorendeAppartementsrechten = default(List<AppartementsrechtBasis>), List<string> isVermeldInStukdeelIdentificaties = default(List<string>), List<string> stukIdentificaties = default(List<string>))
         {
             this.Identificatie = identificatie;
             this.Domein = domein;
@@ -215,13 +215,13 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets IsOvergegaanIn
         /// </summary>
         [DataMember(Name = "isOvergegaanIn", EmitDefaultValue = false)]
-        public List<Filiatie> IsOvergegaanIn { get; set; }
+        public Filiatie IsOvergegaanIn { get; set; }
 
         /// <summary>
         /// Gets or Sets IsOntstaanUit
         /// </summary>
         [DataMember(Name = "isOntstaanUit", EmitDefaultValue = false)]
-        public List<Filiatie> IsOntstaanUit { get; set; }
+        public Filiatie IsOntstaanUit { get; set; }
 
         /// <summary>
         /// De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort 
@@ -416,15 +416,13 @@ namespace Org.OpenAPITools.Model
                 ) && 
                 (
                     this.IsOvergegaanIn == input.IsOvergegaanIn ||
-                    this.IsOvergegaanIn != null &&
-                    input.IsOvergegaanIn != null &&
-                    this.IsOvergegaanIn.SequenceEqual(input.IsOvergegaanIn)
+                    (this.IsOvergegaanIn != null &&
+                    this.IsOvergegaanIn.Equals(input.IsOvergegaanIn))
                 ) && 
                 (
                     this.IsOntstaanUit == input.IsOntstaanUit ||
-                    this.IsOntstaanUit != null &&
-                    input.IsOntstaanUit != null &&
-                    this.IsOntstaanUit.SequenceEqual(input.IsOntstaanUit)
+                    (this.IsOntstaanUit != null &&
+                    this.IsOntstaanUit.Equals(input.IsOntstaanUit))
                 ) && 
                 (
                     this.BijbehorendeGrondpercelen == input.BijbehorendeGrondpercelen ||

@@ -2,7 +2,7 @@
 
 Kadaster - BRK-Bevragen API
 - API version: 1.3.0
-  - Build date: 2021-07-21T07:24:37.064592Z[Etc/UTC]
+  - Build date: 2021-09-22T08:28:41.072015Z[Etc/UTC]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
 Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
@@ -220,7 +220,6 @@ Class | Method | HTTP request | Description
  - [Overlijden](docs/Overlijden.md)
  - [PerceelBasis](docs/PerceelBasis.md)
  - [PerceelFiliatie](docs/PerceelFiliatie.md)
- - [PerceelFiliatieAllOf](docs/PerceelFiliatieAllOf.md)
  - [PersoonBasis](docs/PersoonBasis.md)
  - [PersoonBeperkt](docs/PersoonBeperkt.md)
  - [PersoonBeperktAllOf](docs/PersoonBeperktAllOf.md)
@@ -248,7 +247,6 @@ Class | Method | HTTP request | Description
  - [StukHalBasis](docs/StukHalBasis.md)
  - [StukHalBasisAllOf](docs/StukHalBasisAllOf.md)
  - [StukLinks](docs/StukLinks.md)
- - [StukTypeEnum](docs/StukTypeEnum.md)
  - [Stukdeel](docs/Stukdeel.md)
  - [StukdeelEmbedded](docs/StukdeelEmbedded.md)
  - [StukdeelHal](docs/StukdeelHal.md)

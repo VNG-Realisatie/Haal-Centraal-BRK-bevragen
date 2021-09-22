@@ -78,6 +78,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets BetreftGedeelteVanPerceel
         /// </summary>
         [DataMember(Name = "betreftGedeelteVanPerceel", EmitDefaultValue = true)]
+        [Obsolete]
         public bool BetreftGedeelteVanPerceel { get; set; }
 
         /// <summary>
@@ -132,12 +133,14 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Begrenzing
         /// </summary>
         [DataMember(Name = "begrenzing", EmitDefaultValue = false)]
+        [Obsolete]
         public PolygonGeoJSON Begrenzing { get; set; }
 
         /// <summary>
         /// Gets or Sets IndicatieOorspronkelijkObject
         /// </summary>
         [DataMember(Name = "indicatieOorspronkelijkObject", EmitDefaultValue = true)]
+        [Obsolete]
         public bool IndicatieOorspronkelijkObject { get; set; }
 
         /// <summary>

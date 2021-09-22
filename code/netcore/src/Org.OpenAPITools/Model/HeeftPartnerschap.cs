@@ -48,12 +48,14 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets DatumOntbinding
         /// </summary>
         [DataMember(Name = "datumOntbinding", EmitDefaultValue = false)]
+        [Obsolete]
         public DatumOnvolledig DatumOntbinding { get; set; }
 
         /// <summary>
         /// Gets or Sets DatumSluiting
         /// </summary>
         [DataMember(Name = "datumSluiting", EmitDefaultValue = false)]
+        [Obsolete]
         public DatumOnvolledig DatumSluiting { get; set; }
 
         /// <summary>

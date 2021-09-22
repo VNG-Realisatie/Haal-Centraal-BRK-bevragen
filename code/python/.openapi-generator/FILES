@@ -98,7 +98,6 @@ openapi_client/model/niet_natuurlijk_persoon_type_enum.py
 openapi_client/model/overlijden.py
 openapi_client/model/perceel_basis.py
 openapi_client/model/perceel_filiatie.py
-openapi_client/model/perceel_filiatie_all_of.py
 openapi_client/model/persoon_basis.py
 openapi_client/model/persoon_beperkt.py
 openapi_client/model/persoon_beperkt_all_of.py
@@ -126,7 +125,6 @@ openapi_client/model/stuk_hal_all_of.py
 openapi_client/model/stuk_hal_basis.py
 openapi_client/model/stuk_hal_basis_all_of.py
 openapi_client/model/stuk_links.py
-openapi_client/model/stuk_type_enum.py
 openapi_client/model/stukdeel.py
 openapi_client/model/stukdeel_embedded.py
 openapi_client/model/stukdeel_hal.py

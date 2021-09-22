@@ -89,7 +89,6 @@ from openapi_client.model.niet_natuurlijk_persoon_type_enum import NietNatuurlij
 from openapi_client.model.overlijden import Overlijden
 from openapi_client.model.perceel_basis import PerceelBasis
 from openapi_client.model.perceel_filiatie import PerceelFiliatie
-from openapi_client.model.perceel_filiatie_all_of import PerceelFiliatieAllOf
 from openapi_client.model.persoon_basis import PersoonBasis
 from openapi_client.model.persoon_beperkt import PersoonBeperkt
 from openapi_client.model.persoon_beperkt_all_of import PersoonBeperktAllOf
@@ -117,7 +116,6 @@ from openapi_client.model.stuk_hal_all_of import StukHalAllOf
 from openapi_client.model.stuk_hal_basis import StukHalBasis
 from openapi_client.model.stuk_hal_basis_all_of import StukHalBasisAllOf
 from openapi_client.model.stuk_links import StukLinks
-from openapi_client.model.stuk_type_enum import StukTypeEnum
 from openapi_client.model.stukdeel import Stukdeel
 from openapi_client.model.stukdeel_embedded import StukdeelEmbedded
 from openapi_client.model.stukdeel_hal import StukdeelHal

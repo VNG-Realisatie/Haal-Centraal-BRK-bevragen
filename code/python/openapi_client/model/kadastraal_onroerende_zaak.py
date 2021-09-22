@@ -129,8 +129,8 @@ class KadastraalOnroerendeZaak(ModelNormal):
             'privaatrechtelijke_beperking_identificaties': ([str],),  # noqa: E501
             'hypotheek_identificaties': ([str],),  # noqa: E501
             'beslag_identificaties': ([str],),  # noqa: E501
-            'is_overgegaan_in': ([Filiatie],),  # noqa: E501
-            'is_ontstaan_uit': ([Filiatie],),  # noqa: E501
+            'is_overgegaan_in': (Filiatie,),  # noqa: E501
+            'is_ontstaan_uit': (Filiatie,),  # noqa: E501
             'bijbehorende_grondpercelen': ([PerceelBasis],),  # noqa: E501
             'bijbehorende_appartementsrechten': ([AppartementsrechtBasis],),  # noqa: E501
             'is_vermeld_in_stukdeel_identificaties': ([str],),  # noqa: E501
@@ -230,8 +230,8 @@ class KadastraalOnroerendeZaak(ModelNormal):
             privaatrechtelijke_beperking_identificaties ([str]): Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
             hypotheek_identificaties ([str]): Alle hypotheken die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
             beslag_identificaties ([str]): Alle beslagen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
-            is_overgegaan_in ([Filiatie]): [optional]  # noqa: E501
-            is_ontstaan_uit ([Filiatie]): [optional]  # noqa: E501
+            is_overgegaan_in (Filiatie): [optional]  # noqa: E501
+            is_ontstaan_uit (Filiatie): [optional]  # noqa: E501
             bijbehorende_grondpercelen ([PerceelBasis]): De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort . [optional]  # noqa: E501
             bijbehorende_appartementsrechten ([AppartementsrechtBasis]): De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen . [optional]  # noqa: E501
             is_vermeld_in_stukdeel_identificaties ([str]): [optional]  # noqa: E501
@@ -336,8 +336,8 @@ class KadastraalOnroerendeZaak(ModelNormal):
             privaatrechtelijke_beperking_identificaties ([str]): Alle privaatrechtelijkebeperkingen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
             hypotheek_identificaties ([str]): Alle hypotheken die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
             beslag_identificaties ([str]): Alle beslagen die rusten op deze kadastraal onroerende zaak . [optional]  # noqa: E501
-            is_overgegaan_in ([Filiatie]): [optional]  # noqa: E501
-            is_ontstaan_uit ([Filiatie]): [optional]  # noqa: E501
+            is_overgegaan_in (Filiatie): [optional]  # noqa: E501
+            is_ontstaan_uit (Filiatie): [optional]  # noqa: E501
             bijbehorende_grondpercelen ([PerceelBasis]): De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort . [optional]  # noqa: E501
             bijbehorende_appartementsrechten ([AppartementsrechtBasis]): De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen . [optional]  # noqa: E501
             is_vermeld_in_stukdeel_identificaties ([str]): [optional]  # noqa: E501

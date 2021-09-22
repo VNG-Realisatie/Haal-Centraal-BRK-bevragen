@@ -108,7 +108,6 @@ src/Org.OpenAPITools/Model/NietNatuurlijkPersoonTypeEnum.cs
 src/Org.OpenAPITools/Model/Overlijden.cs
 src/Org.OpenAPITools/Model/PerceelBasis.cs
 src/Org.OpenAPITools/Model/PerceelFiliatie.cs
-src/Org.OpenAPITools/Model/PerceelFiliatieAllOf.cs
 src/Org.OpenAPITools/Model/PersoonBasis.cs
 src/Org.OpenAPITools/Model/PersoonBeperkt.cs
 src/Org.OpenAPITools/Model/PersoonBeperktAllOf.cs
@@ -136,7 +135,6 @@ src/Org.OpenAPITools/Model/StukHalAllOf.cs
 src/Org.OpenAPITools/Model/StukHalBasis.cs
 src/Org.OpenAPITools/Model/StukHalBasisAllOf.cs
 src/Org.OpenAPITools/Model/StukLinks.cs
-src/Org.OpenAPITools/Model/StukTypeEnum.cs
 src/Org.OpenAPITools/Model/Stukdeel.cs
 src/Org.OpenAPITools/Model/StukdeelEmbedded.cs
 src/Org.OpenAPITools/Model/StukdeelHal.cs

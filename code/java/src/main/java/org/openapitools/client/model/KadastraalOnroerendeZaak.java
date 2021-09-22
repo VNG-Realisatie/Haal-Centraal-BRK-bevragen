@@ -42,7 +42,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.   Waardelijst in deze component :   [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) 
  */
 @ApiModel(description = "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.   Waardelijst in deze component :   [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class KadastraalOnroerendeZaak {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -122,11 +122,11 @@ public class KadastraalOnroerendeZaak {
 
   public static final String SERIALIZED_NAME_IS_OVERGEGAAN_IN = "isOvergegaanIn";
   @SerializedName(SERIALIZED_NAME_IS_OVERGEGAAN_IN)
-  private List<Filiatie> isOvergegaanIn = null;
+  private Filiatie isOvergegaanIn;
 
   public static final String SERIALIZED_NAME_IS_ONTSTAAN_UIT = "isOntstaanUit";
   @SerializedName(SERIALIZED_NAME_IS_ONTSTAAN_UIT)
-  private List<Filiatie> isOntstaanUit = null;
+  private Filiatie isOntstaanUit;
 
   public static final String SERIALIZED_NAME_BIJBEHORENDE_GRONDPERCELEN = "bijbehorendeGrondpercelen";
   @SerializedName(SERIALIZED_NAME_BIJBEHORENDE_GRONDPERCELEN)
@@ -623,17 +623,9 @@ public class KadastraalOnroerendeZaak {
   }
 
 
-  public KadastraalOnroerendeZaak isOvergegaanIn(List<Filiatie> isOvergegaanIn) {
+  public KadastraalOnroerendeZaak isOvergegaanIn(Filiatie isOvergegaanIn) {
     
     this.isOvergegaanIn = isOvergegaanIn;
-    return this;
-  }
-
-  public KadastraalOnroerendeZaak addIsOvergegaanInItem(Filiatie isOvergegaanInItem) {
-    if (this.isOvergegaanIn == null) {
-      this.isOvergegaanIn = new ArrayList<>();
-    }
-    this.isOvergegaanIn.add(isOvergegaanInItem);
     return this;
   }
 
@@ -644,27 +636,19 @@ public class KadastraalOnroerendeZaak {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Filiatie> getIsOvergegaanIn() {
+  public Filiatie getIsOvergegaanIn() {
     return isOvergegaanIn;
   }
 
 
-  public void setIsOvergegaanIn(List<Filiatie> isOvergegaanIn) {
+  public void setIsOvergegaanIn(Filiatie isOvergegaanIn) {
     this.isOvergegaanIn = isOvergegaanIn;
   }
 
 
-  public KadastraalOnroerendeZaak isOntstaanUit(List<Filiatie> isOntstaanUit) {
+  public KadastraalOnroerendeZaak isOntstaanUit(Filiatie isOntstaanUit) {
     
     this.isOntstaanUit = isOntstaanUit;
-    return this;
-  }
-
-  public KadastraalOnroerendeZaak addIsOntstaanUitItem(Filiatie isOntstaanUitItem) {
-    if (this.isOntstaanUit == null) {
-      this.isOntstaanUit = new ArrayList<>();
-    }
-    this.isOntstaanUit.add(isOntstaanUitItem);
     return this;
   }
 
@@ -675,12 +659,12 @@ public class KadastraalOnroerendeZaak {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Filiatie> getIsOntstaanUit() {
+  public Filiatie getIsOntstaanUit() {
     return isOntstaanUit;
   }
 
 
-  public void setIsOntstaanUit(List<Filiatie> isOntstaanUit) {
+  public void setIsOntstaanUit(Filiatie isOntstaanUit) {
     this.isOntstaanUit = isOntstaanUit;
   }
 

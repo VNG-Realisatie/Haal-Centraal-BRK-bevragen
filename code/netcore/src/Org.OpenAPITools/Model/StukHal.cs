@@ -31,43 +31,31 @@ namespace Org.OpenAPITools.Model
     [DataContract(Name = "StukHal")]
     public partial class StukHal : IEquatable<StukHal>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets StukType
-        /// </summary>
-        [DataMember(Name = "stukType", EmitDefaultValue = false)]
-        public StukTypeEnum? StukType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="StukHal" /> class.
         /// </summary>
         /// <param name="identificatie">identificatie.</param>
         /// <param name="deelEnNummer">deelEnNummer.</param>
-        /// <param name="stukType">stukType.</param>
         /// <param name="domein">Het domein waartoe de identificatie behoort. .</param>
         /// <param name="toelichtingBewaarder">Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. .</param>
         /// <param name="stukdeelIdentificaties">stukdeelIdentificaties.</param>
         /// <param name="bewaardersVerklaring">Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. .</param>
         /// <param name="indicatieTekeningBijgevoegd">Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. .</param>
-        /// <param name="tijdstipAanbieding">Het tijdstip dat het stuk bij het kadaster is binnengekomen. .</param>
-        /// <param name="tijdstipOndertekening">Het tijdstip dat het stuk is ondertekend door partijen en de notaris .</param>
         /// <param name="aard">aard.</param>
         /// <param name="status">status.</param>
         /// <param name="equivalentieVerklaarder">equivalentieVerklaarder.</param>
         /// <param name="kadasterverzoeken">kadasterverzoeken.</param>
         /// <param name="links">links.</param>
         /// <param name="embedded">embedded.</param>
-        public StukHal(string identificatie = default(string), DeelEnNummer deelEnNummer = default(DeelEnNummer), StukTypeEnum? stukType = default(StukTypeEnum?), string domein = default(string), string toelichtingBewaarder = default(string), List<string> stukdeelIdentificaties = default(List<string>), string bewaardersVerklaring = default(string), bool indicatieTekeningBijgevoegd = default(bool), DateTime tijdstipAanbieding = default(DateTime), DateTime tijdstipOndertekening = default(DateTime), Waardelijst aard = default(Waardelijst), Waardelijst status = default(Waardelijst), EquivalentieVerklaarder equivalentieVerklaarder = default(EquivalentieVerklaarder), List<Kadasterverzoek> kadasterverzoeken = default(List<Kadasterverzoek>), StukLinks links = default(StukLinks), StukEmbedded embedded = default(StukEmbedded))
+        public StukHal(string identificatie = default(string), DeelEnNummer deelEnNummer = default(DeelEnNummer), string domein = default(string), string toelichtingBewaarder = default(string), List<string> stukdeelIdentificaties = default(List<string>), string bewaardersVerklaring = default(string), bool indicatieTekeningBijgevoegd = default(bool), Waardelijst aard = default(Waardelijst), Waardelijst status = default(Waardelijst), EquivalentieVerklaarder equivalentieVerklaarder = default(EquivalentieVerklaarder), List<Kadasterverzoek> kadasterverzoeken = default(List<Kadasterverzoek>), StukLinks links = default(StukLinks), StukEmbedded embedded = default(StukEmbedded))
         {
             this.Identificatie = identificatie;
             this.DeelEnNummer = deelEnNummer;
-            this.StukType = stukType;
             this.Domein = domein;
             this.ToelichtingBewaarder = toelichtingBewaarder;
             this.StukdeelIdentificaties = stukdeelIdentificaties;
             this.BewaardersVerklaring = bewaardersVerklaring;
             this.IndicatieTekeningBijgevoegd = indicatieTekeningBijgevoegd;
-            this.TijdstipAanbieding = tijdstipAanbieding;
-            this.TijdstipOndertekening = tijdstipOndertekening;
             this.Aard = aard;
             this.Status = status;
             this.EquivalentieVerklaarder = equivalentieVerklaarder;
@@ -123,20 +111,6 @@ namespace Org.OpenAPITools.Model
         public bool IndicatieTekeningBijgevoegd { get; set; }
 
         /// <summary>
-        /// Het tijdstip dat het stuk bij het kadaster is binnengekomen. 
-        /// </summary>
-        /// <value>Het tijdstip dat het stuk bij het kadaster is binnengekomen. </value>
-        [DataMember(Name = "tijdstipAanbieding", EmitDefaultValue = false)]
-        public DateTime TijdstipAanbieding { get; set; }
-
-        /// <summary>
-        /// Het tijdstip dat het stuk is ondertekend door partijen en de notaris 
-        /// </summary>
-        /// <value>Het tijdstip dat het stuk is ondertekend door partijen en de notaris </value>
-        [DataMember(Name = "tijdstipOndertekening", EmitDefaultValue = false)]
-        public DateTime TijdstipOndertekening { get; set; }
-
-        /// <summary>
         /// Gets or Sets Aard
         /// </summary>
         [DataMember(Name = "aard", EmitDefaultValue = false)]
@@ -182,14 +156,11 @@ namespace Org.OpenAPITools.Model
             sb.Append("class StukHal {\n");
             sb.Append("  Identificatie: ").Append(Identificatie).Append("\n");
             sb.Append("  DeelEnNummer: ").Append(DeelEnNummer).Append("\n");
-            sb.Append("  StukType: ").Append(StukType).Append("\n");
             sb.Append("  Domein: ").Append(Domein).Append("\n");
             sb.Append("  ToelichtingBewaarder: ").Append(ToelichtingBewaarder).Append("\n");
             sb.Append("  StukdeelIdentificaties: ").Append(StukdeelIdentificaties).Append("\n");
             sb.Append("  BewaardersVerklaring: ").Append(BewaardersVerklaring).Append("\n");
             sb.Append("  IndicatieTekeningBijgevoegd: ").Append(IndicatieTekeningBijgevoegd).Append("\n");
-            sb.Append("  TijdstipAanbieding: ").Append(TijdstipAanbieding).Append("\n");
-            sb.Append("  TijdstipOndertekening: ").Append(TijdstipOndertekening).Append("\n");
             sb.Append("  Aard: ").Append(Aard).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EquivalentieVerklaarder: ").Append(EquivalentieVerklaarder).Append("\n");
@@ -241,10 +212,6 @@ namespace Org.OpenAPITools.Model
                     this.DeelEnNummer.Equals(input.DeelEnNummer))
                 ) && 
                 (
-                    this.StukType == input.StukType ||
-                    this.StukType.Equals(input.StukType)
-                ) && 
-                (
                     this.Domein == input.Domein ||
                     (this.Domein != null &&
                     this.Domein.Equals(input.Domein))
@@ -268,16 +235,6 @@ namespace Org.OpenAPITools.Model
                 (
                     this.IndicatieTekeningBijgevoegd == input.IndicatieTekeningBijgevoegd ||
                     this.IndicatieTekeningBijgevoegd.Equals(input.IndicatieTekeningBijgevoegd)
-                ) && 
-                (
-                    this.TijdstipAanbieding == input.TijdstipAanbieding ||
-                    (this.TijdstipAanbieding != null &&
-                    this.TijdstipAanbieding.Equals(input.TijdstipAanbieding))
-                ) && 
-                (
-                    this.TijdstipOndertekening == input.TijdstipOndertekening ||
-                    (this.TijdstipOndertekening != null &&
-                    this.TijdstipOndertekening.Equals(input.TijdstipOndertekening))
                 ) && 
                 (
                     this.Aard == input.Aard ||
@@ -325,7 +282,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Identificatie.GetHashCode();
                 if (this.DeelEnNummer != null)
                     hashCode = hashCode * 59 + this.DeelEnNummer.GetHashCode();
-                hashCode = hashCode * 59 + this.StukType.GetHashCode();
                 if (this.Domein != null)
                     hashCode = hashCode * 59 + this.Domein.GetHashCode();
                 if (this.ToelichtingBewaarder != null)
@@ -335,10 +291,6 @@ namespace Org.OpenAPITools.Model
                 if (this.BewaardersVerklaring != null)
                     hashCode = hashCode * 59 + this.BewaardersVerklaring.GetHashCode();
                 hashCode = hashCode * 59 + this.IndicatieTekeningBijgevoegd.GetHashCode();
-                if (this.TijdstipAanbieding != null)
-                    hashCode = hashCode * 59 + this.TijdstipAanbieding.GetHashCode();
-                if (this.TijdstipOndertekening != null)
-                    hashCode = hashCode * 59 + this.TijdstipOndertekening.GetHashCode();
                 if (this.Aard != null)
                     hashCode = hashCode * 59 + this.Aard.GetHashCode();
                 if (this.Status != null)

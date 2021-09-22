@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.DeelEnNummer;
@@ -33,13 +32,12 @@ import org.openapitools.client.model.StukEmbedded;
 import org.openapitools.client.model.StukHalAllOf;
 import org.openapitools.client.model.StukHalBasis;
 import org.openapitools.client.model.StukLinks;
-import org.openapitools.client.model.StukTypeEnum;
 import org.openapitools.client.model.Waardelijst;
 
 /**
  * StukHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class StukHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -48,10 +46,6 @@ public class StukHal {
   public static final String SERIALIZED_NAME_DEEL_EN_NUMMER = "deelEnNummer";
   @SerializedName(SERIALIZED_NAME_DEEL_EN_NUMMER)
   private DeelEnNummer deelEnNummer;
-
-  public static final String SERIALIZED_NAME_STUK_TYPE = "stukType";
-  @SerializedName(SERIALIZED_NAME_STUK_TYPE)
-  private StukTypeEnum stukType;
 
   public static final String SERIALIZED_NAME_DOMEIN = "domein";
   @SerializedName(SERIALIZED_NAME_DOMEIN)
@@ -72,14 +66,6 @@ public class StukHal {
   public static final String SERIALIZED_NAME_INDICATIE_TEKENING_BIJGEVOEGD = "indicatieTekeningBijgevoegd";
   @SerializedName(SERIALIZED_NAME_INDICATIE_TEKENING_BIJGEVOEGD)
   private Boolean indicatieTekeningBijgevoegd;
-
-  public static final String SERIALIZED_NAME_TIJDSTIP_AANBIEDING = "tijdstipAanbieding";
-  @SerializedName(SERIALIZED_NAME_TIJDSTIP_AANBIEDING)
-  private OffsetDateTime tijdstipAanbieding;
-
-  public static final String SERIALIZED_NAME_TIJDSTIP_ONDERTEKENING = "tijdstipOndertekening";
-  @SerializedName(SERIALIZED_NAME_TIJDSTIP_ONDERTEKENING)
-  private OffsetDateTime tijdstipOndertekening;
 
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
@@ -149,29 +135,6 @@ public class StukHal {
 
   public void setDeelEnNummer(DeelEnNummer deelEnNummer) {
     this.deelEnNummer = deelEnNummer;
-  }
-
-
-  public StukHal stukType(StukTypeEnum stukType) {
-    
-    this.stukType = stukType;
-    return this;
-  }
-
-   /**
-   * Get stukType
-   * @return stukType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public StukTypeEnum getStukType() {
-    return stukType;
-  }
-
-
-  public void setStukType(StukTypeEnum stukType) {
-    this.stukType = stukType;
   }
 
 
@@ -295,52 +258,6 @@ public class StukHal {
 
   public void setIndicatieTekeningBijgevoegd(Boolean indicatieTekeningBijgevoegd) {
     this.indicatieTekeningBijgevoegd = indicatieTekeningBijgevoegd;
-  }
-
-
-  public StukHal tijdstipAanbieding(OffsetDateTime tijdstipAanbieding) {
-    
-    this.tijdstipAanbieding = tijdstipAanbieding;
-    return this;
-  }
-
-   /**
-   * Het tijdstip dat het stuk bij het kadaster is binnengekomen. 
-   * @return tijdstipAanbieding
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Het tijdstip dat het stuk bij het kadaster is binnengekomen. ")
-
-  public OffsetDateTime getTijdstipAanbieding() {
-    return tijdstipAanbieding;
-  }
-
-
-  public void setTijdstipAanbieding(OffsetDateTime tijdstipAanbieding) {
-    this.tijdstipAanbieding = tijdstipAanbieding;
-  }
-
-
-  public StukHal tijdstipOndertekening(OffsetDateTime tijdstipOndertekening) {
-    
-    this.tijdstipOndertekening = tijdstipOndertekening;
-    return this;
-  }
-
-   /**
-   * Het tijdstip dat het stuk is ondertekend door partijen en de notaris 
-   * @return tijdstipOndertekening
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Het tijdstip dat het stuk is ondertekend door partijen en de notaris ")
-
-  public OffsetDateTime getTijdstipOndertekening() {
-    return tijdstipOndertekening;
-  }
-
-
-  public void setTijdstipOndertekening(OffsetDateTime tijdstipOndertekening) {
-    this.tijdstipOndertekening = tijdstipOndertekening;
   }
 
 
@@ -501,14 +418,11 @@ public class StukHal {
     StukHal stukHal = (StukHal) o;
     return Objects.equals(this.identificatie, stukHal.identificatie) &&
         Objects.equals(this.deelEnNummer, stukHal.deelEnNummer) &&
-        Objects.equals(this.stukType, stukHal.stukType) &&
         Objects.equals(this.domein, stukHal.domein) &&
         Objects.equals(this.toelichtingBewaarder, stukHal.toelichtingBewaarder) &&
         Objects.equals(this.stukdeelIdentificaties, stukHal.stukdeelIdentificaties) &&
         Objects.equals(this.bewaardersVerklaring, stukHal.bewaardersVerklaring) &&
         Objects.equals(this.indicatieTekeningBijgevoegd, stukHal.indicatieTekeningBijgevoegd) &&
-        Objects.equals(this.tijdstipAanbieding, stukHal.tijdstipAanbieding) &&
-        Objects.equals(this.tijdstipOndertekening, stukHal.tijdstipOndertekening) &&
         Objects.equals(this.aard, stukHal.aard) &&
         Objects.equals(this.status, stukHal.status) &&
         Objects.equals(this.equivalentieVerklaarder, stukHal.equivalentieVerklaarder) &&
@@ -519,7 +433,7 @@ public class StukHal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(identificatie, deelEnNummer, stukType, domein, toelichtingBewaarder, stukdeelIdentificaties, bewaardersVerklaring, indicatieTekeningBijgevoegd, tijdstipAanbieding, tijdstipOndertekening, aard, status, equivalentieVerklaarder, kadasterverzoeken, links, embedded);
+    return Objects.hash(identificatie, deelEnNummer, domein, toelichtingBewaarder, stukdeelIdentificaties, bewaardersVerklaring, indicatieTekeningBijgevoegd, aard, status, equivalentieVerklaarder, kadasterverzoeken, links, embedded);
   }
 
   @Override
@@ -528,14 +442,11 @@ public class StukHal {
     sb.append("class StukHal {\n");
     sb.append("    identificatie: ").append(toIndentedString(identificatie)).append("\n");
     sb.append("    deelEnNummer: ").append(toIndentedString(deelEnNummer)).append("\n");
-    sb.append("    stukType: ").append(toIndentedString(stukType)).append("\n");
     sb.append("    domein: ").append(toIndentedString(domein)).append("\n");
     sb.append("    toelichtingBewaarder: ").append(toIndentedString(toelichtingBewaarder)).append("\n");
     sb.append("    stukdeelIdentificaties: ").append(toIndentedString(stukdeelIdentificaties)).append("\n");
     sb.append("    bewaardersVerklaring: ").append(toIndentedString(bewaardersVerklaring)).append("\n");
     sb.append("    indicatieTekeningBijgevoegd: ").append(toIndentedString(indicatieTekeningBijgevoegd)).append("\n");
-    sb.append("    tijdstipAanbieding: ").append(toIndentedString(tijdstipAanbieding)).append("\n");
-    sb.append("    tijdstipOndertekening: ").append(toIndentedString(tijdstipOndertekening)).append("\n");
     sb.append("    aard: ").append(toIndentedString(aard)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    equivalentieVerklaarder: ").append(toIndentedString(equivalentieVerklaarder)).append("\n");

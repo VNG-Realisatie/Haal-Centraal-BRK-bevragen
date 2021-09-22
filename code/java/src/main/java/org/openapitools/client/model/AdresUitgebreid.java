@@ -31,7 +31,7 @@ import org.openapitools.client.model.Waardelijst;
  * Waardelijst in deze component :   [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) 
  */
 @ApiModel(description = "Waardelijst in deze component :   [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class AdresUitgebreid {
   public static final String SERIALIZED_NAME_STRAAT = "straat";
   @SerializedName(SERIALIZED_NAME_STRAAT)

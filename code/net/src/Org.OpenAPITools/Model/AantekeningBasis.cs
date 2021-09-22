@@ -59,6 +59,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets BetreftGedeelteVanPerceel
         /// </summary>
         [DataMember(Name="betreftGedeelteVanPerceel", EmitDefaultValue=false)]
+        [Obsolete]
         public bool BetreftGedeelteVanPerceel { get; set; }
 
         /// <summary>

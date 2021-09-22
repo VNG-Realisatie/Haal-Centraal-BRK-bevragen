@@ -76,7 +76,6 @@ public class KadastraalOnroerendeZakenApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 406 </td><td> Not Acceptable </td><td>  * api-version -  <br>  </td></tr>
-        <tr><td> 410 </td><td> Gone </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
@@ -156,7 +155,6 @@ public class KadastraalOnroerendeZakenApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 406 </td><td> Not Acceptable </td><td>  * api-version -  <br>  </td></tr>
-        <tr><td> 410 </td><td> Gone </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
@@ -184,7 +182,6 @@ public class KadastraalOnroerendeZakenApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 406 </td><td> Not Acceptable </td><td>  * api-version -  <br>  </td></tr>
-        <tr><td> 410 </td><td> Gone </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>
@@ -214,7 +211,6 @@ public class KadastraalOnroerendeZakenApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 406 </td><td> Not Acceptable </td><td>  * api-version -  <br>  </td></tr>
-        <tr><td> 410 </td><td> Gone </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  * api-version -  <br>  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  * api-version -  <br>  </td></tr>
      </table>

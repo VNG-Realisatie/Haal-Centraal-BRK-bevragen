@@ -118,7 +118,6 @@ src/main/java/org/openapitools/client/model/NietNatuurlijkPersoonTypeEnum.java
 src/main/java/org/openapitools/client/model/Overlijden.java
 src/main/java/org/openapitools/client/model/PerceelBasis.java
 src/main/java/org/openapitools/client/model/PerceelFiliatie.java
-src/main/java/org/openapitools/client/model/PerceelFiliatieAllOf.java
 src/main/java/org/openapitools/client/model/PersoonBasis.java
 src/main/java/org/openapitools/client/model/PersoonBeperkt.java
 src/main/java/org/openapitools/client/model/PersoonBeperktAllOf.java
@@ -146,7 +145,6 @@ src/main/java/org/openapitools/client/model/StukHalAllOf.java
 src/main/java/org/openapitools/client/model/StukHalBasis.java
 src/main/java/org/openapitools/client/model/StukHalBasisAllOf.java
 src/main/java/org/openapitools/client/model/StukLinks.java
-src/main/java/org/openapitools/client/model/StukTypeEnum.java
 src/main/java/org/openapitools/client/model/Stukdeel.java
 src/main/java/org/openapitools/client/model/StukdeelEmbedded.java
 src/main/java/org/openapitools/client/model/StukdeelHal.java

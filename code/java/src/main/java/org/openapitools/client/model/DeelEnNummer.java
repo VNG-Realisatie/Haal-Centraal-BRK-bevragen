@@ -23,15 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.openapitools.client.model.Waardelijst;
 
 /**
  * Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen. Waardelijst in deze component :   [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)   [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)   [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) 
  */
 @ApiModel(description = "Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen. Waardelijst in deze component :   [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)   [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)   [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class DeelEnNummer {
   public static final String SERIALIZED_NAME_DEEL = "deel";
   @SerializedName(SERIALIZED_NAME_DEEL)
@@ -43,7 +41,7 @@ public class DeelEnNummer {
 
   public static final String SERIALIZED_NAME_REEKS = "reeks";
   @SerializedName(SERIALIZED_NAME_REEKS)
-  private List<Waardelijst> reeks = null;
+  private Waardelijst reeks;
 
   public static final String SERIALIZED_NAME_REGISTERCODE = "registercode";
   @SerializedName(SERIALIZED_NAME_REGISTERCODE)
@@ -100,33 +98,25 @@ public class DeelEnNummer {
   }
 
 
-  public DeelEnNummer reeks(List<Waardelijst> reeks) {
+  public DeelEnNummer reeks(Waardelijst reeks) {
     
     this.reeks = reeks;
     return this;
   }
 
-  public DeelEnNummer addReeksItem(Waardelijst reeksItem) {
-    if (this.reeks == null) {
-      this.reeks = new ArrayList<>();
-    }
-    this.reeks.add(reeksItem);
-    return this;
-  }
-
    /**
-   * Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) 
+   * Get reeks
    * @return reeks
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) ")
+  @ApiModelProperty(value = "")
 
-  public List<Waardelijst> getReeks() {
+  public Waardelijst getReeks() {
     return reeks;
   }
 
 
-  public void setReeks(List<Waardelijst> reeks) {
+  public void setReeks(Waardelijst reeks) {
     this.reeks = reeks;
   }
 

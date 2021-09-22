@@ -128,6 +128,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden. </value>
         [DataMember(Name="geheimhoudingPersoonsgegevens", EmitDefaultValue=false)]
+        [Obsolete]
         public bool GeheimhoudingPersoonsgegevens { get; set; }
 
         /// <summary>
