@@ -43,20 +43,11 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PerceelFiliatie" /> class.
         /// </summary>
-        /// <param name="indicatieVervallen">Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. .</param>
         /// <param name="identificatie">De identificatie van de Kadastraal Onroerende Zaak. .</param>
         /// <param name="type">type (required) (default to &quot;PerceelFiliatie&quot;).</param>
-        public PerceelFiliatie(bool indicatieVervallen = default(bool), string identificatie = default(string), TypeKadastraalOnroerendeZaakEnum type = "PerceelFiliatie") : base(identificatie, type)
+        public PerceelFiliatie(string identificatie = default(string), TypeKadastraalOnroerendeZaakEnum type = "PerceelFiliatie") : base(identificatie, type)
         {
-            this.IndicatieVervallen = indicatieVervallen;
         }
-
-        /// <summary>
-        /// Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. 
-        /// </summary>
-        /// <value>Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. </value>
-        [DataMember(Name = "indicatieVervallen", EmitDefaultValue = true)]
-        public bool IndicatieVervallen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,7 +58,6 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class PerceelFiliatie {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  IndicatieVervallen: ").Append(IndicatieVervallen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,11 +91,7 @@ namespace Org.OpenAPITools.Model
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
-                (
-                    this.IndicatieVervallen == input.IndicatieVervallen ||
-                    this.IndicatieVervallen.Equals(input.IndicatieVervallen)
-                );
+            return base.Equals(input);
         }
 
         /// <summary>
@@ -117,7 +103,6 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                hashCode = hashCode * 59 + this.IndicatieVervallen.GetHashCode();
                 return hashCode;
             }
         }

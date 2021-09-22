@@ -89,7 +89,7 @@ class DeelEnNummer(ModelNormal):
         return {
             'deel': (str,),  # noqa: E501
             'nummer': (str,),  # noqa: E501
-            'reeks': ([Waardelijst],),  # noqa: E501
+            'reeks': (Waardelijst,),  # noqa: E501
             'registercode': (Waardelijst,),  # noqa: E501
             'soort_register': (Waardelijst,),  # noqa: E501
         }
@@ -150,7 +150,7 @@ class DeelEnNummer(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             deel (str): Identificatie van het stuk binnen zijn soort. . [optional]  # noqa: E501
             nummer (str): Volgnummer van het stuk. . [optional]  # noqa: E501
-            reeks ([Waardelijst]): Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) . [optional]  # noqa: E501
+            reeks (Waardelijst): [optional]  # noqa: E501
             registercode (Waardelijst): [optional]  # noqa: E501
             soort_register (Waardelijst): [optional]  # noqa: E501
         """
@@ -236,7 +236,7 @@ class DeelEnNummer(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             deel (str): Identificatie van het stuk binnen zijn soort. . [optional]  # noqa: E501
             nummer (str): Volgnummer van het stuk. . [optional]  # noqa: E501
-            reeks ([Waardelijst]): Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) . [optional]  # noqa: E501
+            reeks (Waardelijst): [optional]  # noqa: E501
             registercode (Waardelijst): [optional]  # noqa: E501
             soort_register (Waardelijst): [optional]  # noqa: E501
         """

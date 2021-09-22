@@ -32,7 +32,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk. Waardelijst in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/) 
  */
 @ApiModel(description = "Een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk. Waardelijst in deze component :   [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class Kadasterverzoek {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)

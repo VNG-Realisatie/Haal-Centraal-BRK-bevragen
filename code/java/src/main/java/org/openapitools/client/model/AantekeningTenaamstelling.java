@@ -34,7 +34,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * AantekeningTenaamstelling
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class AantekeningTenaamstelling {
   public static final String SERIALIZED_NAME_AARD = "aard";
   @SerializedName(SERIALIZED_NAME_AARD)
@@ -140,7 +140,9 @@ public class AantekeningTenaamstelling {
    /**
    * Get betreftGedeelteVanPerceel
    * @return betreftGedeelteVanPerceel
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -340,7 +342,9 @@ public class AantekeningTenaamstelling {
    /**
    * Get begrenzing
    * @return begrenzing
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -363,7 +367,9 @@ public class AantekeningTenaamstelling {
    /**
    * Get indicatieOorspronkelijkObject
    * @return indicatieOorspronkelijkObject
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 

@@ -26,44 +26,16 @@ import java.io.IOException;
 import org.openapitools.client.model.AppartementsrechtFiliatie;
 import org.openapitools.client.model.KadastraalOnroerendeZaakFiliatie;
 import org.openapitools.client.model.PerceelFiliatie;
-import org.openapitools.client.model.PerceelFiliatieAllOf;
 import org.openapitools.client.model.TypeKadastraalOnroerendeZaakEnum;
 
 /**
  * PerceelFiliatie
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class PerceelFiliatie extends KadastraalOnroerendeZaakFiliatie {
-  public static final String SERIALIZED_NAME_INDICATIE_VERVALLEN = "indicatieVervallen";
-  @SerializedName(SERIALIZED_NAME_INDICATIE_VERVALLEN)
-  private Boolean indicatieVervallen;
-
   public PerceelFiliatie() {
     this.type = this.getClass().getSimpleName();
   }
-
-  public PerceelFiliatie indicatieVervallen(Boolean indicatieVervallen) {
-    
-    this.indicatieVervallen = indicatieVervallen;
-    return this;
-  }
-
-   /**
-   * Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. 
-   * @return indicatieVervallen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak. ")
-
-  public Boolean getIndicatieVervallen() {
-    return indicatieVervallen;
-  }
-
-
-  public void setIndicatieVervallen(Boolean indicatieVervallen) {
-    this.indicatieVervallen = indicatieVervallen;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -73,14 +45,12 @@ public class PerceelFiliatie extends KadastraalOnroerendeZaakFiliatie {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PerceelFiliatie perceelFiliatie = (PerceelFiliatie) o;
-    return Objects.equals(this.indicatieVervallen, perceelFiliatie.indicatieVervallen) &&
-        super.equals(o);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(indicatieVervallen, super.hashCode());
+    return Objects.hash(super.hashCode());
   }
 
   @Override
@@ -88,7 +58,6 @@ public class PerceelFiliatie extends KadastraalOnroerendeZaakFiliatie {
     StringBuilder sb = new StringBuilder();
     sb.append("class PerceelFiliatie {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    indicatieVervallen: ").append(toIndentedString(indicatieVervallen)).append("\n");
     sb.append("}");
     return sb.toString();
   }

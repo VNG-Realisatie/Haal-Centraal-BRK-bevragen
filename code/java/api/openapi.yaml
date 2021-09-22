@@ -487,23 +487,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -692,23 +675,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -903,23 +869,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -1085,23 +1034,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1274,23 +1206,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -1441,23 +1356,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1612,23 +1510,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1798,23 +1679,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -1993,23 +1857,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -2216,23 +2063,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -2407,23 +2237,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -2630,23 +2443,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -2821,23 +2617,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -3175,23 +2954,6 @@ paths:
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
         "500":
           content:
             application/problem+json:
@@ -3371,23 +3133,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Foutbericht'
           description: Not Acceptable
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-        "410":
-          content:
-            application/problem+json:
-              example:
-                type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11
-                title: Gone
-                status: 410
-                detail: The request could not be completed due to a conflict with
-                  the current state of the resource
-                instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
-                code: gone
-              schema:
-                $ref: '#/components/schemas/Foutbericht'
-          description: Gone
           headers:
             api-version:
               $ref: '#/components/headers/api_version'
@@ -4006,13 +3751,9 @@ components:
             type: string
           type: array
         isOvergegaanIn:
-          items:
-            $ref: '#/components/schemas/Filiatie'
-          type: array
+          $ref: '#/components/schemas/Filiatie'
         isOntstaanUit:
-          items:
-            $ref: '#/components/schemas/Filiatie'
-          type: array
+          $ref: '#/components/schemas/Filiatie'
         bijbehorendeGrondpercelen:
           description: |
             De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort
@@ -4207,7 +3948,6 @@ components:
     PerceelFiliatie:
       allOf:
       - $ref: '#/components/schemas/KadastraalOnroerendeZaakFiliatie'
-      - $ref: '#/components/schemas/PerceelFiliatie_allOf'
     PerceelBasis:
       allOf:
       - $ref: '#/components/schemas/KadastraalOnroerendeZaakBasis'
@@ -4740,7 +4480,7 @@ components:
       type: object
     Stuk:
       description: |
-        Hieraan wordt een Kadasterstuk of een Aangebodenstuk gekoppeld. Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie. Een aangeboden brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
+        Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.
         Waardelijsten in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en
           [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)"
@@ -4749,8 +4489,6 @@ components:
           type: string
         deelEnNummer:
           $ref: '#/components/schemas/DeelEnNummer'
-        stukType:
-          $ref: '#/components/schemas/StukTypeEnum'
         domein:
           description: |
             Het domein waartoe de identificatie behoort.
@@ -4775,16 +4513,6 @@ components:
           description: |
             Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.
           type: boolean
-        tijdstipAanbieding:
-          description: |
-            Het tijdstip dat het stuk bij het kadaster is binnengekomen.
-          format: date-time
-          type: string
-        tijdstipOndertekening:
-          description: |
-            Het tijdstip dat het stuk is ondertekend door partijen en de notaris
-          format: date-time
-          type: string
         aard:
           $ref: '#/components/schemas/Waardelijst'
         status:
@@ -4813,21 +4541,12 @@ components:
             Volgnummer van het stuk.
           type: string
         reeks:
-          description: |
-            Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)
-          items:
-            $ref: '#/components/schemas/Waardelijst'
-          type: array
+          $ref: '#/components/schemas/Waardelijst'
         registercode:
           $ref: '#/components/schemas/Waardelijst'
         soortRegister:
           $ref: '#/components/schemas/Waardelijst'
       type: object
-    StukTypeEnum:
-      enum:
-      - Kadasterstuk
-      - Aangebodenstuk
-      type: string
     EquivalentieVerklaarder:
       allOf:
       - $ref: '#/components/schemas/Naam'
@@ -4976,12 +4695,6 @@ components:
     AppartementsrechtFiliatie_allOf:
       properties:
         indicatieSluimerend:
-          type: boolean
-    PerceelFiliatie_allOf:
-      properties:
-        indicatieVervallen:
-          description: |
-            Geeft aan of de filiatie verwijst naar een vervallen kadastraal onroerende zaak.
           type: boolean
     AppartementsrechtBasis_allOf:
       properties:

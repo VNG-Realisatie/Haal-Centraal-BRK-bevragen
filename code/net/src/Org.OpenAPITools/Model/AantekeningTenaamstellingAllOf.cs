@@ -45,12 +45,14 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Begrenzing
         /// </summary>
         [DataMember(Name="begrenzing", EmitDefaultValue=false)]
+        [Obsolete]
         public PolygonGeoJSON Begrenzing { get; set; }
 
         /// <summary>
         /// Gets or Sets IndicatieOorspronkelijkObject
         /// </summary>
         [DataMember(Name="indicatieOorspronkelijkObject", EmitDefaultValue=false)]
+        [Obsolete]
         public bool IndicatieOorspronkelijkObject { get; set; }
 
         /// <summary>

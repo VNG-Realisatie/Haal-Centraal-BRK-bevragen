@@ -37,7 +37,6 @@ def lazy_import():
     from openapi_client.model.stuk_hal_all_of import StukHalAllOf
     from openapi_client.model.stuk_hal_basis import StukHalBasis
     from openapi_client.model.stuk_links import StukLinks
-    from openapi_client.model.stuk_type_enum import StukTypeEnum
     from openapi_client.model.waardelijst import Waardelijst
     globals()['DeelEnNummer'] = DeelEnNummer
     globals()['EquivalentieVerklaarder'] = EquivalentieVerklaarder
@@ -46,7 +45,6 @@ def lazy_import():
     globals()['StukHalAllOf'] = StukHalAllOf
     globals()['StukHalBasis'] = StukHalBasis
     globals()['StukLinks'] = StukLinks
-    globals()['StukTypeEnum'] = StukTypeEnum
     globals()['Waardelijst'] = Waardelijst
 
 
@@ -105,14 +103,11 @@ class StukHal(ModelComposed):
         return {
             'identificatie': (str,),  # noqa: E501
             'deel_en_nummer': (DeelEnNummer,),  # noqa: E501
-            'stuk_type': (StukTypeEnum,),  # noqa: E501
             'domein': (str,),  # noqa: E501
             'toelichting_bewaarder': (str,),  # noqa: E501
             'stukdeel_identificaties': ([str],),  # noqa: E501
             'bewaarders_verklaring': (str,),  # noqa: E501
             'indicatie_tekening_bijgevoegd': (bool,),  # noqa: E501
-            'tijdstip_aanbieding': (datetime,),  # noqa: E501
-            'tijdstip_ondertekening': (datetime,),  # noqa: E501
             'aard': (Waardelijst,),  # noqa: E501
             'status': (Waardelijst,),  # noqa: E501
             'equivalentie_verklaarder': (EquivalentieVerklaarder,),  # noqa: E501
@@ -129,14 +124,11 @@ class StukHal(ModelComposed):
     attribute_map = {
         'identificatie': 'identificatie',  # noqa: E501
         'deel_en_nummer': 'deelEnNummer',  # noqa: E501
-        'stuk_type': 'stukType',  # noqa: E501
         'domein': 'domein',  # noqa: E501
         'toelichting_bewaarder': 'toelichtingBewaarder',  # noqa: E501
         'stukdeel_identificaties': 'stukdeelIdentificaties',  # noqa: E501
         'bewaarders_verklaring': 'bewaardersVerklaring',  # noqa: E501
         'indicatie_tekening_bijgevoegd': 'indicatieTekeningBijgevoegd',  # noqa: E501
-        'tijdstip_aanbieding': 'tijdstipAanbieding',  # noqa: E501
-        'tijdstip_ondertekening': 'tijdstipOndertekening',  # noqa: E501
         'aard': 'aard',  # noqa: E501
         'status': 'status',  # noqa: E501
         'equivalentie_verklaarder': 'equivalentieVerklaarder',  # noqa: E501
@@ -186,14 +178,11 @@ class StukHal(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             identificatie (str): [optional]  # noqa: E501
             deel_en_nummer (DeelEnNummer): [optional]  # noqa: E501
-            stuk_type (StukTypeEnum): [optional]  # noqa: E501
             domein (str): Het domein waartoe de identificatie behoort. . [optional]  # noqa: E501
             toelichting_bewaarder (str): Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
             stukdeel_identificaties ([str]): [optional]  # noqa: E501
             bewaarders_verklaring (str): Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
             indicatie_tekening_bijgevoegd (bool): Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. . [optional]  # noqa: E501
-            tijdstip_aanbieding (datetime): Het tijdstip dat het stuk bij het kadaster is binnengekomen. . [optional]  # noqa: E501
-            tijdstip_ondertekening (datetime): Het tijdstip dat het stuk is ondertekend door partijen en de notaris . [optional]  # noqa: E501
             aard (Waardelijst): [optional]  # noqa: E501
             status (Waardelijst): [optional]  # noqa: E501
             equivalentie_verklaarder (EquivalentieVerklaarder): [optional]  # noqa: E501
@@ -301,14 +290,11 @@ class StukHal(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             identificatie (str): [optional]  # noqa: E501
             deel_en_nummer (DeelEnNummer): [optional]  # noqa: E501
-            stuk_type (StukTypeEnum): [optional]  # noqa: E501
             domein (str): Het domein waartoe de identificatie behoort. . [optional]  # noqa: E501
             toelichting_bewaarder (str): Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
             stukdeel_identificaties ([str]): [optional]  # noqa: E501
             bewaarders_verklaring (str): Correctie in de openbare registers door de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet. . [optional]  # noqa: E501
             indicatie_tekening_bijgevoegd (bool): Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is. . [optional]  # noqa: E501
-            tijdstip_aanbieding (datetime): Het tijdstip dat het stuk bij het kadaster is binnengekomen. . [optional]  # noqa: E501
-            tijdstip_ondertekening (datetime): Het tijdstip dat het stuk is ondertekend door partijen en de notaris . [optional]  # noqa: E501
             aard (Waardelijst): [optional]  # noqa: E501
             status (Waardelijst): [optional]  # noqa: E501
             equivalentie_verklaarder (EquivalentieVerklaarder): [optional]  # noqa: E501

@@ -29,7 +29,7 @@ import org.openapitools.client.model.Waardelijst;
  * De reden om een stuk niet in te schrijven of om verbetering te vragen. Waardelijst in deze component : [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/) 
  */
 @ApiModel(description = "De reden om een stuk niet in te schrijven of om verbetering te vragen. Waardelijst in deze component : [reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class RedenVerzoek {
   public static final String SERIALIZED_NAME_REDEN_OMSCHRIJVING = "redenOmschrijving";
   @SerializedName(SERIALIZED_NAME_REDEN_OMSCHRIJVING)

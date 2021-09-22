@@ -36,10 +36,10 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="deel">Identificatie van het stuk binnen zijn soort. .</param>
         /// <param name="nummer">Volgnummer van het stuk. .</param>
-        /// <param name="reeks">Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) .</param>
+        /// <param name="reeks">reeks.</param>
         /// <param name="registercode">registercode.</param>
         /// <param name="soortRegister">soortRegister.</param>
-        public DeelEnNummer(string deel = default(string), string nummer = default(string), List<Waardelijst> reeks = default(List<Waardelijst>), Waardelijst registercode = default(Waardelijst), Waardelijst soortRegister = default(Waardelijst))
+        public DeelEnNummer(string deel = default(string), string nummer = default(string), Waardelijst reeks = default(Waardelijst), Waardelijst registercode = default(Waardelijst), Waardelijst soortRegister = default(Waardelijst))
         {
             this.Deel = deel;
             this.Nummer = nummer;
@@ -63,11 +63,10 @@ namespace Org.OpenAPITools.Model
         public string Nummer { get; set; }
 
         /// <summary>
-        /// Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) 
+        /// Gets or Sets Reeks
         /// </summary>
-        /// <value>Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/Reekscode/) </value>
         [DataMember(Name = "reeks", EmitDefaultValue = false)]
-        public List<Waardelijst> Reeks { get; set; }
+        public Waardelijst Reeks { get; set; }
 
         /// <summary>
         /// Gets or Sets Registercode
@@ -140,9 +139,8 @@ namespace Org.OpenAPITools.Model
                 ) && 
                 (
                     this.Reeks == input.Reeks ||
-                    this.Reeks != null &&
-                    input.Reeks != null &&
-                    this.Reeks.SequenceEqual(input.Reeks)
+                    (this.Reeks != null &&
+                    this.Reeks.Equals(input.Reeks))
                 ) && 
                 (
                     this.Registercode == input.Registercode ||

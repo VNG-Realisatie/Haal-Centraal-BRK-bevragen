@@ -45,7 +45,7 @@ import org.openapitools.client.model.Waardelijst;
 /**
  * KadastraalOnroerendeZaakHal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class KadastraalOnroerendeZaakHal {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
@@ -125,11 +125,11 @@ public class KadastraalOnroerendeZaakHal {
 
   public static final String SERIALIZED_NAME_IS_OVERGEGAAN_IN = "isOvergegaanIn";
   @SerializedName(SERIALIZED_NAME_IS_OVERGEGAAN_IN)
-  private List<Filiatie> isOvergegaanIn = null;
+  private Filiatie isOvergegaanIn;
 
   public static final String SERIALIZED_NAME_IS_ONTSTAAN_UIT = "isOntstaanUit";
   @SerializedName(SERIALIZED_NAME_IS_ONTSTAAN_UIT)
-  private List<Filiatie> isOntstaanUit = null;
+  private Filiatie isOntstaanUit;
 
   public static final String SERIALIZED_NAME_BIJBEHORENDE_GRONDPERCELEN = "bijbehorendeGrondpercelen";
   @SerializedName(SERIALIZED_NAME_BIJBEHORENDE_GRONDPERCELEN)
@@ -634,17 +634,9 @@ public class KadastraalOnroerendeZaakHal {
   }
 
 
-  public KadastraalOnroerendeZaakHal isOvergegaanIn(List<Filiatie> isOvergegaanIn) {
+  public KadastraalOnroerendeZaakHal isOvergegaanIn(Filiatie isOvergegaanIn) {
     
     this.isOvergegaanIn = isOvergegaanIn;
-    return this;
-  }
-
-  public KadastraalOnroerendeZaakHal addIsOvergegaanInItem(Filiatie isOvergegaanInItem) {
-    if (this.isOvergegaanIn == null) {
-      this.isOvergegaanIn = new ArrayList<>();
-    }
-    this.isOvergegaanIn.add(isOvergegaanInItem);
     return this;
   }
 
@@ -655,27 +647,19 @@ public class KadastraalOnroerendeZaakHal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Filiatie> getIsOvergegaanIn() {
+  public Filiatie getIsOvergegaanIn() {
     return isOvergegaanIn;
   }
 
 
-  public void setIsOvergegaanIn(List<Filiatie> isOvergegaanIn) {
+  public void setIsOvergegaanIn(Filiatie isOvergegaanIn) {
     this.isOvergegaanIn = isOvergegaanIn;
   }
 
 
-  public KadastraalOnroerendeZaakHal isOntstaanUit(List<Filiatie> isOntstaanUit) {
+  public KadastraalOnroerendeZaakHal isOntstaanUit(Filiatie isOntstaanUit) {
     
     this.isOntstaanUit = isOntstaanUit;
-    return this;
-  }
-
-  public KadastraalOnroerendeZaakHal addIsOntstaanUitItem(Filiatie isOntstaanUitItem) {
-    if (this.isOntstaanUit == null) {
-      this.isOntstaanUit = new ArrayList<>();
-    }
-    this.isOntstaanUit.add(isOntstaanUitItem);
     return this;
   }
 
@@ -686,12 +670,12 @@ public class KadastraalOnroerendeZaakHal {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Filiatie> getIsOntstaanUit() {
+  public Filiatie getIsOntstaanUit() {
     return isOntstaanUit;
   }
 
 
-  public void setIsOntstaanUit(List<Filiatie> isOntstaanUit) {
+  public void setIsOntstaanUit(Filiatie isOntstaanUit) {
     this.isOntstaanUit = isOntstaanUit;
   }
 

@@ -30,7 +30,7 @@ import org.openapitools.client.model.Naam;
  * Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon. 
  */
 @ApiModel(description = "Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-07-21T07:24:37.064592Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
 public class HeeftPartnerschap {
   public static final String SERIALIZED_NAME_DATUM_ONTBINDING = "datumOntbinding";
   @SerializedName(SERIALIZED_NAME_DATUM_ONTBINDING)
@@ -54,7 +54,9 @@ public class HeeftPartnerschap {
    /**
    * Get datumOntbinding
    * @return datumOntbinding
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -77,7 +79,9 @@ public class HeeftPartnerschap {
    /**
    * Get datumSluiting
    * @return datumSluiting
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
