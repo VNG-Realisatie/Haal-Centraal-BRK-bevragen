@@ -5,10 +5,14 @@ BRK bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens
 
 Meld je aan bij het kadaster om [aan te sluiten](https://formulieren.kadaster.nl/aanmelden_brk_bevragen), of voor [toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen).
 
-Komende periode wordt de API uitgebreid met links naar de BAG en filiatie (v1.3). We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
+## BRK bevragen v1.3 is live!
 
-## Getting started
-Wil je een aansluiting ontwikkelen? Dan is de [getting started](./docs/getting-started.md) een goed begin. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
+Naast zoeken op nummeraanduiding, levert BRK bevragen nu ook:
+
+* de complete filiatie
+* bij ieder perceel de bijbehorende appartementsrechten
+* bij ieder appartementsrecht het bijbehorend perceel
+* de metadata van alle stukken en stukdelen, eventueel op te halen via KIK Inzage
 
 # Planning Haal Centraal
 https://eu-rm.roadmunk.com/publish/4ac89376551785bace5e22f09c8247f307e1c061
