@@ -30,7 +30,7 @@ import org.openapitools.client.model.PubliekrechtelijkeBeperkingHal;
 /**
  * PubliekrechtelijkeBeperkingHalCollectieEmbedded
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T08:28:41.072015Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-09-22T10:30:56.069820Z[Etc/UTC]")
 public class PubliekrechtelijkeBeperkingHalCollectieEmbedded {
   public static final String SERIALIZED_NAME_PUBLIEKRECHTELIJKE_BEPERKINGEN = "publiekrechtelijkeBeperkingen";
   @SerializedName(SERIALIZED_NAME_PUBLIEKRECHTELIJKE_BEPERKINGEN)
