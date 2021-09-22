@@ -1,5 +1,5 @@
-# Haal Centraal BRK bevragen v1.2 IS LIVE!
-BRK bevragen bevat nu pivaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen! 
+# Haal Centraal BRK bevragen v1.3 IS LIVE!
+BRK bevragen bevat nu ook stukken en stukdelen. Filiatie is toegevoegd aan Kadastraal Onroerende Zaken, diverse bestaande resources zijn uitgebreid !
 
 BRK bevragen is een Haal Centraal API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster voor alle binnengemeentelijke afnemers in NL, maar ook waterschappen, belastingsamenwerkingen en andere overheden.
 
