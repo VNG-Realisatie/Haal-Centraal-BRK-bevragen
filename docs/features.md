@@ -13,9 +13,10 @@ De functionaliteit van de API is gespecificeerd en geillustreerd door middel van
 - [velden die altijd geleverd worden onafhankelijk van de fields parameter](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/levering-velden.feature){:target="_blank" rel="noopener"}
 - [zoeken van Kadaster natuurlijk personen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/zoeken-kadasternatuurlijkpersoon.feature){:target="_blank" rel="noopener"}
 - [zoeken van Kadaster niet-natuurlijk personen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/zoeken-kadasternietnatuurlijkpersoon.feature){:target="_blank" rel="noopener"}
+- [levering koopsommen in combinatie met koopjaar en cultuurcode](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/first.feature){:target="_blank" rel="noopener"}
 
 ## Algemene Haal Centraal features
-Naast de features die specifiek zijn voor BRK-bevragen, zijn voor de API ook enkele features relevant die zijn opgenomen in Haal Centraal common, omdat deze gelden voor alle Haal Centraal API's:
+Naast specifieke features zijn ook enkele haal Centraal Common features relevant voor de BRK bevragen API. Deze features gelden voor alle Haal Centraal API's:
 - [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/fields.feature){:target="_blank" rel="noopener"}
 - [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/expand.feature){:target="_blank" rel="noopener"}
 - [foutafhandeling](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/master/features/foutafhandeling.feature){:target="_blank" rel="noopener"}
