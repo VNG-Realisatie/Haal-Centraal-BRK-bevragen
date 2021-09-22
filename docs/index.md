@@ -11,7 +11,7 @@ title: Haal Centraal BRK bevragingen
 
 API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
 
-## BRK bevragen v1.2 is live!
+## BRK bevragen v1.3 is live!
 
 BRK bevragen bevat nu ook privaatrechtelijke en publiekrechtelijke beperkingen, hypotheken en beslagen!
 Bekijk de [release notes](./releasenotes).
