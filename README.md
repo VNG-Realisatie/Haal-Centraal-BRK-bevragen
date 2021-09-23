@@ -9,7 +9,6 @@ API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
 ## BRK bevragen v1.3 is live!
 
 Naast zoeken op nummeraanduiding, levert BRK bevragen nu ook:
-
 * de complete filiatie
 * bij ieder perceel de bijbehorende appartementsrechten
 * bij ieder appartementsrecht het bijbehorend perceel

@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Kadaster - BRK-Bevragen API",
-    "description" : "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld. Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.\n",
+    "description" : "D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.\nDeze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.\n",
     "contact" : {
       "name" : "Kadaster Haal Centraal BRK-Bevragen",
       "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen"
@@ -11,7 +11,7 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "1.2.0"
+    "version" : "1.3.0"
   },
   "servers" : [ {
     "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
@@ -40,12 +40,14 @@
     "name" : "Publiekrechtelijke Beperkingen"
   }, {
     "name" : "Kadaster (niet)Natuurlijk Personen"
+  }, {
+    "name" : "Stukken"
   } ],
   "paths" : {
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven. Het combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  typegerechtigde (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  kadasterpersoonidentificatie (verplicht)\n    -  typegerechtigde (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen. Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -142,6 +144,15 @@
           "required" : false,
           "schema" : {
             "pattern" : "^([a-z,A-Z,0-9]){1,4}$",
+            "type" : "string"
+          }
+        }, {
+          "name" : "nummeraanduidingIdentificatie",
+          "in" : "query",
+          "description" : "De nummeraanduidingIdentificatie van een adres dat is geregistreerd als de locatie van deze kadastraal onroerende zaak.\n",
+          "required" : false,
+          "schema" : {
+            "pattern" : "^[0-9]{16}$",
             "type" : "string"
           }
         } ],
@@ -265,29 +276,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -337,13 +325,13 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het raadplegen van een kadastrale onroerende zaak.\n\nMet gebruik van de parameter expand kunnen zakelijkgerechtigden & privaatrechtelijkebeperkingen direct worden meegeladen.\n",
+        "description" : "Raadpleeg een kadastraal onroerende zaak.\nAls je de expand parameter gebruikt kun je zakelijkgerechtigden en privaatrechtelijkebeperkingen direct meeladen.\n",
         "operationId" : "GetKadastraalOnroerendeZaak",
         "parameters" : [ {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -520,29 +508,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -592,7 +557,7 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden/{zakelijkgerechtigdeidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
         "description" : "Het raadplegen van een specifieke zakelijk gerechtigde van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)\n",
@@ -606,7 +571,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -614,7 +579,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "zakelijkgerechtigdeidentificatie",
+          "name" : "zakelijkGerechtigdeIdentificatie",
           "in" : "path",
           "description" : "De identificatie van de zakelijk gerechtigde\n",
           "required" : true,
@@ -775,29 +740,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -847,10 +789,10 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/zakelijkgerechtigden" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden" : {
       "get" : {
         "tags" : [ "Zakelijke Gerechtigden" ],
-        "description" : "Het zoeken van zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel (wanneer twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is)\n",
+        "description" : "Zoek zakelijk gerechtigden van een kadastraal onroerende zaak. Het aandeel van de zakelijk gerechtigde wordt altijd geleverd in combinatie met het gezamenlijk aandeel. Er is een gezamenlijk aandeel als twee of meer personen een gezamenlijk aandeel hebben in een zakelijk recht, en ieders afzonderlijke aandeel in het gezamenlijk aandeel niet bekend is.\n",
         "operationId" : "GetZakelijkGerechtigden",
         "parameters" : [ {
           "name" : "fields",
@@ -861,7 +803,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -1030,29 +972,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1102,10 +1021,10 @@
         }
       }
     },
-    "/kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}" : {
+    "/kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven,\nof wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1116,7 +1035,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadasternatuurlijkpersoonidentificatie",
+          "name" : "kadasterNatuurlijkPersoonIdentificatie",
           "in" : "path",
           "required" : true,
           "schema" : {
@@ -1264,29 +1183,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1336,10 +1232,10 @@
         }
       }
     },
-    "/kadasternietnatuurlijkpersonen/{kadasternietnatuurlijkpersoonidentificatie}" : {
+    "/kadasternietnatuurlijkpersonen/{kadasterNietNatuurlijkPersoonIdentificatie}" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het raadplegen van een bij het kadaster geregistreerde niet natuurlijke persoon die al dan niet in het handelsregister (HR) is ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Raadpleeg een bij het kadaster geregistreerde niet natuurlijke persoon die niet in het Handelsregister (HR) is\ningeschreven, of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte.\nKadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersoon",
         "parameters" : [ {
           "name" : "fields",
@@ -1350,7 +1246,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadasternietnatuurlijkpersoonidentificatie",
+          "name" : "kadasterNietNatuurlijkPersoonIdentificatie",
           "in" : "path",
           "required" : true,
           "schema" : {
@@ -1498,29 +1394,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1573,7 +1446,7 @@
     "/kadasternatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven,\nof wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -1709,29 +1582,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1784,7 +1634,7 @@
     "/kadasternietnatuurlijkpersonen" : {
       "get" : {
         "tags" : [ "Kadaster (niet)Natuurlijk Personen" ],
-        "description" : "Het zoeken van bij het kadaster geregistreerde niet natuurlijke personen die al dan niet in het handelsregister (HR) zijn ingeschreven. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n",
+        "description" : "Zoek bij het kadaster geregistreerde niet natuurlijke personen die niet in het Handelsregister (HR) zijn ingeschreven,\nof wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte.\nKadasternatuurlijkpersonen worden niet geactualiseerd.\n",
         "operationId" : "GetKadasterNietNatuurlijkPersonen",
         "parameters" : [ {
           "name" : "fields",
@@ -1920,29 +1770,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -1992,10 +1819,10 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van hypotheken die rusten op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg hypotheken die rusten op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypothekenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2006,22 +1833,12 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
           }
         } ],
         "responses" : {
@@ -2030,9 +1847,6 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
@@ -2167,29 +1981,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -2239,10 +2030,10 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/hypotheken/{hypotheekidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}" : {
       "get" : {
         "tags" : [ "Hypotheken" ],
-        "description" : "Het raadplegen van een hypotheek die rust op een kadastraal onroerende zaak met bijbehorende hypotheekhouder(s). Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+        "description" : "Raadpleeg een hypotheek die rust op een kadastraal onroerende zaak en bijbehorende hypotheekhouder(s).\nEen hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
         "operationId" : "GetHypotheek",
         "parameters" : [ {
           "name" : "fields",
@@ -2253,7 +2044,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2261,22 +2052,12 @@
             "type" : "string"
           }
         }, {
-          "name" : "hypotheekidentificatie",
+          "name" : "hypotheekIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van de hypotheek.\n",
           "required" : true,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
           }
         } ],
         "responses" : {
@@ -2288,9 +2069,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -2422,29 +2200,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "412" : {
             "description" : "Precondition failed",
             "headers" : {
@@ -2540,10 +2295,10 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van beslagen en beslagleggers van een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg beslagen en beslagleggers van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslagenKadastraalOnroerendeZaak",
         "parameters" : [ {
           "name" : "fields",
@@ -2554,22 +2309,12 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
           }
         } ],
         "responses" : {
@@ -2578,9 +2323,6 @@
             "headers" : {
               "api-version" : {
                 "$ref" : "#/components/headers/api_version"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
@@ -2715,29 +2457,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -2787,10 +2506,10 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/beslagen/{beslagidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}" : {
       "get" : {
         "tags" : [ "Beslagen" ],
-        "description" : "Het raadplegen van een beslag.\n",
+        "description" : "Raadpleeg een beslag en beslaglegger(s) van een kadastraal onroerende zaak\n",
         "operationId" : "GetBeslag",
         "parameters" : [ {
           "name" : "fields",
@@ -2801,7 +2520,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -2809,22 +2528,12 @@
             "type" : "string"
           }
         }, {
-          "name" : "beslagidentificatie",
+          "name" : "beslagIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van het beslag.\n",
           "required" : true,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
           }
         } ],
         "responses" : {
@@ -2836,9 +2545,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -2970,29 +2676,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "412" : {
             "description" : "Precondition failed",
             "headers" : {
@@ -3088,22 +2771,12 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van de privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Raadpleeg privaatrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperkingen",
         "parameters" : [ {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
-        }, {
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
@@ -3112,7 +2785,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -3129,9 +2802,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -3263,29 +2933,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -3335,22 +2982,12 @@
         }
       }
     },
-    "/kadastraalonroerendezaken/{kadastraalonroerendezaakidentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkebeperkingidentificatie}" : {
+    "/kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen/{privaatrechtelijkeBeperkingIdentificatie}" : {
       "get" : {
         "tags" : [ "Privaatrechtelijke Beperkingen" ],
-        "description" : "Het raadplegen van een specifieke privaatrechtelijke beperkingen.\n",
+        "description" : "Raadpleeg een privaatrechtelijke beperking op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPrivaatrechtelijkeBeperking",
         "parameters" : [ {
-          "name" : "Accept-Crs",
-          "in" : "header",
-          "description" : "Gewenste CRS van de coördinaten in de response.",
-          "required" : false,
-          "schema" : {
-            "type" : "string",
-            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
-            "enum" : [ "epsg:28992" ]
-          }
-        }, {
           "name" : "fields",
           "in" : "query",
           "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
@@ -3359,7 +2996,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "kadastraalonroerendezaakidentificatie",
+          "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een kadastraal onroerende zaak.\n",
           "required" : true,
@@ -3367,7 +3004,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "privaatrechtelijkebeperkingidentificatie",
+          "name" : "privaatrechtelijkeBeperkingIdentificatie",
           "in" : "path",
           "description" : "De unieke identificatie van een privaatrechtelijke beperking.\n",
           "required" : true,
@@ -3384,9 +3021,6 @@
               },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
-              },
-              "Content-Crs" : {
-                "$ref" : "#/components/headers/contentCrs"
               }
             },
             "content" : {
@@ -3518,29 +3152,6 @@
               }
             }
           },
-          "410" : {
-            "description" : "Gone",
-            "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              }
-            },
-            "content" : {
-              "application/problem+json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Foutbericht"
-                },
-                "example" : {
-                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.11",
-                  "title" : "Gone",
-                  "status" : 410,
-                  "detail" : "The request could not be completed due to a conflict with the current state of the resource",
-                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
-                  "code" : "gone"
-                }
-              }
-            }
-          },
           "500" : {
             "description" : "Internal Server Error",
             "headers" : {
@@ -3593,7 +3204,7 @@
     "/publiekrechtelijkebeperkingen" : {
       "get" : {
         "tags" : [ "Publiekrechtelijke Beperkingen" ],
-        "description" : "Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
+        "description" : "Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.\n",
         "operationId" : "GetPubliekrechtelijkeBeperkingen",
         "parameters" : [ {
           "name" : "fields",
@@ -3606,7 +3217,7 @@
         }, {
           "name" : "kadastraalOnroerendeZaakIdentificatie",
           "in" : "query",
-          "description" : "De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak\n",
+          "description" : "De unieke identificatie van een kadastraal onroerende zaak.\nGezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak\n",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3777,6 +3388,444 @@
           }
         }
       }
+    },
+    "/stukken/{stukIdentificatie}" : {
+      "get" : {
+        "tags" : [ "Stukken" ],
+        "description" : "Raadplegen van een stuk. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.\n",
+        "operationId" : "GetStuk",
+        "parameters" : [ {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "stukIdentificatie",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "maxLength" : 60,
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Zoekactie geslaagd\n",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              },
+              "warning" : {
+                "$ref" : "#/components/headers/warning"
+              }
+            },
+            "content" : {
+              "application/hal+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StukHal"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadRequestFoutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "status" : 400,
+                  "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "paramsRequired",
+                  "invalidParams" : [ {
+                    "type" : "https://www.vng.nl/realisatie/api/validaties/integer",
+                    "name" : "verblijfplaats__huisnummer",
+                    "code" : "integer",
+                    "reason" : "Waarde is geen geldige integer."
+                  } ]
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2",
+                  "title" : "Niet correct geauthenticeerd.",
+                  "status" : 401,
+                  "detail" : "The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "authentication"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4",
+                  "title" : "U bent niet geautoriseerd voor deze operatie.",
+                  "status" : 403,
+                  "detail" : "The server understood the request, but is refusing to fulfill it.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "autorisation"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5",
+                  "title" : "Opgevraagde resource bestaat niet.",
+                  "status" : 404,
+                  "detail" : "The server has not found anything matching the Request-URI.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notFound"
+                }
+              }
+            }
+          },
+          "406" : {
+            "description" : "Not Acceptable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7",
+                  "title" : "Gevraagde contenttype wordt niet ondersteund.",
+                  "status" : 406,
+                  "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAcceptable"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1",
+                  "title" : "Interne server fout.",
+                  "status" : 500,
+                  "detail" : "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "serverError"
+                }
+              }
+            }
+          },
+          "503" : {
+            "description" : "Service Unavailable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4",
+                  "title" : "Bronservice {bron} is tijdelijk niet beschikbaar.",
+                  "status" : 503,
+                  "detail" : "The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAvailable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stukdelen/{stukdeelIdentificatie}" : {
+      "get" : {
+        "tags" : [ "Stukken" ],
+        "description" : "Raadplegen van een stukdeel. In een akte (stuk) zijn meerdere rechtsfeiten (stukdelen) vastgelegd.\nMet de stukdeel-identificaties kunnen gegevens over het stukdeel worden opgevraagd.\n",
+        "operationId" : "GetStukdeel",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "stukdeelIdentificatie",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "maxLength" : 60,
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Zoekactie geslaagd\n",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              },
+              "warning" : {
+                "$ref" : "#/components/headers/warning"
+              }
+            },
+            "content" : {
+              "application/hal+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StukdeelHal"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadRequestFoutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "status" : 400,
+                  "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "paramsRequired",
+                  "invalidParams" : [ {
+                    "type" : "https://www.vng.nl/realisatie/api/validaties/integer",
+                    "name" : "verblijfplaats__huisnummer",
+                    "code" : "integer",
+                    "reason" : "Waarde is geen geldige integer."
+                  } ]
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2",
+                  "title" : "Niet correct geauthenticeerd.",
+                  "status" : 401,
+                  "detail" : "The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "authentication"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4",
+                  "title" : "U bent niet geautoriseerd voor deze operatie.",
+                  "status" : 403,
+                  "detail" : "The server understood the request, but is refusing to fulfill it.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "autorisation"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5",
+                  "title" : "Opgevraagde resource bestaat niet.",
+                  "status" : 404,
+                  "detail" : "The server has not found anything matching the Request-URI.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notFound"
+                }
+              }
+            }
+          },
+          "406" : {
+            "description" : "Not Acceptable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7",
+                  "title" : "Gevraagde contenttype wordt niet ondersteund.",
+                  "status" : 406,
+                  "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAcceptable"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1",
+                  "title" : "Interne server fout.",
+                  "status" : 500,
+                  "detail" : "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "serverError"
+                }
+              }
+            }
+          },
+          "503" : {
+            "description" : "Service Unavailable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4",
+                  "title" : "Bronservice {bron} is tijdelijk niet beschikbaar.",
+                  "status" : 503,
+                  "detail" : "The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAvailable"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -3871,7 +3920,55 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "isOntstaanUit" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "isOvergegaanIn" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
           "beslagen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "adressen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "adresseerbareObjecten" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "bijbehorendeGrondpercelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "bijbehorendeAppartementsrechten" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4005,8 +4102,21 @@
           },
           "betrokkenGorzenEnAanwassen" : {
             "$ref" : "#/components/schemas/HalLink"
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
           }
-        }
+        },
+        "description" : "De links naar stukken en stukdelen betreffen stukken en stukdelen waar een zakelijk recht, erfpachtcanon en/of tenaamstelling op gebaseerd zijn of waar het zakelijk recht, erfpachtcanon en/of de tenaamstelling in vermeld zijn."
       },
       "ZakelijkGerechtigdeHalCollectie" : {
         "type" : "object",
@@ -4155,51 +4265,6 @@
           }
         } ]
       },
-      "Hypotheek" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "aandeelInBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/TypeBreuk"
-          },
-          "gedeeltelijkeBezwaringOudObject" : {
-            "type" : "boolean"
-          },
-          "omschrijvingBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "toelichtingBewaarder" : {
-            "type" : "string",
-            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
-          },
-          "betreftGedeelteVanPerceel" : {
-            "type" : "boolean"
-          },
-          "aantekeningen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/AantekeningBasis"
-            }
-          },
-          "hypotheekhouders" : {
-            "type" : "array",
-            "description" : "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/PersoonBeperkt"
-            }
-          },
-          "bedragZekerheidsstelling" : {
-            "$ref" : "#/components/schemas/Bedrag"
-          }
-        },
-        "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
-      },
       "HypotheekLinks" : {
         "type" : "object",
         "properties" : {
@@ -4207,6 +4272,18 @@
             "$ref" : "#/components/schemas/HalLink"
           },
           "hypotheekhouders" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4247,51 +4324,6 @@
           }
         } ]
       },
-      "Beslag" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "aandeelInBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/TypeBreuk"
-          },
-          "gedeeltelijkeBezwaringOudObject" : {
-            "type" : "boolean",
-            "description" : "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.\n"
-          },
-          "omschrijvingBetrokkenRecht" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "toelichtingBewaarder" : {
-            "type" : "string",
-            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
-          },
-          "aard" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "aantekeningen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/AantekeningBasis"
-            }
-          },
-          "beslagleggers" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/PersoonBeperkt"
-            }
-          },
-          "bedragVordering" : {
-            "$ref" : "#/components/schemas/Bedrag"
-          }
-        },
-        "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
-      },
       "BeslagLinks" : {
         "type" : "object",
         "properties" : {
@@ -4299,6 +4331,18 @@
             "$ref" : "#/components/schemas/HalLink"
           },
           "beslagleggers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
@@ -4337,7 +4381,7 @@
               "$ref" : "#/components/schemas/PrivaatrechtelijkeBeperkingLinks"
             }
           },
-          "description" : "Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen. Of niet alles mag doen met de rechten die hij heeft op de grond of het huis. Deze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst. Soms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster in te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.\n"
+          "description" : "Een privaatrechtelijke beperking is dat iemand niet alles met een stuk grond of huis mag doen.\nOf niet alles mag doen met de rechten die hij heeft op de grond of het huis.\nDeze beperking wordt geregeld volgens het privaatrecht, bijvoorbeeld via een overeenkomst.\nSoms is er wel een wet nodig die het mogelijk maakt om dit soort beperkingen bij het kadaster\nin te schrijven. Bijvoorbeeld de Tijdelijke wet huurkoop onroerende zaken.\n"
         } ]
       },
       "PrivaatrechtelijkeBeperkingLinks" : {
@@ -4345,6 +4389,18 @@
         "properties" : {
           "self" : {
             "$ref" : "#/components/schemas/HalLink"
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
           }
         }
       },
@@ -4381,38 +4437,111 @@
           }
         } ]
       },
-      "PubliekrechtelijkeBeperking" : {
-        "type" : "object",
-        "properties" : {
-          "identificatie" : {
-            "type" : "string"
-          },
-          "domein" : {
-            "type" : "string",
-            "description" : "Het domein waartoe de identificatie behoort.\n"
-          },
-          "grondslag" : {
-            "$ref" : "#/components/schemas/Waardelijst"
-          },
-          "datumInWerking" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "datumBeeindiging" : {
-            "type" : "string",
-            "format" : "date"
-          },
-          "bevoegdGezag" : {
-            "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
-          }
-        },
-        "description" : "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.\n"
-      },
       "PubliekrechtelijkeBeperkingLinks" : {
         "type" : "object",
         "properties" : {
           "bevoegdGezag" : {
             "$ref" : "#/components/schemas/HalLink"
+          },
+          "stukken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          }
+        }
+      },
+      "StukHal" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/StukHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/StukEmbedded"
+            }
+          }
+        } ]
+      },
+      "StukHalBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Stuk"
+        }, {
+          "properties" : {
+            "_links" : {
+              "$ref" : "#/components/schemas/StukLinks"
+            }
+          }
+        } ]
+      },
+      "StukLinks" : {
+        "type" : "object",
+        "properties" : {
+          "self" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
+          }
+        }
+      },
+      "StukEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stukdelen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StukdeelHalBasis"
+            }
+          }
+        }
+      },
+      "StukdeelHalBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Stukdeel"
+        }, {
+          "properties" : {
+            "_links" : {
+              "$ref" : "#/components/schemas/StukdeelLinks"
+            }
+          }
+        } ]
+      },
+      "StukdeelLinks" : {
+        "type" : "object",
+        "properties" : {
+          "self" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "stuk" : {
+            "$ref" : "#/components/schemas/HalLink"
+          }
+        }
+      },
+      "StukdeelHal" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/StukdeelHalBasis"
+        }, {
+          "properties" : {
+            "_embedded" : {
+              "$ref" : "#/components/schemas/StukdeelEmbedded"
+            }
+          }
+        } ]
+      },
+      "StukdeelEmbedded" : {
+        "type" : "object",
+        "properties" : {
+          "stuk" : {
+            "$ref" : "#/components/schemas/StukHalBasis"
           }
         }
       },
@@ -4426,13 +4555,17 @@
             "type" : "string",
             "description" : "Het domein waartoe de identificatie behoort.\n"
           },
+          "indicatieVervallen" : {
+            "type" : "boolean",
+            "description" : "Vervallen objecten zijn opvraagbaar met de stand van zaken direct voordat het object vervallen is verklaard.\nDeze informatie is nodig om de filiatie-\"boom\" af te kunnen lopen en inzicht te krijgen in betrokken appartementsrechten en grondpercelen.\n"
+          },
           "begrenzingPerceel" : {
             "$ref" : "#/components/schemas/polygonGeoJSON"
           },
           "perceelnummerRotatie" : {
             "maximum" : 999,
             "type" : "number",
-            "description" : "Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart. Perceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.\n"
+            "description" : "Rotatie van het perceelnummer ten behoeve van visualisatie op de kaart.\nPerceelnummers worden bijvoorbeeld gekanteld om in een smal perceel te passen.\n"
           },
           "plaatscoordinaten" : {
             "$ref" : "#/components/schemas/pointGeoJSON"
@@ -4442,7 +4575,7 @@
           },
           "toelichtingBewaarder" : {
             "type" : "string",
-            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
           },
           "type" : {
             "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
@@ -4493,6 +4626,40 @@
           "beslagIdentificaties" : {
             "type" : "array",
             "description" : "Alle beslagen die rusten op deze kadastraal onroerende zaak\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isOvergegaanIn" : {
+            "$ref" : "#/components/schemas/Filiatie"
+          },
+          "isOntstaanUit" : {
+            "$ref" : "#/components/schemas/Filiatie"
+          },
+          "bijbehorendeGrondpercelen" : {
+            "type" : "array",
+            "description" : "De grondpercelen die bij deze Kadastraal Onroerende Zaak (appartementsrecht) hoort\n",
+            "items" : {
+              "$ref" : "#/components/schemas/PerceelBasis"
+            }
+          },
+          "bijbehorendeAppartementsrechten" : {
+            "type" : "array",
+            "description" : "De actuele appartementsrechten die bij deze KadastraalOnroerende Zaak (grondperceel) horen\n",
+            "items" : {
+              "$ref" : "#/components/schemas/AppartementsrechtBasis"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze kadastraal onroerende zaak is vermeld.\n"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
             "items" : {
               "type" : "string"
             }
@@ -4606,6 +4773,9 @@
           "properties" : {
             "koppelingswijze" : {
               "$ref" : "#/components/schemas/Waardelijst"
+            },
+            "adresseerbaarObjectIdentificatie" : {
+              "type" : "string"
             }
           }
         } ]
@@ -4624,7 +4794,7 @@
             "adresregel1" : {
               "type" : "string",
               "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.\n",
-              "example" : "Laan van de landinrichtingscommissie Duiven-Westervoort 1A-bis"
+              "example" : "Ln vd l D-Westervoort 1A-bis"
             },
             "adresregel2" : {
               "type" : "string",
@@ -4680,6 +4850,80 @@
         },
         "description" : "Eigenschappen van het adres die kunnen worden hergebruikt in andere API's waarin adresgegevens worden opgenomen. "
       },
+      "Filiatie" : {
+        "type" : "object",
+        "properties" : {
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "kadastraalOnroerendeZaken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+            }
+          }
+        }
+      },
+      "KadastraalOnroerendeZaakFiliatie" : {
+        "required" : [ "type" ],
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van de Kadastraal Onroerende Zaak.\n"
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/TypeKadastraalOnroerendeZaakEnum"
+          }
+        },
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "appartementsrecht" : "#/components/schemas/AppartementsrechtFiliatie",
+            "perceel" : "#/components/schemas/PerceelFiliatie"
+          }
+        }
+      },
+      "AppartementsrechtFiliatie" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        }, {
+          "properties" : {
+            "indicatieSluimerend" : {
+              "type" : "boolean"
+            }
+          }
+        } ]
+      },
+      "PerceelFiliatie" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
+        } ]
+      },
+      "PerceelBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        } ]
+      },
+      "KadastraalOnroerendeZaakBasis" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AppartementsrechtBasis" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        }, {
+          "properties" : {
+            "volgnummer" : {
+              "type" : "integer"
+            }
+          }
+        } ]
+      },
       "ZakelijkGerechtigde" : {
         "type" : "object",
         "properties" : {
@@ -4700,6 +4944,9 @@
           },
           "tenaamstelling" : {
             "$ref" : "#/components/schemas/Tenaamstelling"
+          },
+          "zakelijkRecht" : {
+            "$ref" : "#/components/schemas/ZakelijkRecht"
           },
           "persoon" : {
             "$ref" : "#/components/schemas/PersoonBeperkt"
@@ -4726,6 +4973,24 @@
           "indicatieOudeOnroerendeZaakBetrokken" : {
             "type" : "boolean",
             "description" : "Indicatie waarmee wordt aangegeven dat de erfpacht oorspronkelijk gevestigd is bij een perceel dat later is verenigd met een ander perceel.\n"
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze erfpachtcanon is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze erfpachtcanon is vermeld\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
           }
         },
         "description" : "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.\n\n\nWaardelijst in deze component :\n  [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/)\n"
@@ -4774,6 +5039,27 @@
           },
           "betrokkenGorzenEnAanwassen" : {
             "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
+          },
+          "isGebaseerdOpStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragraaf in een akte met een rechtsfeit) waarop deze tenaamstelling is gebaseerd.\n"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze tenaamstelling is vermeld.\n"
+            }
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
           }
         },
         "description" : "Een registratie van (een aandeel in) een zakelijk recht dat een persoon heeft, dat rust op een kadastraal onroerende zaak.\n\n\nWaardelijst in deze component :\n  [burgerlijkeStaatTenTijdeVanVerkrijging](http://www.kadaster.nl/schemas/waardelijsten/BurgerlijkeStaat/) en [verkregenNamensSamenwerkingsverband](http://www.kadaster.nl/schemas/waardelijsten/Samenwerkingsverband/)\n"
@@ -4838,6 +5124,24 @@
             "einddatumRecht" : {
               "type" : "string",
               "format" : "date"
+            },
+            "stukIdentificaties" : {
+              "type" : "array",
+              "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "isGebaseerdOpStukdeelIdentificatie" : {
+              "type" : "string",
+              "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze aantekening is gebaseerd.\n"
+            },
+            "isVermeldInStukdeelIdentificaties" : {
+              "type" : "array",
+              "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze aantekening is vermeld\n",
+              "items" : {
+                "type" : "string"
+              }
             }
           }
         } ]
@@ -4852,7 +5156,8 @@
             "type" : "string"
           },
           "betreftGedeelteVanPerceel" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "deprecated" : true
           }
         },
         "description" : "Waardelijst in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)\n"
@@ -4905,6 +5210,32 @@
         "description" : "Een aanduiding die aangeeft of de persoon ingeschreven is in het Handelsregister (KvK) met een rsin, dan wel vastgelegd is bij het Kadaster.\n",
         "enum" : [ "ingeschreven_niet_natuurlijk_persoon", "kadaster_niet_natuurlijk_persoon" ]
       },
+      "ZakelijkRecht" : {
+        "type" : "object",
+        "properties" : {
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isGebaseerdOpStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit zakelijk recht is gebaseerd.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit zakelijk recht is vermeld.\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
       "PersoonBeperkt" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/PersoonBasis"
@@ -4929,7 +5260,8 @@
             "geheimhoudingPersoonsgegevens" : {
               "title" : "indicatieGeheim",
               "type" : "boolean",
-              "description" : "Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.\n"
+              "description" : "Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.\n",
+              "deprecated" : true
             },
             "landWaarnaarVertrokken" : {
               "$ref" : "#/components/schemas/Waardelijst"
@@ -5157,6 +5489,331 @@
           },
           "description" : "Een bij het kadaster geregistreerde niet natuurlijke persoon, al dan niet ingeschreven in het handelsregister. Kadasternietnatuurlijkpersonen worden niet geactualiseerd.\n\n\nDe property beschikkingsbevoegdheid is bij een KadasterNietNatuurlijkPersoon nooit gevuld.\nWaardelijst in deze component :\n  [rechtsvorm](http://www.kadaster.nl/schemas/waardelijsten/Rechtsvorm/)\n"
         } ]
+      },
+      "Hypotheek" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "aandeelInBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/TypeBreuk"
+          },
+          "gedeeltelijkeBezwaringOudObject" : {
+            "type" : "boolean"
+          },
+          "omschrijvingBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "betreftGedeelteVanPerceel" : {
+            "type" : "boolean"
+          },
+          "aantekeningen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AantekeningHypotheek"
+            }
+          },
+          "hypotheekhouders" : {
+            "type" : "array",
+            "description" : "Een hypotheekhouder vestigt als geldverstrekker een recht van hypotheek als zekerheid voor de lening.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/PersoonBeperkt"
+            }
+          },
+          "bedragZekerheidsstelling" : {
+            "$ref" : "#/components/schemas/Bedrag"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "omschrijvingGekozenWoonplaats" : {
+            "type" : "string"
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze hypotheek is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze hypotheek is vermeld\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Bij een hypotheek op de kadastraal onroerende zaak dient het eigendomsrecht van de hypotheekgever als onderpand voor een geldlening of krediet bij de hypotheekhouder (geldverstrekker).\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/)\n"
+      },
+      "AantekeningHypotheek" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AantekeningBasis"
+        }, {
+          "properties" : {
+            "betreftGedeelteVanPerceel" : {
+              "type" : "boolean",
+              "deprecated" : false
+            }
+          }
+        } ]
+      },
+      "Beslag" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "aandeelInBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/TypeBreuk"
+          },
+          "gedeeltelijkeBezwaringOudObject" : {
+            "type" : "boolean",
+            "description" : "Indicatie of het object waarop beslag is gelegd gedeeltelijk uit een inmiddels vervallen object bestaat.\n"
+          },
+          "omschrijvingBetrokkenRecht" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst van de bewaarder. De bewaarder is iemand die bij het Kadaster werkt. Hij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "aantekeningen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AantekeningBasis"
+            }
+          },
+          "beslagleggers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PersoonBeperkt"
+            }
+          },
+          "bedragVordering" : {
+            "$ref" : "#/components/schemas/Bedrag"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop dit beslag is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Tijdelijke maatregel opgelegd door een partij waardoor de zakelijk gerechtigde niets met de kadastraal onroerende zaak kan doen.\n\nWaardelijst in deze component :\n- [omschrijvingBetrokkenRecht](http://www.kadaster.nl/schemas/waardelijsten/BetrokkenRecht/) en [aard](http://www.kadaster.nl/schemas/waardelijsten/AardBeslag/)\n"
+      },
+      "PubliekrechtelijkeBeperking" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "grondslag" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "datumInWerking" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "datumBeeindiging" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "bevoegdGezag" : {
+            "$ref" : "#/components/schemas/NietNatuurlijkPersoonBeperkt"
+          },
+          "stukIdentificaties" : {
+            "type" : "array",
+            "description" : "Identificatie van het stuk. Een stuk is een brondocument dat aanleiding geeft\ntot een wijziging van de gegevens in een basisregistratie.\nDit kan een aangeboden stuk of een kadasterstuk zijn.\n",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "isGebaseerdOpStukdeelIdentificatie" : {
+            "type" : "string",
+            "description" : "De identificatie van het stukdeel (paragraaf in een akte met een rechtsfeit) waarop deze publiekrechtelijke beperking is gebaseerd.\n"
+          },
+          "isVermeldInStukdeelIdentificaties" : {
+            "type" : "array",
+            "description" : "De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin deze publiekrechtelijke beperking gerechtigde is vermeld.\n",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        },
+        "description" : "Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.\n"
+      },
+      "Stuk" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "deelEnNummer" : {
+            "$ref" : "#/components/schemas/DeelEnNummer"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "toelichtingBewaarder" : {
+            "type" : "string",
+            "description" : "Toelichtende tekst bij een onroerende zaak van de bewaarder.\nDe bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "stukdeelIdentificaties" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "bewaardersVerklaring" : {
+            "type" : "string",
+            "description" : "Correctie in de openbare registers door de bewaarder.\nDe bewaarder is iemand die bij het Kadaster werkt.\nHij schrijft stukken in in de openbare registers en de basisregistratie Kadaster conform de Kadasterwet.\n"
+          },
+          "indicatieTekeningBijgevoegd" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat er een tekening van het appartement als bijlage bij het stuk aanwezig is.\n"
+          },
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "equivalentieVerklaarder" : {
+            "$ref" : "#/components/schemas/EquivalentieVerklaarder"
+          },
+          "kadasterverzoeken" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Kadasterverzoek"
+            }
+          }
+        },
+        "description" : "Een stuk is een brondocument dat aanleiding geeft tot een wijziging van de gegevens in een basisregistratie.\nWaardelijsten in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAangebodenStuk/) en\n  [status](http://www.kadaster.nl/schemas/waardelijsten/StatusStukOR/)\"\n"
+      },
+      "DeelEnNummer" : {
+        "type" : "object",
+        "properties" : {
+          "deel" : {
+            "type" : "string",
+            "description" : "Identificatie van het stuk binnen zijn soort.\n"
+          },
+          "nummer" : {
+            "type" : "string",
+            "description" : "Volgnummer van het stuk.\n"
+          },
+          "reeks" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "registercode" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "soortRegister" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          }
+        },
+        "description" : "Deel en nummer identificeren een Ter Inschrijving Aangeboden stuk door gebruik te maken van vijf gegevenselementen.\nWaardelijst in deze component :\n  [reeks(http://www.kadaster.nl/schemas/waardelijsten/Reekscode/)\n  [registercode](http://www.kadaster.nl/schemas/waardelijsten/Registercode/)\n  [soortRegister](http://www.kadaster.nl/schemas/waardelijsten/SoortRegister/)\n"
+      },
+      "EquivalentieVerklaarder" : {
+        "type" : "object",
+        "description" : "De persoon (bijvoorbeeld de notaris) die heeft verklaard dat het stuk dat hij inschrijft in de openbare registers hetzelfde is als\nhet stuk dat hij zelf onder zich houdt ( equivalentieverklaring).\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Naam"
+        }, {
+          "properties" : {
+            "standplaats" : {
+              "type" : "string",
+              "description" : "Adres of standplaats/plaats van vestiging van de ondertekenaar.\n"
+            }
+          }
+        } ]
+      },
+      "Kadasterverzoek" : {
+        "type" : "object",
+        "properties" : {
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "redenenVerzoek" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RedenVerzoek"
+            }
+          }
+        },
+        "description" : "Een verzoek om verbetering van een aangeboden stuk, of om de aanbieder te wijzen op het niet inschrijven van het stuk.\nWaardelijst in deze component :\n  [aard](http://www.kadaster.nl/schemas/waardelijsten/AardKadasterverzoek/)\n"
+      },
+      "RedenVerzoek" : {
+        "type" : "object",
+        "properties" : {
+          "redenOmschrijving" : {
+            "type" : "string",
+            "description" : "De omschrijving van de reden voor een kadasterverzoek die afwijkt van de standaard redenen die kunnen worden opgegeven.\nBij opgave van de reden is voor _overig_ gekozen.\n"
+          },
+          "reden" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          }
+        },
+        "description" : "De reden om een stuk niet in te schrijven of om verbetering te vragen.\nWaardelijst in deze component :\n[reden](http://www.kadaster.nl/schemas/waardelijsten/RedenVerzoek/)\n"
+      },
+      "Stukdeel" : {
+        "type" : "object",
+        "properties" : {
+          "identificatie" : {
+            "type" : "string"
+          },
+          "domein" : {
+            "type" : "string",
+            "description" : "Het domein waartoe de identificatie behoort.\n"
+          },
+          "aard" : {
+            "$ref" : "#/components/schemas/Waardelijst"
+          },
+          "bedragTransactiesomLevering" : {
+            "$ref" : "#/components/schemas/Bedrag"
+          },
+          "omschrijvingKadastraleObjecten" : {
+            "type" : "string"
+          },
+          "omschrijvingTopografischeMutatie" : {
+            "type" : "string"
+          }
+        },
+        "description" : "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt.\n"
       }
     },
     "headers" : {

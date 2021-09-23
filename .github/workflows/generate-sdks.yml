@@ -6,7 +6,7 @@ on:
         - "specificatie/genereervariant/*.yaml"
         - ".github/workflows/generate-sdks.yml"
     branches:
-      - '**'
+      - main
   workflow_dispatch:
 
 jobs:

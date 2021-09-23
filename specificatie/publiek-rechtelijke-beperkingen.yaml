@@ -3,19 +3,20 @@ info:
   title: Kadaster - BRK-Bevragen API - Publiek rechtelijke beperkingen endpoints
   description: |
                 De definitie van de Publiek rechtelijke beperkingen endpoints en components.
-  version: "1.2.0"
+  version: "1.3.0"
 paths:
   /publiekrechtelijkebeperkingen:
     get:
       operationId: GetPubliekrechtelijkeBeperkingen
       description: |
-        Zoeken van de publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
+        Zoek publiekrechtelijke beperkingen op een kadastraal onroerende zaak.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
           name: kadastraalOnroerendeZaakIdentificatie
           description: |
-                        De unieke identificatie van een kadastraal onroerende zaak. Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
+                        De unieke identificatie van een kadastraal onroerende zaak.
+                        Gezocht wordt naar publiekrechtelijke beperkingen die rusten op de onroerende zaak
           required: true
           schema:
             type: string
@@ -48,32 +49,9 @@ paths:
       - Publiekrechtelijke Beperkingen
 components:
   schemas:
-    PubliekrechtelijkeBeperking:
-      type: "object"
-      description: |
-                    Beperkingen op een kadastraal onroerende zaak die door de overheid zijn opgelegd. Deze bepalen wat een eigenaar wel of niet mag doen met een woning, een ander gebouw of een stuk grond. Het gaat het bijvoorbeeld om beschermde monumenten, natuurmonumenten, bodembescherming, eisen die binnen de Woningwet worden gesteld, of maatregelen die nodig zijn voor landsverdediging.
-      properties:
-        identificatie:
-          type: "string"
-        domein:
-          type: "string"
-          description: |
-                        Het domein waartoe de identificatie behoort.
-        grondslag:
-          $ref: "domain.yaml#/components/schemas/Waardelijst"
-          description: |
-                        Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
-        datumInWerking:
-          type: "string"
-          format: "date"
-        datumBeeindiging:
-          type: "string"
-          format: "date"
-        bevoegdGezag:
-          $ref: "domain.yaml#/components/schemas/NietNatuurlijkPersoonBeperkt"
     PubliekrechtelijkeBeperkingHal:
       allOf:
-      - $ref: "#/components/schemas/PubliekrechtelijkeBeperking"
+      - $ref: "domain.yaml#/components/schemas/PubliekrechtelijkeBeperking"
       - properties:
           _links:
             $ref: "#/components/schemas/PubliekrechtelijkeBeperkingLinks"
@@ -96,3 +74,11 @@ components:
       properties:
         bevoegdGezag:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukken:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        stukdelen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"

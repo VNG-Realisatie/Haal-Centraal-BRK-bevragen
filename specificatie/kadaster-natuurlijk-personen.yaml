@@ -3,17 +3,18 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadaster Natuurlijk Personen endpoints
   description: |
                 De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components.
-  version: "1.2.0"
+  version: "1.3.0"
 paths:
-  /kadasternatuurlijkpersonen/{kadasternatuurlijkpersoonidentificatie}:
+  /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}:
     get:
       operationId: GetKadasterPersoon
       description: |
-                    Het raadplegen van een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven (of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Raadpleeg een bij het kadaster geregistreerde natuurlijke persoon die niet in de basisregistratie personen (BRP) is ingeschreven,
+                    of wel is ingeschreven maar niet is gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: path
-          name: kadasternatuurlijkpersoonidentificatie
+          name: kadasterNatuurlijkPersoonIdentificatie
           required: true
           schema:
             type: string
@@ -41,8 +42,6 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
         '406':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
-        '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
@@ -53,7 +52,8 @@ paths:
     get:
       operationId: GetKadasterPersonen
       description: |
-                    Het zoeken van bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven (of wel zijn ingeschreven maar niet zijn _gematched_ bij het inschrijven van de akte). Kadasternatuurlijkpersonen worden niet geactualiseerd.
+                    Zoek bij het kadaster geregistreerde natuurlijke personen die niet in de basisregistratie personen (BRP) zijn ingeschreven,
+                    of wel zijn ingeschreven maar niet gekoppeld bij het inschrijven van de akte. Kadasternatuurlijkpersonen worden niet geactualiseerd.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - in: query
@@ -84,8 +84,6 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
         '406':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
-        '410':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/410"
         '500':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
         '503':
