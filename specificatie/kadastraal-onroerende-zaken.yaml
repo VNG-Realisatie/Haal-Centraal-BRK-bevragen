@@ -55,6 +55,26 @@ paths:
             pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
             example: "'s Gravenhage C 1277 A3"
         - in: query
+          name: kadastraleAanduidingMetGemeentecode
+          description: |
+                        Kadastrale aanduiding is in sommige domeinen opgeslagen met de gemeentecode in plaats van de gemeentenaam.
+                        Dit is een unieke aanduiding van een onroerende zaak. De volgorde waarin deze string wordt opgebouwd is
+
+                        - gemeentecode van de kadastrale gemeente(http://www.kadaster.nl/schemas/waardelijsten/KadastraleGemeente/).
+
+                        - sectie, 1 of 2 hoofdletters
+
+                        - perceelnummer, 1 tot 5 cijfers
+
+                        - appartementsrechtVolgnummer, Hoofdletter A gevolgd door 1 tot 4 cijfers (optioneel)
+
+
+                        gescheiden door een spatie"
+          schema:
+            type: "string"
+            pattern: "^([A-Z]{3}[0-9]{2}) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
+            example: "GVH00 C 1277 A3"
+        - in: query
           name: burgerservicenummer
           description: |
                         Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
