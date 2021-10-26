@@ -5,6 +5,8 @@ title: User Stories in Productie
 
 # User stories
 
+## Vanaf versie 1.3
+
 - [Als medewerker Erfpacht wil ik de kadastraal onroerende zaak of zaken kunnen zien zoals deze was/waren voorafgaand aan een splitsing of samenvoeging](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/832){:target="_blank" rel="noopener"}
 - [Als medewerker belastingzaken wil ik van iedere kadastraal onroerende zaak weten welke kadastraal onroerende zaken in deze kadastraal onroerende zaak zijn overgegaan](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/538){:target="_blank" rel="noopener"}
 - [Als medewerker Belastingzaken wil ik van iedere kadastraal onroerende zaak weten uit welke KOZ(zen) hij is ontstaan ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/537){:target="_blank" rel="noopener"}
@@ -28,6 +30,8 @@ title: User Stories in Productie
 - [Wil ik inzicht in de tekening(en) van de akte(n) van uitgifte, splitsing en koop van een appartmentsrecht](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/32){:target="_blank" rel="noopener"}
 - [Als gemeente wil ik kadastrale onroerende zaken kunnen zoeken op nummeraanduiding](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/7){:target="_blank" rel="noopener"}
 
+## Vanaf versie 1.2
+
 - [Als medewerker gemeente wil ik aanschrijfwijze, aanhef en referentie in lopende tekst van kadasterpersonen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/375){:target="_blank" rel="noopener"}
 - [Als beleidsaviseur wonen wil ik informatie over het aantal woningen dat in eigendom is van grote beleggers (eigenaren (op naam) met meer dan x bezittingen (de BAG-adressen met kenmerken)))](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/170){:target="_blank" rel="noopener"}
 - [Als medewerker vastgoedorganisatie wil ik weten of het eigendom is belast met publiekrechtelijke beperkingen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/133){:target="_blank" rel="noopener"}
@@ -37,6 +41,8 @@ title: User Stories in Productie
 - [Als medewerker Pandbrigade wil ik de zekerheidstellingen kunnen raadplegen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/67){:target="_blank" rel="noopener"}
 - [Als medewerker Pandbrigade wil ik weten welke beperkingen er op het object liggen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/66){:target="_blank" rel="noopener"}
 - [Als medewerker Belastingzaken wil ik alle publiekrechtelijke en privaatrechtelijke beperkingen op een kadastraal onroerende zaak kunnen raadplegen ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/48){:target="_blank" rel="noopener"}
+
+## Vanaf versie 1.1
 
 - [Als medewerker belastingzaken wil ik het buitenlandse verblijfsadres weten van een zakelijk gerechtigde](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/780){:target="_blank" rel="noopener"}
 - [Als medewerker bestemmingsplannen wil ik weten of twee percelen dezelfde eigenaar hebben ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/162){:target="_blank" rel="noopener"}
@@ -67,6 +73,8 @@ title: User Stories in Productie
 - [Als gemeente wil ik kadastrale onroerende zaken kunnen zoeken op de zakelijk gerechtigde ingeschreven niet-natuurlijk persoon](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/5){:target="_blank" rel="noopener"}
 - [Als gemeente wil ik kadastrale onroerende zaken kunnen zoeken op de zakelijk gerechtigde ander natuurlijk persoon](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/3){:target="_blank" rel="noopener"}
 - [Als gemeente wil ik kadastrale onroerende zaken kunnen zoeken op de zakelijk gerechtigde ingeschreven natuurlijk persoon](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/2){:target="_blank" rel="noopener"}
+
+## Vanaf versie 1.0
 
 
 
