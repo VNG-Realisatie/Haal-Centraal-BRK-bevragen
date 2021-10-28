@@ -127,6 +127,8 @@ components:
         - properties:
             volgnummer:
               type: integer
+            indicatieSluimerend:
+              type: boolean
     AppartementsrechtFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
@@ -618,6 +620,8 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
+        indicatieSluimerend:
+          type: boolean
     KadastraalOnroerendeZaakBasis:
       type: "object"
       properties:
@@ -745,6 +749,9 @@ components:
     PerceelBasis:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
+        - properties:
+            indicatieSluimerend:
+              type: boolean
     PerceelFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
