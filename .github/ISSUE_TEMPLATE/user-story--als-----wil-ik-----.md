@@ -1,8 +1,8 @@
 ---
-name: 'User story: Als ... wil ik ...'
-about: 'Beschrijving van een feature/user story. '
+name: 'User story: Als ... wil ik ....'
+about: Beschrijving van een user story of feature
 title: ''
-labels: ''
+labels: 'user story'
 assignees: ''
 
 ---
@@ -18,4 +18,3 @@ assignees: ''
 - [ ] Open API specificatie
 - [ ] gegenereerde code
 - [ ] testgevallen
-- [ ] referentie-implementatie
