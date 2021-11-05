@@ -49,8 +49,7 @@ Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eige
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
 * Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
 * Customer zero: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
-* Tester: Frank Samwel, [frank.samwel@denhaag.nl](mailto:frank.samwel@denhaag.nl)
-
+* Tester: Frank Samwel, [frank@quality-of-service.nl](mailto:frank@quality-of-service.nl)
 
 ## Licentie
 
