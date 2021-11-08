@@ -29,7 +29,7 @@ Bekijk de [release notes](./releasenotes).
 
 ## Doorontwikkeling van de BRK bevragen API
 
-Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan (v1.5). 
+Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan. Ook worden sluimerende appartementsrechten zichtbaar gemaakt (v1.5). 
 * Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22BRK+bevragen+v1.5%22){:target="_blank" rel="noopener"}
 * Bekijk de specificaties in ontwikkeling met [Swagger UI](./swagger-ui-io) of [Redoc](./redoc-io)
 
