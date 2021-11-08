@@ -5,6 +5,11 @@ title: Haal Centraal BRK bevragingen
 
 # Release notes BRK-Bevragen
 
+## **Versie 1.4.0:**
+
+### openapi.yaml
+
+  - Voor het zoeken naar Kadastraal Onroerende Zaken is naast de kadastrale aanduiding met daarin de gemeentenaam nu ook een zoekmogelijkheid toegevoegd om op de kadastrale aanduiding met de gemeentecode te zoeken.
 
 ## **Versie 1.3.0:**
 
@@ -41,7 +46,7 @@ title: Haal Centraal BRK bevragingen
     - adresseerbareObjecten (link naar [Haal-Centraal BAG adresseerbareobjecten endpoint](https://vng-realisatie.github.io/Haal-Centraal-BAG-bevragen/))
     - bijbehorendeGrondpercelen (link naar gerelateerde kadastraalOnroerendeZaken) ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/200){:target="_blank"})
     - bijbehorendeAppartementsrechten (links naar gerelateerde kadastraalOnroerendeZaken die als appartementsrecht ontstaan zijn uit deze kadastraalOnroerendeZaak. ([200](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/200){:target="_blank"})
- 
+
 
 - hypotheken
   - Properties toegevoegd:
@@ -52,7 +57,7 @@ title: Haal Centraal BRK bevragingen
   - Links toegevoegd:
     - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
     - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-  - Accept-Crs header en Content-Crs header zijn verwijderd bij: 
+  - Accept-Crs header en Content-Crs header zijn verwijderd bij:
     - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken
     - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken/{hypotheekIdentificatie}
 
@@ -65,7 +70,7 @@ title: Haal Centraal BRK bevragingen
    - Links toegevoegd:
      - stukken (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
      - stukdelen (Uitgestelde functionaliteit. Voornaamste aanleiding versie 1.3)
-   - Property betreftGedeelteVanPerceel is deprecated verklaard. 
+   - Property betreftGedeelteVanPerceel is deprecated verklaard.
    - Accept-Crs header en Content-Crs header zijn verwijderd bij:
      - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen
      - /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/beslagen/{beslagIdentificatie}
@@ -112,8 +117,8 @@ title: Haal Centraal BRK bevragingen
 
 
 - KadasterNatuurlijkPersoon
-  - Property geheimhoudingPersoonsgegevens is deprecated verklaard. 
-  
+  - Property geheimhoudingPersoonsgegevens is deprecated verklaard.
+
 
 - LocatieKadastraalObject
   - Property adresseerbaarObjectIdentificatie toegevoegd
@@ -121,7 +126,7 @@ title: Haal Centraal BRK bevragingen
 
 - AantekeningBasis
   - Property betreftGedeelteVanPerceel is deprecated verklaard.
- 
+
 
 - Aantekening
   - Properties toegevoegd:
@@ -141,7 +146,7 @@ title: Haal Centraal BRK bevragingen
   - ZakelijkRecht  
   - Stuk
   - DeelEnNummer
-  - EquivalentieVerklaarder 
+  - EquivalentieVerklaarder
   - Kadasterverzoek
   - RedenVerzoek
   - Stukdeel  
