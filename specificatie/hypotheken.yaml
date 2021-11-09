@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Hypotheken endpoints
   description: |
                 De definitie van de Hypotheken endpoints en components.
-  version: "1.3.0"
+  version: "1.4.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/hypotheken:
     get:
