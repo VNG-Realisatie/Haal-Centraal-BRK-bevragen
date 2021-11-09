@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Publiek rechtelijke beperkingen endpoints
   description: |
                 De definitie van de Publiek rechtelijke beperkingen endpoints en components.
-  version: "1.3.0"
+  version: "1.4.0"
 paths:
   /publiekrechtelijkebeperkingen:
     get:
