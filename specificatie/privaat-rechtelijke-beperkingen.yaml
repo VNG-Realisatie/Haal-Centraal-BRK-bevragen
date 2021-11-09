@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - PrivaatrechtelijkeBeperkingen endpoints
   description: |
                 De definitie van de PrivaatrechtelijkeBeperkingen endpoints en components.
-  version: "1.3.0"
+  version: "1.4.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/privaatrechtelijkebeperkingen:
     get:
