@@ -14,7 +14,7 @@ info:
   description: |
                 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
                 Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
-  version: "1.3.0"
+  version: "1.5.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
