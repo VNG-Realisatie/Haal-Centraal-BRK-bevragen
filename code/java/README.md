@@ -1,8 +1,8 @@
 # openapi-java-client
 
 Kadaster - BRK-Bevragen API
-- API version: 1.3.0
-  - Build date: 2021-09-22T10:30:56.069820Z[Etc/UTC]
+- API version: 1.4.0
+  - Build date: 2021-11-09T17:37:32.228183Z[Etc/UTC]
 
 D.m.v. deze toepassing worden meerdere, korte bevragingen op de Basis Registratie Kadaster beschikbaar gesteld.
 Deze toepassing betreft het verstrekken van Kadastrale Onroerende Zaak informatie.
@@ -43,7 +43,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.3.0"
+compile "org.openapitools:openapi-java-client:1.4.0"
 ```
 
 ### Others
@@ -66,7 +66,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.3.0.jar`
+* `target/openapi-java-client-1.4.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
