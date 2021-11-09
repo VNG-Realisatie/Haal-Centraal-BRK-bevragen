@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadaster Natuurlijk Personen endpoints
   description: |
                 De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components.
-  version: "1.3.0"
+  version: "1.4.0"
 paths:
   /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}:
     get:
