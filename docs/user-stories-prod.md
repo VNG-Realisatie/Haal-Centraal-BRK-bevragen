@@ -5,6 +5,8 @@ title: User Stories in Productie
 
 # User stories
 
+- [Als medewerker Belastingzaken wil ik een kadastraal onroerende zaak kunnen zoeken met de kadastrale aanduiding met gemeentecode](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/883){:target="_blank" rel="noopener"}
+
 ## Vanaf versie 1.3
 
 - [Als medewerker Erfpacht wil ik de kadastraal onroerende zaak of zaken kunnen zien zoals deze was/waren voorafgaand aan een splitsing of samenvoeging](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/832){:target="_blank" rel="noopener"}
