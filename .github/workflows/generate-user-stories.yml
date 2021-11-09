@@ -41,6 +41,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: issues-tmp.md
       - run: |
+          echo -e '## Vanaf versie 1.4\n' >> user-stories-prod.md
           cat issues-tmp.md >> user-stories-prod.md
           echo -e '\n' >> user-stories-prod.md
         
