@@ -749,9 +749,6 @@ components:
     PerceelBasis:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakBasis"
-        - properties:
-            indicatieSluimerend:
-              type: boolean
     PerceelFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
