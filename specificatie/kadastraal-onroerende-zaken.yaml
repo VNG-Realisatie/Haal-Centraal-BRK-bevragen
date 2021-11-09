@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadastraal Onroerende Zaken endpoints
   description: |
                 De definitie van de Kadastraal Onroerende Zaken endpoints en HAL components.
-  version: "1.3.0"
+  version: "1.5.0"
 paths:
   /kadastraalonroerendezaken:
     get:
