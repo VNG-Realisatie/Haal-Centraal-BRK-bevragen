@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardelijst;
  * Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.   Waardelijst in deze component :   [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/) 
  */
 @ApiModel(description = "Het bedrag dat een erfpachter moet betalen aan de eigenaar van een stuk grond omdat hij zijn grond gebruikt.   Waardelijst in deze component :   [soortErfpachtCanon](http://www.kadaster.nl/schemas/waardelijsten/SoortErfpachtcanon/) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-09T17:37:32.228183Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-15T10:10:49.799642Z[Etc/UTC]")
 public class ErfpachtCanon {
   public static final String SERIALIZED_NAME_SOORT_ERFPACHT_CANON = "soortErfpachtCanon";
   @SerializedName(SERIALIZED_NAME_SOORT_ERFPACHT_CANON)

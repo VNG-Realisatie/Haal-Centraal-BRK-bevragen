@@ -31,7 +31,7 @@ import org.openapitools.client.model.TypeKadastraalOnroerendeZaakEnum;
 /**
  * PerceelFiliatie
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-09T17:37:32.228183Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-15T10:10:49.799642Z[Etc/UTC]")
 public class PerceelFiliatie extends KadastraalOnroerendeZaakFiliatie {
   public PerceelFiliatie() {
     this.type = this.getClass().getSimpleName();

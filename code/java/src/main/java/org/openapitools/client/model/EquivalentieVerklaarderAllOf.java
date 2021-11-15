@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EquivalentieVerklaarderAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-09T17:37:32.228183Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-15T10:10:49.799642Z[Etc/UTC]")
 public class EquivalentieVerklaarderAllOf {
   public static final String SERIALIZED_NAME_STANDPLAATS = "standplaats";
   @SerializedName(SERIALIZED_NAME_STANDPLAATS)

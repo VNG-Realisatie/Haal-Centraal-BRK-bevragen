@@ -30,7 +30,7 @@ import org.openapitools.client.model.Waardelijst;
  * Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt. 
  */
 @ApiModel(description = "Een stukdeel is een paragraaf in een akte waarmee een recht gevestigd wordt. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-09T17:37:32.228183Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-15T10:10:49.799642Z[Etc/UTC]")
 public class Stukdeel {
   public static final String SERIALIZED_NAME_IDENTIFICATIE = "identificatie";
   @SerializedName(SERIALIZED_NAME_IDENTIFICATIE)
