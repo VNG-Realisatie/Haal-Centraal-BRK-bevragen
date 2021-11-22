@@ -81,7 +81,7 @@ paths:
             $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
         - in: query
-          name: type
+          name: inclusiefUitsplitsing
           description: |
                         Geeft aan of de gerelateerde zakelijk gerechtigden n.a.v. splitsingen van recht ook getoond moeten worden.
           required: false
