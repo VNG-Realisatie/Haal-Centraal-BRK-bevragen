@@ -1106,6 +1106,12 @@ components:
           $ref: "#/components/schemas/ZakelijkRecht"
         persoon:
           $ref: "#/components/schemas/PersoonBeperkt"
+        indicatieGerechtigdUitSplitsing:
+          type: "boolean"
+          description: "Geeft aan of dit zakelijk gerechtigde is met een recht is dat onstaan is uit splisting van een ander recht"
+        appartementsrechtUitSplitsingIdentificatie:
+          type: "string"
+          description: "Identificatie van het appartementsrecht waar het gesplitste recht betrekking op heeft"
     ZakelijkRecht:
       type: object
       properties:

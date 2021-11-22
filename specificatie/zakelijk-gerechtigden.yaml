@@ -80,6 +80,13 @@ paths:
           schema:
             $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+        - in: query
+          name: type
+          description: |
+                        Geeft aan of de gerelateerde zakelijk gerechtigden n.a.v. splitsingen van recht ook getoond moeten worden.
+          required: false
+          schema:
+            inclusiefUitsplitsing: "boolean"
       responses:
         '200':
           description: |
@@ -141,6 +148,10 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        zakelijkGerechtigdenUitSplitsing:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigdeHalCollectie:
       type: "object"
       properties:
@@ -151,6 +162,9 @@ components:
     ZakelijkGerechtigdeHalCollectieEmbedded:
       type: "object"
       properties:
+        zakelijkGerechtigdenUitSplitsing:
+          type: "boolean"
+          description: "Geeft aan of er n.a.v. splitsingen van het zakelijk recht nog andere gerelateerde zakelijkgerechtigden zijn"
         zakelijkGerechtigden:
           type: "array"
           items:
