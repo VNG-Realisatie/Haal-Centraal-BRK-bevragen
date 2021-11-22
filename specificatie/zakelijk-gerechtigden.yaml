@@ -86,7 +86,7 @@ paths:
                         Geeft aan of de gerelateerde zakelijk gerechtigden n.a.v. splitsingen van recht ook getoond moeten worden.
           required: false
           schema:
-            inclusiefUitsplitsing: "boolean"
+            type: "boolean"
       responses:
         '200':
           description: |
