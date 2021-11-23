@@ -1108,7 +1108,7 @@ components:
           $ref: "#/components/schemas/PersoonBeperkt"
         indicatieGerechtigdUitSplitsing:
           type: "boolean"
-          description: "Geeft aan of dit zakelijk gerechtigde is met een recht is dat onstaan is uit splitsing van een ander recht"
+          description: "Geeft aan of dit een zakelijk gerechtigde is met een recht dat ontstaan is uit splitsing van een ander recht"
         appartementsrechtUitSplitsingIdentificatie:
           type: "string"
           description: "Identificatie van het appartementsrecht waar het gesplitste recht betrekking op heeft"

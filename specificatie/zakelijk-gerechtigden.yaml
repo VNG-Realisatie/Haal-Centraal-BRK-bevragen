@@ -81,7 +81,7 @@ paths:
             $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
         - in: query
-          name: inclusiefUitsplitsing
+          name: inclusiefUitSplitsing
           description: |
                         Geeft aan of de gerelateerde zakelijk gerechtigden n.a.v. splitsingen van recht ook getoond moeten worden.
           required: false
@@ -162,7 +162,7 @@ components:
     ZakelijkGerechtigdeHalCollectieEmbedded:
       type: "object"
       properties:
-        zakelijkGerechtigdenUitSplitsing:
+        indicatieZakelijkGerechtigdenUitSplitsing:
           type: "boolean"
           description: "Geeft aan of er n.a.v. splitsingen van het zakelijk recht nog andere gerelateerde zakelijkgerechtigden zijn"
         zakelijkGerechtigden:
