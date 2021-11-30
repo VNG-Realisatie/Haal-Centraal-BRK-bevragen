@@ -1,0 +1,77 @@
+{
+    "identificatie": "59020170810219",
+    "domein": "NL.IMKAD.KadastraalObject",
+    "koopsom": {
+        "koopsom": 302500,
+        "koopjaar": 2016
+    },
+    "type": "appartementsrecht",
+    "aardCultuurBebouwd": {
+        "code": "27",
+        "waarde": "Bedrijvigheid (detailhandel)"
+    },
+    "kadastraleAanduiding": "Groningen P 1708 A219",
+    "isOvergegaanIn": {
+        "aard": {
+            "code": "26",
+            "waarde": "Ondersplitsing in appartementsrechten"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020170810593",
+                "type": "appartementsrecht"
+            },
+            {
+                "identificatie": "59020170810594",
+                "type": "appartementsrecht"
+            }
+        ]
+    },
+    "isOntstaanUit": {
+        "aard": {
+            "code": "25",
+            "waarde": "Splitsing in appartementsrechten"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020130970000",
+                "type": "perceel"
+            },
+            {
+                "identificatie": "59020170670000",
+                "type": "perceel"
+            }
+        ]
+    },
+    "bijbehorendeGrondpercelen": [
+        {
+            "identificatie": "59020130970000"
+        },
+        {
+            "identificatie": "59020170670000"
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "/kadastraalonroerendezaken/59020170810219"
+        },
+        "isOntstaanUit": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOntstaanUit.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "isOvergegaanIn": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOvergegaanIn.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "bijbehorendeGrondpercelen": [
+            {
+                "href": "/kadastraalonroerendezaken/{bijbehorendeGrondpercelen.identificatie}",
+                "templated": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+# Voorbeeldberichten
+
+De testomgeving die door het Kadaster wordt aangeboden biedt een testset die is bedoeld voor integratietesten. Deze bevat testgevallen waarmee de features en gegevens van de API gedemonstreerd kunnen worden. Deze biedt echter in veel gevallen onvoldoende testgevallen voor een goede systeemtest van een clientapplicatie. Daarvoor zou je een stub of mock service kunnen gebruiken.
+
+Om elkaar hierbij te helpen bieden we hier voorbeeldberichten die je in de stub of mock service zou kunnen gebruiken. Wanneer je zelf testgevallen maakt, waarderen we het natuurlijk ook wanneer je die met ons zou delen door deze in een pull request toe te voegen zodat ook anderen hiervan gebruik kunnen maken. Zet dan de verschillende bij elkaar horende berichten voor een test bij elkaar in een map.

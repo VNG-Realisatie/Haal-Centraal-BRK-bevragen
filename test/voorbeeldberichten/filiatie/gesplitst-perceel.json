@@ -1,0 +1,56 @@
+{
+    "identificatie": "59020001970000",
+    "domein": "NL.IMKAD.KadastraalObject",
+    "indicatieVervallen": true,
+    "type": "perceel",
+    "kadastraleAanduiding": "Groningen P 19",
+    "isOvergegaanIn": {
+        "aard": {
+            "code": "20",
+            "waarde": "Splitsen perceel"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020130970000",
+                "type": "perceel"
+            },
+            {
+                "identificatie": "59020131170000",
+                "type": "perceel"
+            }
+        ]
+    },
+    "isOntstaanUit": {
+        "aard": {
+            "code": "19",
+            "waarde": "Verenigen percelen"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020001770000",
+                "type": "perceel"
+            },
+            {
+                "identificatie": "59020001870000",
+                "type": "perceel"
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "/kadastraalonroerendezaken/59020001970000"
+        },
+        "isOntstaanUit": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOntstaanUit.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "isOvergegaanIn": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOvergegaanIn.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ]
+    }
+}

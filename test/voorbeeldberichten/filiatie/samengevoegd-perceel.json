@@ -1,0 +1,30 @@
+{
+    "identificatie": "59020001770000",
+    "domein": "NL.IMKAD.KadastraalObject",
+    "indicatieVervallen": true,
+    "type": "perceel",
+    "kadastraleAanduiding": "Groningen P 17",
+    "isOvergegaanIn": {
+        "aard": {
+            "code": "19",
+            "waarde": "Verenigen percelen"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020001970000",
+                "type": "perceel"
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "/kadastraalonroerendezaken/59020001770000"
+        },
+        "isOvergegaanIn": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOvergegaanIn.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ]
+    }
+}

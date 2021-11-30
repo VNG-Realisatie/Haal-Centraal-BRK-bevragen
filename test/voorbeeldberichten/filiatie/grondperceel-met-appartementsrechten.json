@@ -1,0 +1,124 @@
+{
+    "identificatie": "59020130970000",
+    "domein": "NL.IMKAD.KadastraalObject",
+    "plaatscoordinaten": {
+        "type": "Point",
+        "coordinates": [
+            235891.752,
+            582704.902
+        ]
+    },
+    "type": "perceel",
+    "kadastraleAanduiding": "Groningen P 1309",
+    "kadastraleGrootte": {
+        "soortGrootte": {
+            "code": "1",
+            "waarde": "Vastgesteld"
+        },
+        "waarde": 3950
+    },
+    "adressen": [
+        {
+            "straat": "Regattaweg",
+            "huisnummer": 236,
+            "postcode": "9731NC",
+            "woonplaats": "Groningen",
+            "nummeraanduidingIdentificatie": "0014200010896107",
+            "adresregel1": "Regattaweg 236",
+            "adresregel2": "9731NC Groningen",
+            "koppelingswijze": {
+                "code": "GEO",
+                "waarde": "geometrisch"
+            }
+        },
+        {
+            "straat": "Regattaweg",
+            "huisnummer": 230,
+            "postcode": "9731NC",
+            "woonplaats": "Groningen",
+            "nummeraanduidingIdentificatie": "0014200010896104",
+            "adresregel1": "Regattaweg 230",
+            "adresregel2": "9731NC Groningen",
+            "koppelingswijze": {
+                "code": "GEO",
+                "waarde": "geometrisch"
+            },
+            "adresseerbaarObjectIdentificatie": "0014010011085832"
+        }
+    ],
+    "isOvergegaanIn": {
+        "aard": {
+            "code": "25",
+            "waarde": "Splitsing in appartementsrechten"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020170810218",
+                "type": "appartementsrecht"
+            },
+            {
+                "identificatie": "59020170810219",
+                "type": "appartementsrecht"
+            }
+        ]
+    },
+    "isOntstaanUit": {
+        "aard": {
+            "code": "20",
+            "waarde": "Splitsen perceel"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020001970000",
+                "type": "perceel"
+            }
+        ]
+    },
+    "bijbehorendeAppartementsrechten": [
+        {
+            "identificatie": "59020170810218",
+            "volgnummer": 218
+        },
+        {
+            "identificatie": "59020170810219",
+            "volgnummer": 219
+        },
+        {
+            "identificatie": "59020170810593",
+            "volgnummer": 593
+        },
+        {
+            "identificatie": "59020170810594",
+            "volgnummer": 594
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "/kadastraalonroerendezaken/59020130970000"
+        },
+        "isOntstaanUit": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOntstaanUit.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "isOvergegaanIn": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOvergegaanIn.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "adressen": [
+            {
+                "href": "https://api.bag.kadaster.nl/esd/huidigebevragingen/v1/adressen/{adressen.nummeraanduidingIdentificatie}",
+                "templated": true
+            }
+        ],
+        "bijbehorendeAppartementsrechten": [
+            {
+                "href": "/kadastraalonroerendezaken/{bijbehorendeAppartementsrechten.identificatie}",
+                "templated": true
+            }
+        ]
+    }
+}

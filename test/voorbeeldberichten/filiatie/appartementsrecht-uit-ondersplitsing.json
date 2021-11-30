@@ -1,0 +1,60 @@
+{
+    "identificatie": "59020170810593",
+    "domein": "NL.IMKAD.KadastraalObject",
+    "koopsom": {
+        "koopsom": 15000,
+        "koopjaar": 2019
+    },
+    "type": "appartementsrecht",
+    "aardCultuurBebouwd": {
+        "code": "22",
+        "waarde": "Bedrijvigheid (industrie)"
+    },
+    "kadastraleAanduiding": "Groningen P 1708 A593",
+    "zakelijkGerechtigdeIdentificaties": [
+        "1000901820"
+    ],
+    "isOntstaanUit": {
+        "aard": {
+            "code": "26",
+            "waarde": "Ondersplitsing in appartementsrechten"
+        },
+        "kadastraalOnroerendeZaken": [
+            {
+                "identificatie": "59020170810219",
+                "type": "appartementsrecht"
+            }
+        ]
+    },
+    "bijbehorendeGrondpercelen": [
+        {
+            "identificatie": "59020130970000"
+        },
+        {
+            "identificatie": "59020170670000"
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "/kadastraalonroerendezaken/59020170810593"
+        },
+        "zakelijkGerechtigden": [
+            {
+                "href": "/kadastraalonroerendezaken/59020170810593/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificaties}",
+                "templated": true
+            }
+        ],
+        "isOntstaanUit": [
+            {
+                "href": "/kadastraalonroerendezaken/{isOntstaanUit.kadastraalOnroerendeZaken.identificatie}",
+                "templated": true
+            }
+        ],
+        "bijbehorendeGrondpercelen": [
+            {
+                "href": "/kadastraalonroerendezaken/{bijbehorendeGrondpercelen.identificatie}",
+                "templated": true
+            }
+        ]
+    }
+}
