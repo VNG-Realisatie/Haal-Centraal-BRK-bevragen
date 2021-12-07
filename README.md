@@ -1,7 +1,6 @@
 # Haal Centraal BRK bevragen
 
 ![lint oas](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/lint-oas/badge.svg)
-![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-sdks/badge.svg)
 ![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-postman-collection/badge.svg)
 
 API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
