@@ -80,13 +80,6 @@ paths:
           schema:
             $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
-        - in: query
-          name: inclusiefUitSplitsing
-          description: |
-                        Geeft aan of de gerelateerde zakelijk gerechtigden n.a.v. splitsingen van recht ook getoond moeten worden.
-          required: false
-          schema:
-            type: "boolean"
       responses:
         '200':
           description: |
@@ -148,23 +141,24 @@ components:
           type: "array"
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigdenUitSplitsing:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigdeHalCollectie:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          self:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+          kadastraalOnroerendeZakenUitSplitsing:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+          kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         _embedded:
             $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+        gesplitstZakelijkRecht:
+          type: "string"
+          description: "Geeft aan welk type zakelijk recht gespiltst is."
     ZakelijkGerechtigdeHalCollectieEmbedded:
       type: "object"
       properties:
-        indicatieZakelijkGerechtigdenUitSplitsing:
-          type: "boolean"
-          description: "Geeft aan of er n.a.v. splitsingen van het zakelijk recht nog andere gerelateerde zakelijkgerechtigden zijn"
         zakelijkGerechtigden:
           type: "array"
           items:
