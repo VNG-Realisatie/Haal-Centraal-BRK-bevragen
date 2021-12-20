@@ -140,7 +140,7 @@ zie hiervoor: https://www.logius.nl/diensten/pkioverheid
         - Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
 
 ### Testgevallen
-Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving.
+Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving. Meer details over welke testdata in de testgevallen zit, vind je in [test cases](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/test/cases)
 
 #### Onroerende Zaken
 
