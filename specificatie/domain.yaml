@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen Components
   description: |
                 De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API.
-  version: "1.4.0"
+  version: "1.4.1"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -1006,10 +1006,12 @@ components:
                       * `grondrente` - 5 Grondrente gerechtigde
                       * `opstalhouder` - 7 Opstalhouder
                       * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
+                      * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht
                       * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
                       * `vruchtgebruiker` - 12 Vruchtgebruiker
                       * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
                       * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
+                      * `brondocument` - 18 Raadpleeg brondocument
                       * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
                       * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
                       * `bp_recht` - 22 BP-gerechtigde
@@ -1023,10 +1025,12 @@ components:
         - "grondrente"
         - "opstalhouder"
         - "vaderlandsrecht"
+        - "artikel5_3b_geheel"
         - "stadsmeierrecht"
         - "vruchtgebruiker"
         - "erfpachter_opstalhouder"
         - "nutsvoorzieningen"
+        - "brondocument"
         - "twee_belastingen"
         - "belasting_derde"
         - "bp_recht"
