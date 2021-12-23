@@ -5,6 +5,14 @@ title: Haal Centraal BRK bevragingen
 
 # Release notes BRK-Bevragen
 
+
+## **Versie 1.4.1:**
+
+  Issue [911](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/911){:target="_blank"} opgelost.
+  Enumeratie TypeGerechtigdeEnum uitgebreid met
+    - "artikel5_3b_geheel" en "brondocument". 
+
+
 ## **Versie 1.4.0:**
 
 ### openapi.yaml
