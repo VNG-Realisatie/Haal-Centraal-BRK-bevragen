@@ -105,9 +105,17 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 - [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature) worden geleverd.
 
 ## Bouw de API
-We hebben [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/code){:target="_blank" rel="noopener"} voor API-clients in enkele varianten. Hiermee kan je direct aan de slag met het gebruiken van de API.
+Client code kan worden gegenereerd vanuit de "[genereervariant](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties en een code generator. Een overzicht van code generatoren is te vinden op [OpenAPI.Tools](https://openapi.tools/#sdk){:target="_blank" rel="noopener"}.
 
-Zit jouw gewenste ontwikkelomgeving er niet bij, dan kan je zelf ook code genereren vanuit de "[genereervariant](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties.
+Deze repo bevat scripts waarmee met behulp van [OpenAPI Generator](https://openapi-generator.tech/){:target="_blank" rel="noopener"} client code kan worden gegenereerd in JAVA, .NET (Full Framework & Core) en Python. De makkelijkste manier om de code generatie scripts te gebruiken, is door deze repo te clonen. Na het clonen kan met `npm install` de benodigde packages worden geïnstalleerd. Vervolgens kan met `npm run <script naam>` één van de volgende scripts worden uitgevoerd:
+- oas:generate-java-client (voor JAVA client code)
+- oas:generate-netcore-client (voor .NET Core client code)
+- oas:generate-net-client (voor .NET Full Framework client code)
+- oas:generate-python-client (voor Python client code)
+
+Een lijst met andere ondersteunde generator opties is te vinden in de [Generators List](https://openapi-generator.tech/docs/generators){:target="_blank" rel="noopener"} van OpenAPI Generator.
+
+Note. De prerequisite OpenAPI Generator is JAVA. Een JAVA runtime moet worden geïnstalleerd voordat OpenAPI Generator kan worden gebruikt.
 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
