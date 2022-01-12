@@ -127,6 +127,9 @@ components:
         - properties:
             volgnummer:
               type: integer
+            indicatieSluimerend:
+              description: "Indicatie waarmee aangegeven wordt of een appartementsrecht sluimerend is of niet."
+              type: boolean
     AppartementsrechtFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
@@ -618,6 +621,8 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
+        indicatieSluimerend:
+          type: boolean
     KadastraalOnroerendeZaakBasis:
       type: "object"
       properties:
