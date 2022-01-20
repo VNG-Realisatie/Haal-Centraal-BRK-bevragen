@@ -164,6 +164,13 @@
             "type" : "string",
             "example" : "GVH00 C 1277 A3"
           }
+        }, {
+          "name" : "inclusiefKadastraalOnroerendeZakenUitSplitsing",
+          "in" : "query",
+          "description" : "Geeft aan of KadastraalOnroerendeZaken die aan de basis stonden van een splitsing meegeleverd moeten worden.\n",
+          "schema" : {
+            "type" : "boolean"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -4131,10 +4138,28 @@
         "type" : "object",
         "properties" : {
           "_links" : {
-            "$ref" : "#/components/schemas/HalCollectionLinks"
+            "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectieLinks"
           },
           "_embedded" : {
             "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+          },
+          "gesplitstZakelijkRecht" : {
+            "type" : "string",
+            "description" : "Geeft aan welk type zakelijk recht gespiltst is."
+          }
+        }
+      },
+      "ZakelijkGerechtigdeHalCollectieLinks" : {
+        "type" : "object",
+        "properties" : {
+          "self" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "kadastraalOnroerendeZakenUitSplitsing" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden" : {
+            "$ref" : "#/components/schemas/HalLink"
           }
         }
       },
@@ -4948,6 +4973,9 @@
             "description" : "Identificatie van de zakelijk gerechtigde.\n"
           },
           "type" : {
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
+          },
+          "gesplitstZakelijkRecht" : {
             "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           },
           "aanvangsdatum" : {
