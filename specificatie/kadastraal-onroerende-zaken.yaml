@@ -13,6 +13,7 @@ paths:
           Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
               - kadastraleAanduiding
+              - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
               -  zakelijkGerechtigde__type (optioneel)
@@ -28,6 +29,7 @@ paths:
               - nummeraanduidingIdentificatie
           6.  Kadastrale aanduiding met gemeentecode
               - kadastraleAanduidingMetGemeentecode
+              - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
 
           Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
@@ -142,7 +144,7 @@ paths:
         - in: query
           name: inclusiefKadastraalOnroerendeZakenUitSplitsing
           description: |
-                        Geeft aan of KadastraalOnroerendeZaken die aan de basis stonden van een splitsing meegeleverd moeten worden.
+                        Bepaalt of ook de Kadastraal onroerende zaken worden geleverd die zijn ontstaan uit splitsing van de gevonden Kadastraal onroerende zaak.
           schema:
             type: boolean
       responses:
