@@ -6,13 +6,13 @@ title: Getting Started
 De 'BRK Bevragen' API is gespecificeerd met behulp van de OpenAPI Specifications (OAS3).
 
 Om aan te sluiten kun je de volgende stappen doorlopen:
-1. [Meld je aan bij het kadaster om toegang te krijgen](#aanmelden-om-aan-te-sluiten)
-2. [Bekijk de functionaliteit en specificaties](#functionaliteit-en-specificaties)
-3. [Implementeer de API](#bouw-de-api)
+1. [Aanmelden](#aanmelden) bij het kadaster om toegang te krijgen
+2. Bekijk de [functionaliteit en specificaties](#functionaliteit-en-specificaties)
+3. [Implementeer de API Client](#implementeer-de-api-client)
 4. [Probeer en test de API](#probeer-en-test-de-api)
-5. [Sluit aan op productie](#aansluiten-op-productie)
+5. [Aansluiten op productie](#aansluiten-op-productie)
 
-## Aanmelden om aan te sluiten
+## Aanmelden
 Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
 
 ## Functionaliteit en specificaties
@@ -104,10 +104,17 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 
 - [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature) worden geleverd.
 
-## Bouw de API
-We hebben [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/code){:target="_blank" rel="noopener"} voor API-clients in enkele varianten. Hiermee kan je direct aan de slag met het gebruiken van de API.
+## Implementeer de API client
+Client code kun je genereren met de "[genereervariant](https://github.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties en een code generator. Een overzicht met codegeneratoren kun je vinden op [OpenAPI.Tools](https://openapi.tools/#sdk){:target="_blank" rel="noopener"}.
 
-Zit jouw gewenste ontwikkelomgeving er niet bij, dan kan je zelf ook code genereren vanuit de "[genereervariant](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties.
+Deze repo bevat scripts waarmee je met [OpenAPI Generator](https://openapi-generator.tech/){:target="_blank" rel="noopener"} client code kunt genereren in JAVA, .NET (Full Framework & Core) en Python. De makkelijkste manier om de code generatie scripts te gebruiken, is door deze repo te clonen. Na het clonen kun je met `npm install` de benodigde packages installeren en kun je met npm run <script naam> één van de volgende scripts uitvoeren:
+- oas:generate-java-client (voor JAVA client code)
+- oas:generate-netcore-client (voor .NET Core client code)
+- oas:generate-net-client (voor .NET Full Framework client code)
+- oas:generate-python-client (voor Python client code)
+
+Een lijst met andere ondersteunde generator opties kun je vinden in de [Generators List](https://openapi-generator.tech/docs/generators){:target="_blank" rel="noopener"} van OpenAPI Generator.
+Note. De prerequisite van OpenAPI Generator is JAVA. Je moet een JAVA runtime installeren voordat je OpenAPI Generator kunt gebruiken.
 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
@@ -140,7 +147,7 @@ zie hiervoor: https://www.logius.nl/diensten/pkioverheid
         - Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
 
 ### Testgevallen
-Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving.
+Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving. Meer details over welke testdata in de testgevallen zit, vind je in [test cases](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/test/cases)
 
 #### Onroerende Zaken
 

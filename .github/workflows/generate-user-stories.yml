@@ -41,8 +41,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: issues-tmp.md
       - run: |
-          cat issues-tmp.md >> user-stories-dev.md
-          echo -e '\n' >> user-stories-dev.md
+          echo -e '## Vanaf versie 1.4\n' >> user-stories-prod.md
+          cat issues-tmp.md >> user-stories-prod.md
+          echo -e '\n' >> user-stories-prod.md
         
       - name: List 'v1.3' user stories
         uses: lee-dohm/select-matching-issues@v1.2.0

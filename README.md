@@ -1,18 +1,15 @@
 # Haal Centraal BRK bevragen
 
 ![lint oas](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/lint-oas/badge.svg)
-![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-sdks/badge.svg)
 ![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/workflows/generate-postman-collection/badge.svg)
 
-API voor het zoeken en raadplegen van gegevens in de basisregistratie Kadaster.
+API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
 
-## BRK bevragen v1.3 is live!
+## BRK bevragen v1.4.1 is live!
 
-Naast zoeken op nummeraanduiding, levert BRK bevragen nu ook:
-* de complete filiatie
-* bij ieder perceel de bijbehorende appartementsrechten
-* bij ieder appartementsrecht het bijbehorend perceel
-* de metadata van alle stukken en stukdelen, eventueel op te halen via KIK Inzage
+BRK bevragen levert nu ook:
+* inzicht in de filiatie van Kadastraal onroerende zaken
+* zoeken in relatie tot gorzen en aanwassen
 
 Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/releasenotes).
 
@@ -26,10 +23,10 @@ Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bev
 
 ## Doorontwikkeling van de BRK bevragen API
 
-Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan (v1.4). 
- We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
+Komende periode wordt de API uitgebreid met andere erfpachters. Dat zijn de eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan. Ook worden sluimerende appartementsrechten zichtbaar gemaakt (v1.5).
+We doen ons uiterste best om de API evolvable door te ontwikkelen en geen breaking changes te introduceren.
 
-* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22BRK+bevragen+v1.4%22)
+* Bekijk de [voortgang van issues en user stories](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22v1.5%22+label%3A%22User+Story%22)
 * Bekijk de specificaties in ontwikkeling met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-io) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-io)
 
 ## Bronnen
