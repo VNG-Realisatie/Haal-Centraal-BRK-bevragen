@@ -18,8 +18,8 @@ nav:
       - title: Getting started
         path: /getting-started
       - title: User stories
-        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-prod
-        path: /user-stories
+#        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-prod
+        path: /user-stories-prod
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui
       - title: Bevragen API (redoc)
@@ -29,8 +29,8 @@ nav:
   - title: Specificaties v. 1.5 (IO)
     subnav:
       - title: User stories
-        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-dev
-        path: /user-stories
+#        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-dev
+        path: /user-stories-dev
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui-io
       - title: Bevragen API (redoc)
