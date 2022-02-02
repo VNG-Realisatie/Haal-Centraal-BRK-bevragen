@@ -1,21 +1,21 @@
 # language: nl
 
 Functionaliteit: Gesplitst zakelijk recht
-    # Als medewerker Erfpacht wil ik weten wie de eigenaren zijn van appartementsrechten die uit erfpacht zijn ontstaan #882
+    # Als medewerker Erfpacht wil ik weten wie de eigenaren zijn van appartementsrechten die uit erfpacht zijn ontstaan
     # zodat ik weet aan wie ik een factuur kan sturen.
     # #882
 
 Achtergrond:
-    Gegeven perceel met identificatie "59020139970000" heeft kadastrale aanduiding "Groningen P 1399" 
-    En perceel met identificatie "59020139970000" heeft het zakelijk recht van type "erfpachter" gesplitst naar twee appartementsrechten met identificatie "59020140010001" en "59020140010002"
+    Gegeven perceel met identificatie "59020139970000" heeft het zakelijk recht van type "erfpachter" gesplitst naar twee appartementsrechten met identificatie "59020140010001" en "59020140010002"
+    En perceel met identificatie "59020139970000" heeft kadastrale aanduiding "Groningen P 1399"
     En perceel met identificatie "59020139970000" heeft als eigenaar "Anne Janssens"
     En appartementsrecht met identificatie "59020140010001" heeft kadastrale aanduiding "Groningen P 1400 A1" 
     En appartementsrecht met identificatie "59020140010001" heeft als eigenaar "Jan de Groenen"
     En appartementsrecht met identificatie "59020140010002" heeft kadastrale aanduiding "Groningen P 1400 A2" 
     En appartementsrecht met identificatie "59020140010002" heeft als eigenaar "Susan in het Veld"
 
-    En perceel met identificatie "59020130970000" heeft kadastrale aanduiding "Groningen P 1309" 
     En perceel met identificatie "59020130970000" heeft het zakelijk recht van type "eigenaar" gesplitst naar twee appartementsrechten met identificatie "59020170810218" en "59020170810219"
+    En perceel met identificatie "59020130970000" heeft kadastrale aanduiding "Groningen P 1309" 
     En appartementsrecht met identificatie "59020170810219" heeft het zakelijk recht van type "eigenaar" gesplitst naar twee appartementsrechten met identificatie "59020170810593" en "59020170810594"
     En appartementsrecht met identificatie "59020170810219" heeft kadastrale aanduiding "Groningen P 1708 A219" 
 
