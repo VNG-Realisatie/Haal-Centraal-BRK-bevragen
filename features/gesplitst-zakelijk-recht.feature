@@ -60,7 +60,7 @@ Rule: Opvragen van zakelijk gerechtigden van een grondperceel dat is gesplitst i
         }
         """
 
-Rule: parameter type bij zakelijkgerechtigden werkt ook op gesplitstZakelijkRecht
+Rule: Parameter type bij zakelijkgerechtigden werkt ook op gesplitstZakelijkRecht
 
     Scenario: opvragen van de zakelijk gerechtigden met type van ongesplitst recht
         Als zakelijk gerechtigde wordt gevraagd met "/kadastraalonroerendezaken/59020139970000/zakelijkgerechtigden?fields=identificatie,type,persoon.omschrijving&type=eigenaar"
@@ -112,7 +112,7 @@ Rule: parameter type bij zakelijkgerechtigden werkt ook op gesplitstZakelijkRech
         }
         """
 
-Rule: bij een onroerende zaak met gesplitst zakelijk recht wordt het gesplitste recht getoond in gesplitstZakelijkRecht
+Rule: Bij een onroerende zaak met gesplitst zakelijk recht wordt het gesplitste recht getoond in gesplitstZakelijkRecht
 
     Scenario: opvragen van een perceel met gesplitst zakelijk recht
         Als een kadastraal onroerende zaak wordt geraadpleegd met "/kadastraalonroerendezaken/59020139970000?fields=identificatie,type,gesplitstZakelijkRecht"
@@ -428,7 +428,7 @@ Rule: Wanneer een appartementsrecht is (onder)gesplitst wordt bij opvragen van h
         }
         """
 
-Rule: bij gebruik van fields wordt gesplitstZakelijkRecht altijd geleverd wanneer die ook een waarde heeft in de resource
+Rule: Bij gebruik van fields wordt gesplitstZakelijkRecht altijd geleverd wanneer die ook een waarde heeft in de resource
 
     Scenario: perceel met gesplitst zakelijk recht en daar niet om vragen met fields
         Gegeven perceel met identificatie "22310691970000" heeft het zakelijk recht van type "eigenaar" gesplitst naar twee appartementsrechten met identificatie "22310827210004" en "22310827210003"
