@@ -16,6 +16,7 @@ De functionaliteit van de API is gespecificeerd en geillustreerd door middel van
 - [levering koopsommen in combinatie met koopjaar en cultuurcode](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/first.feature){:target="_blank" rel="noopener"}
 - [inzicht in de filiatie van Kadastraal onroerende zaken](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/filiatie.feature){:target="_blank" rel="noopener"}
 - [zoeken in relatie tot gorzen en aanwassen](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/gorzen-en-aanwassen.feature){:target="_blank" rel="noopener"}
+- [zakelijk recht uit splitsing](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/gesplitst-zakelijk-recht.feature){:target="_blank" rel="noopener"}
 
 ## Algemene Haal Centraal features
 Naast specifieke features zijn ook enkele haal Centraal Common features relevant voor de BRK bevragen API. Deze features gelden voor alle Haal Centraal API's:
