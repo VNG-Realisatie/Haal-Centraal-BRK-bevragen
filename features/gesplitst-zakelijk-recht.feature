@@ -427,3 +427,27 @@ Rule: Wanneer een appartementsrecht is (onder)gesplitst wordt bij opvragen van h
             }
         }
         """
+
+Rule: bij gebruik van fields wordt gesplitstZakelijkRecht altijd geleverd wanneer die ook een waarde heeft in de resource
+
+    Scenario: perceel met gesplitst zakelijk recht en daar niet om vragen met fields
+        Gegeven perceel met identificatie "22310691970000" heeft het zakelijk recht van type "eigenaar" gesplitst naar twee appartementsrechten met identificatie "22310827210004" en "22310827210003"
+        En perceel met identificatie "22310691970000" heeft kadastrale grootte van 275 m2
+        Als een kadastraal onroerende zaak wordt geraadpleegd met "/kadastraalonroerendezaken/22310691970000?fields=kadastraleGrootte.waarde"
+        Dan is het antwoord:
+        """
+        {
+            "identificatie": "22310691970000",
+            "domein": "NL.IMKAD.KadastraalObject",
+            "type": "perceel",
+            "kadastraleGrootte": {
+                "waarde": 275
+            },
+            "gesplitstZakelijkRecht": "eigenaar",
+            "_links": {
+                "self": {
+                    "href": "/kadastraalonroerendezaken/22310691970000?fields=kadastraleGrootte.waarde"
+                }
+            }
+        }
+        """
