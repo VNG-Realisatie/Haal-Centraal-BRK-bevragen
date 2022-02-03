@@ -147,6 +147,25 @@ Rule: Bij een onroerende zaak met gesplitst zakelijk recht wordt het gesplitste 
         }
         """
 
+    Scenario: opvragen van een perceel dat is gesplitst in andere percelen en daardoor vervallen heeft geen gesplitst zakelijk recht
+        Gegeven perceel met identificatie "59020001970000" is gesplitst naar twee percelen met identificatie "59020130970000" en "59020131170000"
+        Als een kadastraal onroerende zaak wordt geraadpleegd met "/59020001970000/59020140010001?fields=identificatie,type,indicatieVervallen,gesplitstZakelijkRecht"
+        Dan is het antwoord:
+        """
+        {
+            "identificatie": "59020001970000",
+            "domein": "NL.IMKAD.KadastraalObject",
+            "indicatieVervallen": true,
+            "type": "perceel",
+            "_links": {
+                "self": {
+                    "href": "/kadastraalonroerendezaken/59020001970000?fields=identificatie,type,indicatieVervallen,gesplitstZakelijkRecht"
+                }
+            }
+        }
+        """
+    
+
 Rule: De onroerende zaken waarin het zakelijk recht van een onroerende zaak is gesplitst kunnen worden opgevraagd door gebruik van de parameter inclusiefKadastraalOnroerendeZakenUitSplitsing in combinatie met kadastraleAanduiding
     # Het resultaat is een lijst met zowel het grondperceel als de appartementsrechten waarin het is gesplitst
 
