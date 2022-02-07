@@ -4636,6 +4636,9 @@
               "$ref" : "#/components/schemas/LocatieKadastraalObject"
             }
           },
+          "gesplitstZakelijkRecht" : {
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
+          },
           "zakelijkGerechtigdeIdentificaties" : {
             "type" : "array",
             "description" : "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak\n",
