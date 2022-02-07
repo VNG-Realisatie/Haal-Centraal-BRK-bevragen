@@ -3933,8 +3933,6 @@ components:
             Identificatie van de zakelijk gerechtigde.
         type:
           $ref: '#/components/schemas/TypeGerechtigdeEnum'
-        gesplitstZakelijkRecht:
-          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         aanvangsdatum:
           type: string
           description: |

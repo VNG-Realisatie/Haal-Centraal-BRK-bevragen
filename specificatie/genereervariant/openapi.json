@@ -4978,9 +4978,6 @@
           "type" : {
             "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           },
-          "gesplitstZakelijkRecht" : {
-            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
-          },
           "aanvangsdatum" : {
             "type" : "string",
             "description" : "Datum waarop het zakelijk recht van kracht is geworden.\n",
