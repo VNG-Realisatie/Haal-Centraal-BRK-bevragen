@@ -3647,6 +3647,8 @@ components:
             Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
           items:
             $ref: '#/components/schemas/LocatieKadastraalObject'
+        gesplitstZakelijkRecht:
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         zakelijkGerechtigdeIdentificaties:
           type: array
           description: |
