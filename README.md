@@ -8,8 +8,9 @@ API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster 
 ## Haal Centraal BRK bevragen v1.5 is live!
 
 BRK bevragen levert nu ook:
-* eigenaren van de appartementsrechten die uit erfpacht zijn ontstaan. 
+* gesplitste zakelijke rechten en de houders van deze rechten. 
 * een indicatie sluimerend op appartementsrechten als deze niet vervallen maar gesplitst zijn.
+* altijd gesplitstZakelijkRecht bij een Kadastraal onroerende zaak, ook als daar niet om gevraagd wordt.
 
 Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/releasenotes).
 

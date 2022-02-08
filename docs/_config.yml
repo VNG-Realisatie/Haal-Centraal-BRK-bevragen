@@ -25,7 +25,7 @@ nav:
         path: /redoc
       - title: Features
         path: /features
-  - title: Specificaties v. 2.0 (IO)
+  - title: Specificaties v. 1.6 (IO)
     subnav:
       - title: User stories
         path: /user-stories-dev
