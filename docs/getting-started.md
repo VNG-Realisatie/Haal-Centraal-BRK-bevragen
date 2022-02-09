@@ -348,6 +348,27 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td> </td>
 		<td>vervallen perceel</td>
 	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020139970000<br/>Groningen P 1399</td>
+		<td> </td>
+		<td> </td>
+		<td>recht van erfpacht is gesplitst</td>
+	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020140010001<br/>Groningen P 1400 A1</td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020140010002<br/>Groningen P 1400 A2</td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
 
 </table>
 
