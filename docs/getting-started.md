@@ -134,17 +134,10 @@ We hebben al een [Postman collection](https://github.com/VNG-Realisatie/Haal-Cen
 
 De testomgeving van de API is te benaderen via de volgende urls:
 - _Beveiligde verbinding met alleen API-key: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1/_
-    - Voor deze connectie met de testomgeving van deze API is vereist:
-        - Een geldige API-key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API-key.
 
 - _Beveiligde verbinding met API-key & mTLS: https://api.brk.kadaster.nl/esd-eto/bevragen/v1/_
-    - Voor deze connectie met de testomgeving van deze API is vereist:
-        - Een geldige API-key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API-key.
-        - Internet toegang tot het Kadaster endpoint via IPv4 of IPv6 en met het TLS 1.2 protocol.
-        - Een Staat der Nederlanden root CA - G3 certificaat in de truststore, zie hiervoor: https://www.pkioverheid.nl/
-        - Een geldig PKIoverheid client certificaat met SERIALNUMMER=<eigen-OIN-nummer> in de keystore dat deel uitmaakt van de Staat der Nederlanden - G3 hiërarchie,
-zie hiervoor: https://www.logius.nl/diensten/pkioverheid
-        - Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
+
+Vraag hiervoor een [API-key en PKI-overheidscertificaat](https://www.kadaster.nl/zakelijk/producten/eigendom/brk-bevragen) aan.
 
 ### Testgevallen
 Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de werking van de API kan worden getest op de test omgeving. Meer details over welke testdata in de testgevallen zit, vind je in [test cases](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/test/cases)
@@ -355,6 +348,27 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 		<td> </td>
 		<td>vervallen perceel</td>
 	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020139970000<br/>Groningen P 1399</td>
+		<td> </td>
+		<td> </td>
+		<td>recht van erfpacht is gesplitst</td>
+	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020140010001<br/>Groningen P 1400 A1</td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>Gesplitst zakelijkRecht</td>
+		<td>59020140010002<br/>Groningen P 1400 A2</td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
 
 </table>
 
@@ -410,13 +424,7 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 </table>
 
 ## Aansluiten op productie
-Voor de connectie met de productieomgeving van deze API is vereist:
-- Een geldige API-key. Deze wordt bij de request opgenomen in request header "X-Api-Key". Wanneer je je aanmeldt voor het gebruiken van de API ontvang je de API-key.
-- Internet toegang tot het Kadaster endpoint via IPv4 of IPv6 en met het TLS 1.2 protocol.
-- Een Staat der Nederlanden root CA - G3 certificaat in de truststore, zie hiervoor: https://www.pkioverheid.nl/
-- Een geldig PKIoverheid client certificaat met SERIALNUMMER=<eigen-OIN-nummer> in de keystore dat deel uitmaakt van de Staat der Nederlanden - G3 hiërarchie,
-zie hiervoor: https://www.logius.nl/diensten/pkioverheid
-- Een mutual TLS endpoint configuratie, waarbij de TLS verbinding met het Kadaster alleen tot stand mag en kan komen als er bij het opzetten van de verbinding een wederzijds vertrouwen op basis van de PKIoverheid certificaten hiërarchie bestaat.
+Vraag voor het aansluiten op de productie omgeving een [API-key en PKI-overheidscertificaat](https://www.kadaster.nl/zakelijk/producten/eigendom/brk-bevragen) aan.
 
 ### URL
 De productieomgeving van de API is te benaderen via de volgende url: https://api.brk.kadaster.nl/esd/bevragen/v1/
