@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Zakelijk Gerechtigden endpoints
   description: |
                 De definitie van de Zakelijk Gerechtigden endpoints en HAL components.
-  version: "1.4.0"
+  version: "1.5.0"
 paths:
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}:
     get:
@@ -145,9 +145,21 @@ components:
       type: "object"
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectieLinks"
         _embedded:
-            $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+          $ref: "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+        gesplitstZakelijkRecht:
+          type: "string"
+          description: "Geeft aan welk type zakelijk recht gespiltst is."
+    ZakelijkGerechtigdeHalCollectieLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadastraalOnroerendeZakenUitSplitsing:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     ZakelijkGerechtigdeHalCollectieEmbedded:
       type: "object"
       properties:

@@ -10,7 +10,7 @@ info:
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
-  version: 1.4.1
+  version: 1.5.0
 servers:
 - url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
   description: |
@@ -42,6 +42,7 @@ paths:
         Het combineren van parameters uit verschillende categorieën is niet toegestaan.
         1.  Kadastrale aanduiding
             - kadastraleAanduiding
+            - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
         2.  Ingeschreven persoon als zakelijk gerechtigde
             -  burgerservicenummer (verplicht)
             -  zakelijkGerechtigde__type (optioneel)
@@ -57,6 +58,7 @@ paths:
             - nummeraanduidingIdentificatie
         6.  Kadastrale aanduiding met gemeentecode
             - kadastraleAanduidingMetGemeentecode
+            - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
 
         Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
@@ -199,6 +201,12 @@ paths:
           pattern: ^([A-Z]{3}[0-9]{2}) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$
           type: string
           example: GVH00 C 1277 A3
+      - name: inclusiefKadastraalOnroerendeZakenUitSplitsing
+        in: query
+        description: |
+          Bepaalt of ook de Kadastraal onroerende zaken worden geleverd die zijn ontstaan uit splitsing van de gevonden Kadastraal onroerende zaak.
+        schema:
+          type: boolean
       responses:
         "200":
           description: |
@@ -3313,9 +3321,21 @@ components:
       type: object
       properties:
         _links:
-          $ref: '#/components/schemas/HalCollectionLinks'
+          $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectieLinks'
         _embedded:
           $ref: '#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded'
+        gesplitstZakelijkRecht:
+          type: string
+          description: Geeft aan welk type zakelijk recht gespiltst is.
+    ZakelijkGerechtigdeHalCollectieLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+        kadastraalOnroerendeZakenUitSplitsing:
+          $ref: '#/components/schemas/HalLink'
+        kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden:
+          $ref: '#/components/schemas/HalLink'
     ZakelijkGerechtigdeHalCollectieEmbedded:
       type: object
       properties:
@@ -3627,6 +3647,8 @@ components:
             Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
           items:
             $ref: '#/components/schemas/LocatieKadastraalObject'
+        gesplitstZakelijkRecht:
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         zakelijkGerechtigdeIdentificaties:
           type: array
           description: |
@@ -3681,6 +3703,8 @@ components:
             Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
+        indicatieSluimerend:
+          type: boolean
       description: |
         Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.
 
@@ -3896,6 +3920,10 @@ components:
       - properties:
           volgnummer:
             type: integer
+          indicatieSluimerend:
+            type: boolean
+            description: Indicatie waarmee aangegeven wordt of een appartementsrecht
+              sluimerend is of niet.
     ZakelijkGerechtigde:
       type: object
       properties:

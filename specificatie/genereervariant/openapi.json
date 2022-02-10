@@ -11,7 +11,7 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "1.4.1"
+    "version" : "1.5.0"
   },
   "servers" : [ {
     "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
@@ -47,7 +47,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n6.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n6.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -163,6 +163,13 @@
             "pattern" : "^([A-Z]{3}[0-9]{2}) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$",
             "type" : "string",
             "example" : "GVH00 C 1277 A3"
+          }
+        }, {
+          "name" : "inclusiefKadastraalOnroerendeZakenUitSplitsing",
+          "in" : "query",
+          "description" : "Bepaalt of ook de Kadastraal onroerende zaken worden geleverd die zijn ontstaan uit splitsing van de gevonden Kadastraal onroerende zaak.\n",
+          "schema" : {
+            "type" : "boolean"
           }
         } ],
         "responses" : {
@@ -4131,10 +4138,28 @@
         "type" : "object",
         "properties" : {
           "_links" : {
-            "$ref" : "#/components/schemas/HalCollectionLinks"
+            "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectieLinks"
           },
           "_embedded" : {
             "$ref" : "#/components/schemas/ZakelijkGerechtigdeHalCollectieEmbedded"
+          },
+          "gesplitstZakelijkRecht" : {
+            "type" : "string",
+            "description" : "Geeft aan welk type zakelijk recht gespiltst is."
+          }
+        }
+      },
+      "ZakelijkGerechtigdeHalCollectieLinks" : {
+        "type" : "object",
+        "properties" : {
+          "self" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "kadastraalOnroerendeZakenUitSplitsing" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
+          "kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden" : {
+            "$ref" : "#/components/schemas/HalLink"
           }
         }
       },
@@ -4611,6 +4636,9 @@
               "$ref" : "#/components/schemas/LocatieKadastraalObject"
             }
           },
+          "gesplitstZakelijkRecht" : {
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
+          },
           "zakelijkGerechtigdeIdentificaties" : {
             "type" : "array",
             "description" : "Alle personen en rechtspersonen die een zakelijk recht hebben op deze kadastraal onroerende zaak\n",
@@ -4672,6 +4700,9 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "indicatieSluimerend" : {
+            "type" : "boolean"
           }
         },
         "description" : "Een kadastraal onroerende zaak is een perceel of een appartementsrecht. Een perceel is een stuk grond waarvan het Kadaster de grenzen heeft gemeten en dat bij het Kadaster een eigen nummer heeft. Een appartementsrecht is het recht dat iemand of een organisatie heeft om eigenaar te zijn van een deel van een gebouw of een stuk grond. In de praktijk wordt dit deel meestal een appartement genoemd.\n\n\nWaardelijst in deze component :\n  [aardCultuurBebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeBebouwd/) en [aardCultuurOnbebouwd](http://www.kadaster.nl/schemas/waardelijsten/CultuurcodeOnbebouwd/)\n"
@@ -4929,6 +4960,10 @@
           "properties" : {
             "volgnummer" : {
               "type" : "integer"
+            },
+            "indicatieSluimerend" : {
+              "type" : "boolean",
+              "description" : "Indicatie waarmee aangegeven wordt of een appartementsrecht sluimerend is of niet."
             }
           }
         } ]

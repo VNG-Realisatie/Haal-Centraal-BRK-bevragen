@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadastraal Onroerende Zaken endpoints
   description: |
                 De definitie van de Kadastraal Onroerende Zaken endpoints en HAL components.
-  version: "1.4.0"
+  version: "1.5.0"
 paths:
   /kadastraalonroerendezaken:
     get:
@@ -13,6 +13,7 @@ paths:
           Het combineren van parameters uit verschillende categorieën is niet toegestaan.
           1.  Kadastrale aanduiding
               - kadastraleAanduiding
+              - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
           2.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
               -  zakelijkGerechtigde__type (optioneel)
@@ -28,6 +29,7 @@ paths:
               - nummeraanduidingIdentificatie
           6.  Kadastrale aanduiding met gemeentecode
               - kadastraleAanduidingMetGemeentecode
+              - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
 
           Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
@@ -139,6 +141,12 @@ paths:
             type: "string"
             pattern: "^([A-Z]{3}[0-9]{2}) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
             example: "GVH00 C 1277 A3"
+        - in: query
+          name: inclusiefKadastraalOnroerendeZakenUitSplitsing
+          description: |
+                        Bepaalt of ook de Kadastraal onroerende zaken worden geleverd die zijn ontstaan uit splitsing van de gevonden Kadastraal onroerende zaak.
+          schema:
+            type: boolean
       responses:
         '200':
           description: |

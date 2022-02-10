@@ -5,6 +5,39 @@ title: Haal Centraal BRK bevragingen
 
 # Release notes BRK-Bevragen
 
+## **Versie 1.5.0:**
+
+### User stories
+
+- [882](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/882){:target="_blank"}): Als medewerker Erfpacht wil ik weten wie de eigenaren zijn van appartementsrechten die uit erfpacht zijn ontstaan
+- [843](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/843){:target="_blank"}): Als medewerker en ontwikkelaar wil ik dat niet vervallen maar wel gesplitste appartementsrechten een indicatie Sluimerend krijgen
+
+### Openapi.yaml
+
+- Endpoint /kadastraalonroerendezaken:
+  - inclusiefKadastraalOnroerendeZakenUitSplitsing toegevoegd als queryparameter aan /kadastraalonroerendezaken
+- Component ZakelijkGerechtigdeHalCollectie:
+    - Properties toegevoegd:
+      - gesplitstZakelijkRecht
+      - _links.kadastraalOnroerendeZakenUitSplitsing
+      - _links.kadastraalOnroerendeZakenUitSplitsingInclusiefZakelijkGerechtigden
+- Component KadastraalOnroerendeZaak:
+  - Properties toegevoegd:
+    - gesplitstZakelijkRecht
+    - indicatieSluimerend
+- Component AppartementsrechtBasis:
+  - Properties toegevoegd:
+    - indicatieSluimerend
+
+### Features:
+
+De volgende feature is toegevoegd:
+- gesplitst-zakelijk-recht.feature
+
+### Issues
+
+Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "v1.5" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
+
 
 ## **Versie 1.4.1:**
 

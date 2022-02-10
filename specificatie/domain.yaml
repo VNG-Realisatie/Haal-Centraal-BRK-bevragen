@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen Components
   description: |
                 De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API.
-  version: "1.4.1"
+  version: "1.5.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -127,6 +127,9 @@ components:
         - properties:
             volgnummer:
               type: integer
+            indicatieSluimerend:
+              description: "Indicatie waarmee aangegeven wordt of een appartementsrecht sluimerend is of niet."
+              type: boolean
     AppartementsrechtFiliatie:
       allOf:
         - $ref: "#/components/schemas/KadastraalOnroerendeZaakFiliatie"
@@ -564,6 +567,8 @@ components:
                         Alle binnenlandse adressen gekoppeld aan deze kadastraal onroerende zaak
           items:
             $ref: "#/components/schemas/LocatieKadastraalObject"
+        gesplitstZakelijkRecht:
+          $ref: '#/components/schemas/TypeGerechtigdeEnum'
         zakelijkGerechtigdeIdentificaties:
           type: "array"
           description: |
@@ -618,6 +623,8 @@ components:
                         Dit kan een aangeboden stuk of een kadasterstuk zijn.
           items:
             type: string
+        indicatieSluimerend:
+          type: boolean
     KadastraalOnroerendeZaakBasis:
       type: "object"
       properties:
