@@ -36,7 +36,7 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Contact
 
-* Product Owner: Cathy Dingemanse, cathy.dingemanse@denhaag.nl
+* Product Owner: Cathy Dingemanse, [c.dingemanse@comites.nl](mailto:c.dingemanse@comites.nl)
 
 ## Licentie
 
