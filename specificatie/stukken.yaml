@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Stukken endpoints
   description: |
                 De definitie van de Stukken endpoints en HAL components
-  version: "1.5.0"
+  version: "1.5.1"
 paths:
   /stukken/{stukIdentificatie}:
     get:
