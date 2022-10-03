@@ -11,7 +11,7 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "1.5.0"
+    "version" : "1.5.1"
   },
   "servers" : [ {
     "url" : "https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1",
@@ -3924,6 +3924,9 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
+          "zakelijkGerechtigdenCollectie" : {
+            "$ref" : "#/components/schemas/HalLink"
+          },
           "privaatrechtelijkeBeperkingen" : {
             "type" : "array",
             "items" : {
@@ -4208,6 +4211,9 @@
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
+          },
+          "zakelijkGerechtigdenCollectie" : {
+            "$ref" : "#/components/schemas/HalLink"
           }
         }
       },
