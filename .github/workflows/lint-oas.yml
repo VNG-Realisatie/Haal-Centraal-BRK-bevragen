@@ -1,4 +1,5 @@
 name: lint-oas
+
 on:
   push:
     paths:
@@ -7,6 +8,7 @@ on:
     branches:
       - '**'
   workflow_dispatch:
+
 jobs:
   lint:
     runs-on: ubuntu-latest
