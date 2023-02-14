@@ -40,11 +40,10 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Contact
 
-* Product Owner: Patrick van der Spank, [Patrick.vanderSpank@VNG.NL](mailto:Patrick.vanderSpank@VNG.NL)
+* Productregiseur: Patrick van der Spank, [Patrick.vanderSpank@VNG.NL](mailto:standaarden.ondersteuning@VNG.NL)
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
 * Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
 * Customer zero: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
-* Tester: Frank Samwel, [frank@quality-of-service.nl](mailto:frank@quality-of-service.nl)
 
 ## Licentie
 
