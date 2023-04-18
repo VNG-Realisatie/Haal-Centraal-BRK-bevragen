@@ -34,11 +34,11 @@
   },
   "homepage": "https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen#readme",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.5.2",
+    "@openapitools/openapi-generator-cli": "^0.0.6",
     "@stoplight/spectral-cli": "^6.6.0",
     "husky": "^4.3.8",
     "mkdirp": "^1.0.4",
-    "mvn-dl": "^6.0.0",
+    "mvn-dl": "^2.0.1",
     "openapi-to-postmanv2": "^2.13.0"
   },
   "husky": {
