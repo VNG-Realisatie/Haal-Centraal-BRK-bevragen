@@ -40,9 +40,9 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Contact
 
-* Bug Melden<br/>
+* Bug Melden
   [Maak een issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-* Verbeteringen doorgeven<br/>
+* Verbeteringen doorgeven
   [Maak een issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
 * Community<br/>
   Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/><a href="https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api">Ga naar der community>></a>
