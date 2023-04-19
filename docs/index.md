@@ -24,7 +24,6 @@ Bekijk de [release notes](./releasenotes).
 * Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
 * Lees de [Getting started](./getting-started)
 * Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
-* Download [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/tree/master/code){:target="_blank" rel="noopener"}
 * [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen){:target="_blank" rel="noopener"} voor toegang tot de testomgeving.
 
 ## Doorontwikkeling van de BRK bevragen API
