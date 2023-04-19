@@ -40,13 +40,13 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Contact
 
-* Bug Melden
+* Bug Melden<br/>
   [Maak een issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-* Verbeteringen doorgeven
+* Verbeteringen doorgeven<br/>
   [Maak een issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
 
 
-* Regiseur API's: Arjen Brienen, [standaarden.ondersteuning@VNG.NL](mailto:standaarden.ondersteuning@VNG.NL)
+* Regiseur API's: Arjen Brienen, [arjen.brienen@VNG.NL](mailto:arjen.brienen@VNG.NL)
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
 * Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
 
