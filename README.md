@@ -35,13 +35,9 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Contact
 
-* Bug Melden
-  [Maak een bug issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-* Verbeteringen doorgeven
-  [Maak een verbeter issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
-* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/><a href="https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api">Ga naar de community>></a>
-
-
+* Bug Melden [Maak een bug issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+* Verbeteringen doorgeven  [Maak een verbeter issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
+* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/><a href="https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api">Ga naar de community>></a><br/><br/>
 * Regiseur API's: Arjen Brienen, [arjen.brienen@VNG.NL](mailto:arjen.brienen@VNG.NL)
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
 * Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
