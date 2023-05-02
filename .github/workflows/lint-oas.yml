@@ -13,13 +13,13 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: '16'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: lint OAS
         run: npm run oas:lint
       - name: resolve OAS
