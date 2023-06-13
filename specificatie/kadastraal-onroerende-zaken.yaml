@@ -14,20 +14,17 @@ paths:
           1.  Kadastrale aanduiding
               - kadastraleAanduiding
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
-          2.  Ingeschreven persoon als zakelijk gerechtigde
-              -  burgerservicenummer (verplicht)
-              -  zakelijkGerechtigde__type (optioneel)
-          3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
+          2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
               -  persoon__identificatie (verplicht)
               -  zakelijkGerechtigde__type (optioneel)
-          4.  Adres
+          3.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel)
               -  huisletter (optioneel)
               -  huisnummertoevoeging (optioneel)
-          5.  Nummeraanduiding
+          4.  Nummeraanduiding
               - nummeraanduidingIdentificatie
-          6.  Kadastrale aanduiding met gemeentecode
+          5.  Kadastrale aanduiding met gemeentecode
               - kadastraleAanduidingMetGemeentecode
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
 
@@ -58,14 +55,6 @@ paths:
             type: "string"
             pattern: "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$"
             example: "'s Gravenhage C 1277 A3"
-        - in: query
-          name: burgerservicenummer
-          description: |
-                        Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.
-          required: false
-          schema:
-            type: string
-            maxLength: 9
         - in: query
           name: persoon__identificatie
           description: |
@@ -224,6 +213,56 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
       tags:
       - Kadastraal Onroerende Zaken
+  /kadastraalonroerendezaken/burgerservicenummer:
+    post:
+      operationId: PostKadastraalOnroerendeZaken
+      description: |
+        Het zoeken van kadastraal onroerende zaken op basis van een burgerservicenummer.
+          1.  Ingeschreven persoon als zakelijk gerechtigde
+              -  burgerservicenummer (verplicht)
+              -  zakelijkGerechtigde__type (optioneel)
+        
+        Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
+        
+        Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
+        Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/acceptCrs"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BsnBody'
+      responses:
+        '200':
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            Content-Crs:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/contentCrs"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/KadastraalOnroerendeZaakHalCollectie'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+      tags:
+        - Kadastraal Onroerende Zaken
 components:
   schemas:
     KadastraalOnroerendeZaakHalCollectie:
