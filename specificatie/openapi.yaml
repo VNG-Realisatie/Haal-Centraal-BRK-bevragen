@@ -37,8 +37,6 @@ paths:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken"
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}:
     $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}"
-  /kadastraalonroerendezaken/burgerservicenummer:
-    $ref: "kadastraal-onroerende-zaken.yaml#/paths/~1kadastraalonroerendezaken~1burgerservicenummer"
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden/{zakelijkGerechtigdeIdentificatie}:
     $ref: "zakelijk-gerechtigden.yaml#/paths/~1kadastraalonroerendezaken~1{kadastraalOnroerendeZaakIdentificatie}~1zakelijkgerechtigden~1{zakelijkGerechtigdeIdentificatie}"
   /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden:
