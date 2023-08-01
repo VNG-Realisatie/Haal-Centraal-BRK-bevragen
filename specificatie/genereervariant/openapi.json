@@ -47,7 +47,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n4.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n5.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n3.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n4.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n5.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden (niet voor categorie 2.) en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -91,14 +91,6 @@
           "required" : false,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "zakelijkGerechtigde__type",
-          "in" : "query",
-          "description" : "Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.\n",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
           }
         }, {
           "name" : "postcode",
@@ -333,7 +325,7 @@
       },
       "post" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken op basis van een burgerservicenummer.\n  1.  Ingeschreven persoon als zakelijk gerechtigde\n      -  burgerservicenummer (verplicht)\n      -  zakelijkGerechtigde__type (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken op basis van een burgerservicenummer.\n  1.  Ingeschreven persoon als zakelijk gerechtigde\n      -  burgerservicenummer (verplicht)\n\nMet gebruik van de parameter expand kunnen privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "ZoekKadastraalOnroerendeZakenMetBsn",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -4193,11 +4185,6 @@
           }
         }
       },
-      "TypeGerechtigdeEnum" : {
-        "type" : "string",
-        "description" : "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n  * `beklemrechthouder` - 1 Beklemrechthouder\n  * `eigenaar` - 2 Eigenaar\n  * `erfpachter` - 3 Erfpachter\n  * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning\n  * `grondrente` - 5 Grondrente gerechtigde\n  * `opstalhouder` - 7 Opstalhouder\n  * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht\n  * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht\n  * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht\n  * `vruchtgebruiker` - 12 Vruchtgebruiker\n  * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder\n  * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen\n  * `brondocument` - 18 Raadpleeg brondocument\n  * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen\n  * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende\n  * `bp_recht` - 22 BP-gerechtigde\n  * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel\n  * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel\n",
-        "enum" : [ "beklemrechthouder", "eigenaar", "erfpachter", "gebruik_bewoning", "grondrente", "opstalhouder", "vaderlandsrecht", "artikel5_3b_geheel", "stadsmeierrecht", "vruchtgebruiker", "erfpachter_opstalhouder", "nutsvoorzieningen", "brondocument", "twee_belastingen", "belasting_derde", "bp_recht", "nutsvoorzieningen_gedeelte", "artikel5_3b" ]
-      },
       "BadRequestFoutbericht" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Foutbericht"
@@ -4281,13 +4268,6 @@
           "burgerservicenummer" : {
             "maxLength" : 9,
             "type" : "string"
-          },
-          "zakelijkgerechtigde_type" : {
-            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
-          },
-          "expand" : {
-            "type" : "string",
-            "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
           },
           "fields" : {
             "type" : "string",
@@ -4378,6 +4358,11 @@
             }
           }
         }
+      },
+      "TypeGerechtigdeEnum" : {
+        "type" : "string",
+        "description" : "Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:\n  * `beklemrechthouder` - 1 Beklemrechthouder\n  * `eigenaar` - 2 Eigenaar\n  * `erfpachter` - 3 Erfpachter\n  * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning\n  * `grondrente` - 5 Grondrente gerechtigde\n  * `opstalhouder` - 7 Opstalhouder\n  * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht\n  * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht\n  * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht\n  * `vruchtgebruiker` - 12 Vruchtgebruiker\n  * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder\n  * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen\n  * `brondocument` - 18 Raadpleeg brondocument\n  * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen\n  * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende\n  * `bp_recht` - 22 BP-gerechtigde\n  * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel\n  * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel\n",
+        "enum" : [ "beklemrechthouder", "eigenaar", "erfpachter", "gebruik_bewoning", "grondrente", "opstalhouder", "vaderlandsrecht", "artikel5_3b_geheel", "stadsmeierrecht", "vruchtgebruiker", "erfpachter_opstalhouder", "nutsvoorzieningen", "brondocument", "twee_belastingen", "belasting_derde", "bp_recht", "nutsvoorzieningen_gedeelte", "artikel5_3b" ]
       },
       "KadasterNatuurlijkPersoonHal" : {
         "allOf" : [ {
