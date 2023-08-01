@@ -47,7 +47,7 @@
     "/kadastraalonroerendezaken" : {
       "get" : {
         "tags" : [ "Kadastraal Onroerende Zaken" ],
-        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n2.  Ingeschreven persoon als zakelijk gerechtigde\n    -  burgerservicenummer (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n4.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n5.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n6.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "description" : "Het zoeken van kadastraal onroerende zaken door exact één van de volgende categorieën parameters op te geven.\nHet combineren van parameters uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    -  zakelijkGerechtigde__type (optioneel)\n3.  Adres\n    -  postcode (verplicht)\n    -  huisnummer (optioneel)\n    -  huisletter (optioneel)\n    -  huisnummertoevoeging (optioneel)\n4.  Nummeraanduiding\n    - nummeraanduidingIdentificatie\n5.  Kadastrale aanduiding met gemeentecode\n    - kadastraleAanduidingMetGemeentecode\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
         "operationId" : "GetKadastraalOnroerendeZaken",
         "parameters" : [ {
           "name" : "Accept-Crs",
@@ -83,15 +83,6 @@
             "pattern" : "^([a-zA-Z0-9'][a-zA-Z0-9' ,-]*[a-zA-Z0-9]) ([A-IK-Z]{1,2}) ([1-9][0-9]{0,4})( A[1-9][0-9]{0,3})?$",
             "type" : "string",
             "example" : "'s Gravenhage C 1277 A3"
-          }
-        }, {
-          "name" : "burgerservicenummer",
-          "in" : "query",
-          "description" : "Het burgerservicenummer van de persoon die een zakelijk recht op een kadastraal onroerende zaak heeft. Deze persoon is zakelijk gerechtigde van de kadastraal onroerende zaak. Door deze query-parameter te gebruiken worden Kadastraal Onroerende Zaken geretourneerd waar deze persoon een zakelijk recht op heeft.\n",
-          "required" : false,
-          "schema" : {
-            "maxLength" : 9,
-            "type" : "string"
           }
         }, {
           "name" : "persoon__identificatie",
@@ -172,6 +163,199 @@
             "type" : "boolean"
           }
         } ],
+        "responses" : {
+          "200" : {
+            "description" : "Zoekactie geslaagd\n",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              },
+              "Content-Crs" : {
+                "$ref" : "#/components/headers/contentCrs"
+              },
+              "warning" : {
+                "$ref" : "#/components/headers/warning"
+              }
+            },
+            "content" : {
+              "application/hal+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/KadastraalOnroerendeZaakHalCollectie"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Request",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BadRequestFoutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "status" : 400,
+                  "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "paramsRequired",
+                  "invalidParams" : [ {
+                    "type" : "https://www.vng.nl/realisatie/api/validaties/integer",
+                    "name" : "verblijfplaats__huisnummer",
+                    "code" : "integer",
+                    "reason" : "Waarde is geen geldige integer."
+                  } ]
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2",
+                  "title" : "Niet correct geauthenticeerd.",
+                  "status" : 401,
+                  "detail" : "The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "authentication"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4",
+                  "title" : "U bent niet geautoriseerd voor deze operatie.",
+                  "status" : 403,
+                  "detail" : "The server understood the request, but is refusing to fulfill it.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "autorisation"
+                }
+              }
+            }
+          },
+          "406" : {
+            "description" : "Not Acceptable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7",
+                  "title" : "Gevraagde contenttype wordt niet ondersteund.",
+                  "status" : 406,
+                  "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAcceptable"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1",
+                  "title" : "Interne server fout.",
+                  "status" : 500,
+                  "detail" : "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "serverError"
+                }
+              }
+            }
+          },
+          "503" : {
+            "description" : "Service Unavailable",
+            "headers" : {
+              "api-version" : {
+                "$ref" : "#/components/headers/api_version"
+              }
+            },
+            "content" : {
+              "application/problem+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Foutbericht"
+                },
+                "example" : {
+                  "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4",
+                  "title" : "Bronservice {bron} is tijdelijk niet beschikbaar.",
+                  "status" : 503,
+                  "detail" : "The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.",
+                  "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+                  "code" : "notAvailable"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Kadastraal Onroerende Zaken" ],
+        "description" : "Het zoeken van kadastraal onroerende zaken op basis van een burgerservicenummer.\n  1.  Ingeschreven persoon als zakelijk gerechtigde\n      -  burgerservicenummer (verplicht)\n      -  zakelijkGerechtigde__type (optioneel)\n\nMet gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.\n\nHet maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.\nAls het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.\n",
+        "operationId" : "ZoekKadastraalOnroerendeZakenMetBsn",
+        "parameters" : [ {
+          "name" : "Accept-Crs",
+          "in" : "header",
+          "description" : "Gewenste CRS van de coördinaten in de response.",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "description" : "CRS van de coördinaten in de response. epsg:28992 mapt op het RD New Nederlands coordinatenstelsel.",
+            "enum" : [ "epsg:28992" ]
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BsnBody"
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "Zoekactie geslaagd\n",
@@ -4089,6 +4273,27 @@
           }
         },
         "description" : "Details over fouten in opgegeven parameters"
+      },
+      "BsnBody" : {
+        "required" : [ "burgerservicenummer" ],
+        "type" : "object",
+        "properties" : {
+          "burgerservicenummer" : {
+            "maxLength" : 9,
+            "type" : "string"
+          },
+          "zakelijkgerechtigde_type" : {
+            "$ref" : "#/components/schemas/TypeGerechtigdeEnum"
+          },
+          "expand" : {
+            "type" : "string",
+            "description" : "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
+          },
+          "fields" : {
+            "type" : "string",
+            "description" : "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
+          }
+        }
       },
       "ZakelijkGerechtigdeHal" : {
         "allOf" : [ {
