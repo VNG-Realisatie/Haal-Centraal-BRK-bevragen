@@ -1013,6 +1013,47 @@ components:
       example:
         noemer: 2
         teller: 1
+    TypeGerechtigdeEnum:
+      type: string
+      description: |
+        Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
+          * `beklemrechthouder` - 1 Beklemrechthouder
+          * `eigenaar` - 2 Eigenaar
+          * `erfpachter` - 3 Erfpachter
+          * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
+          * `grondrente` - 5 Grondrente gerechtigde
+          * `opstalhouder` - 7 Opstalhouder
+          * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
+          * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht
+          * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
+          * `vruchtgebruiker` - 12 Vruchtgebruiker
+          * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
+          * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
+          * `brondocument` - 18 Raadpleeg brondocument
+          * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
+          * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
+          * `bp_recht` - 22 BP-gerechtigde
+          * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
+          * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
+      enum:
+        - "beklemrechthouder"
+        - "eigenaar"
+        - "erfpachter"
+        - "gebruik_bewoning"
+        - "grondrente"
+        - "opstalhouder"
+        - "vaderlandsrecht"
+        - "artikel5_3b_geheel"
+        - "stadsmeierrecht"
+        - "vruchtgebruiker"
+        - "erfpachter_opstalhouder"
+        - "nutsvoorzieningen"
+        - "brondocument"
+        - "twee_belastingen"
+        - "belasting_derde"
+        - "bp_recht"
+        - "nutsvoorzieningen_gedeelte"
+        - "artikel5_3b"
     TypeKadastraalOnroerendeZaakEnum:
       type: "string"
       enum:
