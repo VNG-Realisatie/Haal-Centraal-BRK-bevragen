@@ -226,14 +226,6 @@ components:
         burgerservicenummer:
           type: string
           maxLength: 9
-        zakelijkgerechtigde_type:
-          description: |
-            Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.
-            required: false
-          $ref: "#/components/schemas/TypeGerechtigdeEnum"
-        expand:
-          description: "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
-          type: string
         fields:
           description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
           type: string
@@ -1021,47 +1013,6 @@ components:
       example:
         noemer: 2
         teller: 1
-    TypeGerechtigdeEnum:
-      type: string
-      description: |
-                    Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
-                      * `beklemrechthouder` - 1 Beklemrechthouder
-                      * `eigenaar` - 2 Eigenaar
-                      * `erfpachter` - 3 Erfpachter
-                      * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
-                      * `grondrente` - 5 Grondrente gerechtigde
-                      * `opstalhouder` - 7 Opstalhouder
-                      * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
-                      * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht
-                      * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
-                      * `vruchtgebruiker` - 12 Vruchtgebruiker
-                      * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
-                      * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
-                      * `brondocument` - 18 Raadpleeg brondocument
-                      * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
-                      * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
-                      * `bp_recht` - 22 BP-gerechtigde
-                      * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
-                      * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
-      enum:
-        - "beklemrechthouder"
-        - "eigenaar"
-        - "erfpachter"
-        - "gebruik_bewoning"
-        - "grondrente"
-        - "opstalhouder"
-        - "vaderlandsrecht"
-        - "artikel5_3b_geheel"
-        - "stadsmeierrecht"
-        - "vruchtgebruiker"
-        - "erfpachter_opstalhouder"
-        - "nutsvoorzieningen"
-        - "brondocument"
-        - "twee_belastingen"
-        - "belasting_derde"
-        - "bp_recht"
-        - "nutsvoorzieningen_gedeelte"
-        - "artikel5_3b"
     TypeKadastraalOnroerendeZaakEnum:
       type: "string"
       enum:

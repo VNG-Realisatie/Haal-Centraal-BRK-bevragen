@@ -16,7 +16,6 @@ paths:
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
           2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
               -  persoon__identificatie (verplicht)
-              -  zakelijkGerechtigde__type (optioneel)
           3.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel)
@@ -28,7 +27,7 @@ paths:
               - kadastraleAanduidingMetGemeentecode
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
 
-          Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
+          Met gebruik van de parameter expand kunnen zakelijkGerechtigden (niet voor categorie 2.) en privaatrechtelijkeBeperkingen direct worden meegeladen.
 
           Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
           Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
@@ -62,13 +61,6 @@ paths:
           required: false
           schema:
             type: string
-        - in: query
-          name: zakelijkGerechtigde__type
-          description: |
-                        Een typering van het recht dat de zakelijkgerechtigde heeft op de Kadastraal Onroerende Zaak. Door het gebruik van deze query-parameter worden Kadastraal Onroerende Zaken geretourneerd waar een recht op rust van het opgegeven type.
-          required: false
-          schema:
-            $ref: "domain.yaml#/components/schemas/TypeGerechtigdeEnum"
         - in: query
           name: postcode
           description: |
@@ -171,9 +163,8 @@ paths:
         Het zoeken van kadastraal onroerende zaken op basis van een burgerservicenummer.
           1.  Ingeschreven persoon als zakelijk gerechtigde
               -  burgerservicenummer (verplicht)
-              -  zakelijkGerechtigde__type (optioneel)
         
-        Met gebruik van de parameter expand kunnen zakelijkGerechtigden en privaatrechtelijkeBeperkingen direct worden meegeladen.
+        Met gebruik van de parameter expand kunnen privaatrechtelijkeBeperkingen direct worden meegeladen.
         
         Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
         Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
