@@ -25,16 +25,12 @@ components:
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
         omschrijving:
           type: "string"
-        betreftGedeelteVanPerceel:
-          type: "boolean"
-          deprecated: true
     AantekeningHypotheek:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
         - properties:
             betreftGedeelteVanPerceel:
               type: "boolean"
-              deprecated: false
     Aantekening:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
@@ -70,16 +66,7 @@ components:
               items:
                 type: "string"
     AantekeningTenaamstelling:
-      allOf:
-        - $ref: "#/components/schemas/Aantekening"
-        - properties:
-            begrenzing:
-              deprecated: true
-              allOf:
-                - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-            indicatieOorspronkelijkObject:
-              type: "boolean"
-              deprecated: true
+      $ref: "#/components/schemas/Aantekening"
     AdresUitgebreid:
       description: |
                     Waardelijst in deze component :
@@ -359,14 +346,6 @@ components:
       description: |
                     Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
       properties:
-        datumOntbinding:
-          deprecated: true
-          allOf:
-            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-        datumSluiting:
-          deprecated: true
-          allOf:
-            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     Hypotheek:
@@ -446,12 +425,6 @@ components:
                       Waardelijst in deze component :
                         [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
         properties:
-          geheimhoudingPersoonsgegevens:
-            type: "boolean"
-            title: "indicatieGeheim"
-            deprecated: true
-            description: |
-                          Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
           landWaarnaarVertrokken:
             $ref: "#/components/schemas/Waardelijst"
             description: |
@@ -1003,13 +976,12 @@ components:
           description: |
                         De noemer van het deel.
           minimum: 1
-          maximum: 99999999
         teller:
           type: "integer"
           title: "teller"
           description: |
                         Het aantal delen. De teller is altijd lager dan de noemer.
-          maximum: 99999999
+          minimum: 1
       example:
         noemer: 2
         teller: 1
