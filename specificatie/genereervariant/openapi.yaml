@@ -4204,14 +4204,13 @@ components:
       properties:
         noemer:
           title: noemer
-          maximum: 99999999
           minimum: 1
           type: integer
           description: |
             De noemer van het deel.
         teller:
           title: teller
-          maximum: 99999999
+          minimum: 1
           type: integer
           description: |
             Het aantal delen. De teller is altijd lager dan de noemer.
@@ -4221,16 +4220,7 @@ components:
         noemer: 2
         teller: 1
     AantekeningTenaamstelling:
-      allOf:
-      - $ref: '#/components/schemas/Aantekening'
-      - properties:
-          begrenzing:
-            deprecated: true
-            allOf:
-            - $ref: '#/components/schemas/polygonGeoJSON'
-          indicatieOorspronkelijkObject:
-            type: boolean
-            deprecated: true
+      $ref: '#/components/schemas/Aantekening'
     Aantekening:
       allOf:
       - $ref: '#/components/schemas/AantekeningBasis'
@@ -4272,9 +4262,6 @@ components:
           $ref: '#/components/schemas/Waardelijst'
         omschrijving:
           type: string
-        betreftGedeelteVanPerceel:
-          type: boolean
-          deprecated: true
       description: |
         Waardelijst in deze component :
           [aard](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
@@ -4363,12 +4350,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/KadasterPersoon'
       - properties:
-          geheimhoudingPersoonsgegevens:
-            title: indicatieGeheim
-            type: boolean
-            description: |
-              Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
-            deprecated: true
           landWaarnaarVertrokken:
             $ref: '#/components/schemas/Waardelijst'
           geslachtsaanduiding:
@@ -4442,48 +4423,10 @@ components:
     HeeftPartnerschap:
       type: object
       properties:
-        datumOntbinding:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/DatumOnvolledig'
-        datumSluiting:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/DatumOnvolledig'
         naam:
           $ref: '#/components/schemas/Naam'
       description: |
         Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
-    DatumOnvolledig:
-      type: object
-      properties:
-        dag:
-          maximum: 31
-          minimum: 1
-          type: integer
-          description: Als de dag van de datum bekend is wordt dit element gevuld,
-            ook als de volledige datum bekend is.
-          example: 3
-        datum:
-          type: string
-          description: Als de volledige datum bekend is wordt de datum gevuld die
-            in de date definitie past.
-          format: date
-          example: 1989-05-03
-        jaar:
-          maximum: 9999
-          type: integer
-          description: Als het jaar van de datum bekend is wordt dit element gevuld,
-            ook als de volledige datum bekend is.
-          example: 1989
-        maand:
-          maximum: 12
-          minimum: 1
-          type: integer
-          description: Als de maand van een datum bekend is wordt dit element gevuld,
-            ook als de volledige datum bekend is.
-          example: 5
-      description: Gegevens over de datums die mogelijk niet volledig zijn.
     Naam:
       type: object
       properties:
@@ -4542,6 +4485,36 @@ components:
 
         Waardelijst in deze component :
           [land](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
+    DatumOnvolledig:
+      type: object
+      properties:
+        dag:
+          maximum: 31
+          minimum: 1
+          type: integer
+          description: Als de dag van de datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 3
+        datum:
+          type: string
+          description: Als de volledige datum bekend is wordt de datum gevuld die
+            in de date definitie past.
+          format: date
+          example: 1989-05-03
+        jaar:
+          maximum: 9999
+          type: integer
+          description: Als het jaar van de datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 1989
+        maand:
+          maximum: 12
+          minimum: 1
+          type: integer
+          description: Als de maand van een datum bekend is wordt dit element gevuld,
+            ook als de volledige datum bekend is.
+          example: 5
+      description: Gegevens over de datums die mogelijk niet volledig zijn.
     Overlijden:
       type: object
       properties:
@@ -4634,7 +4607,6 @@ components:
       - properties:
           betreftGedeelteVanPerceel:
             type: boolean
-            deprecated: false
     Beslag:
       type: object
       properties:
