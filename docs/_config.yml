@@ -13,16 +13,28 @@ nav:
         path: /
       - title: Goals canvas
         path: /goals-canvas
-  - title: Specificaties v. 1.5 (Live)
+  - title: Specificaties v. 1.5 (Deprecated)
+    subnav:
+#      - title: Getting started
+#        path: /getting-started
+      - title: User stories
+        path: /user-stories-1.5
+      - title: Bevragen API (swagger-ui)
+        path: /swagger-ui-1.5
+      - title: Bevragen API (redoc)
+        path: /redoc-1.5
+      - title: Features
+        path: /features
+  - title: Specificaties v. 2.0 (Live)
     subnav:
       - title: Getting started
         path: /getting-started
       - title: User stories
-        path: /user-stories-prod
+        path: /user-stories-2.0
       - title: Bevragen API (swagger-ui)
-        path: /swagger-ui
+        path: /swagger-ui-2.0
       - title: Bevragen API (redoc)
-        path: /redoc
+        path: /redoc-2.0
       - title: Features
         path: /features
 #  - title: Specificaties v. x.x (IO)
