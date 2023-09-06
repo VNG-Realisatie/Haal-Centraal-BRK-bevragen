@@ -38,6 +38,6 @@
     "@stoplight/spectral-cli": "^6.6.0",
     "mkdirp": "^3.0.1",
     "mvn-dl": "^6.0.0",
-    "openapi-to-postmanv2": "^4.11.0"
+    "openapi-to-postmanv2": "^4.15.0"
   }
 }
