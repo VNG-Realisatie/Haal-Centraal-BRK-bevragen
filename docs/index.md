@@ -12,7 +12,7 @@ API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster 
 
 ## Haal Centraal BRK bevragen v2.0 is live!
 
-Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost.
+Vanaf 13 september 2023 geldt versie 2.0 als de nieuwe standaard. Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost. Versie 1.5 van de standaard zal tot 15 maart 2024 ondersteund blijven.
 
 Bekijk de [release notes](./releasenotes) voor de daarin opgeloste bugs.
 
