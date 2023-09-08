@@ -5,6 +5,46 @@ title: Haal Centraal BRK bevragingen
 
 # Release notes BRK-Bevragen
 
+## **Versie 2.0.0:**
+
+### User stories
+
+In deze versie zijn geen userstories geïmplementeerd.
+
+### Openapi.yaml
+
+- Endpoint /kadastraalonroerendezaken:
+  - Queryparameters verwijderd:
+    - burgerservicenummer
+    - persoon__identificatie
+  - POST toegevoegd 
+- Component BsnBody toegevoegd:
+- Component KadasterPersoonLinks:
+  - zakelijkGerechtigden verwijderd
+- Component AantekeningTenaamstelling:
+  - Properties verwijderd:
+    - begrenzing 
+    - indicatieOorspronkelijkObject 
+- Component AantekeningBasis:
+  - betreftGedeelteVanPerceel verwijderd
+- Component KadasterNatuurlijkPersoon:
+  - geheimhoudingPersoonsgegevens verwijderd
+- Component HeeftPartnerschap:
+  - Properties verwijderd:
+    - datumOntbinding
+    - datumSluiting
+- Component TypeBreuk:
+  - Property teller:
+    - maximum verwijderd
+	- minimum toegevoegd
+  - Property noemer:
+    - maximum verwijderd
+
+### Issues
+
+Alle issues die in deze release zijn opgelost hebben in de issues-lijst het label "v2.0" gekregen. Door op dit label te filteren in de (gesloten) issues is een gedetailleerd overzicht van wijzigingen en bug-fixes te krijgen.
+
+
 ## **Versie 1.5.0:**
 
 ### User stories
