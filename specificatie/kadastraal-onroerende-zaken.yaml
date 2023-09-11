@@ -16,6 +16,10 @@ paths:
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
           2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
               -  persoon__identificatie (verplicht)
+              
+              LET OP: dit endpoint geeft geen informatie over Zakelijk Gerechtigden (zakelijkGerechtigdeIdentificaties) terug bij een KadastraalOnroerendeZaak. 
+              Voor het raadplegen van de Zakelijk Gerechtigden van een KadastraalOnroerendeZaak kan het endpoint /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden gebruikt worden.                      
+        
           3.  Adres
               -  postcode (verplicht)
               -  huisnummer (optioneel)
@@ -165,6 +169,9 @@ paths:
               -  burgerservicenummer (verplicht)
         
         Met gebruik van de parameter expand kunnen privaatrechtelijkeBeperkingen direct worden meegeladen.
+        
+        LET OP: dit endpoint geeft geen informatie over Zakelijk Gerechtigden (zakelijkGerechtigdeIdentificaties) terug bij een KadastraalOnroerendeZaak. 
+        Voor het raadplegen van de Zakelijk Gerechtigden van een KadastraalOnroerendeZaak kan het endpoint /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden gebruikt worden.                      
         
         Het maximale aantal zoekresultaten dat geretourneerd wordt is aan de provider om te bepalen.
         Als het resultaat van de de request dit aantal overtreft worden er geen resultaten geretourneerd en volgt er een foutmelding.
