@@ -23,8 +23,6 @@ nav:
         path: /swagger-ui-1.5
       - title: Bevragen API (redoc)
         path: /redoc-1.5
-      - title: Features
-        path: /features
   - title: Specificaties v. 2.0 (Live)
     subnav:
       - title: Getting started
