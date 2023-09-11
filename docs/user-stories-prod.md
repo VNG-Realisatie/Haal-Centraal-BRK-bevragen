@@ -9,7 +9,7 @@ title: User Stories in Productie
 
 In versie 2.0 zijn geen user stories geïmplementeerd.
 
-- [Als medewerker Grondzaken wil ik bij ieder appartementsrecht in een woontoren de naam en identificatie van de eerste zakelijk gerechtigde zien ](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/82){:target="_blank" rel="noopener"}
+
 
 ## Vanaf versie 1.5
 
