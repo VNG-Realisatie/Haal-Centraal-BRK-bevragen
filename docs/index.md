@@ -14,7 +14,7 @@ API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster 
 
 Vanaf 14 september 2023 geldt versie 2.0 als de nieuwe standaard. Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost. Versie 1.5 van de standaard wordt na 15 maart 2024 niet meer ondersteund.
 
-Bekijk de [release notes](./releasenotes) voor de daarin opgeloste bugs.
+Bekijk de [release notes](./releasenotes) voor de in deze versie opgeloste bugs.
 
 ## Direct aan de slag?
 
