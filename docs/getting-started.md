@@ -133,9 +133,9 @@ We hebben al een [Postman collection](https://github.com/VNG-Realisatie/Haal-Cen
 8. Klik op de knop Update
 
 De testomgeving van de API is te benaderen via de volgende urls:
-- _Beveiligde verbinding met alleen API-key: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1/_
+- _Beveiligde verbinding met alleen API-key: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v2/_
 
-- _Beveiligde verbinding met API-key & mTLS: https://api.brk.kadaster.nl/esd-eto/bevragen/v1/_
+- _Beveiligde verbinding met API-key & mTLS: https://api.brk.kadaster.nl/esd-eto/bevragen/v2/_
 
 Vraag hiervoor een [API-key en PKI-overheidscertificaat](https://www.kadaster.nl/zakelijk/producten/eigendom/brk-bevragen) aan.
 
@@ -427,4 +427,4 @@ Onderstaande tabellen bevatten testgevallen voor specifieke situaties waarmee de
 Vraag voor het aansluiten op de productie omgeving een [API-key en PKI-overheidscertificaat](https://www.kadaster.nl/zakelijk/producten/eigendom/brk-bevragen) aan.
 
 ### URL
-De productieomgeving van de API is te benaderen via de volgende url: https://api.brk.kadaster.nl/esd/bevragen/v1/
+De productieomgeving van de API is te benaderen via de volgende url: https://api.brk.kadaster.nl/esd/bevragen/v2/

@@ -10,25 +10,22 @@ title: Haal Centraal BRK bevragingen
 
 API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
 
-## Haal Centraal BRK bevragen v1.5 is live!
+## Haal Centraal BRK bevragen v2.0
 
-BRK bevragen levert nu ook:
-* gesplitste zakelijke rechten en de houders van deze rechten. 
-* een indicatie sluimerend op appartementsrechten als deze niet vervallen maar gesplitst zijn.
-* altijd gesplitstZakelijkRecht bij een Kadastraal onroerende zaak, ook als daar niet om gevraagd wordt.
+Vanaf 14 september 2023 geldt versie 2.0 als de nieuwe standaard. Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost. Versie 1.5 van de standaard wordt na 15 maart 2024 niet meer ondersteund.
 
-Bekijk de [release notes](./releasenotes).
+Bekijk de [release notes](./releasenotes) voor de in deze versie opgeloste bugs.
 
 ## Direct aan de slag?
 
-* Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
+* Bekijk de specificaties met [Swagger UI](./swagger-ui-2.0) of [Redoc](./redoc-2.0)
 * Lees de [Getting started](./getting-started)
 * Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
 * [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen){:target="_blank" rel="noopener"} voor toegang tot de testomgeving.
 
 ## Doorontwikkeling van de BRK bevragen API
 
-Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelost. Mis je iets? Geef dat wel aan ons door! Per 1 juli gaan we weer aan de slag, onder andere met het toevoegen van historie.
+Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelost. Mis je iets? Geef dat wel aan ons door! Vanaf 1 juli zijn we aan de slag gegaan, onder andere met het toevoegen van historie.
 
 ## Bronnen
 
@@ -54,5 +51,5 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Licentie
 
-Copyright &copy; VNG Realisatie 2020
+Copyright &copy; VNG Realisatie 2023
 Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/LICENCE.md){:target="_blank" rel="noopener"}
