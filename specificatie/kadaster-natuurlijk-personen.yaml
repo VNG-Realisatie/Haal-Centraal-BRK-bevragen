@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen API - Kadaster Natuurlijk Personen endpoints
   description: |
                 De definitie van de Kadaster Natuurlijk Personen endpoints en HAL components.
-  version: "1.5.0"
+  version: "2.0.0"
 paths:
   /kadasternatuurlijkpersonen/{kadasterNatuurlijkPersoonIdentificatie}:
     get:
@@ -108,10 +108,6 @@ components:
         postadres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         kadastraalOnroerendeZaken:
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        zakelijkGerechtigden:
           type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"

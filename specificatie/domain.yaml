@@ -3,7 +3,7 @@ info:
   title: Kadaster - BRK-Bevragen Components
   description: |
                 De definitie van de components (exclusief de HAL components) die worden gebruikt door de BRK-Bevragen API.
-  version: "1.5.0"
+  version: "2.0.0"
   contact:
     name: Kadaster Haal Centraal BRK-Bevragen
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRK-Bevragen
@@ -25,16 +25,12 @@ components:
                         Mogelijke waarden zijn te vinden in deze [Waardelijst](http://www.kadaster.nl/schemas/waardelijsten/AardAantekening/)
         omschrijving:
           type: "string"
-        betreftGedeelteVanPerceel:
-          type: "boolean"
-          deprecated: true
     AantekeningHypotheek:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
         - properties:
             betreftGedeelteVanPerceel:
               type: "boolean"
-              deprecated: false
     Aantekening:
       allOf:
         - $ref: "#/components/schemas/AantekeningBasis"
@@ -70,16 +66,7 @@ components:
               items:
                 type: "string"
     AantekeningTenaamstelling:
-      allOf:
-        - $ref: "#/components/schemas/Aantekening"
-        - properties:
-            begrenzing:
-              deprecated: true
-              allOf:
-                - $ref: "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/polygonGeoJSON.yaml"
-            indicatieOorspronkelijkObject:
-              type: "boolean"
-              deprecated: true
+      $ref: "#/components/schemas/Aantekening"
     AdresUitgebreid:
       description: |
                     Waardelijst in deze component :
@@ -218,6 +205,17 @@ components:
                         De identificaties van de stukdelen (paragrafen in een akte met een rechtsfeit) waarin dit beslag is vermeld
           items:
             type: "string"
+    BsnBody:
+      type: object
+      required:
+        - burgerservicenummer
+      properties:
+        burgerservicenummer:
+          type: string
+          maxLength: 9
+        fields:
+          description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
+          type: string
     DeelEnNummer:
       type: "object"
       description: |
@@ -348,14 +346,6 @@ components:
       description: |
                     Partnerschap is een groep gegevens over de huwelijkse- of partnerschapstatus van een persoon.
       properties:
-        datumOntbinding:
-          deprecated: true
-          allOf:
-            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-        datumSluiting:
-          deprecated: true
-          allOf:
-            - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         naam:
           $ref: "#/components/schemas/Naam"
     Hypotheek:
@@ -435,12 +425,6 @@ components:
                       Waardelijst in deze component :
                         [beschikkingsbevoegdheid](http://www.kadaster.nl/schemas/waardelijsten/Beschikkingsbevoegdheid/) en [landWaarnaarVertrokken](http://www.kadaster.nl/schemas/waardelijsten/BRPLand/)
         properties:
-          geheimhoudingPersoonsgegevens:
-            type: "boolean"
-            title: "indicatieGeheim"
-            deprecated: true
-            description: |
-                          Aanduiding die aangeeft dat gegevens van een persoon wel of niet verstrekt mogen worden.
           landWaarnaarVertrokken:
             $ref: "#/components/schemas/Waardelijst"
             description: |
@@ -992,38 +976,37 @@ components:
           description: |
                         De noemer van het deel.
           minimum: 1
-          maximum: 99999999
         teller:
           type: "integer"
           title: "teller"
           description: |
                         Het aantal delen. De teller is altijd lager dan de noemer.
-          maximum: 99999999
+          minimum: 1
       example:
         noemer: 2
         teller: 1
     TypeGerechtigdeEnum:
       type: string
       description: |
-                    Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
-                      * `beklemrechthouder` - 1 Beklemrechthouder
-                      * `eigenaar` - 2 Eigenaar
-                      * `erfpachter` - 3 Erfpachter
-                      * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
-                      * `grondrente` - 5 Grondrente gerechtigde
-                      * `opstalhouder` - 7 Opstalhouder
-                      * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
-                      * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht
-                      * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
-                      * `vruchtgebruiker` - 12 Vruchtgebruiker
-                      * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
-                      * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
-                      * `brondocument` - 18 Raadpleeg brondocument
-                      * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
-                      * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
-                      * `bp_recht` - 22 BP-gerechtigde
-                      * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
-                      * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
+        Het type zakelijk recht dat deze gerechtigde heeft. Afgeleid van de aard zakelijk recht:
+          * `beklemrechthouder` - 1 Beklemrechthouder
+          * `eigenaar` - 2 Eigenaar
+          * `erfpachter` - 3 Erfpachter
+          * `gebruik_bewoning` - 4 Rechthebbende van Gebruik en bewoning
+          * `grondrente` - 5 Grondrente gerechtigde
+          * `opstalhouder` - 7 Opstalhouder
+          * `vaderlandsrecht` - 9 Rechthebbende van Oud-vaderlandsrecht
+          * `artikel5_3b_geheel` - 10 Zakelijk recht als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht
+          * `stadsmeierrecht` - 11 Rechthebbende van Stadsmeierrecht
+          * `vruchtgebruiker` - 12 Vruchtgebruiker
+          * `erfpachter_opstalhouder` - 13 Erfpachter en opstalhouder
+          * `nutsvoorzieningen` - 14 Opstalhouder nutsvoorzieningen
+          * `brondocument` - 18 Raadpleeg brondocument
+          * `twee_belastingen` - 20 Zakelijk Rechthebbende na twee of meer zakelijke belastingen
+          * `belasting_derde` - 21 Zakelijk rechthebbende belasting derde of volgende
+          * `bp_recht` - 22 BP-gerechtigde
+          * `nutsvoorzieningen_gedeelte` - 23 Opstalhouder Nutsvoorzieningen op gedeelte van perceel
+          * `artikel5_3b` - 24 Zakelijk gerechtigde als bedoeld in artikel 5, lid 3, onder b, van de Belemmeringenwet Privaatrecht op gedeelte van perceel
       enum:
         - "beklemrechthouder"
         - "eigenaar"
