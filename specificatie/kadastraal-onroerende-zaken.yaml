@@ -15,7 +15,7 @@ paths:
               - kadastraleAanduiding
               - inclusiefKadastraalOnroerendeZakenUitSplitsing (optioneel)
           2.  Niet ingeschreven persoon of niet natuurlijk persoon als zakelijk gerechtigde
-              -  persoon__identificatie (verplicht)
+              -  persoon__identificatie (verplicht)<br/><br/>
               
               LET OP: dit endpoint geeft geen informatie over Zakelijk Gerechtigden (zakelijkGerechtigdeIdentificaties) terug bij een KadastraalOnroerendeZaak. 
               Voor het raadplegen van de Zakelijk Gerechtigden van een KadastraalOnroerendeZaak kan het endpoint /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden gebruikt worden.                      

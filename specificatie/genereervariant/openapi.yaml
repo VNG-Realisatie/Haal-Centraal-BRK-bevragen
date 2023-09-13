@@ -42,8 +42,8 @@ paths:
         \ uit verschillende categorieën is niet toegestaan.\n1.  Kadastrale aanduiding\n\
         \    - kadastraleAanduiding\n    - inclusiefKadastraalOnroerendeZakenUitSplitsing\
         \ (optioneel)\n2.  Niet ingeschreven persoon of niet natuurlijk persoon als\
-        \ zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)\n    \n\
-        \    LET OP: dit endpoint geeft geen informatie over Zakelijk Gerechtigden\
+        \ zakelijk gerechtigde\n    -  persoon__identificatie (verplicht)<br/><br/>\n\
+        \    \n    LET OP: dit endpoint geeft geen informatie over Zakelijk Gerechtigden\
         \ (zakelijkGerechtigdeIdentificaties) terug bij een KadastraalOnroerendeZaak.\
         \ \n    Voor het raadplegen van de Zakelijk Gerechtigden van een KadastraalOnroerendeZaak\
         \ kan het endpoint /kadastraalonroerendezaken/{kadastraalOnroerendeZaakIdentificatie}/zakelijkgerechtigden\
