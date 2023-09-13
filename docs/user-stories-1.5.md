@@ -5,6 +5,12 @@ title: User Stories in Productie
 
 # User stories
 
+## Vanaf versie 2.0
+
+In versie 2.0 zijn geen user stories geïmplementeerd.
+
+
+
 ## Vanaf versie 1.5
 
 - [Als medewerker Erfpacht wil ik weten wie de eigenaren zijn van appartementsrechten die uit erfpacht zijn ontstaan](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/882){:target="_blank" rel="noopener"}
