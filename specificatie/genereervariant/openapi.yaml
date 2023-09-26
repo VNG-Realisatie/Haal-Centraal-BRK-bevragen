@@ -12,13 +12,13 @@ info:
     url: https://eupl.eu/1.2/nl/
   version: 2.0.0
 servers:
-- url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v1
+- url: https://api.brk.kadaster.nl/esd-eto-apikey/bevragen/v2
   description: |
     BRK-Bevragen API - TEST (via API-key)
-- url: https://api.brk.kadaster.nl/esd-eto/bevragen/v1
+- url: https://api.brk.kadaster.nl/esd-eto/bevragen/v2
   description: |
     BRK-Bevragen API - TEST (via API-key & mTLS)
-- url: https://api.brk.kadaster.nl/esd/bevragen/v1
+- url: https://api.brk.kadaster.nl/esd/bevragen/v2
   description: |
     BRK-Bevragen API - PRODUCTIE
 security:
