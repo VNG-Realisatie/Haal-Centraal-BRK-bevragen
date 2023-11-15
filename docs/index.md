@@ -48,6 +48,7 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 * Regiseur API's: Arjen Brienen
 * Designer: Johan Boer
 * Designer: Robert Melskens
+
 U kunt hen bereiken via [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)
 
 ## Licentie
