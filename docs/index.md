@@ -45,9 +45,10 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 * Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/>, [Ga naar de community >>](https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api)
 
 
-* Regiseur API's: Arjen Brienen, [arjen.brienen@VNG.NL](mailto:arjen.brienen@VNG.NL)
-* Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
-* Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
+* Regiseur API's: Arjen Brienen
+* Designer: Johan Boer
+* Designer: Robert Melskens
+U kunt hen bereiken via [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)
 
 ## Licentie
 
