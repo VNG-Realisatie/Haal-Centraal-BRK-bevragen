@@ -5,44 +5,48 @@
 
 API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster (BRK).
 
-## Haal Centraal BRK bevragen v1.5 is live!
+## Haal Centraal BRK bevragen v2.0
 
-BRK bevragen levert nu ook:
-* gesplitste zakelijke rechten en de houders van deze rechten. 
-* een indicatie sluimerend op appartementsrechten als deze niet vervallen maar gesplitst zijn.
-* altijd gesplitstZakelijkRecht bij een Kadastraal onroerende zaak, ook als daar niet om gevraagd wordt.
+Vanaf 14 september 2023 geldt versie 2.0 als de nieuwe standaard. Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost. Versie 1.5 van de standaard wordt na 15 maart 2024 niet meer ondersteund.
 
-Bekijk de [release notes](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/releasenotes).
+Bekijk de [release notes](./releasenotes) voor de in deze versie opgeloste bugs of bezoek de [GitHub repository](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/).
 
 ## Direct aan de slag?
 
-* Bekijk de specificaties met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc)
-* Lees de [Getting started](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/getting-started)
-* Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml)
-* [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen) voor toegang tot de testomgeving.
+* Bekijk de specificaties met [Swagger UI](./swagger-ui-2.0) of [Redoc](./redoc-2.0)
+* Lees de [Getting started](./getting-started)
+* Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
+* [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen){:target="_blank" rel="noopener"} voor toegang tot de testomgeving.
 
 ## Doorontwikkeling van de BRK bevragen API
 
-Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelost. Mis je iets? Geef dat wel aan ons door! Per 1 juli gaan we weer aan de slag, onder andere met het toevoegen van historie.
+Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelost. Mis je iets? Geef dat wel aan ons door! Vanaf 1 juli zijn we aan de slag gegaan, onder andere met het toevoegen van historie.
 
 ## Bronnen
 
-* [Productvisie Haal Centraal](https://vng-realisatie.github.io/Haal-Centraal)
-* [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20visie/API%20Design%20Visie.md)
-* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/)
-* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/)
-* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/BRK/)
+* [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20visie/API%20Design%20Visie.md){:target="_blank" rel="noopener"}
+* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/){:target="_blank" rel="noopener"}
+* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/){:target="_blank" rel="noopener"}
+* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/BRK/){:target="_blank" rel="noopener"}
 
 ## Contact
 
-* Bug Melden [Maak een bug issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
-* Verbeteringen doorgeven  [Maak een verbeter issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
-* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/><a href="https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api">Ga naar de community>></a><br/><br/>
-* Regiseur API's: Arjen Brienen, [arjen.brienen@VNG.NL](mailto:arjen.brienen@VNG.NL)
-* Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
-* Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
+* Bug Melden
+  [Maak een bug issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+* Verbeteringen doorgeven
+  [Maak een verbeter issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
+* Storingen
+  [Meld een storing](https://formulieren.kadaster.nl/contact_brk_bevragen), tel.nr.: 088-183 5300
+* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/>, [Ga naar de community >>](https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api)
+
+
+* Regiseur API's: Arjen Brienen
+* Designer: Johan Boer
+* Designer: Robert Melskens
+
+U kunt hen bereiken via [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)
 
 ## Licentie
 
-Copyright &copy; VNG Realisatie 2020
-Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/LICENCE.md)
+Copyright &copy; VNG Realisatie 2023
+Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/LICENCE.md){:target="_blank" rel="noopener"}
