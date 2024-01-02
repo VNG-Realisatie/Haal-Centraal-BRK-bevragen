@@ -118,7 +118,6 @@ Note. De prerequisite van OpenAPI Generator is JAVA. Je moet een JAVA runtime in
 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
-We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API-key) nog invullen.
 We hebben al een [Postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/test/BRK-Bevragen-postman-collection.json){:target="_blank" rel="noopener"} voor je klaargezet. Deze kun je importeren in Postman.
 
 ### Configureer de url en api key
