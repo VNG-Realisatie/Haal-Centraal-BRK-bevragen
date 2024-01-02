@@ -16,7 +16,7 @@ Om aan te sluiten kun je de volgende stappen doorlopen:
 Meld je aan bij het kadaster om [aan te sluiten en voor toegang tot de testomgeving](https://formulieren.kadaster.nl/aanmelden_brk_bevragen). Je ontvangt dan o.a. een API-key die nodig is voor toegang tot de testomgeving.
 
 ## Functionaliteit en specificaties
-Je kunt een visuele representatie van de specificatie bekijken met [Swagger UI]({{ site.baseurl }}/swagger-ui) of [Redoc]({{ site.baseurl }}/redoc).
+Je kunt een visuele representatie van de specificatie bekijken met [Swagger UI]({{ site.baseurl }}/swagger-ui-2.0) of [Redoc]({{ site.baseurl }}/redoc-2.0).
 
 Je kunt de [functionele documentatie](./features) vinden in de [features](./features).
 
@@ -48,11 +48,11 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 
 #### KadasterNatuurlijkPersoon
 - Opvragen van 1 specifiek kadaster natuurlijk persoon resource o.b.v. een kadasterpersoonidentificatie.
-- Opvragen van een collectie kadaster natuurlijkpersoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternatuurlijkpersoon](../features/zoeken-kadasternatuurlijkpersoon.feature))
+- Opvragen van een collectie kadaster natuurlijkpersoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternatuurlijkpersoon](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/zoeken-kadasternatuurlijkpersoon.feature))
 
 #### KadasterNietNatuurlijkPersoon
 - Opvragen van 1 specifiek kadaster nietnatuurlijk persoon resource o.b.v. kadasterpersoonidentificatie.
-- Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](../features/zoeken-kadasternietnatuurlijkpersoon.feature))
+- Opvragen van een collectie kadaster nietnatuurlijk persoon resources o.b.v. een zoekterm. (Zie feature [zoeken kadasternietnatuurlijkpersoon](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/zoeken-kadasternietnatuurlijkpersoon.feature))
 
 #### Hypotheek
 - Opvragen van 1 specifiek hypotheek resource o.b.v. hypotheekidentificatie en kadastraalonroerendezaakidentificatie.
@@ -80,7 +80,7 @@ De volgende Basis Registratie Kadaster gegevens kunnen opgevraagd worden:
 Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande aanvragen:
 - Gebruik van de fields parameter om de response te filteren. (Voor werking, zie feature [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature))
 - Gebruik van de expand parameter om subresources te ontsluiten. (Voor werking, zie feature [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature))
-- Velden die altijd worden geleverd. (Voor werking, zie feature [levering velden](../features/levering-velden.feature))
+- Velden die altijd worden geleverd. (Voor werking, zie feature [levering velden](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/levering-velden.feature))
 
 |Resource                           |Velden                         |
 |-----                              |------                         |
@@ -100,7 +100,7 @@ Verder zijn er nog een paar algemene functies die gelden voor alle bovenstaande 
 
 |Resource                           |Velden                         | Uitleg |
 |-----                              |------                         |----- |
-|KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](../features/levering-koopsom.feature)|
+|KadastraalOnroerendeZaak           |koopsom & koopjaar & (aardCultuurBebouwd of aardCultuurOnBebouwd) | [levering koopsom](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/features/levering-koopsom.feature)|
 
 - [HAL links](https://tools.ietf.org/html/draft-kelly-json-hal-08), die soms [templated](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature) worden geleverd.
 
@@ -118,7 +118,7 @@ Note. De prerequisite van OpenAPI Generator is JAVA. Je moet een JAVA runtime in
 
 ## Probeer en test de API
 De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
-We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](../test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API-key) nog invullen.
+We hebben al een project voor je gemaakt die je kan gebruiken: [BRK-Bevragen-postman-collection.json](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/test/BRK-Bevragen-postman-collection.json). Hierin moet je alleen de endpoints en authenticatie (API-key) nog invullen.
 We hebben al een [Postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/test/BRK-Bevragen-postman-collection.json){:target="_blank" rel="noopener"} voor je klaargezet. Deze kun je importeren in Postman.
 
 ### Configureer de url en api key
