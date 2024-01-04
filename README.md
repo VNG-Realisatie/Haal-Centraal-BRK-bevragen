@@ -9,12 +9,12 @@ API voor het zoeken en raadplegen van gegevens uit de Basisregistratie Kadaster 
 
 Vanaf 14 september 2023 geldt versie 2.0 als de nieuwe standaard. Deze versie levert geen nieuwe functionaliteit wel zijn enkele bugs opgelost. Versie 1.5 van de standaard wordt na 15 maart 2024 niet meer ondersteund.
 
-Bekijk de [release notes](./releasenotes) voor de in deze versie opgeloste bugs of bezoek de [GitHub repository](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/).
+Bekijk de [release notes]([./releasenotes](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/Check-op-links-en-teksten/docs/releasenotes.md)) voor de in deze versie opgeloste bugs of bezoek de [GitHub repository](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/).
 
 ## Direct aan de slag?
 
-* Bekijk de specificaties met [Swagger UI](./swagger-ui-2.0) of [Redoc](./redoc-2.0)
-* Lees de [Getting started](./getting-started)
+* Bekijk de specificaties met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-2.0) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-2.0)
+* Lees de [Getting started](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/getting-started)
 * Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
 * [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen){:target="_blank" rel="noopener"} voor toegang tot de testomgeving.
 
