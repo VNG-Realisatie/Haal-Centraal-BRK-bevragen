@@ -15,8 +15,8 @@ Bekijk de [release notes]([./releasenotes](https://github.com/VNG-Realisatie/Haa
 
 * Bekijk de specificaties met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/swagger-ui-2.0) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/redoc-2.0)
 * Lees de [Getting started](https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/getting-started)
-* Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
-* [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen){:target="_blank" rel="noopener"} voor toegang tot de testomgeving.
+* Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/blob/master/specificatie/genereervariant/openapi.yaml)
+* [Vraag een API-key aan](https://formulieren.kadaster.nl/aanmelden_brk_bevragen) voor toegang tot de testomgeving.
 
 ## Doorontwikkeling van de BRK bevragen API
 
@@ -24,10 +24,10 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 
 ## Bronnen
 
-* [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20visie/API%20Design%20Visie.md){:target="_blank" rel="noopener"}
-* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/){:target="_blank" rel="noopener"}
-* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/){:target="_blank" rel="noopener"}
-* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/registratie?id=http://opendata.stelselcatalogus.nl/id/registratie/BRK){:target="_blank" rel="noopener"}
+* [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20visie/API%20Design%20Visie.md)
+* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/)
+* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/)
+* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/registratie?id=http://opendata.stelselcatalogus.nl/id/registratie/BRK)
 
 ## Contact
 
