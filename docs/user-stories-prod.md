@@ -18,7 +18,7 @@ In versie 2.0 zijn geen user stories geïmplementeerd.
 
 ## Vanaf versie 1.4
 
-
+- [Als medewerker Belastingzaken wil ik een kadastraal onroerende zaak kunnen zoeken met de kadastrale aanduiding met gemeentecode](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/883){:target="_blank" rel="noopener"}
 
 ## Vanaf versie 1.3
 
