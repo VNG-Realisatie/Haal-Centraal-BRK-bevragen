@@ -43,7 +43,8 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 * Storingen
   [Meld een storing](https://formulieren.kadaster.nl/contact_brk_bevragen), tel.nr.: 088-183 5300
 * Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community<br/>[Ga naar de community >>](https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api)
-* [Stel je vraag](https://formulieren.kadaster.nl/contact_kadaster)
+* [Vraag over BRK bevragen](https://formulieren.kadaster.nl/contact_brk_bevragen)
+* [Contact met het Kadaster](https://formulieren.kadaster.nl/contact_kadaster)
 
 
 <!--* Regisseur API's: Arjen Brienen
