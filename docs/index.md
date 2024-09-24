@@ -32,7 +32,7 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
 * [API Design Visie](https://github.com/Geonovum/KP-APIs/blob/master/overleggen/Werkgroep%20API%20design%20visie/API%20Design%20Visie.md){:target="_blank" rel="noopener"}
 * [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/){:target="_blank" rel="noopener"}
 * [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/){:target="_blank" rel="noopener"}
-* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/BRK/){:target="_blank" rel="noopener"}
+* [Stelselcatalogus](https://www.stelselcatalogus.nl/registraties/registratie?id=http://opendata.stelselcatalogus.nl/id/registratie/BRK){:target="_blank" rel="noopener"}
 
 ## Contact
 
@@ -42,14 +42,16 @@ Komende periode wordt de API niet actief doorontwikkeld, bugs worden wel opgelos
   [Maak een verbeter issue aan >>](https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
 * Storingen
   [Meld een storing](https://formulieren.kadaster.nl/contact_brk_bevragen), tel.nr.: 088-183 5300
-* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community.<br/>, [Ga naar de community >>](https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api)
+* Community: Wil je geïnformeerd blijven over productwijzigingen of meepraten over de API meld je dan aan bij de community<br/>[Ga naar de community >>](https://haalcentraal.pleio.nl/groups/view/6b593619-4d1d-4ccb-a980-0190b449bfa2/community-brk-api)
+* [Vraag over BRK bevragen](https://formulieren.kadaster.nl/contact_brk_bevragen)
+* [Contact met het Kadaster](https://www.kadaster.nl/over-ons/het-kadaster/contact)
 
 
-* Regiseur API's: Arjen Brienen
+<!--* Regisseur API's: Arjen Brienen
 * Designer: Johan Boer
 * Designer: Robert Melskens
 
-U kunt hen bereiken via [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)
+U kunt hen bereiken via [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)-->
 
 ## Licentie
 
